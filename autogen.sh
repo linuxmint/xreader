@@ -4,7 +4,7 @@
 srcdir=`dirname $0`
 test -z "$srcdir" && srcdir=.
 
-PKG_NAME="atril"
+PKG_NAME="mate-document-viewer"
 
 (test -f $srcdir/configure.ac) || {
     echo -n "**Error**: Directory "\`$srcdir\'" does not look like the"
@@ -13,11 +13,13 @@ PKG_NAME="atril"
 }
 
 which mate-autogen.sh || {
-    echo "You need to install mate-common from the MATE CVS"
+    echo "You need to install mate-common from the MATE Git"
     exit 1
 }
 
 REQUIRED_AUTOMAKE_VERSION=1.10
 REQUIRED_GTK_DOC_VERSION=1.13
 USE_MATE2_MACROS=1
+
 . mate-autogen.sh
+
