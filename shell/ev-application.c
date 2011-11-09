@@ -850,59 +850,61 @@ ev_application_open_uri_list (EvApplication *application,
 	}
 }
 
-static void
-ev_application_accel_map_save (EvApplication *application)
+static void ev_application_accel_map_save(EvApplication* application)
 {
-	gchar *accel_map_file;
-	gchar *tmp_filename;
-	gint   fd;
+	gchar* accel_map_file;
+	gchar* tmp_filename;
+	gint fd;
 
-	if (userdir) {
-		accel_map_file = g_build_filename (userdir, "accels",
-						   "atril", NULL);
-	} else {
-		accel_map_file = g_build_filename (g_get_home_dir (),
-						   ".mate2", "accels",
-						   "atril", NULL);
+	if (userdir)
+	{
+		accel_map_file = g_build_filename(userdir, "accels", "atril", NULL);
+	}
+	else
+	{
+		accel_map_file = g_build_filename(g_get_home_dir(), ".config", "accels", "atril", NULL);
 	}
 
-	tmp_filename = g_strdup_printf ("%s.XXXXXX", accel_map_file);
+	tmp_filename = g_strdup_printf("%s.XXXXXX", accel_map_file);
 
-	fd = g_mkstemp (tmp_filename);
-	if (fd == -1) {
-		g_free (accel_map_file);
-		g_free (tmp_filename);
+	fd = g_mkstemp(tmp_filename);
+
+	if (fd == -1)
+	{
+		g_free(accel_map_file);
+		g_free(tmp_filename);
 
 		return;
 	}
-	gtk_accel_map_save_fd (fd);
-	close (fd);
 
-	if (g_rename (tmp_filename, accel_map_file) == -1) {
+	gtk_accel_map_save_fd(fd);
+	close(fd);
+
+	if (g_rename(tmp_filename, accel_map_file) == -1)
+	{
 		/* FIXME: win32? */
-		g_unlink (tmp_filename);
+		g_unlink(tmp_filename);
 	}
 
-	g_free (accel_map_file);
-	g_free (tmp_filename);
+	g_free(accel_map_file);
+	g_free(tmp_filename);
 }
 
-static void
-ev_application_accel_map_load (EvApplication *application)
+static void ev_application_accel_map_load(EvApplication* application)
 {
-	gchar *accel_map_file;
+	gchar* accel_map_file;
 
-	if (userdir) {
-		accel_map_file = g_build_filename (userdir, "accels",
-						   "atril", NULL);
-	} else {
-		accel_map_file = g_build_filename (g_get_home_dir (),
-						   ".mate2", "accels",
-						   "atril", NULL);
+	if (userdir)
+	{
+		accel_map_file = g_build_filename(userdir, "accels", "atril", NULL);
+	}
+	else
+	{
+		accel_map_file = g_build_filename(g_get_home_dir(), ".config", "accels", "atril", NULL);
 	}
 
-	gtk_accel_map_load (accel_map_file);
-	g_free (accel_map_file);
+	gtk_accel_map_load(accel_map_file);
+	g_free(accel_map_file);
 }
 
 void
@@ -941,7 +943,7 @@ ev_application_shutdown (EvApplication *application)
 		introspection_data = NULL;
 	}
 #endif /* ENABLE_DBUS */
-	
+
         g_free (application->dot_dir);
         application->dot_dir = NULL;
         g_free (application->data_dir);
@@ -953,28 +955,29 @@ ev_application_shutdown (EvApplication *application)
 
 	g_object_unref (application);
         instance = NULL;
-	
+
 	gtk_main_quit ();
 }
 
-static void
-ev_application_class_init (EvApplicationClass *ev_application_class)
+static void ev_application_class_init(EvApplicationClass* ev_application_class)
 {
+	/* Nothing */
 }
 
-static void
-ev_application_init (EvApplication *ev_application)
+static void ev_application_init(EvApplication* ev_application)
 {
-	GError *error = NULL;
+	GError* error = NULL;
 
-	userdir = g_getenv ("MATE22_USER_DIR");
+	userdir = g_getenv("MATE22_USER_DIR");
+
 	if (userdir)
-		ev_application->dot_dir = g_build_filename (userdir, "atril", NULL);
+	{
+		ev_application->dot_dir = g_build_filename(userdir, "atril", NULL);
+	}
 	else
-		ev_application->dot_dir = g_build_filename (g_get_home_dir (),
-							    ".mate2",
-							    "atril",
-							    NULL);
+	{
+		ev_application->dot_dir = g_build_filename(g_get_home_dir(), ".config", "atril", NULL);
+	}
 
 #ifdef G_OS_WIN32
 {

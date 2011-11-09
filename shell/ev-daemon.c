@@ -179,7 +179,7 @@ ev_migrate_metadata (void)
 		dot_dir = g_build_filename (userdir, "atril", NULL);
 	} else {
 		dot_dir = g_build_filename (g_get_home_dir (),
-					    ".mate2",
+					    ".config",
 					    "atril",
 					    NULL);
 	}
@@ -260,7 +260,7 @@ name_vanished_cb (GDBusConnection *connection,
 
                 ev_daemon_docs = g_list_delete_link (ev_daemon_docs, l);
                 ev_doc_free (doc);
-                
+
                 ev_daemon_maybe_start_killtimer (user_data);
                 return;
         }
