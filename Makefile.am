@@ -96,12 +96,12 @@ DISTCHECK_CONFIGURE_FLAGS =   \
 # Ignore scrollkeeper issues for now.  @#*$& scrollkeeper
 distuninstallcheck_listfiles = find . -type f -print | grep -v scrollkeeper | grep -v /share/mate/help/ | grep -v \.omf
 
-distclean-local:
+distclean-local: \
     if test "$(srcdir)" = "."; then :; else \
-        rm -f ChangeLog;                    \
+        rm -f ChangeLog; \
     fi
 
-ChangeLog:
+ChangeLog: \
     $(AM_V_GEN) if test -d "$(srcdir)/.git"; then \
       (GIT_DIR=$(top_srcdir)/.git ./missing --run git log -M -C --name-status --date=short --no-color) | fmt --split-only > $@.tmp \
       && mv -f $@.tmp $@ \
