@@ -17,7 +17,7 @@ libtiffdocument_la_SOURCES =	\
 
 libtiffdocument_la_LDFLAGS = $(BACKEND_LIBTOOL_FLAGS)
 libtiffdocument_la_LIBADD = 				\
-	$(top_builddir)/libdocument/libevdocument.la	\
+	$(top_builddir)/libdocument/libatrildocument.la	\
 	$(BACKEND_LIBS)			\
 	-ltiff
 

@@ -24,7 +24,7 @@ libatril_properties_page_la_SOURCES = 	\
 
 libatril_properties_page_la_LIBADD = 		\
 	libevproperties.la			\
-	$(top_builddir)/libdocument/libevdocument.la	\
+	$(top_builddir)/libdocument/libatrildocument.la	\
 	$(FRONTEND_LIBS)			\
 	$(CAJA_LIBS)
 

@@ -1,4 +1,4 @@
-lib_LTLIBRARIES = libevdocument.la
+lib_LTLIBRARIES = libatrildocument.la
 
 NOINST_H_FILES =				\
 	ev-debug.h				\
@@ -49,7 +49,7 @@ INST_H_FILES = 					\
 headerdir = $(includedir)/atril/$(EV_API_VERSION)/libdocument
 header_DATA = $(INST_H_FILES)
 
-libevdocument_la_SOURCES=			\
+libatrildocument_la_SOURCES=			\
 	ev-annotation.c				\
 	ev-async-renderer.c			\
 	ev-attachment.c				\
@@ -90,7 +90,7 @@ libevdocument_la_SOURCES=			\
 	$(NOINST_H_FILES)			\
 	$(INST_H_FILES)
 
-libevdocument_la_CPPFLAGS = \
+libatrildocument_la_CPPFLAGS = \
 	-DG_LOG_DOMAIN=\"AtrilDocument\"		\
 	-DATRIL_UIDIR=\"$(pkgdatadir)\"		\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"		\
@@ -99,20 +99,20 @@ libevdocument_la_CPPFLAGS = \
 	-DATRIL_COMPILATION				\
 	$(AM_CPPFLAGS)
 
-libevdocument_la_CFLAGS = \
+libatrildocument_la_CFLAGS = \
 	$(LIBDOCUMENT_CFLAGS)			\
 	-I$(top_srcdir)/cut-n-paste/synctex	\
 	$(WARN_CFLAGS)				\
 	$(DISABLE_DEPRECATED)			\
 	$(AM_CFLAGS)
 
-libevdocument_la_LDFLAGS = \
+libatrildocument_la_LDFLAGS = \
 	-version-info $(EV_DOCUMENT_LT_VERSION_INFO)	\
 	-no-undefined	\
 	-export-symbols-regex "^ev_*"	\
 	$(AM_LDFLAGS)
 
-libevdocument_la_LIBADD = \
+libatrildocument_la_LIBADD = \
 	$(LIBDOCUMENT_LIBS)	\
 	$(top_builddir)/cut-n-paste/synctex/libsynctex.la
 
@@ -150,7 +150,7 @@ EXTRA_DIST = \
 
 if ENABLE_INTROSPECTION
 
-AtrilDocument-$(EV_API_VERSION).gir: libevdocument.la Makefile $(INST_H_FILES) $(filter %.c,$(libevdocument_la_SOURCES))
+AtrilDocument-$(EV_API_VERSION).gir: libatrildocument.la Makefile $(INST_H_FILES) $(filter %.c,$(libatrildocument_la_SOURCES))
 	$(AM_V_GEN) PKG_CONFIG_PATH=$(top_builddir):$$PKG_CONFIG_PATH \
 	$(G_IR_SCANNER) -v --namespace AtrilDocument \
 	--strip-prefix=Ev \
@@ -160,7 +160,7 @@ AtrilDocument-$(EV_API_VERSION).gir: libevdocument.la Makefile $(INST_H_FILES) $
 	--include=Gdk-2.0 \
 	--include=GdkPixbuf-2.0 \
 	--include=Gtk-2.0 \
-	--library=evdocument \
+	--library=atrildocument \
 	--libtool="$(SAVED_LIBTOOL)" \
 	--output $@ \
 	--pkg atril-document-$(EV_API_VERSION) \

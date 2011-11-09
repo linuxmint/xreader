@@ -15,7 +15,7 @@ libpixbufdocument_la_SOURCES =		\
 
 libpixbufdocument_la_LDFLAGS = $(BACKEND_LIBTOOL_FLAGS)
 libpixbufdocument_la_LIBADD =				\
-	$(top_builddir)/libdocument/libevdocument.la	\
+	$(top_builddir)/libdocument/libatrildocument.la	\
 	$(BACKEND_LIBS)
 
 backend_in_files = pixbufdocument.atril-backend.in

@@ -7,5 +7,5 @@ Name: Atril View
 Description: MATE document viewer view library
 Version: @VERSION@
 Requires: atril-document-@EV_API_VERSION@ = @VERSION@ gthread-2.0
-Libs: -L${libdir} -levview
+Libs: -L${libdir} -latrilview
 Cflags: -I${includedir}

@@ -1,4 +1,4 @@
-lib_LTLIBRARIES = libevview.la
+lib_LTLIBRARIES = libatrilview.la
 
 NOINST_H_FILES =			\
 	ev-annotation-window.h		\
@@ -28,7 +28,7 @@ INST_H_FILES = 				\
 headerdir = $(includedir)/atril/$(EV_API_VERSION)/libview
 header_DATA = $(INST_H_FILES)
 
-libevview_la_SOURCES = 			\
+libatrilview_la_SOURCES = 			\
 	ev-annotation-window.c		\
 	ev-document-model.c		\
 	ev-loading-window.c		\
@@ -49,7 +49,7 @@ libevview_la_SOURCES = 			\
 	$(NOINST_H_FILES)		\
 	$(INST_H_FILES)
 
-libevview_la_CPPFLAGS = \
+libatrilview_la_CPPFLAGS = \
 	-DATRILDATADIR=\"$(pkgdatadir)\"	\
 	-DG_LOG_DOMAIN=\"AtrilView\"		\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
@@ -59,20 +59,20 @@ libevview_la_CPPFLAGS = \
 	-I$(top_builddir)			\
 	$(AM_CPPFLAGS)
 
-libevview_la_CFLAGS = \
+libatrilview_la_CFLAGS = \
 	$(LIBVIEW_CFLAGS)	\
 	$(WARN_CFLAGS)		\
 	$(DISABLE_DEPRECATED)	\
 	$(AM_CFLAGS)
 
-libevview_la_LDFLAGS = \
+libatrilview_la_LDFLAGS = \
 	-version-info $(EV_VIEW_LT_VERSION_INFO)	\
 	-no-undefined	\
 	-export-symbols-regex "^ev_*"	\
 	$(AM_LDFLAGS)
 
-libevview_la_LIBADD = \
-	$(top_builddir)/libdocument/libevdocument.la \
+libatrilview_la_LIBADD = \
+	$(top_builddir)/libdocument/libatrildocument.la \
 	$(LIBVIEW_LIBS)
 
 BUILT_SOURCES = 			\
@@ -118,7 +118,7 @@ EXTRA_DIST = \
 
 if ENABLE_INTROSPECTION
 
-AtrilView-$(EV_API_VERSION).gir: libevview.la Makefile $(INST_H_FILES) $(filter %.c,$(libevview_la_SOURCES))
+AtrilView-$(EV_API_VERSION).gir: libatrilview.la Makefile $(INST_H_FILES) $(filter %.c,$(libatrilview_la_SOURCES))
 	$(AM_V_GEN) PKG_CONFIG_PATH=$(top_builddir):$$PKG_CONFIG_PATH \
 	$(G_IR_SCANNER) -v --namespace AtrilView \
 	--add-include-path=$(top_builddir)/libdocument \
@@ -131,7 +131,7 @@ AtrilView-$(EV_API_VERSION).gir: libevview.la Makefile $(INST_H_FILES) $(filter 
 	--include=GdkPixbuf-2.0 \
 	--include=Gtk-2.0 \
 	--include=AtrilDocument-$(EV_API_VERSION) \
-	--library=evview \
+	--library=atrilview \
 	--libtool="$(LIBTOOL)" \
 	--output $@ \
 	--pkg atril-document-$(EV_API_VERSION) \

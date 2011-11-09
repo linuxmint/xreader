@@ -25,7 +25,7 @@ atril_thumbnailer_LDFLAGS += -mwindows
 endif
 
 atril_thumbnailer_LDADD = \
-	$(top_builddir)/libdocument/libevdocument.la	\
+	$(top_builddir)/libdocument/libatrildocument.la	\
 	$(FRONTEND_LIBS)
 
 schema_files = \
@@ -39,7 +39,7 @@ if WITH_MATECONF
 
 @INTLTOOL_SCHEMAS_RULE@
 
-schema_DATA = 
+schema_DATA =
 
 if ENABLE_PDF
 schema_DATA += atril-thumbnailer.schemas
@@ -75,7 +75,7 @@ endif
 endif # WITH_MATECONF
 
 EXTRA_DIST =         	\
-	$(schema_files)  
+	$(schema_files)
 
 DISTCLEANFILES = \
 	$(schema_DATA)

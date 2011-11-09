@@ -42,7 +42,7 @@ IMPOSTER_RENDER_INCLUDE_FILES =		\
 
 libimpressdocument_la_LDFLAGS = $(BACKEND_LIBTOOL_FLAGS)
 libimpressdocument_la_LIBADD =				\
-	$(top_builddir)/libdocument/libevdocument.la     \
+	$(top_builddir)/libdocument/libatrildocument.la     \
 	$(BACKEND_LIBS) -lz
 
 backend_in_files = impressdocument.atril-backend.in

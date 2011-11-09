@@ -28,8 +28,8 @@ atril_previewer_LDFLAGS += -mwindows
 endif
 
 atril_previewer_LDADD = \
-	$(top_builddir)/libdocument/libevdocument.la	\
-	$(top_builddir)/libview/libevview.la		\
+	$(top_builddir)/libdocument/libatrildocument.la	\
+	$(top_builddir)/libview/libatrilview.la		\
 	$(top_builddir)/libmisc/libevmisc.la		\
 	$(PREVIEWER_LIBS)
 
