@@ -2,11 +2,11 @@
 # Versioning
 # *****************************************************************************
 
-m4_define([ev_major_version],[2])
-m4_define([ev_minor_version],[32])
-m4_define([ev_micro_version],[0])
-m4_define([ev_extra_version],[])
-m4_define([ev_version],[ev_major_version.ev_minor_version.ev_micro_version()ev_extra_version])
+m4_define([ev_major_version], [2011])
+m4_define([ev_minor_version], [11])
+m4_define([ev_micro_version], [9])
+m4_define([ev_extra_version], [])
+m4_define([ev_version], [ev_major_version.ev_minor_version.ev_micro_version()ev_extra_version])
 
 # The atril API version
 m4_define([ev_api_version], [2.32])
@@ -21,18 +21,18 @@ m4_define([ev_api_version], [2.32])
 # - If the interface is the same as the previous version, change to C:R+1:A
 
 # Libtool version of the backend library
-m4_define([ev_document_lt_current],[3])
-m4_define([ev_document_lt_revision],[0])
-m4_define([ev_document_lt_age],[0])
-m4_define([ev_document_lt_version_info],[ev_document_lt_current:ev_document_lt_revision:ev_document_lt_age])
-m4_define([ev_document_lt_current_minus_age],[m4_eval(ev_document_lt_current - ev_document_lt_age)])
+m4_define([ev_document_lt_current], [3])
+m4_define([ev_document_lt_revision], [0])
+m4_define([ev_document_lt_age], [0])
+m4_define([ev_document_lt_version_info], [ev_document_lt_current:ev_document_lt_revision:ev_document_lt_age])
+m4_define([ev_document_lt_current_minus_age], [m4_eval(ev_document_lt_current - ev_document_lt_age)])
 
 # Libtool version of the view library
-m4_define([ev_view_lt_current],[3])
-m4_define([ev_view_lt_revision],[0])
-m4_define([ev_view_lt_age],[0])
-m4_define([ev_view_lt_version_info],[ev_view_lt_current:ev_view_lt_revision:ev_view_lt_age])
-m4_define([ev_view_lt_current_minus_age],[m4_eval(ev_view_lt_current - ev_view_lt_age)])
+m4_define([ev_view_lt_current], [3])
+m4_define([ev_view_lt_revision], [0])
+m4_define([ev_view_lt_age], [0])
+m4_define([ev_view_lt_version_info], [ev_view_lt_current:ev_view_lt_revision:ev_view_lt_age])
+m4_define([ev_view_lt_current_minus_age], [m4_eval(ev_view_lt_current - ev_view_lt_age)])
 
 # Binary version for the document backends
 m4_define([ev_binary_version],[ev_document_lt_current])
@@ -40,18 +40,18 @@ m4_define([ev_binary_version],[ev_document_lt_current])
 # *****************************************************************************
 
 AC_PREREQ([2.57])
-AC_INIT([Atril],[ev_version],[http://bugzilla.mate.org/enter_bug.cgi?product=atril],[atril])
+AC_INIT([Atril], [ev_version], [https://github.com/perberos/mate-desktop-environment], [atril])
 AM_INIT_AUTOMAKE([1.10 foreign dist-bzip2 no-dist-gzip])
 
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
 if test -z "$enable_maintainer_mode"; then
-  enable_maintainer_mode=yes
+    enable_maintainer_mode=yes
 fi
 AM_MAINTAINER_MODE([enable])
 
-m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])])
+m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
 AM_PROG_LIBTOOL
 
@@ -64,7 +64,7 @@ AC_STDC_HEADERS
 
 AC_PROG_SED
 AC_PATH_PROG([GLIB_GENMARSHAL], [glib-genmarshal])
-AC_PATH_PROG([GLIB_MKENUMS],[glib-mkenums])
+AC_PATH_PROG([GLIB_MKENUMS], [glib-mkenums])
 
 MATE_MAINTAINER_MODE_DEFINES
 MATE_COMPILE_WARNINGS
@@ -78,7 +78,7 @@ IT_PROG_INTLTOOL([0.35.0])
 
 GETTEXT_PACKAGE=atril
 AC_SUBST(GETTEXT_PACKAGE)
-AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE],["$GETTEXT_PACKAGE"],[Gettext package])
+AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["$GETTEXT_PACKAGE"], [Gettext package])
 AM_GLIB_GNU_GETTEXT
 
 m4_pattern_allow([AM_V_GEN])dnl Make autoconf not complain about the rule below
@@ -118,12 +118,12 @@ if test "$with_platform" = "win32"; then
   AC_MSG_RESULT([$os_win32])
 fi
 
-AM_CONDITIONAL([PLATFORM_HILDON],[test "$with_platform" = "hildon"])
-AM_CONDITIONAL([PLATFORM_WIN32],[test "$with_platform" = "win32"])
+AM_CONDITIONAL([PLATFORM_HILDON], [test "$with_platform" = "hildon"])
+AM_CONDITIONAL([PLATFORM_WIN32], [test "$with_platform" = "win32"])
 
 AC_MSG_CHECKING([which gtk+ version to compile against])
 AC_ARG_WITH([gtk],
-  [AS_HELP_STRING([--with-gtk=2.0|3.0],[which gtk+ version to compile against (default: 2.0)])],
+  [AS_HELP_STRING([--with-gtk=2.0|3.0], [which gtk+ version to compile against (default: 2.0)])],
   [case "$with_gtk" in
      2.0|3.0) ;;
      *) AC_MSG_ERROR([invalid gtk version specified]) ;;
@@ -204,7 +204,7 @@ GDK_TARGET="$($PKG_CONFIG --variable target gdk-$GTK_API_VERSION)"
 AC_MSG_CHECKING([which smclient backend to use])
 AC_ARG_WITH([smclient],
   [AS_HELP_STRING([--with-smclient-backend=no|xsmp|win32|quartz],
-		  [Setting smclient backend (default:auto)])],
+                  [Setting smclient backend (default:auto)])],
   [],
   [case "$GDK_TARGET" in
     x11) case "$with_platform" in
@@ -214,7 +214,7 @@ AC_ARG_WITH([smclient],
     win32|quartz) with_smclient=$GDK_TARGET ;;
     *) with_smclient=no ;;
    esac])
-   
+
 AC_MSG_RESULT([$with_smclient])
 
 if test "$with_smclient" != "no"; then
@@ -253,12 +253,12 @@ LIBS=$atril_save_LIBS
 AC_MSG_CHECKING([whether gtk+-unix-print support is requested])
 AC_ARG_WITH([gtk-unix-print],
   [AS_HELP_STRING([--without-gtk-unix-print],
-		  [Disable the use of gtk-unix-print])],
+                  [Disable the use of gtk-unix-print])],
   [],[case "$os_win32" in
         yes) with_gtk_unix_print=no ;;
         *) with_gtk_unix_print=yes ;;
       esac])
-      
+
 AC_MSG_RESULT([$with_gtk_unix_print])
 
 if test "$with_gtk_unix_print" = "yes"; then
@@ -272,7 +272,7 @@ fi
 
 AC_ARG_WITH(keyring,
         [AS_HELP_STRING([--without-keyring],
-			[Disable the use of mate-keyring])],
+                        [Disable the use of mate-keyring])],
         [],
         [case "$with_platform" in
            mate) with_keyring=yes ;;
@@ -311,7 +311,7 @@ dnl ========= Check for MateConf
 AC_MSG_CHECKING([whether MateConf support is requested])
 AC_ARG_WITH([mateconf],
   [AS_HELP_STRING([--without-mateconf],
-		  [Disable the use of mateconf])],
+                  [Disable the use of mateconf])],
   [],
   [case "$os_win32" in
      yes) with_mateconf=no ;;
@@ -338,19 +338,19 @@ fi
 dnl Debug mode
 
 AC_ARG_ENABLE([debug],
-	AS_HELP_STRING([--enable-debug],
-		       [Turn on atril debug mode]),
-	[enable_debug=$enableval],
-	[enable_debug=no])
+    AS_HELP_STRING([--enable-debug],
+                   [Turn on atril debug mode]),
+    [enable_debug=$enableval],
+    [enable_debug=no])
 
 if test "x$enable_debug" = "xyes"; then
    DEBUG_FLAGS="-DEV_ENABLE_DEBUG"
 fi
 
 AC_ARG_ENABLE([tests],
-	AS_HELP_STRING([--enable-tests], [Enable the tests]),
-	[enable_tests=$enableval],
-	[enable_tests=yes])
+    AS_HELP_STRING([--enable-tests], [Enable the tests]),
+    [enable_tests=$enableval],
+    [enable_tests=yes])
 
 AM_CONDITIONAL(ENABLE_TESTS, test x$enable_tests = xyes)
 
@@ -386,7 +386,7 @@ AC_SUBST([EV_DAEMON_LIBS])
 # Check for Caja property page build
 AC_ARG_ENABLE([caja],
   [AS_HELP_STRING([--disable-caja],
-		  [Disable build of caja extensions])],
+                  [Disable build of caja extensions])],
   [],
   [case "$with_platform" in
      mate) enable_caja=yes ;;
@@ -410,7 +410,7 @@ AM_CONDITIONAL([ENABLE_CAJA],[test "$enable_caja" = "yes"])
 
 AC_ARG_ENABLE([thumbnailer],
   [AS_HELP_STRING([--disable-thumbnailer],
-		  [Disable MATE thumbnailer])],
+                  [Disable MATE thumbnailer])],
   [],
   [case "$with_platform" in
      hildon) enable_thumbnailer=no ;;
@@ -425,7 +425,7 @@ AM_CONDITIONAL([ENABLE_THUMBNAILER],[test "$enable_thumbnailer" = "yes"])
 
 AC_ARG_ENABLE([previewer],
   [AS_HELP_STRING([--disable-previewer],
-		  [Disable the MATE Document Previewer])],
+                  [Disable the MATE Document Previewer])],
   [],
   [case "$with_platform" in
       hildon) enable_previewer=no ;;
@@ -448,10 +448,10 @@ AC_SUBST(PREVIEWER_LIBS)
 
 AC_MSG_CHECKING([whether GObject introspection is requested])
 AC_ARG_ENABLE([introspection],
-        AS_HELP_STRING([--enable-introspection],
-		       [Enable GObject introspection]),
-       	[enable_introspection=$enableval],
-	[enable_introspection=no])
+    AS_HELP_STRING([--enable-introspection],
+                   [Enable GObject introspection]),
+    [enable_introspection=$enableval],
+    [enable_introspection=no])
 AC_MSG_RESULT([$enable_introspection])
 
 G_IR_SCANNER=
@@ -491,7 +491,7 @@ AC_CHECK_DECL([_NL_MEASUREMENT_MEASUREMENT],[
 dnl ================== pdf checks ===================================================
 AC_ARG_ENABLE([pdf],
   [AS_HELP_STRING([--disable-pdf],
-		  [Disable the PDF support])],
+                  [Disable the PDF support])],
   [enable_pdf=$enableval],
   [enable_pdf=yes])
 
@@ -500,31 +500,31 @@ if test "x$enable_pdf" = "xyes"; then
     PKG_CHECK_MODULES(POPPLER, poppler-glib >= $POPPLER_REQUIRED libxml-2.0 >= $LIBXML_REQUIRED,enable_pdf=yes,enable_pdf=no)
 
     if test "x$enable_pdf" = "xyes"; then
-	    atril_save_LIBS=$LIBS
-	    LIBS="$LIBS $POPPLER_LIBS"
-	    AC_CHECK_FUNCS(poppler_page_get_text_layout)
-	    AC_CHECK_FUNCS(poppler_page_get_selected_text)
-	    AC_CHECK_FUNCS(poppler_page_add_annot)
-	    LIBS=$atril_save_LIBS
-	    PKG_CHECK_MODULES(CAIRO_PDF, cairo-pdf, enable_cairo_pdf=yes, enable_cairo_pdf=no)
-	    if test x$enable_cairo_pdf = xyes; then
-	            AC_DEFINE([HAVE_CAIRO_PDF], [1], [defined if cairo-pdf is available])
-            fi
+        atril_save_LIBS=$LIBS
+        LIBS="$LIBS $POPPLER_LIBS"
+        AC_CHECK_FUNCS(poppler_page_get_text_layout)
+        AC_CHECK_FUNCS(poppler_page_get_selected_text)
+        AC_CHECK_FUNCS(poppler_page_add_annot)
+        LIBS=$atril_save_LIBS
+        PKG_CHECK_MODULES(CAIRO_PDF, cairo-pdf, enable_cairo_pdf=yes, enable_cairo_pdf=no)
+        if test x$enable_cairo_pdf = xyes; then
+            AC_DEFINE([HAVE_CAIRO_PDF], [1], [defined if cairo-pdf is available])
+        fi
 
-	    PKG_CHECK_MODULES(CAIRO_PS, cairo-ps, enable_cairo_ps=yes, enable_cairo_ps=no)
-	    if test x$enable_cairo_ps = xyes; then
-	            AC_DEFINE([HAVE_CAIRO_PS], [1], [defined if cairo-ps is available])
-            fi
+        PKG_CHECK_MODULES(CAIRO_PS, cairo-ps, enable_cairo_ps=yes, enable_cairo_ps=no)
+        if test x$enable_cairo_ps = xyes; then
+            AC_DEFINE([HAVE_CAIRO_PS], [1], [defined if cairo-ps is available])
+        fi
     else
-	    AC_MSG_ERROR("PDF support is disabled since poppler-glib library version $POPPLER_REQUIRED or newer not found")
-    fi 
+        AC_MSG_ERROR("PDF support is disabled since poppler-glib library version $POPPLER_REQUIRED or newer not found")
+    fi
 fi
 
 AM_CONDITIONAL(ENABLE_PDF, test x$enable_pdf = xyes)
 dnl ================== end of pdf checks ============================================
 
 dnl libspectre (used by ps and dvi backends)
-SPECTRE_REQUIRED=0.2.0 
+SPECTRE_REQUIRED=0.2.0
 PKG_CHECK_MODULES(SPECTRE, libspectre >= $SPECTRE_REQUIRED,have_spectre=yes,have_spectre=no)
 AM_CONDITIONAL(HAVE_SPECTRE, test x$have_spectre = xyes)
 if test "x$have_spectre" = "xyes"; then
@@ -533,10 +533,10 @@ fi
 
 dnl ================== ps checks ====================================================
 AC_ARG_ENABLE(ps,
-  	[AS_HELP_STRING([--disable-ps],
-			[Disable the PostScript backend])],
-	[enable_ps=$enableval],
-	[enable_ps=yes])
+    [AS_HELP_STRING([--disable-ps],
+                    [Disable the PostScript backend])],
+    [enable_ps=$enableval],
+    [enable_ps=yes])
 
 if test "x$enable_ps" = "xyes"; then
    if test "x$have_spectre" = "xyes"; then
@@ -551,22 +551,22 @@ dnl ======================== End of ps checks ==================================
 
 dnl ================== tiff checks ===================================================
 AC_ARG_ENABLE(tiff,
-            [AS_HELP_STRING([--disable-tiff],
-			    [Disable the support of multipage tiff])],
-	    [enable_tiff=$enableval],
-	    [enable_tiff=yes])
+    [AS_HELP_STRING([--disable-tiff],
+                    [Disable the support of multipage tiff])],
+    [enable_tiff=$enableval],
+    [enable_tiff=yes])
 
 if test "x$enable_tiff" = "xyes"; then
     AC_CHECK_HEADERS([tiff.h],enable_tiff=yes,enable_tiff=no,)
     if test "x$enable_tiff" = "xyes"; then
-	AC_CHECK_LIB([tiff],TIFFOpen,enable_tiff=yes,enable_tiff=no,"-lz")
+        AC_CHECK_LIB([tiff],TIFFOpen,enable_tiff=yes,enable_tiff=no,"-lz")
         AC_CHECK_LIB([tiff],TIFFReadRGBAImageOriented,enable_tiff=yes,enable_tiff=no,"-lz")
     fi
     if test "x$enable_tiff" = "xyes"; then
-	    AC_DEFINE([ENABLE_TIFF], [1], [Enable multipage tiff support.])
+        AC_DEFINE([ENABLE_TIFF], [1], [Enable multipage tiff support.])
     else
-	    AC_MSG_WARN("Tiff support is disabled since tiff library version 3.6 or newer not found")
-    fi 
+        AC_MSG_WARN("Tiff support is disabled since tiff library version 3.6 or newer not found")
+    fi
 fi
 
 AM_CONDITIONAL(ENABLE_TIFF, test x$enable_tiff = xyes)
@@ -575,10 +575,10 @@ dnl ================== end of tiff checks ======================================
 dnl ================== djvu checks ===================================================
 
 AC_ARG_ENABLE(djvu,
-            [AS_HELP_STRING([--disable-djvu],
-			    [Disable the support of djvu viewer])],
-	    [enable_djvu=$enableval],
-	    [enable_djvu=yes])
+    [AS_HELP_STRING([--disable-djvu],
+                    [Disable the support of djvu viewer])],
+    [enable_djvu=$enableval],
+    [enable_djvu=yes])
 
 if test "x$enable_djvu" = "xyes"; then
     DJVULIBRE_REQUIRED=3.5.17
@@ -587,12 +587,12 @@ if test "x$enable_djvu" = "xyes"; then
     if test "x$enable_djvu" = "xyes"; then
         AC_DEFINE([ENABLE_DJVU], [1], [Enable djvu viewer support.])
     else
-	AC_MSG_WARN([	
-** Djvu support is disabled since a recent version of the djvulibre 
-** library was not found. You need at least djvulibre-3.5.17 which 
-** can be found on http://djvulibre.djvuzone.org 
+    AC_MSG_WARN([
+** Djvu support is disabled since a recent version of the djvulibre
+** library was not found. You need at least djvulibre-3.5.17 which
+** can be found on http://djvulibre.djvuzone.org
 ])
-    fi 
+    fi
 fi
 
 AM_CONDITIONAL(ENABLE_DJVU, test x$enable_djvu = xyes)
@@ -602,16 +602,16 @@ dnl ================== End of djvu checks ======================================
 dnl ================== dvi checks ===================================================
 
 AC_ARG_ENABLE(dvi,
-            [AS_HELP_STRING([--disable-dvi],
-	    [Disable the support of dvi viewer])],
-	    [enable_dvi=$enableval],
-	    [enable_dvi=yes])
+    [AS_HELP_STRING([--disable-dvi],
+                    [Disable the support of dvi viewer])],
+    [enable_dvi=$enableval],
+    [enable_dvi=yes])
 
 AC_ARG_ENABLE(t1lib,
-            [AS_HELP_STRING([--enable-t1lib],
-	                    [Compile with support of t1lib for type1 fonts in dvi])],
-	    [enable_type1_fonts=$enableval],
-	    [enable_type1_fonts=no])
+    [AS_HELP_STRING([--enable-t1lib],
+                    [Compile with support of t1lib for type1 fonts in dvi])],
+    [enable_type1_fonts=$enableval],
+    [enable_type1_fonts=no])
 
 if test "x$enable_dvi" = "xyes"; then
     AC_C_CONST
@@ -621,10 +621,10 @@ if test "x$enable_dvi" = "xyes"; then
     AC_CHECK_SIZEOF(int, 4)
     AC_CHECK_SIZEOF(short, 2)
     AC_CHECK_SIZEOF(void *, 4)
-    AC_CHECK_LIB([kpathsea],[kpse_init_prog],[enable_dvi=yes],[enable_dvi=no])
+    AC_CHECK_LIB([kpathsea], [kpse_init_prog], [enable_dvi=yes], [enable_dvi=no])
 
     if test "x$enable_dvi" = "xyes"; then
-	AC_DEFINE([ENABLE_DVI], [1], [Enable dvi viewer support.])
+        AC_DEFINE([ENABLE_DVI], [1], [Enable dvi viewer support.])
     else
         AC_MSG_WARN("Dvi support is disabled since kpathsea library is not found. Check your TeX installation.")
     fi
@@ -633,13 +633,13 @@ AM_CONDITIONAL(ENABLE_DVI, test x$enable_dvi = xyes)
 
 if test "x$enable_dvi" = "xyes"; then
     if test "x$enable_type1_fonts" = "xyes"; then
-	AC_CHECK_LIB([t1],T1_InitLib,enable_type1_fonts=yes,enable_type1_fonts=no,[-lm])
+        AC_CHECK_LIB([t1],T1_InitLib,enable_type1_fonts=yes,enable_type1_fonts=no,[-lm])
     fi
 
     if test "x$enable_type1_fonts" = xyes; then
         AC_DEFINE([WITH_TYPE1_FONTS], [1], [Enable t1lib support in dvi.])
     fi
-else 
+else
     enable_type1_fonts=no
 fi
 AM_CONDITIONAL(WITH_TYPE1_FONTS, test x$enable_type1_fonts = xyes)
@@ -649,13 +649,13 @@ dnl ================== End of dvi checks =======================================
 dnl ================== pixbuf checks ===================================================
 
 AC_ARG_ENABLE(pixbuf,
-            [AS_HELP_STRING([--enable-pixbuf],
-                            [Compile with support of pixbuf])],
-	    [enable_pixbuf=$enableval],
-	    [enable_pixbuf=no])
-	    
+    [AS_HELP_STRING([--enable-pixbuf],
+                    [Compile with support of pixbuf])],
+    [enable_pixbuf=$enableval],
+    [enable_pixbuf=no])
+
 if test "x$enable_pixbuf" = "xyes"; then
-	AC_DEFINE([ENABLE_PIXBUF], [1], [Enable pixbuf support.])
+    AC_DEFINE([ENABLE_PIXBUF], [1], [Enable pixbuf support.])
 fi
 
 AM_CONDITIONAL(ENABLE_PIXBUF, test x$enable_pixbuf = xyes)
@@ -663,15 +663,15 @@ AM_CONDITIONAL(ENABLE_PIXBUF, test x$enable_pixbuf = xyes)
 dnl ================== End of pixbuf checks ===================================================
 
 dnl ================== comic book checks ===================================================
- 
+
 AC_ARG_ENABLE(comics,
- 	[AS_HELP_STRING([--enable-comics],
-	                [Compile with support for comic book archives])],
-	[enable_comics=$enableval],
-	[enable_comics=yes])
-	
+    [AS_HELP_STRING([--enable-comics],
+                    [Compile with support for comic book archives])],
+    [enable_comics=$enableval],
+    [enable_comics=yes])
+
 if test "x$enable_comics" = "xyes"; then
-	AC_DEFINE([ENABLE_COMICS], [1], [Enable support for comics.])
+    AC_DEFINE([ENABLE_COMICS], [1], [Enable support for comics.])
 fi
 AM_CONDITIONAL(ENABLE_COMICS, test x$enable_comics = xyes)
 
@@ -680,14 +680,14 @@ dnl ================== End of comic book checks ================================
 dnl ================== impress book checks ===================================================
 
 AC_ARG_ENABLE(impress,
- 	[AS_HELP_STRING([--enable-impress],
-	                [Compile with support for impress presentations])],
-	[enable_impress=$enableval],
-	[enable_impress=no])
-	
+    [AS_HELP_STRING([--enable-impress],
+                    [Compile with support for impress presentations])],
+    [enable_impress=$enableval],
+    [enable_impress=no])
+
 if test "x$enable_impress" = "xyes"; then
-	AC_DEFINE([ENABLE_IMPRESS], [1], [Enable support for impress.])
-fi 
+    AC_DEFINE([ENABLE_IMPRESS], [1], [Enable support for impress.])
+fi
 AM_CONDITIONAL(ENABLE_IMPRESS, test x$enable_impress = xyes)
 
 dnl ================== End of impress book checks ============================================
@@ -695,28 +695,28 @@ dnl ================== End of impress book checks ==============================
 dnl =================== Mime types list ====================================================
 
 if test "x$enable_pdf" = "xyes" ; then
-	ATRIL_MIME_TYPES="application/pdf;application/x-bzpdf;application/x-gzpdf;"
+    ATRIL_MIME_TYPES="application/pdf;application/x-bzpdf;application/x-gzpdf;"
 fi
 if test "x$enable_ps" = "xyes" ; then
-	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/postscript;application/x-bzpostscript;application/x-gzpostscript;image/x-eps;image/x-bzeps;image/x-gzeps;"
+    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/postscript;application/x-bzpostscript;application/x-gzpostscript;image/x-eps;image/x-bzeps;image/x-gzeps;"
 fi
 if test "x$enable_dvi" = "xyes"; then
-	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/x-dvi;application/x-bzdvi;application/x-gzdvi;"
+    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/x-dvi;application/x-bzdvi;application/x-gzdvi;"
 fi
 if test "x$enable_djvu" = "xyes"; then
-	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}image/vnd.djvu;"
+    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}image/vnd.djvu;"
 fi
 if test "x$enable_tiff" = "xyes"; then
-	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}image/tiff;"
+    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}image/tiff;"
 fi
 if test "x$enable_comics" = "xyes"; then
-	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/x-cbr;application/x-cbz;application/x-cb7;application/x-cbt;"
+    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/x-cbr;application/x-cbz;application/x-cb7;application/x-cbt;"
 fi
 if test "x$enable_pixbuf" = "xyes"; then
-	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}image/*;"
+    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}image/*;"
 fi
 if test "x$enable_impress" = "xyes"; then
-	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/vnd.sun.xml.impress;application/vnd.oasis.opendocument.presentation;"
+    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/vnd.sun.xml.impress;application/vnd.oasis.opendocument.presentation;"
 fi
 AC_SUBST(ATRIL_MIME_TYPES)
 
@@ -740,7 +740,7 @@ fi
 
 if test "x$enable_help" = "xyes" && test "x$mate_doc_utils" == "xno"; then
     AC_MSG_ERROR(
-       [mate-doc-utils not found; use --disable-help to disable help files]
+        [mate-doc-utils not found; use --disable-help to disable help files]
     )
 fi
 
@@ -754,34 +754,34 @@ AM_CONDITIONAL(ENABLE_HELP, test "x$enable_help" = "xyes")
 # API documentation
 # *****************
 
-GTK_DOC_CHECK([1.13],[--flavour no-tmpl])
+GTK_DOC_CHECK([1.13], [--flavour no-tmpl])
 
-AC_SUBST([GLIB_PREFIX],[$($PKG_CONFIG --variable=prefix glib-2.0)])
-AC_SUBST([GTK_PREFIX],[$($PKG_CONFIG --variable=prefix gtk+-$GTK_API_VERSION)])
+AC_SUBST([GLIB_PREFIX], [$($PKG_CONFIG --variable=prefix glib-2.0)])
+AC_SUBST([GTK_PREFIX], [$($PKG_CONFIG --variable=prefix gtk+-$GTK_API_VERSION)])
 
 # ******************
 # Backends directory
 # ******************
 
 AC_SUBST([backenddir],"\$(libdir)/atril/ev_binary_version/backends")
-AC_SUBST([backend_binary_version],"ev_binary_version")
+AC_SUBST([backend_binary_version], "ev_binary_version")
 
 # **********
 # Versioning
 # **********
 
-AC_SUBST([EV_MAJOR_VERSION],[ev_major_version])
-AC_SUBST([EV_MINOR_VERSION],[ev_minor_version])
-AC_SUBST([EV_MICRO_VERSION],[ev_micro_version])
+AC_SUBST([EV_MAJOR_VERSION], [ev_major_version])
+AC_SUBST([EV_MINOR_VERSION], [ev_minor_version])
+AC_SUBST([EV_MICRO_VERSION], [ev_micro_version])
 
-AC_SUBST([EV_API_VERSION],[ev_api_version])
-AC_SUBST([EV_API_VERSION_U],[AS_TR_SH([ev_api_version])])
-AC_SUBST([EV_BINARY_VERSION],[ev_binary_version])
+AC_SUBST([EV_API_VERSION], [ev_api_version])
+AC_SUBST([EV_API_VERSION_U], [AS_TR_SH([ev_api_version])])
+AC_SUBST([EV_BINARY_VERSION], [ev_binary_version])
 
 AC_SUBST([EV_DOCUMENT_LT_VERSION_INFO],[ev_document_lt_version_info])
 AC_SUBST([EV_DOCUMENT_LT_CURRENT_MINUS_AGE],[ev_document_lt_current_minus_age])
-AC_SUBST([EV_VIEW_LT_VERSION_INFO],[ev_view_lt_version_info])
-AC_SUBST([EV_VIEW_LT_CURRENT_MINUS_AGE],[ev_view_lt_current_minus_age])
+AC_SUBST([EV_VIEW_LT_VERSION_INFO], [ev_view_lt_version_info])
+AC_SUBST([EV_VIEW_LT_CURRENT_MINUS_AGE], [ev_view_lt_current_minus_age])
 
 # *****************************************************************************
 # *****************************************************************************
@@ -857,28 +857,29 @@ AC_OUTPUT
 
 echo "
 Configure summary:
-        Platform...........:  $with_platform
-        GTK+ version.......:  $with_gtk
-        MateConf Support......:  $with_mateconf
-	GTK+ Unix Print....:  $with_gtk_unix_print
-	Keyring Support....:  $with_keyring
-	DBUS Support.......:  $enable_dbus
-	SM client support..:  $with_smclient
-	Help files.........:  $enable_help
-	Caja Plugin....:  $enable_caja
-	Thumbnailer........:  $enable_thumbnailer
-	Previewer..........:  $enable_previewer
-	Gtk-Doc Support....:  $enable_gtk_doc
-	Debug mode.........:  $enable_debug
-	GObj. Introspection:  $enable_introspection
-	Tests..............:  $enable_tests
 
-	PDF Backend........:  $enable_pdf
-	PostScript Backend.:  $enable_ps
-	TIFF Backend.......:  $enable_tiff
-	DJVU Backend.......:  $enable_djvu
-	DVI Backend........:  $enable_dvi
-	Pixbuf Backend.....:  $enable_pixbuf
-	Comics Backend.....:  $enable_comics
-	Impress Backend....:  $enable_impress
+    Platform...........:    $with_platform
+    GTK+ version.......:    $with_gtk
+    MateConf Support...:    $with_mateconf
+    GTK+ Unix Print....:    $with_gtk_unix_print
+    Keyring Support....:    $with_keyring
+    DBUS Support.......:    $enable_dbus
+    SM client support..:    $with_smclient
+    Help files.........:    $enable_help
+    Caja Plugin........:    $enable_caja
+    Thumbnailer........:    $enable_thumbnailer
+    Previewer..........:    $enable_previewer
+    Gtk-Doc Support....:    $enable_gtk_doc
+    Debug mode.........:    $enable_debug
+    GObj. Introspection:    $enable_introspection
+    Tests..............:    $enable_tests
+
+    PDF Backend........:    $enable_pdf
+    PostScript Backend.:    $enable_ps
+    TIFF Backend.......:    $enable_tiff
+    DJVU Backend.......:    $enable_djvu
+    DVI Backend........:    $enable_dvi
+    Pixbuf Backend.....:    $enable_pixbuf
+    Comics Backend.....:    $enable_comics
+    Impress Backend....:    $enable_impress
 "
