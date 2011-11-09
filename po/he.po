@@ -1,4 +1,4 @@
-# translation of evince.HEAD.he.po to Hebrew
+# translation of atril.HEAD.he.po to Hebrew
 # translation of he.po to Hebrew
 # translation of gpdf.HEAD.he.po to Hebrew
 # translation of xpdf.HEAD.po to Hebrew
@@ -14,7 +14,7 @@
 # Yaron Shahrabani <gezer@lists.launchpad.net>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: evince.HEAD.he\n"
+"Project-Id-Version: atril.HEAD.he\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-08-17 01:22+0300\n"
 "PO-Revision-Date: 2010-08-17 01:30+0200\n"
@@ -83,7 +83,7 @@ msgstr "There was an error deleting “%s”."
 msgid "Error %s"
 msgstr "Error %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "ספרי קומיקס"
 
@@ -97,7 +97,7 @@ msgid ""
 "be accessed."
 msgstr "המסמך מורכב ממספר קבצים. לא ניתן לגשת לאחד או יותר מהם."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "מסמכי DjVu"
 
@@ -105,7 +105,7 @@ msgstr "מסמכי DjVu"
 msgid "DVI document has incorrect format"
 msgstr "DVI document has incorrect format"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "מסמכי DVI"
 
@@ -171,7 +171,7 @@ msgstr "מוטמע"
 msgid "Not embedded"
 msgstr "לא מוטמע"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "מסמכי PDF"
 
@@ -183,7 +183,7 @@ msgstr "מסמך לא תקין"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "מצגות Impress"
 
@@ -233,7 +233,7 @@ msgstr "לא ניתן לטעון את המסמך “%s”"
 msgid "Failed to save document “%s”"
 msgstr "ארע כשל בשמירת המסמך “%s”"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "מסמכי PostScript"
 
@@ -445,21 +445,21 @@ msgid "6400%"
 msgstr "6400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4536
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4536
 #: ../shell/ev-window-title.c:149 ../shell/main.c:310
 #, c-format
 msgid "Document Viewer"
 msgstr "מציג מסמכים"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "הצגת מסמכים מרובי עמודים"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
 msgstr "Override document restrictions"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "Override document restrictions, like restriction to copy or to print."
 
@@ -953,10 +953,10 @@ msgstr "נתוני העל מומרים"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
-"מבנה נתוני העל בו Evince עשה שימוש שונה ולכן יש לייבא אותו. אם תהליך הייבוא "
+"מבנה נתוני העל בו Atril עשה שימוש שונה ולכן יש לייבא אותו. אם תהליך הייבוא "
 "יבוטל אחסון נתוני העל לא יעבוד."
 
 #: ../shell/ev-open-recent-action.c:72
@@ -1257,24 +1257,24 @@ msgstr ""
 
 #: ../shell/ev-window.c:4563
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 
 #: ../shell/ev-window.c:4567
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -1282,20 +1282,20 @@ msgstr ""
 #: ../shell/ev-window.c:4571
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
-"ל־Evince אמור היה להיות מצורף עותק של הרישיון הציבורי הכללי של GNU; אם לא, "
+"ל־Atril אמור היה להיות מצורף עותק של הרישיון הציבורי הכללי של GNU; אם לא, "
 "יש לכתוב אל Free Software Foundation, Inc., 59 Temple Place, Suite 330, "
 "Boston, MA  02111-1307  USA\n"
 
 #: ../shell/ev-window.c:4596
-msgid "Evince"
-msgstr "‏Evince"
+msgid "Atril"
+msgstr "‏Atril"
 
 #: ../shell/ev-window.c:4599
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996—2009 יוצרי Evince"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996—2009 יוצרי Atril"
 
 #: ../shell/ev-window.c:4605
 msgid "translator-credits"
@@ -1662,16 +1662,16 @@ msgid "NUMBER"
 msgstr "NUMBER"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
-msgstr "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
+msgstr "Run atril in fullscreen mode"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
-msgstr "Run evince in presentation mode"
+msgid "Run atril in presentation mode"
+msgstr "Run atril in presentation mode"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
-msgstr "Run evince as a previewer"
+msgid "Run atril as a previewer"
+msgstr "Run atril as a previewer"
 
 #: ../shell/main.c:82
 msgid "The word or phrase to find in the document"
@@ -1685,7 +1685,7 @@ msgstr "STRING"
 msgid "[FILE…]"
 msgstr "[FILE…]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1693,15 +1693,15 @@ msgstr ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Enable thumbnailing of PDF Documents"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Thumbnail command for PDF Documents"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."

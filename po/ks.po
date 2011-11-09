@@ -1,11 +1,11 @@
-# translation of evince.HEAD.po to Kashmiri
+# translation of atril.HEAD.po to Kashmiri
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 # Rakesh Pandit <rakesh.pandit@gmail.com>, 2008.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evince.HEAD.hi\n"
+"Project-Id-Version: atril.HEAD.hi\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-07-03 03:16+0000\n"
 "PO-Revision-Date: 2008-06-28 06:20+0530\n"
@@ -31,7 +31,7 @@ msgstr "खराब फाइल"
 msgid "No images found in archive %s"
 msgstr "कांह् फोटू छुंन: आरकाविव मंज %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "कॉमिक किताब"
 
@@ -42,7 +42,7 @@ msgid ""
 "be accessed."
 msgstr ""
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "Djvu Documents"
 msgstr "डीजावीयु कागजात"
 
@@ -56,7 +56,7 @@ msgstr "फाइल मेल न"
 msgid "DVI document has incorrect format"
 msgstr "डीवी आई कागजातस  छु गलत फारमेट"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "डीवी आई कागजात"
 
@@ -118,7 +118,7 @@ msgstr "एंबेडेड"
 msgid "Not embedded"
 msgstr "एंबेडेड छुन्न"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "पीडीएफ़ कागजात"
 
@@ -135,7 +135,7 @@ msgstr "गलत कागजात"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "इंप्रेस स्लाइड"
 
@@ -188,7 +188,7 @@ msgstr "'%s' कागजात हयको न ठिक करितथ"
 msgid "Failed to save document “%s”"
 msgstr "'%s' कागजात हयको न ठिक करितथ"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "पोस्टस्क्रिप्ट कागजात"
 
@@ -246,7 +246,7 @@ msgid "_Domain:"
 msgstr ""
 
 #: ../cut-n-paste/evmountoperation/ev-mount-operation.c:538
-#: ../data/evince-password.glade.h:4
+#: ../data/atril-password.glade.h:4
 msgid "_Password:"
 msgstr "पासवर्ड: (_P)"
 
@@ -359,87 +359,87 @@ msgstr "300%"
 msgid "400%"
 msgstr "400%"
 
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:3729
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:3729
 #: ../shell/ev-window-title.c:132
 #, c-format
 msgid "Document Viewer"
 msgstr "कागजात वुछनुक"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multipage documents"
 msgstr "वारयाह वरख कागजात"
 
-#: ../data/evince-password.glade.h:1
+#: ../data/atril-password.glade.h:1
 #, fuzzy
 msgid "Password Entry"
 msgstr "पासवर्ड: (_P)"
 
-#: ../data/evince-password.glade.h:2
+#: ../data/atril-password.glade.h:2
 msgid "Remember password for this session"
 msgstr "यम सशेनुक पासवर्ड: थय्यव याद"
 
-#: ../data/evince-password.glade.h:3
+#: ../data/atril-password.glade.h:3
 msgid "Save password in keyring"
 msgstr "कीरिंग मंज लग्गयव पासवर्ड:"
 
-#: ../data/evince-properties.glade.h:1
+#: ../data/atril-properties.glade.h:1
 msgid "<b>Author:</b>"
 msgstr "<b> लेखनवोल</b>"
 
-#: ../data/evince-properties.glade.h:2
+#: ../data/atril-properties.glade.h:2
 msgid "<b>Created:</b>"
 msgstr "<b> बनोव :</b>"
 
-#: ../data/evince-properties.glade.h:3
+#: ../data/atril-properties.glade.h:3
 msgid "<b>Creator:</b>"
 msgstr "<b> बनावन वोल:</b>"
 
-#: ../data/evince-properties.glade.h:4
+#: ../data/atril-properties.glade.h:4
 msgid "<b>Format:</b>"
 msgstr "<b> फारमेट:</b>"
 
-#: ../data/evince-properties.glade.h:5
+#: ../data/atril-properties.glade.h:5
 msgid "<b>Keywords:</b>"
 msgstr "<b> की-वर्डस:</b>"
 
-#: ../data/evince-properties.glade.h:6
+#: ../data/atril-properties.glade.h:6
 msgid "<b>Modified:</b>"
 msgstr "<b> बदलोव:</b>"
 
-#: ../data/evince-properties.glade.h:7
+#: ../data/atril-properties.glade.h:7
 msgid "<b>Number of Pages:</b>"
 msgstr "<b> कच वरख:</b>"
 
-#: ../data/evince-properties.glade.h:8
+#: ../data/atril-properties.glade.h:8
 msgid "<b>Optimized:</b>"
 msgstr "<b> ऑप्टीमाइज़्ड:</b>"
 
-#: ../data/evince-properties.glade.h:9
+#: ../data/atril-properties.glade.h:9
 #, fuzzy
 msgid "<b>Paper Size:</b>"
 msgstr "<b> पेज साय्ज:</b>"
 
-#: ../data/evince-properties.glade.h:10
+#: ../data/atril-properties.glade.h:10
 msgid "<b>Producer:</b>"
 msgstr "<b> बनावन वोल:</b>"
 
-#: ../data/evince-properties.glade.h:11
+#: ../data/atril-properties.glade.h:11
 msgid "<b>Security:</b>"
 msgstr "<b> र्रच्छ:</b>"
 
-#: ../data/evince-properties.glade.h:12
+#: ../data/atril-properties.glade.h:12
 msgid "<b>Subject:</b>"
 msgstr "<b> सब्बजटक:</b>"
 
-#: ../data/evince-properties.glade.h:13
+#: ../data/atril-properties.glade.h:13
 msgid "<b>Title:</b>"
 msgstr "<b> टायटल</b>"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "कागजात लिखव बिना रुकावटि"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "कागजात लिखव बिना रुकावटि यिथकंय कापी करुन या परंट"
 
@@ -807,24 +807,24 @@ msgstr "पोस्टसक्रिपट और पीडीएफ फाइ
 
 #: ../shell/ev-window.c:3753
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 
 #: ../shell/ev-window.c:3757
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -832,20 +832,20 @@ msgstr ""
 #: ../shell/ev-window.c:3761
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Atril; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Atril; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA  02111-1307  USA\n"
 
 #: ../shell/ev-window.c:3785 ../shell/main.c:350
-msgid "Evince"
+msgid "Atril"
 msgstr "एवींस"
 
 #: ../shell/ev-window.c:3788
 #, fuzzy
-msgid "© 1996-2007 The Evince authors"
+msgid "© 1996-2007 The Atril authors"
 msgstr "© 1996-2005 एवींस लेखन वय्यल"
 
 #: ../shell/ev-window.c:3794
@@ -1230,15 +1230,15 @@ msgid "PAGE"
 msgstr "वरूकख"
 
 #: ../shell/main.c:60
-msgid "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
 msgstr "पूर्ण स्क्रीन मोड में एवींस चलायेंएवींस चल्लयव सर्यस्यह् स्क्रीनस।"
 
 #: ../shell/main.c:61
-msgid "Run evince in presentation mode"
+msgid "Run atril in presentation mode"
 msgstr "एवींस चल्लयव हावून खत्तर।"
 
 #: ../shell/main.c:62
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr "एवींस चल्लयव वुछन् खत्तर।"
 
 #: ../shell/main.c:63
@@ -1259,24 +1259,24 @@ msgid "MATE Document Viewer"
 msgstr "गनोम कागजात वुच्छुनूक"
 
 #: ../shell/main.c:395
-msgid "Evince Document Viewer"
+msgid "Atril Document Viewer"
 msgstr "एवींस कागजात वुछिव।"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available, true enables thumbnailing and false disables the "
 "creation of new thumbnails"
 msgstr "बूलियन छु सही थंबनेलन ठिक करान त: गल्त थंबनेलन बंद करान।"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "पीडीएफयूक थंबनेल चालू कर।"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "पीडीएफ कागज़ात खत्तर निशान कमांड।"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See caja "
 "thumbnailer documentation for more information."

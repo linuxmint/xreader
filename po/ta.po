@@ -1,4 +1,4 @@
-# translation of evince.master.ta.po to Tamil
+# translation of atril.master.ta.po to Tamil
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) 2008 THE PACKAGE'S COPYRIGHT HOLDER.
 #
@@ -10,7 +10,7 @@
 # Dr,T,Vasudevan <agnihot3@gmail.com>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: evince.master.ta\n"
+"Project-Id-Version: atril.master.ta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-08-03 17:47+0530\n"
 "PO-Revision-Date: 2010-08-04 13:37+0530\n"
@@ -77,7 +77,7 @@ msgstr "“%s” ஐ நீக்குவதில் பிழை."
 msgid "Error %s"
 msgstr "பிழை %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "காமிக் புத்தகங்கள்"
 
@@ -91,7 +91,7 @@ msgid ""
 "be accessed."
 msgstr "இந்த ஆவணம் பல கோப்புக்களால் உருவானது. அதில் ஒன்றோ பலவோ கோப்புகளை அணுக இயலவில்லை."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "Djvu ஆவணங்கள்"
 
@@ -99,7 +99,7 @@ msgstr "Djvu ஆவணங்கள்"
 msgid "DVI document has incorrect format"
 msgstr "DVI ஆவணம் தவறான முறையை கொண்டுள்ளது"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI ஆவணங்கள்"
 
@@ -165,7 +165,7 @@ msgstr "உட்பொதியப்பட்டது"
 msgid "Not embedded"
 msgstr "உட்பொதியப்படவில்லை"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF ஆவணங்கள்"
 
@@ -177,7 +177,7 @@ msgstr "செல்லுபடியாகாத ஆவணம்"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "பட வில்லையை பொறிக்கவும்"
 
@@ -227,7 +227,7 @@ msgstr "ஆவணத்தை ஏற்ற முடியவில்லை “
 msgid "Failed to save document “%s”"
 msgstr "ஆவணத்தை சேமிக்க முடியவில்லை “%s”"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "பின்னுரை ஆவணங்கள்"
 
@@ -439,21 +439,21 @@ msgid "6400%"
 msgstr "6400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4536
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4536
 #: ../shell/ev-window-title.c:149 ../shell/main.c:310
 #, c-format
 msgid "Document Viewer"
 msgstr "ஆவண காட்டி"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "பல பக்க ஆவணங்களை பார்வையிடு"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
 msgstr "மேலெழுதும் ஆவண தடைகள்"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "மேலெழுதும் ஆவண தடைகள், நகலெடுக்க அல்லது அச்சிடுவதற்கான தடை போல."
 
@@ -948,7 +948,7 @@ msgstr "மெடாதரவை ஐ மாற்றுகிறது"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
 "எவின்ஸ் பயன்படுத்தும் மெடா தரவு ஒழுங்கு மாறிவிட்டது. ஆகவே அதை வேறிடம் கொண்டு செல்ல "
@@ -1254,7 +1254,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:4563
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
@@ -1266,7 +1266,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:4567
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -1278,7 +1278,7 @@ msgstr ""
 #: ../shell/ev-window.c:4571
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
 "நீங்கள் GNU General Public Licenseன் ஒரு நகலை இவின்ஸுடன் பெற்றிருக்க வேண்டும். அவ்வாறு "
@@ -1286,12 +1286,12 @@ msgstr ""
 "Street, Fifth Floor, Boston, MA  02111-1301  USA என்பதற்கு எழுதவும்\n"
 
 #: ../shell/ev-window.c:4596
-msgid "Evince"
+msgid "Atril"
 msgstr "இவின்ஸ்"
 
 #: ../shell/ev-window.c:4599
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996–2009 The Evince authors"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996–2009 The Atril authors"
 
 #: ../shell/ev-window.c:4605
 msgid "translator-credits"
@@ -1649,15 +1649,15 @@ msgid "NUMBER"
 msgstr "NUMBER"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
 msgstr "எவின்ஸ் ஐ முழுத்திரை முறையில் இயக்கவும்"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
+msgid "Run atril in presentation mode"
 msgstr "எவின்ஸ் ஐ முழுத்திரை முன் வைப்பு முறையில் இயக்கவும்"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr "எவின்ஸ் ஐ முன்காட்டியாக இயக்கவும்."
 
 #: ../shell/main.c:82
@@ -1672,7 +1672,7 @@ msgstr "STRING"
 msgid "[FILE…]"
 msgstr "[FILE...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1680,15 +1680,15 @@ msgstr ""
 "பூலியன் விருப்பங்கள் உள்ளன: சரி சிறுபடத்தை செயல்படுத்துகிறது மற்றும் தவறு புதிய "
 "சிறுபடங்கள்உருவாக்கத்தை செயல்நீக்குகிறது"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "PDF ஆவணங்களுக்கு சிறுபடத்தை செயல்படுத்துகிறது"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "PDF ஆவணங்களுக்கான சிறுபட கட்டளைகள்"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."
@@ -1748,7 +1748,7 @@ msgstr ""
 #~ msgstr "முந்தைய ஆவணத்தை மீட்கவா?"
 
 #~ msgid ""
-#~ "Evince appears to have exited unexpectedly the last time it was run. You "
+#~ "Atril appears to have exited unexpectedly the last time it was run. You "
 #~ "can recover the opened documents."
 #~ msgstr ""
 #~ "கடைசியாக இயக்கியபோது எவின்ஸ் எதிர்பாராத விதமாக வெளியேறியது போல் உள்ளது. நீங்கள் "

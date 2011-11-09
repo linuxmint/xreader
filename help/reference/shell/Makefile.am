@@ -7,7 +7,7 @@ AUTOMAKE_OPTIONS = 1.10
 # of using the various options.
 
 # The name of the module, e.g. 'glib'.
-DOC_MODULE = evince
+DOC_MODULE = atril
 
 # Uncomment for versioned docs and specify the version of the module, e.g. '2'.
 # DOC_MODULE_VERSION = $(EV_API_VERSION)
@@ -17,7 +17,7 @@ DOC_MAIN_SGML_FILE = $(DOC_MODULE)-docs.xml
 
 # The directory containing the source code. Relative to $(srcdir).
 # gtk-doc will search all .c & .h files beneath here for inline comments
-# evinceing the functions and macros.
+# atriling the functions and macros.
 # e.g. DOC_SOURCE_DIR=../../../gtk
 DOC_SOURCE_DIR = $(top_srcdir)/shell
 
@@ -57,7 +57,7 @@ CFILE_GLOB = $(top_srcdir)/shell/*.c
 
 # Extra header to include when scanning, which are not under DOC_SOURCE_DIR
 # e.g. EXTRA_HFILES=$(top_srcdir}/contrib/extra.h
-# EXTRA_HFILES = $(top_builddir)/evince/ev-version.h
+# EXTRA_HFILES = $(top_builddir)/atril/ev-version.h
 EXTRA_HFILES =
 
 # Header files to ignore when scanning. Use base file name, no paths
@@ -99,11 +99,11 @@ GTKDOC_CFLAGS = \
 	-I$(top_srcdir)/libmisc				\
 	-I$(top_builddir)/libview			\
 	-I$(top_srcdir)/properties			\
-	-DEVINCEDATADIR=\"$(pkgdatadir)\"		\
+	-DATRILDATADIR=\"$(pkgdatadir)\"		\
 	-DMATEDATADIR=\"$(datadir)\"			\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"		\
 	-DMATEICONDIR=\""$(datadir)/pixmaps"\" 	\
-	-DEVINCE_COMPILATION				\
+	-DATRIL_COMPILATION				\
 	$(SHELL_CFLAGS)					\
 	$(WARN_CFLAGS)					\
 	$(DISABLE_DEPRECATED)				\
@@ -111,7 +111,7 @@ GTKDOC_CFLAGS = \
 
 FILTER_OUT = \
 	$(top_builddir)/shell/main.o			\
-	$(top_builddir)/shell/evinced-ev-daemon.o	\
+	$(top_builddir)/shell/atrild-ev-daemon.o	\
 	$(top_builddir)/shell/ev-convert-metadata.o
 
 GTKDOC_LIBS = \

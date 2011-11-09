@@ -1,15 +1,15 @@
 # translation of ml.po to
-# translation of evince.master.ml.po to
-# translation of evince.HEAD.ml.po to
-# This file is distributed under the same license as the evince package.
-# Copyright (C) 2006-2008 evince'S COPYRIGHT HOLDER.
+# translation of atril.master.ml.po to
+# translation of atril.HEAD.ml.po to
+# This file is distributed under the same license as the atril package.
+# Copyright (C) 2006-2008 atril'S COPYRIGHT HOLDER.
 # Ani Peter <apeter@redhat.com>, 2006, 2009.
 # Santhosh Thottingal <santhosh.thottingal@gmail.com> , 2008
 msgid ""
 msgstr ""
 "Project-Id-Version: ml\n"
 "Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?"
-"product=evince&component=general\n"
+"product=atril&component=general\n"
 "POT-Creation-Date: 2010-04-13 16:02+0000\n"
 "PO-Revision-Date: 2010-04-14 14:53+0530\n"
 "Last-Translator: \n"
@@ -75,7 +75,7 @@ msgstr "“%s” വെട്ടി നീക്കുന്നതില്‍ �
 msgid "Error %s"
 msgstr "പിശക് %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "ഹാസ്യ പുസ്തകങ്ങള്‍"
 
@@ -93,7 +93,7 @@ msgstr ""
 "രേഖ പലതരത്തിലുള്ള ഫയലുകള്‍ കൂടിചേര്‍ന്നതാകുന്നു. അതിലൊന്നോ അതിലധികമോ ഫയലുകളിലേക്ക് "
 "പ്രവേശിക്കുവാന്‍ സാധ്യമാകുന്നതല്ല."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 #, fuzzy
 msgid "DjVu Documents"
 msgstr "Djvu രേഖകള്‍"
@@ -102,7 +102,7 @@ msgstr "Djvu രേഖകള്‍"
 msgid "DVI document has incorrect format"
 msgstr "DVI രേഖ തെറ്റായ രീതിയിലാണു്"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI രേഖകള്‍"
 
@@ -168,7 +168,7 @@ msgstr "എംബഡ്ഡട്"
 msgid "Not embedded"
 msgstr "എംബഡ്ഡട് അല്ല"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "പി ഡി എഫ് രേഖകള്‍"
 
@@ -180,7 +180,7 @@ msgstr "അസാധുവായ രേഖ"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "ഇംപ്രസ്സ് സ്ലൈഡുകള്‍"
 
@@ -234,7 +234,7 @@ msgstr "“%s” രേഖ ലോഡ് ചെയ്യുന്നതില്�
 msgid "Failed to save document “%s”"
 msgstr "“%s” രേഖ സൂക്ഷിക്കുന്നതില്‍ പരാജയപ്പെട്ടിരിക്കുന്നു"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "പോസ്റ്റ് സ്ക്രിപ്റ്റ് രേഖകള്‍"
 
@@ -434,22 +434,22 @@ msgid "400%"
 msgstr "400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4167
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4167
 #: ../shell/ev-window-title.c:149 ../shell/main.c:287
 #, c-format
 msgid "Document Viewer"
 msgstr "രേഖാദര്‍ശിനി"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 #, fuzzy
 msgid "View multi-page documents"
 msgstr "അനവധി പേജുകളുളള രേഖ കാണുക"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "രേഖയിലുള്ള പരിമിതികളെ മാറ്റി എഴുതുക"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "രേഖയിലുള്ള പരിമിതികളെ മാറ്റി എഴുതുക, പകര്‍ത്തുവാനോ പ്രിന്റ് ചെയ്യുവാനോ ഉള്ള പരിമിതി പോലെ."
@@ -857,7 +857,7 @@ msgstr ""
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
 
@@ -1111,7 +1111,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:4194
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
@@ -1123,7 +1123,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:4198
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -1136,20 +1136,20 @@ msgstr ""
 #, fuzzy
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
-"Evince-നോടൊപ്പം നിങ്ങള്‍ക്ക് GNU General Public License-ന്റെ ഒരു പകര്‍പ്പും "
+"Atril-നോടൊപ്പം നിങ്ങള്‍ക്ക് GNU General Public License-ന്റെ ഒരു പകര്‍പ്പും "
 "ലഭിച്ചിട്ടുണ്ടാവണം; ഇല്ലായെങ്കില്‍, ദയവായി താഴെ പറയുന്ന മേല്‍വിലാസത്തിലേക്ക് എഴുതുക: Free "
 "Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-"
 "1307  USA\n"
 
 #: ../shell/ev-window.c:4227
-msgid "Evince"
+msgid "Atril"
 msgstr "എവിന്‍സ്"
 
 #: ../shell/ev-window.c:4230
-msgid "© 1996–2009 The Evince authors"
+msgid "© 1996–2009 The Atril authors"
 msgstr "© 1996–2009 എവിന്‍സ് രചയിതാക്കള്‍"
 
 #: ../shell/ev-window.c:4236
@@ -1511,16 +1511,16 @@ msgid "NUMBER"
 msgstr ""
 
 #: ../shell/main.c:82
-msgid "Run evince in fullscreen mode"
-msgstr "സ്ക്രീനിന്റെ പരമാവധി വലിപ്പത്തിലുളള രീതിയില്‍ evince പ്രവര്‍ത്തിപ്പിക്കുക"
+msgid "Run atril in fullscreen mode"
+msgstr "സ്ക്രീനിന്റെ പരമാവധി വലിപ്പത്തിലുളള രീതിയില്‍ atril പ്രവര്‍ത്തിപ്പിക്കുക"
 
 #: ../shell/main.c:83
-msgid "Run evince in presentation mode"
-msgstr "അവതരണ രീതിയില്‍ evince പ്രവര്‍ത്തിപ്പിക്കുക"
+msgid "Run atril in presentation mode"
+msgstr "അവതരണ രീതിയില്‍ atril പ്രവര്‍ത്തിപ്പിക്കുക"
 
 #: ../shell/main.c:84
-msgid "Run evince as a previewer"
-msgstr "പ്രീവ്യൂവര്‍ രീതിയില്‍ evince പ്രവര്‍ത്തിപ്പിക്കുക"
+msgid "Run atril as a previewer"
+msgstr "പ്രീവ്യൂവര്‍ രീതിയില്‍ atril പ്രവര്‍ത്തിപ്പിക്കുക"
 
 #: ../shell/main.c:85
 msgid "The word or phrase to find in the document"
@@ -1535,7 +1535,7 @@ msgstr "STRING"
 msgid "[FILE…]"
 msgstr "[FILE...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 #, fuzzy
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
@@ -1544,15 +1544,15 @@ msgstr ""
 "ബൂളിയന്‍ ഉപാധികള്‍ ലഭ്യമാണ്, ട്രൂ എന്നാല്‍ തംബ്നെയിലിങ് സജ്ജമാക്കുന്നു, ഫാള്‍സ് എന്നാല്‍ പുതിയ "
 "തംബ്നെയില്‍ ഉണ്ടാക്കുന്നത് നിര്‍ജ്ജീവമാക്കുന്നു"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "പിഡിഎഫ് രേഖകള്‍ക്കുള്ള തംബ്നെയിലിങ് സജ്ജമാക്കുക"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "പിഡിഎഫ് രേഖകള്‍ക്കുള്ള തംബ്നെയില്‍ കമാന്‍ഡ്"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 #, fuzzy
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
@@ -1595,7 +1595,7 @@ msgstr ""
 #~ msgstr "മുമ്പുള്ള രേഖകള്‍ വീണ്ടെടുക്കണമോ?"
 
 #~ msgid ""
-#~ "Evince appears to have exited unexpectedly the last time it was run. You "
+#~ "Atril appears to have exited unexpectedly the last time it was run. You "
 #~ "can recover the opened documents."
 #~ msgstr ""
 #~ "അവസാനമായി പ്രവര്‍ത്തിക്കുമ്പോള്‍ എവിന്‍സ് അപ്രതീക്ഷിതമായ പുറത്തു് കടന്നിരിക്കുന്നു. അപ്പോള്‍ "

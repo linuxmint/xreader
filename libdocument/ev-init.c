@@ -1,13 +1,13 @@
-/* this file is part of evince, a mate document viewer
+/* this file is part of atril, a mate document viewer
  *
  * Copyright © 2009 Christian Persch
  *
- * Evince is free software; you can redistribute it and/or modify it
+ * Atril is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation; either version 2.1 of the License, or
  * (at your option) any later version.
  *
- * Evince is distributed in the hope that it will be useful, but
+ * Atril is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser
  * General Public License for more details.
@@ -92,10 +92,10 @@ ev_get_locale_dir (void)
 /**
  * ev_init:
  *
- * Initializes the evince document library, and binds the evince
+ * Initializes the atril document library, and binds the atril
  * gettext domain.
  *
- * You must call this before calling any other function in the evince
+ * You must call this before calling any other function in the atril
  * document library.
  *
  * Returns: %TRUE if any backends were found; %FALSE otherwise
@@ -122,7 +122,7 @@ ev_init (void)
 /**
  * ev_shutdown:
  *
- * Shuts the evince document library down.
+ * Shuts the atril document library down.
  */
 void
 ev_shutdown (void)
@@ -145,7 +145,7 @@ ev_shutdown (void)
 /*
  * _ev_is_initialized:
  *
- * Returns: %TRUE if the evince document library has been initialized
+ * Returns: %TRUE if the atril document library has been initialized
  */
 gboolean
 _ev_is_initialized (void)

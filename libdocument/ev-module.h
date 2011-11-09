@@ -1,6 +1,6 @@
 /*
  * ev-module.h
- * This file is part of Evince
+ * This file is part of Atril
  *
  * Copyright (C) 2005 - Paolo Maggi 
  *
@@ -36,9 +36,9 @@
  * $Id: gedit-module.h 5263 2006-10-08 14:26:02Z pborelli $
  */
 
-/* Modified by Evince Team */
+/* Modified by Atril Team */
  
-#if !defined (EVINCE_COMPILATION)
+#if !defined (ATRIL_COMPILATION)
 #error "This is a private header."
 #endif
 

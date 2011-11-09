@@ -1,4 +1,4 @@
-# Finnish translation of Evince manual.
+# Finnish translation of Atril manual.
 #
 # Copyright © Tommi Vainikainen, 2006.
 # Copyright © Flammie Pirinen, 2006. (merged from gucharmap translation)
@@ -6,7 +6,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evince 0.5.2\n"
+"Project-Id-Version: atril 0.5.2\n"
 "POT-Creation-Date: 2008-04-06 03:16+0100\n"
 "PO-Revision-Date: 2008-07-07 17:41+0300\n"
 "Last-Translator: Tommi Vainikainen <Tommi.Vainikainen@iki.fi>\n"
@@ -119,232 +119,232 @@ msgstr ""
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/evince.xml:146(None)
+#: C/atril.xml:146(None)
 msgid ""
-"@@image: 'figures/evince_start_window.png'; "
+"@@image: 'figures/atril_start_window.png'; "
 "md5=7f4da5e33bcac35738a268d93d497d47"
 msgstr ""
-"@@image: 'figures/evince_start_window.png'; "
+"@@image: 'figures/atril_start_window.png'; "
 "md5=7f4da5e33bcac35738a268d93d497d47"
 
-#: C/evince.xml:25(title)
-msgid "Evince Document Viewer Manual"
-msgstr "Evince-asiakirjakatselimen käyttöohje"
+#: C/atril.xml:25(title)
+msgid "Atril Document Viewer Manual"
+msgstr "Atril-asiakirjakatselimen käyttöohje"
 
-#: C/evince.xml:27(para)
+#: C/atril.xml:27(para)
 msgid ""
-"The Evince Document Viewer application enables you to view documents of "
+"The Atril Document Viewer application enables you to view documents of "
 "various formats like Portable Document Format (PDF) files and PostScript "
 "files"
 msgstr ""
-"Evince-asiakirjakatselimella voi katsella mm. PDF- ja PostScript-muotoisia "
+"Atril-asiakirjakatselimella voi katsella mm. PDF- ja PostScript-muotoisia "
 "asiakirjoja"
 
-#: C/evince.xml:33(year)
+#: C/atril.xml:33(year)
 msgid "2005"
 msgstr "2005"
 
-#: C/evince.xml:34(holder) C/evince.xml:91(para)
+#: C/atril.xml:34(holder) C/atril.xml:91(para)
 msgid "Nickolay V. Shmyrev"
 msgstr "Nickolay V. Shmyrev"
 
-#: C/evince.xml:37(year)
+#: C/atril.xml:37(year)
 msgid "2004"
 msgstr "2004"
 
-#: C/evince.xml:38(holder) C/evince.xml:61(orgname)
+#: C/atril.xml:38(holder) C/atril.xml:61(orgname)
 msgid "Sun Microsystems"
 msgstr "Sun Microsystems"
 
-#: C/evince.xml:49(publishername) C/evince.xml:67(orgname)
-#: C/evince.xml:92(para)
+#: C/atril.xml:49(publishername) C/atril.xml:67(orgname)
+#: C/atril.xml:92(para)
 msgid "MATE Documentation Project"
 msgstr "Maten dokumentointiprojekti"
 
-#: C/evince.xml:59(firstname)
+#: C/atril.xml:59(firstname)
 msgid "Sun"
 msgstr "Sun"
 
-#: C/evince.xml:60(surname)
+#: C/atril.xml:60(surname)
 msgid "MATE Documentation Team"
 msgstr "Maten dokumentointiryhmä"
 
-#: C/evince.xml:64(firstname)
+#: C/atril.xml:64(firstname)
 msgid "Nickolay V."
 msgstr "Nickolay V."
 
-#: C/evince.xml:65(surname)
+#: C/atril.xml:65(surname)
 msgid "Shmyrev"
 msgstr "Shmyrev"
 
-#: C/evince.xml:68(email)
+#: C/atril.xml:68(email)
 msgid "nshmyrev@yandex.ru"
 msgstr "nshmyrev@yandex.ru"
 
-#: C/evince.xml:88(revnumber)
-msgid "Evince Document Viewer Manual V1.0"
-msgstr "Evince-asiakirjakatselimen käyttöohje v1.0"
+#: C/atril.xml:88(revnumber)
+msgid "Atril Document Viewer Manual V1.0"
+msgstr "Atril-asiakirjakatselimen käyttöohje v1.0"
 
-#: C/evince.xml:89(date)
+#: C/atril.xml:89(date)
 msgid "2005-04-06"
 msgstr "2005-04-06"
 
-#: C/evince.xml:97(releaseinfo)
-msgid "This manual describes version 0.2 of Evince Document Viewer"
-msgstr "Tämä käyttöohje kuvaa Evince-asiakirjakatselimen version 0.2"
+#: C/atril.xml:97(releaseinfo)
+msgid "This manual describes version 0.2 of Atril Document Viewer"
+msgstr "Tämä käyttöohje kuvaa Atril-asiakirjakatselimen version 0.2"
 
-#: C/evince.xml:100(title)
+#: C/atril.xml:100(title)
 msgid "Feedback"
 msgstr "Palaute"
 
-#: C/evince.xml:101(para)
+#: C/atril.xml:101(para)
 msgid ""
-"To report a bug or make a suggestion regarding the Evince Document Viewer "
+"To report a bug or make a suggestion regarding the Atril Document Viewer "
 "application or this manual, follow the directions in the <ulink url=\"ghelp:"
 "mate-feedback\" type=\"help\">MATE Feedback Page</ulink>."
 msgstr ""
-"Ilmoittaaksesi viasta tai tehdäksesi ehdotuksen Evince-asiakirjakatselimeen "
+"Ilmoittaaksesi viasta tai tehdäksesi ehdotuksen Atril-asiakirjakatselimeen "
 "taikka tähän käyttöohjeeseen liittyen, seuraa ohjeita <ulink url=\"ghelp:"
 "mate-feedback\" type=\"help\">Maten palautesivulla</ulink>."
 
-#: C/evince.xml:111(primary)
-msgid "evince"
-msgstr "evince"
+#: C/atril.xml:111(primary)
+msgid "atril"
+msgstr "atril"
 
-#: C/evince.xml:119(title)
+#: C/atril.xml:119(title)
 msgid "Introduction"
 msgstr "Johdanto"
 
-#: C/evince.xml:120(para)
+#: C/atril.xml:120(para)
 msgid ""
-"The <application>Evince Document Viewer</application> application enables "
+"The <application>Atril Document Viewer</application> application enables "
 "you to view documents of various formats like Portable Document Format (PDF) "
-"files and PostScript files. <application>Evince Document Viewer</"
+"files and PostScript files. <application>Atril Document Viewer</"
 "application> follows Freedesktop.org and MATE standards to provide "
 "integration with Desktop Environment."
 msgstr ""
-"<application>Evince-asiakirjakatselimella</application> voit katsoa "
+"<application>Atril-asiakirjakatselimella</application> voit katsoa "
 "asiakirjoja eri tiedostomuodoissa kuten Portable Document Format (PDF) ja "
-"PostScript. <application>Evince-asiakirjakatselin</application> noudattaa "
+"PostScript. <application>Atril-asiakirjakatselin</application> noudattaa "
 "Freedesktop.org- ja Mate-standardeja ja sulautuu sen ansiosta luontevasti "
 "työpöytäympäristöön."
 
-#: C/evince.xml:127(title)
+#: C/atril.xml:127(title)
 msgid "Getting Started"
 msgstr "Aloittaminen"
 
-#: C/evince.xml:130(title)
-msgid "To Start Evince Document Viewer"
-msgstr "Evince-asiakirjakatselimen käynnistäminen"
+#: C/atril.xml:130(title)
+msgid "To Start Atril Document Viewer"
+msgstr "Atril-asiakirjakatselimen käynnistäminen"
 
-#: C/evince.xml:131(para)
+#: C/atril.xml:131(para)
 msgid ""
-"<application>Evince Document Viewer</application> starts when you open a "
+"<application>Atril Document Viewer</application> starts when you open a "
 "document such as a PDF or PostScript file."
 msgstr ""
-"<application>Evince-asiakirjakatselin</application> käynnistyy kun avaat "
+"<application>Atril-asiakirjakatselin</application> käynnistyy kun avaat "
 "asiakirjan kuten PDF- tai PostScript-tiedoston."
 
-#: C/evince.xml:132(para)
+#: C/atril.xml:132(para)
 msgid ""
-"Alternatively, you can start <application>Evince Document Viewer</"
-"application> from the command line, with the command: <command>evince</"
+"Alternatively, you can start <application>Atril Document Viewer</"
+"application> from the command line, with the command: <command>atril</"
 "command>."
 msgstr ""
-"Vaihtoehtoisesti voit käynnistää <application>Evince-asiakirjakatselimen</"
-"application> komentoriviltä komennolla: <command>evince</command>."
+"Vaihtoehtoisesti voit käynnistää <application>Atril-asiakirjakatselimen</"
+"application> komentoriviltä komennolla: <command>atril</command>."
 
-#: C/evince.xml:137(title)
-msgid "When You Start Evince Document Viewer"
-msgstr "Kun käynnistät Evince-asiakirjakatselimen"
+#: C/atril.xml:137(title)
+msgid "When You Start Atril Document Viewer"
+msgstr "Kun käynnistät Atril-asiakirjakatselimen"
 
-#: C/evince.xml:138(para)
+#: C/atril.xml:138(para)
 msgid ""
-"When you start <application>Evince Document Viewer</application>, the "
+"When you start <application>Atril Document Viewer</application>, the "
 "following window is displayed."
 msgstr ""
-"Kun käynnistät <application>Evince-asiakirjakatselimen</application>, "
+"Kun käynnistät <application>Atril-asiakirjakatselimen</application>, "
 "seuraava ikkuna ilmaantuu näkyviin."
 
-#: C/evince.xml:142(title)
-msgid "Evince Document Viewer Window"
-msgstr "Evince-asiakirjakatselimen ikkuna"
+#: C/atril.xml:142(title)
+msgid "Atril Document Viewer Window"
+msgstr "Atril-asiakirjakatselimen ikkuna"
 
-#: C/evince.xml:149(phrase)
+#: C/atril.xml:149(phrase)
 msgid ""
-"Shows Evince Document Viewer main window. Contains titlebar, menubar, "
+"Shows Atril Document Viewer main window. Contains titlebar, menubar, "
 "toolbar and display area. Menubar contains File, Edit, View, Go and Help "
 "menus."
 msgstr ""
-"Näkymä Evince-asiakirjakatselimen pääikkunasta. Ikkuna sisältää "
+"Näkymä Atril-asiakirjakatselimen pääikkunasta. Ikkuna sisältää "
 "otsikkopalkin, valikkopalkin, työkalupalkin sekä näyttöalueen. Valikkopalkki "
 "sisältää Tiedosto-, Muokkaa-, Näkymä-, Mene- ja Ohje-valikot."
 
-#: C/evince.xml:155(para)
+#: C/atril.xml:155(para)
 msgid ""
-"The <application>Evince Document Viewer</application> window contains the "
+"The <application>Atril Document Viewer</application> window contains the "
 "following elements:"
 msgstr ""
-"<application>Evince-asiakirjakatselimen</application> ikkuna sisältää "
+"<application>Atril-asiakirjakatselimen</application> ikkuna sisältää "
 "seuraavat osat:"
 
-#: C/evince.xml:159(term) C/evince.xml:207(para)
+#: C/atril.xml:159(term) C/atril.xml:207(para)
 msgid "Menubar"
 msgstr "Valikkopalkki"
 
-#: C/evince.xml:161(para)
+#: C/atril.xml:161(para)
 msgid ""
 "The menus on the menubar contain all of the commands that you need to work "
-"with documents in <application>Evince Document Viewer</application>."
+"with documents in <application>Atril Document Viewer</application>."
 msgstr ""
 "Valikkopalkin valikot sisältävät kaikki komennot, joita tarvitset "
-"asiakirjojen kanssa työskennellessä <application>Evince-"
+"asiakirjojen kanssa työskennellessä <application>Atril-"
 "asiakirjakatselimella</application>."
 
-#: C/evince.xml:165(term)
+#: C/atril.xml:165(term)
 msgid "Toolbar"
 msgstr "Työkalupalkki"
 
-#: C/evince.xml:167(para)
+#: C/atril.xml:167(para)
 msgid ""
 "The toolbar contains a subset of the commands that you can access from the "
 "menubar."
 msgstr ""
 "Työkalupalkki sisältää tärkeimmät valikkopalkista löytyvistä komennoista."
 
-#: C/evince.xml:171(term)
+#: C/atril.xml:171(term)
 msgid "Display area"
 msgstr "Näyttöalue"
 
-#: C/evince.xml:173(para)
+#: C/atril.xml:173(para)
 msgid "The display area displays the document."
 msgstr "Asiakirja on näkyvissä näyttöalueella."
 
-#: C/evince.xml:187(para)
+#: C/atril.xml:187(para)
 msgid "UI Component"
 msgstr "Käyttöliittymäkomponentti"
 
-#: C/evince.xml:189(para)
+#: C/atril.xml:189(para)
 msgid "Action"
 msgstr "Toiminto"
 
-#: C/evince.xml:194(para)
+#: C/atril.xml:194(para)
 msgid "Window"
 msgstr "Ikkuna"
 
-#: C/evince.xml:198(para)
+#: C/atril.xml:198(para)
 msgid ""
-"Drag a file into the <application>Evince Document Viewer</application> "
+"Drag a file into the <application>Atril Document Viewer</application> "
 "window from another application such as a file manager."
 msgstr ""
-"Vedä tiedosto <application>Evince-asiakirjakatselimen</application> ikkunaan "
+"Vedä tiedosto <application>Atril-asiakirjakatselimen</application> ikkunaan "
 "toisesta sovelluksesta kuten tiedostonhallinnasta."
 
-#: C/evince.xml:201(para)
+#: C/atril.xml:201(para)
 msgid "Double-click on the file name in the file manager"
 msgstr "Kaksoisnapsauta tiedostonimeä tiedostonhallinnassa"
 
-#: C/evince.xml:208(para) C/evince.xml:235(para)
+#: C/atril.xml:208(para) C/atril.xml:235(para)
 msgid ""
 "Choose <menuchoice><guimenu>File</guimenu><guimenuitem>Open</guimenuitem></"
 "menuchoice>."
@@ -352,47 +352,47 @@ msgstr ""
 "Valitse <menuchoice><guimenu>Tiedosto</guimenu><guimenuitem>Avaa</"
 "guimenuitem></menuchoice>."
 
-#: C/evince.xml:212(para)
+#: C/atril.xml:212(para)
 msgid "Shortcut keys"
 msgstr "Pikanäppäimet"
 
-#: C/evince.xml:213(para)
+#: C/atril.xml:213(para)
 msgid "Press <keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo>."
 msgstr "Paina <keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo>."
 
-#: C/evince.xml:178(para)
+#: C/atril.xml:178(para)
 msgid ""
-"In <application>Evince Document Viewer</application>, you can perform the "
+"In <application>Atril Document Viewer</application>, you can perform the "
 "same action in several ways. For example, you can open a document in the "
 "following ways: <informaltable frame=\"all\"><tgroup cols=\"2\" colsep=\"1\" "
 "rowsep=\"1\"><colspec colname=\"COLSPEC0\" colwidth=\"50*\"/><colspec "
 "colname=\"COLSPEC1\" colwidth=\"50*\"/><placeholder-1/><placeholder-2/></"
 "tgroup></informaltable>"
 msgstr ""
-"<application>Evince-asiakirjakatselimessa</application> voit suorittaa "
+"<application>Atril-asiakirjakatselimessa</application> voit suorittaa "
 "samoja toimintoja useilla tavoilla. Esimerkiksi voit avata asiakirjan "
 "seuraavilla tavoin: <informaltable frame=\"all\"><tgroup cols=\"2\" colsep="
 "\"1\" rowsep=\"1\"><colspec colname=\"COLSPEC0\" colwidth=\"50*\"/><colspec "
 "colname=\"COLSPEC1\" colwidth=\"50*\"/><placeholder-1/><placeholder-2/></"
 "tgroup></informaltable>"
 
-#: C/evince.xml:219(para)
+#: C/atril.xml:219(para)
 msgid "This manual documents functionality from the menubar."
 msgstr "Tämä käyttöohje opastaa toiminnallisuuden valikkopalkista käsin."
 
-#: C/evince.xml:227(title)
+#: C/atril.xml:227(title)
 msgid "Usage"
 msgstr "Käyttö"
 
-#: C/evince.xml:231(title)
+#: C/atril.xml:231(title)
 msgid "To Open A Document"
 msgstr "Asiakirjan avaaminen"
 
-#: C/evince.xml:232(para)
+#: C/atril.xml:232(para)
 msgid "To open a document, perform the following steps:"
 msgstr "Tiedosto avataan seuraavasti:"
 
-#: C/evince.xml:239(para)
+#: C/atril.xml:239(para)
 msgid ""
 "In the <guilabel>Open Document</guilabel> dialog, select the file you want "
 "to open."
@@ -400,44 +400,44 @@ msgstr ""
 "Valitse avattava tiedosto <guilabel>Avaa tiedosto</guilabel> -"
 "valintaikkunassa."
 
-#: C/evince.xml:244(para)
+#: C/atril.xml:244(para)
 msgid ""
-"Click <guibutton>Open</guibutton>. <application>Evince Document Viewer</"
+"Click <guibutton>Open</guibutton>. <application>Atril Document Viewer</"
 "application> displays the name of the document in the titlebar of the window."
 msgstr ""
-"Napsauta <guibutton>Avaa</guibutton>. <application>Evince-asiakirjakatselin</"
+"Napsauta <guibutton>Avaa</guibutton>. <application>Atril-asiakirjakatselin</"
 "application> näyttää asiakirjan nimen ikkunan otsikkopalkissa."
 
-#: C/evince.xml:249(para)
+#: C/atril.xml:249(para)
 msgid ""
 "To open another document, choose <menuchoice><guimenu>File</"
 "guimenu><guimenuitem>Open</guimenuitem></menuchoice> again. "
-"<application>Evince Document Viewer</application> opens each file in a new "
+"<application>Atril Document Viewer</application> opens each file in a new "
 "window."
 msgstr ""
 "Avataksesi toisen asiakirjan valitse jälleen <menuchoice><guimenu>Tiedosto</"
-"guimenu><guimenuitem>Avaa</guimenuitem></menuchoice>. <application>Evince-"
+"guimenu><guimenuitem>Avaa</guimenuitem></menuchoice>. <application>Atril-"
 "asiakirjakatselin</application> avaa jokaisen tiedoston uuteen ikkunaan."
 
-#: C/evince.xml:252(para)
+#: C/atril.xml:252(para)
 msgid ""
-"If you try to open a document with format that <application>Evince Document "
+"If you try to open a document with format that <application>Atril Document "
 "Viewer</application> does not recognize, the application displays an error "
 "message."
 msgstr ""
-"Mikäli yrität avata <application>Evince-asiakirjakatselimella</application> "
+"Mikäli yrität avata <application>Atril-asiakirjakatselimella</application> "
 "asiakirjan, jonka tiedostomuotoa ei tunnisteta, sovellus näyttää "
 "virheilmoituksen."
 
-#: C/evince.xml:258(title)
+#: C/atril.xml:258(title)
 msgid "To Navigate Through a Document"
 msgstr "Asiakirjan selaus"
 
-#: C/evince.xml:259(para)
+#: C/atril.xml:259(para)
 msgid "You can navigate through a file as follows:"
 msgstr "Voit selata tiedoston läpi seuraavin tavoin:"
 
-#: C/evince.xml:262(para)
+#: C/atril.xml:262(para)
 msgid ""
 "To view the next page, choose <menuchoice><guimenu>Go</"
 "guimenu><guimenuitem>Next Page</guimenuitem></menuchoice>."
@@ -445,7 +445,7 @@ msgstr ""
 "Katsoaksesi seuraavaa sivua, valitse <menuchoice><guimenu>Siirry</"
 "guimenu><guimenuitem>Seuraava sivu</guimenuitem></menuchoice>."
 
-#: C/evince.xml:266(para)
+#: C/atril.xml:266(para)
 msgid ""
 "To view the previous page, choose <menuchoice><guimenu>Go</"
 "guimenu><guimenuitem>Previous Page</guimenuitem></menuchoice>."
@@ -453,7 +453,7 @@ msgstr ""
 "Katsoaksesi edellistä sivua, valitse <menuchoice><guimenu>Siirry</"
 "guimenu><guimenuitem>Edellinen sivu</guimenuitem></menuchoice>."
 
-#: C/evince.xml:270(para)
+#: C/atril.xml:270(para)
 msgid ""
 "To view the first page in the document, choose <menuchoice><guimenu>Go</"
 "guimenu><guimenuitem>First Page</guimenuitem></menuchoice>."
@@ -462,7 +462,7 @@ msgstr ""
 "<menuchoice><guimenu>Siirry</guimenu><guimenuitem>Ensimmäinen sivu</"
 "guimenuitem></menuchoice>."
 
-#: C/evince.xml:274(para)
+#: C/atril.xml:274(para)
 msgid ""
 "To view the last page in the document, choose <menuchoice><guimenu>Go</"
 "guimenu><guimenuitem>Last Page</guimenuitem></menuchoice>."
@@ -470,7 +470,7 @@ msgstr ""
 "Katsoaksesi asiakirjan viimeistä sivua, valitse <menuchoice><guimenu>Siirry</"
 "guimenu><guimenuitem>Viimeinen sivu</guimenuitem></menuchoice>."
 
-#: C/evince.xml:278(para)
+#: C/atril.xml:278(para)
 msgid ""
 "To view a particular page, enter the page number or page label in the text "
 "box on the toolbar, then press <keycap>Return</keycap>."
@@ -478,11 +478,11 @@ msgstr ""
 "Katsoaksesi tiettyä sivua, syötä sivunumero taikka sivun nimi tekstikenttään "
 "työkalupalkissa ja paina <keycap>Return</keycap>."
 
-#: C/evince.xml:285(title)
+#: C/atril.xml:285(title)
 msgid "To Scroll a Page"
 msgstr "Sivun selaus"
 
-#: C/evince.xml:286(para)
+#: C/atril.xml:286(para)
 msgid ""
 "To display the page contents that are not currently displayed in the display "
 "area, use the following methods:"
@@ -490,11 +490,11 @@ msgstr ""
 "Näyttääksesi sivun sisällöstä sen osan, joka ei juuri nyt näy "
 "näyttöalueessa, käytä seuraavia menetelmiä:"
 
-#: C/evince.xml:289(para)
+#: C/atril.xml:289(para)
 msgid "Use the arrow keys or space key on the keyboard."
 msgstr "Käytä nuolinäppäimiä tai välilyöntiä näppäimistöltä."
 
-#: C/evince.xml:292(para)
+#: C/atril.xml:292(para)
 msgid ""
 "Drag the display area by clicking with the middle mouse button somewhere in "
 "the document and then moving the mouse. For example, to scroll down the "
@@ -504,23 +504,23 @@ msgstr ""
 "siirtämällä hiirtä vastakkaiseen suuntaan selattavan suunnan kanssa. "
 "Esimerkiksi selataksesi alaspäin vedä näyttöaluetta ylöspäin ikkunassa."
 
-#: C/evince.xml:295(para)
+#: C/atril.xml:295(para)
 msgid "Use the scrollbars on the window."
 msgstr "Käytä ikkunan vierityspalkkeja."
 
-#: C/evince.xml:302(title)
+#: C/atril.xml:302(title)
 msgid "To Change the Page Size"
 msgstr "Sivukoon muuttaminen"
 
-#: C/evince.xml:303(para)
+#: C/atril.xml:303(para)
 msgid ""
 "You can use the following methods to resize a page in the "
-"<application>Evince Document Viewer</application> display area:"
+"<application>Atril Document Viewer</application> display area:"
 msgstr ""
-"Voit käyttää seuraavia tapoja sivukoon muuttamiseksi <application>Evince-"
+"Voit käyttää seuraavia tapoja sivukoon muuttamiseksi <application>Atril-"
 "asiakirjakatselimen</application> näyttöalueessa:"
 
-#: C/evince.xml:308(para)
+#: C/atril.xml:308(para)
 msgid ""
 "To increase the page size, choose <menuchoice><guimenu>View</"
 "guimenu><guimenuitem>Zoom In</guimenuitem></menuchoice>."
@@ -528,7 +528,7 @@ msgstr ""
 "Sivukokoa kasvatetaan valitsemalla <menuchoice><guimenu>Näkymä</"
 "guimenu><guimenuitem>Lähennä</guimenuitem></menuchoice>."
 
-#: C/evince.xml:313(para)
+#: C/atril.xml:313(para)
 msgid ""
 "To decrease the page size, choose <menuchoice><guimenu>View</"
 "guimenu><guimenuitem>Zoom Out</guimenuitem></menuchoice>."
@@ -536,51 +536,51 @@ msgstr ""
 "Sivukokoa pienennetään valitsemalla <menuchoice><guimenu>Näkymä</"
 "guimenu><guimenuitem>Loitonna</guimenuitem></menuchoice>."
 
-#: C/evince.xml:318(para)
+#: C/atril.xml:318(para)
 msgid ""
-"To resize a page to have the same width as the <application>Evince Document "
+"To resize a page to have the same width as the <application>Atril Document "
 "Viewer</application> display area, choose <menuchoice><guimenu>View</"
 "guimenu><guimenuitem>Fit page width</guimenuitem></menuchoice>."
 msgstr ""
-"Sivun leveys muutetaan samaksi kuin <application>Evince-asiakirjakatselimen</"
+"Sivun leveys muutetaan samaksi kuin <application>Atril-asiakirjakatselimen</"
 "application> näyttöalue valitsemalla <menuchoice><guimenu>Näkymä</"
 "guimenu><guimenuitem>Sovita sivun leveys</guimenuitem></menuchoice>."
 
-#: C/evince.xml:323(para)
+#: C/atril.xml:323(para)
 msgid ""
-"To resize a page to fit within the <application>Evince Document Viewer</"
+"To resize a page to fit within the <application>Atril Document Viewer</"
 "application> display area, choose <menuchoice><guimenu>View</"
 "guimenu><guimenuitem>Best Fit</guimenuitem></menuchoice>."
 msgstr ""
-"Sivun koko sovitetaan <application>Evince-asiakirjakatselimen</application> "
+"Sivun koko sovitetaan <application>Atril-asiakirjakatselimen</application> "
 "näyttöalueeseen valitsemalla <menuchoice><guimenu>Näkymä</"
 "guimenu><guimenuitem>Paras sovitus</guimenuitem></menuchoice>."
 
-#: C/evince.xml:328(para)
+#: C/atril.xml:328(para)
 msgid ""
-"To resize the <application>Evince Document Viewer</application> window to "
+"To resize the <application>Atril Document Viewer</application> window to "
 "have the same width and height as the screen, choose "
 "<menuchoice><guimenu>View</guimenu><guimenuitem>Full Screen</guimenuitem></"
-"menuchoice>. To resize the <application>Evince Document Viewer</application> "
+"menuchoice>. To resize the <application>Atril Document Viewer</application> "
 "window to the original size, click on the <guibutton>Exit Full Screen</"
 "guibutton> button."
 msgstr ""
-"Suurentaaksesi <application>Evince-asiakirjakatselimen</application> ikkunan "
+"Suurentaaksesi <application>Atril-asiakirjakatselimen</application> ikkunan "
 "kokoa ruudun leveyteen ja korkeuteen valitse <menuchoice><guimenu>Näkymä</"
 "guimenu><guimenuitem>Kokoruutu</guimenuitem></menuchoice>. Palauttaaksesi "
-"<application>Evince-asiakirjakatselimen</application> ikkunan alkuperäiseen "
+"<application>Atril-asiakirjakatselimen</application> ikkunan alkuperäiseen "
 "kokoon, napsauta <guibutton>Lopeta kokoruutu</guibutton> -painiketta."
 
-#: C/evince.xml:336(title)
+#: C/atril.xml:336(title)
 msgid "To View Pages or Document Structure"
 msgstr "Sivujen ja asiakirjarakenteen katselu"
 
-#: C/evince.xml:337(para)
+#: C/atril.xml:337(para)
 msgid "To view bookmarks or pages, perform the following steps:"
 msgstr ""
 "Katsellaksesi kirjanmerkkejä tai tiettyjä sivuja, tee seuraavat toimenpiteet:"
 
-#: C/evince.xml:341(para)
+#: C/atril.xml:341(para)
 msgid ""
 "Choose <menuchoice><guimenu>View</guimenu><guimenuitem>Sidebar</"
 "guimenuitem></menuchoice> or press <keycap>F9</keycap>."
@@ -588,7 +588,7 @@ msgstr ""
 "Valitse <menuchoice><guimenu>Näkymä</guimenu><guimenuitem>Sivupaneeli</"
 "guimenuitem></menuchoice> tai paina <keycap>F9</keycap>."
 
-#: C/evince.xml:346(para)
+#: C/atril.xml:346(para)
 msgid ""
 "Use the drop-down list in the side-pane header to select whether to display "
 "document structure or pages in the side pane."
@@ -596,7 +596,7 @@ msgstr ""
 "Valitse sivupaneeliotsikon alasvetoluettelosta näytetäänkö asiakirjarakenne "
 "vaiko sivut sivupaneelissa."
 
-#: C/evince.xml:351(para)
+#: C/atril.xml:351(para)
 msgid ""
 "Use the side-pane scrollbars to display the required item or page in the "
 "side pane."
@@ -604,7 +604,7 @@ msgstr ""
 "Käytä sivupaneelin vierityspalkkia näyttääksesi tarvittavan kohdan tai sivun "
 "sivupaneelissa."
 
-#: C/evince.xml:356(para)
+#: C/atril.xml:356(para)
 msgid ""
 "Click on an entry to navigate to that location in the document. Click on a "
 "page to navigate to that page in the document."
@@ -612,11 +612,11 @@ msgstr ""
 "Napsauta haluamaasi kohtaa siirtyäksesi siihen. Napsuta sivua siirtyäksesi "
 "kyseiselle sivulle asiakirjassa."
 
-#: C/evince.xml:362(title)
+#: C/atril.xml:362(title)
 msgid "To View the Properties of a Document"
 msgstr "Asiakirjan ominaisuuksien katselu"
 
-#: C/evince.xml:363(para)
+#: C/atril.xml:363(para)
 msgid ""
 "To view the properties of a document, choose <menuchoice><guimenu>File</"
 "guimenu><guimenuitem>Properties</guimenuitem></menuchoice>."
@@ -624,18 +624,18 @@ msgstr ""
 "Näyttääksesi asiakirjan ominaisuudet valitse <menuchoice><guimenu>Tiedosto</"
 "guimenu><guimenuitem>Ominaisuudet</guimenuitem></menuchoice>."
 
-#: C/evince.xml:369(para)
+#: C/atril.xml:369(para)
 msgid ""
 "The <guilabel>Properties</guilabel> dialog displays all information available"
 msgstr ""
 "<guilabel>Ominaisuudet</guilabel>-ikkunassa näkyy kaikki saatavilla oleva "
 "tieto"
 
-#: C/evince.xml:375(title)
+#: C/atril.xml:375(title)
 msgid "To Print a Document"
 msgstr "Asiakirjan tulostaminen"
 
-#: C/evince.xml:376(para)
+#: C/atril.xml:376(para)
 msgid ""
 "To print a Document, choose <menuchoice><guimenu>File</"
 "guimenu><guimenuitem>Print</guimenuitem></menuchoice>."
@@ -643,61 +643,61 @@ msgstr ""
 "Tulostaaksesi asiakirjan valitse <menuchoice><guimenu>Tiedosto</"
 "guimenu><guimenuitem>Tulosta</guimenuitem></menuchoice>."
 
-#: C/evince.xml:380(para)
+#: C/atril.xml:380(para)
 msgid ""
 "If you cannot choose the <guimenuitem>Print</guimenuitem> menu item, the "
 "author of the document has disabled the print option for this document. To "
 "enable the print option, you must enter the master password when you open "
-"the document. See <xref linkend=\"evince-password\"/> for more information "
+"the document. See <xref linkend=\"atril-password\"/> for more information "
 "about password-protected files."
 msgstr ""
 "Mikäli <guimenuitem>Tulosta</guimenuitem> ei ole valittavissa valikosta, "
 "asiakirjan tekijä on estänyt tämän asiakirjan tulostamisen. Asiakirja "
 "voidaan tulostaa, jos sitä avattaessa syötetään pääsalasanan. Katso "
-"kappaleesta <xref linkend=\"evince-password\"/> lisätietoa "
+"kappaleesta <xref linkend=\"atril-password\"/> lisätietoa "
 "salasanasuojatuista tiedostoista."
 
-#: C/evince.xml:384(para)
+#: C/atril.xml:384(para)
 msgid ""
 "The <guilabel>Print</guilabel> dialog has the following tabbed sections:"
 msgstr "<guilabel>Tulosta</guilabel>-valintaikkunassa on seuraavat välilehdet:"
 
-#: C/evince.xml:390(link) C/evince.xml:406(title)
+#: C/atril.xml:390(link) C/atril.xml:406(title)
 msgid "Job"
 msgstr "Työ"
 
-#: C/evince.xml:395(link) C/evince.xml:428(title) C/evince.xml:430(guilabel)
+#: C/atril.xml:395(link) C/atril.xml:428(title) C/atril.xml:430(guilabel)
 msgid "Printer"
 msgstr "Tulostin"
 
-#: C/evince.xml:400(link) C/evince.xml:522(title)
+#: C/atril.xml:400(link) C/atril.xml:522(title)
 msgid "Paper"
 msgstr "Paperi"
 
-#: C/evince.xml:408(guilabel)
+#: C/atril.xml:408(guilabel)
 msgid "Print range"
 msgstr "Tulostusalue"
 
-#: C/evince.xml:410(para)
+#: C/atril.xml:410(para)
 msgid ""
 "Select one of the following options to determine how many pages to print:"
 msgstr ""
 "Valitse yksi seuraavista vaihtoehdoista määrittämään kuinka monta sivua "
 "tulostetaan:"
 
-#: C/evince.xml:413(guilabel)
+#: C/atril.xml:413(guilabel)
 msgid "All"
 msgstr "Kaikki"
 
-#: C/evince.xml:414(para)
+#: C/atril.xml:414(para)
 msgid "Select this option to print all of the pages in the document."
 msgstr "Valitse tämä vaihtoehto kun haluat tulostaa kaikki asiakirjan sivut."
 
-#: C/evince.xml:417(guilabel)
+#: C/atril.xml:417(guilabel)
 msgid "Pages From"
 msgstr "Sivuja mistä"
 
-#: C/evince.xml:418(para)
+#: C/atril.xml:418(para)
 msgid ""
 "Select this option to print the selected range of pages in the document. Use "
 "the spin boxes to specify the first page and last page of the range."
@@ -705,29 +705,29 @@ msgstr ""
 "Valitse tämä vaihtoehto tulostaaksesi valitun alueen asiakirjan sivuista. "
 "Määritä ensimmäinen ja viimeinen tulostettava sivu säätimillä."
 
-#: C/evince.xml:432(para)
+#: C/atril.xml:432(para)
 msgid ""
 "Use this drop-down list to select the printer to which you want to print the "
 "document."
 msgstr "Valitse alasvetoluettelosta käytettävä tulostin."
 
-#: C/evince.xml:434(para)
+#: C/atril.xml:434(para)
 msgid ""
 "The <guilabel>Create a PDF document</guilabel> option is not supported in "
-"this version of <application>Evince Document Viewer</application>."
+"this version of <application>Atril Document Viewer</application>."
 msgstr ""
-"Tämä versio <application>Evince-asiakirjakatselimesta</application> ei tue "
+"Tämä versio <application>Atril-asiakirjakatselimesta</application> ei tue "
 "vaihtoehtoa <guilabel>Luo PDF-asiakirja</guilabel>."
 
-#: C/evince.xml:440(guilabel)
+#: C/atril.xml:440(guilabel)
 msgid "Settings"
 msgstr "Asetukset"
 
-#: C/evince.xml:442(para)
+#: C/atril.xml:442(para)
 msgid "Use this drop-down list to select the printer settings."
 msgstr "Valitse alasvetoluettelosta tulostimen asetukset."
 
-#: C/evince.xml:444(para)
+#: C/atril.xml:444(para)
 msgid ""
 "To configure the printer, click <guibutton>Configure</guibutton>. For "
 "example, you can enable or disable duplex printing, or schedule delayed "
@@ -737,24 +737,24 @@ msgstr ""
 "Voit esimerkiksi ottaa käyttöön tai poistaa käytöstä kaksipuoleisen "
 "tulostuksen taikka ajastaa tulostuksen mikäli tulostin tukee sitä."
 
-#: C/evince.xml:448(guilabel)
+#: C/atril.xml:448(guilabel)
 msgid "Location"
 msgstr "Sijainti"
 
-#: C/evince.xml:450(para)
+#: C/atril.xml:450(para)
 msgid ""
 "Use this drop-down list to select one of the following print destinations:"
 msgstr "Valitse alasvetoluettelosta yksi seuraavista tulostuskohteista:"
 
-#: C/evince.xml:455(guilabel)
+#: C/atril.xml:455(guilabel)
 msgid "CUPS"
 msgstr "CUPS"
 
-#: C/evince.xml:457(para)
+#: C/atril.xml:457(para)
 msgid "Print the document to a CUPS printer."
 msgstr "Tulosta asiakirja CUPS-tulostimella."
 
-#: C/evince.xml:461(para)
+#: C/atril.xml:461(para)
 msgid ""
 "If the selected printer is a CUPS printer, <guilabel>CUPS</guilabel> is the "
 "only entry in this drop-down list."
@@ -762,23 +762,23 @@ msgstr ""
 "Mikäli valittu tulostin on CUPS-tulostin, <guilabel>CUPS</guilabel> on ainoa "
 "vaihtoehto tässä alasvetoluettelossa."
 
-#: C/evince.xml:468(guilabel)
+#: C/atril.xml:468(guilabel)
 msgid "lpr"
 msgstr "lpr"
 
-#: C/evince.xml:470(para)
+#: C/atril.xml:470(para)
 msgid "Print the document to a printer."
 msgstr "Tulosta asiakirja tulostimella."
 
-#: C/evince.xml:476(guilabel)
+#: C/atril.xml:476(guilabel)
 msgid "File"
 msgstr "Tiedosto"
 
-#: C/evince.xml:478(para)
+#: C/atril.xml:478(para)
 msgid "Print the document to a PostScript file."
 msgstr "Tulosta asiakirja PostScript-tiedostoon."
 
-#: C/evince.xml:481(para)
+#: C/atril.xml:481(para)
 msgid ""
 "Click <guibutton>Save As</guibutton> to display a dialog where you specify "
 "the name and location of the PostScript file."
@@ -786,56 +786,56 @@ msgstr ""
 "Napsauta <guibutton>Tallenna nimellä</guibutton> määrittääksesi PostScript-"
 "tiedoston nimen ja sijainnin tiedostonvalintaikkunassa."
 
-#: C/evince.xml:487(guilabel)
+#: C/atril.xml:487(guilabel)
 msgid "Custom"
 msgstr "Mukautettu"
 
-#: C/evince.xml:489(para)
+#: C/atril.xml:489(para)
 msgid "Use the specified command to print the document."
 msgstr "Käytä erillistä komentoa asiakirjan tulostamiseen."
 
-#: C/evince.xml:492(para)
+#: C/atril.xml:492(para)
 msgid ""
 "Type the name of the command in the text box. Include all command-line "
 "arguments."
 msgstr "Syötä komento ja käytettävät argumentit tekstikenttään."
 
-#: C/evince.xml:500(guilabel)
+#: C/atril.xml:500(guilabel)
 msgid "State"
 msgstr "Tila"
 
-#: C/evince.xml:502(para) C/evince.xml:508(para) C/evince.xml:514(para)
+#: C/atril.xml:502(para) C/atril.xml:508(para) C/atril.xml:514(para)
 msgid ""
-"This functionality is not supported in this version of <application>Evince "
+"This functionality is not supported in this version of <application>Atril "
 "Document Viewer</application>."
 msgstr ""
-"Tämä versio <application>Evince-asiakirjakatselimesta</application> ei tue "
+"Tämä versio <application>Atril-asiakirjakatselimesta</application> ei tue "
 "tätä toimintoa."
 
-#: C/evince.xml:506(guilabel)
+#: C/atril.xml:506(guilabel)
 msgid "Type"
 msgstr "Tyyppi"
 
-#: C/evince.xml:512(guilabel)
+#: C/atril.xml:512(guilabel)
 msgid "Comment"
 msgstr "Kommentti"
 
-#: C/evince.xml:524(guilabel)
+#: C/atril.xml:524(guilabel)
 msgid "Paper size"
 msgstr "Paperikoko"
 
-#: C/evince.xml:526(para)
+#: C/atril.xml:526(para)
 msgid ""
 "Use this drop-down list to select the size of the paper to which you want to "
 "print the document."
 msgstr ""
 "Valitse alasvetoluettelosta paperikoko, jolle haluat asiakirjan tulostaa."
 
-#: C/evince.xml:529(guilabel)
+#: C/atril.xml:529(guilabel)
 msgid "Width"
 msgstr "Leveys"
 
-#: C/evince.xml:531(para)
+#: C/atril.xml:531(para)
 msgid ""
 "Use this spin box to specify the width of the paper. Use the adjacent drop-"
 "down list to change the measurement unit."
@@ -843,37 +843,37 @@ msgstr ""
 "Määritä paperin leveys tällä säätimellä. Valitse viereistä "
 "alasvetoluettelosta mittayksikkö."
 
-#: C/evince.xml:534(guilabel)
+#: C/atril.xml:534(guilabel)
 msgid "Height"
 msgstr "Korkeus"
 
-#: C/evince.xml:536(para)
+#: C/atril.xml:536(para)
 msgid "Use this spin box to specify the height of the paper."
 msgstr "Määritä paperin korkeus tällä säätimellä."
 
-#: C/evince.xml:539(guilabel)
+#: C/atril.xml:539(guilabel)
 msgid "Feed orientation"
 msgstr "Syöttösuunta"
 
-#: C/evince.xml:541(para)
+#: C/atril.xml:541(para)
 msgid ""
 "Use this drop-down list to select the orientation of the paper in the "
 "printer."
 msgstr "Valitse alasvetoluettelosta paperin syöttösuunta tulostimessa."
 
-#: C/evince.xml:544(guilabel)
+#: C/atril.xml:544(guilabel)
 msgid "Page orientation"
 msgstr "Sivun suunta"
 
-#: C/evince.xml:546(para)
+#: C/atril.xml:546(para)
 msgid "Use this drop-down list to select the page orientation."
 msgstr "Valitse alasvetoluettelosta sivun suunta."
 
-#: C/evince.xml:549(guilabel)
+#: C/atril.xml:549(guilabel)
 msgid "Layout"
 msgstr "Asemointi"
 
-#: C/evince.xml:551(para)
+#: C/atril.xml:551(para)
 msgid ""
 "Use this drop-down list to select the page layout. A preview of each layout "
 "that you select is displayed in the <guilabel>Preview</guilabel> area."
@@ -881,23 +881,23 @@ msgstr ""
 "Valitse alasvetoluettelosta sivun asemointi. Valittua asemointia voi "
 "tarkastella <guilabel>Esikatselu</guilabel>-ruudussa."
 
-#: C/evince.xml:554(guilabel)
+#: C/atril.xml:554(guilabel)
 msgid "Paper Tray"
 msgstr "Paperilokero"
 
-#: C/evince.xml:556(para)
+#: C/atril.xml:556(para)
 msgid "Use this drop-down list to select the paper tray."
 msgstr "Valitse alasvetoluettelosta paperilokero"
 
-#: C/evince.xml:566(title)
+#: C/atril.xml:566(title)
 msgid "To Copy a Document"
 msgstr "Asiakirjan kopiointi"
 
-#: C/evince.xml:567(para)
+#: C/atril.xml:567(para)
 msgid "To copy a file, perform the following steps:"
 msgstr "Tiedosto kopioidaan seuraavasti:"
 
-#: C/evince.xml:571(para)
+#: C/atril.xml:571(para)
 msgid ""
 "Choose <menuchoice><guimenu>File</guimenu><guimenuitem>Save a Copy</"
 "guimenuitem></menuchoice>."
@@ -905,7 +905,7 @@ msgstr ""
 "Valitse <menuchoice><guimenu>Tiedosto</guimenu><guimenuitem>Tallenna kopio</"
 "guimenuitem></menuchoice>."
 
-#: C/evince.xml:576(para)
+#: C/atril.xml:576(para)
 msgid ""
 "Type the new filename in the <guilabel>Filename</guilabel> text box in the "
 "<guilabel>Save a Copy</guilabel> dialog."
@@ -913,7 +913,7 @@ msgstr ""
 "Kirjoita uusi tiedostonimi <guilabel>Tiedostonimi</guilabel>-tekstikenttään "
 "<guilabel>Tallenna kopio</guilabel> -valintaikkunassa."
 
-#: C/evince.xml:579(para)
+#: C/atril.xml:579(para)
 msgid ""
 "If necessary, specify the location of the copied document. By default, "
 "copies are saved in your home directory."
@@ -921,47 +921,47 @@ msgstr ""
 "Määritä kopioidun asiakirjan sijainti mikäli se on tarpeen. Oletusarvoisesti "
 "kopiot tallennetaan kotihakemistoosi."
 
-#: C/evince.xml:584(para)
+#: C/atril.xml:584(para)
 msgid "Click <guibutton>Save</guibutton>."
 msgstr "Napsauta <guibutton>Tallenna</guibutton>."
 
-#: C/evince.xml:593(title)
+#: C/atril.xml:593(title)
 msgid "To Work With Password-Protected Documents"
 msgstr "Työskentely salasanasuojatuilla asiakirjoilla"
 
-#: C/evince.xml:594(para)
+#: C/atril.xml:594(para)
 msgid "An author can use the following password levels to protect a document:"
 msgstr "Asiakirjan suojaamiseen voi käyttää seuraavia salasanatasoja:"
 
-#: C/evince.xml:599(para)
+#: C/atril.xml:599(para)
 msgid "User password that allows others only to read the document."
 msgstr "Käyttäjäsalasana sallii muiden ainoastaan lukea asiakirjaa."
 
-#: C/evince.xml:603(para)
+#: C/atril.xml:603(para)
 msgid ""
 "Master password that allows others to perform additional actions, such as "
 "print the document."
 msgstr ""
 "Pääsalasana sallii muiden tehdä muita toimintoja kuten tulostaa asiakirjan."
 
-#: C/evince.xml:607(para)
+#: C/atril.xml:607(para)
 msgid ""
-"When you try to open a password-protected document, <application>Evince "
+"When you try to open a password-protected document, <application>Atril "
 "Document Viewer</application> displays a security dialog. Type either the "
 "user password or the master password in the <guilabel>Enter document "
 "password</guilabel> text box, then click <guibutton>Open Document</"
 "guibutton>."
 msgstr ""
-"Kun yrität avata salasanasuojatun asiakirjan, <application>Evince-"
+"Kun yrität avata salasanasuojatun asiakirjan, <application>Atril-"
 "asiakirjakatselin</application> näyttää turvakyselyn. Syötä joko käyttäjä- "
 "tai pääsalasana <guilabel>Syötä salasana</guilabel> -tekstikenttään ja "
 "napsauta <guibutton>Avaa asiakirja</guibutton>."
 
-#: C/evince.xml:614(title)
+#: C/atril.xml:614(title)
 msgid "To Close a Document"
 msgstr "Asiakirjan sulkeminen"
 
-#: C/evince.xml:615(para)
+#: C/atril.xml:615(para)
 msgid ""
 "To close a document, choose <menuchoice><guimenu>File</"
 "guimenu><guimenuitem>Close</guimenuitem></menuchoice>."
@@ -969,276 +969,276 @@ msgstr ""
 "Sulkeaksesi asiakirjan valitse <menuchoice><guimenu>Tiedosto</"
 "guimenu><guimenuitem>Sulje</guimenuitem</menuchoice>."
 
-#: C/evince.xml:617(para)
+#: C/atril.xml:617(para)
 msgid ""
-"If the window is the last <application>Evince Document Viewer</application> "
+"If the window is the last <application>Atril Document Viewer</application> "
 "window open, the application exits."
 msgstr ""
-"Mikäli ikkuna on viimeinen <application>Evince-asiakirjakatselimen</"
+"Mikäli ikkuna on viimeinen <application>Atril-asiakirjakatselimen</"
 "application> avoinna oleva ikkuna, sovellus lopetetaan."
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
-#: C/evince.xml:0(None)
+#: C/atril.xml:0(None)
 msgid "translator-credits"
 msgstr ""
 "Timo Jyrinki <timo.jyrinki@iki.fi>, 2008\n"
 "Tommi Vainikainen <thv@iki.fi>, 2006\n"
 "Flammie Pirinen <flammie@iki.fi>, 2006"
 
-#: C/evince.xml:88(revnumber)
-msgid "Evince Document Viewer Manual V1.1"
-msgstr "Evince-asiakirjakatselimen käyttöohje v1.1"
+#: C/atril.xml:88(revnumber)
+msgid "Atril Document Viewer Manual V1.1"
+msgstr "Atril-asiakirjakatselimen käyttöohje v1.1"
 
-#: C/evince.xml:89(date)
+#: C/atril.xml:89(date)
 msgid "2008-04-05"
 msgstr "2008-04-05"
 
-#: C/evince.xml:91(para)
+#: C/atril.xml:91(para)
 msgid "Niels Giesen"
 msgstr "Niels Giesen"
 
-#: C/evince.xml:92(para)
+#: C/atril.xml:92(para)
 msgid "Claude Paroz"
 msgstr "Claude Paroz"
 
-#: C/evince.xml:635(title)
+#: C/atril.xml:635(title)
 msgid "Shortcuts"
 msgstr "Pikanäppäimet"
 
-#: C/evince.xml:636(para)
+#: C/atril.xml:636(para)
 msgid ""
-"Below is a list of all shortcuts present in <application>Evince Document "
+"Below is a list of all shortcuts present in <application>Atril Document "
 "Viewer</application>:"
 msgstr ""
-"<application>Evince-asiakirjakatselimessa</application> käytettävissä "
+"<application>Atril-asiakirjakatselimessa</application> käytettävissä "
 "olevat pikanäppäimet on lueteltu alla:"
 
-#: C/evince.xml:644(para)
+#: C/atril.xml:644(para)
 msgid "Shortcut"
 msgstr "Pikanäppäin"
 
-#: C/evince.xml:651(keycap) C/evince.xml:655(keycap) C/evince.xml:659(keycap)
-#: C/evince.xml:663(keycap) C/evince.xml:667(keycap) C/evince.xml:671(keycap)
-#: C/evince.xml:676(keycap) C/evince.xml:682(keycap) C/evince.xml:701(keycap)
-#: C/evince.xml:747(keycap)
+#: C/atril.xml:651(keycap) C/atril.xml:655(keycap) C/atril.xml:659(keycap)
+#: C/atril.xml:663(keycap) C/atril.xml:667(keycap) C/atril.xml:671(keycap)
+#: C/atril.xml:676(keycap) C/atril.xml:682(keycap) C/atril.xml:701(keycap)
+#: C/atril.xml:747(keycap)
 msgid "Ctrl"
 msgstr "Ctrl"
 
-#: C/evince.xml:651(keycap)
+#: C/atril.xml:651(keycap)
 msgid "O"
 msgstr "O"
 
-#: C/evince.xml:652(para)
+#: C/atril.xml:652(para)
 msgid "Open an existing document"
 msgstr "Asiakirjan avaaminen"
 
-#: C/evince.xml:655(keycap)
+#: C/atril.xml:655(keycap)
 msgid "S"
 msgstr "S"
 
-#: C/evince.xml:656(para)
+#: C/atril.xml:656(para)
 msgid "Save a copy of the current document"
 msgstr "Asiakirjan kopiointi"
 
-#: C/evince.xml:659(keycap)
+#: C/atril.xml:659(keycap)
 msgid "P"
 msgstr "P"
 
-#: C/evince.xml:660(para)
+#: C/atril.xml:660(para)
 msgid "Print document"
 msgstr "Asiakirjan tulostaminen"
 
-#: C/evince.xml:663(keycap)
+#: C/atril.xml:663(keycap)
 msgid "W"
 msgstr "W"
 
-#: C/evince.xml:664(para)
+#: C/atril.xml:664(para)
 msgid "Close window"
 msgstr "Ikkunan sulkeminen"
 
-#: C/evince.xml:667(keycap)
+#: C/atril.xml:667(keycap)
 msgid "C"
 msgstr "C"
 
-#: C/evince.xml:668(para)
+#: C/atril.xml:668(para)
 msgid "Copy selection"
 msgstr "Kopioi valinta"
 
-#: C/evince.xml:671(keycap)
+#: C/atril.xml:671(keycap)
 msgid "A"
 msgstr "A"
 
-#: C/evince.xml:672(para)
+#: C/atril.xml:672(para)
 msgid "Select All"
 msgstr "Valitse kaikki"
 
-#: C/evince.xml:676(keycap)
+#: C/atril.xml:676(keycap)
 msgid "F"
 msgstr "F"
 
-#: C/evince.xml:677(para)
+#: C/atril.xml:677(para)
 msgid "<keycap>/</keycap> (slash)"
 msgstr "<keycap>/</keycap> (kauttaviiva)"
 
-#: C/evince.xml:679(para)
+#: C/atril.xml:679(para)
 msgid "Find a word or phrase in the document"
 msgstr "Etsi sanaa tai lausetta asiakirjasta"
 
-#: C/evince.xml:682(keycap)
+#: C/atril.xml:682(keycap)
 msgid "G"
 msgstr "G"
 
-#: C/evince.xml:683(para)
+#: C/atril.xml:683(para)
 msgid "Find next"
 msgstr "Etsi seuraava"
 
-#: C/evince.xml:687(para)
+#: C/atril.xml:687(para)
 msgid ""
 "<keycombo><keycap>Ctrl</keycap><keycap>+</keycap></keycombo> (plus sign)"
 msgstr ""
 "<keycombo><keycap>Ctrl</keycap><keycap>+</keycap></keycombo> (plus-merkki)"
 
-#: C/evince.xml:688(keycap)
+#: C/atril.xml:688(keycap)
 msgid "+"
 msgstr "+"
 
-#: C/evince.xml:689(keycap)
+#: C/atril.xml:689(keycap)
 msgid "="
 msgstr "="
 
-#: C/evince.xml:691(para)
+#: C/atril.xml:691(para)
 msgid "Zoom in"
 msgstr "Lähennä"
 
-#: C/evince.xml:695(para)
+#: C/atril.xml:695(para)
 msgid ""
 "<keycombo><keycap>Ctrl</keycap><keycap>-</keycap></keycombo> (minus sign)"
 msgstr ""
 "<keycombo><keycap>Ctrl</keycap><keycap>-</keycap></keycombo> (miinus-merkki)"
 
-#: C/evince.xml:696(keycap)
+#: C/atril.xml:696(keycap)
 msgid "-"
 msgstr "-"
 
-#: C/evince.xml:698(para)
+#: C/atril.xml:698(para)
 msgid "Zoom out"
 msgstr "Loitonna"
 
-#: C/evince.xml:701(keycap)
+#: C/atril.xml:701(keycap)
 msgid "R"
 msgstr "R"
 
-#: C/evince.xml:702(para)
+#: C/atril.xml:702(para)
 msgid "Reload the document"
 msgstr "Lataa asiakirja uudelleen"
 
-#: C/evince.xml:706(keycap) C/evince.xml:731(keycap)
+#: C/atril.xml:706(keycap) C/atril.xml:731(keycap)
 msgid "Page Up"
 msgstr "Page Up"
 
-#: C/evince.xml:707(para)
+#: C/atril.xml:707(para)
 msgid "Go to the previous page"
 msgstr "Mene edelliselle sivulle"
 
-#: C/evince.xml:710(keycap) C/evince.xml:735(keycap)
+#: C/atril.xml:710(keycap) C/atril.xml:735(keycap)
 msgid "Page Down"
 msgstr "Page Down"
 
-#: C/evince.xml:711(para)
+#: C/atril.xml:711(para)
 msgid "Go to the next page"
 msgstr "Mene seuraavalle sivulle"
 
-#: C/evince.xml:715(keycap) C/evince.xml:723(keycap)
+#: C/atril.xml:715(keycap) C/atril.xml:723(keycap)
 msgid "Space"
 msgstr "Välilyönti"
 
-#: C/evince.xml:716(keycap) C/evince.xml:723(keycap) C/evince.xml:725(keycap)
-#: C/evince.xml:731(keycap) C/evince.xml:735(keycap)
+#: C/atril.xml:716(keycap) C/atril.xml:723(keycap) C/atril.xml:725(keycap)
+#: C/atril.xml:731(keycap) C/atril.xml:735(keycap)
 msgid "Shift"
 msgstr "Vaihto"
 
-#: C/evince.xml:716(keycap) C/evince.xml:724(keycap)
+#: C/atril.xml:716(keycap) C/atril.xml:724(keycap)
 msgid "Backspace"
 msgstr "Askelpalautin"
 
-#: C/evince.xml:717(keycap) C/evince.xml:725(keycap)
+#: C/atril.xml:717(keycap) C/atril.xml:725(keycap)
 msgid "Return"
 msgstr "Rivinvaihto"
 
-#: C/evince.xml:719(para)
+#: C/atril.xml:719(para)
 msgid "Scroll forward"
 msgstr "Vieritä eteenpäin"
 
-#: C/evince.xml:727(para)
+#: C/atril.xml:727(para)
 msgid "Scroll backward"
 msgstr "Vieritä taaksepäin"
 
-#: C/evince.xml:732(para)
+#: C/atril.xml:732(para)
 msgid "Go a bunch of pages up"
 msgstr "Mene muutama sivu taaksepäin"
 
-#: C/evince.xml:736(para)
+#: C/atril.xml:736(para)
 msgid "Go a bunch of pages down"
 msgstr "Mene muutama sivu eteenpäin"
 
-#: C/evince.xml:739(keycap)
+#: C/atril.xml:739(keycap)
 msgid "Home"
 msgstr "Home"
 
-#: C/evince.xml:740(para)
+#: C/atril.xml:740(para)
 msgid "Go to the first page"
 msgstr "Mene ensimmäiselle sivulle"
 
-#: C/evince.xml:743(keycap)
+#: C/atril.xml:743(keycap)
 msgid "End"
 msgstr "End"
 
-#: C/evince.xml:744(para)
+#: C/atril.xml:744(para)
 msgid "Go to the last page"
 msgstr "Mene viimeiselle sivulle"
 
-#: C/evince.xml:747(keycap)
+#: C/atril.xml:747(keycap)
 msgid "L"
 msgstr "L"
 
-#: C/evince.xml:748(para)
+#: C/atril.xml:748(para)
 msgid "Go to page by number or label"
 msgstr "Mene tietylle sivulle numeron tai tai nimen mukaan"
 
-#: C/evince.xml:751(keycap)
+#: C/atril.xml:751(keycap)
 msgid "F1"
 msgstr "F1"
 
-#: C/evince.xml:752(para)
+#: C/atril.xml:752(para)
 msgid "Help"
 msgstr "Ohje"
 
-#: C/evince.xml:755(keycap)
+#: C/atril.xml:755(keycap)
 msgid "F5"
 msgstr "F5"
 
-#: C/evince.xml:756(para)
+#: C/atril.xml:756(para)
 msgid "Run document as presentation"
 msgstr "Näytä asiakirja esityksenä"
 
-#: C/evince.xml:759(keycap)
+#: C/atril.xml:759(keycap)
 msgid "F9"
 msgstr "F9"
 
-#: C/evince.xml:760(para)
+#: C/atril.xml:760(para)
 msgid "Show or hide the side pane"
 msgstr "Näytä tai piilota sivupaneeli"
 
-#: C/evince.xml:763(keycap)
+#: C/atril.xml:763(keycap)
 msgid "F11"
 msgstr "F11"
 
-#: C/evince.xml:764(para)
+#: C/atril.xml:764(para)
 msgid "Toggle fullscreen mode"
 msgstr "Kokoruututila"
 
-#~ msgid "Evince Document Viewer"
-#~ msgstr "Evince-asiakirjakatselin"
+#~ msgid "Atril Document Viewer"
+#~ msgstr "Atril-asiakirjakatselin"
 
 #~ msgid "To Open a File"
 #~ msgstr "Tiedoston avaaminen"

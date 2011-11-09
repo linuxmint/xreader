@@ -16,10 +16,10 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#ifndef EVINCE_VIEW_H
-#define EVINCE_VIEW_H
+#ifndef ATRIL_VIEW_H
+#define ATRIL_VIEW_H
 
-#define __EV_EVINCE_VIEW_H_INSIDE__
+#define __EV_ATRIL_VIEW_H_INSIDE__
 
 #include <libview/ev-job-scheduler.h>
 #include <libview/ev-jobs.h>
@@ -29,6 +29,6 @@
 #include <libview/ev-view-type-builtins.h>
 #include <libview/ev-stock-icons.h>
 
-#undef __EV_EVINCE_VIEW_H_INSIDE__
+#undef __EV_ATRIL_VIEW_H_INSIDE__
 
-#endif /* !EVINCE_VIEW_H */
+#endif /* !ATRIL_VIEW_H */

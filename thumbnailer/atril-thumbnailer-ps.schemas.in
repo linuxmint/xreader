@@ -4,7 +4,7 @@
         <schema>
             <key>/schemas/desktop/mate/thumbnailers/application@postscript/enable</key>
             <applyto>/desktop/mate/thumbnailers/application@postscript/enable</applyto>
-            <owner>evince</owner>
+            <owner>atril</owner>
             <type>bool</type>
             <default>true</default>
             <locale name="C">
@@ -16,9 +16,9 @@
         <schema>
             <key>/schemas/desktop/mate/thumbnailers/application@postscript/command</key>
             <applyto>/desktop/mate/thumbnailers/application@postscript/command</applyto>
-            <owner>evince</owner>
+            <owner>atril</owner>
             <type>string</type>
-            <default>evince-thumbnailer -s %s %u %o</default>
+            <default>atril-thumbnailer -s %s %u %o</default>
             <locale name="C">
                 <short></short>
                 <long></long>
@@ -29,7 +29,7 @@
         <schema>
             <key>/schemas/desktop/mate/thumbnailers/application@x-bzpostscript/enable</key>
             <applyto>/desktop/mate/thumbnailers/application@x-bzpostscript/enable</applyto>
-            <owner>evince</owner>
+            <owner>atril</owner>
             <type>bool</type>
             <default>true</default>
             <locale name="C">
@@ -41,9 +41,9 @@
         <schema>
             <key>/schemas/desktop/mate/thumbnailers/application@x-bzpostscript/command</key>
             <applyto>/desktop/mate/thumbnailers/application@x-bzpostscript/command</applyto>
-            <owner>evince</owner>
+            <owner>atril</owner>
             <type>string</type>
-            <default>evince-thumbnailer -s %s %u %o</default>
+            <default>atril-thumbnailer -s %s %u %o</default>
             <locale name="C">
                 <short></short>
                 <long></long>
@@ -54,7 +54,7 @@
         <schema>
             <key>/schemas/desktop/mate/thumbnailers/application@x-gzpostscript/enable</key>
             <applyto>/desktop/mate/thumbnailers/application@x-gzpostscript/enable</applyto>
-            <owner>evince</owner>
+            <owner>atril</owner>
             <type>bool</type>
             <default>true</default>
             <locale name="C">
@@ -66,9 +66,9 @@
         <schema>
             <key>/schemas/desktop/mate/thumbnailers/application@x-gzpostscript/command</key>
             <applyto>/desktop/mate/thumbnailers/application@x-gzpostscript/command</applyto>
-            <owner>evince</owner>
+            <owner>atril</owner>
             <type>string</type>
-            <default>evince-thumbnailer -s %s %u %o</default>
+            <default>atril-thumbnailer -s %s %u %o</default>
             <locale name="C">
                 <short></short>
                 <long></long>
@@ -79,7 +79,7 @@
         <schema>
             <key>/schemas/desktop/mate/thumbnailers/image@x-eps/enable</key>
             <applyto>/desktop/mate/thumbnailers/image@x-eps/enable</applyto>
-            <owner>evince</owner>
+            <owner>atril</owner>
             <type>bool</type>
             <default>true</default>
             <locale name="C">
@@ -91,9 +91,9 @@
         <schema>
             <key>/schemas/desktop/mate/thumbnailers/image@x-eps/command</key>
             <applyto>/desktop/mate/thumbnailers/image@x-eps/command</applyto>
-            <owner>evince</owner>
+            <owner>atril</owner>
             <type>string</type>
-            <default>evince-thumbnailer -s %s %u %o</default>
+            <default>atril-thumbnailer -s %s %u %o</default>
             <locale name="C">
                 <short></short>
                 <long></long>
@@ -104,7 +104,7 @@
         <schema>
             <key>/schemas/desktop/mate/thumbnailers/image@x-bzeps/enable</key>
             <applyto>/desktop/mate/thumbnailers/image@x-bzeps/enable</applyto>
-            <owner>evince</owner>
+            <owner>atril</owner>
             <type>bool</type>
             <default>true</default>
             <locale name="C">
@@ -116,9 +116,9 @@
         <schema>
             <key>/schemas/desktop/mate/thumbnailers/image@x-bzeps/command</key>
             <applyto>/desktop/mate/thumbnailers/image@x-bzeps/command</applyto>
-            <owner>evince</owner>
+            <owner>atril</owner>
             <type>string</type>
-            <default>evince-thumbnailer -s %s %u %o</default>
+            <default>atril-thumbnailer -s %s %u %o</default>
             <locale name="C">
                 <short></short>
                 <long></long>
@@ -129,7 +129,7 @@
         <schema>
             <key>/schemas/desktop/mate/thumbnailers/image@x-gzeps/enable</key>
             <applyto>/desktop/mate/thumbnailers/image@x-gzeps/enable</applyto>
-            <owner>evince</owner>
+            <owner>atril</owner>
             <type>bool</type>
             <default>true</default>
             <locale name="C">
@@ -141,9 +141,9 @@
         <schema>
             <key>/schemas/desktop/mate/thumbnailers/image@x-gzeps/command</key>
             <applyto>/desktop/mate/thumbnailers/image@x-gzeps/command</applyto>
-            <owner>evince</owner>
+            <owner>atril</owner>
             <type>string</type>
-            <default>evince-thumbnailer -s %s %u %o</default>
+            <default>atril-thumbnailer -s %s %u %o</default>
             <locale name="C">
                 <short></short>
                 <long></long>

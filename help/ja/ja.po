@@ -1,10 +1,10 @@
-# Japanese help translation for evince.
+# Japanese help translation for atril.
 # Satoru SATOH <ss@mate.gr.jp>, 2007.
 #
 # TODO: 印刷の節などは実際の動作とは異なる説明となってしまっている。
 msgid ""
 msgstr ""
-"Project-Id-Version: evince/help trunk\n"
+"Project-Id-Version: atril/help trunk\n"
 "POT-Creation-Date: 2007-08-20 03:16+0100\n"
 "PO-Revision-Date: 2007-08-22 05:49+0900\n"
 "Last-Translator: Satoru SATOH <ss@mate.gr.jp>\n"
@@ -15,48 +15,48 @@ msgstr ""
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/evince.xml:146(None)
+#: C/atril.xml:146(None)
 msgid ""
-"@@image: 'figures/evince_start_window.png'; "
+"@@image: 'figures/atril_start_window.png'; "
 "md5=7f4da5e33bcac35738a268d93d497d47"
-msgstr "@@image: 'figures/evince_start_window.png'; "
+msgstr "@@image: 'figures/atril_start_window.png'; "
 "md5=facb0196a444d6ffdc4fd53ea7ee632b"
 
-#: C/evince.xml:25(title)
-msgid "Evince Document Viewer Manual"
-msgstr "Evince ドキュメントビューア マニュアル"
+#: C/atril.xml:25(title)
+msgid "Atril Document Viewer Manual"
+msgstr "Atril ドキュメントビューア マニュアル"
 
-#: C/evince.xml:27(para)
+#: C/atril.xml:27(para)
 msgid ""
-"The Evince Document Viewer application enables you to view documents of "
+"The Atril Document Viewer application enables you to view documents of "
 "various formats like Portable Document Format (PDF) files and PostScript "
 "files"
-msgstr "Evince ドキュメントビューアで PDF や PostScript のような様々な"
+msgstr "Atril ドキュメントビューアで PDF や PostScript のような様々な"
 "フォーマットのドキュメントを見ることができます。"
 
-#: C/evince.xml:33(year)
+#: C/atril.xml:33(year)
 msgid "2005"
 msgstr "2005"
 
-#: C/evince.xml:34(holder) C/evince.xml:91(para)
+#: C/atril.xml:34(holder) C/atril.xml:91(para)
 msgid "Nickolay V. Shmyrev"
 msgstr "Nickolay V. Shmyrev"
 
-#: C/evince.xml:37(year)
+#: C/atril.xml:37(year)
 msgid "2004"
 msgstr "2004"
 
-#: C/evince.xml:38(holder) C/evince.xml:61(orgname)
+#: C/atril.xml:38(holder) C/atril.xml:61(orgname)
 msgid "Sun Microsystems"
 msgstr "サンマイクロシステムズ"
 
-#: C/evince.xml:49(publishername) C/evince.xml:67(orgname)
-#: C/evince.xml:92(para)
+#: C/atril.xml:49(publishername) C/atril.xml:67(orgname)
+#: C/atril.xml:92(para)
 msgid "MATE Documentation Project"
 msgstr "MATE ドキュメントプロジェクト"
 
 # 参考訳: http://www.opensource.jp/fdl/fdl.ja.html
-#: C/evince.xml:2(para)
+#: C/atril.xml:2(para)
 msgid ""
 "Permission is granted to copy, distribute and/or modify this document under "
 "the terms of the GNU Free Documentation License (GFDL), Version 1.1 or any "
@@ -71,7 +71,7 @@ msgstr "この文書を、フリーソフトウェア財団発行の GNU フリ�
 "このリンク</ulink> またはこのマニュアルと一緒に配布されているファイル "
 "COPYING-DOCS を参照して下さい。"
 
-#: C/evince.xml:12(para)
+#: C/atril.xml:12(para)
 msgid ""
 "This manual is part of a collection of MATE manuals distributed under the "
 "GFDL. If you want to distribute this manual separately from the collection, "
@@ -81,7 +81,7 @@ msgstr "このマニュアルは GFDL の下で配布される MATE マニュア
 "す。コレクションと別にこのマニュアルを配布したい場合は、ライセンスの第六節に"
 "あるようにライセンスのコピーをマニュアルに加えれば配布できます。"
 
-#: C/evince.xml:19(para)
+#: C/atril.xml:19(para)
 msgid ""
 "Many of the names used by companies to distinguish their products and "
 "services are claimed as trademarks. Where those names appear in any MATE "
@@ -94,7 +94,7 @@ msgstr "製品やサービスを区別するために企業によって利用さ
 "の最初の文字を大文字で記述しています。"
 
 # 訳すべきか?
-#: C/evince.xml:35(para)
+#: C/atril.xml:35(para)
 msgid ""
 "DOCUMENT IS PROVIDED ON AN \"AS IS\" BASIS, WITHOUT WARRANTY OF ANY KIND, "
 "EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES THAT "
@@ -120,7 +120,7 @@ msgstr ""
 "ESSENTIAL PART OF THIS LICENSE. NO USE OF ANY DOCUMENT OR MODIFIED VERSION "
 "OF THE DOCUMENT IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS DISCLAIMER; AND"
 
-#: C/evince.xml:55(para)
+#: C/atril.xml:55(para)
 msgid ""
 "UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER IN TORT (INCLUDING "
 "NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL THE AUTHOR, INITIAL WRITER, ANY "
@@ -144,7 +144,7 @@ msgstr ""
 "VERSIONS OF THE DOCUMENT, EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF THE "
 "POSSIBILITY OF SUCH DAMAGES."
 
-#: C/evince.xml:28(para)
+#: C/atril.xml:28(para)
 msgid ""
 "DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED UNDER THE TERMS "
 "OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER UNDERSTANDING THAT: "
@@ -152,212 +152,212 @@ msgid ""
 msgstr "ドキュメントおよび変更されているドキュメントは次の GNU フリー文書利用許諾契約"
 "書 (GFDL) の下で頒布されます: <placeholder-1/>"
 
-#: C/evince.xml:59(firstname)
+#: C/atril.xml:59(firstname)
 msgid "Sun"
 msgstr "Sun"
 
-#: C/evince.xml:60(surname)
+#: C/atril.xml:60(surname)
 msgid "MATE Documentation Team"
 msgstr "MATE ドキュメントチーム"
 
-#: C/evince.xml:64(firstname)
+#: C/atril.xml:64(firstname)
 msgid "Nickolay V."
 msgstr "Nickolay V."
 
-#: C/evince.xml:65(surname)
+#: C/atril.xml:65(surname)
 msgid "Shmyrev"
 msgstr "Shmyrev"
 
-#: C/evince.xml:68(email)
+#: C/atril.xml:68(email)
 msgid "nshmyrev@yandex.ru"
 msgstr "nshmyrev@yandex.ru"
 
-#: C/evince.xml:88(revnumber)
-msgid "Evince Document Viewer Manual V1.0"
-msgstr "Evince ドキュメントビューア マニュアル v1.0"
+#: C/atril.xml:88(revnumber)
+msgid "Atril Document Viewer Manual V1.0"
+msgstr "Atril ドキュメントビューア マニュアル v1.0"
 
-#: C/evince.xml:89(date)
+#: C/atril.xml:89(date)
 msgid "2005-04-06"
 msgstr "2005-04-06"
 
-#: C/evince.xml:97(releaseinfo)
-msgid "This manual describes version 0.2 of Evince Document Viewer"
-msgstr "このマニュアルは Evince ドキュメントビューアの 0.2 について説明しています。"
+#: C/atril.xml:97(releaseinfo)
+msgid "This manual describes version 0.2 of Atril Document Viewer"
+msgstr "このマニュアルは Atril ドキュメントビューアの 0.2 について説明しています。"
 
-#: C/evince.xml:100(title)
+#: C/atril.xml:100(title)
 msgid "Feedback"
 msgstr "フィードバック"
 
-#: C/evince.xml:101(para)
+#: C/atril.xml:101(para)
 msgid ""
-"To report a bug or make a suggestion regarding the Evince Document Viewer "
+"To report a bug or make a suggestion regarding the Atril Document Viewer "
 "application or this manual, follow the directions in the <ulink url=\"ghelp:"
 "mate-feedback\" type=\"help\">MATE Feedback Page</ulink>."
-msgstr "Evince ドキュメントビューアまたはこのマニュアルの"
+msgstr "Atril ドキュメントビューアまたはこのマニュアルの"
 "バグや提案を報告して頂く場合、"
 "<ulink url=\"ghelp:mate-feedback\" type=\"help\">MATE "
 "フィードバックページ</ulink> 内の指示に従って下さい。"
 
-#: C/evince.xml:108(primary)
-msgid "Evince Document Viewer"
-msgstr "Evince ドキュメントビューア"
+#: C/atril.xml:108(primary)
+msgid "Atril Document Viewer"
+msgstr "Atril ドキュメントビューア"
 
-#: C/evince.xml:111(primary)
-msgid "evince"
-msgstr "evince"
+#: C/atril.xml:111(primary)
+msgid "atril"
+msgstr "atril"
 
-#: C/evince.xml:119(title)
+#: C/atril.xml:119(title)
 msgid "Introduction"
 msgstr "概要"
 
-#: C/evince.xml:120(para)
+#: C/atril.xml:120(para)
 msgid ""
-"The <application>Evince Document Viewer</application> application enables "
+"The <application>Atril Document Viewer</application> application enables "
 "you to view documents of various formats like Portable Document Format (PDF) "
-"files and PostScript files. <application>Evince Document Viewer</"
+"files and PostScript files. <application>Atril Document Viewer</"
 "application> follows Freedesktop.org and MATE standards to provide "
 "integration with Desktop Environment."
-msgstr "<application>Evince ドキュメントビューア</application> によって"
+msgstr "<application>Atril ドキュメントビューア</application> によって"
 "Portable Document Format (PDF) ファイルや PostScript ファイルのような"
 "様々な形式のドキュメントを見ることができます。"
-"<application>Evince ドキュメントビューア</application> はデスクトップ"
+"<application>Atril ドキュメントビューア</application> はデスクトップ"
 "環境との統合を提供するために Freedesktop.org と MATE の標準に従っています。"
 
-#: C/evince.xml:127(title)
+#: C/atril.xml:127(title)
 msgid "Getting Started"
 msgstr "はじめに"
 
-#: C/evince.xml:130(title)
-msgid "To Start Evince Document Viewer"
-msgstr "Evince ドキュメントビューアの起動"
+#: C/atril.xml:130(title)
+msgid "To Start Atril Document Viewer"
+msgstr "Atril ドキュメントビューアの起動"
 
-#: C/evince.xml:131(para)
+#: C/atril.xml:131(para)
 msgid ""
-"<application>Evince Document Viewer</application> starts when you open a "
+"<application>Atril Document Viewer</application> starts when you open a "
 "document such as a PDF or PostScript file."
 msgstr "PDF または PostScript ファイルのドキュメントを開くと "
-"<application>Evince ドキュメントビューア</application> が起動します。"
+"<application>Atril ドキュメントビューア</application> が起動します。"
 
-#: C/evince.xml:132(para)
+#: C/atril.xml:132(para)
 msgid ""
-"Alternatively, you can start <application>Evince Document Viewer</"
-"application> from the command line, with the command: <command>evince</"
+"Alternatively, you can start <application>Atril Document Viewer</"
+"application> from the command line, with the command: <command>atril</"
 "command>."
-msgstr "あるいは、コマンド <command>evince</command> をコマンド行で"
-"入力して <application>Evince ドキュメントビューア</application> を"
+msgstr "あるいは、コマンド <command>atril</command> をコマンド行で"
+"入力して <application>Atril ドキュメントビューア</application> を"
 "起動することもできます。"
 
-#: C/evince.xml:137(title)
-msgid "When You Start Evince Document Viewer"
-msgstr "Evince ドキュメントビューアのメインウィンドウ"
+#: C/atril.xml:137(title)
+msgid "When You Start Atril Document Viewer"
+msgstr "Atril ドキュメントビューアのメインウィンドウ"
 
-#: C/evince.xml:138(para)
+#: C/atril.xml:138(para)
 msgid ""
-"When you start <application>Evince Document Viewer</application>, the "
+"When you start <application>Atril Document Viewer</application>, the "
 "following window is displayed."
-msgstr "<application>Evince ドキュメントビューア</application> を"
+msgstr "<application>Atril ドキュメントビューア</application> を"
 "起動すると、次のようなウィンドウが表示されます。"
 
-#: C/evince.xml:142(title)
-msgid "Evince Document Viewer Window"
-msgstr "Evince ドキュメントビューアのメインウィンドウ"
+#: C/atril.xml:142(title)
+msgid "Atril Document Viewer Window"
+msgstr "Atril ドキュメントビューアのメインウィンドウ"
 
-#: C/evince.xml:149(phrase)
+#: C/atril.xml:149(phrase)
 msgid ""
-"Shows Evince Document Viewer main window. Contains titlebar, menubar, "
+"Shows Atril Document Viewer main window. Contains titlebar, menubar, "
 "toolbar and display area. Menubar contains File, Edit, View, Go and Help "
 "menus."
-msgstr "Evince ドキュメントビューアのメインウィンドウです。"
+msgstr "Atril ドキュメントビューアのメインウィンドウです。"
 "タイトルバーとメニューバー、ツールバーそして表示領域があります。"
 "メニューバーにはファイル、編集、表示、移動そしてヘルプメニューが"
 "含まれています。"
 
-#: C/evince.xml:155(para)
+#: C/atril.xml:155(para)
 msgid ""
-"The <application>Evince Document Viewer</application> window contains the "
+"The <application>Atril Document Viewer</application> window contains the "
 "following elements:"
-msgstr "<application>Evince ドキュメントビューア</application> の"
+msgstr "<application>Atril ドキュメントビューア</application> の"
 "ウィンドウには次の要素が含まれています:"
 
-#: C/evince.xml:159(term) C/evince.xml:207(para)
+#: C/atril.xml:159(term) C/atril.xml:207(para)
 msgid "Menubar"
 msgstr "メニューバー"
 
-#: C/evince.xml:161(para)
+#: C/atril.xml:161(para)
 msgid ""
 "The menus on the menubar contain all of the commands that you need to work "
-"with documents in <application>Evince Document Viewer</application>."
-msgstr "<application>Evince ドキュメントビューア</application> で"
+"with documents in <application>Atril Document Viewer</application>."
+msgstr "<application>Atril ドキュメントビューア</application> で"
 "ドキュメントについて作業するのに必要なすべてのコマンドのメニューが"
 "あります。"
 
-#: C/evince.xml:165(term)
+#: C/atril.xml:165(term)
 msgid "Toolbar"
 msgstr "ツールバー"
 
-#: C/evince.xml:167(para)
+#: C/atril.xml:167(para)
 msgid ""
 "The toolbar contains a subset of the commands that you can access from the "
 "menubar."
 msgstr "ツールバーにはメニューバーからアクセスできるコマンドのサブセットが"
 "含まれています。"
 
-#: C/evince.xml:171(term)
+#: C/atril.xml:171(term)
 msgid "Display area"
 msgstr "表示領域"
 
-#: C/evince.xml:173(para)
+#: C/atril.xml:173(para)
 msgid "The display area displays the document."
 msgstr "ドキュメントの内容を表示する領域です。"
 
-#: C/evince.xml:187(para)
+#: C/atril.xml:187(para)
 msgid "UI Component"
 msgstr "UI コンポーネント"
 
-#: C/evince.xml:189(para)
+#: C/atril.xml:189(para)
 msgid "Action"
 msgstr "アクション"
 
-#: C/evince.xml:194(para)
+#: C/atril.xml:194(para)
 msgid "Window"
 msgstr "ウィンドウ"
 
-#: C/evince.xml:198(para)
+#: C/atril.xml:198(para)
 msgid ""
-"Drag a file into the <application>Evince Document Viewer</application> "
+"Drag a file into the <application>Atril Document Viewer</application> "
 "window from another application such as a file manager."
 msgstr "ファイルマネージャのような他のアプリケーションから "
-"<application>Evince ドキュメントビューア</application> の"
+"<application>Atril ドキュメントビューア</application> の"
 "ウィンドウにファイルをドラッグ"
 
-#: C/evince.xml:201(para)
+#: C/atril.xml:201(para)
 msgid "Double-click on the file name in the file manager"
 msgstr "ファイルマネージャ内でファイル名をダブルクリック"
 
-#: C/evince.xml:208(para) C/evince.xml:235(para)
+#: C/atril.xml:208(para) C/atril.xml:235(para)
 msgid ""
 "Choose <menuchoice><guimenu>File</guimenu><guimenuitem>Open</guimenuitem></"
 "menuchoice>."
 msgstr "<menuchoice><guimenu>ファイル</guimenu><guimenuitem>開く"
 "</guimenuitem></menuchoice> を選択"
 
-#: C/evince.xml:212(para)
+#: C/atril.xml:212(para)
 msgid "Shortcut keys"
 msgstr "ショートカット"
 
-#: C/evince.xml:213(para)
+#: C/atril.xml:213(para)
 msgid "Press <keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo>."
 msgstr "<keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo> を押す"
 
-#: C/evince.xml:178(para)
+#: C/atril.xml:178(para)
 msgid ""
-"In <application>Evince Document Viewer</application>, you can perform the "
+"In <application>Atril Document Viewer</application>, you can perform the "
 "same action in several ways. For example, you can open a document in the "
 "following ways: <informaltable frame=\"all\"><tgroup cols=\"2\" colsep=\"1\" "
 "rowsep=\"1\"><colspec colname=\"COLSPEC0\" colwidth=\"50*\"/><colspec "
 "colname=\"COLSPEC1\" colwidth=\"50*\"/><placeholder-1/><placeholder-2/></"
 "tgroup></informaltable>"
-msgstr "<application>Evince ドキュメントビューア</application> では"
+msgstr "<application>Atril ドキュメントビューア</application> では"
 "同じアクションをいくつかの方法で実行できます。例えばドキュメントを"
 "開くには次のようにします: <informaltable frame=\"all\"><tgroup cols=\"2\" colsep=\"1\" "
 "rowsep=\"1\"><colspec colname=\"COLSPEC0\" colwidth=\"50*\"/><colspec "
@@ -365,116 +365,116 @@ msgstr "<application>Evince ドキュメントビューア</application> では"
 "tgroup></informaltable>"
 
 # 唐突なので少し意訳
-#: C/evince.xml:219(para)
+#: C/atril.xml:219(para)
 msgid "This manual documents functionality from the menubar."
 msgstr "メニューバーからこのマニュアルを開くこともできます。"
 
-#: C/evince.xml:227(title)
+#: C/atril.xml:227(title)
 msgid "Usage"
 msgstr "使い方"
 
-#: C/evince.xml:231(title)
+#: C/atril.xml:231(title)
 msgid "To Open A Document"
 msgstr "ドキュメントを開く"
 
-#: C/evince.xml:232(para)
+#: C/atril.xml:232(para)
 msgid "To open a document, perform the following steps:"
 msgstr "ドキュメントを開くには次のステップを実行します:"
 
-#: C/evince.xml:239(para)
+#: C/atril.xml:239(para)
 msgid ""
 "In the <guilabel>Open Document</guilabel> dialog, select the file you want "
 "to open."
 msgstr "<guilabel>ドキュメントを開く</guilabel> ダイアログで"
 "開きたいファイルを選択します。"
 
-#: C/evince.xml:244(para)
+#: C/atril.xml:244(para)
 msgid ""
-"Click <guibutton>Open</guibutton>. <application>Evince Document Viewer</"
+"Click <guibutton>Open</guibutton>. <application>Atril Document Viewer</"
 "application> displays the name of the document in the titlebar of the window."
 msgstr "<guibutton>開く</guibutton> をクリックします。"
-"<application>Evince ドキュメントビューア</application> の"
+"<application>Atril ドキュメントビューア</application> の"
 "ウィンドウのタイトルバーにドキュメントの名前が表示されます。"
 
-#: C/evince.xml:249(para)
+#: C/atril.xml:249(para)
 msgid ""
 "To open another document, choose <menuchoice><guimenu>File</"
 "guimenu><guimenuitem>Open</guimenuitem></menuchoice> again. "
-"<application>Evince Document Viewer</application> opens each file in a new "
+"<application>Atril Document Viewer</application> opens each file in a new "
 "window."
 msgstr "他のドキュメントを開くには再度 <menuchoice><guimenu>ファイル"
 "</guimenu><guimenuitem>開く</guimenuitem></menuchoice> を選択します。"
-"<application>Evince ドキュメントビューア</application> は"
+"<application>Atril ドキュメントビューア</application> は"
 "新しいウィンドウでそれぞれのファイルを開きます。"
 
-#: C/evince.xml:252(para)
+#: C/atril.xml:252(para)
 msgid ""
-"If you try to open a document with format that <application>Evince Document "
+"If you try to open a document with format that <application>Atril Document "
 "Viewer</application> does not recognize, the application displays an error "
 "message."
-msgstr "<application>Evince ドキュメントビューア</application> が"
+msgstr "<application>Atril ドキュメントビューア</application> が"
 "認識しないファイル形式のドキュメントを開こうとすると"
 "エラーメッセージが表示されます。"
 
-#: C/evince.xml:258(title)
+#: C/atril.xml:258(title)
 msgid "To Navigate Through a Document"
 msgstr "ドキュメントをナビゲート"
 
-#: C/evince.xml:259(para)
+#: C/atril.xml:259(para)
 msgid "You can navigate through a file as follows:"
 msgstr "ファイルは次のようにしてナビゲートできます:"
 
-#: C/evince.xml:262(para)
+#: C/atril.xml:262(para)
 msgid ""
 "To view the next page, choose <menuchoice><guimenu>Go</"
 "guimenu><guimenuitem>Next Page</guimenuitem></menuchoice>."
 msgstr "次のページを見るには <menuchoice><guimenu>移動</guimenu>"
 "<guimenuitem>次のページ</guimenuitem></menuchoice> を選択します。"
 
-#: C/evince.xml:266(para)
+#: C/atril.xml:266(para)
 msgid ""
 "To view the previous page, choose <menuchoice><guimenu>Go</"
 "guimenu><guimenuitem>Previous Page</guimenuitem></menuchoice>."
 msgstr "前のページを見るには <menuchoice><guimenu>移動</guimenu>"
 "<guimenuitem>前のページ</guimenuitem></menuchoice> を選択します。"
 
-#: C/evince.xml:270(para)
+#: C/atril.xml:270(para)
 msgid ""
 "To view the first page in the document, choose <menuchoice><guimenu>Go</"
 "guimenu><guimenuitem>First Page</guimenuitem></menuchoice>."
 msgstr "最初のページを見るには <menuchoice><guimenu>移動</guimenu>"
 "<guimenuitem>先頭のページ</guimenuitem></menuchoice> を選択します。"
 
-#: C/evince.xml:274(para)
+#: C/atril.xml:274(para)
 msgid ""
 "To view the last page in the document, choose <menuchoice><guimenu>Go</"
 "guimenu><guimenuitem>Last Page</guimenuitem></menuchoice>."
 msgstr "最後のページを見るには <menuchoice><guimenu>移動</guimenu>"
 "<guimenuitem>最後のページ</guimenuitem></menuchoice> を選択します。"
 
-#: C/evince.xml:278(para)
+#: C/atril.xml:278(para)
 msgid ""
 "To view a particular page, enter the page number or page label in the text "
 "box on the toolbar, then press <keycap>Return</keycap>."
 msgstr "特定のページを見るにはツールバーのテキストボックスに"
 "ページ番号かページラベルを入力して、<keycap>Return</keycap> を押します。"
 
-#: C/evince.xml:285(title)
+#: C/atril.xml:285(title)
 msgid "To Scroll a Page"
 msgstr "ページのスクロール"
 
-#: C/evince.xml:286(para)
+#: C/atril.xml:286(para)
 msgid ""
 "To display the page contents that are not currently displayed in the display "
 "area, use the following methods:"
 msgstr "表示領域に現在表示されていないページの内容を表示するには"
 "次のようにします:"
 
-#: C/evince.xml:289(para)
+#: C/atril.xml:289(para)
 msgid "Use the arrow keys or space key on the keyboard."
 msgstr "キーボードのカーソルキーかスペースキーを使います。"
 
-#: C/evince.xml:292(para)
+#: C/atril.xml:292(para)
 msgid ""
 "Drag the display area by clicking with the middle mouse button somewhere in "
 "the document and then moving the mouse. For example, to scroll down the "
@@ -483,113 +483,113 @@ msgstr "ドキュメントのどこかをマウスの中央ボタンでクリッ
 "表示エリアをドラッグしてマウスを移動します。例えばページを下に"
 "スクロールするには表示領域をウィンドウの上の方にドラッグします。"
 
-#: C/evince.xml:295(para)
+#: C/atril.xml:295(para)
 msgid "Use the scrollbars on the window."
 msgstr "ウィンドウのスクロールバーを使います。"
 
-#: C/evince.xml:302(title)
+#: C/atril.xml:302(title)
 msgid "To Change the Page Size"
 msgstr "ページサイズの変更"
 
-#: C/evince.xml:303(para)
+#: C/atril.xml:303(para)
 msgid ""
 "You can use the following methods to resize a page in the "
-"<application>Evince Document Viewer</application> display area:"
-msgstr "<application>Evince ドキュメントビューア</application> の"
+"<application>Atril Document Viewer</application> display area:"
+msgstr "<application>Atril ドキュメントビューア</application> の"
 "表示領域の中のページの大きさを変更するには次のようにします:"
 
-#: C/evince.xml:308(para)
+#: C/atril.xml:308(para)
 msgid ""
 "To increase the page size, choose <menuchoice><guimenu>View</"
 "guimenu><guimenuitem>Zoom In</guimenuitem></menuchoice>."
 msgstr "ページサイズを大きくするには <menuchoice><guimenu>表示</guimenu>"
 "<guimenuitem>拡大</guimenuitem></menuchoice> を選択します。"
 
-#: C/evince.xml:313(para)
+#: C/atril.xml:313(para)
 msgid ""
 "To decrease the page size, choose <menuchoice><guimenu>View</"
 "guimenu><guimenuitem>Zoom Out</guimenuitem></menuchoice>."
 msgstr "ページサイズを小さくするには <menuchoice><guimenu>表示</guimenu>"
 "<guimenuitem>縮小</guimenuitem></menuchoice> を選択します。"
 
-#: C/evince.xml:318(para)
+#: C/atril.xml:318(para)
 msgid ""
-"To resize a page to have the same width as the <application>Evince Document "
+"To resize a page to have the same width as the <application>Atril Document "
 "Viewer</application> display area, choose <menuchoice><guimenu>View</"
 "guimenu><guimenuitem>Fit page width</guimenuitem></menuchoice>."
-msgstr "ページをリサイズして <application>Evince ドキュメントビューア"
+msgstr "ページをリサイズして <application>Atril ドキュメントビューア"
 "</application> の表示領域と同じ幅にするには <menuchoice><guimenu>表示</guimenu>"
 "<guimenuitem>幅に合わせる</guimenuitem></menuchoice> を選択します。"
 
-#: C/evince.xml:323(para)
+#: C/atril.xml:323(para)
 msgid ""
-"To resize a page to fit within the <application>Evince Document Viewer</"
+"To resize a page to fit within the <application>Atril Document Viewer</"
 "application> display area, choose <menuchoice><guimenu>View</"
 "guimenu><guimenuitem>Best Fit</guimenuitem></menuchoice>."
-msgstr "ページをリサイズして <application>Evince ドキュメントビューア"
+msgstr "ページをリサイズして <application>Atril ドキュメントビューア"
 "</application> の表示領域の大きさにちょうど合うようにするには "
 "<menuchoice><guimenu>表示</guimenu><guimenuitem>全体に合わせる</guimenuitem>"
 "</menuchoice> を選択します。"
 
-#: C/evince.xml:328(para)
+#: C/atril.xml:328(para)
 msgid ""
-"To resize the <application>Evince Document Viewer</application> window to "
+"To resize the <application>Atril Document Viewer</application> window to "
 "have the same width and height as the screen, choose "
 "<menuchoice><guimenu>View</guimenu><guimenuitem>Full Screen</guimenuitem></"
-"menuchoice>. To resize the <application>Evince Document Viewer</application> "
+"menuchoice>. To resize the <application>Atril Document Viewer</application> "
 "window to the original size, click on the <guibutton>Exit Full Screen</"
 "guibutton> button."
-msgstr "<application>Evince ドキュメントビューア</application> の"
+msgstr "<application>Atril ドキュメントビューア</application> の"
 "ウィンドウをリサイズして画面と同じ幅と高さにするには "
 "<menuchoice><guimenu>表示</guimenu><guimenuitem>フルスクリーン表示"
 "</guimenuitem></menuchoice> を選択します。"
-"<application>Evince ドキュメントビューア</application> の"
+"<application>Atril ドキュメントビューア</application> の"
 "ウィンドウをリサイズして元の大きさに戻すには <guibutton>フルスクリーンの"
 "解除</guibutton> ボタンをクリックします。"
 
-#: C/evince.xml:336(title)
+#: C/atril.xml:336(title)
 msgid "To View Pages or Document Structure"
 msgstr "ページまたはドキュメントの構造を表示"
 
 # Adobe Reader では 'bookmarks' は 'しおり' と訳されているようだ。
-#: C/evince.xml:337(para)
+#: C/atril.xml:337(para)
 msgid "To view bookmarks or pages, perform the following steps:"
 msgstr "しおりまたはページのサムネイルを表示するには次のステップを"
 "実行します:"
 
-#: C/evince.xml:341(para)
+#: C/atril.xml:341(para)
 msgid ""
 "Choose <menuchoice><guimenu>View</guimenu><guimenuitem>Sidebar</"
 "guimenuitem></menuchoice> or press <keycap>F9</keycap>."
 msgstr "<menuchoice><guimenu>表示</guimenu><guimenuitem>サイドペイン"
 "</guimenuitem></menuchoice> または <keycap>F9</keycap> を押します。"
 
-#: C/evince.xml:346(para)
+#: C/atril.xml:346(para)
 msgid ""
 "Use the drop-down list in the side-pane header to select whether to display "
 "document structure or pages in the side pane."
 msgstr "サイドペインのへッダのドロップダウンリストを使って、サイドペインに"
 "ドキュメントの構造とページのどちらを表示するか選択します。"
 
-#: C/evince.xml:351(para)
+#: C/atril.xml:351(para)
 msgid ""
 "Use the side-pane scrollbars to display the required item or page in the "
 "side pane."
 msgstr "サイドペインのスクロールバーを使って、サイドペインに"
 "求めるアイテムまたはページを表示します。"
 
-#: C/evince.xml:356(para)
+#: C/atril.xml:356(para)
 msgid ""
 "Click on an entry to navigate to that location in the document. Click on a "
 "page to navigate to that page in the document."
 msgstr "エントリをクリックするとドキュメントのその位置に移動できます。"
 "ページをクリックするとドキュメントのそのページに移動できます。"
 
-#: C/evince.xml:362(title)
+#: C/atril.xml:362(title)
 msgid "To View the Properties of a Document"
 msgstr "ドキュメントのプロパティを表示"
 
-#: C/evince.xml:363(para)
+#: C/atril.xml:363(para)
 msgid ""
 "To view the properties of a document, choose <menuchoice><guimenu>File</"
 "guimenu><guimenuitem>Properties</guimenuitem></menuchoice>."
@@ -597,105 +597,105 @@ msgstr "ドキュメントのプロパティを見るには <menuchoice><guimenu
 "ファイル</guimenu><guimenuitem>プロパティ</guimenuitem></menuchoice>"
 " を選択します。"
 
-#: C/evince.xml:369(para)
+#: C/atril.xml:369(para)
 msgid ""
 "The <guilabel>Properties</guilabel> dialog displays all information available"
 msgstr "<guilabel>プロパティ</guilabel> ダイアログには利用できる"
 "すべての情報が表示されます。"
 
-#: C/evince.xml:375(title)
+#: C/atril.xml:375(title)
 msgid "To Print a Document"
 msgstr "ドキュメントの印刷"
 
-#: C/evince.xml:376(para)
+#: C/atril.xml:376(para)
 msgid ""
 "To print a Document, choose <menuchoice><guimenu>File</"
 "guimenu><guimenuitem>Print</guimenuitem></menuchoice>."
 msgstr "ドキュメントを印刷するには <menuchoice><guimenu>ファイル</guimenu>"
 "<guimenuitem>印刷</guimenuitem></menuchoice> を選択します。"
 
-#: C/evince.xml:380(para)
+#: C/atril.xml:380(para)
 msgid ""
 "If you cannot choose the <guimenuitem>Print</guimenuitem> menu item, the "
 "author of the document has disabled the print option for this document. To "
 "enable the print option, you must enter the master password when you open "
-"the document. See <xref linkend=\"evince-password\"/> for more information "
+"the document. See <xref linkend=\"atril-password\"/> for more information "
 "about password-protected files."
 msgstr "<guimenuitem>印刷</guimenuitem> メニューアイテムを選択できない場合は"
 "そのドキュメントの作者は印刷オプションを無効にしています。印刷オプションを"
 "有効にするにはドキュメントを開く際にマスターパスワードを入力しなければ"
 "いけません。パスワードで保護されたファイルの詳細については "
-"<xref linkend=\"evince-password\"/> を参照して下さい。"
+"<xref linkend=\"atril-password\"/> を参照して下さい。"
 
-#: C/evince.xml:384(para)
+#: C/atril.xml:384(para)
 msgid ""
 "The <guilabel>Print</guilabel> dialog has the following tabbed sections:"
 msgstr "<guilabel>印刷</guilabel> ダイアログには次のタブセクションがあります:"
 
-#: C/evince.xml:390(link) C/evince.xml:406(title)
+#: C/atril.xml:390(link) C/atril.xml:406(title)
 msgid "Job"
 msgstr "ジョブ"
 
-#: C/evince.xml:395(link) C/evince.xml:428(title) C/evince.xml:430(guilabel)
+#: C/atril.xml:395(link) C/atril.xml:428(title) C/atril.xml:430(guilabel)
 msgid "Printer"
 msgstr "プリンタ"
 
-#: C/evince.xml:400(link) C/evince.xml:522(title)
+#: C/atril.xml:400(link) C/atril.xml:522(title)
 msgid "Paper"
 msgstr "用紙"
 
-#: C/evince.xml:408(guilabel)
+#: C/atril.xml:408(guilabel)
 msgid "Print range"
 msgstr "印刷範囲"
 
-#: C/evince.xml:410(para)
+#: C/atril.xml:410(para)
 msgid ""
 "Select one of the following options to determine how many pages to print:"
 msgstr "次のいずれかのオプションを選択して、出力するページ数を指定します。"
 
-#: C/evince.xml:413(guilabel)
+#: C/atril.xml:413(guilabel)
 msgid "All"
 msgstr "全て"
 
-#: C/evince.xml:414(para)
+#: C/atril.xml:414(para)
 msgid "Select this option to print all of the pages in the document."
 msgstr "ドキュメントのすべてのページを印刷する場合はこのオプションを選択します。"
 
-#: C/evince.xml:417(guilabel)
+#: C/atril.xml:417(guilabel)
 msgid "Pages From"
 msgstr "範囲"
 
-#: C/evince.xml:418(para)
+#: C/atril.xml:418(para)
 msgid ""
 "Select this option to print the selected range of pages in the document. Use "
 "the spin boxes to specify the first page and last page of the range."
 msgstr "ドキュメントの指定のページ範囲を印刷するにはこのオプションを選択します。"
 "ページの範囲の最初と最後をスピンボックスを使って指定します。"
 
-#: C/evince.xml:432(para)
+#: C/atril.xml:432(para)
 msgid ""
 "Use this drop-down list to select the printer to which you want to print the "
 "document."
 msgstr "ドキュメントを印刷するプリンタを選択するにはこのドロップダウンリストを"
 "使います。"
 
-#: C/evince.xml:434(para)
+#: C/atril.xml:434(para)
 msgid ""
 "The <guilabel>Create a PDF document</guilabel> option is not supported in "
-"this version of <application>Evince Document Viewer</application>."
+"this version of <application>Atril Document Viewer</application>."
 msgstr "<guilabel>PDF ドキュメントの作成</guilabel> オプションは"
-"<application>Evince ドキュメントビューア</application> の"
+"<application>Atril ドキュメントビューア</application> の"
 "このバージョンではサポートされていません。"
 
-#: C/evince.xml:440(guilabel)
+#: C/atril.xml:440(guilabel)
 msgid "Settings"
 msgstr "設定"
 
-#: C/evince.xml:442(para)
+#: C/atril.xml:442(para)
 msgid "Use this drop-down list to select the printer settings."
 msgstr "ドロップダウンリストから印刷設定を選択します。"
 
-#: C/evince.xml:444(para)
+#: C/atril.xml:444(para)
 msgid ""
 "To configure the printer, click <guibutton>Configure</guibutton>. For "
 "example, you can enable or disable duplex printing, or schedule delayed "
@@ -704,47 +704,47 @@ msgstr "プリンタを設定するには <guibutton>設定</guibutton> をク�
 "プリンタが機能をサポートしていれば、例えば、両面印刷を有効または"
 "無効にしたり、後で印刷させたりできます。"
 
-#: C/evince.xml:448(guilabel)
+#: C/atril.xml:448(guilabel)
 msgid "Location"
 msgstr "場所"
 
-#: C/evince.xml:450(para)
+#: C/atril.xml:450(para)
 msgid ""
 "Use this drop-down list to select one of the following print destinations:"
 msgstr "ドロップダウンリストから次の中のどれかの印刷先を選択します:"
 
-#: C/evince.xml:455(guilabel)
+#: C/atril.xml:455(guilabel)
 msgid "CUPS"
 msgstr "CUPS"
 
-#: C/evince.xml:457(para)
+#: C/atril.xml:457(para)
 msgid "Print the document to a CUPS printer."
 msgstr "CUPS プリンタに印刷します。"
 
-#: C/evince.xml:461(para)
+#: C/atril.xml:461(para)
 msgid ""
 "If the selected printer is a CUPS printer, <guilabel>CUPS</guilabel> is the "
 "only entry in this drop-down list."
 msgstr "選択されたプリンタが CUPS プリンタである場合は <guilabel>CUPS"
 "</guilabel> だけがこのドロップダウンリストの唯一のエントリとなります。"
 
-#: C/evince.xml:468(guilabel)
+#: C/atril.xml:468(guilabel)
 msgid "lpr"
 msgstr "lpr"
 
-#: C/evince.xml:470(para)
+#: C/atril.xml:470(para)
 msgid "Print the document to a printer."
 msgstr "ドキュメントを一つのプリンタで印刷します。"
 
-#: C/evince.xml:476(guilabel)
+#: C/atril.xml:476(guilabel)
 msgid "File"
 msgstr "ファイル"
 
-#: C/evince.xml:478(para)
+#: C/atril.xml:478(para)
 msgid "Print the document to a PostScript file."
 msgstr "ドキュメントを PostScript ファイルに出力します。"
 
-#: C/evince.xml:481(para)
+#: C/atril.xml:481(para)
 msgid ""
 "Click <guibutton>Save As</guibutton> to display a dialog where you specify "
 "the name and location of the PostScript file."
@@ -752,95 +752,95 @@ msgstr "<guibutton>別名で保存</guibutton> をクリックして "
 "PostScript ファイルの名前と場所を指定するためのダイアログを"
 "表示させます。"
 
-#: C/evince.xml:487(guilabel)
+#: C/atril.xml:487(guilabel)
 msgid "Custom"
 msgstr "カスタム"
 
-#: C/evince.xml:489(para)
+#: C/atril.xml:489(para)
 msgid "Use the specified command to print the document."
 msgstr "ドキュメントを印刷するために特定のコマンドを使用します。"
 
-#: C/evince.xml:492(para)
+#: C/atril.xml:492(para)
 msgid ""
 "Type the name of the command in the text box. Include all command-line "
 "arguments."
 msgstr "テキストボックスにコマンド名を入力します。"
 "すべてのコマンド行引数を含めます。"
 
-#: C/evince.xml:500(guilabel)
+#: C/atril.xml:500(guilabel)
 msgid "State"
 msgstr "状態"
 
-#: C/evince.xml:502(para) C/evince.xml:508(para) C/evince.xml:514(para)
+#: C/atril.xml:502(para) C/atril.xml:508(para) C/atril.xml:514(para)
 msgid ""
-"This functionality is not supported in this version of <application>Evince "
+"This functionality is not supported in this version of <application>Atril "
 "Document Viewer</application>."
 msgstr "この機能はこのバージョンの "
-"<application>Evince ドキュメントビューア</application> では"
+"<application>Atril ドキュメントビューア</application> では"
 "サポートされていません。"
 
 # ?
-#: C/evince.xml:506(guilabel)
+#: C/atril.xml:506(guilabel)
 msgid "Type"
 msgstr "種類"
 
-#: C/evince.xml:512(guilabel)
+#: C/atril.xml:512(guilabel)
 msgid "Comment"
 msgstr "コメント"
 
-#: C/evince.xml:524(guilabel)
+#: C/atril.xml:524(guilabel)
 msgid "Paper size"
 msgstr "用紙サイズ"
 
-#: C/evince.xml:526(para)
+#: C/atril.xml:526(para)
 msgid ""
 "Use this drop-down list to select the size of the paper to which you want to "
 "print the document."
 msgstr "ドキュメントを印刷する用紙のサイズを選択するには"
 "このドロップダウンリストを使います。"
 
-#: C/evince.xml:529(guilabel)
+#: C/atril.xml:529(guilabel)
 msgid "Width"
 msgstr "幅"
 
-#: C/evince.xml:531(para)
+#: C/atril.xml:531(para)
 msgid ""
 "Use this spin box to specify the width of the paper. Use the adjacent drop-"
 "down list to change the measurement unit."
 msgstr "用紙の幅を指定するにはこのスピンボックスを使います。"
 "サイズの単位を変更するには隣のドロップダウンリストを使います。"
 
-#: C/evince.xml:534(guilabel)
+#: C/atril.xml:534(guilabel)
 msgid "Height"
 msgstr "高さ"
 
-#: C/evince.xml:536(para)
+#: C/atril.xml:536(para)
 msgid "Use this spin box to specify the height of the paper."
 msgstr "用紙の高さを指定します。"
 
-#: C/evince.xml:539(guilabel)
+#: C/atril.xml:539(guilabel)
 msgid "Feed orientation"
 msgstr "用紙の向き"
 
-#: C/evince.xml:541(para)
+#: C/atril.xml:541(para)
 msgid ""
 "Use this drop-down list to select the orientation of the paper in the "
 "printer."
 msgstr "ドロップダウンリストからプリンタ内の用紙の向きを選択します。"
 
-#: C/evince.xml:544(guilabel)
+#: C/atril.xml:544(guilabel)
 msgid "Page orientation"
 msgstr "ページの向き"
 
-#: C/evince.xml:546(para)
+#: C/atril.xml:546(para)
 msgid "Use this drop-down list to select the page orientation."
 msgstr "ドロップダウンリストから用紙の向きを選択します。"
 
-#: C/evince.xml:549(guilabel)
+#: C/atril.xml:549(guilabel)
 msgid "Layout"
 msgstr "レイアウト"
 
-#: C/evince.xml:551(para)
+#: C/atril.xml:551(para)
 msgid ""
 "Use this drop-down list to select the page layout. A preview of each layout "
 "that you select is displayed in the <guilabel>Preview</guilabel> area."
@@ -848,30 +848,30 @@ msgstr ""
 "ページレイアウトを選択するにはこのドロップダウンリストを使います。<guilabel>「プレ"
 "ビュー」</guilabel>領域には、選択した各レイアウトのプレビューが表示されます。"
 
-#: C/evince.xml:554(guilabel)
+#: C/atril.xml:554(guilabel)
 msgid "Paper Tray"
 msgstr "用紙トレイ"
 
-#: C/evince.xml:556(para)
+#: C/atril.xml:556(para)
 msgid "Use this drop-down list to select the paper tray."
 msgstr "用紙のトレイを選択するにはこのドロップダウンリストを使います。"
 
-#: C/evince.xml:566(title)
+#: C/atril.xml:566(title)
 msgid "To Copy a Document"
 msgstr "ドキュメントのコピー"
 
-#: C/evince.xml:567(para)
+#: C/atril.xml:567(para)
 msgid "To copy a file, perform the following steps:"
 msgstr "ファイルをコピーするには次のステップを実行します:"
 
-#: C/evince.xml:571(para)
+#: C/atril.xml:571(para)
 msgid ""
 "Choose <menuchoice><guimenu>File</guimenu><guimenuitem>Save a Copy</"
 "guimenuitem></menuchoice>."
 msgstr "<menuchoice><guimenu>ファイル</guimenu><guimenuitem>"
 "別名で保存</guimenuitem></menuchoice> を選択します。"
 
-#: C/evince.xml:576(para)
+#: C/atril.xml:576(para)
 msgid ""
 "Type the new filename in the <guilabel>Filename</guilabel> text box in the "
 "<guilabel>Save a Copy</guilabel> dialog."
@@ -879,70 +879,70 @@ msgstr "<guilabel>別名で保存</guilabel> ダイアログの "
 "<guilabel>名前</guilabel> テキストボックスに新しいファイル名を"
 "入力します。"
 
-#: C/evince.xml:579(para)
+#: C/atril.xml:579(para)
 msgid ""
 "If necessary, specify the location of the copied document. By default, "
 "copies are saved in your home directory."
 msgstr "必要ならコピーしたドキュメントの場所も指定します。デフォルトでは"
 "コピーはホームディレクトリに保存されます。"
 
-#: C/evince.xml:584(para)
+#: C/atril.xml:584(para)
 msgid "Click <guibutton>Save</guibutton>."
 msgstr "<guibutton>保存</guibutton> をクリックします。"
 
-#: C/evince.xml:593(title)
+#: C/atril.xml:593(title)
 msgid "To Work With Password-Protected Documents"
 msgstr "パスワードで保護されたドキュメントを扱う"
 
-#: C/evince.xml:594(para)
+#: C/atril.xml:594(para)
 msgid "An author can use the following password levels to protect a document:"
 msgstr "ドキュメントの作成者はドキュメントを保護するのに次のパスワード"
 "レベルを使うことができます:"
 
-#: C/evince.xml:599(para)
+#: C/atril.xml:599(para)
 msgid "User password that allows others only to read the document."
 msgstr "他者にドキュメントの読み込みだけを許可するユーザーパスワード"
 
-#: C/evince.xml:603(para)
+#: C/atril.xml:603(para)
 msgid ""
 "Master password that allows others to perform additional actions, such as "
 "print the document."
 msgstr "他者にドキュメントの印刷などの追加のアクションを許可するマスターパスワード"
 
-#: C/evince.xml:607(para)
+#: C/atril.xml:607(para)
 msgid ""
-"When you try to open a password-protected document, <application>Evince "
+"When you try to open a password-protected document, <application>Atril "
 "Document Viewer</application> displays a security dialog. Type either the "
 "user password or the master password in the <guilabel>Enter document "
 "password</guilabel> text box, then click <guibutton>Open Document</"
 "guibutton>."
 msgstr "パスワードで保護されたドキュメントを開こうとすると "
-"<application>Evince ドキュメントビューア</application> は"
+"<application>Atril ドキュメントビューア</application> は"
 "セキュリティダイアログを表示します。ユーザーパスワードまたは"
 "マスターパスワードを <guilabel>パスワードの入力</guilabel> "
 "テキストボックスに入力し、<guibutton>ドキュメントを開く</guibutton> を"
 "クリックします。"
 
-#: C/evince.xml:614(title)
+#: C/atril.xml:614(title)
 msgid "To Close a Document"
 msgstr "ドキュメントを閉じる"
 
-#: C/evince.xml:615(para)
+#: C/atril.xml:615(para)
 msgid ""
 "To close a document, choose <menuchoice><guimenu>File</"
 "guimenu><guimenuitem>Close</guimenuitem></menuchoice>."
 msgstr "ドキュメントを閉じるには <menuchoice><guimenu>ファイル</guimenu>"
 "<guimenuitem>閉じる</guimenuitem></menuchoice> を選択します。"
 
-#: C/evince.xml:617(para)
+#: C/atril.xml:617(para)
 msgid ""
-"If the window is the last <application>Evince Document Viewer</application> "
+"If the window is the last <application>Atril Document Viewer</application> "
 "window open, the application exits."
-msgstr "ウィンドウが <application>Evince ドキュメントビューア</application> の"
+msgstr "ウィンドウが <application>Atril ドキュメントビューア</application> の"
 "最後の残りのウィンドウならアプリケーションは終了します。"
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
-#: C/evince.xml:0(None)
+#: C/atril.xml:0(None)
 msgid "translator-credits"
 msgstr "佐藤 暁 <ss@mate.gr.jp>\n"
 "日本 MATE ユーザー会 http://www.mate.gr.jp"

@@ -5,7 +5,7 @@ INCLUDES = 					\
 	-I$(top_srcdir)/libdocument		\
 	-I$(srcdir)/mdvi-lib			\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
-	-DEVINCE_COMPILATION			\
+	-DATRIL_COMPILATION			\
 	$(WARN_CFLAGS)				\
 	$(BACKEND_CFLAGS)			\
 	$(SPECTRE_CFLAGS)			\
@@ -35,13 +35,13 @@ if WITH_TYPE1_FONTS
 libdvidocument_la_LIBADD += -lt1
 endif
 
-backend_in_files = dvidocument.evince-backend.in
-backend_DATA = $(backend_in_files:.evince-backend.in=.evince-backend)
+backend_in_files = dvidocument.atril-backend.in
+backend_DATA = $(backend_in_files:.atril-backend.in=.atril-backend)
 
 EXTRA_DIST = $(backend_in_files)
 
 CLEANFILES = $(backend_DATA)
 
-@EV_INTLTOOL_EVINCE_BACKEND_RULE@
+@EV_INTLTOOL_ATRIL_BACKEND_RULE@
 
 -include $(top_srcdir)/git.mk

@@ -1,13 +1,13 @@
-# Cyfieithiad o evince i'r Gymraeg
-# Translation of evince to Welsh
+# Cyfieithiad o atril i'r Gymraeg
+# Translation of atril to Welsh
 # Copyright (C) 2005 Gareth Bowker
-# This file is distributed under the same license as the evince package.
+# This file is distributed under the same license as the atril package.
 # Gareth Bowker <tgb@tgb.org.uk>, 2005.
 # Rhys Jones <rhys@sucs.org>, 2006.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evince\n"
+"Project-Id-Version: atril\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-02-25 12:29+0000\n"
 "PO-Revision-Date: 2006-02-21 22:22-0000\n"
@@ -80,79 +80,79 @@ msgstr "300%"
 msgid "400%"
 msgstr "400%"
 
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window-title.c:126
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window-title.c:126
 msgid "Document Viewer"
 msgstr "Gwelydd Dogfennau"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multipage documents"
 msgstr "Gweld dogfennau aml-dudalen"
 
-#: ../data/evince-password.glade.h:1
+#: ../data/atril-password.glade.h:1
 msgid "Remember password for this session"
 msgstr "Cofio'r cyfrinair ar gyfer y sesiwn hwn"
 
-#: ../data/evince-password.glade.h:2
+#: ../data/atril-password.glade.h:2
 msgid "Save password in keyring"
 msgstr "Cadw cyfrinair yn y cylch allweddi"
 
-#: ../data/evince-password.glade.h:3
+#: ../data/atril-password.glade.h:3
 msgid "_Password:"
 msgstr "_Cyfrinair"
 
-#: ../data/evince-properties.glade.h:1
+#: ../data/atril-properties.glade.h:1
 msgid "<b>Author:</b>"
 msgstr "<b>Awdur:</b>"
 
-#: ../data/evince-properties.glade.h:2
+#: ../data/atril-properties.glade.h:2
 msgid "<b>Created:</b>"
 msgstr "<b>Crëwyd:</b>"
 
-#: ../data/evince-properties.glade.h:3
+#: ../data/atril-properties.glade.h:3
 msgid "<b>Creator:</b>"
 msgstr "<b>Crëwr:</b>"
 
-#: ../data/evince-properties.glade.h:4
+#: ../data/atril-properties.glade.h:4
 msgid "<b>Format:</b>"
 msgstr "<b>Fformat:</b>"
 
-#: ../data/evince-properties.glade.h:5
+#: ../data/atril-properties.glade.h:5
 msgid "<b>Keywords:</b>"
 msgstr "<b>Allweddeiriau:</b>"
 
-#: ../data/evince-properties.glade.h:6
+#: ../data/atril-properties.glade.h:6
 msgid "<b>Modified:</b>"
 msgstr "<b>Newidiwyd:</b>"
 
-#: ../data/evince-properties.glade.h:7
+#: ../data/atril-properties.glade.h:7
 msgid "<b>Number of Pages:</b>"
 msgstr "<b>Nifer o Dudalennau:</b>"
 
-#: ../data/evince-properties.glade.h:8
+#: ../data/atril-properties.glade.h:8
 msgid "<b>Optimized:</b>"
 msgstr "<b>Optimeiddiwyd:</b>"
 
-#: ../data/evince-properties.glade.h:9
+#: ../data/atril-properties.glade.h:9
 msgid "<b>Producer:</b>"
 msgstr "<b>Cynhyrchydd:</b>"
 
-#: ../data/evince-properties.glade.h:10
+#: ../data/atril-properties.glade.h:10
 msgid "<b>Security:</b>"
 msgstr "<b>Diogelwch:</b>"
 
-#: ../data/evince-properties.glade.h:11
+#: ../data/atril-properties.glade.h:11
 msgid "<b>Subject:</b>"
 msgstr "<b>Pwnc:</b>"
 
-#: ../data/evince-properties.glade.h:12
+#: ../data/atril-properties.glade.h:12
 msgid "<b>Title:</b>"
 msgstr "<b>Teitl:</b>"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "Gwrthwneud cyfyngiadau'r ddogfen"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Gwrthwneud cyfyngiadau'r ddogfen, er enghraifft, cyfyngiad rhag copïo neu "
@@ -640,24 +640,24 @@ msgstr ""
 
 #: ../shell/ev-window.c:2396
 msgid ""
-"Evince is free software; you can redistribute it and/or modify\n"
+"Atril is free software; you can redistribute it and/or modify\n"
 "it under the terms of the GNU General Public License as published by\n"
 "the Free Software Foundation; either version 2 of the License, or\n"
 "(at your option) any later version.\n"
 msgstr ""
-"Mae Evince yn feddalwedd rhydd; gallwch ei hailddosbarthu a/neu ei\n"
+"Mae Atril yn feddalwedd rhydd; gallwch ei hailddosbarthu a/neu ei\n"
 "haddasu dan delerau Trwydded Gyhoeddus Gyffredinol GNU fel y'i\n"
 "cyhoeddwyd gan y Free Software Foundation; naill ai fersiwn 2 y\n"
 "Drwydded, neu (yn ôl eich dewis) unrhyw fersiwn diweddarach.\n"
 
 #: ../shell/ev-window.c:2400
 msgid ""
-"Evince is distributed in the hope that it will be useful,\n"
+"Atril is distributed in the hope that it will be useful,\n"
 "but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
 "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
 "GNU General Public License for more details.\n"
 msgstr ""
-"Mae Evince yn cael ei dosbarthu yn y gobaith y bydd yn\n"
+"Mae Atril yn cael ei dosbarthu yn y gobaith y bydd yn\n"
 "ddefnyddiol, ond HEB UNRHYW WARANT; heb hyd yn oed y warant\n"
 "oblygedig o FARSIANDÏAETH neu FFITRWYDD AT BWRPAS ARBENNIG.\n"
 "Gweler Trwydded Gyhoeddus Gyffredinol GNU am ragor o fanylion.\n"
@@ -665,7 +665,7 @@ msgstr ""
 #: ../shell/ev-window.c:2404
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
-"along with Evince; if not, write to the Free Software Foundation, Inc.,\n"
+"along with Atril; if not, write to the Free Software Foundation, Inc.,\n"
 "59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
 "Dylech fod wedi derbyn copi o Drwydded Gyhoeddus Gyffredinol GNU ynghyd\n"
@@ -673,12 +673,12 @@ msgstr ""
 "59 Temple Place, Suite 330, Boston MA 02111-1307 USA\n"
 
 #: ../shell/ev-window.c:2428 ../shell/main.c:259
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:2431
-msgid "© 1996-2005 The Evince authors"
-msgstr "© 1996-2005 Awduron Evince"
+msgid "© 1996-2005 The Atril authors"
+msgstr "© 1996-2005 Awduron Atril"
 
 #: ../shell/ev-window.c:2437
 msgid "translator-credits"
@@ -954,10 +954,10 @@ msgid "PAGE"
 msgstr "TUDALEN"
 
 #: ../shell/main.c:286
-msgid "Evince Document Viewer"
-msgstr "Gwelydd Dogfennau Evince"
+msgid "Atril Document Viewer"
+msgstr "Gwelydd Dogfennau Atril"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available, true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -965,15 +965,15 @@ msgstr ""
 "Opsiynau Boole ar gael, gwir yn galluogi creu lluniau cryno a ffug yn "
 "analluogi creu lluniau cryno"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Galluogi lluniau cryno o ddogfennau PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Gorchymyn rhaglen creu lluniau cryno i ddogfennau PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See caja "
 "thumbnailer documentation for more information."

@@ -1,6 +1,6 @@
-# translation of Evince into Indonesian
-# Copyright (C) 2005 THE Evince'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the Evince package.
+# translation of Atril into Indonesian
+# Copyright (C) 2005 THE Atril'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the Atril package.
 #
 # Ahmad Riza H Nst <rizahnst@gnome.org>, 2006.
 # Mdamt <mdamt@gnome.org>, 2005.
@@ -8,9 +8,9 @@
 # Dirgita <dirgitadevina@yahoo.co.id>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: evince mate-2-32\n"
+"Project-Id-Version: atril mate-2-32\n"
 "Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?"
-"product=evince&component=general\n"
+"product=atril&component=general\n"
 "POT-Creation-Date: 2010-09-07 16:35+0000\n"
 "PO-Revision-Date: 2010-09-11 14:40+0700\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
@@ -78,7 +78,7 @@ msgstr "Galat sewaktu menghapus “%s”."
 msgid "Error %s"
 msgstr "Galat %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Buku Komik"
 
@@ -94,7 +94,7 @@ msgstr ""
 "Dokumen ini terdiri atas sejumlah berkas. Satu atau lebih berkas tersebu "
 "tidak dapat diakses."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "Dokumen DjVu"
 
@@ -102,7 +102,7 @@ msgstr "Dokumen DjVu"
 msgid "DVI document has incorrect format"
 msgstr "Format dokumen DVI salah"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "Dokumen DVI"
 
@@ -168,7 +168,7 @@ msgstr "Ditempelkan"
 msgid "Not embedded"
 msgstr "Tidak ditempelkan"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "Dokumen PDF"
 
@@ -180,7 +180,7 @@ msgstr "Dokumen tidak sah"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Salindia Impress"
 
@@ -230,7 +230,7 @@ msgstr "Gagal memuat dokumen “%s”"
 msgid "Failed to save document “%s”"
 msgstr "Gagal menyimpan dokumen \"%s\""
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "Dokumen PostScript"
 
@@ -442,21 +442,21 @@ msgid "6400%"
 msgstr "6400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4550
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4550
 #: ../shell/ev-window-title.c:149 ../shell/main.c:310
 #, c-format
 msgid "Document Viewer"
 msgstr "Penampil Dokumen"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "Melihat dokumen multihalaman"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
 msgstr "Timpa restriksi dokumen"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Menimpa restriksi dokumen, seperti larangan untuk menyalin atau menceta."
@@ -958,10 +958,10 @@ msgstr "Mengonversi metadata"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
-"Bentuk metadata yang dipakai oleh Evince telah berubah, sehingga perlu "
+"Bentuk metadata yang dipakai oleh Atril telah berubah, sehingga perlu "
 "dimigrasikan. Bila migrasi dibatalkan maka penyimpanan metadata tak akan "
 "bekerja."
 
@@ -1267,44 +1267,44 @@ msgstr ""
 
 #: ../shell/ev-window.c:4577
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince adalah perangkat lunak bebas; Anda dapat mendistribusikan ulang dan/"
+"Atril adalah perangkat lunak bebas; Anda dapat mendistribusikan ulang dan/"
 "atau mengubahnya di bawah ketentuan GNU General Public License sebagaimana "
 "dipublikasikan oleh Free Software Foundation; Lisensi versi 2, atau (sesuai "
 "pilihan Anda) menggunakan versi selanjutnya.\n"
 
 #: ../shell/ev-window.c:4581
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince didistribusikan dengan harapan dapat berguna, tetapi TANPA ADANYA "
+"Atril didistribusikan dengan harapan dapat berguna, tetapi TANPA ADANYA "
 "JAMINAN; termasuk tanpa jaminan DAYA JUAL atau KELAIKAN UNTUK TUJUAN "
 "TERTENTU. Lihat GNU General Public License untuk rincian lebih lanjut.\n"
 
 #: ../shell/ev-window.c:4585
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
 "Anda seharusnya menerima salinan dari GNU General Public License bersama "
-"Evince; jika tidak, kirimkan surat Anda ke Free Software Foundation, Inc., "
+"Atril; jika tidak, kirimkan surat Anda ke Free Software Foundation, Inc., "
 "51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n"
 
 #: ../shell/ev-window.c:4610
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4613
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996-2009 Para penulis Evince"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996-2009 Para penulis Atril"
 
 #: ../shell/ev-window.c:4619
 msgid "translator-credits"
@@ -1669,16 +1669,16 @@ msgid "NUMBER"
 msgstr "NOMOR"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
-msgstr "Menjalankan evince dalam mode layar penuh"
+msgid "Run atril in fullscreen mode"
+msgstr "Menjalankan atril dalam mode layar penuh"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
-msgstr "Menjalankan evince dalam mode presentasi"
+msgid "Run atril in presentation mode"
+msgstr "Menjalankan atril dalam mode presentasi"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
-msgstr "Menjalankan evince sebagai pemratinjau"
+msgid "Run atril as a previewer"
+msgstr "Menjalankan atril sebagai pemratinjau"
 
 #: ../shell/main.c:82
 msgid "The word or phrase to find in the document"
@@ -1692,7 +1692,7 @@ msgstr "STRING"
 msgid "[FILE…]"
 msgstr "[BERKAS…]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1700,15 +1700,15 @@ msgstr ""
 "Opsi yang tersedia: \"true\" akan mengaktifkan pembuatan miniatur dan \"false"
 "\" akan menonaktifkannya"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Mengaktifkan miniaturisasi Dokumen PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Perintah pembuatan miniatur untuk Dokumen PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."

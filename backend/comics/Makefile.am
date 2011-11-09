@@ -2,7 +2,7 @@ INCLUDES =                      		\
 	-I$(top_srcdir)				\
 	-I$(top_srcdir)/libdocument 		\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
-	-DEVINCE_COMPILATION			\
+	-DATRIL_COMPILATION			\
 	$(BACKEND_CFLAGS)			\
 	$(LIB_CFLAGS)				\
 	$(WARN_CFLAGS)				\
@@ -20,13 +20,13 @@ libcomicsdocument_la_LIBADD =				\
 	$(BACKEND_LIBS)					\
 	$(LIB_LIBS)
 
-backend_in_files = comicsdocument.evince-backend.in
-backend_DATA = $(backend_in_files:.evince-backend.in=.evince-backend)
+backend_in_files = comicsdocument.atril-backend.in
+backend_DATA = $(backend_in_files:.atril-backend.in=.atril-backend)
 
 EXTRA_DIST = $(backend_in_files)
 
 CLEANFILES = $(backend_DATA)
 
-@EV_INTLTOOL_EVINCE_BACKEND_RULE@
+@EV_INTLTOOL_ATRIL_BACKEND_RULE@
 
 -include $(top_srcdir)/git.mk

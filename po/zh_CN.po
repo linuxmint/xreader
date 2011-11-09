@@ -1,6 +1,6 @@
-# Simplified Chinese translation to evince
+# Simplified Chinese translation to atril
 # Copyright (C) 2009 Free Software Foundation, Inc.
-# This file is distributed under the same license as the evince package.
+# This file is distributed under the same license as the atril package.
 # Funda Wang <fundawang@linux.net.cn>, 2004, 2005.
 # 甘露(Gan Lu) <rhythm.gan@gmail.com>, 2009.
 # Deng Xiyue <manphiz@gmail.com>, 2009.
@@ -14,9 +14,9 @@
 # 	Note: "Comic Book" is a file type, refer to http://en.wikipedia.org/wiki/Comic_Book_Archive_file
 msgid ""
 msgstr ""
-"Project-Id-Version: evince master\n"
+"Project-Id-Version: atril master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?"
-"product=evince&component=general\n"
+"product=atril&component=general\n"
 "POT-Creation-Date: 2010-08-22 13:20+0000\n"
 "PO-Revision-Date: 2010-08-23 09:11+0800\n"
 "Last-Translator: 朱涛 <bill_zt@sina.com>\n"
@@ -80,7 +80,7 @@ msgstr "删除“%s”时出错。"
 msgid "Error %s"
 msgstr "错误 %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Comic Book 文档"
 
@@ -94,7 +94,7 @@ msgid ""
 "be accessed."
 msgstr "此文档由多个文件组成，而这些文件中的一个或多个无法被访问。"
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "DjVu 文档"
 
@@ -102,7 +102,7 @@ msgstr "DjVu 文档"
 msgid "DVI document has incorrect format"
 msgstr "DVI 文档的格式不对"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI 文档"
 
@@ -168,7 +168,7 @@ msgstr "嵌入"
 msgid "Not embedded"
 msgstr "未嵌入"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF 文档"
 
@@ -180,7 +180,7 @@ msgstr "无效的文档"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Impress 幻灯片"
 
@@ -230,7 +230,7 @@ msgstr "载入文档“%s”失败"
 msgid "Failed to save document “%s”"
 msgstr "保存文档“%s”失败"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript 文档"
 
@@ -442,21 +442,21 @@ msgid "6400%"
 msgstr "6400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4536
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4536
 #: ../shell/ev-window-title.c:149 ../shell/main.c:310
 #, c-format
 msgid "Document Viewer"
 msgstr "文档查看器"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "查看多页文档"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
 msgstr "忽略文档限制"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "忽略文档限制，比如限制复制或打印。"
 
@@ -949,10 +949,10 @@ msgstr "正在转换元数据"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
-"被 Evince 使用的元数据已经改变，因此它需要被迁移。如果迁移操作被取消，元数据"
+"被 Atril 使用的元数据已经改变，因此它需要被迁移。如果迁移操作被取消，元数据"
 "存放处将不会工作。"
 
 #: ../shell/ev-open-recent-action.c:72
@@ -1251,42 +1251,42 @@ msgstr ""
 
 #: ../shell/ev-window.c:4563
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince 是自由软件；您可以按照自由软件基金会所发布的 GNU GPL 许可对其再发放和/"
+"Atril 是自由软件；您可以按照自由软件基金会所发布的 GNU GPL 许可对其再发放和/"
 "或修改它；至于 GPL 的版本，您可以使用第二版或任何更新的版本。\n"
 
 #: ../shell/ev-window.c:4567
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"发布 Evince 的目的是希望它能够在一定程度上帮到您。但我们并不为\n"
+"发布 Atril 的目的是希望它能够在一定程度上帮到您。但我们并不为\n"
 "它提供任何形式的担保，也无法保证它可以在特定用途中得到您希望的\n"
 "结果。请参看 GNU GPL 许可中的更多细节。\n"
 
 #: ../shell/ev-window.c:4571
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
-"您应该收到和 Evince 一起的 GNU GPL 协议副本；如果没有收到该协议\n"
+"您应该收到和 Atril 一起的 GNU GPL 协议副本；如果没有收到该协议\n"
 "的话，您可以写信给自由软件基金会，地址是：\n"
 "51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA\n"
 
 #: ../shell/ev-window.c:4596
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4599
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996–2009 Evince 作者"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996–2009 Atril 作者"
 
 #: ../shell/ev-window.c:4605
 msgid "translator-credits"
@@ -1669,16 +1669,16 @@ msgid "NUMBER"
 msgstr "页号"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
-msgstr "以全屏模式运行 evince"
+msgid "Run atril in fullscreen mode"
+msgstr "以全屏模式运行 atril"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
-msgstr "以放映模式运行 evince"
+msgid "Run atril in presentation mode"
+msgstr "以放映模式运行 atril"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
-msgstr "以预览程序模式运行 evince"
+msgid "Run atril as a previewer"
+msgstr "以预览程序模式运行 atril"
 
 #: ../shell/main.c:82
 msgid "The word or phrase to find in the document"
@@ -1692,21 +1692,21 @@ msgstr "字符串"
 msgid "[FILE…]"
 msgstr "[文件...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
 msgstr "可选布尔值选项：true 代表允许缩略图而 false 代表禁止创建新缩略图"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "启用 PDF 文档的缩略图"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "PDF 文档的缩略图命令"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."
@@ -1766,9 +1766,9 @@ msgstr ""
 #~ msgstr "恢复上一个文档？"
 
 #~ msgid ""
-#~ "Evince appears to have exited unexpectedly the last time it was run. You "
+#~ "Atril appears to have exited unexpectedly the last time it was run. You "
 #~ "can recover the opened documents."
-#~ msgstr "Evince 看起来在上次运行的没有正常的退出。 您可以覆盖打开的文档。"
+#~ msgstr "Atril 看起来在上次运行的没有正常的退出。 您可以覆盖打开的文档。"
 
 #~ msgid "_Don't Recover"
 #~ msgstr "不复原(_D)"
@@ -1815,8 +1815,8 @@ msgstr ""
 #~ msgid "File corrupted."
 #~ msgstr "文件已损坏。"
 
-#~ msgid "© 1996-2007 The Evince authors"
-#~ msgstr "(C) 1996-2007 Evince 作者"
+#~ msgid "© 1996-2007 The Atril authors"
+#~ msgstr "(C) 1996-2007 Atril 作者"
 
 #~ msgid "Print Set_up..."
 #~ msgstr "打印设置(_U)..."

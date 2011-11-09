@@ -26,7 +26,7 @@
  */
 
 /*
- * Modified for use as Evince TIFF ps exporter by
+ * Modified for use as Atril TIFF ps exporter by
  * Matthew S. Wilson <msw@rpath.com>
  * Modifications Copyright (C) 2005 rpath, Inc.
  *
@@ -628,7 +628,7 @@ PSHead(TIFF2PSContext *ctx, TIFF *tif, uint32 w, uint32 h,
 	t = time(0);
 	fprintf(ctx->fd, "%%!PS-Adobe-3.0%s\n",
 		ctx->generateEPSF ? " EPSF-3.0" : "");
-	fprintf(ctx->fd, "%%%%Creator: Evince\n");
+	fprintf(ctx->fd, "%%%%Creator: Atril\n");
 	fprintf(ctx->fd, "%%%%CreationDate: %s", ctime(&t));
 	fprintf(ctx->fd, "%%%%DocumentData: Clean7Bit\n");
 	fprintf(ctx->fd, "%%%%Origin: %ld %ld\n", (long) ox, (long) oy);

@@ -4,7 +4,7 @@
         <schema>
             <key>/schemas/desktop/mate/thumbnailers/image@vnd.djvu/enable</key>
             <applyto>/desktop/mate/thumbnailers/image@vnd.djvu/enable</applyto>
-            <owner>evince</owner>
+            <owner>atril</owner>
             <type>bool</type>
             <default>true</default>
             <locale name="C">
@@ -17,9 +17,9 @@
         <schema>
             <key>/schemas/desktop/mate/thumbnailers/image@vnd.djvu/command</key>
             <applyto>/desktop/mate/thumbnailers/image@vnd.djvu/command</applyto>
-            <owner>evince</owner>
+            <owner>atril</owner>
             <type>string</type>
-            <default>evince-thumbnailer -s %s %u %o</default>
+            <default>atril-thumbnailer -s %s %u %o</default>
             <locale name="C">
                 <short></short>
                 <long></long>

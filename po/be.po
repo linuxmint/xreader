@@ -1,12 +1,12 @@
-# Belarusian translation of evince.
-# Copyright (C) 2005 THE evince'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the evince package.
+# Belarusian translation of atril.
+# Copyright (C) 2005 THE atril'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the atril package.
 # Ales Nyakhaychyk <nab@mail.by>, 2005, 2008
 # Ihar Hrachyshka <ihar.hrachyshka@gmail.com>, 2006.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evince HEAD\n"
+"Project-Id-Version: atril HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-02-10 13:27+0000\n"
 "PO-Revision-Date: 2008-03-15 03:39+0200\n"
@@ -27,7 +27,7 @@ msgstr "Файл пашкоджаны."
 msgid "No images found in archive %s"
 msgstr "У архіве %s малюнкі ня знойдзеныя"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Коміксы"
 
@@ -39,7 +39,7 @@ msgstr ""
 "Дакумэнт складзены зь некалькіх файлаў. Немагчыма атрымаць доступ да аднаго "
 "ці некалькіх файлаў."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "Djvu Documents"
 msgstr "Djvu дакумэнты"
 
@@ -51,7 +51,7 @@ msgstr "Файл недаступны"
 msgid "DVI document has incorrect format"
 msgstr "DVI дакумэнт няправільнага фармату"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI дакумэнты"
 
@@ -113,7 +113,7 @@ msgstr "Убудаваны"
 msgid "Not embedded"
 msgstr "Не ўбудаваны"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF Дакумэнты"
 
@@ -128,7 +128,7 @@ msgstr "Няправільны дакумэнт"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Слайды Impress"
 
@@ -273,7 +273,7 @@ msgstr "PostScript"
 msgid "Interpreter failed."
 msgstr "Збой інтэрпрэтатара."
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript дакумэнты"
 
@@ -403,88 +403,88 @@ msgstr "300%"
 msgid "400%"
 msgstr "400%"
 
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:3517
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:3517
 #: ../shell/ev-window-title.c:132
 msgid "Document Viewer"
 msgstr "Праглядальнік дакумэнтаў"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multipage documents"
 msgstr "Прагляд разнастайных дакумэнтаў"
 
-#: ../data/evince-password.glade.h:1
+#: ../data/atril-password.glade.h:1
 msgid "Password Entry"
 msgstr "Пароль"
 
-#: ../data/evince-password.glade.h:2
+#: ../data/atril-password.glade.h:2
 msgid "Remember password for this session"
 msgstr "Запомніць пароль для гэтага сэанса"
 
-#: ../data/evince-password.glade.h:3
+#: ../data/atril-password.glade.h:3
 msgid "Save password in keyring"
 msgstr "Захаваць пароль у зьвязцы ключоў"
 
-#: ../data/evince-password.glade.h:4
+#: ../data/atril-password.glade.h:4
 msgid "_Password:"
 msgstr "_Пароль:"
 
-#: ../data/evince-properties.glade.h:1
+#: ../data/atril-properties.glade.h:1
 msgid "<b>Author:</b>"
 msgstr "<b>Аўтар:</b>"
 
-#: ../data/evince-properties.glade.h:2
+#: ../data/atril-properties.glade.h:2
 msgid "<b>Created:</b>"
 msgstr "<b>Створаны:</b>"
 
-#: ../data/evince-properties.glade.h:3
+#: ../data/atril-properties.glade.h:3
 msgid "<b>Creator:</b>"
 msgstr "<b>Стваральнік:</b>"
 
-#: ../data/evince-properties.glade.h:4
+#: ../data/atril-properties.glade.h:4
 msgid "<b>Format:</b>"
 msgstr "<b>Фармат:</b>"
 
-#: ../data/evince-properties.glade.h:5
+#: ../data/atril-properties.glade.h:5
 msgid "<b>Keywords:</b>"
 msgstr "<b>Ключавыя словы:</b>"
 
-#: ../data/evince-properties.glade.h:6
+#: ../data/atril-properties.glade.h:6
 msgid "<b>Modified:</b>"
 msgstr "<b>Зьменены:</b>"
 
-#: ../data/evince-properties.glade.h:7
+#: ../data/atril-properties.glade.h:7
 msgid "<b>Number of Pages:</b>"
 msgstr "<b>Колькасьць старонак:</b>"
 
-#: ../data/evince-properties.glade.h:8
+#: ../data/atril-properties.glade.h:8
 msgid "<b>Optimized:</b>"
 msgstr "<b>Аптымізаваны:</b>"
 
-#: ../data/evince-properties.glade.h:9
+#: ../data/atril-properties.glade.h:9
 msgid "<b>Paper Size:</b>"
 msgstr "<b>Памер аркуша:</b>"
 
-#: ../data/evince-properties.glade.h:10
+#: ../data/atril-properties.glade.h:10
 msgid "<b>Producer:</b>"
 msgstr "<b>Вытворца:</b>"
 
-#: ../data/evince-properties.glade.h:11
+#: ../data/atril-properties.glade.h:11
 msgid "<b>Security:</b>"
 msgstr "<b>Бясьпека:</b>"
 
-#: ../data/evince-properties.glade.h:12
+#: ../data/atril-properties.glade.h:12
 msgid "<b>Subject:</b>"
 msgstr "<b>Тэма:</b>"
 
-#: ../data/evince-properties.glade.h:13
+#: ../data/atril-properties.glade.h:13
 msgid "<b>Title:</b>"
 msgstr "<b>Назва:</b>"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "Не зважаць на абмежаваньні дакумэнта"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Не зважаць на абмежаваньні дакумэнта, напр., забарону на друк альбо "
@@ -847,44 +847,44 @@ msgstr ""
 
 #: ../shell/ev-window.c:3541
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince - гэта свабодная праграма; вы можаце распаўсюджваць яе і/альбо "
+"Atril - гэта свабодная праграма; вы можаце распаўсюджваць яе і/альбо "
 "зьмяняць згодна з умовамі ліцэнзіі GNU General Public License, выдадзенай "
 "Free Software Foundation; любая вэрсія ліцэнзіі (2 і вышэй) можа быць "
 "выкарыстана на ваш выбар.\n"
 
 #: ../shell/ev-window.c:3545
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Праграма Evince распаўсюджваецца з надзеяй, што яна будзе карыснай, але БЕЗ "
+"Праграма Atril распаўсюджваецца з надзеяй, што яна будзе карыснай, але БЕЗ "
 "ГАРАНТЫІ на тое, што яна будзе КАРЫСНАЙ ці ПРЫДАТНАЙ ДЛЯ ПРАКТЫЧНАГА "
 "ЎЖЫВАНЬНЯ. Глядзіце падрабязнасьці ў GNU General Public License.\n"
 
 #: ../shell/ev-window.c:3549
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Atril; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
-"Вы павінны былі атрымаць копію GNU General Public License разам з Evince; "
+"Вы павінны былі атрымаць копію GNU General Public License разам з Atril; "
 "калі не - лістуйце ў Free Software Foundation, Inc., 59 Temple Place, Suite "
 "330, Boston, MA  02111-1307  USA\n"
 
 #: ../shell/ev-window.c:3573 ../shell/main.c:349
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:3576
-msgid "© 1996-2007 The Evince authors"
-msgstr "© 1996-2005 Аўтары Evince"
+msgid "© 1996-2007 The Atril authors"
+msgstr "© 1996-2005 Аўтары Atril"
 
 #: ../shell/ev-window.c:3582
 msgid "translator-credits"
@@ -1259,16 +1259,16 @@ msgid "PAGE"
 msgstr "Старонка"
 
 #: ../shell/main.c:59
-msgid "Run evince in fullscreen mode"
-msgstr "Стартаваць Evince у поўнаэкранным рэжыме"
+msgid "Run atril in fullscreen mode"
+msgstr "Стартаваць Atril у поўнаэкранным рэжыме"
 
 #: ../shell/main.c:60
-msgid "Run evince in presentation mode"
-msgstr "Стартаваць Evince у рэжыме прэзэнтацыі"
+msgid "Run atril in presentation mode"
+msgstr "Стартаваць Atril у рэжыме прэзэнтацыі"
 
 #: ../shell/main.c:61
-msgid "Run evince as a previewer"
-msgstr "Стартаваць Evince у рэжыме перадаглядніка"
+msgid "Run atril as a previewer"
+msgstr "Стартаваць Atril у рэжыме перадаглядніка"
 
 #: ../shell/main.c:62
 msgid "The word or phrase to find in the document"
@@ -1287,25 +1287,25 @@ msgid "MATE Document Viewer"
 msgstr "Праглядальнік дакумэнтаў для MATE"
 
 #: ../shell/main.c:392
-msgid "Evince Document Viewer"
-msgstr "Праглядальнік дакумэнтаў Evince"
+msgid "Atril Document Viewer"
+msgstr "Праглядальнік дакумэнтаў Atril"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available, true enables thumbnailing and false disables the "
 "creation of new thumbnails"
 msgstr ""
 "Дазволеныя лягічныя значэньні, true: ствараць мініятуры,false: не ствараць."
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Ствараць мініятуры для PDF дакумэнтаў"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Загад стварэньня мініатураў для PDF дакумэнтаў"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See caja "
 "thumbnailer documentation for more information."

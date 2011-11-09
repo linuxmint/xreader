@@ -1,11 +1,11 @@
-# Ukrainian translation of evince.
+# Ukrainian translation of atril.
 # Copyright (C) 2005 Free Software Foundation ,Inc
-# This file is distributed under the same license as the evince package.
+# This file is distributed under the same license as the atril package.
 # Maxim Dziumanenko <dziumanenko@gmail.com>, 2005-2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evince\n"
+"Project-Id-Version: atril\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-26 14:08+0200\n"
 "PO-Revision-Date: 2010-03-26 23:28+0200\n"
@@ -72,7 +72,7 @@ msgstr "Помилка при видаленні “%s”."
 msgid "Error %s"
 msgstr "Помилка %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Книги коміксів"
 
@@ -88,7 +88,7 @@ msgstr ""
 "Документ складається з кількох файлів. Не має доступу до одного або кількох "
 "з цих файлів."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "Документи DjVu"
 
@@ -96,7 +96,7 @@ msgstr "Документи DjVu"
 msgid "DVI document has incorrect format"
 msgstr "Документ DVI має некоректний формат"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "Документи DVI"
 
@@ -162,7 +162,7 @@ msgstr "Вбудований"
 msgid "Not embedded"
 msgstr "Не вбудований"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "Документи PDF"
 
@@ -174,7 +174,7 @@ msgstr "Некоректний документ"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Слайди Impress"
 
@@ -224,7 +224,7 @@ msgstr "Не вдається відкрити документ “%s”"
 msgid "Failed to save document “%s”"
 msgstr "Не вдається зберегти документ “%s”"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "Документи PostScript"
 
@@ -424,21 +424,21 @@ msgid "400%"
 msgstr "400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4205
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4205
 #: ../shell/ev-window-title.c:149 ../shell/main.c:282
 #, c-format
 msgid "Document Viewer"
 msgstr "Перегляд документів"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "Перегляд багатосторінкових документів"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "Ігнорувати обмеження"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Ігнорувати обмеження документу, наприклад обмеження на друк чи копіювання."
@@ -854,10 +854,10 @@ msgstr "Перетворення метаданих"
 
 #: ../shell/ev-convert-metadata.c:185
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
-"Формат метаданих  Evince було змінено, і тому потрібна міграція. Якщо "
+"Формат метаданих  Atril було змінено, і тому потрібна міграція. Якщо "
 "міграцію буде скасовано, сховище метаданих не працюватиме."
 
 #: ../shell/ev-open-recent-action.c:72
@@ -1111,44 +1111,44 @@ msgstr ""
 
 #: ../shell/ev-window.c:4232
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince - вільне програмне забезпечення; ви можете вільно розповсюджувати або "
+"Atril - вільне програмне забезпечення; ви можете вільно розповсюджувати або "
 "змінювати його при на умовах вільної ліцензії GNU General Public License яка "
 "опублікована Free Software Foundation; або версії 2 цієї ліцензії, або (на "
 "ваш розсуд) будь-якій старшій версії.\n"
 
 #: ../shell/ev-window.c:4236
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince розповсюджується зі сподіванням, що програма буде корисною, але без "
+"Atril розповсюджується зі сподіванням, що програма буде корисною, але без "
 "БУДЬ-ЯКИХ ГАРАНТІЙ; навіть не гарантується ПРИДАТНІСТЬ та ВІДПОВІДНІСТЬ БУДЬ-"
 "ЯКИМ ВИМОГАМ. Докладніше про це дивіться GNU General Public License.\n"
 
 #: ../shell/ev-window.c:4240
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Atril; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
-"Ви маєте отримати копію GNU General Public License разом з Evince; Якщо це "
+"Ви маєте отримати копію GNU General Public License разом з Atril; Якщо це "
 "не так, напишіть у Software Foundation, Inc., 59 Temple Place, Suite 330, "
 "Boston, MA  02111-1307  USA\n"
 
 #: ../shell/ev-window.c:4265
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4268
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996-2009 Автори Evince"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996-2009 Автори Atril"
 
 #: ../shell/ev-window.c:4274
 msgid "translator-credits"
@@ -1499,16 +1499,16 @@ msgid "PAGE"
 msgstr "Сторінка"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
-msgstr "Запустити evince у повноекранного режимі"
+msgid "Run atril in fullscreen mode"
+msgstr "Запустити atril у повноекранного режимі"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
-msgstr "Запустити evince у режимі презентації"
+msgid "Run atril in presentation mode"
+msgstr "Запустити atril у режимі презентації"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
-msgstr "Запустити evince у режимі попереднього перегляду"
+msgid "Run atril as a previewer"
+msgstr "Запустити atril у режимі попереднього перегляду"
 
 #: ../shell/main.c:82
 msgid "The word or phrase to find in the document"
@@ -1522,22 +1522,22 @@ msgstr "РЯДОК"
 msgid "[FILE…]"
 msgstr "[ФАЙЛ…]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
 msgstr ""
 "Можливе логічне значення: true вмикає створення мініатюр, а false вимикає"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Увімкнути перегляд документів PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Команда створення мініатюр для документів PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."

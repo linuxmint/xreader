@@ -1,5 +1,5 @@
 /* ev-timeline.h
- *  this file is part of evince, a mate document viewer
+ *  this file is part of atril, a mate document viewer
  *
  * Copyright (C) 2007 Carlos Garnacho <carlos@imendio.com>
  *
@@ -19,7 +19,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#if !defined (EVINCE_COMPILATION)
+#if !defined (ATRIL_COMPILATION)
 #error "This is a private header."
 #endif
 

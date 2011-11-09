@@ -5,7 +5,7 @@
   <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
   <!ENTITY version SYSTEM "version.xml">
 ]>
-<book id="evince">
+<book id="atril">
   <!--
     Copyright © 2009, 2010 Christian Persch
 
@@ -17,11 +17,11 @@
     A copy of the license is included in the COPYING file.
     -->
   <bookinfo>
-    <title>Evince Programmer's Reference Manual</title>
+    <title>Atril Programmer's Reference Manual</title>
     <releaseinfo>
-      For Evince version &version;.
+      For Atril version &version;.
       The latest version of this documentation can be found on-line at the
-      <ulink role="online-location" url="http://library.mate.org/devel/evince/index.html">MATE Library</ulink>.
+      <ulink role="online-location" url="http://library.mate.org/devel/atril/index.html">MATE Library</ulink>.
     </releaseinfo>
 
     <copyright>
@@ -66,11 +66,11 @@
     </legalnotice>
   </bookinfo>
 
-  <part id="evince-frontend">
+  <part id="atril-frontend">
     <title>Frontend</title>
     <partintro>
       <para>
-        Evince frontend.
+        Atril frontend.
       </para>
     </partintro>
 

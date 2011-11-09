@@ -1,15 +1,15 @@
 /* ev-metadata.c
- *  this file is part of evince, a mate document viewer
+ *  this file is part of atril, a mate document viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos  <carlosgc@gnome.org>
  * Copyright © 2010 Christian Persch
  *
- * Evince is free software; you can redistribute it and/or modify it
+ * Atril is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Evince is distributed in the hope that it will be useful, but
+ * Atril is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
@@ -31,11 +31,11 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#define EV_DBUS_DAEMON_NAME             "org.mate.evince.Daemon"
-#define EV_DBUS_DAEMON_INTERFACE_NAME   "org.mate.evince.Daemon"
-#define EV_DBUS_DAEMON_OBJECT_PATH      "/org/mate/evince/Daemon"
+#define EV_DBUS_DAEMON_NAME             "org.mate.atril.Daemon"
+#define EV_DBUS_DAEMON_INTERFACE_NAME   "org.mate.atril.Daemon"
+#define EV_DBUS_DAEMON_OBJECT_PATH      "/org/mate/atril/Daemon"
 
-#define EV_DBUS_WINDOW_INTERFACE_NAME   "org.mate.evince.Window"
+#define EV_DBUS_WINDOW_INTERFACE_NAME   "org.mate.atril.Window"
 
 #define DAEMON_TIMEOUT (30) /* seconds */
 
@@ -143,13 +143,13 @@ convert_metadata (const gchar *metadata)
 	}
 	if (!supported) {
 		g_warning ("GVFS metadata not supported. "
-			   "Evince will run without metadata support.\n");
+			   "Atril will run without metadata support.\n");
 		g_object_unref (file);
 		return FALSE;
 	}
 	g_object_unref (file);
 
-	argv[0] = g_build_filename (LIBEXECDIR, "evince-convert-metadata", NULL);
+	argv[0] = g_build_filename (LIBEXECDIR, "atril-convert-metadata", NULL);
 	argv[1] = (char *) metadata;
 	argv[2] = NULL;
 
@@ -176,11 +176,11 @@ ev_migrate_metadata (void)
 
 	userdir = g_getenv ("MATE22_USER_DIR");
 	if (userdir) {
-		dot_dir = g_build_filename (userdir, "evince", NULL);
+		dot_dir = g_build_filename (userdir, "atril", NULL);
 	} else {
 		dot_dir = g_build_filename (g_get_home_dir (),
 					    ".mate2",
-					    "evince",
+					    "atril",
 					    NULL);
 	}
 
@@ -210,21 +210,21 @@ ev_migrate_metadata (void)
 }
 
 static gboolean
-spawn_evince (const gchar *uri)
+spawn_atril (const gchar *uri)
 {
 	gchar   *argv[3];
 	gboolean retval;
 	GError  *error = NULL;
 
 	/* TODO Check that the uri exists */
-	argv[0] = g_build_filename (BINDIR, "evince", NULL);
+	argv[0] = g_build_filename (BINDIR, "atril", NULL);
 	argv[1] = (gchar *) uri;
 	argv[2] = NULL;
 
 	retval = g_spawn_async (NULL /* wd */, argv, NULL /* env */,
 				0, NULL, NULL, NULL, &error);
 	if (!retval) {
-		g_printerr ("Error spawning evince for uri %s: %s\n", uri, error->message);
+		g_printerr ("Error spawning atril for uri %s: %s\n", uri, error->message);
 		g_error_free (error);
 	}
 	g_free (argv[0]);
@@ -417,11 +417,11 @@ method_call_cb (GDBusConnection       *connection,
 
 			if (uri_invocations == NULL) {
 				/* Only spawn once. */
-				ret_val = spawn_evince (uri);
+				ret_val = spawn_atril (uri);
 			}
 
 			if (ret_val) {
-				/* Only defer DBUS answer if evince was succesfully spawned */
+				/* Only defer DBUS answer if atril was succesfully spawned */
 				uri_invocations = g_list_prepend (uri_invocations, invocation);
 				g_hash_table_insert (pending_invocations,
 						     g_strdup (uri),
@@ -438,7 +438,7 @@ method_call_cb (GDBusConnection       *connection,
 
 static const char introspection_xml[] =
   "<node>"
-    "<interface name='org.mate.evince.Daemon'>"
+    "<interface name='org.mate.atril.Daemon'>"
       "<method name='RegisterDocument'>"
         "<arg type='s' name='uri' direction='in'/>"
         "<arg type='s' name='owner' direction='out'/>"
@@ -518,7 +518,7 @@ main (gint argc, gchar **argv)
 	GMainLoop *loop;
         guint owner_id;
 
-        g_set_prgname ("evince-daemon");
+        g_set_prgname ("atril-daemon");
 
 	g_type_init ();
 

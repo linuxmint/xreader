@@ -8,13 +8,13 @@ srcdir = os.environ['srcdir']
 
 from dogtail.procedural import *
 
-run('evince', arguments=' '+srcdir+'/test-links.pdf')
+run('atril', arguments=' '+srcdir+'/test-links.pdf')
 
 # Reload document a few times
 for i in range(1,6):
 	click('View', roleName='menu')
 	click('Reload', roleName='menu item')
 
-# Close evince
+# Close atril
 click('File', roleName='menu')
 click('Close', roleName='menu item')

@@ -1,12 +1,12 @@
-# translation of evince.HEAD.hi.po to Hindi
+# translation of atril.HEAD.hi.po to Hindi
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
 # Rajesh Ranjan <rranjan@redhat.com>, 2005, 2006, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: evince.HEAD.hi\n"
-"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=evince&component=general\n"
+"Project-Id-Version: atril.HEAD.hi\n"
+"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=atril&component=general\n"
 "POT-Creation-Date: 2009-02-15 13:53+0000\n"
 "PO-Revision-Date: 2009-03-13 23:13+0530\n"
 "Last-Translator: Rajesh Ranjan <rranjan@redhat.com>\n"
@@ -45,7 +45,7 @@ msgstr "अभिलेख में कोई फ़ाइल नहीं."
 msgid "No images found in archive %s"
 msgstr "अभिलेख %s में कोई चित्र नहीं मिला"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "कॉमिक पुस्तक"
 
@@ -60,7 +60,7 @@ msgid ""
 "be accessed."
 msgstr "यह दस्तावेज कई फ़ाइलों से मिलकर बना है. एक या अधिक वैसी फाइलें पहुँच नहीं ली जा सकती हैं."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "Djvu Documents"
 msgstr "Djvu दस्तावेज़"
 
@@ -68,7 +68,7 @@ msgstr "Djvu दस्तावेज़"
 msgid "DVI document has incorrect format"
 msgstr "DVI दस्तावेज में गलत प्रारूप "
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI दस्तावेज़"
 
@@ -130,7 +130,7 @@ msgstr "एंबेडेड"
 msgid "Not embedded"
 msgstr "एंबेडेड नहीं"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "पीडीएफ़ दस्तावेज़"
 
@@ -142,7 +142,7 @@ msgstr "अवैध दस्तावेज"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "इंप्रेस स्लाइड"
 
@@ -195,7 +195,7 @@ msgstr "“%s” दस्तावेज लोड करने में व�
 msgid "Failed to save document “%s”"
 msgstr "“%s” दस्तावेज सहेजने में विफल"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "पोस्टस्क्रिप्ट दस्तावेज़"
 
@@ -371,7 +371,7 @@ msgid "Separator"
 msgstr "अलगानेवाला"
 
 #: ../cut-n-paste/totem-screensaver/totem-scrsaver.c:117
-#| msgid "Run evince in presentation mode"
+#| msgid "Run atril in presentation mode"
 msgid "Running in presentation mode"
 msgstr "प्रस्तुति मोड में चला रहा है"
 
@@ -426,21 +426,21 @@ msgstr "300%"
 msgid "400%"
 msgstr "400%"
 
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4272
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4272
 #: ../shell/ev-window-title.c:149
 #, c-format
 msgid "Document Viewer"
 msgstr "लेखपत्र प्रदर्शक"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multipage documents"
 msgstr "देखें बहुपेज दस्तावेज"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "दस्तावेज प्रतिबंध पर लिखें"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "दस्तावेज प्रतिबंध अध्यारोहित करें, कॉपी करने या छापने के प्रतिबंध की तरह."
 
@@ -970,24 +970,24 @@ msgstr ""
 
 #: ../shell/ev-window.c:4296
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 
 #: ../shell/ev-window.c:4300
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -995,22 +995,22 @@ msgstr ""
 #: ../shell/ev-window.c:4304
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Atril; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Atril; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA  02111-1307  USA\n"
 
 #. Manually set name and icon in win32
 #: ../shell/ev-window.c:4328 ../shell/main.c:382
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4331
-#| msgid "© 1996-2005 The Evince authors"
-msgid "© 1996-2007 The Evince authors"
-msgstr "© 1996-2007 The Evince authors"
+#| msgid "© 1996-2005 The Atril authors"
+msgid "© 1996-2007 The Atril authors"
+msgstr "© 1996-2007 The Atril authors"
 
 #: ../shell/ev-window.c:4337
 msgid "translator-credits"
@@ -1409,15 +1409,15 @@ msgid "PAGE"
 msgstr "PAGE"
 
 #: ../shell/main.c:68
-msgid "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
 msgstr "पूर्ण स्क्रीन मोड में एवींस चलायें"
 
 #: ../shell/main.c:69
-msgid "Run evince in presentation mode"
+msgid "Run atril in presentation mode"
 msgstr "एवींस चलाएँ एक दस्तावेज प्रस्तुतीकरण"
 
 #: ../shell/main.c:70
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr "पूर्वावलोकनकर्ता के रूप में एवींस चलायें"
 
 #: ../shell/main.c:71
@@ -1433,7 +1433,7 @@ msgstr "स्ट्रिंग"
 msgid "[FILE...]"
 msgstr "[फाइल...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available, true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1441,15 +1441,15 @@ msgstr ""
 "बूलियन विकल्प उपलब्ध, सही थंबनेल को सक्रिय करता है औऱ गलत नये थंबनेल के निर्माण को "
 "निष्क्रिय"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "PDF का थंबनेल सक्षम करें"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "पीडीएफ के लिये लघु छवि दस्तावेज दस्तावेज़"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See caja "
 "thumbnailer documentation for more information."

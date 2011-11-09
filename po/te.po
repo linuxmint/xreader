@@ -1,7 +1,7 @@
 # translation of te.po to Telugu
-# Telugu translation of evince.
+# Telugu translation of atril.
 # Copyright (C) 2007 Swecha Telugu Localisation Team
-# This file is distributed under the same license as the evince package.
+# This file is distributed under the same license as the atril package.
 #
 # Bharat Kumar <jonnalagaddabharat@gmail.com>, 2007.
 # Krishna Babu K <kkrothap@redhat.com>, 2009, 2010.
@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: te\n"
 "Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?"
-"product=evince&component=general\n"
+"product=atril&component=general\n"
 "POT-Creation-Date: 2010-07-27 21:01+0000\n"
 "PO-Revision-Date: 2010-07-21 17:50+0530\n"
 "Last-Translator: Krishna Babu K <kkrothap@redhat.com>\n"
@@ -79,7 +79,7 @@ msgstr "“%s” తొలగించుటలో వొక దోషమువ�
 msgid "Error %s"
 msgstr "దోషము %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "కామిక్ పుస్తకాలు"
 
@@ -95,7 +95,7 @@ msgid ""
 "be accessed."
 msgstr "కొన్ని దస్త్రాలచే ఈ పత్రం ఏర్పడినది.  అట్టి ఏర్పడిన ఒకటి లేదా కొన్ని దస్త్రాలకు యాక్సిస్ లేదు."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 #, fuzzy
 msgid "DjVu Documents"
 msgstr "Djvu పత్రాలు"
@@ -104,7 +104,7 @@ msgstr "Djvu పత్రాలు"
 msgid "DVI document has incorrect format"
 msgstr "DVI పత్రం సరియైన రూపలావన్యంలో లేదు"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI పత్రాలు"
 
@@ -170,7 +170,7 @@ msgstr "ఎంబెడెడ్"
 msgid "Not embedded"
 msgstr "ఎంబెడెడ్ కాలేదు"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF పత్రాలు"
 
@@ -182,7 +182,7 @@ msgstr "నిస్సారమైన పత్రము"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Impress స్లైడులు"
 
@@ -236,7 +236,7 @@ msgstr "పత్రము “%s” లోడవ్వుటకు విఫల�
 msgid "Failed to save document “%s”"
 msgstr "పత్రము “%s” దాయుటకు విఫలమైంది"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "పోస్ట్స్ర్కిప్ట్ పత్రాలు"
 
@@ -452,22 +452,22 @@ msgid "6400%"
 msgstr "400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4434
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4434
 #: ../shell/ev-window-title.c:149 ../shell/main.c:310
 #, c-format
 msgid "Document Viewer"
 msgstr "పత్ర దర్శిని"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 #, fuzzy
 msgid "View multi-page documents"
 msgstr "అధికపుట  పత్రాలను దర్శించు"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
 msgstr "పత్రము నిభందనలను తిరిగివ్రాయుము"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "నకలుతీయి లేదా ముద్రించు నిభందనవంటి, పత్రము నిభందనలను తిరిగివ్రాయుము"
 
@@ -974,7 +974,7 @@ msgstr ""
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
 
@@ -1259,22 +1259,22 @@ msgstr ""
 
 #: ../shell/ev-window.c:4461
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince స్వతంత్ర సాఫ్ట్వేర్; నీవు దానిని మరలపంచవచ్చు స్వతంత్ర సాఫ్ట్వేర్ సంస్థ వెలువరిచిన GNU "
+"Atril స్వతంత్ర సాఫ్ట్వేర్; నీవు దానిని మరలపంచవచ్చు స్వతంత్ర సాఫ్ట్వేర్ సంస్థ వెలువరిచిన GNU "
 "సర్వసామన్యమైన ప్రజా లైసెన్సు వివరణం 2 లైసెన్సు లేదా వేరే (మీ ఐచ్చికం వద్ద) వివరణల ప్రకారం మార్చవచ్చు.\n"
 
 #: ../shell/ev-window.c:4465
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince ఉపయోగపడుతుందనే నమ్మకంతో పంపిణీచేయబడుతోంది, అయితే ఏ హామీ లేకుండా;  వ్యాపారసంబందంగా కాని లేదా "
+"Atril ఉపయోగపడుతుందనే నమ్మకంతో పంపిణీచేయబడుతోంది, అయితే ఏ హామీ లేకుండా;  వ్యాపారసంబందంగా కాని లేదా "
 "ఒక నిర్దిష్ట అవసరానికిచెందినదని కాని హామీ లేదు. ఎక్కువ సమాచారం కొరకు GNU జనరల్ పబ్లిక్ లైసెన్స్  ను "
 "చూడండి. మీరు ఈ ప్రోగ్రామ్ నకలు తోటి ఒక GNU జనరల్ పబ్లిక్ లైసెన్స్  నకలుగూడా పొందిఉంటారు; పొందక పోతే, "
 "Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA "
@@ -1284,20 +1284,20 @@ msgstr ""
 #, fuzzy
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
-"మీరు Evince నకలు తోటి ఒక GNU జనరల్ పబ్లిక్ లైసెన్స్  నకలుగూడా పొందిఉంటారు; పొందక పోతే, Free "
+"మీరు Atril నకలు తోటి ఒక GNU జనరల్ పబ్లిక్ లైసెన్స్  నకలుగూడా పొందిఉంటారు; పొందక పోతే, Free "
 "Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-"
 "1307  USAకు వ్రాయండి.\n"
 
 #: ../shell/ev-window.c:4494
-msgid "Evince"
+msgid "Atril"
 msgstr "ఎవిన్స్"
 
 #: ../shell/ev-window.c:4497
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996–2009 Evince మూలకర్తలు"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996–2009 Atril మూలకర్తలు"
 
 #: ../shell/ev-window.c:4503
 msgid "translator-credits"
@@ -1664,15 +1664,15 @@ msgid "NUMBER"
 msgstr ""
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
 msgstr "పూర్తితెర సంవిధానంలో ఎవిన్స్ ను నడుపుము"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
+msgid "Run atril in presentation mode"
 msgstr "సమర్పణ సంవిధానంలో ఎవిన్స్ ను నడుపుము"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr "ఉపదర్శనిగా ఎవిన్స్ ను నడుపు"
 
 #: ../shell/main.c:82
@@ -1688,7 +1688,7 @@ msgstr "పదబంధం"
 msgid "[FILE…]"
 msgstr "[దస్త్రం...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 #, fuzzy
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
@@ -1697,15 +1697,15 @@ msgstr ""
 "బూలియన్ ఐచ్చికాలు అందుబాటులో వున్నయి, true అనునది థంబ్‌నెయిలింగ్ చేతనపరుస్తుంది మరియు false కొత్త "
 "థంబ్‌నెయిల్ సృష్టీకరణిని అచేతనము చేస్తుంది"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "PDF పత్రాలను చిరుచిత్రాలుగా క్రియాశీలీకరించు"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "PDF పత్రాలకు చిరుచిత్ర ఆదేశం"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 #, fuzzy
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
@@ -1747,10 +1747,10 @@ msgstr ""
 #~ msgstr "ముందరి పత్రములను తిరిగిపొందాలా?"
 
 #~ msgid ""
-#~ "Evince appears to have exited unexpectedly the last time it was run. You "
+#~ "Atril appears to have exited unexpectedly the last time it was run. You "
 #~ "can recover the opened documents."
 #~ msgstr ""
-#~ "Evince చివరిసారి అది నడుపబడినప్పుడు అనుకోకుండా నిష్క్రమించినట్లు అనిపిస్తోంది. తెరిచిన పత్రములను "
+#~ "Atril చివరిసారి అది నడుపబడినప్పుడు అనుకోకుండా నిష్క్రమించినట్లు అనిపిస్తోంది. తెరిచిన పత్రములను "
 #~ "మీరు తిరిగిపొందగలరు."
 
 #~ msgid "_Don't Recover"

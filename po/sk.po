@@ -1,7 +1,7 @@
 # translation of sk.po to Slovak
-# Slovak translation of evince.
+# Slovak translation of atril.
 # Copyright (C) 2005, 2007 Free Software Foundation, Inc.
-# This file is distributed under the same license as the evince package.
+# This file is distributed under the same license as the atril package.
 #
 # $Id: sk.po,v 1.1 2005/06/25 23:45:27 marcel Exp $
 #
@@ -414,88 +414,88 @@ msgstr "300%"
 msgid "400%"
 msgstr "400%"
 
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:3669
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:3669
 #: ../shell/ev-window-title.c:126
 msgid "Document Viewer"
 msgstr "Prehliadač dokumentov"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multipage documents"
 msgstr "Zobraziť viacstranové dokumenty"
 
-#: ../data/evince-password.glade.h:1
+#: ../data/atril-password.glade.h:1
 msgid "Password Entry"
 msgstr "Položka hesla"
 
-#: ../data/evince-password.glade.h:2
+#: ../data/atril-password.glade.h:2
 msgid "Remember password for this session"
 msgstr "Zapamätať heslo pre túto reláciu"
 
-#: ../data/evince-password.glade.h:3
+#: ../data/atril-password.glade.h:3
 msgid "Save password in keyring"
 msgstr "Uložiť heslo v zväzku kľúčov"
 
-#: ../data/evince-password.glade.h:4
+#: ../data/atril-password.glade.h:4
 msgid "_Password:"
 msgstr "_Heslo:"
 
-#: ../data/evince-properties.glade.h:1
+#: ../data/atril-properties.glade.h:1
 msgid "<b>Author:</b>"
 msgstr "<b>Autor:</b>"
 
-#: ../data/evince-properties.glade.h:2
+#: ../data/atril-properties.glade.h:2
 msgid "<b>Created:</b>"
 msgstr "<b>Vytvorené:</b>"
 
-#: ../data/evince-properties.glade.h:3
+#: ../data/atril-properties.glade.h:3
 msgid "<b>Creator:</b>"
 msgstr "<b>Tvorca:</b>"
 
-#: ../data/evince-properties.glade.h:4
+#: ../data/atril-properties.glade.h:4
 msgid "<b>Format:</b>"
 msgstr "<b>Formát:</b>"
 
-#: ../data/evince-properties.glade.h:5
+#: ../data/atril-properties.glade.h:5
 msgid "<b>Keywords:</b>"
 msgstr "<b>Kľúčové slová:</b>"
 
-#: ../data/evince-properties.glade.h:6
+#: ../data/atril-properties.glade.h:6
 msgid "<b>Modified:</b>"
 msgstr "<b>Zmenené:</b>"
 
-#: ../data/evince-properties.glade.h:7
+#: ../data/atril-properties.glade.h:7
 msgid "<b>Number of Pages:</b>"
 msgstr "<b>Počet strán:</b>"
 
-#: ../data/evince-properties.glade.h:8
+#: ../data/atril-properties.glade.h:8
 msgid "<b>Optimized:</b>"
 msgstr "<b>Optimalizované:</b>"
 
-#: ../data/evince-properties.glade.h:9
+#: ../data/atril-properties.glade.h:9
 msgid "<b>Paper Size:</b>"
 msgstr "<b>Veľkosť papiera:</b>"
 
-#: ../data/evince-properties.glade.h:10
+#: ../data/atril-properties.glade.h:10
 msgid "<b>Producer:</b>"
 msgstr "<b>Vyrobil:</b>"
 
-#: ../data/evince-properties.glade.h:11
+#: ../data/atril-properties.glade.h:11
 msgid "<b>Security:</b>"
 msgstr "<b>Bezpečnosť:</b>"
 
-#: ../data/evince-properties.glade.h:12
+#: ../data/atril-properties.glade.h:12
 msgid "<b>Subject:</b>"
 msgstr "<b>Predmet:</b>"
 
-#: ../data/evince-properties.glade.h:13
+#: ../data/atril-properties.glade.h:13
 msgid "<b>Title:</b>"
 msgstr "<b>Nadpis:</b>"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "Prekonať obmedzenia dokumentu"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Prekonať obmedzenia dokumentu, napríklad obmedzenia na kopírovanie alebo "
@@ -872,44 +872,44 @@ msgstr ""
 
 #: ../shell/ev-window.c:3693
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince je free software; môžete ho redistribuovať a/alebo modifikovať za "
+"Atril je free software; môžete ho redistribuovať a/alebo modifikovať za "
 "podmienok GNU General Public License publikovaných Free Software Foundation; "
 "a to buď verzie licencie 2, alebo (podľa vášho uváženia) ľubovoľnej "
 "neskoršej verzie.\n"
 
 #: ../shell/ev-window.c:3697
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince je distribuovaný v nádeji, že bude užitočný, ale BEZ AKEJKOĽVEK "
+"Atril je distribuovaný v nádeji, že bude užitočný, ale BEZ AKEJKOĽVEK "
 "ZÁRUKY; a to ani bez predpokladanej záruky PREDAJNOSTI, alebo VHODNOSTI PRE "
 "KONKRÉTNY ÚČEL. Pre ďalšie podrobnosti viz. GNU General Public License.\n"
 
 #: ../shell/ev-window.c:3701
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Atril; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
-"Kópiu GNU General Public License ste mali dostať spolu s Evince; ak sa tak "
+"Kópiu GNU General Public License ste mali dostať spolu s Atril; ak sa tak "
 "nestalo napíšte na Free Software Foundation, Inc., 59 Temple Place, Suite "
 "330, Boston, MA  02111-1307  USA\n"
 
 #: ../shell/ev-window.c:3725 ../shell/main.c:331
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:3728
-msgid "© 1996-2007 The Evince authors"
-msgstr "© 1996-2007 Autori Evince"
+msgid "© 1996-2007 The Atril authors"
+msgstr "© 1996-2007 Autori Atril"
 
 #: ../shell/ev-window.c:3734
 msgid "translator-credits"
@@ -1275,16 +1275,16 @@ msgid "PAGE"
 msgstr "STRANA"
 
 #: ../shell/main.c:60
-msgid "Run evince in fullscreen mode"
-msgstr "Spustiť evince v režime celej obrazovky"
+msgid "Run atril in fullscreen mode"
+msgstr "Spustiť atril v režime celej obrazovky"
 
 #: ../shell/main.c:61
-msgid "Run evince in presentation mode"
-msgstr "Spustiť evince v prezentačnom režime"
+msgid "Run atril in presentation mode"
+msgstr "Spustiť atril v prezentačnom režime"
 
 #: ../shell/main.c:62
-msgid "Run evince as a previewer"
-msgstr "Spustiť evince v režime náhľadov"
+msgid "Run atril as a previewer"
+msgstr "Spustiť atril v režime náhľadov"
 
 #: ../shell/main.c:65
 msgid "[FILE...]"
@@ -1295,10 +1295,10 @@ msgid "MATE Document Viewer"
 msgstr "Prehliadač dokumentov MATE"
 
 #: ../shell/main.c:374
-msgid "Evince Document Viewer"
-msgstr "Evince Prehliadač dokumentov"
+msgid "Atril Document Viewer"
+msgstr "Atril Prehliadač dokumentov"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available, true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1306,15 +1306,15 @@ msgstr ""
 "Dostupné booleanovské možnosti, true povolí náhľady a false zakáže "
 "vytváranie nových náhľadov"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Povoliť vytváranie náhľadov PDF dokumentov"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Príkaz náhľadu pre PDF dokumenty"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See caja "
 "thumbnailer documentation for more information."

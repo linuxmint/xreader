@@ -1,5 +1,5 @@
-# translation of evince.HEAD.po to Greek
-# MATE evince Greek translation.
+# translation of atril.HEAD.po to Greek
+# MATE atril Greek translation.
 # Copyright (C) 2000, 2001,2003, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
 #
 # Stylianos Papanastasiou <stelios@dcs.gla.ac.uk>, 2005.
@@ -11,8 +11,8 @@
 # Μάριος Ζηντίλης <m.zindilis@dmajor.org>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: evince.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=evince&component=general\n"
+"Project-Id-Version: atril.HEAD\n"
+"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=atril&component=general\n"
 "POT-Creation-Date: 2010-08-19 07:59+0000\n"
 "PO-Revision-Date: 2010-08-22 21:04+0200\n"
 "Last-Translator: Michael Kotsarinis <mk73628@gmail.com>\n"
@@ -76,7 +76,7 @@ msgstr "Παρουσιάστηκε σφάλμα κατά την διαγραφή
 msgid "Error %s"
 msgstr "Σφάλμα %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Comic Books"
 
@@ -88,7 +88,7 @@ msgstr "Το έγγραφο DjVu έχει εσφαλμένη μορφή"
 msgid "The document is composed of several files. One or more of these files cannot be accessed."
 msgstr "Το έγγραφο απαρτίζεται από διάφορα αρχεία. Δεν είναι δυνατή η πρόσβαση σε ένα ή περισσότερα από αυτά τα αρχεία."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "Έγγραφα DjVu"
 
@@ -96,7 +96,7 @@ msgstr "Έγγραφα DjVu"
 msgid "DVI document has incorrect format"
 msgstr "Το έγγραφο DVI έχει εσφαλμένη μορφή"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "Έγγραφα DVI"
 
@@ -162,7 +162,7 @@ msgstr "Ενσωματωμένο"
 msgid "Not embedded"
 msgstr "Μη ενσωματωμένο"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "Έγγραφα PDF"
 
@@ -174,7 +174,7 @@ msgstr "Άκυρο έγγραφο"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Σλάιντς Impress"
 
@@ -224,7 +224,7 @@ msgstr "Αδυναμία φόρτωσης εγγράφου “%s”"
 msgid "Failed to save document “%s”"
 msgstr "Αδυναμία αποθήκευσης εγγράφου “%s”"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "Έγγραφα PostScript"
 
@@ -443,7 +443,7 @@ msgid "6400%"
 msgstr "6400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1
+#: ../data/atril.desktop.in.in.h:1
 #: ../shell/ev-window.c:4536
 #: ../shell/ev-window-title.c:149
 #: ../shell/main.c:310
@@ -451,15 +451,15 @@ msgstr "6400%"
 msgid "Document Viewer"
 msgstr "Εφαρμογή προβολής εγγράφων"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "Προβολή εγγράφων πολλαπλών σελίδων"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
 msgstr "Παράκαμψη των περιορισμών του εγγράφου"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "Παράκαμψη των περιορισμών του εγγράφου, όπως περιορισμών εκτύπωσης ή αντιγραφής."
 
@@ -970,8 +970,8 @@ msgid "Converting metadata"
 msgstr "Μετατροπή μεταδεδομένων"
 
 #: ../shell/ev-convert-metadata.c:187
-msgid "The metadata format used by Evince has changed, and hence it needs to be migrated. If the migration is cancelled the metadata storage will not work."
-msgstr "Η μορφή μεταδεδομένων που χρησιμοποιείται από το Evince έχει αλλάξει, και χρειάζεται να γίνει μετάβαση. Αν ακυρωθεί η μετάβαση δε θα λειτουργεί η αποθήκη μεταδεδομένων."
+msgid "The metadata format used by Atril has changed, and hence it needs to be migrated. If the migration is cancelled the metadata storage will not work."
+msgstr "Η μορφή μεταδεδομένων που χρησιμοποιείται από το Atril έχει αλλάξει, και χρειάζεται να γίνει μετάβαση. Αν ακυρωθεί η μετάβαση δε θα λειτουργεί η αποθήκη μεταδεδομένων."
 
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
@@ -1272,28 +1272,28 @@ msgstr ""
 "Γίνεται χρήση του %s (%s)"
 
 #: ../shell/ev-window.c:4563
-msgid "Evince is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
-msgstr "Το Evince είναι ελεύθερο λογισμικό. Επιτρέπεται η αναδιανομή ή/και τροποποίησή του υπό τους όρους της Γενικής Άδειας Δημόσιας Χρήσης GNU (GNU General Public License) όπως αυτή δημοσιεύεται από το Ίδρυμα Ελεύθερου Λογισμικού (Free Software Foundation) - είτε της έκδοσης 2 της άδειας, είτε (κατ' επιλογήν) οποιασδήποτε μεταγενέστερης έκδοσης.\n"
+msgid "Atril is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
+msgstr "Το Atril είναι ελεύθερο λογισμικό. Επιτρέπεται η αναδιανομή ή/και τροποποίησή του υπό τους όρους της Γενικής Άδειας Δημόσιας Χρήσης GNU (GNU General Public License) όπως αυτή δημοσιεύεται από το Ίδρυμα Ελεύθερου Λογισμικού (Free Software Foundation) - είτε της έκδοσης 2 της άδειας, είτε (κατ' επιλογήν) οποιασδήποτε μεταγενέστερης έκδοσης.\n"
 
 #: ../shell/ev-window.c:4567
-msgid "Evince is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
-msgstr "Το Evince διανέμεται με την ελπίδα οτι θα είναι χρήσιμο, αλλά ΧΩΡΙΣ ΚΑΜΜΙΑ ΑΠΟΛΥΤΩΣ ΕΓΓΥΗΣΗ - χωρίς ακόμη και την έμμεση εγγύηση ΕΜΠΟΡΕΥΣΙΜΟΤΗΤΑΣ ήΚΑΤΑΛΛΗΛΟΤΗΤΑΣ ΓΙΑ ΣΥΓΚΕΚΡΙΜΕΝΟ ΣΚΟΠΟ. Δείτε για περισσότερες λεπτομέρειες την Γενική Άδεια Δημόσιας Χρήσης GNU (GNU General Public License).\n"
+msgid "Atril is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
+msgstr "Το Atril διανέμεται με την ελπίδα οτι θα είναι χρήσιμο, αλλά ΧΩΡΙΣ ΚΑΜΜΙΑ ΑΠΟΛΥΤΩΣ ΕΓΓΥΗΣΗ - χωρίς ακόμη και την έμμεση εγγύηση ΕΜΠΟΡΕΥΣΙΜΟΤΗΤΑΣ ήΚΑΤΑΛΛΗΛΟΤΗΤΑΣ ΓΙΑ ΣΥΓΚΕΚΡΙΜΕΝΟ ΣΚΟΠΟ. Δείτε για περισσότερες λεπτομέρειες την Γενική Άδεια Δημόσιας Χρήσης GNU (GNU General Public License).\n"
 
 #: ../shell/ev-window.c:4571
 #| msgid ""
 #| "You should have received a copy of the GNU General Public License along "
-#| "with Evince; if not, write to the Free Software Foundation, Inc., 59 "
+#| "with Atril; if not, write to the Free Software Foundation, Inc., 59 "
 #| "Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
-msgid "You should have received a copy of the GNU General Public License along with Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
-msgstr "Θα πρέπει να έχετε λάβει ένα αντίγραφο της Γενικής Άδειας Δημόσιας Χρήσης GNU (GNU General Public License) μαζί με το Evince. Αν όχι, επικοινωνήστε γραπτώς με το Ίδρυμα Ελεύθερου Λογισμικού (Free Software Foundation, Inc.), 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA\n"
+msgid "You should have received a copy of the GNU General Public License along with Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
+msgstr "Θα πρέπει να έχετε λάβει ένα αντίγραφο της Γενικής Άδειας Δημόσιας Χρήσης GNU (GNU General Public License) μαζί με το Atril. Αν όχι, επικοινωνήστε γραπτώς με το Ίδρυμα Ελεύθερου Λογισμικού (Free Software Foundation, Inc.), 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA\n"
 
 #: ../shell/ev-window.c:4596
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4599
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996-2009 Οι συγγραφείς του Evince"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996-2009 Οι συγγραφείς του Atril"
 
 #: ../shell/ev-window.c:4605
 msgid "translator-credits"
@@ -1668,16 +1668,16 @@ msgid "NUMBER"
 msgstr "NUMBER"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
-msgstr "Εκτέλεση evince σε λειτουργία πλήρους οθόνης"
+msgid "Run atril in fullscreen mode"
+msgstr "Εκτέλεση atril σε λειτουργία πλήρους οθόνης"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
-msgstr "Εκτέλεση evince σε λειτουργία παρουσίασης"
+msgid "Run atril in presentation mode"
+msgstr "Εκτέλεση atril σε λειτουργία παρουσίασης"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
-msgstr "Εκτέλεση evince ως εφαρμογή προεπισκόπησης"
+msgid "Run atril as a previewer"
+msgstr "Εκτέλεση atril ως εφαρμογή προεπισκόπησης"
 
 #: ../shell/main.c:82
 msgid "The word or phrase to find in the document"
@@ -1691,19 +1691,19 @@ msgstr "ΑΛΦΑΡΙΘΜΗΤΙΚΟ"
 msgid "[FILE…]"
 msgstr "[ΑΡΧΕΙΟ...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid "Boolean options available: true enables thumbnailing and false disables the creation of new thumbnails"
 msgstr "Διαθέσιμες επιλογές boolean: true ενεργοποιεί τη δημιουργία μικρογραφιών ενώ false απενεργοποιεί τη δημιουργία νέων μικρογραφιών"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Ενεργοποίηση μικρογραφιών για έγγραφα τύπου PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Εντολή για δημιουργία μικρογραφιών εγγράφων PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid "Valid command plus arguments for the PDF Document thumbnailer. See Caja thumbnailer documentation for more information."
 msgstr "Έγκυρη εντολή και επιλογές για τη δημιουργία μικρογραφιών εγγράφων τύπου PDF. Δείτε την τεκμηριώση των μικρογραφιών του Ναυτίλου για περισσότερες πληροφορίες."
 

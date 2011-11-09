@@ -1,7 +1,7 @@
 /*
  *  Copyright (C) 2003 Christian Persch
  *
- *  Modified 2005 by James Bowes for use in evince.
+ *  Modified 2005 by James Bowes for use in atril.
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

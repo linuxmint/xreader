@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; c-indent-level: 8 -*- */
-/* this file is part of evince, a mate document viewer
+/* this file is part of atril, a mate document viewer
  *
  *  Copyright (C) 2009 Juanjo Marín <juanj.marin@juntadeandalucia.es>
  *  Copyright (C) 2008 Carlos Garcia Campos
@@ -11,12 +11,12 @@
  *  Author:
  *    Martin Kretzschmar <martink@gnome.org>
  *
- * Evince is free software; you can redistribute it and/or modify it
+ * Atril is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Evince is distributed in the hope that it will be useful, but
+ * Atril is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
@@ -239,11 +239,11 @@ struct _EvWindowPrivate {
 #define MATECONF_LOCKDOWN_PRINT_SETUP  "/desktop/mate/lockdown/disable_print_setup"
 
 #ifdef ENABLE_DBUS
-#define EV_WINDOW_DBUS_OBJECT_PATH "/org/mate/evince/Window/%d"
-#define EV_WINDOW_DBUS_INTERFACE   "org.mate.evince.Window"
+#define EV_WINDOW_DBUS_OBJECT_PATH "/org/mate/atril/Window/%d"
+#define EV_WINDOW_DBUS_INTERFACE   "org.mate.atril.Window"
 #endif
 
-#define GS_SCHEMA_NAME           "org.mate.Evince"
+#define GS_SCHEMA_NAME           "org.mate.Atril"
 #define GS_OVERRIDE_RESTRICTIONS "override-restrictions"
 
 #define SIDEBAR_DEFAULT_SIZE    132
@@ -257,7 +257,7 @@ struct _EvWindowPrivate {
 #define EV_PRINT_SETTINGS_GROUP "Print Settings"
 #define EV_PAGE_SETUP_GROUP     "Page Setup"
 
-#define EV_TOOLBARS_FILENAME "evince-toolbar.xml"
+#define EV_TOOLBARS_FILENAME "atril-toolbar.xml"
 
 #define MIN_SCALE 0.05409
 #define PAGE_CACHE_SIZE 52428800 /* 50MB */
@@ -2433,10 +2433,10 @@ static gint
 compare_recent_items (GtkRecentInfo *a, GtkRecentInfo *b)
 {
 	gboolean     has_ev_a, has_ev_b;
-	const gchar *evince = g_get_application_name ();
+	const gchar *atril = g_get_application_name ();
 
-	has_ev_a = gtk_recent_info_has_application (a, evince);
-	has_ev_b = gtk_recent_info_has_application (b, evince);
+	has_ev_a = gtk_recent_info_has_application (a, atril);
+	has_ev_b = gtk_recent_info_has_application (b, atril);
 	
 	if (has_ev_a && has_ev_b) {
 		time_t time_a, time_b;
@@ -2518,7 +2518,7 @@ ev_window_setup_recent (EvWindow *ev_window)
 {
 	GList        *items, *l;
 	guint         n_items = 0;
-	const gchar  *evince = g_get_application_name ();
+	const gchar  *atril = g_get_application_name ();
 	static guint  i = 0;
 
 	if (ev_window->priv->recent_ui_id > 0) {
@@ -2554,7 +2554,7 @@ ev_window_setup_recent (EvWindow *ev_window)
 
 		info = (GtkRecentInfo *) l->data;
 
-		if (!gtk_recent_info_has_application (info, evince) ||
+		if (!gtk_recent_info_has_application (info, atril) ||
 		    (gtk_recent_info_is_local (info) && !gtk_recent_info_exists (info)))
 			continue;
 
@@ -4152,7 +4152,7 @@ ev_window_cmd_edit_toolbar_cb (GtkDialog *dialog,
         egg_editable_toolbar_set_edit_mode (toolbar, FALSE);
 
 	toolbars_file = g_build_filename (ev_application_get_dot_dir (EV_APP, TRUE),
-					  "evince_toolbar.xml", NULL);
+					  "atril_toolbar.xml", NULL);
 	egg_toolbars_model_save_toolbars (egg_editable_toolbar_get_model (toolbar),
 					  toolbars_file, "1.0");
 	g_free (toolbars_file);
@@ -4319,9 +4319,9 @@ ev_window_cmd_view_autoscroll (GtkAction *action, EvWindow *ev_window)
 }
 
 #if OFFLINE_HELP_ENABLED
-#define EV_HELP "ghelp:evince"
+#define EV_HELP "ghelp:atril"
 #else
-#define EV_HELP "http://library.mate.org/users/evince/stable/"
+#define EV_HELP "http://library.mate.org/users/atril/stable/"
 #endif
 
 static void
@@ -4578,16 +4578,16 @@ ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
 	};
 
 	const char *license[] = {
-		N_("Evince is free software; you can redistribute it and/or modify "
+		N_("Atril is free software; you can redistribute it and/or modify "
 		   "it under the terms of the GNU General Public License as published by "
 		   "the Free Software Foundation; either version 2 of the License, or "
 		   "(at your option) any later version.\n"),
-		N_("Evince is distributed in the hope that it will be useful, "
+		N_("Atril is distributed in the hope that it will be useful, "
 		   "but WITHOUT ANY WARRANTY; without even the implied warranty of "
 		   "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the "
 		   "GNU General Public License for more details.\n"),
 		N_("You should have received a copy of the GNU General Public License "
-		   "along with Evince; if not, write to the Free Software Foundation, Inc., "
+		   "along with Atril; if not, write to the Free Software Foundation, Inc., "
 		   "51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA\n")
 	};
 
@@ -4611,17 +4611,17 @@ ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
 
 	gtk_show_about_dialog (
 		GTK_WINDOW (ev_window),
-		"name", _("Evince"),
+		"name", _("Atril"),
 		"version", VERSION,
 		"copyright",
-		_("© 1996–2009 The Evince authors"),
+		_("© 1996–2009 The Atril authors"),
 		"license", license_trans,
-		"website", "http://www.mate.org/projects/evince",
+		"website", "http://www.mate.org/projects/atril",
 		"comments", comments,
 		"authors", authors,
 		"documenters", documenters,
 		"translator-credits", _("translator-credits"),
-		"logo-icon-name", "evince",
+		"logo-icon-name", "atril",
 		"wrap-license", TRUE,
 		NULL);
 
@@ -6033,7 +6033,7 @@ do_action_named (EvWindow *window, EvLinkAction *action)
 		ev_window_cmd_file_print (NULL, window);
 	} else {
 		g_warning ("Unimplemented named action: %s, please post a "
-		           "bug report in Evince bugzilla "
+		           "bug report in Atril bugzilla "
 		           "(http://bugzilla.mate.org) with a testcase.",
 			   name);
 	}
@@ -6516,9 +6516,9 @@ get_toolbars_model (void)
 	toolbars_model = egg_toolbars_model_new ();
 
 	toolbars_file = g_build_filename (ev_application_get_dot_dir (EV_APP, FALSE),
-					  "evince_toolbar.xml", NULL);
+					  "atril_toolbar.xml", NULL);
 	toolbars_path = g_build_filename (ev_application_get_data_dir (EV_APP),
-					 "evince-toolbar.xml", NULL);
+					 "atril-toolbar.xml", NULL);
 	egg_toolbars_model_load_names (toolbars_model, toolbars_path);
 
 	if (!egg_toolbars_model_load_toolbars (toolbars_model, toolbars_file)) {
@@ -6675,7 +6675,7 @@ method_call_cb (GDBusConnection       *connection,
 
 static const char introspection_xml[] =
         "<node>"
-          "<interface name='org.mate.evince.Window'>"
+          "<interface name='org.mate.atril.Window'>"
             "<method name='SyncView'>"
               "<arg type='s' name='source_file' direction='in'/>"
               "<arg type='(ii)' name='source_point' direction='in'/>"
@@ -6801,7 +6801,7 @@ ev_window_init (EvWindow *ev_window)
 					    action_group, 0);
 
 	ui_path = g_build_filename (ev_application_get_data_dir (EV_APP),
-				    "evince-ui.xml", NULL);
+				    "atril-ui.xml", NULL);
 	if (!gtk_ui_manager_add_ui_from_file (
 		ev_window->priv->ui_manager, ui_path, &error))
 	{

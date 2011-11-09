@@ -1,11 +1,11 @@
-# Malagasy translation of EVINCE.
+# Malagasy translation of ATRIL.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Fano Rajaonarisoa <fano@isvtec.com>, 2006
 # Thierry Randrianiriana <thierry@isvtec.com>, 2006-2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: EVINCE VERSION\n"
+"Project-Id-Version: ATRIL VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-12-23 17:17+0000\n"
 "PO-Revision-Date: 2007-12-28 19:32+0300\n"
@@ -351,7 +351,7 @@ msgstr "Mpampisaraka"
 #: ../cut-n-paste/totem-screensaver/totem-scrsaver.c:111
 #, fuzzy
 msgid "Running in presentation mode"
-msgstr "Alefa toa fampisehoana ny evince"
+msgstr "Alefa toa fampisehoana ny atril"
 
 #. translators: this is the label for toolbar button
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:48 ../shell/ev-window.c:4645
@@ -402,88 +402,88 @@ msgstr "300%"
 msgid "400%"
 msgstr "400%"
 
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:3770
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:3770
 #: ../shell/ev-window-title.c:126
 msgid "Document Viewer"
 msgstr "Mpaneho tahirin-kevitra"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multipage documents"
 msgstr "Maneho tahirin-kevitra maro pejy"
 
-#: ../data/evince-password.glade.h:1
+#: ../data/atril-password.glade.h:1
 msgid "Password Entry"
 msgstr "Teny fanalahidy"
 
-#: ../data/evince-password.glade.h:2
+#: ../data/atril-password.glade.h:2
 msgid "Remember password for this session"
 msgstr "Tadidio ny teny fanalahidiko amin'ity session ity"
 
-#: ../data/evince-password.glade.h:3
+#: ../data/atril-password.glade.h:3
 msgid "Save password in keyring"
 msgstr "Mandraikitra ilay teny fanalahidy amin'ny rojo"
 
-#: ../data/evince-password.glade.h:4
+#: ../data/atril-password.glade.h:4
 msgid "_Password:"
 msgstr "_Teny fanalahidy:"
 
-#: ../data/evince-properties.glade.h:1
+#: ../data/atril-properties.glade.h:1
 msgid "<b>Author:</b>"
 msgstr "<b>Mpanoratra:</b>"
 
-#: ../data/evince-properties.glade.h:2
+#: ../data/atril-properties.glade.h:2
 msgid "<b>Created:</b>"
 msgstr "<b>Noforonina:</b>"
 
-#: ../data/evince-properties.glade.h:3
+#: ../data/atril-properties.glade.h:3
 msgid "<b>Creator:</b>"
 msgstr "<b>Mpamorona:</b>"
 
-#: ../data/evince-properties.glade.h:4
+#: ../data/atril-properties.glade.h:4
 msgid "<b>Format:</b>"
 msgstr "<b>Lamina:</b>"
 
-#: ../data/evince-properties.glade.h:5
+#: ../data/atril-properties.glade.h:5
 msgid "<b>Keywords:</b>"
 msgstr "<b>Teny fanalahidy:</b>"
 
-#: ../data/evince-properties.glade.h:6
+#: ../data/atril-properties.glade.h:6
 msgid "<b>Modified:</b>"
 msgstr "<b>Novana:</b>"
 
-#: ../data/evince-properties.glade.h:7
+#: ../data/atril-properties.glade.h:7
 msgid "<b>Number of Pages:</b>"
 msgstr "<b>Isan'ny pejy:</b>"
 
-#: ../data/evince-properties.glade.h:8
+#: ../data/atril-properties.glade.h:8
 msgid "<b>Optimized:</b>"
 msgstr "<b>Nomena aina:</b>"
 
-#: ../data/evince-properties.glade.h:9
+#: ../data/atril-properties.glade.h:9
 msgid "<b>Paper Size:</b>"
 msgstr "<b>Haben'ny taratrasy:</b>"
 
-#: ../data/evince-properties.glade.h:10
+#: ../data/atril-properties.glade.h:10
 msgid "<b>Producer:</b>"
 msgstr "<b>Mpamokatra:</b>"
 
-#: ../data/evince-properties.glade.h:11
+#: ../data/atril-properties.glade.h:11
 msgid "<b>Security:</b>"
 msgstr "<b>Fiarovana:</b>"
 
-#: ../data/evince-properties.glade.h:12
+#: ../data/atril-properties.glade.h:12
 msgid "<b>Subject:</b>"
 msgstr "<b>Anton-dresaka:</b>"
 
-#: ../data/evince-properties.glade.h:13
+#: ../data/atril-properties.glade.h:13
 msgid "<b>Title:</b>"
 msgstr "<b>Lohateny:</b>"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "Dingano ireo fameperana amin'ilay tahirin-kevitra"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Dingano ireo fameperana amin'ilay tahirin-kevitra, toy ny famerana ny "
@@ -869,19 +869,19 @@ msgstr ""
 
 #: ../shell/ev-window.c:3794
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Rindran'asa maimaimpoana ny Evince. Azonao zaraina ary/na ovaina mifanaraka "
+"Rindran'asa maimaimpoana ny Atril. Azonao zaraina ary/na ovaina mifanaraka "
 "amin'ireo fepetra voalaza anatin'ny fahazoan-dàlana ho an'ny besinimaro GNU "
 "izay navoakan'ny Free Software Foundation io rindran'asa io; na ilay andiany "
 "faha 2, na izay andiany taty afara (araka ny safidinao).\n"
 
 #: ../shell/ev-window.c:3798
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -895,7 +895,7 @@ msgstr ""
 #: ../shell/ev-window.c:3802
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Atril; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
 "Tokony nahazo dika mitovin'ny Fahazoan-dàlana ho an'ny besinimaro GNU ianao "
@@ -904,13 +904,13 @@ msgstr ""
 "Boston, MA 02110-1301, USA\n"
 
 #: ../shell/ev-window.c:3826 ../shell/main.c:344
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:3829
 #, fuzzy
-msgid "© 1996-2007 The Evince authors"
-msgstr "© 1996-2005 Ireo mpamolavola ny Evince "
+msgid "© 1996-2007 The Atril authors"
+msgstr "© 1996-2005 Ireo mpamolavola ny Atril "
 
 #: ../shell/ev-window.c:3835
 msgid "translator-credits"
@@ -1297,16 +1297,16 @@ msgid "PAGE"
 msgstr "PEJY"
 
 #: ../shell/main.c:61
-msgid "Run evince in fullscreen mode"
-msgstr "Alefa mameno efijery ny evince"
+msgid "Run atril in fullscreen mode"
+msgstr "Alefa mameno efijery ny atril"
 
 #: ../shell/main.c:62
-msgid "Run evince in presentation mode"
-msgstr "Alefa toa fampisehoana ny evince"
+msgid "Run atril in presentation mode"
+msgstr "Alefa toa fampisehoana ny atril"
 
 #: ../shell/main.c:63
-msgid "Run evince as a previewer"
-msgstr "Alefa toa fitaovam-pizahana ny evince"
+msgid "Run atril as a previewer"
+msgstr "Alefa toa fitaovam-pizahana ny atril"
 
 #: ../shell/main.c:64
 #, fuzzy
@@ -1326,10 +1326,10 @@ msgid "MATE Document Viewer"
 msgstr "Mpizaha tahirin-kevitry ny MATE"
 
 #: ../shell/main.c:387
-msgid "Evince Document Viewer"
-msgstr "Evince mpizaha tahirin-kevitra"
+msgid "Atril Document Viewer"
+msgstr "Atril mpizaha tahirin-kevitra"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available, true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1337,15 +1337,15 @@ msgstr ""
 "Misy safidy bolenina; ny marina mamela ny fanaovan-tsary madinika ary ny "
 "diso mampitsahatra ny famoronana sary madinika vaovao"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Mandefa ny fanaovan-tsary madinika ho an'ny tahirin-kevitra PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Baikon'ny fanaovana sary madinika ho an'ny tahirin-kevitra PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See caja "
 "thumbnailer documentation for more information."

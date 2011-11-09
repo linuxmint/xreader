@@ -1,5 +1,5 @@
 /* ev-transition-animation.c
- *  this file is part of evince, a mate document viewer
+ *  this file is part of atril, a mate document viewer
  *
  * Copyright (C) 2007 Carlos Garnacho <carlos@imendio.com>
  *
@@ -591,7 +591,7 @@ ev_transition_animation_paint (EvTransitionAnimation *animation,
 		enum_value = g_enum_get_value (g_type_class_peek (EV_TYPE_TRANSITION_EFFECT_TYPE), type);
 
 		g_warning ("Unimplemented transition animation: '%s', "
-			   "please post a bug report in Evince bugzilla "
+			   "please post a bug report in Atril bugzilla "
 			   "(http://bugzilla.mate.org) with a testcase.",
 			   enum_value->value_nick);
 

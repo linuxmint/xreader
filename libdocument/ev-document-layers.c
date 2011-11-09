@@ -1,14 +1,14 @@
 /* ev-document-layers.c
- *  this file is part of evince, a mate document_links viewer
+ *  this file is part of atril, a mate document_links viewer
  * 
  * Copyright (C) 2008 Carlos Garcia Campos  <carlosgc@gnome.org>
  *
- * Evince is free software; you can redistribute it and/or modify it
+ * Atril is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Evince is distributed in the hope that it will be useful, but
+ * Atril is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.

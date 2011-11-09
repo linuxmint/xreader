@@ -18,7 +18,7 @@
  *
  */
 
-#include <evince-view.h>
+#include <atril-view.h>
  
 #include <gtk/gtk.h>
 

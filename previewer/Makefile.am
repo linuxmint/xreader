@@ -1,13 +1,13 @@
 
-bin_PROGRAMS = evince-previewer
+bin_PROGRAMS = atril-previewer
 
-evince_previewer_SOURCES = \
+atril_previewer_SOURCES = \
 	ev-previewer.c		\
 	ev-previewer-window.h	\
 	ev-previewer-window.c
 
-evince_previewer_CPPFLAGS = \
-	-DEVINCEDATADIR=\"$(pkgdatadir)\"	\
+atril_previewer_CPPFLAGS = \
+	-DATRILDATADIR=\"$(pkgdatadir)\"	\
 	-I$(top_srcdir)                         \
 	-I$(top_builddir) 			\
         -I$(top_srcdir)/libdocument             \
@@ -15,19 +15,19 @@ evince_previewer_CPPFLAGS = \
 	-I$(top_srcdir)/libmisc			\
 	$(AM_CPPFLAGS)
 
-evince_previewer_CFLAGS = \
+atril_previewer_CFLAGS = \
 	$(PREVIEWER_CFLAGS)			\
         $(WARN_CFLAGS)                          \
         $(DISABLE_DEPRECATED)			\
 	$(AM_CFLAGS)
 
-evince_previewer_LDFLAGS = $(AM_LDFLAGS)
+atril_previewer_LDFLAGS = $(AM_LDFLAGS)
 
 if PLATFORM_WIN32
-evince_previewer_LDFLAGS += -mwindows
+atril_previewer_LDFLAGS += -mwindows
 endif
 
-evince_previewer_LDADD = \
+atril_previewer_LDADD = \
 	$(top_builddir)/libdocument/libevdocument.la	\
 	$(top_builddir)/libview/libevview.la		\
 	$(top_builddir)/libmisc/libevmisc.la		\

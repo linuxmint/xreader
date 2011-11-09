@@ -7,7 +7,7 @@ os.environ['LANG']='C'
 
 from dogtail.procedural import *
 
-run('evince')
+run('atril')
 
 # Test file->open
 click('File', roleName='menu')
@@ -31,6 +31,6 @@ click('Close', roleName='push button')
 focus.dialog('About Document Viewer')
 click('Close', roleName='push button')
 
-# Close evince
+# Close atril
 click('File', roleName='menu')
 click('Close', roleName='menu item')

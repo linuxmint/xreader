@@ -1,11 +1,11 @@
-# translation of evince.HEAD.po to Georgian
+# translation of atril.HEAD.po to Georgian
 # Copyright (C) 2006 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Vladimer Sichinava <alinux@siena.linux.it>, 2006.
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: evince.HEAD\n"
+"Project-Id-Version: atril.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-08-27 16:10+0200\n"
 "PO-Revision-Date: 2006-09-10 08:25+0200\n"
@@ -198,84 +198,84 @@ msgstr "300%"
 msgid "400%"
 msgstr "400%"
 
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window-title.c:126
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window-title.c:126
 msgid "Document Viewer"
 msgstr "დოკუმენტების მნახველი"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multipage documents"
 msgstr ""
 "მრავალგვერდიანი "
 "დოკუმენტების ჩვენება"
 
-#: ../data/evince-password.glade.h:1
+#: ../data/atril-password.glade.h:1
 msgid "Remember password for this session"
 msgstr ""
 "სესიის პაროლის დამახსოვრება"
 
-#: ../data/evince-password.glade.h:2
+#: ../data/atril-password.glade.h:2
 msgid "Save password in keyring"
 msgstr "პაროლის შენახვა აცმაში"
 
-#: ../data/evince-password.glade.h:3
+#: ../data/atril-password.glade.h:3
 msgid "_Password:"
 msgstr "_პაროლი:"
 
-#: ../data/evince-properties.glade.h:1
+#: ../data/atril-properties.glade.h:1
 msgid "<b>Author:</b>"
 msgstr "<b>ავტორი:</b>"
 
-#: ../data/evince-properties.glade.h:2
+#: ../data/atril-properties.glade.h:2
 msgid "<b>Created:</b>"
 msgstr "<b>შექმნილია: </b>"
 
-#: ../data/evince-properties.glade.h:3
+#: ../data/atril-properties.glade.h:3
 msgid "<b>Creator:</b>"
 msgstr "<b>შემქმნელი:</b>"
 
-#: ../data/evince-properties.glade.h:4
+#: ../data/atril-properties.glade.h:4
 msgid "<b>Format:</b>"
 msgstr "<b> ფორმატი:</b>"
 
-#: ../data/evince-properties.glade.h:5
+#: ../data/atril-properties.glade.h:5
 msgid "<b>Keywords:</b>"
 msgstr "<b> საკვანძო სიტყვები:</b>"
 
-#: ../data/evince-properties.glade.h:6
+#: ../data/atril-properties.glade.h:6
 msgid "<b>Modified:</b>"
 msgstr "<b>შეიცვალა:</b>"
 
-#: ../data/evince-properties.glade.h:7
+#: ../data/atril-properties.glade.h:7
 msgid "<b>Number of Pages:</b>"
 msgstr "<b>გვერდების რაოდენობა:</b>"
 
-#: ../data/evince-properties.glade.h:8
+#: ../data/atril-properties.glade.h:8
 msgid "<b>Optimized:</b>"
 msgstr "<b>ოპტიმიზირებული:</b>"
 
-#: ../data/evince-properties.glade.h:9
+#: ../data/atril-properties.glade.h:9
 msgid "<b>Producer:</b>"
 msgstr "<b>პროდუსერი:</b>"
 
-#: ../data/evince-properties.glade.h:10
+#: ../data/atril-properties.glade.h:10
 msgid "<b>Security:</b>"
 msgstr "<b>უსაფრთხოება:</b>"
 
-#: ../data/evince-properties.glade.h:11
+#: ../data/atril-properties.glade.h:11
 msgid "<b>Subject:</b>"
 msgstr "<b>თემა:</b>"
 
-#: ../data/evince-properties.glade.h:12
+#: ../data/atril-properties.glade.h:12
 msgid "<b>Title:</b>"
 msgstr "<b>სათაური:</b>"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr ""
 "დოკუმენტის შეზღუდვების "
 "უგულვებელყოფა"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "დოკუმენტის შეზღუდვების "
@@ -805,12 +805,12 @@ msgstr ""
 
 #: ../shell/ev-window.c:2864
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince - ეს არის თავისუფალი "
+"Atril - ეს არის თავისუფალი "
 "პროგრამა. თქვენ შეგიძლიათ "
 "მისი გავრცელება ან/და შეცვლა "
 "თავისუფალი პროგრამირების "
@@ -822,7 +822,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:2868
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -845,7 +845,7 @@ msgstr ""
 #: ../shell/ev-window.c:2872
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Atril; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
 "ამ პროგრამასთან ერთად უნდა "
@@ -856,11 +856,11 @@ msgstr ""
 "Fifth Floor, Boston, MA 02110-1301, USA\n"
 
 #: ../shell/ev-window.c:2896 ../shell/main.c:308
-msgid "Evince"
+msgid "Atril"
 msgstr "ევინსი"
 
 #: ../shell/ev-window.c:2899
-msgid "© 1996-2005 The Evince authors"
+msgid "© 1996-2005 The Atril authors"
 msgstr "© 1996-2005 ევინსის ავტორები"
 
 #: ../shell/ev-window.c:2905
@@ -1184,19 +1184,19 @@ msgid "PAGE"
 msgstr "გვერდი"
 
 #: ../shell/main.c:55
-msgid "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
 msgstr ""
 "ევინსის მთელს ეკრანიან "
 "რეჟიმში გაშვება"
 
 #: ../shell/main.c:56
-msgid "Run evince in presentation mode"
+msgid "Run atril in presentation mode"
 msgstr ""
 "ევინსის პრეზენტაციის "
 "რეჟიმში გაშვება"
 
 #: ../shell/main.c:57
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr ""
 "ევინსის წინასწარ "
 "მნახველივით გაშვება"
@@ -1212,12 +1212,12 @@ msgstr ""
 "დამთვალიერებელი"
 
 #: ../shell/main.c:335
-msgid "Evince Document Viewer"
+msgid "Atril Document Viewer"
 msgstr ""
 "ევინსი დოკუმენტების "
 "დამთვალიერებელი"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available, true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1227,19 +1227,19 @@ msgstr ""
 "ესკიზურ რეჟიმს, ხოლო false "
 "ამორთავს ამ ფუნქციას."
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr ""
 "PDF დოკუმენტების დაესკიზების "
 "ჩართვა"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr ""
 "PDF დოკუმენტების ესკიზების "
 "ბრძანება "
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See caja "
 "thumbnailer documentation for more information."

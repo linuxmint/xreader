@@ -1,5 +1,5 @@
 INCLUDES=							\
-	-DEVINCEDATADIR=\"$(pkgdatadir)\"				\
+	-DATRILDATADIR=\"$(pkgdatadir)\"				\
 	-DMATEDATADIR=\"$(datadir)\"				\
 	-I$(top_srcdir)						\
 	-I$(top_builddir)					\
@@ -17,19 +17,19 @@ INCLUDES=							\
 	-DMATEICONDIR=\""$(datadir)/pixmaps"\" 		\
 	-DBINDIR=\""$(bindir)"\"				\
 	-DLIBEXECDIR=\""$(libexecdir)"\"			\
-	-DEVINCE_COMPILATION					\
+	-DATRIL_COMPILATION					\
 	$(SHELL_CFLAGS)						\
 	$(WARN_CFLAGS)						\
 	$(DISABLE_DEPRECATED)
 
-bin_PROGRAMS=evince
+bin_PROGRAMS=atril
 
-libexec_PROGRAMS=evince-convert-metadata
+libexec_PROGRAMS=atril-convert-metadata
 if ENABLE_DBUS
-libexec_PROGRAMS += evinced
+libexec_PROGRAMS += atrild
 endif
 
-evince_SOURCES=				\
+atril_SOURCES=				\
 	eggfindbar.c			\
 	eggfindbar.h			\
 	ev-annotation-properties-dialog.h \
@@ -87,19 +87,19 @@ evince_SOURCES=				\
 	main.c
 
 if ENABLE_DBUS
-evince_SOURCES += \
+atril_SOURCES += \
 	ev-media-player-keys.c \
 	ev-media-player-keys.h
 endif
 
 
-evince_LDFLAGS = $(AM_LDFLAGS)
+atril_LDFLAGS = $(AM_LDFLAGS)
 
 if PLATFORM_WIN32
-evince_LDFLAGS += -mwindows
+atril_LDFLAGS += -mwindows
 endif
 
-evince_LDADD=										\
+atril_LDADD=										\
 	$(top_builddir)/cut-n-paste/zoom-control/libephyzoom.la				\
 	$(top_builddir)/cut-n-paste/toolbar-editor/libtoolbareditor.la			\
 	$(top_builddir)/cut-n-paste/totem-screensaver/libtotemscrsaver.la		\
@@ -112,41 +112,41 @@ evince_LDADD=										\
 	$(SHELL_LIBS)
 
 if PLATFORM_WIN32
-evince_LDADD += evince-icon.o
+atril_LDADD += atril-icon.o
 
-evince-icon.o: $(srcdir)/evince-icon.rc $(top_srcdir)/data/evince.ico
-	$(WINDRES) $(srcdir)/evince-icon.rc -I $(top_srcdir)/data evince-icon.o
+atril-icon.o: $(srcdir)/atril-icon.rc $(top_srcdir)/data/atril.ico
+	$(WINDRES) $(srcdir)/atril-icon.rc -I $(top_srcdir)/data atril-icon.o
 endif
 
 BUILT_SOURCES = ev-marshal.h ev-marshal.c
 
-evince_convert_metadata_SOURCES=	\
+atril_convert_metadata_SOURCES=	\
 	ev-convert-metadata.c
 
-evince_convert_metadata_LDADD=		\
+atril_convert_metadata_LDADD=		\
 	$(SHELL_LIBS)
 
 if ENABLE_DBUS
-evinced_SOURCES=			\
+atrild_SOURCES=			\
 	ev-daemon.c
 
-evinced_CFLAGS=				\
-	-DEVINCEDATADIR=\"$(pkgdatadir)\"			\
+atrild_CFLAGS=				\
+	-DATRILDATADIR=\"$(pkgdatadir)\"			\
 	-DMATEDATADIR=\"$(datadir)\"				\
 	-I$(top_srcdir)						\
 	-I$(top_builddir)					\
 	-DLIBEXECDIR=\""$(libexecdir)"\"			\
-	-DEVINCE_COMPILATION					\
+	-DATRIL_COMPILATION					\
 	$(EV_DAEMON_CFLAGS)					\
 	$(WARN_CFLAGS)						\
 	$(DISABLE_DEPRECATED)
 
-evinced_LDADD=				\
+atrild_LDADD=				\
 	$(EV_DAEMON_LIBS)
 endif
 
 EXTRA_DIST = ev-marshal.list		\
-	evince-icon.rc
+	atril-icon.rc
 
 ev-marshal.h: $(srcdir)/ev-marshal.list
 	$(AM_V_GEN)$(GLIB_GENMARSHAL) --prefix=ev_marshal $(srcdir)/ev-marshal.list --header > ev-marshal.h

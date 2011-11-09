@@ -5,7 +5,7 @@ context = apps
 iconsdir = $(themedir)/$(size)/$(context)
 
 icons_DATA = \
-	evince.png
+	atril.png
 
 noinst_DATA = 
 

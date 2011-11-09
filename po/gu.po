@@ -1,11 +1,11 @@
-# translation of evince.master.gu.po to Gujarati
+# translation of atril.master.gu.po to Gujarati
 # Ankit Patel <ankit644@yahoo.com>, 2005, 2006.
 # Ankit Patel <ankit@redhat.com>, 2007, 2008.
 # Sweta Kothari <swkothar@redhat.com>, 2008, 2009, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: evince.master.gu\n"
-"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=evince&component=general\n"
+"Project-Id-Version: atril.master.gu\n"
+"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=atril&component=general\n"
 "POT-Creation-Date: 2010-07-20 15:08+0000\n"
 "PO-Revision-Date: 2010-07-22 16:39+0530\n"
 "Last-Translator: Sweta Kothari <swkothar@redhat.com>\n"
@@ -93,7 +93,7 @@ msgstr "“%s” ને કાઢતી વખતે ભૂલ હતી."
 msgid "Error %s"
 msgstr "ભૂલ %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "વાર્તાની પુસ્તકો"
 
@@ -113,7 +113,7 @@ msgstr ""
 "દસ્તાવેજ ઘણીબધી ફાઈલોથી બનાવવામાં આવેલ છે. આવી ફાઈલોમાંની એક અથવા વધુ વાપરી શકાશે "
 "નહિં."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 #| msgid "Djvu Documents"
 msgid "DjVu Documents"
 msgstr "DjVu દસ્તાવેજો"
@@ -122,7 +122,7 @@ msgstr "DjVu દસ્તાવેજો"
 msgid "DVI document has incorrect format"
 msgstr "DVI દસ્તાવેજનું બંધારણ અયોગ્ય છે"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI દસ્તાવેજો"
 
@@ -188,7 +188,7 @@ msgstr "જડિત"
 msgid "Not embedded"
 msgstr "જડિત નથી"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF દસ્તાવેજો"
 
@@ -200,7 +200,7 @@ msgstr "અયોગ્ય દસ્તાવેજ"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "રજૂઆત સ્લાઈડો"
 
@@ -254,7 +254,7 @@ msgstr "દસ્તાવેજ “%s” લાવવામાં નિષ્�
 msgid "Failed to save document “%s”"
 msgstr "દસ્તાવેજ “%s” સંગ્રહવામાં નિષ્ફળ"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "પોસ્ટસ્ક્રિપ્ટ દસ્તાવેજો"
 
@@ -472,22 +472,22 @@ msgid "6400%"
 msgstr "6400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4304
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4304
 #: ../shell/ev-window-title.c:149 ../shell/main.c:313
 #, c-format
 msgid "Document Viewer"
 msgstr "દસ્તાવેજ દર્શક"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 #| msgid "View multipage documents"
 msgid "View multi-page documents"
 msgstr "ઘણા-પાનાનાં દસ્તાવેજો જુઓ"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
 msgstr "દસ્તાવેજના બંધનો પર ફરીથી લખો"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "દસ્તાવેજના બંધનો પર ફરીથી લખો, જેમ કે નકલ કરવા માટે અથવા છાપન કરવા માટેના બંધનો."
 
@@ -995,9 +995,9 @@ msgstr "મેટાડેટાને રૂપાંતર કરી રહ્
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
-msgstr "Evince દ્દારા વાપરેલ મેટાડેટા બંધારણ બદલાઇ ગયું, અને તેથી તેનું સ્થળાંતર કરવાની જરૂર છે. જો સ્થળાંતર રદ થયેલ હોય તો મેટાડેટા કામ કરશે નહિં."
+msgstr "Atril દ્દારા વાપરેલ મેટાડેટા બંધારણ બદલાઇ ગયું, અને તેથી તેનું સ્થળાંતર કરવાની જરૂર છે. જો સ્થળાંતર રદ થયેલ હોય તો મેટાડેટા કામ કરશે નહિં."
 
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
@@ -1282,24 +1282,24 @@ msgstr ""
 
 #: ../shell/ev-window.c:4331
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 
 #: ../shell/ev-window.c:4335
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -1307,24 +1307,24 @@ msgstr ""
 #: ../shell/ev-window.c:4339
 #| msgid ""
 #| "You should have received a copy of the GNU General Public License along "
-#| "with Evince; if not, write to the Free Software Foundation, Inc., 59 "
+#| "with Atril; if not, write to the Free Software Foundation, Inc., 59 "
 #| "Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 
 #: ../shell/ev-window.c:4364
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4367
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996–2009 The Evince authors"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996–2009 The Atril authors"
 
 #: ../shell/ev-window.c:4373
 msgid "translator-credits"
@@ -1688,16 +1688,16 @@ msgid "NUMBER"
 msgstr "NUMBER"
 
 #: ../shell/main.c:82
-msgid "Run evince in fullscreen mode"
-msgstr "evince ને પૂર્ણસ્ક્રીન સ્થિતિમાં ચલાવો"
+msgid "Run atril in fullscreen mode"
+msgstr "atril ને પૂર્ણસ્ક્રીન સ્થિતિમાં ચલાવો"
 
 #: ../shell/main.c:83
-msgid "Run evince in presentation mode"
-msgstr "evince ને રજૂઆત સ્થિતિમાં ચલાવો"
+msgid "Run atril in presentation mode"
+msgstr "atril ને રજૂઆત સ્થિતિમાં ચલાવો"
 
 #: ../shell/main.c:84
-msgid "Run evince as a previewer"
-msgstr "evince ને પૂર્વદર્શક તરીકે ચલાવો"
+msgid "Run atril as a previewer"
+msgstr "atril ને પૂર્વદર્શક તરીકે ચલાવો"
 
 #: ../shell/main.c:85
 msgid "The word or phrase to find in the document"
@@ -1712,7 +1712,7 @@ msgstr "શબ્દમાળા"
 msgid "[FILE…]"
 msgstr "[FILE…]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 #| msgid ""
 #| "Boolean options available, true enables thumbnailing and false disables "
 #| "the creation of new thumbnails"
@@ -1721,15 +1721,15 @@ msgid ""
 "creation of new thumbnails"
 msgstr "બુલિયન વિકલ્પો ઉપલબ્ધ છે, સાચું થમ્બનેઈલીંગને સક્રિય કરે છે અને ખોટું નવા થમ્બનેઈલની બનાવટને નિષ્ક્રિય કરે છે"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "PDF દસ્તાવેજોનું થમ્બનેઈલ કરવાનું સક્રિય કરો"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "PDF દસ્તાવેજો માટે થમ્બનેઈલ આદેશ"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 #| msgid ""
 #| "Valid command plus arguments for the PDF Document thumbnailer. See "
 #| "caja thumbnailer documentation for more information."

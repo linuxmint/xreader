@@ -17,8 +17,8 @@
  *
  */
 
-#if !defined (__EV_EVINCE_DOCUMENT_H_INSIDE__) && !defined (EVINCE_COMPILATION)
-#error "Only <evince-document.h> can be included directly."
+#if !defined (__EV_ATRIL_DOCUMENT_H_INSIDE__) && !defined (ATRIL_COMPILATION)
+#error "Only <atril-document.h> can be included directly."
 #endif
 
 #ifndef EV_FILE_HELPERS_H

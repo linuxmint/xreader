@@ -1,5 +1,5 @@
 # translation of lv.po to Latvian
-# Latvian translation for Evince.
+# Latvian translation for Atril.
 # Copyright © 2006 Mate i18n Project for Latvian.
 #
 # Raivis Dejus <orvils@gmail.com>, 2006.
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lv\n"
 "Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug."
-"cgi?product=evince&component=general\n"
+"cgi?product=atril&component=general\n"
 "POT-Creation-Date: 2010-02-03 16:30+0000\n"
 "PO-Revision-Date: 2010-03-07 16:32+0200\n"
 "Last-Translator: \n"
@@ -75,7 +75,7 @@ msgstr "Dzēšot “%s”, gadījās kļūda."
 msgid "Error %s"
 msgstr "Kļūda %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Komiksu grāmatas"
 
@@ -92,7 +92,7 @@ msgstr ""
 "Šis dokuments sastāv no vairākiem failiem. Vismaz vienam no tiem nevar "
 "piekļūt."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 #| msgid "Djvu Documents"
 msgid "DjVu Documents"
 msgstr "DjVu dokumenti"
@@ -101,7 +101,7 @@ msgstr "DjVu dokumenti"
 msgid "DVI document has incorrect format"
 msgstr "DVI dokumentam ir nepareizs formāts"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI dokumenti"
 
@@ -167,7 +167,7 @@ msgstr "Iegultā"
 msgid "Not embedded"
 msgstr "Nav iegultā"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF dokumenti"
 
@@ -180,7 +180,7 @@ msgstr "Nederīgs dokuments"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Impress slaidi"
 
@@ -234,7 +234,7 @@ msgstr "Neizdevās ielādēt dokumentu “%s”"
 msgid "Failed to save document “%s”"
 msgstr "Neizdevās saglabāt dokumentu “%s”"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript dokumenti"
 
@@ -382,9 +382,9 @@ msgid "Separator"
 msgstr "Atdalītājs"
 
 #: ../cut-n-paste/totem-screensaver/totem-scrsaver.c:117
-#| msgid "Run evince in presentation mode"
+#| msgid "Run atril in presentation mode"
 msgid "Running in presentation mode"
-msgstr "Evince darbojas prezentācijas režīmā"
+msgstr "Atril darbojas prezentācijas režīmā"
 
 #. translators: this is the label for toolbar button
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:48 ../shell/ev-window.c:5301
@@ -438,22 +438,22 @@ msgid "400%"
 msgstr "400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4183
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4183
 #: ../shell/ev-window-title.c:149 ../shell/main.c:282
 #, c-format
 msgid "Document Viewer"
 msgstr "Dokumentu skatītājs"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 #| msgid "View multipage documents"
 msgid "View multi-page documents"
 msgstr "Skatīt lasāmus dokumentus"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "Ignorēt dokumenta ierobežojumus"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "Ignorēt dokumenta (piemēram, kopēšanas vai drukāšanas) ierobežojumus."
 
@@ -886,10 +886,10 @@ msgstr "Konvertē metadatus"
 
 #: ../shell/ev-convert-metadata.c:185
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
-"Mainījies Evince metadatu formāts, tādēļ jāveic datu migrācija. Ja atcelsiet "
+"Mainījies Atril metadatu formāts, tādēļ jāveic datu migrācija. Ja atcelsiet "
 "migrāciju, metadatu uzglabāšana vairs nestrādās."
 
 #: ../shell/ev-open-recent-action.c:72
@@ -1144,24 +1144,24 @@ msgstr ""
 
 #: ../shell/ev-window.c:4210
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince ir brīva programmatūra; jūs varat to izplatīt tālāk un/vai modificēt "
+"Atril ir brīva programmatūra; jūs varat to izplatīt tālāk un/vai modificēt "
 "saskaņā ar GNU Vispārējās publiskās licences noteikumiem, ko publicējis "
 "Brīvas programmatūras fonds; izmantojiet Licences versiju 2 vai (pēc jūsu "
 "izvēles) jebkuru vēlāku versiju.\n"
 
 #: ../shell/ev-window.c:4214
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince tiek izplatīta cerībā, ka tā būs noderīga, taču BEZ JEBKĀDĀM "
+"Atril tiek izplatīta cerībā, ka tā būs noderīga, taču BEZ JEBKĀDĀM "
 "GARANTIJĀM; pat bez šķietamām KOMERCIĀLAS VĒRTĪBAS un PIEMĒROTĪBAS "
 "KONKRĒTIEM NOLŪKIEM garantijām. Sīkāku informāciju meklējiet GNU Vispārējā "
 "publiskajā licencē.\n"
@@ -1169,7 +1169,7 @@ msgstr ""
 #: ../shell/ev-window.c:4218
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Atril; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
 "Jums vajadzēja saņemt GNU Vispārējās publiskās licences kopiju kopā ar šo "
@@ -1178,13 +1178,13 @@ msgstr ""
 "02111-1307  USA\n"
 
 #: ../shell/ev-window.c:4243
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4246
-#| msgid "© 1996-2007 The Evince authors"
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996-2010 Evince autori"
+#| msgid "© 1996-2007 The Atril authors"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996-2010 Atril autori"
 
 #: ../shell/ev-window.c:4252
 msgid "translator-credits"
@@ -1551,16 +1551,16 @@ msgid "PAGE"
 msgstr "LAPPUSE"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
-msgstr "Palaist Evince pilnekrāna režīmā"
+msgid "Run atril in fullscreen mode"
+msgstr "Palaist Atril pilnekrāna režīmā"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
-msgstr "Palaist Evince prezentācijas režīmā"
+msgid "Run atril in presentation mode"
+msgstr "Palaist Atril prezentācijas režīmā"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
-msgstr "Palaist Evince kā pirmsskatītāju"
+msgid "Run atril as a previewer"
+msgstr "Palaist Atril kā pirmsskatītāju"
 
 #: ../shell/main.c:82
 #| msgid "Find a word or phrase in the document"
@@ -1576,7 +1576,7 @@ msgstr "VIRKNE"
 msgid "[FILE…]"
 msgstr "[FAILS...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 #| msgid ""
 #| "Boolean options available, true enables thumbnailing and false disables "
 #| "the creation of new thumbnails"
@@ -1587,15 +1587,15 @@ msgstr ""
 "Pieejamās iespējas: patiess aktivizē sīktēlošanu, nepatiess atslēdz "
 "sīktēlu veidošanu"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Aktivizēt PDF dokumentu sīktēlu veidošanu"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "PDF dokumentu sīktēlu komanda"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 #| msgid ""
 #| "Valid command plus arguments for the PDF Document thumbnailer. See "
 #| "caja thumbnailer documentation for more information."
@@ -1779,5 +1779,5 @@ msgstr ""
 #~ msgid "_Find..."
 #~ msgstr "_Meklēt..."
 
-#~ msgid "Evince Document Viewer"
-#~ msgstr "Evince dokumentu skatītājs"
+#~ msgid "Atril Document Viewer"
+#~ msgstr "Atril dokumentu skatītājs"

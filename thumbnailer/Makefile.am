@@ -1,39 +1,39 @@
 
-bin_PROGRAMS = evince-thumbnailer
+bin_PROGRAMS = atril-thumbnailer
 
-evince_thumbnailer_SOURCES = \
-	evince-thumbnailer.c
+atril_thumbnailer_SOURCES = \
+	atril-thumbnailer.c
 
-evince_thumbnailer_CPPFLAGS = \
-	-DEVINCEDATADIR=\"$(pkgdatadir)\"	\
+atril_thumbnailer_CPPFLAGS = \
+	-DATRILDATADIR=\"$(pkgdatadir)\"	\
 	-I$(top_srcdir)				\
 	-I$(top_builddir)			\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
 	-DMATEICONDIR=\""$(datadir)/pixmaps"\" \
 	$(AM_CPPFLAGS)
 
-evince_thumbnailer_CFLAGS = \
+atril_thumbnailer_CFLAGS = \
 	$(FRONTEND_CFLAGS)	\
 	$(DISABLE_DEPRECATED)	\
 	$(WARN_CFLAGS)		\
 	$(AM_CFLAGS)
 
-evince_thumbnailer_LDFLAGS = $(AM_LDFLAGS)
+atril_thumbnailer_LDFLAGS = $(AM_LDFLAGS)
 
 if PLATFORM_WIN32
-evince_thumbnailer_LDFLAGS += -mwindows
+atril_thumbnailer_LDFLAGS += -mwindows
 endif
 
-evince_thumbnailer_LDADD = \
+atril_thumbnailer_LDADD = \
 	$(top_builddir)/libdocument/libevdocument.la	\
 	$(FRONTEND_LIBS)
 
 schema_files = \
-	evince-thumbnailer-dvi.schemas.in  \
-	evince-thumbnailer-djvu.schemas.in \
-	evince-thumbnailer-comics.schemas.in \
-	evince-thumbnailer-ps.schemas.in \
-	evince-thumbnailer.schemas.in
+	atril-thumbnailer-dvi.schemas.in  \
+	atril-thumbnailer-djvu.schemas.in \
+	atril-thumbnailer-comics.schemas.in \
+	atril-thumbnailer-ps.schemas.in \
+	atril-thumbnailer.schemas.in
 
 if WITH_MATECONF
 
@@ -42,23 +42,23 @@ if WITH_MATECONF
 schema_DATA = 
 
 if ENABLE_PDF
-schema_DATA += evince-thumbnailer.schemas
+schema_DATA += atril-thumbnailer.schemas
 endif
 
 if ENABLE_PS
-schema_DATA += evince-thumbnailer-ps.schemas
+schema_DATA += atril-thumbnailer-ps.schemas
 endif
 
 if ENABLE_DJVU
-schema_DATA += evince-thumbnailer-djvu.schemas
+schema_DATA += atril-thumbnailer-djvu.schemas
 endif
 
 if ENABLE_DVI
-schema_DATA += evince-thumbnailer-dvi.schemas
+schema_DATA += atril-thumbnailer-dvi.schemas
 endif
 
 if ENABLE_COMICS
-schema_DATA += evince-thumbnailer-comics.schemas
+schema_DATA += atril-thumbnailer-comics.schemas
 endif
 
 schemadir = $(MATECONF_SCHEMA_FILE_DIR)

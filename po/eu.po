@@ -1,7 +1,7 @@
 # translation of eu_to_be_translate.po to Basque
-# Basque translation of evince.
+# Basque translation of atril.
 # Copyright (C) 2005 Mikel Olasagasti
-# This file is distributed under the same license as the evince package.
+# This file is distributed under the same license as the atril package.
 #
 # Mikel Olasagasti <hey_neken@mundurat.net>, 2005.
 # Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2005, 2006, 2007, 2008, 2009, 2010.
@@ -75,7 +75,7 @@ msgstr "Errorea gertatu da '%s' ezabatzean."
 msgid "Error %s"
 msgstr "Errorea: %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Komikiak"
 
@@ -91,7 +91,7 @@ msgstr ""
 "Dokumentua hainbat fitxategirekin osatua dago. Fitxategi bat edo gehiago "
 "ezin da atzitu."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "DjVu dokumentuak"
 
@@ -99,7 +99,7 @@ msgstr "DjVu dokumentuak"
 msgid "DVI document has incorrect format"
 msgstr "DVI dokumentuak okerreko formatua du"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI dokumentuak"
 
@@ -165,7 +165,7 @@ msgstr "Kapsulatua"
 msgid "Not embedded"
 msgstr "Kapsulatu gabea"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF dokumentuak"
 
@@ -177,7 +177,7 @@ msgstr "Dokumentu baliogabea"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Impress aurkezpenak"
 
@@ -227,7 +227,7 @@ msgstr "Huts egin du '%s' dokumentua kargatzean"
 msgid "Failed to save document “%s”"
 msgstr "Huts egin du '%s' dokumentua gordetzean"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript dokumentuak"
 
@@ -439,21 +439,21 @@ msgid "6400%"
 msgstr "%6400"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4554
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4554
 #: ../shell/ev-window-title.c:149 ../shell/main.c:310
 #, c-format
 msgid "Document Viewer"
 msgstr "Dokumentu ikustailea"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "Ikusi orrialde anitzeko dokumentuak"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
 msgstr "Jaramonik ez egin dokumentuaren murriztapenei"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Jaramonik ez egin dokumentuaren kopiatzeko edo inprimatzeko bezalako "
@@ -954,10 +954,10 @@ msgstr "Metadatuak bihurtzen"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
-"Evince aplikazioak erabiltzen dituen metadatuen formatua aldatu egin denez, "
+"Atril aplikazioak erabiltzen dituen metadatuen formatua aldatu egin denez, "
 "migratu beharra dago. Migrazioa bertan behera uzten bada, gordetako "
 "metadatuek ez dute funtzionatuko."
 
@@ -1263,24 +1263,24 @@ msgstr ""
 
 #: ../shell/ev-window.c:4581
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince software librea da; birbana eta/edo alda dezakezu Free Software "
+"Atril software librea da; birbana eta/edo alda dezakezu Free Software "
 "Foundation-ek argitaratutako GNU Lizentzia Publiko Orokorraren 2. bertsioan, "
 "edo (nahiago baduzu) bertsio berriago batean, jasotako baldintzak betez "
 "gero.\n"
 
 #: ../shell/ev-window.c:4585
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince erabilgarria izango delakoan banatzen da, baina INOLAKO BERMERIK "
+"Atril erabilgarria izango delakoan banatzen da, baina INOLAKO BERMERIK "
 "GABE; era berean, ez da bermatzen beraren EGOKITASUNA MERKATURATZEKO edo "
 "HELBURU PARTIKULARRETARAKO ERABILTZEKO. Argibide gehiago nahi izanez gero, "
 "ikus GNU Lizentzia Publiko Orokorra.\n"
@@ -1288,7 +1288,7 @@ msgstr ""
 #: ../shell/ev-window.c:4589
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
 "Programa honekin batera GNU Lizentzia Publiko Orokorraren kopia bat ere jaso "
@@ -1297,12 +1297,12 @@ msgstr ""
 "USA\n"
 
 #: ../shell/ev-window.c:4614
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4617
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996-2009 Evince-ren egileak"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996-2009 Atril-ren egileak"
 
 #: ../shell/ev-window.c:4623
 msgid "translator-credits"
@@ -1666,16 +1666,16 @@ msgid "NUMBER"
 msgstr "ZENBAKIA"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
-msgstr "Exekutatu evince pantaila osoko moduan"
+msgid "Run atril in fullscreen mode"
+msgstr "Exekutatu atril pantaila osoko moduan"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
-msgstr "Exekutatu evince aurkezpen moduan"
+msgid "Run atril in presentation mode"
+msgstr "Exekutatu atril aurkezpen moduan"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
-msgstr "Exekutatu evince aurrebista gisa"
+msgid "Run atril as a previewer"
+msgstr "Exekutatu atril aurrebista gisa"
 
 #: ../shell/main.c:82
 msgid "The word or phrase to find in the document"
@@ -1689,7 +1689,7 @@ msgstr "KATEA"
 msgid "[FILE…]"
 msgstr "[FITXATEGIA...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1698,15 +1698,15 @@ msgstr ""
 "gaitzen ditu eta false balioak (faltsua) koadro txiki berriak sortzea "
 "desgaitzen du."
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Gaitu PDF dokumentuen koadro txikiak"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "PDF dokumentuen koadro txikiak sortzeko komandoa"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."

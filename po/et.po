@@ -1,9 +1,9 @@
-# Evince'i eesti keele tõlge.
-# Estonian translation of Evince.
+# Atril'i eesti keele tõlge.
+# Estonian translation of Atril.
 #
 # Copyright (C) 2005, 2006 Free Software Foundation, Inc.
 # Copyright (C) 2007–2010 The MATE Project
-# This file is distributed under the same license as the evince package.
+# This file is distributed under the same license as the atril package.
 #
 # Sven Sapelson <sven.sapelson gmail com>, 2005.
 # Ivar Smolin <okul linux ee>, 2005–2010.
@@ -12,9 +12,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Evince 2.32\n"
+"Project-Id-Version: Atril 2.32\n"
 "Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?"
-"product=evince&component=general\n"
+"product=atril&component=general\n"
 "POT-Creation-Date: 2010-08-19 07:59+0000\n"
 "PO-Revision-Date: 2010-09-23 10:21+0300\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
@@ -726,7 +726,7 @@ msgid "Close"
 msgstr "Sulgemine"
 
 msgid "Running in presentation mode"
-msgstr "Evince käivitamine esitlusrežiimis"
+msgstr "Atril käivitamine esitlusrežiimis"
 
 #, c-format
 msgid "Password for document %s"
@@ -744,10 +744,10 @@ msgid "Converting metadata"
 msgstr "Metaandmete teisendamine"
 
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
-"Evince poolt kasutatavate metaandmete vorming on muutunud ja vanad andmed "
+"Atril poolt kasutatavate metaandmete vorming on muutunud ja vanad andmed "
 "tuleb teisendada uude vormingusse. Teisendamise katkestamise korral lakkab "
 "metaandmete hoidla töötamast."
 
@@ -990,41 +990,41 @@ msgstr ""
 "Kasutusel %s (%s)"
 
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince on vaba tarkvara. Te võite seda edasi levitada ja/või muuta vastavalt "
+"Atril on vaba tarkvara. Te võite seda edasi levitada ja/või muuta vastavalt "
 "GNU Üldise Avaliku Litsentsi tingimustele, nagu need on Vaba Tarkvara Fondi "
 "poolt avaldatud; kas Litsentsi versioon number 2 või (vastavalt Teie "
 "valikule) ükskõik milline hilisem versioon.\n"
 
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince'i levitatakse lootuses, et see on kasulik, kuid ILMA IGASUGUSE "
+"Atril'i levitatakse lootuses, et see on kasulik, kuid ILMA IGASUGUSE "
 "GARANTIITA; isegi KESKMISE/TAVALISE KVALITEEDIGARANTIITA või SOBIVUSELE "
 "TEATUD KINDLAKS EESMÄRGIKS. Üksikasjade suhtes vaata GNU Üldist Avalikku "
 "Litsentsi.\n"
 
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
-"Te peaks olema saanud GNU Üldise Avaliku Litsentsi koopia koos Evince'ga; "
+"Te peaks olema saanud GNU Üldise Avaliku Litsentsi koopia koos Atril'ga; "
 "kui ei, siis võtke ühendust Free Software Foundation'iga, 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996–2009 Evince'i autorid"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996–2009 Atril'i autorid"
 
 msgid "translator-credits"
 msgstr ""
@@ -1136,7 +1136,7 @@ msgid "_Contents"
 msgstr "_Sisu"
 
 msgid "_About"
-msgstr "_Evince'ist lähemalt"
+msgstr "_Atril'ist lähemalt"
 
 #. Toolbar-only
 msgid "Leave Fullscreen"
@@ -1305,14 +1305,14 @@ msgstr "Mitmendat dokumendi lehekülge näidata."
 msgid "NUMBER"
 msgstr "NUMBER"
 
-msgid "Run evince in fullscreen mode"
-msgstr "Evince käivitamine täisekraanirežiimis"
+msgid "Run atril in fullscreen mode"
+msgstr "Atril käivitamine täisekraanirežiimis"
 
-msgid "Run evince in presentation mode"
-msgstr "Evince käivitamine esitlusžiimis"
+msgid "Run atril in presentation mode"
+msgstr "Atril käivitamine esitlusžiimis"
 
-msgid "Run evince as a previewer"
-msgstr "Evince käivitamine eelvaatlusrežiimis"
+msgid "Run atril as a previewer"
+msgstr "Atril käivitamine eelvaatlusrežiimis"
 
 msgid "The word or phrase to find in the document"
 msgstr "Dokumendist otsitav sõna või fraas"

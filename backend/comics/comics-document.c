@@ -278,7 +278,7 @@ comics_generate_command_lines (ComicsDocument *comics_document,
 				             quoted_command);
 	comics_document->offset = command_usage_def[type].offset;
 	if (command_usage_def[type].decompress_tmp) {
-		comics_document->dir = ev_mkdtemp ("evince-comics-XXXXXX", error);
+		comics_document->dir = ev_mkdtemp ("atril-comics-XXXXXX", error);
                 if (comics_document->dir == NULL)
                         return FALSE;
 

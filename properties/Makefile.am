@@ -1,5 +1,5 @@
 INCLUDES=					\
-	-DEVINCEDATADIR=\"$(pkgdatadir)\"	\
+	-DATRILDATADIR=\"$(pkgdatadir)\"	\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
 	-I$(top_srcdir)				\
 	-I$(top_builddir)			\
@@ -16,19 +16,19 @@ libevproperties_la_SOURCES=			\
 
 if ENABLE_CAJA
 
-cajaextension_LTLIBRARIES = libevince-properties-page.la
+cajaextension_LTLIBRARIES = libatril-properties-page.la
 
-libevince_properties_page_la_CFLAGS = -I$(top_srcdir)
-libevince_properties_page_la_SOURCES = 	\
+libatril_properties_page_la_CFLAGS = -I$(top_srcdir)
+libatril_properties_page_la_SOURCES = 	\
 	ev-properties-main.c
 
-libevince_properties_page_la_LIBADD = 		\
+libatril_properties_page_la_LIBADD = 		\
 	libevproperties.la			\
 	$(top_builddir)/libdocument/libevdocument.la	\
 	$(FRONTEND_LIBS)			\
 	$(CAJA_LIBS)
 
-libevince_properties_page_la_LDFLAGS = -module -avoid-version -no-undefined
+libatril_properties_page_la_LDFLAGS = -module -avoid-version -no-undefined
 
 endif # ENABLE_CAJA
 

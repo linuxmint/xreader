@@ -1,14 +1,14 @@
 /* ev-metadata.c
- *  this file is part of evince, a mate document viewer
+ *  this file is part of atril, a mate document viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos  <carlosgc@gnome.org>
  *
- * Evince is free software; you can redistribute it and/or modify it
+ * Atril is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Evince is distributed in the hope that it will be useful, but
+ * Atril is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
@@ -36,7 +36,7 @@ struct _EvMetadataClass {
 
 G_DEFINE_TYPE (EvMetadata, ev_metadata, G_TYPE_OBJECT)
 
-#define EV_METADATA_NAMESPACE "metadata::evince"
+#define EV_METADATA_NAMESPACE "metadata::atril"
 
 static void
 ev_metadata_finalize (GObject *object)

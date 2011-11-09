@@ -1,7 +1,7 @@
 # translation of bn_IN.po to Bengali INDIA
-# Bengali India translation of Evince.
-# Copyright (C) 1996-2006 The Evince authors.
-# This file is distributed under the same license as the Evince package.
+# Bengali India translation of Atril.
+# Copyright (C) 1996-2006 The Atril authors.
+# This file is distributed under the same license as the Atril package.
 #
 # Progga <progga@BengaLinux.Org>, 2005-2006.
 # Runa Bhattacharjee <runabh@gmail.com>, 2006.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bn_IN\n"
 "Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?"
-"product=evince&component=general\n"
+"product=atril&component=general\n"
 "POT-Creation-Date: 2010-04-13 04:33+0000\n"
 "PO-Revision-Date: 2010-04-13 12:43+0530\n"
 "Last-Translator: Runa Bhattacharjee <runab@redhat.com>\n"
@@ -78,7 +78,7 @@ msgstr "“%s” মুছে ফেলতে সমস্যা।"
 msgid "Error %s"
 msgstr "ত্রুটি %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "কমিক-বই"
 
@@ -96,7 +96,7 @@ msgstr ""
 "একাধিক ফাইল একত্রিত করে এই ডকুমেন্ট নির্মিত হয়েছে ও এর মধ্যে এক অথবা একাধিক ফাইল "
 "ব্যবহার করা সম্ভব নয়।"
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 #, fuzzy
 msgid "DjVu Documents"
 msgstr "Djvu ডকুমেন্ট"
@@ -105,7 +105,7 @@ msgstr "Djvu ডকুমেন্ট"
 msgid "DVI document has incorrect format"
 msgstr "DVI ডকুমেন্টের বিন্যাস সঠিক নয়"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI ডকুমেন্ট"
 
@@ -171,7 +171,7 @@ msgstr "এমবেড করা"
 msgid "Not embedded"
 msgstr "এমবেড করা নয়"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF ডকুমেন্ট"
 
@@ -183,7 +183,7 @@ msgstr "ডকুমেন্ট বৈধ নয়"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Impress স্লাইড"
 
@@ -237,7 +237,7 @@ msgstr "“%s” ডকুমেন্ট লোড করতে ব্যর্
 msgid "Failed to save document “%s”"
 msgstr "“%s” ডকুমেন্ট সংরক্ষণ করতে ব্যর্থ"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript ডকুমেন্ট"
 
@@ -437,22 +437,22 @@ msgid "400%"
 msgstr "৪০০%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4167
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4167
 #: ../shell/ev-window-title.c:149 ../shell/main.c:287
 #, c-format
 msgid "Document Viewer"
 msgstr "ডকুমেন্ট প্রদর্শন ব্যবস্থা"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 #, fuzzy
 msgid "View multi-page documents"
 msgstr "একাধিক পৃষ্ঠাবিশিষ্ট ডকুমেন্ট দেখুন"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "ডকুমেন্টের ক্ষেত্র ধার্য নিষেধাজ্ঞা অগ্রাহ্য করা হবে"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "ডকুমেন্টের ক্ষেত্র ধার্য নিষেধাজ্ঞা যেমন কপি অথবা প্রিন্ট সংক্রান্ত, অগ্রাহ্য করা হবে।"
@@ -866,7 +866,7 @@ msgstr ""
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
 
@@ -1121,23 +1121,23 @@ msgstr ""
 
 #: ../shell/ev-window.c:4194
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince একটি মুক্ত সফ্টওয়্যার; Free Software Foundation দ্বারা প্রকাশিত GNU General "
+"Atril একটি মুক্ত সফ্টওয়্যার; Free Software Foundation দ্বারা প্রকাশিত GNU General "
 "Public License'র শর্তানুযায়ী এটি বিতরণ ও পরিবর্তন করা যাবে; লাইনসেন্সের সংস্করণ ২ "
 "অথবা (আপনার সুবিধানুযায়ী) ঊর্ধ্বতন কোনো সংস্করণের অধীন।\n"
 
 #: ../shell/ev-window.c:4198
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince বিতরণ করার মূল উদ্দেশ্য যে ব্যবহারকারীরা এর দ্বারা উপকৃত হবেন, কিন্তু এটির "
+"Atril বিতরণ করার মূল উদ্দেশ্য যে ব্যবহারকারীরা এর দ্বারা উপকৃত হবেন, কিন্তু এটির "
 "জন্য কোনো সুস্পষ্ট ওয়ারেন্টি উপস্থিত নেই; বাণিজ্যিক ও কোনো সুনির্দিষ্ট কর্ম সাধনের জন্য "
 "অন্তর্নিহীত ওয়ারেন্টিও অনুপস্থিত। অধিক জানতে GNU General Public License পড়ুন।\n"
 
@@ -1145,20 +1145,20 @@ msgstr ""
 #, fuzzy
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
-"Evince'র সাথে GNU General Public License'র একটি প্রতিলিপি উপলব্ধ হওয়া উচিত; না "
+"Atril'র সাথে GNU General Public License'র একটি প্রতিলিপি উপলব্ধ হওয়া উচিত; না "
 "থাকলে নিম্নলিখিত ঠিকানায় লিখে তা সংগ্রহ করুন Free Software Foundation, Inc., 51 "
 "Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA\n"
 
 #: ../shell/ev-window.c:4227
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4230
-msgid "© 1996–2009 The Evince authors"
-msgstr "© ১৯৯৬-২০০৯ Evince নির্মাতাবৃন্দ"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© ১৯৯৬-২০০৯ Atril নির্মাতাবৃন্দ"
 
 #: ../shell/ev-window.c:4236
 msgid "translator-credits"
@@ -1520,16 +1520,16 @@ msgid "NUMBER"
 msgstr ""
 
 #: ../shell/main.c:82
-msgid "Run evince in fullscreen mode"
-msgstr "সম্পূর্ণ পর্দায় evince চালানো হবে"
+msgid "Run atril in fullscreen mode"
+msgstr "সম্পূর্ণ পর্দায় atril চালানো হবে"
 
 #: ../shell/main.c:83
-msgid "Run evince in presentation mode"
-msgstr "প্রেসেন্টেশন মোডে evince চালানো হবে"
+msgid "Run atril in presentation mode"
+msgstr "প্রেসেন্টেশন মোডে atril চালানো হবে"
 
 #: ../shell/main.c:84
-msgid "Run evince as a previewer"
-msgstr "পূর্বরূপ প্রদর্শনের মোডে evince চালানো হবে"
+msgid "Run atril as a previewer"
+msgstr "পূর্বরূপ প্রদর্শনের মোডে atril চালানো হবে"
 
 #: ../shell/main.c:85
 msgid "The word or phrase to find in the document"
@@ -1544,7 +1544,7 @@ msgstr "STRING"
 msgid "[FILE…]"
 msgstr "[FILE...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 #, fuzzy
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
@@ -1553,15 +1553,15 @@ msgstr ""
 "বুলিয়াল মান প্রযোজ্য, true (সত্য) হলে থাম্ব-নেইল সক্রিয় করা হবে ও মান false (সত্য "
 "নয়) হলে নতুন থাম্ব-নেইল নির্মাণ বন্ধ করা হবে"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "PDF ডকুমেন্টের থাম্ব-নেইল নির্মাণ সক্রিয় করা হবে"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "PDF ডকুমেন্টের জন্য ব্যবহারযোগ্য থাম্ব-নেইল কমান্ড"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 #, fuzzy
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
@@ -1604,10 +1604,10 @@ msgstr ""
 #~ msgstr "পূর্ববর্তী নথিপত্র পুনরুদ্ধার করা হবে কি?"
 
 #~ msgid ""
-#~ "Evince appears to have exited unexpectedly the last time it was run. You "
+#~ "Atril appears to have exited unexpectedly the last time it was run. You "
 #~ "can recover the opened documents."
 #~ msgstr ""
-#~ "সর্বশেষ Evince সঞ্চালনার সময় সম্ভবত এটি অপ্রত্যাশিতভাবে বন্ধ হয়েছিল এবং প্রদর্শিত "
+#~ "সর্বশেষ Atril সঞ্চালনার সময় সম্ভবত এটি অপ্রত্যাশিতভাবে বন্ধ হয়েছিল এবং প্রদর্শিত "
 #~ "ডকুমেন্টগুলি পুনরুদ্ধার করা যাবে।"
 
 #~ msgid "_Don't Recover"

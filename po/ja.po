@@ -1,6 +1,6 @@
-# Japanese messages catalogue for evince - PS/PDF viewer for MATE
-# Copyright (C) 2005-2010 THE evince's COPYRIGHT HOLDER
-# This file is distributed under the same license as the evince package.
+# Japanese messages catalogue for atril - PS/PDF viewer for MATE
+# Copyright (C) 2005-2010 THE atril's COPYRIGHT HOLDER
+# This file is distributed under the same license as the atril package.
 # Satoru SATOH <ss@mate.gr.jp>, 2005, 2006.
 # Takeshi AIHANA <takshi.aihana@gmail.com>, 2005-2009.
 # Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2009.
@@ -9,9 +9,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evince master\n"
+"Project-Id-Version: atril master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?"
-"product=evince&component=general\n"
+"product=atril&component=general\n"
 "POT-Creation-Date: 2010-09-19 16:16+0000\n"
 "PO-Revision-Date: 2010-09-05 15:48+0900\n"
 "Last-Translator: Shushi Kurose <md81bird@hitaki.net>\n"
@@ -77,7 +77,7 @@ msgstr "“%s” の削除中にエラーが発生しました。"
 msgid "Error %s"
 msgstr "エラー %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "コミックブック"
 
@@ -93,7 +93,7 @@ msgstr ""
 "そのドキュメントは複数のファイルを結合したものです。それらのファイルは個別に"
 "アクセスすることはできません。"
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "Djvu ドキュメント"
 
@@ -101,7 +101,7 @@ msgstr "Djvu ドキュメント"
 msgid "DVI document has incorrect format"
 msgstr "DVI ドキュメントの書式が壊れています"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI ドキュメント"
 
@@ -167,7 +167,7 @@ msgstr "埋め込み"
 msgid "Not embedded"
 msgstr "埋め込みではない"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF ドキュメント"
 
@@ -179,7 +179,7 @@ msgstr "不正なドキュメントです"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Impress のスライド"
 
@@ -229,7 +229,7 @@ msgstr "\"%s\" というドキュメントを読み込めませんでした"
 msgid "Failed to save document “%s”"
 msgstr "\"%s\" というドキュメントを保存できませんでした"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript ドキュメント"
 
@@ -441,21 +441,21 @@ msgid "6400%"
 msgstr "6400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4554
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4554
 #: ../shell/ev-window-title.c:149 ../shell/main.c:310
 #, c-format
 msgid "Document Viewer"
 msgstr "ドキュメント・ビューア"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "複数ページのドキュメントを表示します"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
 msgstr "ドキュメントの制限を上書きします"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "コピーや印刷を制限するようなドキュメントの制限を上書きします"
 
@@ -955,10 +955,10 @@ msgstr "メタデータの変換中"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
-"Evince で利用されているメタデータ形式が変更されたので、移行をする必要がありま"
+"Atril で利用されているメタデータ形式が変更されたので、移行をする必要がありま"
 "す。移行作業がキャンセルされるとメタデータストレージは動作しません。"
 
 #: ../shell/ev-open-recent-action.c:72
@@ -1265,30 +1265,30 @@ msgstr ""
 
 #: ../shell/ev-window.c:4581
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince はフリーソフトウェアです; フリーソフトウェア財団が発行する GNU 一般公"
+"Atril はフリーソフトウェアです; フリーソフトウェア財団が発行する GNU 一般公"
 "衆利用許諾契約書の第二版、あるいはそれ以降の版が定める条項の下で本プログラム"
 "を再頒布または変更することができます。\n"
 
 #: ../shell/ev-window.c:4585
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince は役立つものであることを期待して配布されていますが、完全に無保証です。"
+"Atril は役立つものであることを期待して配布されていますが、完全に無保証です。"
 "商用利用または特定の目的における適合性の保証はありません。詳細は GNU 一般公衆"
 "利用許諾契約書をご覧ください。\n"
 
 #: ../shell/ev-window.c:4589
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
 "あなたは、本プログラムと一緒に GNU 一般公衆利用許諾契約書の写しを受け取ってい"
@@ -1296,12 +1296,12 @@ msgstr ""
 "Street, Fifth Floor, Boston, MA 02110-1301  USA まで手紙を書いてください。\n"
 
 #: ../shell/ev-window.c:4614
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4617
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996-2009 Evince 開発者"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996-2009 Atril 開発者"
 
 #: ../shell/ev-window.c:4623
 msgid "translator-credits"
@@ -1668,15 +1668,15 @@ msgid "NUMBER"
 msgstr "NUMBER"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
 msgstr "フルスクリーンモードで起動する"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
+msgid "Run atril in presentation mode"
 msgstr "プレゼンテーション・モードで起動する"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr "プレビューアで起動する"
 
 #: ../shell/main.c:82
@@ -1691,7 +1691,7 @@ msgstr "STRING"
 msgid "[FILE…]"
 msgstr "[ファイル…]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1699,15 +1699,15 @@ msgstr ""
 "論理型のオプションが利用可能: TRUE にするとサムネイル表示になり、FALSE にする"
 "と新規にサムネイルを作成しません。"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "PDF ドキュメントのサムネイル表示"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "PDF ドキュメントのサムネイル表示コマンド"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."

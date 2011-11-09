@@ -1,11 +1,11 @@
-# Biełaruski pierakład evince
+# Biełaruski pierakład atril
 # Copyright (C) 2007 Ihar Hrachyshka
-# This file is distributed under the same license as the evince package.
+# This file is distributed under the same license as the atril package.
 # Ihar Hrachyshka <ihar.hrachyshka@gmail.com>, 2007.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evince.HEAD\n"
+"Project-Id-Version: atril.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-18 02:02+0200\n"
 "PO-Revision-Date: 2009-02-18 02:04+0200\n"
@@ -41,7 +41,7 @@ msgstr "U archivie niama fajłaŭ."
 msgid "No images found in archive %s"
 msgstr "U archivie %s nia znojdziena vyjavaŭ"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Knihi komiksaŭ"
 
@@ -56,7 +56,7 @@ msgid ""
 msgstr ""
 "Dakument składajecca ź niekalkich fajłaŭ. Prynamsi adzin ź ich niedastupny."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "Djvu Documents"
 msgstr "Dakumenty Djvu"
 
@@ -64,7 +64,7 @@ msgstr "Dakumenty Djvu"
 msgid "DVI document has incorrect format"
 msgstr "Dakument DVI maje niapravilny farmat"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "Dakumenty DVI"
 
@@ -126,7 +126,7 @@ msgstr "Ubudavana"
 msgid "Not embedded"
 msgstr "Nie ŭbudavana"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "Dakumenty PDF"
 
@@ -138,7 +138,7 @@ msgstr "Niapravilny dakument"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Słajdy Impress"
 
@@ -188,7 +188,7 @@ msgstr "Padčas adčynieńnia dakumentu “%s” adbyłasia pamyłka"
 msgid "Failed to save document “%s”"
 msgstr "Nie ŭdałosia zapisać dakument “%s”"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "Dakumenty PostScript"
 
@@ -414,21 +414,21 @@ msgstr "300%"
 msgid "400%"
 msgstr "400%"
 
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4271
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4271
 #: ../shell/ev-window-title.c:149
 #, c-format
 msgid "Document Viewer"
 msgstr "Ahladalnik dakumentaŭ"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multipage documents"
 msgstr "Čytaje šmatstaronkavyja dakumenty"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "Nie zvažaj na abmiežavańni dakumentu"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Nie zvažaj na abmiežavańni dakumentu, napr., na abmiežavańni mahčymaści "
@@ -945,24 +945,24 @@ msgstr ""
 
 #: ../shell/ev-window.c:4295
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince - heta volnaje prahramnaje zabieśpiačeńnie; ty možaš raspaŭsiudžvać "
+"Atril - heta volnaje prahramnaje zabieśpiačeńnie; ty možaš raspaŭsiudžvać "
 "jaho i/ci źmianiać zhodna z umovami Ahulnaj Publičnaj Licenzii GNU (GPL), "
 "apublikavanaj Fondam Volnaha Prahramnaha Zabieśpiačeńnia (Free Software "
 "Foundation); versii 2 albo (pa tvaim vybary) luboj paźniejšaj.\n"
 
 #: ../shell/ev-window.c:4299
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince raspaŭsiudžvajecca z nadziejaj, što hetaja prahrama budzie karysnaj, "
+"Atril raspaŭsiudžvajecca z nadziejaj, što hetaja prahrama budzie karysnaj, "
 "ale my ANIČOHA NIE HARANTUJEM, navat HANDLOVAJ PRYDATNAŚCI ci PRYDATNAŚCI "
 "CHOĆ BY DLA JAKICH METAŬ. Hladzi Ahulnuju Publičnuju Licenziju GNU (GPL) dla "
 "padrabiaznaściaŭ.\n"
@@ -970,7 +970,7 @@ msgstr ""
 #: ../shell/ev-window.c:4303
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Atril; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
 "Ty pavinny byŭ atrymać kopiju Ahulnaj Publičnaj Licenzii GNU (GPL) razam z "
@@ -979,11 +979,11 @@ msgstr ""
 
 #. Manually set name and icon in win32
 #: ../shell/ev-window.c:4327 ../shell/main.c:382
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4330
-msgid "© 1996-2007 The Evince authors"
+msgid "© 1996-2007 The Atril authors"
 msgstr "© 1996-2007 Aŭtary Evinca"
 
 #: ../shell/ev-window.c:4336
@@ -1373,15 +1373,15 @@ msgid "PAGE"
 msgstr "STARONKA"
 
 #: ../shell/main.c:68
-msgid "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
 msgstr "Startuj Evinca ŭ poŭnaekrannym režymie"
 
 #: ../shell/main.c:69
-msgid "Run evince in presentation mode"
+msgid "Run atril in presentation mode"
 msgstr "Startuj Evinca ŭ režymie prezentacyi"
 
 #: ../shell/main.c:70
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr "Startuj Evinca jak pieradahladalnika"
 
 #: ../shell/main.c:71
@@ -1396,7 +1396,7 @@ msgstr "RADOK"
 msgid "[FILE...]"
 msgstr "[FAJŁ...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available, true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1404,15 +1404,15 @@ msgstr ""
 "Dastupnyja lohikavyja opcyi: true ŭklučaje stvareńnie minijaturaŭ, false "
 "adklučaje"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Uklučy minijatury dla dakumentaŭ PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Zahad stvareńnia minijaturaŭ dla dakumentaŭ PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See caja "
 "thumbnailer documentation for more information."

@@ -1,5 +1,5 @@
 # translation of mk.po to Macedonian
-# translation of evince.HEAD.po to
+# translation of atril.HEAD.po to
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER.
 #
@@ -30,7 +30,7 @@ msgstr "Датотеката е расипана."
 msgid "No images found in archive %s"
 msgstr "Не се пронајдени слики во архивата %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Стрипови"
 
@@ -43,7 +43,7 @@ msgstr ""
 "Документот е составен од неколку датотеки. На една или повеќе од овие "
 "датотеките не може да им се пристапи."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "Djvu Documents"
 msgstr "Djvu документи"
 
@@ -57,7 +57,7 @@ msgstr "Датотеката не е достапна"
 msgid "DVI document has incorrect format"
 msgstr "DVI документот е во неправилен формат"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI документи"
 
@@ -119,7 +119,7 @@ msgstr "Вградено"
 msgid "Not embedded"
 msgstr "Надворешно"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF документи"
 
@@ -136,7 +136,7 @@ msgstr "Невалиден документ"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Impress слајдови"
 
@@ -186,7 +186,7 @@ msgstr "Не можам да го отворам документот “%s”"
 msgid "Failed to save document “%s”"
 msgstr "Не можам да го зачувам документот “%s”"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript документи"
 
@@ -245,7 +245,7 @@ msgid "_Domain:"
 msgstr "_Домен:"
 
 #: ../cut-n-paste/evmountoperation/ev-mount-operation.c:538
-#: ../data/evince-password.glade.h:4
+#: ../data/atril-password.glade.h:4
 msgid "_Password:"
 msgstr "_Лозинка:"
 
@@ -417,85 +417,85 @@ msgstr "300%"
 msgid "400%"
 msgstr "400%"
 
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:3751
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:3751
 #: ../shell/ev-window-title.c:132
 #, c-format
 msgid "Document Viewer"
 msgstr "Прегледувач за документи"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multipage documents"
 msgstr "Види повеќе документи"
 
-#: ../data/evince-password.glade.h:1
+#: ../data/atril-password.glade.h:1
 msgid "Password Entry"
 msgstr "Внес на лозинка"
 
-#: ../data/evince-password.glade.h:2
+#: ../data/atril-password.glade.h:2
 msgid "Remember password for this session"
 msgstr "Запамeти ја лозинката за оваа сесија"
 
-#: ../data/evince-password.glade.h:3
+#: ../data/atril-password.glade.h:3
 msgid "Save password in keyring"
 msgstr "Зачувај ја лозинката во привезокот"
 
-#: ../data/evince-properties.glade.h:1
+#: ../data/atril-properties.glade.h:1
 msgid "<b>Author:</b>"
 msgstr "<b>Автор:</b>"
 
-#: ../data/evince-properties.glade.h:2
+#: ../data/atril-properties.glade.h:2
 msgid "<b>Created:</b>"
 msgstr "<b>Креирано:</b>"
 
-#: ../data/evince-properties.glade.h:3
+#: ../data/atril-properties.glade.h:3
 msgid "<b>Creator:</b>"
 msgstr "<b>Креатор:</b>"
 
-#: ../data/evince-properties.glade.h:4
+#: ../data/atril-properties.glade.h:4
 msgid "<b>Format:</b>"
 msgstr "<b>Формат:</b>"
 
-#: ../data/evince-properties.glade.h:5
+#: ../data/atril-properties.glade.h:5
 msgid "<b>Keywords:</b>"
 msgstr "<b>Клучни зборови:</b>"
 
-#: ../data/evince-properties.glade.h:6
+#: ../data/atril-properties.glade.h:6
 msgid "<b>Modified:</b>"
 msgstr "<b>Променето на:</b>"
 
-#: ../data/evince-properties.glade.h:7
+#: ../data/atril-properties.glade.h:7
 msgid "<b>Number of Pages:</b>"
 msgstr "<b> Број на страници:</b>"
 
-#: ../data/evince-properties.glade.h:8
+#: ../data/atril-properties.glade.h:8
 msgid "<b>Optimized:</b>"
 msgstr "<b>Оптимизирано:</b>"
 
-#: ../data/evince-properties.glade.h:9
+#: ../data/atril-properties.glade.h:9
 msgid "<b>Paper Size:</b>"
 msgstr "<b>Големина на хартија:</b>"
 
-#: ../data/evince-properties.glade.h:10
+#: ../data/atril-properties.glade.h:10
 msgid "<b>Producer:</b>"
 msgstr "<b>Продуцент:</b>"
 
-#: ../data/evince-properties.glade.h:11
+#: ../data/atril-properties.glade.h:11
 msgid "<b>Security:</b>"
 msgstr "<b>Безбедност:</b>"
 
-#: ../data/evince-properties.glade.h:12
+#: ../data/atril-properties.glade.h:12
 msgid "<b>Subject:</b>"
 msgstr "<b>Предмет:</b>"
 
-#: ../data/evince-properties.glade.h:13
+#: ../data/atril-properties.glade.h:13
 msgid "<b>Title:</b>"
 msgstr "<b>Наслов:</b>"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "Отстрани ги рестрикциите на документот"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Отстрани ги рестрикциите на документите, како рестрикциите за копирање или "
@@ -849,43 +849,43 @@ msgstr ""
 
 #: ../shell/ev-window.c:3775
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince е слободен софтвер; Можете да го редистрибуирате и/или менуватeпод "
+"Atril е слободен софтвер; Можете да го редистрибуирате и/или менуватeпод "
 "условите објавени во „GNU General Public License“ објавена од страна "
 "наФондацијата за слободен софтвер; без разлика на верзијата.\n"
 
 #: ../shell/ev-window.c:3779
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince(Evince) се дистрибуира со надеж дека ќе биде корисен, но без БИЛО "
+"Atril(Atril) се дистрибуира со надеж дека ќе биде корисен, но без БИЛО "
 "КАКВИ ГАРАНЦИИ.  За повеќе погледнете ја општата јавна ГНУ лиценца.\n"
 
 #: ../shell/ev-window.c:3783
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Atril; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
-"Заедно со Evince(Evince) треба да добиете и копија од општата и јавнаГНУ "
+"Заедно со Atril(Atril) треба да добиете и копија од општата и јавнаГНУ "
 "лиценца; доколку ја нема лиценцата пишете и на Фондацијата заслободен "
 "софтвер на следнава адреса: 59 Temple Place, Suite 330, Boston, MA  02111-"
 "1307  USA\n"
 
 #: ../shell/ev-window.c:3807
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:3810
-msgid "© 1996-2007 The Evince authors"
-msgstr "© 1996-2007 Авторите на Evince"
+msgid "© 1996-2007 The Atril authors"
+msgstr "© 1996-2007 Авторите на Atril"
 
 #: ../shell/ev-window.c:3816
 msgid "translator-credits"
@@ -1278,15 +1278,15 @@ msgid "PAGE"
 msgstr "СТРАНА"
 
 #: ../shell/main.c:53
-msgid "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
 msgstr "Пушти на цел екран"
 
 #: ../shell/main.c:54
-msgid "Run evince in presentation mode"
+msgid "Run atril in presentation mode"
 msgstr "Пушти како презентација"
 
 #: ../shell/main.c:55
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr "Пушти како прегледувач"
 
 #: ../shell/main.c:56
@@ -1305,7 +1305,7 @@ msgstr "[ДАТОТЕКА...]"
 msgid "MATE Document Viewer"
 msgstr "Прегледувач за документи за MATE"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available, true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1313,15 +1313,15 @@ msgstr ""
 "Достапни се boolean опции, штиклирано вклучува сликички, одштиклирано "
 "исклучува креирање на нови сликички"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Вклучи правење на сликичи од PDF документи"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Команда за сликички во PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See caja "
 "thumbnailer documentation for more information."

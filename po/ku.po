@@ -1,13 +1,13 @@
-# translation of evince.mate-2-12.po to Kurdish
-# Kurdish translation for evince
+# translation of atril.mate-2-12.po to Kurdish
+# Kurdish translation for atril
 # Copyright (c) (c) 2005 Canonical Ltd, and Rosetta Contributors 2005
-# This file is distributed under the same license as the evince package.
+# This file is distributed under the same license as the atril package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2005.
 # Erdal Ronahi <erdal.ronahi@gmail.com>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evince.mate-2-12\n"
+"Project-Id-Version: atril.mate-2-12\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-03-04 19:43+0100\n"
 "PO-Revision-Date: 2007-03-04 19:48+0100\n"
@@ -362,7 +362,7 @@ msgstr "Veqetîner"
 #: ../cut-n-paste/totem-screensaver/totem-scrsaver.c:111
 #, fuzzy
 msgid "Running in presentation mode"
-msgstr "Evince di moda pêşkêşiyê de bixebitîne"
+msgstr "Atril di moda pêşkêşiyê de bixebitîne"
 
 #. translators: this is the label for toolbar button
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:48
@@ -410,90 +410,90 @@ msgstr "%300"
 msgid "400%"
 msgstr "%400"
 
-#: ../data/evince.desktop.in.in.h:1
+#: ../data/atril.desktop.in.in.h:1
 #: ../shell/ev-window.c:3484
 #: ../shell/ev-window-title.c:127
 msgid "Document Viewer"
 msgstr "Nîşanderê Belgeyan"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multipage documents"
 msgstr "Belgeyên pir-rûpelî nîşan bide"
 
-#: ../data/evince-password.glade.h:1
+#: ../data/atril-password.glade.h:1
 #, fuzzy
 msgid "Password Entry"
 msgstr "Şî_fre:"
 
-#: ../data/evince-password.glade.h:2
+#: ../data/atril-password.glade.h:2
 msgid "Remember password for this session"
 msgstr "Bo vê danişînê şîfreyê bibîr bîne"
 
-#: ../data/evince-password.glade.h:3
+#: ../data/atril-password.glade.h:3
 msgid "Save password in keyring"
 msgstr "Şîfreyê li miftedankê de tomar bike"
 
-#: ../data/evince-password.glade.h:4
+#: ../data/atril-password.glade.h:4
 msgid "_Password:"
 msgstr "Şî_fre:"
 
-#: ../data/evince-properties.glade.h:1
+#: ../data/atril-properties.glade.h:1
 msgid "<b>Author:</b>"
 msgstr "<b>Nivîskar:</b>"
 
-#: ../data/evince-properties.glade.h:2
+#: ../data/atril-properties.glade.h:2
 msgid "<b>Created:</b>"
 msgstr "<b>Dîroka afirandinê:</b>"
 
-#: ../data/evince-properties.glade.h:3
+#: ../data/atril-properties.glade.h:3
 msgid "<b>Creator:</b>"
 msgstr "<b>Afirandêr:</b>"
 
-#: ../data/evince-properties.glade.h:4
+#: ../data/atril-properties.glade.h:4
 msgid "<b>Format:</b>"
 msgstr "<b>Format:</b>"
 
-#: ../data/evince-properties.glade.h:5
+#: ../data/atril-properties.glade.h:5
 msgid "<b>Keywords:</b>"
 msgstr "<b>Peyvên Mîna Mifteyan:</b>"
 
-#: ../data/evince-properties.glade.h:6
+#: ../data/atril-properties.glade.h:6
 msgid "<b>Modified:</b>"
 msgstr "<b>Hatiye guheandin:</b>"
 
-#: ../data/evince-properties.glade.h:7
+#: ../data/atril-properties.glade.h:7
 msgid "<b>Number of Pages:</b>"
 msgstr "<b>Hejmara Rûpelan:</b>"
 
-#: ../data/evince-properties.glade.h:8
+#: ../data/atril-properties.glade.h:8
 msgid "<b>Optimized:</b>"
 msgstr "<b>Herî tekûz:</b>"
 
-#: ../data/evince-properties.glade.h:9
+#: ../data/atril-properties.glade.h:9
 msgid "<b>Paper Size:</b>"
 msgstr "<b>Mezinahiya Kaxizê:</b>"
 
-#: ../data/evince-properties.glade.h:10
+#: ../data/atril-properties.glade.h:10
 msgid "<b>Producer:</b>"
 msgstr "<b>Hilberîner:</b>"
 
-#: ../data/evince-properties.glade.h:11
+#: ../data/atril-properties.glade.h:11
 msgid "<b>Security:</b>"
 msgstr "<b>Ewlekarî:</b>"
 
-#: ../data/evince-properties.glade.h:12
+#: ../data/atril-properties.glade.h:12
 msgid "<b>Subject:</b>"
 msgstr "<b>Mijar:</b>"
 
-#: ../data/evince-properties.glade.h:13
+#: ../data/atril-properties.glade.h:13
 msgid "<b>Title:</b>"
 msgstr "<b>Sernivîs:</b>"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "Zorê bide sînorkirinên Belgeyan"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "Sînorkirinên belgeyê yên wekî jibergirtin û nivîsînê diguherîne."
 
@@ -858,25 +858,25 @@ msgstr ""
 "Popplerên têne bikaranîn %s (%s)"
 
 #: ../shell/ev-window.c:3508
-msgid "Evince is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
+msgid "Atril is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
 msgstr ""
 
 #: ../shell/ev-window.c:3512
-msgid "Evince is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
+msgid "Atril is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
 msgstr ""
 
 #: ../shell/ev-window.c:3516
-msgid "You should have received a copy of the GNU General Public License along with Evince; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
+msgid "You should have received a copy of the GNU General Public License along with Atril; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
 
 #: ../shell/ev-window.c:3540
 #: ../shell/main.c:284
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:3543
-msgid "© 1996-2007 The Evince authors"
-msgstr "© 1996-2007 Nivîskarên Evince"
+msgid "© 1996-2007 The Atril authors"
+msgstr "© 1996-2007 Nivîskarên Atril"
 
 #: ../shell/ev-window.c:3549
 msgid "translator-credits"
@@ -1223,16 +1223,16 @@ msgid "PAGE"
 msgstr "RÛPEL"
 
 #: ../shell/main.c:54
-msgid "Run evince in fullscreen mode"
-msgstr "Evince di moda dîmender tije de bixebitîne"
+msgid "Run atril in fullscreen mode"
+msgstr "Atril di moda dîmender tije de bixebitîne"
 
 #: ../shell/main.c:55
-msgid "Run evince in presentation mode"
-msgstr "Evince di moda pêşkêşiyê de bixebitîne"
+msgid "Run atril in presentation mode"
+msgstr "Atril di moda pêşkêşiyê de bixebitîne"
 
 #: ../shell/main.c:56
-msgid "Run evince as a previewer"
-msgstr "Evince wekî pêşdîtinê bixebitîne"
+msgid "Run atril as a previewer"
+msgstr "Atril wekî pêşdîtinê bixebitîne"
 
 #: ../shell/main.c:58
 msgid "[FILE...]"
@@ -1243,22 +1243,22 @@ msgid "MATE Document Viewer"
 msgstr "Nîşanderê Belgeyan yê MATE"
 
 #: ../shell/main.c:310
-msgid "Evince Document Viewer"
-msgstr "Nîşanderê Belgeyên Evince"
+msgid "Atril Document Viewer"
+msgstr "Nîşanderê Belgeyên Atril"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid "Boolean options available, true enables thumbnailing and false disables the creation of new thumbnails"
 msgstr ""
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Çalakiya wêneyên biçûk yên Pelên PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Ji bo belgehên PDF fermana wêneyên biçûk"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid "Valid command plus arguments for the PDF Document thumbnailer. See caja thumbnailer documentation for more information."
 msgstr "Ji bo wênekerê biçûk yê Pelê PDF parametreyên zêdek yên fermanên derbasdar. Ji bo agahiyên berfireh li belgeya wênekerên biçûk yên cajaê binihêre."
 

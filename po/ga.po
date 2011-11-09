@@ -1,11 +1,11 @@
-# Irish translations for evince package.
+# Irish translations for atril package.
 # Copyright (C) 2007-2009 Free Software Foundation, Inc.
-# This file is distributed under the same license as the evince package.
+# This file is distributed under the same license as the atril package.
 # Seán de Búrca <leftmostcat@gmail.com>, 2007-2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evince HEAD\n"
+"Project-Id-Version: atril HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-01 00:56-0600\n"
 "PO-Revision-Date: 2009-08-01 01:23-0600\n"
@@ -76,7 +76,7 @@ msgstr ""
 msgid "Error %s"
 msgstr "Earráid %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Leabhair Greannáin"
 
@@ -90,7 +90,7 @@ msgid ""
 "be accessed."
 msgstr ""
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "Djvu Documents"
 msgstr "Cáipéisí Djvu"
 
@@ -98,7 +98,7 @@ msgstr "Cáipéisí Djvu"
 msgid "DVI document has incorrect format"
 msgstr "Tá formáid mhícheart ag an gcáipéis DVI"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "Cáipéisí DVI"
 
@@ -160,7 +160,7 @@ msgstr ""
 msgid "Not embedded"
 msgstr ""
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "Cáipéisí PDF"
 
@@ -172,7 +172,7 @@ msgstr "Cáipéis neamhbhailí"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Sleamhnáin Impress"
 
@@ -222,7 +222,7 @@ msgstr "Theip ar luchtú na cáipéise \"%s\""
 msgid "Failed to save document “%s”"
 msgstr "Theip ar shábháil na cáipéise \"%s\""
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "Cáipéisí PostScript"
 
@@ -412,21 +412,21 @@ msgid "400%"
 msgstr "400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4133
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4133
 #: ../shell/ev-window-title.c:150 ../shell/main.c:484
 #, c-format
 msgid "Document Viewer"
 msgstr "Amharcán Cáipéisí"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multipage documents"
 msgstr ""
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr ""
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 
@@ -769,7 +769,7 @@ msgstr "Athshlánaigh cáipéisí roimhe seo?"
 
 #: ../shell/ev-application.c:267
 msgid ""
-"Evince appears to have exited unexpectedly the last time it was run. You can "
+"Atril appears to have exited unexpectedly the last time it was run. You can "
 "recover the opened documents."
 msgstr ""
 
@@ -1055,7 +1055,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:4158
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
@@ -1063,7 +1063,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:4162
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -1072,17 +1072,17 @@ msgstr ""
 #: ../shell/ev-window.c:4166
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Atril; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
 
 #: ../shell/ev-window.c:4190
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4193
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996-2009 Na húdair Evince"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996-2009 Na húdair Atril"
 
 #: ../shell/ev-window.c:4199
 msgid "translator-credits"
@@ -1418,15 +1418,15 @@ msgid "PAGE"
 msgstr "LEATHANACH"
 
 #: ../shell/main.c:82
-msgid "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
 msgstr ""
 
 #: ../shell/main.c:83
-msgid "Run evince in presentation mode"
+msgid "Run atril in presentation mode"
 msgstr ""
 
 #: ../shell/main.c:84
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr ""
 
 #: ../shell/main.c:85
@@ -1441,21 +1441,21 @@ msgstr "TEAGHRÁN"
 msgid "[FILE...]"
 msgstr "[COMHAD...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available, true enables thumbnailing and false disables the "
 "creation of new thumbnails"
 msgstr ""
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr ""
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr ""
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See caja "
 "thumbnailer documentation for more information."

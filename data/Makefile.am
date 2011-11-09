@@ -7,7 +7,7 @@ install-data-local: update-icon-cache
 # man file
 #
 
-man_MANS=evince.1
+man_MANS=atril.1
 
 #
 # UI descriptions
@@ -15,12 +15,12 @@ man_MANS=evince.1
 
 uidir = $(pkgdatadir)
 ui_DATA =				\
-	evince-ui.xml			\
-	evince-toolbar.xml		\
+	atril-ui.xml			\
+	atril-toolbar.xml		\
 	hand-open.png
 
 if ENABLE_PREVIEWER
-ui_DATA += evince-previewer-ui.xml
+ui_DATA += atril-previewer-ui.xml
 endif
 
 #
@@ -29,7 +29,7 @@ endif
 
 @INTLTOOL_DESKTOP_RULE@
 
-DESKTOP_IN_FILES= evince.desktop.in.in
+DESKTOP_IN_FILES= atril.desktop.in.in
 DESKTOP_FILES= $(DESKTOP_IN_FILES:.desktop.in.in=.desktop)
 
 desktopdir = $(datadir)/applications
@@ -40,7 +40,7 @@ desktop_DATA = $(DESKTOP_FILES)
 #
 if ENABLE_DBUS
 servicedir = $(datadir)/dbus-1/services
-service_in_files = org.mate.evince.Daemon.service.in
+service_in_files = org.mate.atril.Daemon.service.in
 service_DATA = $(service_in_files:.service.in=.service)
 
 $(service_DATA): $(service_in_files) Makefile
@@ -50,7 +50,7 @@ endif
 #
 # GSettings schema
 #
-gsettingsschema_in_files = org.mate.Evince.gschema.xml.in
+gsettingsschema_in_files = org.mate.Atril.gschema.xml.in
 # gsettings_SCHEMAS is a list of all the schemas you want to install
 gsettings_SCHEMAS = $(gsettingsschema_in_files:.xml.in=.xml)
 
@@ -62,7 +62,7 @@ gsettings_SCHEMAS = $(gsettingsschema_in_files:.xml.in=.xml)
 @GSETTINGS_RULES@
 
 gsettingsconvertdir = $(datadir)/MateConf/gsettings
-gsettingsconvert_DATA = evince.convert
+gsettingsconvert_DATA = atril.convert
 
 #
 # GTK icon cache
@@ -91,10 +91,10 @@ EXTRA_DIST =					\
 	$(ui_DATA)				\
 	$(DESKTOP_IN_FILES)			\
 	$(gsettingsschema_in_files)		\
-	org.mate.evince.Daemon.service.in	\
+	org.mate.atril.Daemon.service.in	\
 	$(man_MANS)				\
-	evince.ico				\
-	evince.convert				\
+	atril.ico				\
+	atril.convert				\
 	$(NULL)
 
 #

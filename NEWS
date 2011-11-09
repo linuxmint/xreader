@@ -1,5 +1,5 @@
 ================
-Evince  2.32.0
+Atril  2.32.0
 ================
 
 Bug fixes:
@@ -24,19 +24,19 @@ Translation updates:
     * Yuri Myasoedov (ru)
 
 ================
-Evince  2.31.92
+Atril  2.31.92
 ================
 
 Bug fixes:
 
-    * Change gsettings schema path from /apps/evince to
-      /org/mate/evince (Christian Persch)
+    * Change gsettings schema path from /apps/atril to
+      /org/mate/atril (Christian Persch)
     * A D-Bus signal is now emitted when document is loaded (#626561,
       José Aliste)
     * Use MateConf again for lockdown settings (#628945, Christian Persch)
-    * Fix a crash during selection when evince is built with gtk2
+    * Fix a crash during selection when atril is built with gtk2
       (Carlos Garcia Campos)
-    * Evince daemon can spawn an evince instance when finding a
+    * Atril daemon can spawn an atril instance when finding a
       document (#625971, José Aliste)
 
 Translation updates:
@@ -62,7 +62,7 @@ Translation updates:
     * Chao-Hsiung Liao (zh_TW)
 
 ================
-Evince  2.31.90
+Atril  2.31.90
 ================
 
 Bug fixes:
@@ -87,7 +87,7 @@ Translation updates:
     * Xhacker Liu (zh_CN)
 
 ================
-Evince  2.31.6.1
+Atril  2.31.6.1
 ================
 
 New Features and UI Improvements:
@@ -110,7 +110,7 @@ Translation updates:
     * Dr.T.Vasudevan (ta)
 
 ================
-Evince  2.31.6
+Atril  2.31.6
 ================
 
 New Features and UI Improvements:
@@ -159,7 +159,7 @@ Translation updates:
     * Chao-Hsiung Liao (zh_TW)
 
 ================
-Evince  2.31.5
+Atril  2.31.5
 ================
 
 New Features and UI Improvements:
@@ -182,7 +182,7 @@ Translation updates:
     * 朱涛 (zh_CN)
 
 ================
-Evince  2.31.4.1
+Atril  2.31.4.1
 ================
 
 Bug fixes:
@@ -191,7 +191,7 @@ Bug fixes:
       (#623080, Carlos Garcia Campos)
 
 ================
-Evince  2.31.4
+Atril  2.31.4
 ================
 
 New Features and UI Improvements:
@@ -220,7 +220,7 @@ Translation updates:
     * 杨章 (zh_CN)
 
 ================
-Evince  2.31.3
+Atril  2.31.3
 ================
 
 New Features and UI Improvements:
@@ -253,7 +253,7 @@ Translation updates:
     * 甘露(Gan Lu) (zh_CN)
 
 ================
-Evince  2.31.2
+Atril  2.31.2
 ================
 
 New Features and UI Improvements:
@@ -269,7 +269,7 @@ New Features and UI Improvements:
 Bug fixes:
 
     * Fix localization on Windows (#610548, Hib Eris)
-    * Convert relative path to absolute path for evince-previewer
+    * Convert relative path to absolute path for atril-previewer
       (Marek Kasik)
     * Fix opening files with '#' in its name (#616515, Carlos Garcia
       Campos)
@@ -288,7 +288,7 @@ Translation updates:
     * Manoj Kumar Giri (or)
 
 ================
-Evince  2.31.1
+Atril  2.31.1
 ================
 
 New Features and UI Improvements:
@@ -346,7 +346,7 @@ Translation updates:
     * Andrej Žnidaršič (sl)
 
 ================
-Evince  2.30.0
+Atril  2.30.0
 ================
 
 Bug fixes:
@@ -380,7 +380,7 @@ Translation updates:
     * Maxim Dziumanenko (uk)
 
 ================
-Evince  2.29.92
+Atril  2.29.92
 ================
 
 Bug fixes:
@@ -403,7 +403,7 @@ Translation updates:
     * Daniel Nylander (sv)
 
 ================
-Evince  2.29.91
+Atril  2.29.91
 ================
 
 New Features and UI Improvements:
@@ -424,7 +424,7 @@ Bug fixes:
     * Update totem-scrsaver from totem sources (#610173, Carlos Garcia
       Campos)
     * Fix linking with pedantic linkers (#609895, Hib Eris)
-    * Do not link evince shell to poppler directly (#608832, Hib Eris)
+    * Do not link atril shell to poppler directly (#608832, Hib Eris)
     * Several translatable messages fixed (#608698, Philip Withnall)
 
 Translation updates:
@@ -451,7 +451,7 @@ Translation updates:
     * Chao-Hsiung Liao (zh_TW)
 
 ================
-Evince  2.29.5
+Atril  2.29.5
 ================
 
 New Features and UI Improvements:
@@ -462,9 +462,9 @@ New Features and UI Improvements:
       Carlos Garcia Campos)
     * Add custom print tab to printing dialog with several page scale
       options (#599468, #599470, #599547, Adrian Johnson)
-    * Add support for remote files in evince thumbnailers (#605218,
+    * Add support for remote files in atril thumbnailers (#605218,
       Carlos Garcia Campos)
-    * Add evince icon to the windows executable (#596401, Hib Eris)
+    * Add atril icon to the windows executable (#596401, Hib Eris)
 
 Bug fixes:
 
@@ -494,7 +494,7 @@ Translation updates:
     * Maxim Dziumanenko (uk)
 
 ================
-Evince  2.29.4
+Atril  2.29.4
 ================
 
 New Features and UI Improvements:
@@ -537,7 +537,7 @@ Translation updates:
     * Tao Wei (zh_CN)
 
 ================
-Evince  2.29.3
+Atril  2.29.3
 ================
 
 New Features and UI Improvements:
@@ -570,7 +570,7 @@ Translation updates:
     * Tao Wei (zh_CN)
 
 ================
-Evince  2.29.2
+Atril  2.29.2
 ================
 
 New Features and UI Improvements:
@@ -615,7 +615,7 @@ Translation updates:
     * 樊栖江(Fan Qijiang) (zh_CN)
 
 ================
-Evince  2.29.1
+Atril  2.29.1
 ================
 
 New Features and UI Improvements:
@@ -722,7 +722,7 @@ Translation updates:
     * Chao-Hsiung Liao (zh_TW)
 
 ================
-Evince  2.27.90
+Atril  2.27.90
 ================
 
 Bug fixes:
@@ -761,7 +761,7 @@ Translation updates:
     * Chao-Hsiung Liao (zh_TW)
     
 ================
-Evince  2.27.4
+Atril  2.27.4
 ================
 
 Bug fixes:
@@ -773,7 +773,7 @@ Bug fixes:
       Pozuelo Monfort)
     * Get rid of shave with AM_SILENT_RULES automake option (#585355,
       Javier Jardón)
-    * Make evince output pdf on supported printers (#585442, Johan Brannlund)
+    * Make atril output pdf on supported printers (#585442, Johan Brannlund)
     * Fix build on windows (Fridrich Strba)
     * Determine data directory on runtime on windows (Fridrich Strba)
     * Fix build without MateConf (Nickolay V. Shmyrev)
@@ -789,7 +789,7 @@ Translation updates:
     * Nguyễn Đình Trung (vi)
 
 ================
-Evince  2.27.3
+Atril  2.27.3
 ================
 
 New Features and UI Improvements:
@@ -832,14 +832,14 @@ Translation updates:
     * Dr.T.Vaasudevan (ta)
 
 ================
-Evince  2.27.1
+Atril  2.27.1
 ================
 
 New Features and UI Improvements:
 
     * Use GtkPrintOperation when printing for the backends that
       support rendering into a cairo context (#557112, Carlos Garcia Campos)
-    * Recover previous session when running evince after a crash
+    * Recover previous session when running atril after a crash
       (#578894, Carlos Garcia Campos)
     * Preliminary annotations support (#315002, Carlos Garcia Campos,
       Iñigo Martínez)
@@ -848,13 +848,13 @@ New Features and UI Improvements:
     * Added F3 as a find-next accelerator key (#579072, Michael J. Chudobiak)
     * Support the free Gna! unrar tool in comics backend (#552074,
       Juanjo Marín)
-    * Add evince-previewer as a separate applicaton that implements
+    * Add atril-previewer as a separate applicaton that implements
       the printing preview (Carlos Garcia Campos)
 
 Bug fixes:
 
     * Fix handling of the tmp folder (#582108, Juanjo Marín)
-    * Abort dnd operations originated in the same Evince window
+    * Abort dnd operations originated in the same Atril window
       (#582077, Carlos Garcia Campos)
     * Disable bouncing during scrolling (#533534, Martin Pohlack)
     * Fix build without mateconftool-2 (#581441, Christian Persch)
@@ -902,7 +902,7 @@ Translation updates:
     * Baris Cicek (tr)
 
 ================
-Evince  2.26.0
+Atril  2.26.0
 ================
 
 Bug fixes:
@@ -934,7 +934,7 @@ Translation updates:
     * Krishna Babu K (te)
     
 ================
-Evince  2.25.92
+Atril  2.25.92
 ================
 
 Bug fixes:
@@ -976,7 +976,7 @@ Translation updates:
     * Chao-Hsiung Liao (zh_TW)
 
 ================
-Evince  2.25.91
+Atril  2.25.91
 ================
 
 Bug fixes:
@@ -1024,7 +1024,7 @@ Translation updates:
     * Chao-Hsiung Liao (zh_TW)
 
 ================
-Evince  2.25.90
+Atril  2.25.90
 ================
 
 Bug fixes:
@@ -1061,7 +1061,7 @@ Translation updates:
     * Daniel Nylander (sv)
 
 ================
-Evince  2.25.5
+Atril  2.25.5
 ================
 
 Code changes:
@@ -1090,7 +1090,7 @@ Translation updates:
     * Gan Lu (zh_CN)
     
 ================
-Evince  2.25.4
+Atril  2.25.4
 ================
 
 New Features and UI Improvements:
@@ -1125,7 +1125,7 @@ Translation updates:
     * Gan Lu (zh_CN)
 
 ================
-Evince  2.25.2
+Atril  2.25.2
 ================
 
 New Features and UI Improvements:
@@ -1151,7 +1151,7 @@ Translation updates:
     * Nguyễn Đình Trung (vi)
 
 ================
-Evince  2.25.1
+Atril  2.25.1
 ================
 
 New Features and UI Improvements:
@@ -1170,7 +1170,7 @@ Translation updates:
     * Hendrik Richter (de)
     
 ================
-Evince  2.24.1
+Atril  2.24.1
 ================
 
 Bug fixes:
@@ -1196,7 +1196,7 @@ Translation updates:
     * Takeshi AIHANA (ja)
 
 ================
-Evince  2.24.0
+Atril  2.24.0
 ================
 
 Bug fixes:
@@ -1235,7 +1235,7 @@ Translation updates:
     * Chao-Hsiung Liao (zh_TW)
     
 ================
-Evince  2.23.92
+Atril  2.23.92
 ================
 
 Bug fixes:
@@ -1272,7 +1272,7 @@ Translation updates:
     * Funda Wang (zh_CN)
       
 ================
-Evince  2.23.91
+Atril  2.23.91
 ================
 
 New Features and UI Improvements:
@@ -1316,7 +1316,7 @@ Translation updates:
     * Chao-Hsiung Liao (zh_HK)
     
 ================
-Evince  2.23.6
+Atril  2.23.6
 ================
 
 Bug fixes:
@@ -1339,7 +1339,7 @@ Translation updates:
     * Duarte Loreto (pt)
       
 ================
-Evince  2.23.5
+Atril  2.23.5
 ================
 
 New Features and UI Improvements:
@@ -1355,7 +1355,7 @@ Bug fixes:
 
     * Restart the job search when the find bar is opened for the
       second time (#531956, Carlos Garcia Campos)
-    * Fixes caja crash caused by evince properties page extension
+    * Fixes caja crash caused by atril properties page extension
       (#542548, Carlos Garcia Campos)
     * Fix Solaris build (#542924, Darren Kenny)
     * Fix endianess bug (#540950, Benjamin Jacobs)
@@ -1375,7 +1375,7 @@ Translation updates:
     * Theppitak Karoonboonyanan (th)
     
 ================
-Evince  2.23.4
+Atril  2.23.4
 ================
 
 New Features and UI Improvements:
@@ -1415,7 +1415,7 @@ Translation updates:
 
     
 ================
-Evince  2.22.1.1
+Atril  2.22.1.1
 ================
 
 Bug fixes:
@@ -1424,7 +1424,7 @@ Bug fixes:
     *  Fixes djvu backend links (#526517, Carlos Garcia Campos)
 
 ===============
-Evince  2.22.1
+Atril  2.22.1
 ===============
 
 Bug fixes:
@@ -1459,7 +1459,7 @@ Translation updates:
     * Clytie Siddall (vi)
 
 ===============
-Evince  2.22.0
+Atril  2.22.0
 ===============
 
 Bug fixes:
@@ -1502,7 +1502,7 @@ Translation updates:
     * Laurent Dhima (sq)
     
 ===============
-Evince  2.21.91
+Atril  2.21.91
 ===============
 	
 Bug fixes:
@@ -1529,7 +1529,7 @@ Translation updates:
     * Woodman Tuen (zh_HK)
 
 ===============
-Evince  2.21.90
+Atril  2.21.90
 ===============
 
 Important notice for distributors:
@@ -1605,7 +1605,7 @@ Translation updates:
     * Clytie Siddall (vi)
 
 ===============
-Evince  2.21.1
+Atril  2.21.1
 ===============
 
 New Features and UI Improvements:
@@ -1647,7 +1647,7 @@ Translations:
     Yannig Marchegay (Kokoyaya) (oc)
 
 ===============
-Evince  2.20.2
+Atril  2.20.2
 ===============
 
 Bug fixes:
@@ -1666,7 +1666,7 @@ Translations:
     Youssef Chahibi (ar)
 
 ===============
-Evince  2.20.1
+Atril  2.20.1
 ===============
 
 Bug fixes:
@@ -1685,7 +1685,7 @@ Translations:
     Peter Bach (da)
 
 ===============
-Evince  2.20.0
+Atril  2.20.0
 ===============
 
 Bug fixes:
@@ -1712,7 +1712,7 @@ Translations:
     Maxim Dziumanenko (uk)
 
 ===============
-Evince  2.19.92
+Atril  2.19.92
 ===============
 
 Bug fixes:
@@ -1733,7 +1733,7 @@ Translations:
     Gil Forcada (ca)
 
 ===============
-Evince   2.19.4
+Atril   2.19.4
 ===============
 
 Bug fixes:
@@ -1761,7 +1761,7 @@ Translations:
     Takeshi Aihana (ja)
     
 ==============
-Evince   0.9.3
+Atril   0.9.3
 ==============
 
 New Features and UI Improvements:
@@ -1789,7 +1789,7 @@ Translations:
     Funda Wang (zh_CN)
 
 ==============
-Evince   0.9.2
+Atril   0.9.2
 ==============
 
 New Features and UI Improvements:
@@ -1818,7 +1818,7 @@ Translations:
     Tshewang Norbu (dz)
 
 ==============
-Evince   0.9.1
+Atril   0.9.1
 ==============
 
 New Features and UI Improvements:
@@ -1856,7 +1856,7 @@ Translations:
     Yuval Tanny (he)
     
 ==============
-Evince   0.9.0
+Atril   0.9.0
 ==============
 
 New Features and UI Improvements:
@@ -1894,7 +1894,7 @@ Translations:
     Daniel Nylander (sv)
 
 ==============
-Evince   0.8.1
+Atril   0.8.1
 ==============
 
 Bug Fixes:
@@ -1918,7 +1918,7 @@ Translations:
     Sonam Pelden (dz)
 
 ==============
-Evince   0.8.0
+Atril   0.8.0
 ==============
 
 Features and UI Improvements:
@@ -1966,7 +1966,7 @@ Translations:
     Игор Несторовић (sr)
 
 ==============
-Evince   0.7.2
+Atril   0.7.2
 ==============
 
 New Features and UI Improvements:
@@ -2022,7 +2022,7 @@ Thanks:
     Ed Catmur, Esteban Sanchez, Theppitak Karoonboonyanan, Wouter Bolsterlee
 
 ==============
-Evince   0.7.1
+Atril   0.7.1
 ==============
 
 New Features:
@@ -2062,7 +2062,7 @@ Thanks:
     Damien Carbery, Jens Granseuer, Yevgen Muntyan
 
 ==============
-Evince   0.7.0
+Atril   0.7.0
 ==============
 
 New Features:
@@ -2123,7 +2123,7 @@ Thanks:
     Julien Rebetez, P. Henrique Silva, Yevgen Muntyan
 
 ==============
-Evince   0.6.1
+Atril   0.6.1
 ==============
 
 Bug Fixes:
@@ -2152,7 +2152,7 @@ Thanks:
     Vladimer Sichinava, Daniel Nylander, Tommi Vainikainen, Luca Ferretti
         
 ==============
-Evince   0.6.0
+Atril   0.6.0
 ==============
 
 Bug Fixes:
@@ -2185,12 +2185,12 @@ Thanks:
     Theppitak Karoonboonyanan, Žygimantas Beručka
         
 ==============
-Evince   0.5.5
+Atril   0.5.5
 ==============
 
 New Features:
 
-    * Evince have preview mode for using with gtk+
+    * Atril have preview mode for using with gtk+
     * New print dialog is used with gtk 2.10
     * New recent files framework is used
     
@@ -2224,12 +2224,12 @@ Thanks:
     Charonitakis, Priit Laes, Takeshi Aihana, Theppitak Karoonboonyanan
         
 ==============
-Evince   0.5.4
+Atril   0.5.4
 ==============
 
 New Features:
 
-    * Evince supports impress slides with --enable-impress
+    * Atril supports impress slides with --enable-impress
     * URI's with anchors can be opened
 
 Bug Fixes:
@@ -2264,12 +2264,12 @@ Thanks:
     Vincent van Adrighem, Yair Hershkovitz
         
 ==============
-Evince   0.5.3
+Atril   0.5.3
 ==============
 
 New Features:
 
-    * Evince supports attachments in PDF files
+    * Atril supports attachments in PDF files
     * We require gtk 2.8 and djvulibre 3.5.17 now
     * Links system is reworked allowing named links
 
@@ -2299,7 +2299,7 @@ Thanks:
     Javier F. Serrador, Kjartan Maraas and especially all translators.
         
 ==============
-Evince   0.5.2
+Atril   0.5.2
 ==============
 
 Bug Fixes:
@@ -2312,12 +2312,12 @@ Translations:
     * bg bn da de et fa fr hi hu ja ka pt pt_BR ro ru sv uk vi
     
 ==============
-Evince   0.5.1
+Atril   0.5.1
 ==============
 
 New Features:
 
-    * Evince can search text in DJVU files
+    * Atril can search text in DJVU files
 
 Interface improvements:
 
@@ -2335,7 +2335,7 @@ Bug Fixes:
     * Filechooser now will ask for overwrite confirmation
     * Search now takes account for scrolling
     * It's allowed to scroll view from find entry
-    * Evince don't jump to find result if window was scrolled during search
+    * Atril don't jump to find result if window was scrolled during search
     * It's now clear what page the toolbar page number applies to
 
 Translations:
@@ -2352,7 +2352,7 @@ Thanks:
     Christopher Aillon and all translators.
 
 ==============
-Evince   0.5.0
+Atril   0.5.0
 ==============
 
 New Features:
@@ -2388,7 +2388,7 @@ Translations:
     * nl for documentation.
 
 ==============
-Evince   0.4.0
+Atril   0.4.0
 ==============
 
 Bug Fixes:
@@ -2404,7 +2404,7 @@ Bug Fixes:
     * findbar fixes
 
 ==============
-Evince   0.3.4
+Atril   0.3.4
 ==============
 
 Bug Fixes:
@@ -2417,7 +2417,7 @@ Bug Fixes:
     * Fix dvi backend compilation with t1lib-5.0
 
 ==============
-Evince   0.3.3
+Atril   0.3.3
 ==============
 
 New Features:
@@ -2454,7 +2454,7 @@ Translations:
     * eu, gl, gu, he, hi, ne, pa, pl, sk, sr, st@Latn, tr
 
 ==============
-Evince   0.3.2
+Atril   0.3.2
 ==============
 
 New Features:
@@ -2485,7 +2485,7 @@ Bug Fixes:
     * Several minor fixes
 
 ==============
-Evince   0.3.1
+Atril   0.3.1
 ==============
 
 New Features:
@@ -2511,7 +2511,7 @@ Bug Fixes:
     * Fix printing on LPD printers
 
 ==============
-Evince   0.3.0
+Atril   0.3.0
 ==============
 
 New Features:
@@ -2535,7 +2535,7 @@ Bug Fixes:
     * Fix build problems with t1lib
 
 ==============
-Evince   0.2.1
+Atril   0.2.1
 ==============
 
 New Features:
@@ -2585,7 +2585,7 @@ Translations:
     * ru (Nickolay Shmyrev)
 
 ==============
-Evince   0.2.0
+Atril   0.2.0
 ==============
 
 Code changes
@@ -2602,13 +2602,13 @@ New features
     * Use page labels as page numbers (Jonathan)
 
 ==============
-Evince   0.1.9
+Atril   0.1.9
 ==============
 
     * Fix a crash in the caja thumbnailer (Fernando Herrera)
 
 ==============
-Evince   0.1.8
+Atril   0.1.8
 ==============
 
 BugFixes
@@ -2616,7 +2616,7 @@ BugFixes
     * Fix crash when opening pdf documents with only 1 page
 
 ==============
-Evince   0.1.7
+Atril   0.1.7
 ==============
 
 New features
@@ -2630,7 +2630,7 @@ BugFixes
     * Do not read ps defaults from ggv prefs! (Marco)
 
 ==============
-Evince   0.1.6
+Atril   0.1.6
 ==============
 
 Code changes
@@ -2649,7 +2649,7 @@ Bug fixes
     * Fix crashes when reloading document (Marco)   
 
 ==============
-Evince   0.1.5
+Atril   0.1.5
 ==============
 
 New features
@@ -2692,7 +2692,7 @@ Bug fixes
     * Unescape filenames for display (Marco)
 
 ==============
-Evince   0.1.4
+Atril   0.1.4
 ==============
 
 Code changes
@@ -2714,7 +2714,7 @@ Bug fixes
     * Fix a buffer overflow fix (Marco)
 
 ==============
-Evince   0.1.3
+Atril   0.1.3
 ==============
 
 Code changes
@@ -2736,7 +2736,7 @@ Bug fixes
     * Fix a crash when changing page with keys (Marco)
 
 ==============
-Evince   0.1.2
+Atril   0.1.2
 ==============
 
 New features
@@ -2756,7 +2756,7 @@ Bug fixes
     * Fix inverted up/down buttons (Marco)
 
 ==============
-Evince   0.1.1
+Atril   0.1.1
 ==============
 
 New features
@@ -2804,7 +2804,7 @@ Translation updates
     * nb (Kjartan Maraas)
     * nl (Tino Meinen)
 
-evince 0.1.0
+atril 0.1.0
 ------------
 
 Initial release.

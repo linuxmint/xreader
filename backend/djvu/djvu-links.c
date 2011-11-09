@@ -233,7 +233,7 @@ get_djvu_hyperlink_area (ddjvu_pageinfo_t *page_info,
 	
 	if ((miniexp_car (iter) == miniexp_symbol ("rect") || miniexp_car (iter) == miniexp_symbol ("oval"))
 	    && miniexp_length (iter) == 5) {
-		/* FIXME: get bounding box for (oval) since Evince doesn't support shaped links */
+		/* FIXME: get bounding box for (oval) since Atril doesn't support shaped links */
 		int minx, miny, width, height;
 
 		iter = miniexp_cdr (iter);
@@ -252,7 +252,7 @@ get_djvu_hyperlink_area (ddjvu_pageinfo_t *page_info,
 	} else if (miniexp_car (iter) == miniexp_symbol ("poly")
 		   && miniexp_length (iter) >= 5 && miniexp_length (iter) % 2 == 1) {
 		
-		/* FIXME: get bounding box since Evince doesn't support shaped links */
+		/* FIXME: get bounding box since Atril doesn't support shaped links */
 		int minx = G_MAXINT, miny = G_MAXINT;
 		int maxx = G_MININT, maxy = G_MININT;
 

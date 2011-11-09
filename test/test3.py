@@ -8,8 +8,8 @@ srcdir = os.environ['srcdir']
 
 from dogtail.procedural import *
 
-run('evince', arguments=' '+srcdir+'/test-mime.bin')
+run('atril', arguments=' '+srcdir+'/test-mime.bin')
 
-# Close evince
+# Close atril
 click('File', roleName='menu')
 click('Close', roleName='menu item')

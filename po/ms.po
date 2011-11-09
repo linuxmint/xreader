@@ -1,12 +1,12 @@
-# Malay translation for evince.
-# Copyright (C) 2010 evince's COPYRIGHT HOLDER
-# This file is distributed under the same license as the evince package.
+# Malay translation for atril.
+# Copyright (C) 2010 atril's COPYRIGHT HOLDER
+# This file is distributed under the same license as the atril package.
 # Umarzuki Bin Mochlis Moktar <umar@umarzuki.org>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evince master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=evince&component=general\n"
+"Project-Id-Version: atril master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=atril&component=general\n"
 "POT-Creation-Date: 2010-02-18 17:07+0000\n"
 "PO-Revision-Date: 2010-02-28 22:05+0730\n"
 "Last-Translator: Umarzuki bin Mochlis Moktar <umarzuki@gmail.com>\n"
@@ -73,7 +73,7 @@ msgstr ""
 msgid "Error %s"
 msgstr "Ralat %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Buku Komik"
 
@@ -85,7 +85,7 @@ msgstr "Format dokumen DjVu telah salah"
 msgid "The document is composed of several files. One or more of these files cannot be accessed."
 msgstr ""
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "Dokument-dokumen DjVu"
 
@@ -93,7 +93,7 @@ msgstr "Dokument-dokumen DjVu"
 msgid "DVI document has incorrect format"
 msgstr "Format dokumen DVI telah salah"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "Dokumen-dokumen DVI"
 
@@ -162,7 +162,7 @@ msgstr "Dokumen terbenam"
 msgid "Not embedded"
 msgstr "Dokumen terbenam"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 #, fuzzy
 msgid "PDF Documents"
 msgstr "Dokumen/Diagram"
@@ -175,7 +175,7 @@ msgstr "Dokumen tidak sah"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 #, fuzzy
 msgid "Impress Slides"
 msgstr "&Lengahkan antara slaid:"
@@ -227,7 +227,7 @@ msgstr "Ralat: gagal untuk memuatkan parameter"
 msgid "Failed to save document “%s”"
 msgstr "Tidak dapat menyimpan maklumat dokumen."
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 #, fuzzy
 msgid "PostScript Documents"
 msgstr "Dokumen/Diagram"
@@ -441,7 +441,7 @@ msgid "400%"
 msgstr "400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1
+#: ../data/atril.desktop.in.in.h:1
 #: ../shell/ev-window.c:4183
 #: ../shell/ev-window-title.c:149
 #: ../shell/main.c:282
@@ -449,16 +449,16 @@ msgstr "400%"
 msgid "Document Viewer"
 msgstr "Pemapar Dokumen"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "Paparkan "
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 #, fuzzy
 msgid "Override document restrictions"
 msgstr "Dokumen Perkataan Applixware"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 
@@ -922,7 +922,7 @@ msgid "Converting metadata"
 msgstr "Downloading Metadata"
 
 #: ../shell/ev-convert-metadata.c:185
-msgid "The metadata format used by Evince has changed, and hence it needs to be migrated. If the migration is cancelled the metadata storage will not work."
+msgid "The metadata format used by Atril has changed, and hence it needs to be migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
 
 #: ../shell/ev-open-recent-action.c:72
@@ -1197,24 +1197,24 @@ msgid ""
 msgstr "Pelungsur bantuan default"
 
 #: ../shell/ev-window.c:4210
-msgid "Evince is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
+msgid "Atril is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
 msgstr ""
 
 #: ../shell/ev-window.c:4214
-msgid "Evince is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
+msgid "Atril is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
 msgstr ""
 
 #: ../shell/ev-window.c:4218
-msgid "You should have received a copy of the GNU General Public License along with Evince; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
-msgstr "anda sepatutunya telah menerima satu salinan GNU General Public License bersama Evince; jika tidak, tulis kepada Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
+msgid "You should have received a copy of the GNU General Public License along with Atril; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
+msgstr "anda sepatutunya telah menerima satu salinan GNU General Public License bersama Atril; jika tidak, tulis kepada Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
 
 #: ../shell/ev-window.c:4243
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4246
 #, fuzzy
-msgid "© 1996–2009 The Evince authors"
+msgid "© 1996–2009 The Atril authors"
 msgstr "Senarai penulis program"
 
 #: ../shell/ev-window.c:4252
@@ -1636,17 +1636,17 @@ msgstr "Halaman"
 
 #: ../shell/main.c:79
 #, fuzzy
-msgid "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
 msgstr "Rupa bentuk Piawai dalam Mod Skrin Penuh"
 
 #: ../shell/main.c:80
 #, fuzzy
-msgid "Run evince in presentation mode"
+msgid "Run atril in presentation mode"
 msgstr "Menjalankan saluran dalam mod uji fail."
 
 #: ../shell/main.c:81
 #, fuzzy
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr "&Jalankan sebagai pengguna lain"
 
 #: ../shell/main.c:82
@@ -1662,19 +1662,19 @@ msgstr "AYAT"
 msgid "[FILE…]"
 msgstr "[FAIL...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid "Boolean options available: true enables thumbnailing and false disables the creation of new thumbnails"
 msgstr "Pilihab boolean sedia ada: benar membolehkan thumbnail dan palsu tidak membenarkan mencipta thumbnail baru"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Benarkan thumb untuk Dokumen PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Arahan thumbnail untuk Dokumen PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid "Valid command plus arguments for the PDF Document thumbnailer. See Caja thumbnailer documentation for more information."
 msgstr ""
 

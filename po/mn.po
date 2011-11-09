@@ -1,13 +1,13 @@
-# Evince Document Viewer
+# Atril Document Viewer
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Urangua <urangua@adsolux.com>, 2009, 2010.
 # Dulmandakh Sukhbaatar <dulmandakh@gmail.com>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: evince\n"
+"Project-Id-Version: atril\n"
 "Report-Msgid-Bugs-To: "
-"http://bugzilla.mate.org/enter_bug.cgi?product=evince&component=general\n"
+"http://bugzilla.mate.org/enter_bug.cgi?product=atril&component=general\n"
 "POT-Creation-Date: 2010-03-19 14:34+0000\n"
 "PO-Revision-Date: 2010-03-23 04:09+0200\n"
 "Last-Translator: Badral <badral@openmn.org>\n"
@@ -73,7 +73,7 @@ msgstr " \"%s\"-ийг устгахад алдаа гарсан байна."
 msgid "Error %s"
 msgstr " %s алдаа "
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Зурагт ном"
 
@@ -89,7 +89,7 @@ msgstr ""
 "Уг баримт бичиг нь хэд хэдэн файлаас бүрдсэн байна. Нэг буюу түүнээс дээш "
 "иймэрхүү файлд хандах боломжгүй. "
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "DjVu баримт бичиг"
 
@@ -97,7 +97,7 @@ msgstr "DjVu баримт бичиг"
 msgid "DVI document has incorrect format"
 msgstr "DVI баримт бичиг буруу форматтай байна. "
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI Баримт бичиг"
 
@@ -163,7 +163,7 @@ msgstr "Оруулсан "
 msgid "Not embedded"
 msgstr "Оруулаагүй"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF Баримт бичиг"
 
@@ -175,7 +175,7 @@ msgstr "Буруу баримт бичиг"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Слайд оруулах"
 
@@ -225,7 +225,7 @@ msgstr " “%s” баримтыг ачаалах амжилтгүй болло�
 msgid "Failed to save document “%s”"
 msgstr " “%s” баримтыг хадгалах амжилтгүй боллоо"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "ПостСкрипт баримтууд"
 
@@ -426,21 +426,21 @@ msgid "400%"
 msgstr "400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4205
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4205
 #: ../shell/ev-window-title.c:149 ../shell/main.c:282
 #, c-format
 msgid "Document Viewer"
 msgstr "Баримт бичиг үзүүлэгч"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "Олон хуудаст баримт бичиг үзэх"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "Баримт бичгийн хязгаарлалтыг үл хайхрах"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Хуулах, хэвлэхийг хориглох гэх мэт баримт бичгийн хязгаарлалтыг үл хайхрана."
@@ -857,7 +857,7 @@ msgstr "Мета-өгөгдлийг хувиргах"
 
 #: ../shell/ev-convert-metadata.c:185
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
 "Эвинсийг хэрэглэдэг мета-өгөгдлийн формат нь өөрчлөгдсөн тул үүнийг "
@@ -1109,7 +1109,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:4232
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
@@ -1120,7 +1120,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:4236
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -1133,7 +1133,7 @@ msgstr ""
 #: ../shell/ev-window.c:4240
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Atril; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
 "Та Эвинсээс гадна Олон нийтийн ерөнхий лицензийн хуулбарыг авсан байх "
@@ -1142,11 +1142,11 @@ msgstr ""
 "үү\n"
 
 #: ../shell/ev-window.c:4265
-msgid "Evince"
+msgid "Atril"
 msgstr "Эвинс"
 
 #: ../shell/ev-window.c:4268
-msgid "© 1996–2009 The Evince authors"
+msgid "© 1996–2009 The Atril authors"
 msgstr "© 1996–2009 Эвинсийн зохиогчид"
 
 #: ../shell/ev-window.c:4274
@@ -1497,15 +1497,15 @@ msgid "PAGE"
 msgstr "ХУУДАС"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
 msgstr "Эвинсийг дэлгэц дүүрэн горимоор ажиллуулах"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
+msgid "Run atril in presentation mode"
 msgstr "Эвинсийг үзүүлэнгийн горимоор ажиллуулах"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr "Эвинсийг урьдчилан үзүүлэгч болгон ажиллуулах"
 
 #: ../shell/main.c:82
@@ -1520,7 +1520,7 @@ msgstr "БИЧВЭР"
 msgid "[FILE…]"
 msgstr "[ФАЙЛ...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1528,15 +1528,15 @@ msgstr ""
 "Бүүлин сонголтууд бий: үнэн гэдэг нь ерөнхийлөн харуулах боломжтой болгох ба "
 "худал гэдэг нь шинэ ерөнхийлөн харуулагч үүсгэх боломжгүй болгоно"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "PDF баримт бичгийг ерөнхийлөн харуулах боломжтой болгох"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "PDF баримт бичгийн ерөнхийлөн харуулах команд"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."
@@ -1573,7 +1573,7 @@ msgstr ""
 #~ msgstr "Өмнөх баримт бичгүүдээ сэргээх үү? "
 
 #~ msgid ""
-#~ "Evince appears to have exited unexpectedly the last time it was run. You "
+#~ "Atril appears to have exited unexpectedly the last time it was run. You "
 #~ "can recover the opened documents."
 #~ msgstr ""
 #~ "Эвинсийг сүүлд ажиллуулахад санаандгүй гарчихсан юм шиг байна.Та нээлттэй "

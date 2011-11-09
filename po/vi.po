@@ -1,4 +1,4 @@
-# Vietnamese translation for Evince.
+# Vietnamese translation for Atril.
 # Copyright © 2009 MATE i18n Project for Vietnamese.
 # Clytie Siddall <clytie@riverland.net.au>, 2005-2009.
 # Nguyễn Thái Ngọc Duy <pclouds@gmail.com>, 2008.
@@ -6,8 +6,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evince MATE TRUNK\n"
-"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=evince&component=general\n"
+"Project-Id-Version: atril MATE TRUNK\n"
+"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=atril&component=general\n"
 "POT-Creation-Date: 2009-02-01 11:33+0000\n"
 "PO-Revision-Date: 2009-02-07 16:05+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
@@ -28,7 +28,7 @@ msgstr "Tập tin bị hỏng."
 msgid "No images found in archive %s"
 msgstr "Không tìm thấy ảnh trong kho %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Truyện tranh vui"
 
@@ -37,7 +37,7 @@ msgstr "Truyện tranh vui"
 msgid "The document is composed by several files. One or more of such files cannot be accessed."
 msgstr "Tài liệu được tạo thành từ nhiều tập tin. Một trong số đó không thể truy cập được."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "Djvu Documents"
 msgstr "Tài liệu Djvu"
 
@@ -51,7 +51,7 @@ msgstr "Tập tin không sẵn sàng."
 msgid "DVI document has incorrect format"
 msgstr "Tài liệu DVI có định dạng không đúng"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "Tài liệu DVI"
 
@@ -113,7 +113,7 @@ msgstr "Nhúng"
 msgid "Not embedded"
 msgstr "Không nhúng"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "Tài liệu PDF"
 
@@ -130,7 +130,7 @@ msgstr "Tài liệu không hợp lệ"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Ảnh chiều Impress"
 
@@ -180,7 +180,7 @@ msgstr "Lỗi khi tải tài liệu '%s'"
 msgid "Failed to save document “%s”"
 msgstr "Lỗi khi lưu tài liệu '%s'"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "Tài liệu Postscript"
 
@@ -415,22 +415,22 @@ msgstr "300%"
 msgid "400%"
 msgstr "400%"
 
-#: ../data/evince.desktop.in.in.h:1
+#: ../data/atril.desktop.in.in.h:1
 #: ../shell/ev-window.c:4254
 #: ../shell/ev-window-title.c:149
 #, c-format
 msgid "Document Viewer"
 msgstr "Bộ xem tài liệu"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multipage documents"
 msgstr "Xem tài liệu nhiều trang"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "Bỏ hạn chế tài liệu"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "Bỏ qua những hạn chế của tài liệu, như hạn chế sao chép hay in."
 
@@ -963,15 +963,15 @@ msgstr ""
 "Dùng poppler %s (%s)"
 
 #: ../shell/ev-window.c:4278
-msgid "Evince is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
-msgstr "Evince là phần mềm tự do; bạn có thể phát hành lại nó và/hoặc sửa đổi nó theo các điều khoản của Giấy phép Công cộng GNU như được xuất bản bởi Tổ chức Phần mềm Tự do; hoặc phiên bản 2 của Giấy phép này, hoặc bất kì phiên bản sau nào (tuỳ ý).\n"
+msgid "Atril is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
+msgstr "Atril là phần mềm tự do; bạn có thể phát hành lại nó và/hoặc sửa đổi nó theo các điều khoản của Giấy phép Công cộng GNU như được xuất bản bởi Tổ chức Phần mềm Tự do; hoặc phiên bản 2 của Giấy phép này, hoặc bất kì phiên bản sau nào (tuỳ ý).\n"
 
 #: ../shell/ev-window.c:4282
-msgid "Evince is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
-msgstr "Evince được phân phối với mong muốn nó sẽ là một phần mềm có ích, nhưng KHÔNG PHẢI CHỊU BẤT KÌ TRÁCH NHIỆM NÀO. Xem Giấy phép Công cộng GNU để biết thêm chi tiết.\n"
+msgid "Atril is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
+msgstr "Atril được phân phối với mong muốn nó sẽ là một phần mềm có ích, nhưng KHÔNG PHẢI CHỊU BẤT KÌ TRÁCH NHIỆM NÀO. Xem Giấy phép Công cộng GNU để biết thêm chi tiết.\n"
 
 #: ../shell/ev-window.c:4286
-msgid "You should have received a copy of the GNU General Public License along with Evince; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
+msgid "You should have received a copy of the GNU General Public License along with Atril; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
 "Bạn đã nhận một bản sao của Giấy phép Công cộng GNU cùng với chương trình này; nếu không, hãy liên hệ Tổ chức Phần mềm Tự do,\n"
 "Free Software Foundation, Inc.,\n"
@@ -979,12 +979,12 @@ msgstr ""
 "Boston, MA  02110-1301, USA\n"
 
 #: ../shell/ev-window.c:4310
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4313
-msgid "© 1996-2007 The Evince authors"
-msgstr "© năm 1996-2007 của các tác giả Evince"
+msgid "© 1996-2007 The Atril authors"
+msgstr "© năm 1996-2007 của các tác giả Atril"
 
 #: ../shell/ev-window.c:4319
 msgid "translator-credits"
@@ -1383,16 +1383,16 @@ msgid "PAGE"
 msgstr "TRANG"
 
 #: ../shell/main.c:66
-msgid "Run evince in fullscreen mode"
-msgstr "Chạy Evince ở chế độ toàn màn hình"
+msgid "Run atril in fullscreen mode"
+msgstr "Chạy Atril ở chế độ toàn màn hình"
 
 #: ../shell/main.c:67
-msgid "Run evince in presentation mode"
-msgstr "Chạy Evince ở chế độ trình diễn"
+msgid "Run atril in presentation mode"
+msgstr "Chạy Atril ở chế độ trình diễn"
 
 #: ../shell/main.c:68
-msgid "Run evince as a previewer"
-msgstr "Chạy Evince ở chế độ xem thử"
+msgid "Run atril as a previewer"
+msgstr "Chạy Atril ở chế độ xem thử"
 
 #: ../shell/main.c:69
 msgid "The word or phrase to find in the document"
@@ -1406,19 +1406,19 @@ msgstr "CHUỖI"
 msgid "[FILE...]"
 msgstr "[TẬP TIN...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid "Boolean options available, true enables thumbnailing and false disables the creation of new thumbnails"
 msgstr "Giá trị logic: 'đúng' hiển thị hình thu nhỏ và 'sai' ẩn hình thu nhỏ"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Hiển thị hình thu nhỏ của tài liệu PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Lệnh tạo hình thu nhỏ cho tài liệu PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid "Valid command plus arguments for the PDF Document thumbnailer. See caja thumbnailer documentation for more information."
 msgstr "Lệnh hợp lệ cộng với đối số cho bộ tạo hình thu nhỏ tài liệu PDF. Xem tài liệu hướng dẫn Caja về hình thu nhỏ để biết thêm thông tin."
 

@@ -1,17 +1,17 @@
-# evince korean translation
-# This file is distributed under the same license as the evince package.
+# atril korean translation
+# This file is distributed under the same license as the atril package.
 # Young-Ho Cha <ganadist at mizi dot com>, 2005
 # Changwoo Ryu <cwryu@debian.org>, 2006, 2007, 2008, 2009, 2010.
 #
 # 새로 번역하시는 분은 아래 translator-credits에 추가해 주세요.
 #
 # 주의:
-# - Evince는 "에빈스"로 음역
+# - Atril는 "에빈스"로 음역
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evince\n"
-"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=evince&component=general\n"
+"Project-Id-Version: atril\n"
+"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=atril&component=general\n"
 "POT-Creation-Date: 2010-09-26 04:25+0900\n"
 "PO-Revision-Date: 2010-09-26 04:39+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
@@ -76,7 +76,7 @@ msgstr " “%s” 삭제에 오류가 발생했습니다."
 msgid "Error %s"
 msgstr "오류 %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "만화책"
 
@@ -92,7 +92,7 @@ msgstr ""
 "문서가 여러 개 파일로 이루어져 있고, 그 파일 중에 접근할 수 없는 파일이 있습"
 "니다."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "DjVu 문서"
 
@@ -100,7 +100,7 @@ msgstr "DjVu 문서"
 msgid "DVI document has incorrect format"
 msgstr "DVI 문서가 잘못되었습니다"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI 문서"
 
@@ -166,7 +166,7 @@ msgstr "포함됨"
 msgid "Not embedded"
 msgstr "포함되지 않음"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF 문서"
 
@@ -178,7 +178,7 @@ msgstr "잘못된 문서"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "임프레스 슬라이드"
 
@@ -228,7 +228,7 @@ msgstr "“%s” 문서를 읽어들이는데 실패했습니다"
 msgid "Failed to save document “%s”"
 msgstr "“%s” 문서를 저장하는데 실패했습니다"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript 문서"
 
@@ -440,21 +440,21 @@ msgid "6400%"
 msgstr "6400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4554
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4554
 #: ../shell/ev-window-title.c:149 ../shell/main.c:310
 #, c-format
 msgid "Document Viewer"
 msgstr "문서 보기"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "다중 페이지 문서를 봅니다"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
 msgstr "문서 제한 무시하기"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "복사하기나 인쇄 같은 문서제한을 무시합니다."
 
@@ -951,7 +951,7 @@ msgstr "메타데이터를 변환하는 중"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
 "에빈스가 사용하는 메타데이터 형식이 바뀌어서, 옛날 데이터에서 옮겨 와야 합니"
@@ -1255,24 +1255,24 @@ msgstr ""
 
 #: ../shell/ev-window.c:4581
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 
 #: ../shell/ev-window.c:4585
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -1280,17 +1280,17 @@ msgstr ""
 #: ../shell/ev-window.c:4589
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
-msgstr "You should have received a copy of the GNU General Public License along with Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
+msgstr "You should have received a copy of the GNU General Public License along with Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 
 #: ../shell/ev-window.c:4614
-msgid "Evince"
+msgid "Atril"
 msgstr "에빈스"
 
 #: ../shell/ev-window.c:4617
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996–2009 The Evince authors"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996–2009 The Atril authors"
 
 #: ../shell/ev-window.c:4623
 msgid "translator-credits"
@@ -1653,15 +1653,15 @@ msgid "NUMBER"
 msgstr "<번호>"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
 msgstr "에빈스를 전체 화면 모드로 실행합니다"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
+msgid "Run atril in presentation mode"
 msgstr "에빈스를 프리젠테이션 모드로 실행합니다"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr "에빈스를 미리 보기로 실행합니다"
 
 #: ../shell/main.c:82
@@ -1676,7 +1676,7 @@ msgstr "<문자열>"
 msgid "[FILE…]"
 msgstr "[<파일>...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1684,15 +1684,15 @@ msgstr ""
 "참/거짓으로 설정 가능: 참이면 미리보기 만들기, 거짓이면 미리보기 만들기를 하"
 "지 않음"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "PDF 문서의 미리보기 만들기 가능"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "PDF 문서의 미리보기 만들기 명령"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."

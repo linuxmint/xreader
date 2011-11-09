@@ -1,14 +1,14 @@
 /* ev-convert-metadata.c
- *  this file is part of evince, a mate document viewer
+ *  this file is part of atril, a mate document viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos  <carlosgc@gnome.org>
  *
- * Evince is free software; you can redistribute it and/or modify it
+ * Atril is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Evince is distributed in the hope that it will be useful, but
+ * Atril is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
@@ -27,7 +27,7 @@
 #include <string.h>
 #include <libxml/tree.h>
 
-#define EV_METADATA_NAMESPACE "metadata::evince"
+#define EV_METADATA_NAMESPACE "metadata::atril"
 
 typedef struct {
 	xmlNodePtr cur;
@@ -184,7 +184,7 @@ show_progress_dialog (ConvertData *data)
 	gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);
 	gtk_widget_show (label);
 
-	label = gtk_label_new (_("The metadata format used by Evince "
+	label = gtk_label_new (_("The metadata format used by Atril "
 				 "has changed, and hence it needs to be migrated. "
 				 "If the migration is cancelled the metadata "
 				 "storage will not work."));
@@ -240,7 +240,7 @@ convert_metadata_file (const gchar *filename)
 	}
 
 	if (xmlStrcmp (cur->name, (const xmlChar *) "metadata")) {
-		g_printerr ("File %s is not a valid evince metadata file\n", filename);
+		g_printerr ("File %s is not a valid atril metadata file\n", filename);
 		xmlFreeDoc (doc);
 		return FALSE;
 	}
@@ -287,7 +287,7 @@ gint
 main (gint argc, gchar **argv)
 {
 	if (argc != 2) {
-		g_printerr ("%s\n", "Usage: evince-convert-metadata FILE");
+		g_printerr ("%s\n", "Usage: atril-convert-metadata FILE");
 		return 1;
 	}
 

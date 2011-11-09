@@ -1,13 +1,13 @@
-/* this file is part of evince, a mate document viewer
+/* this file is part of atril, a mate document viewer
  *
  *  Copyright (C) 2007 Carlos Garcia Campos <carlosgc@gnome.org>
  *
- * Evince is free software; you can redistribute it and/or modify it
+ * Atril is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Evince is distributed in the hope that it will be useful, but
+ * Atril is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
@@ -38,8 +38,8 @@ struct _EvBackendInfo {
 	gchar      **mime_types;
 };
 
-#define EV_BACKENDS_GROUP     "Evince Backend"
-#define EV_BACKENDS_EXTENSION ".evince-backend"
+#define EV_BACKENDS_GROUP     "Atril Backend"
+#define EV_BACKENDS_EXTENSION ".atril-backend"
 
 static gchar *backendsdir = NULL;
 
@@ -51,7 +51,7 @@ backends_dir (void)
 		gchar *dir;
 
 		dir = g_win32_get_package_installation_directory_of_module (NULL);
-		backendsdir = g_build_filename (dir, "lib", "evince",
+		backendsdir = g_build_filename (dir, "lib", "atril",
 						EV_BACKENDSBINARYVERSION,
 						"backends", NULL);
 		g_free (dir);
@@ -93,7 +93,7 @@ ev_backends_manager_load_backend (const gchar *file)
 	info->module_name = g_key_file_get_string (backend_file, EV_BACKENDS_GROUP,
 						   "Module", NULL);
 	if (!info->module_name) {
-		g_warning ("Bad evince backend file %s: Could not find 'Module'",
+		g_warning ("Bad atril backend file %s: Could not find 'Module'",
 			   file);
 		ev_backend_info_free (info);
 		g_key_file_free (backend_file);
@@ -107,7 +107,7 @@ ev_backends_manager_load_backend (const gchar *file)
 	info->type_desc = g_key_file_get_locale_string (backend_file, EV_BACKENDS_GROUP,
 							"TypeDescription", NULL, NULL);
 	if (!info->type_desc) {
-		g_warning ("Bad evince backend file %s: Could not find 'TypeDescription'",
+		g_warning ("Bad atril backend file %s: Could not find 'TypeDescription'",
 			   file);
 		ev_backend_info_free (info);
 		g_key_file_free (backend_file);
@@ -118,7 +118,7 @@ ev_backends_manager_load_backend (const gchar *file)
 	info->mime_types = g_key_file_get_string_list (backend_file, EV_BACKENDS_GROUP,
 						       "MimeType", NULL, NULL);
 	if (!info->mime_types) {
-		g_warning ("Bad evince backend file %s: Could not find 'MimeType'",
+		g_warning ("Bad atril backend file %s: Could not find 'MimeType'",
 			   file);
 		ev_backend_info_free (info);
 		g_key_file_free (backend_file);
@@ -171,7 +171,7 @@ ev_backends_manager_load (void)
 /*
  * _ev_backends_manager_init:
  *
- * Initializes the evince backends manager.
+ * Initializes the atril backends manager.
  *
  * Returns: %TRUE if there were any backends found; %FALSE otherwise
  */
@@ -187,7 +187,7 @@ _ev_backends_manager_init (void)
 /*
  * _ev_backends_manager_shutdown:
  *
- * Shuts the evince backends manager down.
+ * Shuts the atril backends manager down.
  */
 void
 _ev_backends_manager_shutdown (void)

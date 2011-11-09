@@ -1,11 +1,11 @@
-# Hungarian translation of evince
-# This file is distributed under the same license as the evince package.
+# Hungarian translation of atril
+# This file is distributed under the same license as the atril package.
 # Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010, Free Software Foundation, Inc.
 #
 # Gabor Kelemen <kelemeng at mate dot hu>, 2005, 2006, 2007, 2008, 2009, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: evince master\n"
+"Project-Id-Version: atril master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-08-28 07:57+0200\n"
 "PO-Revision-Date: 2010-08-28 07:56+0200\n"
@@ -72,7 +72,7 @@ msgstr "Hiba történt a(z) „%s” törlése közben."
 msgid "Error %s"
 msgstr "%s hiba"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Képregények"
 
@@ -86,7 +86,7 @@ msgid ""
 "be accessed."
 msgstr "A dokumentum több fájlból áll. Legalább az egyik fájl nem érhető el."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "DjVu dokumentumok"
 
@@ -94,7 +94,7 @@ msgstr "DjVu dokumentumok"
 msgid "DVI document has incorrect format"
 msgstr "A DVI dokumentum formátuma hibás"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI dokumentumok"
 
@@ -160,7 +160,7 @@ msgstr "Beágyazott"
 msgid "Not embedded"
 msgstr "Be nem ágyazott"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF-dokumentumok"
 
@@ -174,7 +174,7 @@ msgstr "A dokumentum („%s”) betöltése meghiúsult"
 msgid "Failed to save document “%s”"
 msgstr "A dokumentum („%s”) mentése meghiúsult"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript-dokumentumok"
 
@@ -390,21 +390,21 @@ msgid "6400%"
 msgstr "6400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4534
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4534
 #: ../shell/ev-window-title.c:149 ../shell/main.c:310
 #, c-format
 msgid "Document Viewer"
 msgstr "Dokumentummegjelenítő"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "Többoldalas dokumentumok megjelenítése"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
 msgstr "A dokumentum korlátozásainak felülbírálása"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Dokumentum (például a másolásra vagy nyomtatásra vonatkozó) korlátozásainak "
@@ -904,10 +904,10 @@ msgstr "Metaadatok átalakítása"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
-"Az Evince által használt metaadat-formátum megváltozott, emiatt át kell "
+"Az Atril által használt metaadat-formátum megváltozott, emiatt át kell "
 "állítani. Ha az átállítás megszakad, a metaadat-tároló nem fog működni."
 
 #: ../shell/ev-open-recent-action.c:72
@@ -1216,23 +1216,23 @@ msgstr ""
 
 #: ../shell/ev-window.c:4561
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Az Evince szabad szoftver, terjesztheti és/vagy módosíthatja a Free Software "
+"Az Atril szabad szoftver, terjesztheti és/vagy módosíthatja a Free Software "
 "Foundation által kiadott GNU General Public License második (vagy bármely "
 "későbbi) változatában foglaltak alapján.\n"
 
 #: ../shell/ev-window.c:4565
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Az Evince programot abban a reményben terjesztjük, hogy hasznos lesz, de nem "
+"Az Atril programot abban a reményben terjesztjük, hogy hasznos lesz, de nem "
 "vállalunk SEMMIFÉLE GARANCIÁT, még olyan értelemben sem, hogy a program "
 "alkalmas-e a KÖZREADÁSRA vagy EGY BIZONYOS FELADAT ELVÉGZÉSÉRE. További "
 "részletekért tanulmányozza a GNU GPL licencet.\n"
@@ -1240,20 +1240,20 @@ msgstr ""
 #: ../shell/ev-window.c:4569
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
-"Az Evince programhoz a GNU General Public License egy példánya is jár, ha "
+"Az Atril programhoz a GNU General Public License egy példánya is jár, ha "
 "nem kapta meg, írjon a Free Software Foundation Inc.-nek. Levélcímük: 51 "
 "Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.\n"
 
 #: ../shell/ev-window.c:4594
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4597
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996-2009 Az Evince szerzői"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996-2009 Az Atril szerzői"
 
 #: ../shell/ev-window.c:4603
 msgid "translator-credits"
@@ -1615,15 +1615,15 @@ msgid "NUMBER"
 msgstr "SZÁM"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
 msgstr "Teljes képernyős mód"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
-msgstr "Az Evince futtatása bemutató módban"
+msgid "Run atril in presentation mode"
+msgstr "Az Atril futtatása bemutató módban"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr "Előnézet mód"
 
 #: ../shell/main.c:82
@@ -1638,7 +1638,7 @@ msgstr "KARAKTERLÁNC"
 msgid "[FILE…]"
 msgstr "[FÁJL…]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1646,15 +1646,15 @@ msgstr ""
 "Igaz hatására a bélyegképek készítése engedélyezve lesz, hamis hatására "
 "pedig nem."
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "PDF dokumentumokról bélyegképek készítésének engedélyezése"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Bélyegkép-készítő parancs PDF-dokumentumokhoz"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."

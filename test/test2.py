@@ -8,7 +8,7 @@ srcdir = os.environ['srcdir']
 
 from dogtail.procedural import *
 
-run('evince', arguments=' '+srcdir+'/test-encrypt.pdf')
+run('atril', arguments=' '+srcdir+'/test-encrypt.pdf')
 
 # Try an incorrect password first
 focus.dialog('Enter password')
@@ -23,6 +23,6 @@ focus.widget('Password Entry', roleName='password text')
 type('Foo')
 click('Unlock Document', roleName='push button')
 
-# Close evince
+# Close atril
 click('File', roleName='menu')
 click('Close', roleName='menu item')

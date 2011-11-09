@@ -1,7 +1,7 @@
-# Serbian translation of evince
+# Serbian translation of atril
 # Courtesy of Prevod.org team (http://prevod.org/) -- 2005-2009.
 #
-# This file is distributed under the same license as the evince package.
+# This file is distributed under the same license as the atril package.
 #
 # Maintainer: Danilo Šegan <danilo@gnome.org>
 # Reviewed on 2005-09-03 by: Danilo Šegan <danilo@gnome.org>
@@ -10,9 +10,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Evince\n"
+"Project-Id-Version: Atril\n"
 "Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?"
-"product=evince&component=general\n"
+"product=atril&component=general\n"
 "POT-Creation-Date: 2010-08-02 18:58+0000\n"
 "PO-Revision-Date: 2010-08-18 10:52+0200\n"
 "Last-Translator: Miloš Popović <gpopac@gmail.com>\n"
@@ -77,7 +77,7 @@ msgstr "Javila se greška prilikom brisanja „%s“."
 msgid "Error %s"
 msgstr "Greška %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Stripovi"
 
@@ -93,7 +93,7 @@ msgstr ""
 "Dokument je sastavljen iz nekoliko datoteka. Ne mogu da pristupim jednoj ili "
 "više ovih datoteka."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "DjVu dokumenti"
 
@@ -101,7 +101,7 @@ msgstr "DjVu dokumenti"
 msgid "DVI document has incorrect format"
 msgstr "DVI dokument ima neispravan oblik"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI dokumenti"
 
@@ -167,7 +167,7 @@ msgstr "Ugnježden"
 msgid "Not embedded"
 msgstr "Nije ugnježden"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF dokumenti"
 
@@ -179,7 +179,7 @@ msgstr "Neispravan dokument"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Slajdovi programa „Prezentacija“"
 
@@ -230,7 +230,7 @@ msgstr "Ne mogu da otvorim dokument „%s“"
 msgid "Failed to save document “%s”"
 msgstr "Ne mogu da sačuvam dokument „%s“"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "Postskript dokumenti"
 
@@ -447,21 +447,21 @@ msgid "6400%"
 msgstr "6400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4536
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4536
 #: ../shell/ev-window-title.c:149 ../shell/main.c:310
 #, c-format
 msgid "Document Viewer"
 msgstr "Pregledač dokumenata"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "Pregledajte višestranične dokumente"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
 msgstr "Prevaziđi ograničenja dokumenta"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Prevazilazi ograničenja koja dokument ugrađeno sadrži, kao što je zabrana "
@@ -966,7 +966,7 @@ msgstr "Prevodim metapodatke"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
 "Format metapodataka koje koristi Pregledač dokumenata je promenjen. Morate da "
@@ -1285,7 +1285,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:4563
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
@@ -1298,7 +1298,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:4567
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -1310,11 +1310,11 @@ msgstr ""
 #: ../shell/ev-window.c:4571
 #| msgid ""
 #| "You should have received a copy of the GNU General Public License along "
-#| "with Evince; if not, write to the Free Software Foundation, Inc., 59 "
+#| "with Atril; if not, write to the Free Software Foundation, Inc., 59 "
 #| "Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
 "Trebali ste da dobijete jedan primerak Opšte Javne Licence zajedno sa ovim "
@@ -1322,11 +1322,11 @@ msgstr ""
 "Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1302, USA\n"
 
 #: ../shell/ev-window.c:4596
-msgid "Evince"
+msgid "Atril"
 msgstr "Evins"
 
 #: ../shell/ev-window.c:4599
-msgid "© 1996–2009 The Evince authors"
+msgid "© 1996–2009 The Atril authors"
 msgstr "© 1996-2007 Evinsovi autori"
 
 #: ../shell/ev-window.c:4605
@@ -1694,15 +1694,15 @@ msgid "NUMBER"
 msgstr "BROJ"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
 msgstr "Pokreni Evins preko celog ekrana"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
+msgid "Run atril in presentation mode"
 msgstr "Pokreni Evins u kao prezentaciju"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr "Pokreni Evins kao pregledač"
 
 #: ../shell/main.c:82
@@ -1717,7 +1717,7 @@ msgstr "NISKA"
 msgid "[FILE…]"
 msgstr "[DATOTEKA...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1725,15 +1725,15 @@ msgstr ""
 "Dostupne vrednosti su „true“ (tačno) koja uključuje umanjeni prikaz sličica i "
 "„false“ (netačno) koja zaustavlja pravljenje novih sličica"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Uključi pravljenje sličica za PDF dokumente"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Naredba za pravljenje sličica za PDF dokumente"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."
@@ -1785,7 +1785,7 @@ msgstr ""
 #~ msgstr "Da iznova učitam dokumente?"
 
 #~ msgid ""
-#~ "Evince appears to have exited unexpectedly the last time it was run. You "
+#~ "Atril appears to have exited unexpectedly the last time it was run. You "
 #~ "can recover the opened documents."
 #~ msgstr ""
 #~ "Izgleda da je pregledač dokumenta neočekivano otkazao pri poslednjem "
@@ -1870,7 +1870,7 @@ msgstr ""
 #~ msgid "Incorrect password"
 #~ msgstr "Neispravna lozinka"
 
-#~ msgid "Evince Document Viewer"
+#~ msgid "Atril Document Viewer"
 #~ msgstr "Pregledač dokumenata Evins"
 
 #~ msgid "BBox"

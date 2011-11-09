@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evince\n"
+"Project-Id-Version: atril\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-04-01 02:52+0200\n"
 "PO-Revision-Date: 2005-04-01 09:05+0200\n"
@@ -16,59 +16,59 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 
-#: data/evince-password.glade.h:1
+#: data/atril-password.glade.h:1
 msgid "*"
 msgstr "*"
 
-#: data/evince-password.glade.h:2
+#: data/atril-password.glade.h:2
 msgid "<span size=\"smaller\"> </span>"
 msgstr "<span size=\"smaller\"> </span>"
 
-#: data/evince-password.glade.h:3
+#: data/atril-password.glade.h:3
 msgid "_Password:"
 msgstr "_Sicret:"
 
-#: data/evince.desktop.in.h:1 shell/ev-window.c:470
+#: data/atril.desktop.in.h:1 shell/ev-window.c:470
 msgid "Document Viewer"
 msgstr "Håyneu di documints"
 
-#: data/evince.desktop.in.h:2 shell/main.c:87
-msgid "Evince Document Viewer"
-msgstr "Håyneu di documints Evince"
+#: data/atril.desktop.in.h:2 shell/main.c:87
+msgid "Atril Document Viewer"
+msgstr "Håyneu di documints Atril"
 
-#: data/evince.desktop.in.h:3
+#: data/atril.desktop.in.h:3
 msgid "View multipage documents"
 msgstr "Vey des documints multi-pådje"
 
-#: data/evince.schemas.in.h:1
+#: data/atril.schemas.in.h:1
 msgid "Default sidebar size"
 msgstr "Prémetowe grandeu del bår di costé"
 
-#: data/evince.schemas.in.h:2
+#: data/atril.schemas.in.h:2
 msgid "Show sidebar by default"
 msgstr "Mostrer l' bår di costé"
 
-#: data/evince.schemas.in.h:3
+#: data/atril.schemas.in.h:3
 msgid "Show sidebar by default."
 msgstr "Mostrer l' bår di costé come prémetowe dujhance."
 
-#: data/evince.schemas.in.h:4
+#: data/atril.schemas.in.h:4
 msgid "Show statusbar by default"
 msgstr "Mostrer l' bår ås messaedjes"
 
-#: data/evince.schemas.in.h:5
+#: data/atril.schemas.in.h:5
 msgid "Show statusbar by default."
 msgstr "Mostrer l' bår ås messaedjes come prémetowe dujhance."
 
-#: data/evince.schemas.in.h:6
+#: data/atril.schemas.in.h:6
 msgid "Show toolbar by default"
 msgstr "Mostrer l' bår ås usteyes"
 
-#: data/evince.schemas.in.h:7
+#: data/atril.schemas.in.h:7
 msgid "Show toolbar by default."
 msgstr "Mostrer l' bår ås usteyes come prémetowe dujhance."
 
-#: data/evince.schemas.in.h:8
+#: data/atril.schemas.in.h:8
 msgid "The default sidebar size."
 msgstr "Li prémetowe grandeu del bår di costé."
 
@@ -401,19 +401,19 @@ msgstr "Nén télmint..."
 
 #: shell/ev-window.c:1655
 msgid ""
-"Evince is free software; you can redistribute it and/or modify\n"
+"Atril is free software; you can redistribute it and/or modify\n"
 "it under the terms of the GNU General Public License as published by\n"
 "the Free Software Foundation; either version 2 of the License, or\n"
 "(at your option) any later version.\n"
 msgstr ""
-"Evince, c' est on libe programe; vos l' poloz bén spåde et vos l' poloz\n"
+"Atril, c' est on libe programe; vos l' poloz bén spåde et vos l' poloz\n"
 "bén candjî tot shuvant li Licince Publike Djeneråle (GPL) di GNU eplaideye\n"
 "pal Free Software Foundation; ça pout esse li 2e modêye del licince ou\n"
 "(si vos inmez mî) ene pus nouve.\n"
 
 #: shell/ev-window.c:1659
 msgid ""
-"Evince is distributed in the hope that it will be useful,\n"
+"Atril is distributed in the hope that it will be useful,\n"
 "but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
 "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
 "GNU General Public License for more details.\n"
@@ -427,7 +427,7 @@ msgstr ""
 #: shell/ev-window.c:1663
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
-"along with Evince; if not, write to the Free Software Foundation, Inc.,\n"
+"along with Atril; if not, write to the Free Software Foundation, Inc.,\n"
 "59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
 "Avou ci programe ci, vos dvrîz aveur rçuvou ene copeye del Licince Publike\n"
@@ -437,12 +437,12 @@ msgstr ""
 "    Boston, MA 02111-1307, USA.\n"
 
 #: shell/ev-window.c:1685 shell/main.c:82
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: shell/ev-window.c:1688
-msgid "© 1996-2004 The Evince authors"
-msgstr "© 1996-2004 les oteurs d' Evince"
+msgid "© 1996-2004 The Atril authors"
+msgstr "© 1996-2004 les oteurs d' Atril"
 
 #: shell/ev-window.c:1691
 msgid "PostScript and PDF File Viewer."

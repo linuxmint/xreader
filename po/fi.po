@@ -1,12 +1,12 @@
-# Finnish translations for evince package.
+# Finnish translations for atril package.
 # Copyright (C) 2005-2010 Free Software Foundation, Inc.
-# This file is distributed under the same license as the evince package.
+# This file is distributed under the same license as the atril package.
 # Tommi Vainikainen <Tommi.Vainikainen@iki.fi>, 2005, 2009-2010.
 # Ilkka Tuohela <hile@iki.fi>, 2005-2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evince\n"
+"Project-Id-Version: atril\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-15 15:37+0200\n"
 "PO-Revision-Date: 2010-03-15 15:37+0200\n"
@@ -72,7 +72,7 @@ msgstr "Tapahtui virhe poistaessa ”%s”."
 msgid "Error %s"
 msgstr "Virhe %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Sarjakuvakirjat"
 
@@ -88,7 +88,7 @@ msgstr ""
 "Asiakirja koostuu useista tiedostoista, mutta yhtä tai useampia näistä "
 "tiedostoista ei voitu avata."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "DjVu-asiakirjat"
 
@@ -96,7 +96,7 @@ msgstr "DjVu-asiakirjat"
 msgid "DVI document has incorrect format"
 msgstr "DVI-asiakirjassa on virheellisiä muotoiluja"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI-asiakirjat"
 
@@ -162,7 +162,7 @@ msgstr "Upotettu"
 msgid "Not embedded"
 msgstr "Ei upotettu"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF-asiakirjat"
 
@@ -174,7 +174,7 @@ msgstr "Virheellinen asiakirja"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Impress-esitykset"
 
@@ -224,7 +224,7 @@ msgstr "Asiakirjan ”%s” lataaminen epäonnistui"
 msgid "Failed to save document “%s”"
 msgstr "Asiakirjan ”%s” tallennus epäonnistui"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript-asiakirjat"
 
@@ -425,21 +425,21 @@ msgid "400%"
 msgstr "400 %"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4205
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4205
 #: ../shell/ev-window-title.c:149 ../shell/main.c:282
 #, c-format
 msgid "Document Viewer"
 msgstr "Asiakirjakatselin"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "Katsele monisivuisia asiakirjoja"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "Ohita asiakirjan rajoitukset"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Ohita asiakirjan rajoitukset, kuten kopioinnin tai tulostuksen rajoitus."
@@ -857,10 +857,10 @@ msgstr "Muunnetaan metatietoja"
 
 #: ../shell/ev-convert-metadata.c:185
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
-"Evincen käyttämä metatietomuoto on muuttunut ja se pitää muuntaa. Mikäli "
+"Atriln käyttämä metatietomuoto on muuttunut ja se pitää muuntaa. Mikäli "
 "muunnos keskeytetään, metatietojen tallennus ei toimi."
 
 #: ../shell/ev-open-recent-action.c:72
@@ -1110,24 +1110,24 @@ msgstr ""
 
 #: ../shell/ev-window.c:4232
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince on vapaa ohjelma; voit levittää sitä edelleen ja/tai muokata sitä GNU:"
+"Atril on vapaa ohjelma; voit levittää sitä edelleen ja/tai muokata sitä GNU:"
 "n GPL-lisenssin sallimilla tavoilla siten kuin Free Software Foundation on "
 "sen määritellyt; voit halutessasi käyttää lisenssin versiota 2 taikka mitä "
 "tahansa tämän jälkeen ilmestynyttä versiota.\n"
 
 #: ../shell/ev-window.c:4236
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evinceä levitetään siinä toivossa, että siitä on hyötyä, mutta ILMAN MITÄÄN "
+"Atrilä levitetään siinä toivossa, että siitä on hyötyä, mutta ILMAN MITÄÄN "
 "TAKUUTA; jopa ilman konkludenttista takuuta MYYNTIKELPOISUUDESTA TAI "
 "SOVELTUMISESTA TIETTYYN ERITYISEEN TARKOITUKSEEN. Yksityiskohtien osalta "
 "katso GNU:n GPL-lisenssiä.\n"
@@ -1135,20 +1135,20 @@ msgstr ""
 #: ../shell/ev-window.c:4240
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Atril; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
-"Sinun olisi pitänyt saada kopio GNU:n GPL-lisenssistä Evincen mukana; jos et "
+"Sinun olisi pitänyt saada kopio GNU:n GPL-lisenssistä Atriln mukana; jos et "
 "sitä saanut, niin lähetä kirje Free Software Foundation, Inc. :lle, 59 "
 "Temple Place - Suite 330, Boston, MA 02111-1307, USA\n"
 
 #: ../shell/ev-window.c:4265
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4268
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996-2009 Evincen tekijät"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996-2009 Atriln tekijät"
 
 #: ../shell/ev-window.c:4274
 msgid "translator-credits"
@@ -1502,16 +1502,16 @@ msgid "PAGE"
 msgstr "SIVU"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
-msgstr "Suorita evince kokoruututilassa"
+msgid "Run atril in fullscreen mode"
+msgstr "Suorita atril kokoruututilassa"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
-msgstr "Suorita evince esitystilassa"
+msgid "Run atril in presentation mode"
+msgstr "Suorita atril esitystilassa"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
-msgstr "Suorita evince esikatselimena"
+msgid "Run atril as a previewer"
+msgstr "Suorita atril esikatselimena"
 
 #: ../shell/main.c:82
 msgid "The word or phrase to find in the document"
@@ -1525,7 +1525,7 @@ msgstr "MERKKIJONO"
 msgid "[FILE…]"
 msgstr "[TIEDOSTO…]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1533,15 +1533,15 @@ msgstr ""
 "Mahdolliset totuusarvot: ”true” (tosi) ottaa pienoiskuvat käyttöön, "
 "”false” (epätosi) poistaa pienoiskuvien luomisen käytöstä"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Ota PDF-asiakirjojen pienoiskuvat käyttöön"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Pienoiskuvakomento PDF-asiakirjoille"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."
@@ -1580,10 +1580,10 @@ msgstr ""
 #~ msgstr "Palautetaanko aiemmat asiakirjat?"
 
 #~ msgid ""
-#~ "Evince appears to have exited unexpectedly the last time it was run. You "
+#~ "Atril appears to have exited unexpectedly the last time it was run. You "
 #~ "can recover the opened documents."
 #~ msgstr ""
-#~ "Evince näyttää sulkeutuneen odottamattomasti edellisellä ajokerralla. "
+#~ "Atril näyttää sulkeutuneen odottamattomasti edellisellä ajokerralla. "
 #~ "Voit palautta avatut asiakirjat."
 
 #~ msgid "_Don't Recover"
@@ -1652,8 +1652,8 @@ msgstr ""
 #~ msgid "Incorrect password"
 #~ msgstr "Väärä salasana"
 
-#~ msgid "Evince Document Viewer"
-#~ msgstr "Evince-asiakirjakatselin"
+#~ msgid "Atril Document Viewer"
+#~ msgstr "Atril-asiakirjakatselin"
 
 #~ msgid "BBox"
 #~ msgstr "BBox"

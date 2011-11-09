@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evince.head\n"
+"Project-Id-Version: atril.head\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-07-14 03:15+0000\n"
 "PO-Revision-Date: 2008-07-14 16:24-0800\n"
@@ -27,7 +27,7 @@ msgstr ".اندرغله دوتنه"
 msgid "No images found in archive %s"
 msgstr "ارشيو کې کوم انځور ونه موندل شو %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "ټوکي کتابونه"
 
@@ -36,7 +36,7 @@ msgstr "ټوکي کتابونه"
 msgid "The document is composed by several files. One or more of such files cannot be accessed."
 msgstr ""
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "Djvu Documents"
 msgstr "لاسوندونه Djvu"
 
@@ -50,7 +50,7 @@ msgstr "دوتنه نه شته"
 msgid "DVI document has incorrect format"
 msgstr "لاسوند ناسمه بڼه لري DVI"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "لاسوندونه DVI"
 
@@ -112,7 +112,7 @@ msgstr "راتاو"
 msgid "Not embedded"
 msgstr "نا راتاو"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "لاسوندونه PDF"
 
@@ -129,7 +129,7 @@ msgstr "ناسم لاسوند"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr ""
 
@@ -179,7 +179,7 @@ msgstr "لاسوند په لېښلو کې پاتې راغی “%s” د"
 msgid "Failed to save document “%s”"
 msgstr "لاسوند په ساتلو کې پاتې راغی “%s” د"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "لاسوندونه PostScript"
 
@@ -238,7 +238,7 @@ msgid "_Domain:"
 msgstr ":شپول_"
 
 #: ../cut-n-paste/evmountoperation/ev-mount-operation.c:538
-#: ../data/evince-password.glade.h:4
+#: ../data/atril-password.glade.h:4
 msgid "_Password:"
 msgstr ":تېرنويې_"
 
@@ -348,86 +348,86 @@ msgstr "۳۰۰٪"
 msgid "400%"
 msgstr "۴۰۰٪"
 
-#: ../data/evince.desktop.in.in.h:1
+#: ../data/atril.desktop.in.in.h:1
 #: ../shell/ev-window.c:3729
 #: ../shell/ev-window-title.c:132
 #, c-format
 msgid "Document Viewer"
 msgstr "لاسوند ليدانی"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multipage documents"
 msgstr "ګڼ لاسوندونه ليدل"
 
-#: ../data/evince-password.glade.h:1
+#: ../data/atril-password.glade.h:1
 msgid "Password Entry"
 msgstr "تېرنويې ننوت"
 
-#: ../data/evince-password.glade.h:2
+#: ../data/atril-password.glade.h:2
 msgid "Remember password for this session"
 msgstr "د دې ناستې لپاره تېرنويې ياد ساتل"
 
-#: ../data/evince-password.glade.h:3
+#: ../data/atril-password.glade.h:3
 msgid "Save password in keyring"
 msgstr ""
 
-#: ../data/evince-properties.glade.h:1
+#: ../data/atril-properties.glade.h:1
 msgid "<b>Author:</b>"
 msgstr "<b>:ليکوال</b>"
 
-#: ../data/evince-properties.glade.h:2
+#: ../data/atril-properties.glade.h:2
 msgid "<b>Created:</b>"
 msgstr "<b>:جوړ شوی</b>"
 
-#: ../data/evince-properties.glade.h:3
+#: ../data/atril-properties.glade.h:3
 msgid "<b>Creator:</b>"
 msgstr "<b>:جوړوونکی</b>"
 
-#: ../data/evince-properties.glade.h:4
+#: ../data/atril-properties.glade.h:4
 msgid "<b>Format:</b>"
 msgstr "<b>:بڼه</b>"
 
-#: ../data/evince-properties.glade.h:5
+#: ../data/atril-properties.glade.h:5
 msgid "<b>Keywords:</b>"
 msgstr "<b>:اروييونه</b>"
 
-#: ../data/evince-properties.glade.h:6
+#: ../data/atril-properties.glade.h:6
 msgid "<b>Modified:</b>"
 msgstr "<b>:بدل شوی</b>"
 
-#: ../data/evince-properties.glade.h:7
+#: ../data/atril-properties.glade.h:7
 msgid "<b>Number of Pages:</b>"
 msgstr "<b>:د مخونو شمېر</b>"
 
-#: ../data/evince-properties.glade.h:8
+#: ../data/atril-properties.glade.h:8
 msgid "<b>Optimized:</b>"
 msgstr ""
 
-#: ../data/evince-properties.glade.h:9
+#: ../data/atril-properties.glade.h:9
 msgid "<b>Paper Size:</b>"
 msgstr "<b>:د پاڼې کچ</b>"
 
-#: ../data/evince-properties.glade.h:10
+#: ../data/atril-properties.glade.h:10
 msgid "<b>Producer:</b>"
 msgstr ""
 
-#: ../data/evince-properties.glade.h:11
+#: ../data/atril-properties.glade.h:11
 msgid "<b>Security:</b>"
 msgstr "<b>:خونديتوب</b>"
 
-#: ../data/evince-properties.glade.h:12
+#: ../data/atril-properties.glade.h:12
 msgid "<b>Subject:</b>"
 msgstr "<b>:سرليک</b>"
 
-#: ../data/evince-properties.glade.h:13
+#: ../data/atril-properties.glade.h:13
 msgid "<b>Title:</b>"
 msgstr "<b>:سرليک</b>"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr ""
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 
@@ -795,24 +795,24 @@ msgstr ""
 "کاروي (%s) %s چې پاپلر"
 
 #: ../shell/ev-window.c:3753
-msgid "Evince is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
+msgid "Atril is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
 msgstr ""
 
 #: ../shell/ev-window.c:3757
-msgid "Evince is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
+msgid "Atril is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
 msgstr ""
 
 #: ../shell/ev-window.c:3761
-msgid "You should have received a copy of the GNU General Public License along with Evince; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
+msgid "You should have received a copy of the GNU General Public License along with Atril; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
 
 #: ../shell/ev-window.c:3785
 #: ../shell/main.c:350
-msgid "Evince"
+msgid "Atril"
 msgstr "اېوېنس"
 
 #: ../shell/ev-window.c:3788
-msgid "© 1996-2007 The Evince authors"
+msgid "© 1996-2007 The Atril authors"
 msgstr "چاپرښتې ۱۹۹۶-۲۰۰۷ د اېوېنس ليکوالان"
 
 #: ../shell/ev-window.c:3794
@@ -1192,15 +1192,15 @@ msgid "PAGE"
 msgstr "مخ"
 
 #: ../shell/main.c:60
-msgid "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
 msgstr "اېوېنس په ټوله پرده اکر کې ځغلول"
 
 #: ../shell/main.c:61
-msgid "Run evince in presentation mode"
+msgid "Run atril in presentation mode"
 msgstr ""
 
 #: ../shell/main.c:62
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr "اېوېنس لکه مخليدونکی ځغلول"
 
 #: ../shell/main.c:63
@@ -1220,22 +1220,22 @@ msgid "MATE Document Viewer"
 msgstr "جنومي لاسوند ليدانی"
 
 #: ../shell/main.c:395
-msgid "Evince Document Viewer"
+msgid "Atril Document Viewer"
 msgstr "اېوېنس لاسوند ليدانی"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid "Boolean options available, true enables thumbnailing and false disables the creation of new thumbnails"
 msgstr ""
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "لاسوندونو بټه نوکونه توانول PDF د"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "لاسوندونو لپاره بټه نوکی بولۍ PDF د"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid "Valid command plus arguments for the PDF Document thumbnailer. See caja thumbnailer documentation for more information."
 msgstr ""
 

@@ -46,7 +46,7 @@ INST_H_FILES = 					\
 	$(INST_H_SRC_FILES)			\
 	ev-document-type-builtins.h
 
-headerdir = $(includedir)/evince/$(EV_API_VERSION)/libdocument
+headerdir = $(includedir)/atril/$(EV_API_VERSION)/libdocument
 header_DATA = $(INST_H_FILES)
 
 libevdocument_la_SOURCES=			\
@@ -91,12 +91,12 @@ libevdocument_la_SOURCES=			\
 	$(INST_H_FILES)
 
 libevdocument_la_CPPFLAGS = \
-	-DG_LOG_DOMAIN=\"EvinceDocument\"		\
-	-DEVINCE_UIDIR=\"$(pkgdatadir)\"		\
+	-DG_LOG_DOMAIN=\"AtrilDocument\"		\
+	-DATRIL_UIDIR=\"$(pkgdatadir)\"		\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"		\
 	-DEV_BACKENDSDIR=\"$(backenddir)\"		\
 	-DEV_BACKENDSBINARYVERSION=\"$(backend_binary_version)\"	\
-	-DEVINCE_COMPILATION				\
+	-DATRIL_COMPILATION				\
 	$(AM_CPPFLAGS)
 
 libevdocument_la_CFLAGS = \
@@ -150,9 +150,9 @@ EXTRA_DIST = \
 
 if ENABLE_INTROSPECTION
 
-EvinceDocument-$(EV_API_VERSION).gir: libevdocument.la Makefile $(INST_H_FILES) $(filter %.c,$(libevdocument_la_SOURCES))
+AtrilDocument-$(EV_API_VERSION).gir: libevdocument.la Makefile $(INST_H_FILES) $(filter %.c,$(libevdocument_la_SOURCES))
 	$(AM_V_GEN) PKG_CONFIG_PATH=$(top_builddir):$$PKG_CONFIG_PATH \
-	$(G_IR_SCANNER) -v --namespace EvinceDocument \
+	$(G_IR_SCANNER) -v --namespace AtrilDocument \
 	--strip-prefix=Ev \
 	--nsversion=$(EV_API_VERSION) \
 	--include=GLib-2.0 \
@@ -163,20 +163,20 @@ EvinceDocument-$(EV_API_VERSION).gir: libevdocument.la Makefile $(INST_H_FILES) 
 	--library=evdocument \
 	--libtool="$(SAVED_LIBTOOL)" \
 	--output $@ \
-	--pkg evince-document-$(EV_API_VERSION) \
+	--pkg atril-document-$(EV_API_VERSION) \
 	-I$(top_srcdir) \
 	-I$(top_builddir) \
 	-I$(srcdir) \
 	-I$(builddir) \
-	-DEVINCE_COMPILATION \
+	-DATRIL_COMPILATION \
 	$(filter %.h,$^) \
 	$(filter %.c,$^)
 
 girdir = $(GIRDIR)
-gir_DATA = EvinceDocument-$(EV_API_VERSION).gir
+gir_DATA = AtrilDocument-$(EV_API_VERSION).gir
 
 typelibsdir = $(GIRTYPELIBDIR)
-typelibs_DATA = EvinceDocument-$(EV_API_VERSION).typelib
+typelibs_DATA = AtrilDocument-$(EV_API_VERSION).typelib
 
 EXTRA_DIST += $(gir_DATA)
 CLEANFILES += $(gir_DATA) $(typelibs_DATA)

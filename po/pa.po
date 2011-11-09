@@ -1,12 +1,12 @@
-# translation of evince.HEAD.po to Punjabi
+# translation of atril.HEAD.po to Punjabi
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 # Amanpreet Singh Alam <aalam@users.sf.net>, 2005,2006,2007,2008, 2009.
 # A S Alam <aalam@users.sf.net>, 2009, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: evince.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=evince&component=general\n"
+"Project-Id-Version: atril.HEAD\n"
+"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=atril&component=general\n"
 "POT-Creation-Date: 2010-08-14 09:01+0000\n"
 "PO-Revision-Date: 2010-08-17 07:27+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
@@ -70,7 +70,7 @@ msgstr "“%s” ਹਟਾਉਣ ਦੌਰਾਨ ਗਲਤੀ ਹੈ।"
 msgid "Error %s"
 msgstr "ਗਲਤੀ %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "ਹਾਸਰਸ ਕਿਤਾਬਾਂ"
 
@@ -84,7 +84,7 @@ msgid ""
 "be accessed."
 msgstr "ਡੌਕੂਮੈਂਟ ਕਈ ਫਾਇਲਾਂ ਨਾਲ ਬਣਾਇਆ ਗਿਆ ਹੈ। ਇੰਨ੍ਹਾਂ ਵਿੱਚੋਂ ਇੱਕ ਜਾਂ ਵੱਧ ਫਾਇਲਾਂ ਨੂੰ ਵਰਤਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ।"
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "DjVu ਡੌਕੂਮੈਂਟ"
 
@@ -92,7 +92,7 @@ msgstr "DjVu ਡੌਕੂਮੈਂਟ"
 msgid "DVI document has incorrect format"
 msgstr "DVI ਡੌਕੂਮੈਂਟ 'ਚ ਗਲਤ ਫਾਰਮੈਟ ਹੈ"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI ਡੌਕੂਮੈਂਟ"
 
@@ -158,7 +158,7 @@ msgstr "ਇੰਬੈੱਡ"
 msgid "Not embedded"
 msgstr "ਇੰਬੈੱਡ ਨਹੀਂ"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF ਡੌਕੂਮੈਂਟ"
 
@@ -170,7 +170,7 @@ msgstr "ਗਲਤ ਡੌਕੂਮੈਂਟ"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "ਐਮਪਰੈੱਸ ਸਲਾਇਡਾਂ"
 
@@ -220,7 +220,7 @@ msgstr "ਡੌਕੂਮੈਂਟ “%s” ਨੂੰ ਲੋਡ ਕਰਨ ਲਈ �
 msgid "Failed to save document “%s”"
 msgstr "ਡੌਕੂਮੈਂਟ “%s” ਸੰਭਾਲਣ ਲਈ ਫੇਲ੍ਹ"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "ਪੋਸਟ-ਸਕਰਿਪਟ ਡੌਕੂਮੈਂਟ"
 
@@ -436,21 +436,21 @@ msgid "6400%"
 msgstr "੬੪੦੦%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4536
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4536
 #: ../shell/ev-window-title.c:149 ../shell/main.c:310
 #, c-format
 msgid "Document Viewer"
 msgstr "ਡੌਕੂਮੈਂਟ ਦਰਸ਼ਕ"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "ਮਲਟੀ-ਪੇਜ਼ ਡੌਕੂਮੈਂਟ ਵੇਖੋ"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
 msgstr "ਡੌਕੂਮੈਂਟ ਪਾਬੰਦੀਆਂ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "ਡੌਕੂਮੈਂਟ ਪਾਬੰਦੀਆਂ, ਜਿਵੇਂ ਕਿ ਕਾਪੀ ਜਾਂ ਪਰਿੰਟ ਆਦਿ ਲਈ ਪਾਬੰਦੀ, ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ।"
 
@@ -953,7 +953,7 @@ msgstr "ਮੇਟਾਡਾਟਾ ਬਦਲਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
 "ਈਵੈਨਸ ਵਲੋਂ ਵਰਤਿਆ ਮੇਟਾਡਾਟਾ ਫਾਰਮੈਟ ਬਦਲਿਆ ਗਿਆ ਹੈ ਅਤੇ ਇਸਕਰਕੇ ਇਸ ਨੂੰ ਮਾਈਗਰੇਟ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਜੇ "
@@ -1264,7 +1264,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:4563
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
@@ -1274,7 +1274,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:4567
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -1286,11 +1286,11 @@ msgstr ""
 #: ../shell/ev-window.c:4571
 #| msgid ""
 #| "You should have received a copy of the GNU General Public License along "
-#| "with Evince; if not, write to the Free Software Foundation, Inc., 59 "
+#| "with Atril; if not, write to the Free Software Foundation, Inc., 59 "
 #| "Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
 "ਤੁਸੀਂ ਗਨੂ ਜਰਨਲ ਪਬਲਿਕ ਲਾਇਸੈਂਸ ਦੀ ਨਕਲ ਈਵੇਨਸ ਨਾਲ ਪਰਾਪਤ ਕੀਤੀ ਹੋਵੇਗੀ, ਜੇਕਰ ਨਹੀਂ ਤਾਂ ਫਰੀ "
@@ -1298,12 +1298,12 @@ msgstr ""
 "ਲਿਖੋ।\n"
 
 #: ../shell/ev-window.c:4596
-msgid "Evince"
+msgid "Atril"
 msgstr "ਈਵਨੇਸ"
 
 #: ../shell/ev-window.c:4599
-msgid "© 1996–2009 The Evince authors"
-msgstr "© ੧੯੯੬-੨੦੦੯ Evince ਲੇਖਕ"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© ੧੯੯੬-੨੦੦੯ Atril ਲੇਖਕ"
 
 #: ../shell/ev-window.c:4605
 msgid "translator-credits"
@@ -1670,15 +1670,15 @@ msgid "NUMBER"
 msgstr "ਨੰਬਰ"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
 msgstr "ਈਵਨੇਸ ਨੂੰ ਪੂਰੀ ਸਕਰੀਨ ਮੋਡ ਨਾਲ ਚਲਾਓ"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
+msgid "Run atril in presentation mode"
 msgstr "ਈਵਨੇਸ ਨੂੰ ਪਰਿਜ਼ੈੱਨਟੇਸ਼ਨ ਮੋਡ 'ਚ ਚਲਾਓ"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr "ਈਵਨੇਸ ਨੂੰ ਝਲਕ-ਦਰਸ਼ਕ ਵਾਂਗ ਚਲਾਓ"
 
 #: ../shell/main.c:82
@@ -1693,21 +1693,21 @@ msgstr "ਲਾਈਨ"
 msgid "[FILE…]"
 msgstr "[ਫਾਇਲ…]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
 msgstr "ਬੁਲੀਅਨ ਚੋਣਾਂ ਉਪਲੱਬਧ ਹਨ: ਸਹੀਂ ਨਾਲ ਥੰਮਨੇਲ ਯੋਗ ਹੋਵੇਗਾ ਅਤੇ ਗਲਤ ਨਾਲ ਨਵੇਂ ਥੰਮਨੇਲ ਨਹੀਂ ਬਣ ਸਕਣਗੇ।"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "PDF ਡੌਕੂਮੈਂਟ ਲਈ ਥੰਮਨੇਲ ਯੋਗ"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "PDF ਡੌਕੂਮੈਂਟ ਲਈ ਥੰਮਨੇਲ ਕਮਾਂਡ"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."
@@ -1756,7 +1756,7 @@ msgstr "PDF ਡੌਕੂਮੈਂਟ ਥੰਮਨੇਲਰ ਲਈ ਠੀਕ ਕ�
 #~ msgstr "ਪਿਛਲਾ ਡੌਕੂਮੈਂਟ ਮੁੜ-ਪ੍ਰਾਪਤ ਕਰਨਾ ਹੈ?"
 
 #~ msgid ""
-#~ "Evince appears to have exited unexpectedly the last time it was run. You "
+#~ "Atril appears to have exited unexpectedly the last time it was run. You "
 #~ "can recover the opened documents."
 #~ msgstr ""
 #~ "ਈਵਨੈਸ ਪਿਛਲੀ ਵਾਰ ਚੱਲਣ ਦੌਰਾਨ ਅਚਾਨਕ ਬੰਦ ਹੋ ਗਿਆ ਜਾਪਦਾ ਹੈ। ਤੁਸੀਂ ਖੁੱਲ੍ਹੇ ਡੌਕੂਮੈਂਟ ਮੁੜ-ਪ੍ਰਾਪਤ ਕਰ "
@@ -1934,7 +1934,7 @@ msgstr "PDF ਡੌਕੂਮੈਂਟ ਥੰਮਨੇਲਰ ਲਈ ਠੀਕ ਕ�
 #~ msgid "Unsupported URI: “%s”"
 #~ msgstr "ਗ਼ੈਰ-ਸਹਾਇਕ URI: “%s”"
 
-#~ msgid "Evince Document Viewer"
+#~ msgid "Atril Document Viewer"
 #~ msgstr "ਈਵਨੇਸ ਡੌਕੂਮੈਂਟ ਦਰਸ਼ਕ"
 
 #~ msgid "Images"

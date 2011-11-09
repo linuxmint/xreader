@@ -1,11 +1,11 @@
-# translation of evince.master.kn.po to Kannada
+# translation of atril.master.kn.po to Kannada
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Shankar Prasad <svenkate@redhat.com>, 2008, 2009, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: evince.master.kn\n"
+"Project-Id-Version: atril.master.kn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-21 16:14+0530\n"
 "PO-Revision-Date: 2010-07-23 13:18+0530\n"
@@ -72,7 +72,7 @@ msgstr "“%s” ಅನ್ನು ಅಳಿಸುವಲ್ಲಿ ಒಂದು ದ
 msgid "Error %s"
 msgstr "ದೋಷ %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "ಕಾಮಿಕ್ ಪುಸ್ತಕಗಳು"
 
@@ -88,7 +88,7 @@ msgstr ""
 "ದಸ್ತಾವೇಜು ಹಲವಾರು ಕಡತಗಳಿಂದ ಮಾಡಲ್ಪಟ್ಟಿದೆ. ಒಂದು ಅಥವ ಒಂದಕ್ಕಿಂತ ಹೆಚ್ಚಿನ ಇಂತಹ ಕಡತಗಳನ್ನು "
 "ನಿಲುಕಿಸಿಕೊಳ್ಳಲಾಗುತ್ತಿಲ್ಲ."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "Djvu ದಸ್ತಾವೇಜುಗಳು"
 
@@ -96,7 +96,7 @@ msgstr "Djvu ದಸ್ತಾವೇಜುಗಳು"
 msgid "DVI document has incorrect format"
 msgstr "DVI ದಸ್ತಾವೇಜು ಸರಿಯಲ್ಲದ ವಿನ್ಯಾಸವನ್ನು ಹೊಂದಿದೆ"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI ದಸ್ತಾವೇಜುಗಳು"
 
@@ -162,7 +162,7 @@ msgstr "ಅಡಕಗೊಳಿಸಲಾದ"
 msgid "Not embedded"
 msgstr "ಅಡಕಗೊಳಿಸದೆ ಇರುವ"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF ದಸ್ತಾವೇಜುಗಳು"
 
@@ -174,7 +174,7 @@ msgstr "ಅಮಾನ್ಯ ದಸ್ತಾವೇಜು"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "ಇಂಪ್ರೆಸ್‌ ಜಾರುಫಲಕಗಳು(ಸ್ಲೈಡ್‌ಗಳು)"
 
@@ -224,7 +224,7 @@ msgstr "“%s” ದಸ್ತಾವೇಜನ್ನು ಲೋಡ್ ಮಾಡಲ�
 msgid "Failed to save document “%s”"
 msgstr "“%s” ದಸ್ತಾವೇಜನ್ನು ಉಳಿಸಲು ವಿಫಲಗೊಂಡಿದೆ"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "ಪೋಸ್ಟ್‍ಸ್ಕ್ರಿಪ್ಟ್ ದಸ್ತಾವೇಜುಗಳು"
 
@@ -424,21 +424,21 @@ msgid "400%"
 msgstr "400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4168
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4168
 #: ../shell/ev-window-title.c:149 ../shell/main.c:287
 #, c-format
 msgid "Document Viewer"
 msgstr "ದಸ್ತಾವೇಜು ವೀಕ್ಷಕ"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "ಬಹು-ಪುಟದ ದಸ್ತಾವೇಜನ್ನು ವೀಕ್ಷಿಸು"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "ದಸ್ತಾವೇಜು ನಿರ್ಬಂಧಗಳನ್ನು ಅತಿಕ್ರಮಿಸು"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "ಕಾಪಿ ಮಾಡುವ ಅಥವ ಮುದ್ರಿಸುವಂತಹ ದಸ್ತಾವೇಜು ನಿರ್ಬಂಧಗಳನ್ನು ಅತಿಕ್ರಮಿಸು."
 
@@ -853,7 +853,7 @@ msgstr ""
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
 
@@ -1102,24 +1102,24 @@ msgstr ""
 
 #: ../shell/ev-window.c:4195
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 
 #: ../shell/ev-window.c:4199
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -1127,20 +1127,20 @@ msgstr ""
 #: ../shell/ev-window.c:4203
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 
 #: ../shell/ev-window.c:4228
-msgid "Evince"
+msgid "Atril"
 msgstr "ಎವಿನ್ಸ್‍"
 
 #: ../shell/ev-window.c:4231
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996–2009 Evince ಕತೃಗಳು"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996–2009 Atril ಕತೃಗಳು"
 
 #: ../shell/ev-window.c:4237
 msgid "translator-credits"
@@ -1496,15 +1496,15 @@ msgid "NUMBER"
 msgstr "ಸಂಖ್ಯೆ"
 
 #: ../shell/main.c:82
-msgid "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
 msgstr "ಎವಿನ್ಸನ್ನು ಪೂರ್ಣತೆರೆ ವಿಧಾನದಲ್ಲಿ ಚಲಾಯಿಸು"
 
 #: ../shell/main.c:83
-msgid "Run evince in presentation mode"
+msgid "Run atril in presentation mode"
 msgstr "ಎವಿನ್ಸನ್ನು ಪ್ರದರ್ಶನ ವಿಧಾನದಲ್ಲಿ ಚಲಾಯಿಸು"
 
 #: ../shell/main.c:84
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr "ಎವಿನ್ಸನ್ನು ಒಂದು ಪೂರ್ವವೀಕ್ಷಕವಾಗಿ(ಪ್ರಿವೀವರ್) ಚಲಾಯಿಸು"
 
 #: ../shell/main.c:85
@@ -1519,7 +1519,7 @@ msgstr "STRING"
 msgid "[FILE…]"
 msgstr "[FILE…]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1527,15 +1527,15 @@ msgstr ""
 "ಲಭ್ಯವಿರುವ ಬೂಲಿಯನ್ ಆಯ್ಕೆಗಳೆಂದರೆ, ನಿಜವು ತಂಬ್‌ನೈಲಿಂಗ್ ಅನ್ನು ಶಕ್ತಗೊಳಿಸುತ್ತದೆ ಹಾಗು ತಪ್ಪು "
 "ಎನ್ನುವುದು ಹೊಸ ತಂಬ್‌ನೈಲ್ ಅನ್ನು ನಿರ್ಮಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸುತ್ತದೆ"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "PDF ದಸ್ತಾವೇಜುಗಳು ತಂಬ್‍ನೈಲಿಂಗ್ ಅನ್ನು ಶಕ್ತಗೊಳಿಸು"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "PDF ದಸ್ತಾವೇಜುಗಳಿಗಾಗಿ ತಂಬ್‍ನೈಲಿಂಗ್ ಆಜ್ಞೆ"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."
@@ -1577,10 +1577,10 @@ msgstr ""
 #~ msgstr "ಹಿಂದಿನ ದಸ್ತಾವೇಜಗಳನ್ನು ಮರಳಿ ಪಡೆಯಬೇಕೆ?"
 
 #~ msgid ""
-#~ "Evince appears to have exited unexpectedly the last time it was run. You "
+#~ "Atril appears to have exited unexpectedly the last time it was run. You "
 #~ "can recover the opened documents."
 #~ msgstr ""
-#~ "Evince ಅನ್ನು ಹಿಂದಿನ ಬಾರಿಗೆ ಬಳಸುವಾಗ ಅನಿರೀಕ್ಷಿತವಾಗಿ ನಿರ್ಗಮಿಸಿದಂತೆ ತೋರುತ್ತಿದೆ. "
+#~ "Atril ಅನ್ನು ಹಿಂದಿನ ಬಾರಿಗೆ ಬಳಸುವಾಗ ಅನಿರೀಕ್ಷಿತವಾಗಿ ನಿರ್ಗಮಿಸಿದಂತೆ ತೋರುತ್ತಿದೆ. "
 #~ "ಆಗ ತೆರೆಯಲಾಗಿದ್ದ ದಸ್ತಾವೇಜುಗಳನ್ನು ನೀವು ಮರಳಿ ಪಡೆಯಬಹುದು."
 
 #~ msgid "_Don't Recover"

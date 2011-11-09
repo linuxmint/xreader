@@ -1,14 +1,14 @@
 /* ev-previewer-window.c: 
- *  this file is part of evince, a mate document viewer
+ *  this file is part of atril, a mate document viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos <carlosgc@gnome.org>
  *
- * Evince is free software; you can redistribute it and/or modify it
+ * Atril is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Evince is distributed in the hope that it will be useful, but
+ * Atril is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
@@ -24,7 +24,7 @@
 #include <gtk/gtkunixprint.h>
 #endif
 #include <glib/gi18n.h>
-#include <evince-view.h>
+#include <atril-view.h>
 #include "ev-page-action.h"
 
 #include "ev-previewer-window.h"
@@ -484,10 +484,10 @@ data_dir (void)
 	gchar *dir;
 
 	dir = g_win32_get_package_installation_directory_of_module (NULL);
-	datadir = g_build_filename (dir, "share", "evince", NULL);
+	datadir = g_build_filename (dir, "share", "atril", NULL);
 	g_free (dir);
 #else
-	datadir = g_strdup (EVINCEDATADIR);
+	datadir = g_strdup (ATRILDATADIR);
 #endif
 
        return datadir;
@@ -581,9 +581,9 @@ ev_previewer_window_constructor (GType                  type,
 	gtk_window_add_accel_group (GTK_WINDOW (window),
 				    gtk_ui_manager_get_accel_group (window->ui_manager));
 	datadir = data_dir ();
-	ui_path = g_build_filename (datadir, "evince-previewer-ui.xml", NULL);
+	ui_path = g_build_filename (datadir, "atril-previewer-ui.xml", NULL);
 	if (!gtk_ui_manager_add_ui_from_file (window->ui_manager, ui_path, &error)) {
-		g_warning ("Failed to load ui from evince-previewer-ui.xml: %s", error->message);
+		g_warning ("Failed to load ui from atril-previewer-ui.xml: %s", error->message);
 		g_error_free (error);
 	}
 	g_free (ui_path);

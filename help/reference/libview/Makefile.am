@@ -101,12 +101,12 @@ GTKDOC_CFLAGS = \
 	-I$(top_srcdir)/libview 			\
 	-I$(top_srcdir)/libdocument                     \
 	-I$(top_builddir)/libdocument                   \
-	-DEVINCEDATADIR=\"$(pkgdatadir)\"		\
+	-DATRILDATADIR=\"$(pkgdatadir)\"		\
 	-DMATEDATADIR=\"$(datadir)\"			\
-	-DEVINCE_UIDIR=\"$(pkgdatadir)\" 		\
+	-DATRIL_UIDIR=\"$(pkgdatadir)\" 		\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"		\
 	-DEV_BACKENDSDIR=\"$(backenddir)\"		\
-	-DEVINCE_COMPILATION				\
+	-DATRIL_COMPILATION				\
 	$(AM_CFLAGS)					\
 	$(LIBVIEW_CFLAGS)				\
 	$(WARN_CFLAGS)					\

@@ -2,18 +2,18 @@
 # Please keep this file sorted alphabetically.
 [encoding: UTF-8]
 backend/comics/comics-document.c
-[type: gettext/ini] backend/comics/comicsdocument.evince-backend.in
+[type: gettext/ini] backend/comics/comicsdocument.atril-backend.in
 backend/djvu/djvu-document.c
-[type: gettext/ini] backend/djvu/djvudocument.evince-backend.in
+[type: gettext/ini] backend/djvu/djvudocument.atril-backend.in
 backend/dvi/dvi-document.c
-[type: gettext/ini] backend/dvi/dvidocument.evince-backend.in
+[type: gettext/ini] backend/dvi/dvidocument.atril-backend.in
 backend/pdf/ev-poppler.cc
-[type: gettext/ini] backend/pdf/pdfdocument.evince-backend.in
+[type: gettext/ini] backend/pdf/pdfdocument.atril-backend.in
 backend/impress/impress-document.c
-[type: gettext/ini] backend/impress/impressdocument.evince-backend.in
+[type: gettext/ini] backend/impress/impressdocument.atril-backend.in
 backend/impress/zip.c
 backend/ps/ev-spectre.c
-[type: gettext/ini] backend/ps/psdocument.evince-backend.in
+[type: gettext/ini] backend/ps/psdocument.atril-backend.in
 backend/tiff/tiff-document.c
 libdocument/ev-attachment.c
 libdocument/ev-document-factory.c
@@ -23,8 +23,8 @@ cut-n-paste/smclient/eggsmclient.c
 cut-n-paste/toolbar-editor/egg-editable-toolbar.c
 cut-n-paste/toolbar-editor/egg-toolbar-editor.c
 cut-n-paste/zoom-control/ephy-zoom.h
-data/evince.desktop.in.in
-data/org.mate.Evince.gschema.xml.in
+data/atril.desktop.in.in
+data/org.mate.Atril.gschema.xml.in
 previewer/ev-previewer.c
 previewer/ev-previewer-window.c
 properties/ev-properties-main.c
@@ -59,8 +59,8 @@ shell/ev-window.c
 shell/ev-window-title.c
 shell/ev-utils.c
 shell/main.c
-thumbnailer/evince-thumbnailer-comics.schemas.in
-thumbnailer/evince-thumbnailer-djvu.schemas.in
-thumbnailer/evince-thumbnailer-dvi.schemas.in
-thumbnailer/evince-thumbnailer-ps.schemas.in
-thumbnailer/evince-thumbnailer.schemas.in
+thumbnailer/atril-thumbnailer-comics.schemas.in
+thumbnailer/atril-thumbnailer-djvu.schemas.in
+thumbnailer/atril-thumbnailer-dvi.schemas.in
+thumbnailer/atril-thumbnailer-ps.schemas.in
+thumbnailer/atril-thumbnailer.schemas.in

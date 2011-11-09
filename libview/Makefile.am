@@ -25,7 +25,7 @@ INST_H_FILES = 				\
 	$(INST_H_SRC_FILES)		\
 	ev-view-type-builtins.h
 
-headerdir = $(includedir)/evince/$(EV_API_VERSION)/libview
+headerdir = $(includedir)/atril/$(EV_API_VERSION)/libview
 header_DATA = $(INST_H_FILES)
 
 libevview_la_SOURCES = 			\
@@ -50,10 +50,10 @@ libevview_la_SOURCES = 			\
 	$(INST_H_FILES)
 
 libevview_la_CPPFLAGS = \
-	-DEVINCEDATADIR=\"$(pkgdatadir)\"	\
-	-DG_LOG_DOMAIN=\"EvinceView\"		\
+	-DATRILDATADIR=\"$(pkgdatadir)\"	\
+	-DG_LOG_DOMAIN=\"AtrilView\"		\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
-	-DEVINCE_COMPILATION			\
+	-DATRIL_COMPILATION			\
 	-I$(top_srcdir)				\
 	-I$(top_srcdir)/libdocument		\
 	-I$(top_builddir)			\
@@ -118,9 +118,9 @@ EXTRA_DIST = \
 
 if ENABLE_INTROSPECTION
 
-EvinceView-$(EV_API_VERSION).gir: libevview.la Makefile $(INST_H_FILES) $(filter %.c,$(libevview_la_SOURCES))
+AtrilView-$(EV_API_VERSION).gir: libevview.la Makefile $(INST_H_FILES) $(filter %.c,$(libevview_la_SOURCES))
 	$(AM_V_GEN) PKG_CONFIG_PATH=$(top_builddir):$$PKG_CONFIG_PATH \
-	$(G_IR_SCANNER) -v --namespace EvinceView \
+	$(G_IR_SCANNER) -v --namespace AtrilView \
 	--add-include-path=$(top_builddir)/libdocument \
 	--strip-prefix=Ev \
 	--nsversion=$(EV_API_VERSION) \
@@ -130,23 +130,23 @@ EvinceView-$(EV_API_VERSION).gir: libevview.la Makefile $(INST_H_FILES) $(filter
 	--include=Gdk-2.0 \
 	--include=GdkPixbuf-2.0 \
 	--include=Gtk-2.0 \
-	--include=EvinceDocument-$(EV_API_VERSION) \
+	--include=AtrilDocument-$(EV_API_VERSION) \
 	--library=evview \
 	--libtool="$(LIBTOOL)" \
 	--output $@ \
-	--pkg evince-document-$(EV_API_VERSION) \
-	--pkg evince-view-$(EV_API_VERSION) \
+	--pkg atril-document-$(EV_API_VERSION) \
+	--pkg atril-view-$(EV_API_VERSION) \
 	-I$(top_srcdir) \
 	-I$(top_builddir) \
-	-DEVINCE_COMPILATION \
+	-DATRIL_COMPILATION \
 	$(filter %.h,$^) \
 	$(filter %.c,$^)
 
 girdir = $(GIRDIR)
-gir_DATA = EvinceView-$(EV_API_VERSION).gir
+gir_DATA = AtrilView-$(EV_API_VERSION).gir
 
 typelibsdir = $(GIRTYPELIBDIR)
-typelibs_DATA = EvinceView-$(EV_API_VERSION).typelib
+typelibs_DATA = AtrilView-$(EV_API_VERSION).typelib
 
 EXTRA_DIST += $(gir_DATA)
 CLEANFILES += $(gir_DATA) $(typelibs_DATA)

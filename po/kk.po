@@ -1,12 +1,12 @@
-# evince to kazakh.
+# atril to kazakh.
 # Copyright (C) 2010 HZ
-# This file is distributed under the same license as the evince package.
+# This file is distributed under the same license as the atril package.
 # Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=evince&component=general\n"
+"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=atril&component=general\n"
 "POT-Creation-Date: 2010-08-18 11:29+0000\n"
 "PO-Revision-Date: 2010-08-23 22:35+0600\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
@@ -71,7 +71,7 @@ msgstr "“%s” өшіру кезінде қате орын алды."
 msgid "Error %s"
 msgstr "%s қатесі"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Comic Books"
 
@@ -83,7 +83,7 @@ msgstr "DjVu құжатының пішімі қате"
 msgid "The document is composed of several files. One or more of these files cannot be accessed."
 msgstr "Бұл құжат бірнеше файлдан жасалған. Осы файлдардың бір не бірнешеуі қолжетерсіз."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "DjVu құжаттары"
 
@@ -91,7 +91,7 @@ msgstr "DjVu құжаттары"
 msgid "DVI document has incorrect format"
 msgstr "DVI құжатының пішімі қате"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI құжаттары"
 
@@ -157,7 +157,7 @@ msgstr "Кеңейтілген"
 msgid "Not embedded"
 msgstr "Кеңейтілген емес"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF құжаттары"
 
@@ -169,7 +169,7 @@ msgstr "Қате құжат"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Impress слайдтары"
 
@@ -219,7 +219,7 @@ msgstr "“%s” құжатын жүктеу сәтсіз"
 msgid "Failed to save document “%s”"
 msgstr "“%s” құжатын сақтау сәтсіз"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript құжаттары"
 
@@ -434,7 +434,7 @@ msgid "6400%"
 msgstr "6400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1
+#: ../data/atril.desktop.in.in.h:1
 #: ../shell/ev-window.c:4536
 #: ../shell/ev-window-title.c:149
 #: ../shell/main.c:310
@@ -442,15 +442,15 @@ msgstr "6400%"
 msgid "Document Viewer"
 msgstr "Құжаттарды қараушысы"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "Көппарақты құжаттарды қарау"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
 msgstr "Құжат рұқсаттарын елемеу"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "Құжат рұқсаттарын елемеу, көшірме жасау не баспаға шығару рұқсаттары сияқты"
 
@@ -954,8 +954,8 @@ msgid "Converting metadata"
 msgstr "Метаақпарат айналдыруда"
 
 #: ../shell/ev-convert-metadata.c:187
-msgid "The metadata format used by Evince has changed, and hence it needs to be migrated. If the migration is cancelled the metadata storage will not work."
-msgstr "Evince қолданатын метаақпарат пішімі өзгертілген, сол үшін оны айналдыру керек. Егер айналдырудан бас тартылса, метаақпарат қоры жұмыс істемейді."
+msgid "The metadata format used by Atril has changed, and hence it needs to be migrated. If the migration is cancelled the metadata storage will not work."
+msgstr "Atril қолданатын метаақпарат пішімі өзгертілген, сол үшін оны айналдыру керек. Егер айналдырудан бас тартылса, метаақпарат қоры жұмыс істемейді."
 
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
@@ -1249,24 +1249,24 @@ msgstr ""
 "Қолдануда %s (%s)"
 
 #: ../shell/ev-window.c:4563
-msgid "Evince is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
-msgstr "Evince еркін бағдарлама; сіз оны Free Software Foundation шығарған GNU General Public License аясында еркін тарата не/және өзгерте аласыз; лицензия нұсқасы 2 не (тандауыңызша) кез-келген кейін шыққан.\n"
+msgid "Atril is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
+msgstr "Atril еркін бағдарлама; сіз оны Free Software Foundation шығарған GNU General Public License аясында еркін тарата не/және өзгерте аласыз; лицензия нұсқасы 2 не (тандауыңызша) кез-келген кейін шыққан.\n"
 
 #: ../shell/ev-window.c:4567
-msgid "Evince is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
-msgstr "Evince пайдалы болады деген сеніммен таратылады, бірақ ЕШҚАНДАЙ КЕПІЛДЕМЕ берілмейді; КОММЕРЦИЯЛЫҚ ҚҰНДЫЛЫҚ немесе белгілі бір МАҚСАТТАРҒА СӘЙКЕС КЕЛЕТІНІ үшін де.  Көбірек білу үшін GNU General Public License қараңыз.\n"
+msgid "Atril is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
+msgstr "Atril пайдалы болады деген сеніммен таратылады, бірақ ЕШҚАНДАЙ КЕПІЛДЕМЕ берілмейді; КОММЕРЦИЯЛЫҚ ҚҰНДЫЛЫҚ немесе белгілі бір МАҚСАТТАРҒА СӘЙКЕС КЕЛЕТІНІ үшін де.  Көбірек білу үшін GNU General Public License қараңыз.\n"
 
 #: ../shell/ev-window.c:4571
-msgid "You should have received a copy of the GNU General Public License along with Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
-msgstr "Сіз осы Evince бағдарласымен бірге GNU General Public License көшірмесін алуыңыз керек еді; олай болмаса, Free Software Foundation, Inc. ұйымына хабарласыңыз, 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA\n"
+msgid "You should have received a copy of the GNU General Public License along with Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
+msgstr "Сіз осы Atril бағдарласымен бірге GNU General Public License көшірмесін алуыңыз керек еді; олай болмаса, Free Software Foundation, Inc. ұйымына хабарласыңыз, 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA\n"
 
 #: ../shell/ev-window.c:4596
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4599
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996–2009 Evince авторлары"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996–2009 Atril авторлары"
 
 #: ../shell/ev-window.c:4605
 msgid "translator-credits"
@@ -1631,16 +1631,16 @@ msgid "NUMBER"
 msgstr "NUMBER"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
-msgstr "Evince толық экран режимінде жөнелту"
+msgid "Run atril in fullscreen mode"
+msgstr "Atril толық экран режимінде жөнелту"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
-msgstr "Evince презентация режимінде жөнелту"
+msgid "Run atril in presentation mode"
+msgstr "Atril презентация режимінде жөнелту"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
-msgstr "Evince алдын-ала қараушы режимінде жөнелту"
+msgid "Run atril as a previewer"
+msgstr "Atril алдын-ала қараушы режимінде жөнелту"
 
 #: ../shell/main.c:82
 msgid "The word or phrase to find in the document"
@@ -1654,19 +1654,19 @@ msgstr "STRING"
 msgid "[FILE…]"
 msgstr "[ФАЙЛ…]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid "Boolean options available: true enables thumbnailing and false disables the creation of new thumbnails"
 msgstr "Логикалық опциялар қолдануда: true үлгілерді жасауды іске қосады, ал false сөндіреді."
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "PDF құжаттарын алдын-ала қарау үлгілерін жасауды іске қосу"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "PDF құжаттарын алдын-ала қарау үлгілерін жасау командасы"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid "Valid command plus arguments for the PDF Document thumbnailer. See Caja thumbnailer documentation for more information."
 msgstr "PDF құжаттарын алдын-ала қарау үлгілерін жасау үшін керек команда мен оның аргументтері. Көбірек білу үшін Caja thumbnailer құжаттамасын қараңыз."
 

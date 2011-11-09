@@ -33,14 +33,14 @@ NULL =
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = \
-	evince-document-$(EV_API_VERSION).pc \
-	evince-view-$(EV_API_VERSION).pc \
+	atril-document-$(EV_API_VERSION).pc \
+	atril-view-$(EV_API_VERSION).pc \
 	$(NULL)
 
-headerdir = $(includedir)/evince/$(EV_API_VERSION)
+headerdir = $(includedir)/atril/$(EV_API_VERSION)
 header_DATA = \
-	evince-document.h \
-	evince-view.h \
+	atril-document.h \
+	atril-view.h \
 	$(NULL)
 
 # Applications 

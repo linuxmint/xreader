@@ -1,4 +1,4 @@
-# Breton translation for Evince
+# Breton translation for Atril
 # Copyright (C) 2006 Free Software Foundation, Inc.
 # This file is distributed under the GNU General Public License Version 2.
 # Jérémy Ar Floc'h <jeremy.lefloch@gmail.com>, 2006
@@ -6,8 +6,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Evince 2.14\n"
-"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=evince&component=general\n"
+"Project-Id-Version: Atril 2.14\n"
+"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=atril&component=general\n"
 "POT-Creation-Date: 2009-07-31 05:12+0000\n"
 "PO-Revision-Date: 2009-07-31 08:32+0100\n"
 "Last-Translator: Denis <denisarnuad@yahoo.fr>\n"
@@ -75,7 +75,7 @@ msgstr ""
 msgid "Error %s"
 msgstr "Fazi %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Bannoù-treset"
 
@@ -88,7 +88,7 @@ msgstr "An teul DJVU en deus un mentrezh direizh"
 msgid "The document is composed of several files. One or more of such files cannot be accessed."
 msgstr ""
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "Djvu Documents"
 msgstr "Teulioù Djvu"
 
@@ -97,7 +97,7 @@ msgstr "Teulioù Djvu"
 msgid "DVI document has incorrect format"
 msgstr "An teul DVI en deus un mentrezh direizh"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "Teulieù DVI"
 
@@ -159,7 +159,7 @@ msgstr "Enkorfet"
 msgid "Not embedded"
 msgstr "N'eo ket enkorfet"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "Teulioù PDF"
 
@@ -171,7 +171,7 @@ msgstr "Didalvoudek eo an teul"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr ""
 
@@ -221,7 +221,7 @@ msgstr ""
 msgid "Failed to save document “%s”"
 msgstr ""
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "Teulioù PostScript"
 
@@ -414,7 +414,7 @@ msgid "400%"
 msgstr "400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1
+#: ../data/atril.desktop.in.in.h:1
 #: ../shell/ev-window.c:4135
 #: ../shell/ev-window-title.c:150
 #: ../shell/main.c:484
@@ -422,15 +422,15 @@ msgstr "400%"
 msgid "Document Viewer"
 msgstr "Lenner teulioù"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multipage documents"
 msgstr "Gwelout teulioù gant meur a bajenn"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr ""
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 
@@ -791,7 +791,7 @@ msgid "Recover previous documents?"
 msgstr ""
 
 #: ../shell/ev-application.c:308
-msgid "Evince appears to have exited unexpectedly the last time it was run. You can recover the opened documents."
+msgid "Atril appears to have exited unexpectedly the last time it was run. You can recover the opened documents."
 msgstr ""
 
 #: ../shell/ev-application.c:312
@@ -1070,24 +1070,24 @@ msgid ""
 msgstr ""
 
 #: ../shell/ev-window.c:4160
-msgid "Evince is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
-msgstr "Ur meziant digor eo Evince ; dasparzhet pe/ha daskemmet e vez dindan termenoù al Lañvaz Foran Hollek GNU evel ma'z eo bet embannet gant Diazezadenn ar Meziantoù Digor ; da lâret eo handelv 2 eus al lañvaz pe (evel ma plij deoc'h) ne vern pe handelv nevesoc'h.\n"
+msgid "Atril is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
+msgstr "Ur meziant digor eo Atril ; dasparzhet pe/ha daskemmet e vez dindan termenoù al Lañvaz Foran Hollek GNU evel ma'z eo bet embannet gant Diazezadenn ar Meziantoù Digor ; da lâret eo handelv 2 eus al lañvaz pe (evel ma plij deoc'h) ne vern pe handelv nevesoc'h.\n"
 
 #: ../shell/ev-window.c:4164
-msgid "Evince is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
-msgstr "Dasparzhet eo Evince gant ar spi e vo talvoudus met GANT GWARANT EBET ; hep ar gwarant enpleg a-fet TALVOUDEGEZH KENWERZHEL pe VARREGEZH EVIT UR PAL PERSONEL. Taolit ur sell war Lañvaz Foran Hollek GNU evit gouzout hiroc'h.\n"
+msgid "Atril is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
+msgstr "Dasparzhet eo Atril gant ar spi e vo talvoudus met GANT GWARANT EBET ; hep ar gwarant enpleg a-fet TALVOUDEGEZH KENWERZHEL pe VARREGEZH EVIT UR PAL PERSONEL. Taolit ur sell war Lañvaz Foran Hollek GNU evit gouzout hiroc'h.\n"
 
 #: ../shell/ev-window.c:4168
-msgid "You should have received a copy of the GNU General Public License along with Evince; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
-msgstr "Moarvat hoc'h eus bet un eilad eus al Lañvaz Foran Hollek GNU gant Evince ; ma n'hoc'h eus ket bet,skrivit da : Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA\n"
+msgid "You should have received a copy of the GNU General Public License along with Atril; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
+msgstr "Moarvat hoc'h eus bet un eilad eus al Lañvaz Foran Hollek GNU gant Atril ; ma n'hoc'h eus ket bet,skrivit da : Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA\n"
 
 #: ../shell/ev-window.c:4192
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4195
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996–2009 Aozerion Evince"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996–2009 Aozerion Atril"
 
 #: ../shell/ev-window.c:4201
 msgid "translator-credits"
@@ -1434,15 +1434,15 @@ msgid "PAGE"
 msgstr "PAJENN"
 
 #: ../shell/main.c:82
-msgid "Run evince in fullscreen mode"
-msgstr "Loc'h Evince e mod skrammad a-bezh"
+msgid "Run atril in fullscreen mode"
+msgstr "Loc'h Atril e mod skrammad a-bezh"
 
 #: ../shell/main.c:83
-msgid "Run evince in presentation mode"
-msgstr "Loc'h Evince e mod kinngadenn"
+msgid "Run atril in presentation mode"
+msgstr "Loc'h Atril e mod kinngadenn"
 
 #: ../shell/main.c:84
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr ""
 
 #: ../shell/main.c:85
@@ -1457,19 +1457,19 @@ msgstr "HEDAD"
 msgid "[FILE...]"
 msgstr "[RESTR...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid "Boolean options available, true enables thumbnailing and false disables the creation of new thumbnails"
 msgstr ""
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr ""
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr ""
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid "Valid command plus arguments for the PDF Document thumbnailer. See caja thumbnailer documentation for more information."
 msgstr ""
 

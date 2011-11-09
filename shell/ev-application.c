@@ -1,4 +1,4 @@
-/* this file is part of evince, a mate document viewer
+/* this file is part of atril, a mate document viewer
  *
  *  Copyright (C) 2004 Martin Kretzschmar
  *  Copyright © 2010 Christian Persch
@@ -6,12 +6,12 @@
  *  Author:
  *    Martin Kretzschmar <martink@gnome.org>
  *
- * Evince is free software; you can redistribute it and/or modify it
+ * Atril is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Evince is distributed in the hope that it will be useful, but
+ * Atril is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
@@ -83,12 +83,12 @@ static EvApplication *instance;
 G_DEFINE_TYPE (EvApplication, ev_application, G_TYPE_OBJECT);
 
 #ifdef ENABLE_DBUS
-#define APPLICATION_DBUS_OBJECT_PATH "/org/mate/evince/Evince"
-#define APPLICATION_DBUS_INTERFACE   "org.mate.evince.Application"
+#define APPLICATION_DBUS_OBJECT_PATH "/org/mate/atril/Atril"
+#define APPLICATION_DBUS_INTERFACE   "org.mate.atril.Application"
 
-#define EVINCE_DAEMON_SERVICE        "org.mate.evince.Daemon"
-#define EVINCE_DAEMON_OBJECT_PATH    "/org/mate/evince/Daemon"
-#define EVINCE_DAEMON_INTERFACE      "org.mate.evince.Daemon"
+#define ATRIL_DAEMON_SERVICE        "org.mate.atril.Daemon"
+#define ATRIL_DAEMON_OBJECT_PATH    "/org/mate/atril/Daemon"
+#define ATRIL_DAEMON_INTERFACE      "org.mate.atril.Daemon"
 #endif
 
 static const gchar *userdir = NULL;
@@ -142,7 +142,7 @@ ev_application_load_session (EvApplication *application)
 #endif /* WITH_SMCLIENT */
 		return FALSE;
 
-	uri = g_key_file_get_string (state_file, "Evince", "uri", NULL);
+	uri = g_key_file_get_string (state_file, "Atril", "uri", NULL);
 	if (!uri)
 		return FALSE;
 
@@ -166,7 +166,7 @@ smclient_save_state_cb (EggSMClient   *client,
 	if (!application->uri)
 		return;
 
-	g_key_file_set_string (state_file, "Evince", "uri", application->uri);
+	g_key_file_set_string (state_file, "Atril", "uri", application->uri);
 }
 
 static void
@@ -253,11 +253,11 @@ ev_spawn (const char     *uri,
 	gchar *dir;
 
 	dir = g_win32_get_package_installation_directory_of_module (NULL);
-	argv[arg++] = g_build_filename (dir, "bin", "evince", NULL);
+	argv[arg++] = g_build_filename (dir, "bin", "atril", NULL);
 	g_free (dir);
 }
 #else
-	argv[arg++] = g_build_filename (BINDIR, "evince", NULL);
+	argv[arg++] = g_build_filename (BINDIR, "atril", NULL);
 #endif
 
 	/* Page label */
@@ -298,7 +298,7 @@ ev_spawn (const char     *uri,
 				   GINT_TO_POINTER(timestamp),
 				   NULL, &error);
 	if (!res) {
-		g_warning ("Error launching evince %s: %s\n", uri, error->message);
+		g_warning ("Error launching atril %s: %s\n", uri, error->message);
 		g_error_free (error);
 	}
 
@@ -500,7 +500,7 @@ on_register_uri_cb (GObject      *source_object,
  * @search_string:
  * @timestamp:
  *
- * Registers @uri with evince-daemon.
+ * Registers @uri with atril-daemon.
  *
  */
 static void
@@ -544,9 +544,9 @@ ev_application_register_uri (EvApplication  *application,
 	data->timestamp = timestamp;
 
         g_dbus_connection_call (application->connection,
-				EVINCE_DAEMON_SERVICE,
-				EVINCE_DAEMON_OBJECT_PATH,
-				EVINCE_DAEMON_INTERFACE,
+				ATRIL_DAEMON_SERVICE,
+				ATRIL_DAEMON_OBJECT_PATH,
+				ATRIL_DAEMON_INTERFACE,
 				"RegisterDocument",
 				g_variant_new ("(s)", uri),
 				G_VARIANT_TYPE ("(s)"),
@@ -572,9 +572,9 @@ ev_application_unregister_uri (EvApplication *application,
 	 */
         value = g_dbus_connection_call_sync (
 		application->connection,
-		EVINCE_DAEMON_SERVICE,
-		EVINCE_DAEMON_OBJECT_PATH,
-		EVINCE_DAEMON_INTERFACE,
+		ATRIL_DAEMON_SERVICE,
+		ATRIL_DAEMON_OBJECT_PATH,
+		ATRIL_DAEMON_INTERFACE,
 		"UnregisterDocument",
 		g_variant_new ("(s)", uri),
 		NULL,
@@ -672,7 +672,7 @@ ev_application_open_uri_at_dest (EvApplication  *application,
 	g_return_if_fail (uri != NULL);
 
 	if (application->uri && strcmp (application->uri, uri) != 0) {
-		/* spawn a new evince process */
+		/* spawn a new atril process */
 		ev_spawn (uri, screen, dest, mode, search_string, timestamp);
 		return;
 	} else if (!application->uri) {
@@ -815,7 +815,7 @@ method_call_cb (GDBusConnection       *connection,
 
 static const char introspection_xml[] =
         "<node>"
-          "<interface name='org.mate.evince.Application'>"
+          "<interface name='org.mate.atril.Application'>"
             "<method name='Reload'>"
               "<arg type='a{sv}' name='args' direction='in'/>"
               "<arg type='u' name='timestamp' direction='in'/>"
@@ -859,11 +859,11 @@ ev_application_accel_map_save (EvApplication *application)
 
 	if (userdir) {
 		accel_map_file = g_build_filename (userdir, "accels",
-						   "evince", NULL);
+						   "atril", NULL);
 	} else {
 		accel_map_file = g_build_filename (g_get_home_dir (),
 						   ".mate2", "accels",
-						   "evince", NULL);
+						   "atril", NULL);
 	}
 
 	tmp_filename = g_strdup_printf ("%s.XXXXXX", accel_map_file);
@@ -894,11 +894,11 @@ ev_application_accel_map_load (EvApplication *application)
 
 	if (userdir) {
 		accel_map_file = g_build_filename (userdir, "accels",
-						   "evince", NULL);
+						   "atril", NULL);
 	} else {
 		accel_map_file = g_build_filename (g_get_home_dir (),
 						   ".mate2", "accels",
-						   "evince", NULL);
+						   "atril", NULL);
 	}
 
 	gtk_accel_map_load (accel_map_file);
@@ -969,11 +969,11 @@ ev_application_init (EvApplication *ev_application)
 
 	userdir = g_getenv ("MATE22_USER_DIR");
 	if (userdir)
-		ev_application->dot_dir = g_build_filename (userdir, "evince", NULL);
+		ev_application->dot_dir = g_build_filename (userdir, "atril", NULL);
 	else
 		ev_application->dot_dir = g_build_filename (g_get_home_dir (),
 							    ".mate2",
-							    "evince",
+							    "atril",
 							    NULL);
 
 #ifdef G_OS_WIN32
@@ -981,11 +981,11 @@ ev_application_init (EvApplication *ev_application)
 	gchar *dir;
 
 	dir = g_win32_get_package_installation_directory_of_module (NULL);
-	ev_application->data_dir = g_build_filename (dir, "share", "evince", NULL);
+	ev_application->data_dir = g_build_filename (dir, "share", "atril", NULL);
 	g_free (dir);
 }
 #else
-	ev_application->data_dir = g_strdup (EVINCEDATADIR);
+	ev_application->data_dir = g_strdup (ATRILDATADIR);
 #endif
 
 	ev_application_init_session (ev_application);

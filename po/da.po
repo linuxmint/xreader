@@ -1,12 +1,12 @@
-# Danish translation of evince.
+# Danish translation of atril.
 # Copyright (C) 2005-2009 Free Software Foundation, Inc.
-# This file is distributed under the same licence as the evince package.
+# This file is distributed under the same licence as the atril package.
 # Ole Laursen <olau@hardworking.dk>, 2005, 06.
 # Peter Bach <bach.peter@gmail.com>, 2007.
 # Kenneth Nielsen <k.nielsen81@gmail.com>, 2008-2010, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: evince\n"
+"Project-Id-Version: atril\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-08-22 15:20+0200\n"
 "PO-Revision-Date: 2010-08-22 15:18+0200\n"
@@ -74,7 +74,7 @@ msgstr "Der opstod en fejl under sletning af “%s”."
 msgid "Error %s"
 msgstr "Fejl %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Tegneserier"
 
@@ -90,7 +90,7 @@ msgstr ""
 "Dokumentet er sammensat af adskillige filer. En eller flere af disse filer "
 "kan ikke tilgås."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "DjVu-dokumenter"
 
@@ -98,7 +98,7 @@ msgstr "DjVu-dokumenter"
 msgid "DVI document has incorrect format"
 msgstr "DVI-dokument har ugyldigt format"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI-dokumenter"
 
@@ -164,7 +164,7 @@ msgstr "Indlejret"
 msgid "Not embedded"
 msgstr "Ikke indlejret"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF-dokumenter"
 
@@ -176,7 +176,7 @@ msgstr "Ugyldig dokument"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Impress-slides"
 
@@ -226,7 +226,7 @@ msgstr "Kunne ikke indlæse dokumentet “%s”"
 msgid "Failed to save document “%s”"
 msgstr "Kunne ikke gemme dokumentet “%s”"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "Postscript-dokumenter"
 
@@ -438,21 +438,21 @@ msgid "6400%"
 msgstr "6400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4536
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4536
 #: ../shell/ev-window-title.c:149 ../shell/main.c:310
 #, c-format
 msgid "Document Viewer"
 msgstr "Dokumentfremviser"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "Vis dokumenter med flere sider"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
 msgstr "Ignorér dokumentbegrænsninger"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Ignorér dokumentbegrænsninger såsom begrænsninger på at kopiere eller "
@@ -974,10 +974,10 @@ msgstr "Konverterer metadata"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
-"Evinces metadataformat er blevet ændret og det vil derfor være nødvendigt at "
+"Atrils metadataformat er blevet ændret og det vil derfor være nødvendigt at "
 "udføre en konvertering. Hvis konverteringsprocessen afbrydes vil "
 "metadatalageret ikke virke."
 
@@ -1290,19 +1290,19 @@ msgstr ""
 
 #: ../shell/ev-window.c:4563
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince er fri software. Du kan redistribuere og/eller ændre programmet under "
+"Atril er fri software. Du kan redistribuere og/eller ændre programmet under "
 "betingelserne givet i GNU General Public License som udgives af Free "
 "Software Foundation; enten version 2 af licensen, eller (hvis du ønsker det) "
 "enhver senere version.\n"
 
 #: ../shell/ev-window.c:4567
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -1314,20 +1314,20 @@ msgstr ""
 #: ../shell/ev-window.c:4571
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
 "Du bør have modtaget en kopi af GNU General Public License sammen med "
-"Evince. Hvis du ikke har det, kan du skrive til Free Software Foundation, "
+"Atril. Hvis du ikke har det, kan du skrive til Free Software Foundation, "
 "Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 
 #: ../shell/ev-window.c:4596
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4599
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996–2009 Evince-forfatterne"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996–2009 Atril-forfatterne"
 
 #: ../shell/ev-window.c:4605
 msgid "translator-credits"
@@ -1695,16 +1695,16 @@ msgid "NUMBER"
 msgstr "NUMMER"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
-msgstr "Start evince i fuldskærmstilstand"
+msgid "Run atril in fullscreen mode"
+msgstr "Start atril i fuldskærmstilstand"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
-msgstr "Start evince i præsentationstilstand"
+msgid "Run atril in presentation mode"
+msgstr "Start atril i præsentationstilstand"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
-msgstr "Start evince som forhåndsvisning"
+msgid "Run atril as a previewer"
+msgstr "Start atril som forhåndsvisning"
 
 #: ../shell/main.c:82
 msgid "The word or phrase to find in the document"
@@ -1718,7 +1718,7 @@ msgstr "STRENG"
 msgid "[FILE…]"
 msgstr "[FIL…]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1726,15 +1726,15 @@ msgstr ""
 "Booleske valgmuligheder: Hvis sand aktiveres generering af miniaturer, hvis "
 "falsk deaktiveres genereringen af nye miniaturer"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Aktivér miniaturer for PDF-dokumenter"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Miniature-kommando til PDF-dokumenter"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."
@@ -1782,10 +1782,10 @@ msgstr ""
 #~ msgstr "Gendán tidligere dokumenter?"
 
 #~ msgid ""
-#~ "Evince appears to have exited unexpectedly the last time it was run. You "
+#~ "Atril appears to have exited unexpectedly the last time it was run. You "
 #~ "can recover the opened documents."
 #~ msgstr ""
-#~ "Evince har tilsyneladende lukket uventet ned sidste gang det blev brugt. "
+#~ "Atril har tilsyneladende lukket uventet ned sidste gang det blev brugt. "
 #~ "Du kan gendanne de åbnede dokumenter."
 
 #~ msgid "_Don't Recover"
@@ -1948,8 +1948,8 @@ msgstr ""
 #~ msgid "Unhandled MIME type: “%s”"
 #~ msgstr "Ikke-håndteret MIME-type: “%s”"
 
-#~ msgid "Evince Document Viewer"
-#~ msgstr "Evince - dokumentfremviser"
+#~ msgid "Atril Document Viewer"
+#~ msgstr "Atril - dokumentfremviser"
 
 #~ msgid "Images"
 #~ msgstr "Billeder"

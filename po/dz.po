@@ -1,10 +1,10 @@
-# Dzongkha translation of evince
+# Dzongkha translation of atril
 # Copyright @ 2006 Free Software Foundation,Inc.
 # Mindu Dorji
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evince.HEAD.dz\n"
+"Project-Id-Version: atril.HEAD.dz\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-12 03:16+0100\n"
 "PO-Revision-Date: 2008-08-26 11:37+0530\n"
@@ -28,7 +28,7 @@ msgstr "ཡིག་སྣོད་ངན་ཅན་ལུ་གྱུར་ན
 msgid "No images found in archive %s"
 msgstr "ཡིག་མཛོད་%sནང་གཟུགས་བརྙན་མ་མཐོང་།"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "པར་སྲུང་ཀི་དེབ།"
 
@@ -37,7 +37,7 @@ msgstr "པར་སྲུང་ཀི་དེབ།"
 msgid "The document is composed by several files. One or more of such files cannot be accessed."
 msgstr "ཡིག་ཆ་འདི་ཡིག་སྣོད་ལེ་ཤ་ཅིག་གིས་བརྩམ་ནུག།  གཅིག་ཡང་ན་ལེ་ཤ་ཡོད་པའི་ཡིག་སྣོད་ཚུ་འཛུལ་སྤྱོད་འབད་མི་ཚུགས།"
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "Djvu Documents"
 msgstr "ཌིཇི་བུ་ཡིག་ཆ།"
 
@@ -51,7 +51,7 @@ msgstr "ཡིག་སྣོད་འཐོབ་མི་ཚུགས་པས
 msgid "DVI document has incorrect format"
 msgstr "ཌིི་ཝི་ཨའི་ཡིག་ཆ་དེ་ལུ་ བདེན་མེད་རྩ་སྒྲིག་འདུག"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "ཌི་ཝི་ཨའི་ཡིག་ཆ་ཚུ།"
 
@@ -113,7 +113,7 @@ msgstr "གོམས་འདྲིས་ཚུད་པའི།"
 msgid "Not embedded"
 msgstr "གོམས་འདྲིས་མ་ཚུདཔ།"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "པི་ཌི་ཨེཕ་ ཡིག་ཆ་ཚུ་ "
 
@@ -130,7 +130,7 @@ msgstr "ནུས་ཅན་མེད་པའི་ཡིག་ཆ་"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "ཨིམ་པེརེསི་ བཤུད་བརྙན།"
 
@@ -276,7 +276,7 @@ msgstr "པོསིཊི་སི་ཀོརིཔཊི།"
 msgid "Interpreter failed."
 msgstr "དོ་རོ་ཁ་སྒྱིར་མི་མ་བཏུབ།"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "པོསཊི་སི་ཀིརིཔཊི་ཡིག་ཆ་ཚུ།"
 
@@ -409,90 +409,90 @@ msgstr "%༣༠༠"
 msgid "400%"
 msgstr "%༤༠༠"
 
-#: ../data/evince.desktop.in.in.h:1
+#: ../data/atril.desktop.in.in.h:1
 #: ../shell/ev-window.c:3573
 #: ../shell/ev-window-title.c:132
 #, c-format
 msgid "Document Viewer"
 msgstr "ཡིག་ཆ་མཐོང་བྱེད།"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multipage documents"
 msgstr "སྣ་མང་ཤོག་ལེབ་ཡིག་ཆ་ཚུ་སྟོན།"
 
-#: ../data/evince-password.glade.h:1
+#: ../data/atril-password.glade.h:1
 msgid "Password Entry"
 msgstr "ཆོག་ཡིག་བཙུགས་ནི།"
 
-#: ../data/evince-password.glade.h:2
+#: ../data/atril-password.glade.h:2
 msgid "Remember password for this session"
 msgstr "ལཱ་ཡུན་འདི་གི་དོན་ལུ་ ཆོག་ཡིག་སེམས་ཁར་བཞག"
 
-#: ../data/evince-password.glade.h:3
+#: ../data/atril-password.glade.h:3
 msgid "Save password in keyring"
 msgstr "ལྡེ་འཁོར་ནང་ཆོག་ཡིག་སྲུངས།"
 
-#: ../data/evince-password.glade.h:4
+#: ../data/atril-password.glade.h:4
 msgid "_Password:"
 msgstr "ཆོག་ཡིག་:(_P)"
 
-#: ../data/evince-properties.glade.h:1
+#: ../data/atril-properties.glade.h:1
 msgid "<b>Author:</b>"
 msgstr "<b>རྩོམ་པ་པོ་:</b>"
 
-#: ../data/evince-properties.glade.h:2
+#: ../data/atril-properties.glade.h:2
 msgid "<b>Created:</b>"
 msgstr "<b>གསར་བསྐྲུན་འབད་ཡོདཔ་:</b>"
 
-#: ../data/evince-properties.glade.h:3
+#: ../data/atril-properties.glade.h:3
 msgid "<b>Creator:</b>"
 msgstr "<b>གསར་སྐྲུན་པ་:</b>"
 
-#: ../data/evince-properties.glade.h:4
+#: ../data/atril-properties.glade.h:4
 msgid "<b>Format:</b>"
 msgstr "<b>རྩ་སྒྲིག་:</b>"
 
-#: ../data/evince-properties.glade.h:5
+#: ../data/atril-properties.glade.h:5
 msgid "<b>Keywords:</b>"
 msgstr "<b>གཙོ་ཚིག་:</b>"
 
-#: ../data/evince-properties.glade.h:6
+#: ../data/atril-properties.glade.h:6
 msgid "<b>Modified:</b>"
 msgstr "<b>ལེགས་བཅོས་འབད་ཡོདཔ་:</b>"
 
-#: ../data/evince-properties.glade.h:7
+#: ../data/atril-properties.glade.h:7
 msgid "<b>Number of Pages:</b>"
 msgstr "<b>ཤོག་གྲངས་:</b>"
 
-#: ../data/evince-properties.glade.h:8
+#: ../data/atril-properties.glade.h:8
 msgid "<b>Optimized:</b>"
 msgstr "<b>ལེགས་ལྡན་བཟོས་གྲུབ་པ་:</b>"
 
-#: ../data/evince-properties.glade.h:9
+#: ../data/atril-properties.glade.h:9
 msgid "<b>Paper Size:</b>"
 msgstr "<b>ཤོག་ལེབ་ཀྱི་ཚད་:</b>"
 
-#: ../data/evince-properties.glade.h:10
+#: ../data/atril-properties.glade.h:10
 msgid "<b>Producer:</b>"
 msgstr "<b>བཟོ་སྐྲུན་པ་:</b>"
 
-#: ../data/evince-properties.glade.h:11
+#: ../data/atril-properties.glade.h:11
 msgid "<b>Security:</b>"
 msgstr "<b>སྲུང་སྐྱོབ་:</b>"
 
-#: ../data/evince-properties.glade.h:12
+#: ../data/atril-properties.glade.h:12
 msgid "<b>Subject:</b>"
 msgstr "<b>དོན་ཚན་:</b>"
 
-#: ../data/evince-properties.glade.h:13
+#: ../data/atril-properties.glade.h:13
 msgid "<b>Title:</b>"
 msgstr "<b>མགོ་མིང་་:</b>"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "ཡིག་ཆའི་དཀག་དམ་ཟུར་ཁར་བཞག"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "ཡིག་ཆའི་དཀག་དམ་ དཔེར་ན་འདྲ་བཤུས་བརྐྱབ་ནི་དང་ དཔར་བསྐྲུན་འབད་ནིའི་དཀག་དམ་ཚུ་ ཟུར་ཁར་བཞག"
 
@@ -856,24 +856,24 @@ msgstr ""
 "པོཔ་ལར་%s (%s) དེ་ལག་ལེན་འཐབ་དོ།"
 
 #: ../shell/ev-window.c:3597
-msgid "Evince is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
+msgid "Atril is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
 msgstr "ཨི་བིནསི་དེ་ སྟོང་མ་ཐོབ་པའི་མཉེན་ཆས་ཅིག་ཨིནམ་ལས་ ཕིརི་སོཕཊི་ཝེར་གཞི་ཚོགས་ཀྱིས་ དཔེ་བསྐྲུན་འབད་མི་ ཇི་ཨེན་ཡུ་ཡོངས་ཁྱབ་མི་མང་ཆོག་ཐམ་གྱི་ཁ་ཚིག་དང་འཁྲིལ་ཏེ་ ཁྱོད་ཀྱིས་ཆོག་ཐམ་ཐོན་རིམ་༢ ཡང་ན་ (ཁྱོད་རའི་གདམ་ཁ་བཞིན) ཤུལ་ལས་ཀྱི་ཐོན་རིམ་གང་རུང་ བསྐྱར་འགྲེམ་འབད་བའམ་ ལེགས་བཅོས་འབད་ཆོག\n"
 
 #: ../shell/ev-window.c:3601
-msgid "Evince is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
+msgid "Atril is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
 msgstr "ཨི་བིནསི་དེ་ ཕན་ཐོགས་པའི་རེ་བ་གིས་ འགྲེམ་སྤེལ་འབད་ཡོད། དེ་འབདཝ་ད་ ཉེན་ལེན་ག་ནི་ཡང་མེད་པའི་ནང་ལས་ ཐ་ན་སྐྱེལ་འདྲེན་དང་ དམིགས་བསལ་དགོས་དོན་ཅིག་གི་དོན་ལུ་ ཚུད་སྒྲིག་ཡོད་མེད་ཀྱི་ཉེན་ལེན་ཙམ་ཡང་མེད། ཁ་གསལ་གྱི་དོན་ལུ་ ཇི་ཨེན་ཡུ་ མི་མང་ཆོག་ཐམ་ལུ་གཟིགས་གནང་།\n"
 
 #: ../shell/ev-window.c:3605
-msgid "You should have received a copy of the GNU General Public License along with Evince; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
+msgid "You should have received a copy of the GNU General Public License along with Atril; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr "ཁྱོད་ཀྱིས་ཨི་བིནསི་དང་གཅིག་ཁར་ ཇི་ཨེན་ཡུ་ ཡོངས་ཁྱབ་མི་མང་ཆོག་ཐམ་གྱི་འདྲ་ཅིག་ཐོབ་ཐོབ་འོང་། གལ་སྲིད་མ་ཐོབ་པ་ཅིན་ Free Software Foundation, Inc.,59 Temple Place, Suite 330, Boston, MA  02111-1307  USA ལུ་ཡི་གུ་སྐྱེལ་གནང་།\n"
 
 #: ../shell/ev-window.c:3629
 #: ../shell/main.c:349
-msgid "Evince"
+msgid "Atril"
 msgstr "ཨི་བིནསི།"
 
 #: ../shell/ev-window.c:3632
-msgid "© 1996-2007 The Evince authors"
+msgid "© 1996-2007 The Atril authors"
 msgstr "© ༡༩༩༦-༢༠༠༧ བརྡ་མཚོན་ནིའི་རྩོམ་པ་པོ་"
 
 #: ../shell/ev-window.c:3638
@@ -1251,15 +1251,15 @@ msgid "PAGE"
 msgstr "ཤོག་ལེབ།"
 
 #: ../shell/main.c:59
-msgid "Run evince in fullscreen mode"
+msgid "Run atril in fullscreen mode"
 msgstr "ཨི་བིནསི་ གསལ་གཞི་གངམ་གི་ཐབས་ལམ་ནང་གཡོག་བཀོལ།"
 
 #: ../shell/main.c:60
-msgid "Run evince in presentation mode"
+msgid "Run atril in presentation mode"
 msgstr "ཨི་བིནསི་ གསལ་སྟོན་ཐབས་ལམ་ནང་གཡོག་བཀོལ།"
 
 #: ../shell/main.c:61
-msgid "Run evince as a previewer"
+msgid "Run atril as a previewer"
 msgstr "ཨི་བིནསི་ སྔོན་ལྟ་འབད་མི་བཟུམ་ཅིག་སྦེ་གཡོག་བཀོལ།"
 
 #: ../shell/main.c:62
@@ -1279,22 +1279,22 @@ msgid "MATE Document Viewer"
 msgstr "ཇི་ནོམ་ཡིག་ཆ་མཐོང་བྱེད།"
 
 #: ../shell/main.c:392
-msgid "Evince Document Viewer"
+msgid "Atril Document Viewer"
 msgstr "ཨི་བིནསི་ཡིག་ཆ་མཐོང་བྱེད།"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid "Boolean options available, true enables thumbnailing and false disables the creation of new thumbnails"
 msgstr "འཐོབ་ཚུགས་པའི་བུ་ལིན་གྱི་གདམ་ཁ། བདེན་པ་གིས་མཐེ་གཟེར་བརྡབ་ཚུགསཔ་བཟོ་ནི་དང་ རྫུན་པ་གིས་མཐེ་གཟེར་གསར་བསྐྲུན་འབད་མ་ཚུགསཔ་བཟོཝ་ཨིན།"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "པི་ཌི་ཨེཕ་ཡིག་ཆ་ཚུ་ལུ་ མཐེ་གཟེར་བརྡབ་ནི་ལྕོགས་ཅན་བཟོ།"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "པི་ཌི་ཨེཕ་ཡིག་ཆ་ཚུ་གི་དོན་ལུ་ མཐེ་གཟེར་གྱི་བརྡ་བཀོད།"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid "Valid command plus arguments for the PDF Document thumbnailer. See caja thumbnailer documentation for more information."
 msgstr "པི་ཌི་ཨེཕ་ཡིག་ཆ་ལུ་མཐེ་གཟེར་བརྡབས་མིའི་ ནུས་ཅན་བརྡ་བཀོད་དང་སྒྲུབ་རྟགས་ཚུ། བརྡ་དོན་ཧེང་བཀལ་གྱི་དོན་ལུ་ ནའུ་ཊི་ལཱསི་མཐེ་གཟེར་བརྡབས་མིའི་ཡིག་ཆ་ལུ་བལྟ།"
 

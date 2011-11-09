@@ -5,7 +5,7 @@
   <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
   <!ENTITY version SYSTEM "version.xml">
 ]>
-<book id="evince-document">
+<book id="atril-document">
   <!--
     Copyright © 2009, 2010 Christian Persch
 
@@ -17,9 +17,9 @@
     A copy of the license is included in the COPYING file.
     -->
   <bookinfo>
-    <title>Evince Document Library Reference Manual</title>
+    <title>Atril Document Library Reference Manual</title>
     <releaseinfo>
-      For Evince version &version;.
+      For Atril version &version;.
       The latest version of this documentation can be found on-line at the
       <ulink role="online-location" url="http://library.mate.org/devel/libevdocument/index.html">MATE Library</ulink>.
     </releaseinfo>
@@ -70,7 +70,7 @@
     <title>Document Interfaces</title>
     <partintro>
       <para>
-        Provides support for writing Evince backends.
+        Provides support for writing Atril backends.
       </para>
     </partintro>
 

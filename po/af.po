@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.26\n"
 "Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?"
-"product=evince&component=general\n"
+"product=atril&component=general\n"
 "POT-Creation-Date: 2009-03-15 16:41+0000\n"
 "PO-Revision-Date: 2009-03-16 00:33+0200\n"
 "Last-Translator: F Wolff <friedel@translate.org.za>\n"
@@ -43,7 +43,7 @@ msgstr "Geen lêers in argief nie."
 msgid "No images found in archive %s"
 msgstr "Geen beelde in argief %s gevind nie"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Strokiesprente"
 
@@ -59,7 +59,7 @@ msgstr ""
 "Die dokument bestaan uit verskeie lêers. Kon nie toegang kry na een of meer "
 "van die lêers nie."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "Djvu Documents"
 msgstr "Djvu-dokumente"
 
@@ -67,7 +67,7 @@ msgstr "Djvu-dokumente"
 msgid "DVI document has incorrect format"
 msgstr "DVI-dokument het 'n ongeldige formaat"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI-dokumente"
 
@@ -129,7 +129,7 @@ msgstr "Ingebed"
 msgid "Not embedded"
 msgstr "Nie ingebed nie"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF-dokumente"
 
@@ -141,7 +141,7 @@ msgstr "Ongeldige dokument"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Impress-skyfies"
 
@@ -191,7 +191,7 @@ msgstr "Kon nie dokument “%s” oopmaak nie"
 msgid "Failed to save document “%s”"
 msgstr "Kon nie dokument “%s” stoor nie"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript-dokument"
 
@@ -417,21 +417,21 @@ msgstr "300%"
 msgid "400%"
 msgstr "400%"
 
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4274
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4274
 #: ../shell/ev-window-title.c:149
 #, c-format
 msgid "Document Viewer"
 msgstr "Dokumentbekyker"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multipage documents"
 msgstr "Kyk na multibladsydokumente"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "Oorheers dokumentbeperkings"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "Oorheers dokumentbeperkings soos beperkings op kopiëring en druk."
 
@@ -945,24 +945,24 @@ msgstr ""
 
 #: ../shell/ev-window.c:4298
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince is Vry Sagteware; u kan dit herversprei en/of wysig onderhewig\n"
+"Atril is Vry Sagteware; u kan dit herversprei en/of wysig onderhewig\n"
 "aan die voorwaardes vna die GNU Algemene Publieke Lisensie soos\n"
 "gepubliseer deur die Stigting vir Vry Sagteware; óf weergawe 2 van die\n"
 "Lisensie, óf (indien u verkies) enige latere weergawe.\n"
 
 #: ../shell/ev-window.c:4302
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince word versprei in die hoop dat dit nuttig sal wees, maar\n"
+"Atril word versprei in die hoop dat dit nuttig sal wees, maar\n"
 "SONDER ENIGE WAARBORG; sonder selfs die geïmpliseerde waarborg\n"
 "van VERHANDELBAARHEID of GESKIKTHEID VIR 'N SPESIFIEKE DOEL.\n"
 "Sien die GNU Algemene Publieke Lisensie vir meer detail.\n"
@@ -970,7 +970,7 @@ msgstr ""
 #: ../shell/ev-window.c:4306
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Atril; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
 "U moes 'n kopie van die GNU Algemene Publieke Lisensie ontvang het saam met "
@@ -979,12 +979,12 @@ msgstr ""
 
 #. Manually set name and icon in win32
 #: ../shell/ev-window.c:4330 ../shell/main.c:382
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4333
-msgid "© 1996-2007 The Evince authors"
-msgstr "© 1996-2007 Die outeurs van Evince"
+msgid "© 1996-2007 The Atril authors"
+msgstr "© 1996-2007 Die outeurs van Atril"
 
 #: ../shell/ev-window.c:4339
 msgid "translator-credits"
@@ -1374,16 +1374,16 @@ msgid "PAGE"
 msgstr "BLADSY"
 
 #: ../shell/main.c:68
-msgid "Run evince in fullscreen mode"
-msgstr "Hardloop evince in volskermmodus"
+msgid "Run atril in fullscreen mode"
+msgstr "Hardloop atril in volskermmodus"
 
 #: ../shell/main.c:69
-msgid "Run evince in presentation mode"
-msgstr "Hardloop evince in voorleggingsmodus"
+msgid "Run atril in presentation mode"
+msgstr "Hardloop atril in voorleggingsmodus"
 
 #: ../shell/main.c:70
-msgid "Run evince as a previewer"
-msgstr "Hardloop evince as voorskouer"
+msgid "Run atril as a previewer"
+msgstr "Hardloop atril as voorskouer"
 
 #: ../shell/main.c:71
 msgid "The word or phrase to find in the document"
@@ -1397,7 +1397,7 @@ msgstr "STRING"
 msgid "[FILE...]"
 msgstr "[LÊER...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available, true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1405,15 +1405,15 @@ msgstr ""
 "Boolese opsies beskikbaar, waar aktiveer duimnaelsketse en vals deaktiveer "
 "die skepping van nuwe duimnaelsketse"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Aktiveer duimnaelsketse van PDF-dokumente"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Duimnaelskets opdrag vir PDF-dokumente"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See caja "
 "thumbnailer documentation for more information."

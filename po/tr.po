@@ -1,13 +1,13 @@
-# Turkish translation for evince
+# Turkish translation for atril
 # Copyright (C) 2005 The Mate Foundation
-# This file is distributed under the same licence as the evince package.
+# This file is distributed under the same licence as the atril package.
 #
 # Bülent ŞENER <bsener@inonu.edu.tr>, 2005.
 # Baris Cicek <baris@teamforce.name.tr>, 2005, 2006.
 # Serdar CICEK <serdar@nerd.com.tr>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: evince\n"
+"Project-Id-Version: atril\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-09 22:29+0300\n"
 "PO-Revision-Date: 2009-09-09 22:28+0300\n"
@@ -78,7 +78,7 @@ msgstr "“%s” silerken hata oldu."
 msgid "Error %s"
 msgstr "Hata %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Çizgi Romanlar"
 
@@ -93,7 +93,7 @@ msgid ""
 msgstr ""
 "Belge birkaç dosyadan oluşmuş. Bir ya da daha fazla dosyaya erişilemiyor."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "Djvu Documents"
 msgstr "Djvu Belgeleri"
 
@@ -101,7 +101,7 @@ msgstr "Djvu Belgeleri"
 msgid "DVI document has incorrect format"
 msgstr "DVI belgesi geçersiz biçime sahip"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI Belgeleri"
 
@@ -163,7 +163,7 @@ msgstr "Gömülü"
 msgid "Not embedded"
 msgstr "Gömülü değil"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF Belgeleri"
 
@@ -175,7 +175,7 @@ msgstr "Geçersiz döküman"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Impress Slaytları"
 
@@ -225,7 +225,7 @@ msgstr "\"%s\" belgesi yüklenirken başarısız olundu"
 msgid "Failed to save document “%s”"
 msgstr "\"%s\" belgesi yüklenirken başarısız olundu"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript Belgeleri"
 
@@ -415,21 +415,21 @@ msgid "400%"
 msgstr "%400"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4149
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4149
 #: ../shell/ev-window-title.c:150 ../shell/main.c:484
 #, c-format
 msgid "Document Viewer"
 msgstr "Belge Görüntüleyici"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multipage documents"
 msgstr "Çok sayfalı belgeleri göster"
 
-#: ../data/evince.schemas.in.h:1
+#: ../data/atril.schemas.in.h:1
 msgid "Override document restrictions"
 msgstr "Belge sınırlamalarını değiştir"
 
-#: ../data/evince.schemas.in.h:2
+#: ../data/atril.schemas.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "Kopyalama ya da yazdırma gibi belge sınırlarlamalarını değiştir."
 
@@ -772,10 +772,10 @@ msgstr "Önceki belge kurtarılsın mı?"
 
 #: ../shell/ev-application.c:312
 msgid ""
-"Evince appears to have exited unexpectedly the last time it was run. You can "
+"Atril appears to have exited unexpectedly the last time it was run. You can "
 "recover the opened documents."
 msgstr ""
-"Evince son çalıştırıldığı zaman beklenmeyen bir şekilde çıkmış gibi "
+"Atril son çalıştırıldığı zaman beklenmeyen bir şekilde çıkmış gibi "
 "görünüyor. Açılan belgeleri kurtarabilirsiniz."
 
 #: ../shell/ev-application.c:316
@@ -1059,43 +1059,43 @@ msgstr ""
 
 #: ../shell/ev-window.c:4174
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince özgür yazılımdır; onu Özgür Yazılım Vakfı tarafındanyayınlanan GNU "
+"Atril özgür yazılımdır; onu Özgür Yazılım Vakfı tarafındanyayınlanan GNU "
 "Genel Kamul Lisansı 2. sürümü ya da (tercihen) daha sonraki sürümleri "
 "koşullarında yeniden dağıtabilir ya dadeğistirebilirsiniz.\n"
 
 #: ../shell/ev-window.c:4178
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince kullanışlı olması umuduyla dağıtılmaktadır,ama herhangi bir GARANTİ "
+"Atril kullanışlı olması umuduyla dağıtılmaktadır,ama herhangi bir GARANTİ "
 "içermez, SATILABİLİRLİKya da HERHANGİ BİR AMACA UYGUNLUK için GARANTİ ima "
 "etmez.Ayrıntılı bilgi için GNU Genel Kamu Lisansını inceleyin.\n"
 
 #: ../shell/ev-window.c:4182
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Atril; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA  02111-1307  USA\n"
 msgstr ""
-"Evince ile GNU Genel Kamul Lisansının bir kopyası almış olmalısınız.Eğer "
+"Atril ile GNU Genel Kamul Lisansının bir kopyası almış olmalısınız.Eğer "
 "yoksa bu adrese bir yazı ile bildirin: Free Software Foundation, Inc.,59 "
 "Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
 
 #: ../shell/ev-window.c:4206
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4209
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996-2009 Evince geliştiricileri"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996-2009 Atril geliştiricileri"
 
 #: ../shell/ev-window.c:4215
 msgid "translator-credits"
@@ -1429,16 +1429,16 @@ msgid "PAGE"
 msgstr "SAYFA"
 
 #: ../shell/main.c:82
-msgid "Run evince in fullscreen mode"
-msgstr "Evince'i tam ekran kipinde çalıştır"
+msgid "Run atril in fullscreen mode"
+msgstr "Atril'i tam ekran kipinde çalıştır"
 
 #: ../shell/main.c:83
-msgid "Run evince in presentation mode"
-msgstr "Evince'i sunum kipinde çalıştır"
+msgid "Run atril in presentation mode"
+msgstr "Atril'i sunum kipinde çalıştır"
 
 #: ../shell/main.c:84
-msgid "Run evince as a previewer"
-msgstr "Evince'i ön izleyici olarak çalıştır"
+msgid "Run atril as a previewer"
+msgstr "Atril'i ön izleyici olarak çalıştır"
 
 #: ../shell/main.c:85
 msgid "The word or phrase to find in the document"
@@ -1452,7 +1452,7 @@ msgstr "DİZGİ"
 msgid "[FILE...]"
 msgstr "[DOSYA...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available, true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1460,15 +1460,15 @@ msgstr ""
 "Mantıksal değerler geçerlidir, seçili ise küçük resimler etkindir ve eğer "
 "seçili değilse küçük resim oluşturma devre dışı olur"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "PDF Belgelerin küçük resimlerinin etkinliği"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "PDF Belgeleri için küçük resim komutu"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See caja "
 "thumbnailer documentation for more information."

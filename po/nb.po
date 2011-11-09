@@ -1,4 +1,4 @@
-# Norwegian translation of evince (bokmål dialect).
+# Norwegian translation of atril (bokmål dialect).
 # Copyright (C) 2000-2003, 2005 Free Software Foundation, Inc.
 # Kjartan Maraas <kmaraas@gnome.org>, 2000-2010.
 # Terance Edward Sola <terance@lyse.net>, 2005.
@@ -6,7 +6,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evince 2.31.x\n"
+"Project-Id-Version: atril 2.31.x\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-08-21 12:08+0200\n"
 "PO-Revision-Date: 2010-08-21 12:08+0200\n"
@@ -75,7 +75,7 @@ msgstr "Det oppsto en feil ved sletting av «%s»."
 msgid "Error %s"
 msgstr "Feil %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Tegneserier"
 
@@ -91,7 +91,7 @@ msgstr ""
 "Dette dokumentet består av flere filer. En eller flere av disse filene kan "
 "ikke aksesseres."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "DjVu-dokumenter"
 
@@ -99,7 +99,7 @@ msgstr "DjVu-dokumenter"
 msgid "DVI document has incorrect format"
 msgstr "DVI-dokumentet har feil format"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI-dokumenter"
 
@@ -165,7 +165,7 @@ msgstr "Innebygd"
 msgid "Not embedded"
 msgstr "Ikke innebygd"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF-dokumenter"
 
@@ -177,7 +177,7 @@ msgstr "Ugyldig dokument"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Lysbilder fra Impress"
 
@@ -227,7 +227,7 @@ msgstr "Kunne ikke åpne dokument «%s»"
 msgid "Failed to save document “%s”"
 msgstr "Kunne ikke lagre dokument «%s»"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript-dokumenter"
 
@@ -439,21 +439,21 @@ msgid "6400%"
 msgstr "6400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4536
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4536
 #: ../shell/ev-window-title.c:149 ../shell/main.c:310
 #, c-format
 msgid "Document Viewer"
 msgstr "Dokumentvisning"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "Vis dokumenter med mange sider"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
 msgstr "Overstyr begrensninger satt i dokumentet"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Overstyr dokumentbegrensninger som f.eks mulighet til å kopiere eller skrive "
@@ -952,10 +952,10 @@ msgstr "Konverterer metadata"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
-"Metadataformatet som brukes av Evince har endret seg og må derfor migreres. "
+"Metadataformatet som brukes av Atril har endret seg og må derfor migreres. "
 "Hvis migreringen avbrytes vil ikke metadatalageret fungere."
 
 #: ../shell/ev-open-recent-action.c:72
@@ -1263,44 +1263,44 @@ msgstr ""
 
 #: ../shell/ev-window.c:4563
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Evince er fri programvare; du kan redistribuere programmet og eller endre "
+"Atril er fri programvare; du kan redistribuere programmet og eller endre "
 "det i henhold til betingelsene gitt i GNU General Public License som "
 "publisert av Free Software Foundation; enten versjon 2 av lisensen, eller "
 "(hvis du ønsker) enhver senere versjon.\n"
 
 #: ../shell/ev-window.c:4567
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Evince distribueres i håp om at programmet vil være nyttig, men UTEN NOEN "
+"Atril distribueres i håp om at programmet vil være nyttig, men UTEN NOEN "
 "GARANTI; selv ikke en implisitt garanti for at det er SALGBART eller PASSER "
 "ET SPESIELT FORMÅL. Se Gnu General Public License for flere detaljer.\n"
 
 #: ../shell/ev-window.c:4571
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
-"Du skal ha mottatt en kopi av GNU General Public License sammen med Evince; "
+"Du skal ha mottatt en kopi av GNU General Public License sammen med Atril; "
 "hvis ikke kan du skrive til Free Software Foundation, Inc.,51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA\n"
 
 #: ../shell/ev-window.c:4596
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4599
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996-2009 Evince-utviklerene"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996-2009 Atril-utviklerene"
 
 #: ../shell/ev-window.c:4605
 msgid "translator-credits"
@@ -1662,16 +1662,16 @@ msgid "NUMBER"
 msgstr "NUMMER"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
-msgstr "Kjør evince i fullskjerm-modus"
+msgid "Run atril in fullscreen mode"
+msgstr "Kjør atril i fullskjerm-modus"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
-msgstr "Kjør evince i presentasjonsmodus"
+msgid "Run atril in presentation mode"
+msgstr "Kjør atril i presentasjonsmodus"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
-msgstr "Kjør evince som forhåndsvisning"
+msgid "Run atril as a previewer"
+msgstr "Kjør atril som forhåndsvisning"
 
 #: ../shell/main.c:82
 msgid "The word or phrase to find in the document"
@@ -1685,7 +1685,7 @@ msgstr "STRENG"
 msgid "[FILE…]"
 msgstr "[FIL…]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1693,15 +1693,15 @@ msgstr ""
 "Boolske verdier tilgjengelig: «true» aktiverer miniatyrer og «false» "
 "deaktiverer oppretting av nye miniatyrer."
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Aktiver generering av miniatyrer for PDF-dokumenter"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Miniatyrbildekommando for PDF-dokumenter"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."

@@ -1,4 +1,4 @@
-# translation of evince-master-po-gl-7620.po to Galician
+# translation of atril-master-po-gl-7620.po to Galician
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
@@ -13,7 +13,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evince-master-po-gl-7620\n"
+"Project-Id-Version: atril-master-po-gl-7620\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-08-16 10:32+0200\n"
 "PO-Revision-Date: 2010-08-16 10:32+0200\n"
@@ -83,7 +83,7 @@ msgstr "Produciuse un erro ao borrar «%s»."
 msgid "Error %s"
 msgstr "Erro %s"
 
-#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+#: ../backend/comics/comicsdocument.atril-backend.in.h:1
 msgid "Comic Books"
 msgstr "Libros de banda deseñada"
 
@@ -99,7 +99,7 @@ msgstr ""
 "O documento está composto por varios ficheiros. A un ou máis destes "
 "ficheiros non é posíbel acceder."
 
-#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "Documentos DjVu"
 
@@ -107,7 +107,7 @@ msgstr "Documentos DjVu"
 msgid "DVI document has incorrect format"
 msgstr "O documento DVI ten un formato incorrecto"
 
-#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+#: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
 msgstr "Documentos DVI"
 
@@ -173,7 +173,7 @@ msgstr "Incorporado"
 msgid "Not embedded"
 msgstr "Non incorporado"
 
-#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
 msgstr "Documentos PDF"
 
@@ -185,7 +185,7 @@ msgstr "Documento incorrecto"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.evince-backend.in.h:1
+#: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Diapositivas de Impress"
 
@@ -235,7 +235,7 @@ msgstr "Produciuse un fallo ao cargar o documento «%s»"
 msgid "Failed to save document “%s”"
 msgstr "Produciuse un fallo ao gardar o documento «%s»"
 
-#: ../backend/ps/psdocument.evince-backend.in.h:1
+#: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "Documentos PostScript"
 
@@ -449,21 +449,21 @@ msgid "6400%"
 msgstr "6400%"
 
 #. Manually set name and icon
-#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4536
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4536
 #: ../shell/ev-window-title.c:149 ../shell/main.c:310
 #, c-format
 msgid "Document Viewer"
 msgstr "Visualizador de documentos"
 
-#: ../data/evince.desktop.in.in.h:2
+#: ../data/atril.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "Ver documentos de varias páxinas"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
 msgstr "Ignorar as restricións do documento"
 
-#: ../data/org.mate.Evince.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Ignorar as restricións do documento, como a restrición para copiar ou "
@@ -965,10 +965,10 @@ msgstr "Convertendo os metadatos"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Evince has changed, and hence it needs to be "
+"The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
-"O formato dos metadatos empregados por Evince cambiou, e polo tanto precisan "
+"O formato dos metadatos empregados por Atril cambiou, e polo tanto precisan "
 "migrarse. Se cancela a migración o almacenamento dos metadatos non "
 "funcionará."
 
@@ -1280,44 +1280,44 @@ msgstr ""
 
 #: ../shell/ev-window.c:4563
 msgid ""
-"Evince is free software; you can redistribute it and/or modify it under the "
+"Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"O Evince é software libre, pode redistribuílo ou modificalo baixo as "
+"O Atril é software libre, pode redistribuílo ou modificalo baixo as "
 "condicións da Licenza pública xeral GNU tal como a publica a Free Software "
 "Foundation; tanto na versión 2 da Licenza como (segundo o seu criterio) en "
 "calquera versión posterior.\n"
 
 #: ../shell/ev-window.c:4567
 msgid ""
-"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"O Evince distribúese esperando que sexa útil, mais SEN NINGUNHA GARANTÍA; "
+"O Atril distribúese esperando que sexa útil, mais SEN NINGUNHA GARANTÍA; "
 "mesmo sen a garantía implícita de VALOR COMERCIAL ou ADECUACIÓN PARA UN "
 "PROPÓSITO PARTICULAR. Para máis detalles vexa a Licenza pública xeral GNU.\n"
 
 #: ../shell/ev-window.c:4571
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
-"Debeu de recibir unha copia da Licenza pública xeral GNU xunto co Evince; en "
+"Debeu de recibir unha copia da Licenza pública xeral GNU xunto co Atril; en "
 "caso contrario, escriba á Free Software Foundation, Inc., 59 Temple Place, "
 "Suite 330, Boston, MA  02111-1307  USA\n"
 
 #: ../shell/ev-window.c:4596
-msgid "Evince"
-msgstr "Evince"
+msgid "Atril"
+msgstr "Atril"
 
 #: ../shell/ev-window.c:4599
-msgid "© 1996–2009 The Evince authors"
-msgstr "© 1996-2009 Os autores do Evince"
+msgid "© 1996–2009 The Atril authors"
+msgstr "© 1996-2009 Os autores do Atril"
 
 #: ../shell/ev-window.c:4605
 msgid "translator-credits"
@@ -1687,16 +1687,16 @@ msgid "NUMBER"
 msgstr "NÚMERO"
 
 #: ../shell/main.c:79
-msgid "Run evince in fullscreen mode"
-msgstr "Executar o Evince no modo de pantalla completa"
+msgid "Run atril in fullscreen mode"
+msgstr "Executar o Atril no modo de pantalla completa"
 
 #: ../shell/main.c:80
-msgid "Run evince in presentation mode"
-msgstr "Executar o Evince no modo de presentación"
+msgid "Run atril in presentation mode"
+msgstr "Executar o Atril no modo de presentación"
 
 #: ../shell/main.c:81
-msgid "Run evince as a previewer"
-msgstr "Executar o Evince como un previsualizador"
+msgid "Run atril as a previewer"
+msgstr "Executar o Atril como un previsualizador"
 
 #: ../shell/main.c:82
 msgid "The word or phrase to find in the document"
@@ -1710,7 +1710,7 @@ msgstr "CADEA"
 msgid "[FILE…]"
 msgstr "[FICHEIRO...]"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1718,15 +1718,15 @@ msgstr ""
 "Opcións booleanas dispoñíbeis: «true» activa as miniaturas e «false» desactiva "
 "a creación de novas miniaturas"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "Activar as miniaturas dos documentos PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "Orde para crear miniaturas nos documentos PDF"
 
-#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."

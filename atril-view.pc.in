@@ -1,11 +1,11 @@
 prefix=@prefix@
 exec_prefix=@exec_prefix@
 libdir=@libdir@
-includedir=@includedir@/evince/@EV_API_VERSION@
+includedir=@includedir@/atril/@EV_API_VERSION@
 
-Name: Evince View
+Name: Atril View
 Description: MATE document viewer view library
 Version: @VERSION@
-Requires: evince-document-@EV_API_VERSION@ = @VERSION@ gthread-2.0
+Requires: atril-document-@EV_API_VERSION@ = @VERSION@ gthread-2.0
 Libs: -L${libdir} -levview
 Cflags: -I${includedir}

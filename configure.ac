@@ -8,7 +8,7 @@ m4_define([ev_micro_version],[0])
 m4_define([ev_extra_version],[])
 m4_define([ev_version],[ev_major_version.ev_minor_version.ev_micro_version()ev_extra_version])
 
-# The evince API version
+# The atril API version
 m4_define([ev_api_version], [2.32])
 
 # Libtool versioning. The backend and view libraries have separate versions.
@@ -40,7 +40,7 @@ m4_define([ev_binary_version],[ev_document_lt_current])
 # *****************************************************************************
 
 AC_PREREQ([2.57])
-AC_INIT([Evince],[ev_version],[http://bugzilla.mate.org/enter_bug.cgi?product=evince],[evince])
+AC_INIT([Atril],[ev_version],[http://bugzilla.mate.org/enter_bug.cgi?product=atril],[atril])
 AM_INIT_AUTOMAKE([1.10 foreign dist-bzip2 no-dist-gzip])
 
 AC_CONFIG_HEADERS([config.h])
@@ -76,14 +76,14 @@ AC_SUBST([DISABLE_DEPRECATED])
 
 IT_PROG_INTLTOOL([0.35.0])
 
-GETTEXT_PACKAGE=evince
+GETTEXT_PACKAGE=atril
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE],["$GETTEXT_PACKAGE"],[Gettext package])
 AM_GLIB_GNU_GETTEXT
 
 m4_pattern_allow([AM_V_GEN])dnl Make autoconf not complain about the rule below
-EV_INTLTOOL_EVINCE_BACKEND_RULE='%.evince-backend:   %.evince-backend.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(AM_V_GEN) LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< [$]@'
-AC_SUBST([EV_INTLTOOL_EVINCE_BACKEND_RULE])
+EV_INTLTOOL_ATRIL_BACKEND_RULE='%.atril-backend:   %.atril-backend.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(AM_V_GEN) LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< [$]@'
+AC_SUBST([EV_INTLTOOL_ATRIL_BACKEND_RULE])
 
 GLIB_GSETTINGS
 
@@ -175,8 +175,8 @@ case "$with_platform" in
           SHELL_PLATFORM_PKGS="hildon-1 hildon-fm-2 libosso"
           ;;
   mate)
-        # Evince has a rather soft run-time dependency on hicolor-icon-theme.
-        # If the hicolor theme is not available, Evince fails to display some
+        # Atril has a rather soft run-time dependency on hicolor-icon-theme.
+        # If the hicolor theme is not available, Atril fails to display some
         # icons. Because we cannot check for it at run-time, we instead
         # would like to require the icon theme at compile-time. But, because
         # the hicolor-icon-theme does not have a pkgconfig file, on mate we
@@ -188,7 +188,7 @@ case "$with_platform" in
   *)
         # On all other platforms we issue a warning about the runtime
         # dependency.
-        AC_MSG_WARN([Evince has a soft run-time dependency on hicolor-icon-theme. You are advised to have this theme installed when running Evince.]);
+        AC_MSG_WARN([Atril has a soft run-time dependency on hicolor-icon-theme. You are advised to have this theme installed when running Atril.]);
         SHELL_PLATFORM_PKGS=""
         ;;
 esac
@@ -241,10 +241,10 @@ BACKEND_LIBTOOL_FLAGS="-module -avoid-version -no-undefined -export-symbols \$(t
 AC_SUBST(BACKEND_LIBTOOL_FLAGS)
 
 dnl ===== Check special functions
-evince_save_LIBS=$LIBS
+atril_save_LIBS=$LIBS
 LIBS="$LIBS $BACKEND_LIBS"
 AC_CHECK_FUNCS(cairo_format_stride_for_width)
-LIBS=$evince_save_LIBS
+LIBS=$atril_save_LIBS
 
 # ******************
 # GKT+ Unix Printing
@@ -339,7 +339,7 @@ dnl Debug mode
 
 AC_ARG_ENABLE([debug],
 	AS_HELP_STRING([--enable-debug],
-		       [Turn on evince debug mode]),
+		       [Turn on atril debug mode]),
 	[enable_debug=$enableval],
 	[enable_debug=no])
 
@@ -500,12 +500,12 @@ if test "x$enable_pdf" = "xyes"; then
     PKG_CHECK_MODULES(POPPLER, poppler-glib >= $POPPLER_REQUIRED libxml-2.0 >= $LIBXML_REQUIRED,enable_pdf=yes,enable_pdf=no)
 
     if test "x$enable_pdf" = "xyes"; then
-	    evince_save_LIBS=$LIBS
+	    atril_save_LIBS=$LIBS
 	    LIBS="$LIBS $POPPLER_LIBS"
 	    AC_CHECK_FUNCS(poppler_page_get_text_layout)
 	    AC_CHECK_FUNCS(poppler_page_get_selected_text)
 	    AC_CHECK_FUNCS(poppler_page_add_annot)
-	    LIBS=$evince_save_LIBS
+	    LIBS=$atril_save_LIBS
 	    PKG_CHECK_MODULES(CAIRO_PDF, cairo-pdf, enable_cairo_pdf=yes, enable_cairo_pdf=no)
 	    if test x$enable_cairo_pdf = xyes; then
 	            AC_DEFINE([HAVE_CAIRO_PDF], [1], [defined if cairo-pdf is available])
@@ -695,30 +695,30 @@ dnl ================== End of impress book checks ==============================
 dnl =================== Mime types list ====================================================
 
 if test "x$enable_pdf" = "xyes" ; then
-	EVINCE_MIME_TYPES="application/pdf;application/x-bzpdf;application/x-gzpdf;"
+	ATRIL_MIME_TYPES="application/pdf;application/x-bzpdf;application/x-gzpdf;"
 fi
 if test "x$enable_ps" = "xyes" ; then
-	EVINCE_MIME_TYPES="${EVINCE_MIME_TYPES}application/postscript;application/x-bzpostscript;application/x-gzpostscript;image/x-eps;image/x-bzeps;image/x-gzeps;"
+	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/postscript;application/x-bzpostscript;application/x-gzpostscript;image/x-eps;image/x-bzeps;image/x-gzeps;"
 fi
 if test "x$enable_dvi" = "xyes"; then
-	EVINCE_MIME_TYPES="${EVINCE_MIME_TYPES}application/x-dvi;application/x-bzdvi;application/x-gzdvi;"
+	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/x-dvi;application/x-bzdvi;application/x-gzdvi;"
 fi
 if test "x$enable_djvu" = "xyes"; then
-	EVINCE_MIME_TYPES="${EVINCE_MIME_TYPES}image/vnd.djvu;"
+	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}image/vnd.djvu;"
 fi
 if test "x$enable_tiff" = "xyes"; then
-	EVINCE_MIME_TYPES="${EVINCE_MIME_TYPES}image/tiff;"
+	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}image/tiff;"
 fi
 if test "x$enable_comics" = "xyes"; then
-	EVINCE_MIME_TYPES="${EVINCE_MIME_TYPES}application/x-cbr;application/x-cbz;application/x-cb7;application/x-cbt;"
+	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/x-cbr;application/x-cbz;application/x-cb7;application/x-cbt;"
 fi
 if test "x$enable_pixbuf" = "xyes"; then
-	EVINCE_MIME_TYPES="${EVINCE_MIME_TYPES}image/*;"
+	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}image/*;"
 fi
 if test "x$enable_impress" = "xyes"; then
-	EVINCE_MIME_TYPES="${EVINCE_MIME_TYPES}application/vnd.sun.xml.impress;application/vnd.oasis.opendocument.presentation;"
+	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/vnd.sun.xml.impress;application/vnd.oasis.opendocument.presentation;"
 fi
-AC_SUBST(EVINCE_MIME_TYPES)
+AC_SUBST(ATRIL_MIME_TYPES)
 
 AC_CHECK_FUNC(localtime_r, AC_DEFINE(HAVE_LOCALTIME_R, 1, [Defines if localtime_r is available on your system]))
 
@@ -763,7 +763,7 @@ AC_SUBST([GTK_PREFIX],[$($PKG_CONFIG --variable=prefix gtk+-$GTK_API_VERSION)])
 # Backends directory
 # ******************
 
-AC_SUBST([backenddir],"\$(libdir)/evince/ev_binary_version/backends")
+AC_SUBST([backenddir],"\$(libdir)/atril/ev_binary_version/backends")
 AC_SUBST([backend_binary_version],"ev_binary_version")
 
 # **********
@@ -804,7 +804,7 @@ cut-n-paste/toolbar-editor/Makefile
 cut-n-paste/zoom-control/Makefile
 cut-n-paste/totem-screensaver/Makefile
 cut-n-paste/synctex/Makefile
-data/evince.desktop.in
+data/atril.desktop.in
 data/Makefile
 data/icons/Makefile
 data/icons/16x16/Makefile
@@ -850,8 +850,8 @@ test/Makefile
 thumbnailer/Makefile
 ])
 
-AC_CONFIG_FILES(evince-document-[]ev_api_version[].pc:evince-document.pc.in)
-AC_CONFIG_FILES(evince-view-[]ev_api_version[].pc:evince-view.pc.in)
+AC_CONFIG_FILES(atril-document-[]ev_api_version[].pc:atril-document.pc.in)
+AC_CONFIG_FILES(atril-view-[]ev_api_version[].pc:atril-view.pc.in)
 
 AC_OUTPUT
 

@@ -7,7 +7,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Evince\n"
+"Project-Id-Version: Atril\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-08-24 21:37-0400\n"
 "PO-Revision-Date: 2005-07-24 06:42+0200\n"
@@ -21,42 +21,42 @@ msgstr ""
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: ../C/evince.xml:158(None)
+#: ../C/atril.xml:158(None)
 msgid ""
-"@@image: 'figures/evince_start_window.png'; "
+"@@image: 'figures/atril_start_window.png'; "
 "md5=7f4da5e33bcac35738a268d93d497d47"
 msgstr ""
 
-#: ../C/evince.xml:25(title) ../C/evince.xml:85(revnumber)
-msgid "Evince Document Viewer Manual V1.0"
-msgstr "Упутство за прегледач докумената Evince 1.0"
+#: ../C/atril.xml:25(title) ../C/atril.xml:85(revnumber)
+msgid "Atril Document Viewer Manual V1.0"
+msgstr "Упутство за прегледач докумената Atril 1.0"
 
-#: ../C/evince.xml:27(para)
-msgid "User manual for the Evince Document Viewer."
-msgstr "Упутство за кориснике прегледача докумената Evince."
+#: ../C/atril.xml:27(para)
+msgid "User manual for the Atril Document Viewer."
+msgstr "Упутство за кориснике прегледача докумената Atril."
 
-#: ../C/evince.xml:30(year)
+#: ../C/atril.xml:30(year)
 msgid "2005"
 msgstr "2005"
 
-#: ../C/evince.xml:31(holder) ../C/evince.xml:88(para)
+#: ../C/atril.xml:31(holder) ../C/atril.xml:88(para)
 msgid "Nickolay V. Shmyrev"
 msgstr "Николај В. Шмирев"
 
-#: ../C/evince.xml:34(year)
+#: ../C/atril.xml:34(year)
 msgid "2004"
 msgstr "2004"
 
-#: ../C/evince.xml:35(holder) ../C/evince.xml:58(orgname)
+#: ../C/atril.xml:35(holder) ../C/atril.xml:58(orgname)
 msgid "Sun Microsystems"
 msgstr "Sun Microsystems"
 
-#: ../C/evince.xml:46(publishername) ../C/evince.xml:64(orgname)
-#: ../C/evince.xml:89(para)
+#: ../C/atril.xml:46(publishername) ../C/atril.xml:64(orgname)
+#: ../C/atril.xml:89(para)
 msgid "MATE Documentation Project"
 msgstr "Подухват документовања Гнома"
 
-#: ../C/evince.xml:2(para)
+#: ../C/atril.xml:2(para)
 msgid ""
 "Permission is granted to copy, distribute and/or modify this document under "
 "the terms of the GNU Free Documentation License (GFDL), Version 1.1 or any "
@@ -73,7 +73,7 @@ msgstr ""
 "\"ghelp:fdl\">адреси</ulink> или у датотеци COPYING-DOCS која је приложена"
 "(може се пронаћи) уз ово упутство."
 
-#: ../C/evince.xml:12(para)
+#: ../C/atril.xml:12(para)
 msgid ""
 "This manual is part of a collection of MATE manuals distributed under the "
 "GFDL. If you want to distribute this manual separately from the collection, "
@@ -85,7 +85,7 @@ msgstr ""
 "од збирке, то можете учинити уз прилагање примерка дозволе уз упутство, као "
 "што је описано у одељку 6 дозволе."
 
-#: ../C/evince.xml:19(para)
+#: ../C/atril.xml:19(para)
 msgid ""
 "Many of the names used by companies to distinguish their products and "
 "services are claimed as trademarks. Where those names appear in any MATE "
@@ -99,7 +99,7 @@ msgstr ""
 "пројекта имају сазнања о томе, тада су називи исписани великим словима или "
 "са великим почетним словима."
 
-#: ../C/evince.xml:35(para)
+#: ../C/atril.xml:35(para)
 msgid ""
 "DOCUMENT IS PROVIDED ON AN \"AS IS\" BASIS, WITHOUT WARRANTY OF ANY KIND, "
 "EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES THAT "
@@ -126,7 +126,7 @@ msgstr ""
 "ИЛИ ЊЕГОВЕ ИЗМЕЊЕНЕ ВЕРЗИЈЕ НИЈЕ ДОЗВОЉЕНА ОСИМ ПОД УСЛОВИМА ОВОГ ОГРАНИЧЕЊА "
 "ЈАМСТВА."
 
-#: ../C/evince.xml:55(para)
+#: ../C/atril.xml:55(para)
 msgid ""
 "UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER IN TORT (INCLUDING "
 "NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL THE AUTHOR, INITIAL WRITER, ANY "
@@ -151,7 +151,7 @@ msgstr ""
 
 # ова порука ће се мало изменити када се допуни xml2po бољом дефиницијом за ознаке у Докбук документима:
 #   појавиће се само један <placeholder-1/> уместо читавог <orderedlist>
-#: ../C/evince.xml:28(para)
+#: ../C/atril.xml:28(para)
 msgid ""
 "DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED UNDER THE TERMS "
 "OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER UNDERSTANDING THAT: "
@@ -160,195 +160,195 @@ msgstr ""
 "ОВАЈ ДОКУМЕНТ И ЊЕГОВЕ ИЗМЕЊЕНЕ ВЕРЗИЈЕ СУ ДОСТУПНЕ ПОД УСЛОВИМА ГНУ-ОВЕ "
 "СЛОБОДНЕ ДОКУМЕНТАЦИОНЕ ДОЗВОЛЕ УЗ ДОДАТНУ САГЛАСНОСТ ДА: <placeholder-1/>"
 
-#: ../C/evince.xml:56(firstname)
+#: ../C/atril.xml:56(firstname)
 msgid "Sun"
 msgstr "Sun"
 
-#: ../C/evince.xml:57(surname)
+#: ../C/atril.xml:57(surname)
 msgid "MATE Documentation Team"
 msgstr "Тим за документовање Гнома"
 
-#: ../C/evince.xml:61(firstname)
+#: ../C/atril.xml:61(firstname)
 msgid "Nickolay V."
 msgstr "Николај В."
 
-#: ../C/evince.xml:62(surname)
+#: ../C/atril.xml:62(surname)
 msgid "Shmyrev"
 msgstr "Шмирев"
 
-#: ../C/evince.xml:65(email)
+#: ../C/atril.xml:65(email)
 msgid "nshmyrev@yandex.ru"
 msgstr "nshmyrev@yandex.ru"
 
-#: ../C/evince.xml:86(date)
+#: ../C/atril.xml:86(date)
 msgid "2005-04-06"
 msgstr "2005-04-06"
 
-#: ../C/evince.xml:94(releaseinfo)
-msgid "This manual describes version 0.2 of Evince Document Viewer"
-msgstr "Ово упутство описује издање 0.2 прегледача докумената Evince"
+#: ../C/atril.xml:94(releaseinfo)
+msgid "This manual describes version 0.2 of Atril Document Viewer"
+msgstr "Ово упутство описује издање 0.2 прегледача докумената Atril"
 
-#: ../C/evince.xml:97(title)
+#: ../C/atril.xml:97(title)
 msgid "Feedback"
 msgstr "Сарадња"
 
-#: ../C/evince.xml:98(para)
+#: ../C/atril.xml:98(para)
 msgid ""
-"To report a bug or make a suggestion regarding the Evince Document Viewer "
+"To report a bug or make a suggestion regarding the Atril Document Viewer "
 "application or this manual, follow the directions in the <ulink url=\"ghelp:"
 "mate-feedback\" type=\"help\">MATE Feedback Page</ulink>."
 msgstr ""
-"Да пријавите грешку или учините предлог у вези прегледача докумената Evince "
+"Да пријавите грешку или учините предлог у вези прегледача докумената Atril "
 "или овог упутства, пратите упутства са <ulink url=\"ghelp:mate-feedback\" "
 "type=\"help\">стране за учествовање у Гному</ulink>."
 
-#: ../C/evince.xml:105(primary)
-msgid "Evince Document Viewer"
-msgstr "Прегледач докумената Evince"
+#: ../C/atril.xml:105(primary)
+msgid "Atril Document Viewer"
+msgstr "Прегледач докумената Atril"
 
-#: ../C/evince.xml:108(primary)
-msgid "evince"
-msgstr "evince"
+#: ../C/atril.xml:108(primary)
+msgid "atril"
+msgstr "atril"
 
-#: ../C/evince.xml:116(title)
+#: ../C/atril.xml:116(title)
 msgid "Introduction"
 msgstr "Увод"
 
-#: ../C/evince.xml:117(para)
+#: ../C/atril.xml:117(para)
 msgid ""
-"The <application>Evince Document Viewer</application> application enables "
+"The <application>Atril Document Viewer</application> application enables "
 "you to view documents of various formats like Portable Document Format (PDF) "
-"files and PostScript files. <application>Evince Document Viewer</"
+"files and PostScript files. <application>Atril Document Viewer</"
 "application> follows Freedesktop.org and MATE standards to provide "
 "integration with Desktop Environment."
 msgstr ""
 
-#: ../C/evince.xml:124(title)
+#: ../C/atril.xml:124(title)
 msgid "Getting Started"
 msgstr "Како почети"
 
-#: ../C/evince.xml:127(title)
-msgid "To Start Evince Document Viewer"
-msgstr "Да покренете прегледач докумената Evince"
+#: ../C/atril.xml:127(title)
+msgid "To Start Atril Document Viewer"
+msgstr "Да покренете прегледач докумената Atril"
 
-#: ../C/evince.xml:128(para)
+#: ../C/atril.xml:128(para)
 msgid ""
-"You can start <application>Evince Document Viewer</application> in the "
+"You can start <application>Atril Document Viewer</application> in the "
 "following ways:"
 msgstr ""
 
-#: ../C/evince.xml:132(term)
+#: ../C/atril.xml:132(term)
 msgid "<guimenu>Applications</guimenu> menu"
 msgstr "Мени <guimenu>Програми</guimenu>"
 
-#: ../C/evince.xml:134(para)
+#: ../C/atril.xml:134(para)
 msgid ""
-"Choose <menuchoice><guisubmenu>Graphics</guisubmenu><guimenuitem>Evince "
+"Choose <menuchoice><guisubmenu>Graphics</guisubmenu><guimenuitem>Atril "
 "Document Viewer</guimenuitem></menuchoice>."
 msgstr ""
 
-#: ../C/evince.xml:139(term)
+#: ../C/atril.xml:139(term)
 msgid "Command line"
 msgstr "Наредба"
 
-#: ../C/evince.xml:141(para)
-msgid "Execute the following command: <command>evince</command>"
+#: ../C/atril.xml:141(para)
+msgid "Execute the following command: <command>atril</command>"
 msgstr ""
 
-#: ../C/evince.xml:149(title)
-msgid "When You Start Evince Document Viewer"
+#: ../C/atril.xml:149(title)
+msgid "When You Start Atril Document Viewer"
 msgstr ""
 
-#: ../C/evince.xml:150(para)
+#: ../C/atril.xml:150(para)
 msgid ""
-"When you start <application>Evince Document Viewer</application>, the "
+"When you start <application>Atril Document Viewer</application>, the "
 "following window is displayed."
 msgstr ""
 
-#: ../C/evince.xml:154(title)
-msgid "Evince Document Viewer Window"
+#: ../C/atril.xml:154(title)
+msgid "Atril Document Viewer Window"
 msgstr ""
 
-#: ../C/evince.xml:161(phrase)
+#: ../C/atril.xml:161(phrase)
 msgid ""
-"Shows Evince Document Viewer main window. Contains titlebar, menubar, "
+"Shows Atril Document Viewer main window. Contains titlebar, menubar, "
 "toolbar and display area. Menubar contains File, Edit, View, Go and Help "
 "menus."
 msgstr ""
 
-#: ../C/evince.xml:167(para)
+#: ../C/atril.xml:167(para)
 msgid ""
-"The <application>Evince Document Viewer</application> window contains the "
+"The <application>Atril Document Viewer</application> window contains the "
 "following elements:"
 msgstr ""
 
-#: ../C/evince.xml:171(term) ../C/evince.xml:219(para)
+#: ../C/atril.xml:171(term) ../C/atril.xml:219(para)
 msgid "Menubar"
 msgstr ""
 
-#: ../C/evince.xml:173(para)
+#: ../C/atril.xml:173(para)
 msgid ""
 "The menus on the menubar contain all of the commands that you need to work "
-"with documents in <application>Evince Document Viewer</application>."
+"with documents in <application>Atril Document Viewer</application>."
 msgstr ""
 
-#: ../C/evince.xml:177(term)
+#: ../C/atril.xml:177(term)
 msgid "Toolbar"
 msgstr "Линија са алатима"
 
-#: ../C/evince.xml:179(para)
+#: ../C/atril.xml:179(para)
 msgid ""
 "The toolbar contains a subset of the commands that you can access from the "
 "menubar."
 msgstr ""
 
-#: ../C/evince.xml:183(term)
+#: ../C/atril.xml:183(term)
 msgid "Display area"
 msgstr ""
 
-#: ../C/evince.xml:185(para)
+#: ../C/atril.xml:185(para)
 msgid "The display area displays the document."
 msgstr ""
 
-#: ../C/evince.xml:199(para)
+#: ../C/atril.xml:199(para)
 msgid "UI Component"
 msgstr ""
 
-#: ../C/evince.xml:201(para)
+#: ../C/atril.xml:201(para)
 msgid "Action"
 msgstr "Акција"
 
-#: ../C/evince.xml:206(para)
+#: ../C/atril.xml:206(para)
 msgid "Window"
 msgstr "Прозор"
 
-#: ../C/evince.xml:210(para)
+#: ../C/atril.xml:210(para)
 msgid ""
-"Drag a file into the <application>Evince Document Viewer</application> "
+"Drag a file into the <application>Atril Document Viewer</application> "
 "window from another application such as a file manager."
 msgstr ""
 
-#: ../C/evince.xml:213(para)
+#: ../C/atril.xml:213(para)
 msgid "Double-click on the file name in the file manager"
 msgstr ""
 
-#: ../C/evince.xml:220(para) ../C/evince.xml:247(para)
+#: ../C/atril.xml:220(para) ../C/atril.xml:247(para)
 msgid ""
 "Choose <menuchoice><guimenu>File</guimenu><guimenuitem>Open</guimenuitem></"
 "menuchoice>."
 msgstr ""
 
-#: ../C/evince.xml:224(para)
+#: ../C/atril.xml:224(para)
 msgid "Shortcut keys"
 msgstr ""
 
-#: ../C/evince.xml:225(para)
+#: ../C/atril.xml:225(para)
 msgid "Press <keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo>."
 msgstr ""
 
-#: ../C/evince.xml:190(para)
+#: ../C/atril.xml:190(para)
 msgid ""
-"In <application>Evince Document Viewer</application>, you can perform the "
+"In <application>Atril Document Viewer</application>, you can perform the "
 "same action in several ways. For example, you can open a document in the "
 "following ways: <informaltable frame=\"all\"><tgroup cols=\"2\" colsep=\"1\" "
 "rowsep=\"1\"><colspec colname=\"COLSPEC0\" colwidth=\"50*\"/><colspec "
@@ -360,527 +360,527 @@ msgid ""
 "\"><placeholder-7/><placeholder-8/></row></tbody></tgroup></informaltable>"
 msgstr ""
 
-#: ../C/evince.xml:231(para)
+#: ../C/atril.xml:231(para)
 msgid "This manual documents functionality from the menubar."
 msgstr ""
 
-#: ../C/evince.xml:239(title)
+#: ../C/atril.xml:239(title)
 msgid "Usage"
 msgstr ""
 
-#: ../C/evince.xml:243(title)
+#: ../C/atril.xml:243(title)
 msgid "To Open a File"
 msgstr ""
 
-#: ../C/evince.xml:244(para)
+#: ../C/atril.xml:244(para)
 msgid "To open a File, perform the following steps:"
 msgstr ""
 
-#: ../C/evince.xml:251(para)
+#: ../C/atril.xml:251(para)
 msgid ""
 "In the <guilabel>Load file</guilabel> dialog, select the file you want to "
 "open."
 msgstr ""
 
-#: ../C/evince.xml:256(para)
+#: ../C/atril.xml:256(para)
 msgid ""
-"Click <guibutton>Open</guibutton>. <application>Evince Document Viewer</"
+"Click <guibutton>Open</guibutton>. <application>Atril Document Viewer</"
 "application> displays the name of the document in the titlebar of the window."
 msgstr ""
 
-#: ../C/evince.xml:261(para)
+#: ../C/atril.xml:261(para)
 msgid ""
 "To open another document, choose <menuchoice><guimenu>File</"
 "guimenu><guimenuitem>Open</guimenuitem></menuchoice> again. "
-"<application>Evince Document Viewer</application> opens each file in a new "
+"<application>Atril Document Viewer</application> opens each file in a new "
 "window."
 msgstr ""
 
-#: ../C/evince.xml:264(para)
+#: ../C/atril.xml:264(para)
 msgid ""
-"If you try to open a document with format that <application>Evince Document "
+"If you try to open a document with format that <application>Atril Document "
 "Viewer</application> does not recognize, the application displays an error "
 "message."
 msgstr ""
 
-#: ../C/evince.xml:270(title)
+#: ../C/atril.xml:270(title)
 msgid "To Navigate Through a Document"
 msgstr ""
 
-#: ../C/evince.xml:271(para)
+#: ../C/atril.xml:271(para)
 msgid "You can navigate through a file as follows:"
 msgstr ""
 
-#: ../C/evince.xml:274(para)
+#: ../C/atril.xml:274(para)
 msgid ""
 "To view the next page, choose <menuchoice><guimenu>Go</"
 "guimenu><guimenuitem>Next Page</guimenuitem></menuchoice>."
 msgstr ""
 
-#: ../C/evince.xml:278(para)
+#: ../C/atril.xml:278(para)
 msgid ""
 "To view the previous page, choose <menuchoice><guimenu>Go</"
 "guimenu><guimenuitem>Previous Page</guimenuitem></menuchoice>."
 msgstr ""
 
-#: ../C/evince.xml:282(para)
+#: ../C/atril.xml:282(para)
 msgid ""
 "To view the first page in the document, choose <menuchoice><guimenu>Go</"
 "guimenu><guimenuitem>First Page</guimenuitem></menuchoice>."
 msgstr ""
 
-#: ../C/evince.xml:286(para)
+#: ../C/atril.xml:286(para)
 msgid ""
 "To view the last page in the document, choose <menuchoice><guimenu>Go</"
 "guimenu><guimenuitem>Last Page</guimenuitem></menuchoice>."
 msgstr ""
 
-#: ../C/evince.xml:290(para)
+#: ../C/atril.xml:290(para)
 msgid ""
 "To view a particular page, enter the page number or page label in the text "
 "box on the toolbar, then press <keycap>Return</keycap>."
 msgstr ""
 
-#: ../C/evince.xml:297(title)
+#: ../C/atril.xml:297(title)
 msgid "To Scroll a Page"
 msgstr ""
 
-#: ../C/evince.xml:298(para)
+#: ../C/atril.xml:298(para)
 msgid ""
 "To display the page contents that are not currently displayed in the display "
 "area, use the following methods:"
 msgstr ""
 
-#: ../C/evince.xml:301(para)
+#: ../C/atril.xml:301(para)
 msgid "Use the arrow keys or space key on the keyboard."
 msgstr ""
 
-#: ../C/evince.xml:304(para)
+#: ../C/atril.xml:304(para)
 msgid ""
 "Drag the display area in the opposite direction to the direction in which "
 "you want to scroll. For example, to scroll down the page, drag the display "
 "area upwards in the window."
 msgstr ""
 
-#: ../C/evince.xml:307(para)
+#: ../C/atril.xml:307(para)
 msgid "Use the scrollbars on the window."
 msgstr ""
 
-#: ../C/evince.xml:314(title)
+#: ../C/atril.xml:314(title)
 msgid "To Change the Page Size"
 msgstr ""
 
-#: ../C/evince.xml:315(para)
+#: ../C/atril.xml:315(para)
 msgid ""
 "You can use the following methods to resize a page in the "
-"<application>Evince Document Viewer</application> display area:"
+"<application>Atril Document Viewer</application> display area:"
 msgstr ""
 
-#: ../C/evince.xml:320(para)
+#: ../C/atril.xml:320(para)
 msgid ""
 "To increase the page size, choose <menuchoice><guimenu>View</"
 "guimenu><guimenuitem>Zoom In</guimenuitem></menuchoice>."
 msgstr ""
 
-#: ../C/evince.xml:325(para)
+#: ../C/atril.xml:325(para)
 msgid ""
 "To decrease the page size, choose <menuchoice><guimenu>View</"
 "guimenu><guimenuitem>Zoom Out</guimenuitem></menuchoice>."
 msgstr ""
 
-#: ../C/evince.xml:330(para)
+#: ../C/atril.xml:330(para)
 msgid ""
-"To resize a page to have the same width as the <application>Evince Document "
+"To resize a page to have the same width as the <application>Atril Document "
 "Viewer</application> display area, choose <menuchoice><guimenu>View</"
 "guimenu><guimenuitem>Fit page width</guimenuitem></menuchoice>."
 msgstr ""
 
-#: ../C/evince.xml:335(para)
+#: ../C/atril.xml:335(para)
 msgid ""
-"To resize a page to fit within the <application>Evince Document Viewer</"
+"To resize a page to fit within the <application>Atril Document Viewer</"
 "application> display area, choose <menuchoice><guimenu>View</"
 "guimenu><guimenuitem>Best Fit</guimenuitem></menuchoice>."
 msgstr ""
 
-#: ../C/evince.xml:340(para)
+#: ../C/atril.xml:340(para)
 msgid ""
-"To resize the <application>Evince Document Viewer</application> window to "
+"To resize the <application>Atril Document Viewer</application> window to "
 "have the same width and height as the screen, choose "
 "<menuchoice><guimenu>View</guimenu><guimenuitem>Full Screen</guimenuitem></"
-"menuchoice>. To resize the <application>Evince Document Viewer</application> "
+"menuchoice>. To resize the <application>Atril Document Viewer</application> "
 "window to the original size, click on the <guibutton>Exit Full Screen</"
 "guibutton> button."
 msgstr ""
 
-#: ../C/evince.xml:348(title)
+#: ../C/atril.xml:348(title)
 msgid "To View Pages or Document Structore"
 msgstr ""
 
-#: ../C/evince.xml:349(para)
+#: ../C/atril.xml:349(para)
 msgid "To view bookmarks or pages, perform the following steps:"
 msgstr ""
 
-#: ../C/evince.xml:353(para)
+#: ../C/atril.xml:353(para)
 msgid ""
 "Choose <menuchoice><guimenu>View</guimenu><guimenuitem>Sidebar</"
 "guimenuitem></menuchoice> or press <keycap>F9</keycap>."
 msgstr ""
 
-#: ../C/evince.xml:358(para)
+#: ../C/atril.xml:358(para)
 msgid ""
 "Use the drop-down list in the side-pane header to select whether to display "
 "document structure or pages in the side pane."
 msgstr ""
 
-#: ../C/evince.xml:363(para)
+#: ../C/atril.xml:363(para)
 msgid ""
 "Use the side-pane scrollbars to display the required item or page in the "
 "side pane."
 msgstr ""
 
-#: ../C/evince.xml:368(para)
+#: ../C/atril.xml:368(para)
 msgid ""
 "Click on an entry to navigate to that location in the document. Click on a "
 "page to navigate to that page in the document."
 msgstr ""
 
-#: ../C/evince.xml:374(title)
+#: ../C/atril.xml:374(title)
 msgid "To View the Properties of a Document"
 msgstr ""
 
-#: ../C/evince.xml:375(para)
+#: ../C/atril.xml:375(para)
 msgid ""
 "To view the properties of a document, choose <menuchoice><guimenu>File</"
 "guimenu><guimenuitem>Properties</guimenuitem></menuchoice>."
 msgstr ""
 
-#: ../C/evince.xml:381(para)
+#: ../C/atril.xml:381(para)
 msgid ""
 "The <guilabel>Properties</guilabel> dialog displays all information available"
 msgstr ""
 
-#: ../C/evince.xml:387(title)
+#: ../C/atril.xml:387(title)
 msgid "To Print a Document"
 msgstr ""
 
-#: ../C/evince.xml:388(para)
+#: ../C/atril.xml:388(para)
 msgid ""
 "To print a Document, choose <menuchoice><guimenu>File</"
 "guimenu><guimenuitem>Print</guimenuitem></menuchoice>."
 msgstr ""
 
-#: ../C/evince.xml:392(para)
+#: ../C/atril.xml:392(para)
 msgid ""
 "If you cannot choose the <guimenuitem>Print</guimenuitem> menu item, the "
 "author of the document has disabled the print option for this document. To "
 "enable the print option, you must enter the master password when you open "
-"the document. See <xref linkend=\"evince-password\"/> for more information "
+"the document. See <xref linkend=\"atril-password\"/> for more information "
 "about password-protected files."
 msgstr ""
 
-#: ../C/evince.xml:396(para)
+#: ../C/atril.xml:396(para)
 msgid ""
 "The <guilabel>Print</guilabel> dialog has the following tabbed sections:"
 msgstr ""
 
-#: ../C/evince.xml:402(link) ../C/evince.xml:418(title)
+#: ../C/atril.xml:402(link) ../C/atril.xml:418(title)
 msgid "Job"
 msgstr "Посао"
 
-#: ../C/evince.xml:407(link) ../C/evince.xml:440(title)
-#: ../C/evince.xml:442(guilabel)
+#: ../C/atril.xml:407(link) ../C/atril.xml:440(title)
+#: ../C/atril.xml:442(guilabel)
 msgid "Printer"
 msgstr "Штампач"
 
-#: ../C/evince.xml:412(link) ../C/evince.xml:534(title)
+#: ../C/atril.xml:412(link) ../C/atril.xml:534(title)
 msgid "Paper"
 msgstr "Папир"
 
-#: ../C/evince.xml:420(guilabel)
+#: ../C/atril.xml:420(guilabel)
 msgid "Print range"
 msgstr ""
 
-#: ../C/evince.xml:422(para)
+#: ../C/atril.xml:422(para)
 msgid ""
 "Select one of the following options to determine how many pages to print:"
 msgstr ""
 
-#: ../C/evince.xml:425(guilabel)
+#: ../C/atril.xml:425(guilabel)
 msgid "All"
 msgstr "Све"
 
-#: ../C/evince.xml:426(para)
+#: ../C/atril.xml:426(para)
 msgid "Select this option to print all of the pages in the document."
 msgstr ""
 
-#: ../C/evince.xml:429(guilabel)
+#: ../C/atril.xml:429(guilabel)
 msgid "Pages From"
 msgstr ""
 
-#: ../C/evince.xml:430(para)
+#: ../C/atril.xml:430(para)
 msgid ""
 "Select this option to print the selected range of pages in the document. Use "
 "the spin boxes to specify the first page and last page of the range."
 msgstr ""
 
-#: ../C/evince.xml:444(para)
+#: ../C/atril.xml:444(para)
 msgid ""
 "Use this drop-down list to select the printer to which you want to print the "
 "document."
 msgstr ""
 
-#: ../C/evince.xml:446(para)
+#: ../C/atril.xml:446(para)
 msgid ""
 "The <guilabel>Create a PDF document</guilabel> option is not supported in "
-"this version of <application>Evince Document Viewer</application>."
+"this version of <application>Atril Document Viewer</application>."
 msgstr ""
 
-#: ../C/evince.xml:452(guilabel)
+#: ../C/atril.xml:452(guilabel)
 msgid "Settings"
 msgstr "Подешавања"
 
-#: ../C/evince.xml:454(para)
+#: ../C/atril.xml:454(para)
 msgid "Use this drop-down list to select the printer settings."
 msgstr ""
 
-#: ../C/evince.xml:456(para)
+#: ../C/atril.xml:456(para)
 msgid ""
 "To configure the printer, click <guibutton>Configure</guibutton>. For "
 "example, you can enable or disable duplex printing, or schedule delayed "
 "printing, if this functionality is supported by the printer."
 msgstr ""
 
-#: ../C/evince.xml:460(guilabel)
+#: ../C/atril.xml:460(guilabel)
 msgid "Location"
 msgstr "Место"
 
-#: ../C/evince.xml:462(para)
+#: ../C/atril.xml:462(para)
 msgid ""
 "Use this drop-down list to select one of the following print destinations:"
 msgstr ""
 
-#: ../C/evince.xml:467(guilabel)
+#: ../C/atril.xml:467(guilabel)
 msgid "CUPS"
 msgstr ""
 
-#: ../C/evince.xml:469(para)
+#: ../C/atril.xml:469(para)
 msgid "Print the document to a CUPS printer."
 msgstr ""
 
-#: ../C/evince.xml:473(para)
+#: ../C/atril.xml:473(para)
 msgid ""
 "If the selected printer is a CUPS printer, <guilabel>CUPS</guilabel> is the "
 "only entry in this drop-down list."
 msgstr ""
 
 # bug: is this a command name, or what?
-#: ../C/evince.xml:480(guilabel)
+#: ../C/atril.xml:480(guilabel)
 msgid "lpr"
 msgstr "lpr"
 
-#: ../C/evince.xml:482(para)
+#: ../C/atril.xml:482(para)
 msgid "Print the document to a printer."
 msgstr ""
 
-#: ../C/evince.xml:488(guilabel)
+#: ../C/atril.xml:488(guilabel)
 msgid "File"
 msgstr "Датотека"
 
-#: ../C/evince.xml:490(para)
+#: ../C/atril.xml:490(para)
 msgid "Print the document to a PostScript file."
 msgstr ""
 
-#: ../C/evince.xml:493(para)
+#: ../C/atril.xml:493(para)
 msgid ""
 "Click <guibutton>Save As</guibutton> to display a dialog where you specify "
 "the name and location of the PostScript file."
 msgstr ""
 
-#: ../C/evince.xml:499(guilabel)
+#: ../C/atril.xml:499(guilabel)
 msgid "Custom"
 msgstr "Произвољно"
 
-#: ../C/evince.xml:501(para)
+#: ../C/atril.xml:501(para)
 msgid "Use the specified command to print the document."
 msgstr ""
 
-#: ../C/evince.xml:504(para)
+#: ../C/atril.xml:504(para)
 msgid ""
 "Type the name of the command in the text box. Include all command-line "
 "arguments."
 msgstr ""
 
-#: ../C/evince.xml:512(guilabel)
+#: ../C/atril.xml:512(guilabel)
 msgid "State"
 msgstr "Стање"
 
-#: ../C/evince.xml:514(para) ../C/evince.xml:520(para)
-#: ../C/evince.xml:526(para)
+#: ../C/atril.xml:514(para) ../C/atril.xml:520(para)
+#: ../C/atril.xml:526(para)
 msgid ""
-"This functionality is not supported in this version of <application>Evince "
+"This functionality is not supported in this version of <application>Atril "
 "Document Viewer</application>."
 msgstr ""
 
-#: ../C/evince.xml:518(guilabel)
+#: ../C/atril.xml:518(guilabel)
 msgid "Type"
 msgstr "Тип"
 
-#: ../C/evince.xml:524(guilabel)
+#: ../C/atril.xml:524(guilabel)
 msgid "Comment"
 msgstr "Примедба"
 
-#: ../C/evince.xml:536(guilabel)
+#: ../C/atril.xml:536(guilabel)
 msgid "Paper size"
 msgstr ""
 
-#: ../C/evince.xml:538(para)
+#: ../C/atril.xml:538(para)
 msgid ""
 "Use this drop-down list to select the size of the paper to which you want to "
 "print the document."
 msgstr ""
 
-#: ../C/evince.xml:541(guilabel)
+#: ../C/atril.xml:541(guilabel)
 msgid "Width"
 msgstr "Ширина"
 
-#: ../C/evince.xml:543(para)
+#: ../C/atril.xml:543(para)
 msgid ""
 "Use this spin box to specify the width of the paper. Use the adjacent drop-"
 "down list to change the measurement unit."
 msgstr ""
 
-#: ../C/evince.xml:546(guilabel)
+#: ../C/atril.xml:546(guilabel)
 msgid "Height"
 msgstr "Висина"
 
-#: ../C/evince.xml:548(para)
+#: ../C/atril.xml:548(para)
 msgid "Use this spin box to specify the height of the paper."
 msgstr ""
 
-#: ../C/evince.xml:551(guilabel)
+#: ../C/atril.xml:551(guilabel)
 msgid "Feed orientation"
 msgstr ""
 
-#: ../C/evince.xml:553(para)
+#: ../C/atril.xml:553(para)
 msgid ""
 "Use this drop-down list to select the orientation of the paper in the "
 "printer."
 msgstr ""
 
-#: ../C/evince.xml:556(guilabel)
+#: ../C/atril.xml:556(guilabel)
 msgid "Page orientation"
 msgstr ""
 
-#: ../C/evince.xml:558(para)
+#: ../C/atril.xml:558(para)
 msgid "Use this drop-down list to select the page orientation."
 msgstr ""
 
-#: ../C/evince.xml:561(guilabel)
+#: ../C/atril.xml:561(guilabel)
 msgid "Layout"
 msgstr "Изглед"
 
-#: ../C/evince.xml:563(para)
+#: ../C/atril.xml:563(para)
 msgid ""
 "Use this drop-down list to select the page layout. A preview of each layout "
 "that you select is displayed in the <guilabel>Preview</guilabel> area."
 msgstr ""
 
-#: ../C/evince.xml:566(guilabel)
+#: ../C/atril.xml:566(guilabel)
 msgid "Paper Tray"
 msgstr ""
 
-#: ../C/evince.xml:568(para)
+#: ../C/atril.xml:568(para)
 msgid "Use this drop-down list to select the paper tray."
 msgstr ""
 
-#: ../C/evince.xml:578(title)
+#: ../C/atril.xml:578(title)
 msgid "To Copy a Document"
 msgstr ""
 
-#: ../C/evince.xml:579(para)
+#: ../C/atril.xml:579(para)
 msgid "To copy a file, perform the following steps:"
 msgstr ""
 
-#: ../C/evince.xml:583(para)
+#: ../C/atril.xml:583(para)
 msgid ""
 "Choose <menuchoice><guimenu>File</guimenu><guimenuitem>Save a Copy</"
 "guimenuitem></menuchoice>."
 msgstr ""
 
-#: ../C/evince.xml:588(para)
+#: ../C/atril.xml:588(para)
 msgid ""
 "Type the new filename in the <guilabel>Filename</guilabel> text box in the "
 "<guilabel>Save a Copy</guilabel> dialog."
 msgstr ""
 
-#: ../C/evince.xml:591(para)
+#: ../C/atril.xml:591(para)
 msgid ""
 "If necessary, specify the location of the copied document. By default, "
 "copies are saved in your home directory."
 msgstr ""
 
-#: ../C/evince.xml:596(para)
+#: ../C/atril.xml:596(para)
 msgid "Click <guibutton>Save</guibutton>."
 msgstr ""
 
-#: ../C/evince.xml:605(title)
+#: ../C/atril.xml:605(title)
 msgid "To Work With Password-Protected Documents"
 msgstr ""
 
-#: ../C/evince.xml:606(para)
+#: ../C/atril.xml:606(para)
 msgid "An author can use the following password levels to protect a document:"
 msgstr ""
 
-#: ../C/evince.xml:611(para)
+#: ../C/atril.xml:611(para)
 msgid "User password that allows others only to read the document."
 msgstr ""
 
-#: ../C/evince.xml:615(para)
+#: ../C/atril.xml:615(para)
 msgid ""
 "Master password that allows others to perform additional actions, such as "
 "print the document."
 msgstr ""
 
-#: ../C/evince.xml:619(para)
+#: ../C/atril.xml:619(para)
 msgid ""
-"When you try to open a password-protected document, <application>Evince "
+"When you try to open a password-protected document, <application>Atril "
 "Document Viewer</application> displays a security dialog. Type either the "
 "user password or the master password in the <guilabel>Enter document "
 "password</guilabel> text box, then click <guibutton>Open Document</"
 "guibutton>."
 msgstr ""
 
-#: ../C/evince.xml:626(title)
+#: ../C/atril.xml:626(title)
 msgid "To Close a Document"
 msgstr ""
 
-#: ../C/evince.xml:627(para)
+#: ../C/atril.xml:627(para)
 msgid ""
 "To close a document, choose <menuchoice><guimenu>File</"
 "guimenu><guimenuitem>Close</guimenuitem></menuchoice>."
 msgstr ""
 
-#: ../C/evince.xml:629(para)
+#: ../C/atril.xml:629(para)
 msgid ""
-"If the window is the last <application>Evince Document Viewer</application> "
+"If the window is the last <application>Atril Document Viewer</application> "
 "window open, the application exits."
 msgstr ""
 
-#: ../C/evince.xml:632(para)
+#: ../C/atril.xml:632(para)
 msgid ""
-"To quit <application>Evince Document Viewer</application> at any time, no "
+"To quit <application>Atril Document Viewer</application> at any time, no "
 "matter how many windows are open, choose <menuchoice><guimenu>File</"
 "guimenu><guimenuitem>Quit</guimenuitem></menuchoice>."
 msgstr ""
 
-#: ../C/evince.xml:634(para)
+#: ../C/atril.xml:634(para)
 msgid ""
-"When you quit, <application>Evince Document Viewer</application> closes all "
+"When you quit, <application>Atril Document Viewer</application> closes all "
 "documents opened in the current session."
 msgstr ""
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
-#: ../C/evince.xml:0(None)
+#: ../C/atril.xml:0(None)
 msgid "translator-credits"
 msgstr ""
 "Данило Шеган <danilo@gnome.org>\n"
@@ -1346,42 +1346,42 @@ msgstr ""
 #~ "Користи poppler %s (%s)"
 
 #~ msgid ""
-#~ "Evince is free software; you can redistribute it and/or modify\n"
+#~ "Atril is free software; you can redistribute it and/or modify\n"
 #~ "it under the terms of the GNU General Public License as published by\n"
 #~ "the Free Software Foundation; either version 2 of the License, or\n"
 #~ "(at your option) any later version.\n"
 #~ msgstr ""
-#~ "Evince је слободан софтвер; можете га расподељивати и/или га мењати\n"
+#~ "Atril је слободан софтвер; можете га расподељивати и/или га мењати\n"
 #~ "под условима ГНУ Опште Јавне Лиценце (GNU GPL) како је објављује \n"
 #~ "Задужбина за Слободни Софтвер (FSF); било верзије 2 те Лиценце, било\n"
 #~ "(по вашем нахођењу) било које новије верзије.\n"
 
 #~ msgid ""
-#~ "Evince is distributed in the hope that it will be useful,\n"
+#~ "Atril is distributed in the hope that it will be useful,\n"
 #~ "but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
 #~ "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
 #~ "GNU General Public License for more details.\n"
 #~ msgstr ""
-#~ "Evince се расподељује у нади да ће бити од користи, али БЕЗ\n"
+#~ "Atril се расподељује у нади да ће бити од користи, али БЕЗ\n"
 #~ "ИКАКВИХ ГАРАНЦИЈА; чак и без подразумеване гаранције \n"
 #~ "КОРИСНОСТИ или ПРИЛАГОЂЕНОСТИ ОДРЕЂЕНОЈ НАМЕНИ.  Видите ГНУ \n"
 #~ "Општу Јавну Лиценцу за више детаља.\n"
 
 #~ msgid ""
 #~ "You should have received a copy of the GNU General Public License\n"
-#~ "along with Evince; if not, write to the Free Software Foundation, Inc.,\n"
+#~ "along with Atril; if not, write to the Free Software Foundation, Inc.,\n"
 #~ "59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
 #~ msgstr ""
-#~ "Требали сте да примите примерак ГНУ Опште Јавне Лиценце уз Evince; ако\n"
+#~ "Требали сте да примите примерак ГНУ Опште Јавне Лиценце уз Atril; ако\n"
 #~ "нисте, пишите Задужбини за Слободни Софтвер (Free Software Foundation, "
 #~ "Inc.), \n"
 #~ "59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n"
 
-#~ msgid "Evince"
-#~ msgstr "Evince"
+#~ msgid "Atril"
+#~ msgstr "Atril"
 
-#~ msgid "© 1996-2005 The Evince authors"
-#~ msgstr "Сва права задржана © 1996–2005 Аутори Evince-а"
+#~ msgid "© 1996-2005 The Atril authors"
+#~ msgstr "Сва права задржана © 1996–2005 Аутори Atril-а"
 
 #~ msgid "_File"
 #~ msgstr "_Датотека"

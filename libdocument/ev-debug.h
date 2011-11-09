@@ -1,6 +1,6 @@
 /*
  * ev-debug.h
- * This file is part of Evince
+ * This file is part of Atril
  *
  * Copyright (C) 1998, 1999 Alex Roberts, Evan Lawrence
  * Copyright (C) 2000, 2001 Chema Celorio, Paolo Maggi
@@ -30,9 +30,9 @@
  * $Id: gedit-debug.h 4809 2006-04-08 14:46:31Z pborelli $
  */
 
-/* Modified by Evince Team */
+/* Modified by Atril Team */
 
-#if !defined (EVINCE_COMPILATION)
+#if !defined (ATRIL_COMPILATION)
 #error "This is a private header."
 #endif
 
