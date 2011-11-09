@@ -1,0 +1,1638 @@
+# translation of ml.po to
+# translation of evince.master.ml.po to
+# translation of evince.HEAD.ml.po to
+# This file is distributed under the same license as the evince package.
+# Copyright (C) 2006-2008 evince'S COPYRIGHT HOLDER.
+# Ani Peter <apeter@redhat.com>, 2006, 2009.
+# Santhosh Thottingal <santhosh.thottingal@gmail.com> , 2008
+msgid ""
+msgstr ""
+"Project-Id-Version: ml\n"
+"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?"
+"product=evince&component=general\n"
+"POT-Creation-Date: 2010-04-13 16:02+0000\n"
+"PO-Revision-Date: 2010-04-14 14:53+0530\n"
+"Last-Translator: \n"
+"Language-Team:  <en@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"\n"
+
+#: ../backend/comics/comics-document.c:160
+#, c-format
+msgid ""
+"Error launching the command “%s” in order to decompress the comic book: %s"
+msgstr "ചിത്രകഥാപുസ്തകം ഡീകംപ്രസ് ചെയ്യുന്നതിനുള്ള “%s” കമാന്‍ഡ് ലഭ്യമാക്കുന്നതില്‍ പിശക്: %s "
+
+#: ../backend/comics/comics-document.c:174
+#, c-format
+msgid "The command “%s” failed at decompressing the comic book."
+msgstr "ചിത്രകഥാപുസ്തകം ഡീകംപ്രസ് ചെയ്യുന്നതില്‍ “%s” കമാന്‍ഡ് പരാജയപ്പെട്ടു."
+
+#: ../backend/comics/comics-document.c:183
+#, c-format
+msgid "The command “%s” did not end normally."
+msgstr "“%s” കമാന്‍ഡ് ശരിയായി അവസാനിച്ചില്ല."
+
+#: ../backend/comics/comics-document.c:350
+#, c-format
+msgid "Not a comic book MIME type: %s"
+msgstr "ഒരു കോമിക് പുസ്തക MIME തരത്തിലുള്ളതല്ല: %s"
+
+#: ../backend/comics/comics-document.c:357
+msgid "Can't find an appropriate command to decompress this type of comic book"
+msgstr "ഇതരത്തിലുള്ള ചിത്രകഥാപുസ്തകം ഡീകംപ്രസ് ചെയ്യുവാനുള്ള കമാന്‍ഡ് ലഭ്യമാക്കുവാന്‍ സാധ്യമല്ല"
+
+#: ../backend/comics/comics-document.c:395
+#: ../libdocument/ev-document-factory.c:143
+#: ../libdocument/ev-document-factory.c:286
+msgid "Unknown MIME Type"
+msgstr "അപരിചിതമായ MIME രീതി"
+
+#: ../backend/comics/comics-document.c:422
+msgid "File corrupted"
+msgstr "ഫയലിനു് തകരാറു സംഭവിച്ചിരിക്കുന്നു"
+
+#: ../backend/comics/comics-document.c:435
+msgid "No files in archive"
+msgstr "ആര്‍ക്കൈവില്‍ ഫയലുകള്‍ ലഭ്യമല്ല"
+
+#: ../backend/comics/comics-document.c:474
+#, c-format
+msgid "No images found in archive %s"
+msgstr "ആര്‍ക്കൈവ് %s-ല്‍ ഇമേജുകള്‍ ലഭ്യമല്ല"
+
+#: ../backend/comics/comics-document.c:718
+#, c-format
+msgid "There was an error deleting “%s”."
+msgstr "“%s” വെട്ടി നീക്കുന്നതില്‍ പിശക്."
+
+#: ../backend/comics/comics-document.c:850
+#, c-format
+msgid "Error %s"
+msgstr "പിശക് %s"
+
+#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+msgid "Comic Books"
+msgstr "ഹാസ്യ പുസ്തകങ്ങള്‍"
+
+#: ../backend/djvu/djvu-document.c:173
+#, fuzzy
+msgid "DjVu document has incorrect format"
+msgstr "DVI രേഖ തെറ്റായ രീതിയിലാണു്"
+
+#: ../backend/djvu/djvu-document.c:250
+#, fuzzy
+msgid ""
+"The document is composed of several files. One or more of these files cannot "
+"be accessed."
+msgstr ""
+"രേഖ പലതരത്തിലുള്ള ഫയലുകള്‍ കൂടിചേര്‍ന്നതാകുന്നു. അതിലൊന്നോ അതിലധികമോ ഫയലുകളിലേക്ക് "
+"പ്രവേശിക്കുവാന്‍ സാധ്യമാകുന്നതല്ല."
+
+#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+#, fuzzy
+msgid "DjVu Documents"
+msgstr "Djvu രേഖകള്‍"
+
+#: ../backend/dvi/dvi-document.c:113
+msgid "DVI document has incorrect format"
+msgstr "DVI രേഖ തെറ്റായ രീതിയിലാണു്"
+
+#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+msgid "DVI Documents"
+msgstr "DVI രേഖകള്‍"
+
+#: ../backend/pdf/ev-poppler.cc:571
+msgid "This work is in the Public Domain"
+msgstr ""
+
+#. translators: this is the document security state
+#: ../backend/pdf/ev-poppler.cc:824
+msgid "Yes"
+msgstr "ഉവ്വു്"
+
+#. translators: this is the document security state
+#: ../backend/pdf/ev-poppler.cc:827
+msgid "No"
+msgstr "ഇല്ല"
+
+#: ../backend/pdf/ev-poppler.cc:948
+msgid "Type 1"
+msgstr "രീതി 1"
+
+#: ../backend/pdf/ev-poppler.cc:950
+msgid "Type 1C"
+msgstr "രീതി 1C"
+
+#: ../backend/pdf/ev-poppler.cc:952
+msgid "Type 3"
+msgstr "രീതി 3"
+
+#: ../backend/pdf/ev-poppler.cc:954
+msgid "TrueType"
+msgstr "ട്രൂടൈപ്പ്"
+
+#: ../backend/pdf/ev-poppler.cc:956
+msgid "Type 1 (CID)"
+msgstr "ടൈപ്പ് 1 (CID)"
+
+#: ../backend/pdf/ev-poppler.cc:958
+msgid "Type 1C (CID)"
+msgstr "ടൈപ്പ് 1C (CID)"
+
+#: ../backend/pdf/ev-poppler.cc:960
+msgid "TrueType (CID)"
+msgstr "ട്രൂടൈപ്പ് (CID)"
+
+#: ../backend/pdf/ev-poppler.cc:962
+msgid "Unknown font type"
+msgstr "അപരിചിതമായ രീതിയിലുളള അക്ഷരസഞ്ചയം"
+
+#: ../backend/pdf/ev-poppler.cc:988
+msgid "No name"
+msgstr "പേരില്ല"
+
+#: ../backend/pdf/ev-poppler.cc:996
+msgid "Embedded subset"
+msgstr "എംബഡ്ഡട് സബ്സെറ്റ്"
+
+#: ../backend/pdf/ev-poppler.cc:998
+msgid "Embedded"
+msgstr "എംബഡ്ഡട്"
+
+#: ../backend/pdf/ev-poppler.cc:1000
+msgid "Not embedded"
+msgstr "എംബഡ്ഡട് അല്ല"
+
+#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+msgid "PDF Documents"
+msgstr "പി ഡി എഫ് രേഖകള്‍"
+
+#: ../backend/impress/impress-document.c:302
+#: ../backend/tiff/tiff-document.c:113
+msgid "Invalid document"
+msgstr "അസാധുവായ രേഖ"
+
+#.
+#. * vim: sw=2 ts=8 cindent noai bs=2
+#.
+#: ../backend/impress/impressdocument.evince-backend.in.h:1
+msgid "Impress Slides"
+msgstr "ഇംപ്രസ്സ് സ്ലൈഡുകള്‍"
+
+#: ../backend/impress/zip.c:53
+msgid "No error"
+msgstr "പിശകില്ല"
+
+#: ../backend/impress/zip.c:56
+msgid "Not enough memory"
+msgstr "ആവശ്യത്തിനുള്ള മെമ്മറി ലഭ്യമല്ല"
+
+#: ../backend/impress/zip.c:59
+#, fuzzy
+msgid "Cannot find ZIP signature"
+msgstr "സിപ്പിനുള്ള ഒപ്പു് കണ്ടുപിടിക്കുവാന്‍ സാധ്യമായില്ല"
+
+#: ../backend/impress/zip.c:62
+#, fuzzy
+msgid "Invalid ZIP file"
+msgstr "തെറ്റായ സിപ്പ് ഫയല്‍"
+
+#: ../backend/impress/zip.c:65
+#, fuzzy
+msgid "Multi file ZIPs are not supported"
+msgstr "മള്‍ട്ടി ഫയല്‍ സിപ്പുകളെ പിന്തുണയ്ക്കുന്നില്ല"
+
+#: ../backend/impress/zip.c:68
+msgid "Cannot open the file"
+msgstr "ഫയല്‍ തുറക്കുവാന്‍ സാധ്യമല്ല"
+
+#: ../backend/impress/zip.c:71
+msgid "Cannot read data from file"
+msgstr "ഫയലില്‍ നിന്നും ഡേറ്റാ ലഭ്യമാക്കുവാന്‍ സാധ്യമല്ല"
+
+#: ../backend/impress/zip.c:74
+#, fuzzy
+msgid "Cannot find file in the ZIP archive"
+msgstr "സിപ്പ് ശേഖരണത്തില്‍ ഫയല്‍ കണ്ടുപിടിക്കുവാന്‍ സാധ്യമല്ല"
+
+#: ../backend/impress/zip.c:77
+msgid "Unknown error"
+msgstr "അപരിചിതമായ പിശകു്"
+
+#: ../backend/ps/ev-spectre.c:102
+#, c-format
+msgid "Failed to load document “%s”"
+msgstr "“%s” രേഖ ലോഡ് ചെയ്യുന്നതില്‍ പരാജയപ്പെട്ടിരിക്കുന്നു"
+
+#: ../backend/ps/ev-spectre.c:135
+#, c-format
+msgid "Failed to save document “%s”"
+msgstr "“%s” രേഖ സൂക്ഷിക്കുന്നതില്‍ പരാജയപ്പെട്ടിരിക്കുന്നു"
+
+#: ../backend/ps/psdocument.evince-backend.in.h:1
+msgid "PostScript Documents"
+msgstr "പോസ്റ്റ് സ്ക്രിപ്റ്റ് രേഖകള്‍"
+
+#: ../libdocument/ev-attachment.c:304 ../libdocument/ev-attachment.c:325
+#, c-format
+msgid "Couldn't save attachment “%s”: %s"
+msgstr "അറ്റാച്ച്മെന്റ് “%s” സൂക്ഷിയ്ക്കുവാന്‍ സാധ്യമായില്ല: %s"
+
+#: ../libdocument/ev-attachment.c:372
+#, c-format
+msgid "Couldn't open attachment “%s”: %s"
+msgstr "അറ്റാച്ച്മെന്റ് “%s” തുറക്കുവാന്‍ സാധ്യമായില്ല: %s"
+
+#: ../libdocument/ev-attachment.c:407
+#, c-format
+msgid "Couldn't open attachment “%s”"
+msgstr "അറ്റാച്ച്മെന്റ് “%s” തുറക്കുവാന്‍ സാധ്യമായില്ല"
+
+#: ../libdocument/ev-document-factory.c:168
+#, c-format
+msgid "File type %s (%s) is not supported"
+msgstr "%s (%s)  തരം ഫയലുകള്‍ പിന്തുണയ്ക്കുന്നില്ല"
+
+#: ../libdocument/ev-document-factory.c:359
+msgid "All Documents"
+msgstr "എല്ലാ രേഖകളും"
+
+#: ../libdocument/ev-document-factory.c:391
+msgid "All Files"
+msgstr "എല്ലാ ഫയലുകളും"
+
+#: ../libdocument/ev-file-helpers.c:146
+#, fuzzy, c-format
+msgid "Failed to create a temporary file: %s"
+msgstr "ഒരു താല്‍ക്കാലിക ഡയറക്ടറി ഉണ്ടാക്കുന്നതില്‍ പരാജയം."
+
+#: ../libdocument/ev-file-helpers.c:308
+#, fuzzy, c-format
+msgid "Failed to create a temporary directory: %s"
+msgstr "ഒരു താല്‍ക്കാലിക ഡയറക്ടറി ഉണ്ടാക്കുന്നതില്‍ പരാജയം."
+
+#: ../cut-n-paste/smclient/eggdesktopfile.c:165
+#, c-format
+msgid "File is not a valid .desktop file"
+msgstr "സാധുവായ ഒരു .desktop ഫയല്‍ അല്ല"
+
+#: ../cut-n-paste/smclient/eggdesktopfile.c:188
+#, c-format
+msgid "Unrecognized desktop file Version '%s'"
+msgstr "തിരിച്ചറിയാനാകാത്ത പണിയിട ഫയല്‍ പതിപ്പു് '%s'"
+
+#: ../cut-n-paste/smclient/eggdesktopfile.c:958
+#, c-format
+msgid "Starting %s"
+msgstr "%s തുടങ്ങുന്നു"
+
+#: ../cut-n-paste/smclient/eggdesktopfile.c:1100
+#, c-format
+msgid "Application does not accept documents on command line"
+msgstr "ആജ്ഞാമേഖലയില്‍ നിന്നും ഡൊക്യുമെന്റുകള്‍ പ്രയോഗം സ്വികരിക്കുന്നതല്ല"
+
+#: ../cut-n-paste/smclient/eggdesktopfile.c:1168
+#, c-format
+msgid "Unrecognized launch option: %d"
+msgstr "തിരിച്ചറിയാന്‍ കഴിയാത്ത തുടങ്ങുന്നതിനുള്ള ഐച്ഛികം: %d"
+
+#: ../cut-n-paste/smclient/eggdesktopfile.c:1373
+#, c-format
+msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
+msgstr "'Type=Link'  പണിയിട അംഗത്തിലേക്കു് ഡോക്യുമെന്റ് URI അയക്കാന്‍ കഴിയില്ല"
+
+#: ../cut-n-paste/smclient/eggdesktopfile.c:1392
+#, c-format
+msgid "Not a launchable item"
+msgstr "തുടങ്ങാന്‍ പറ്റാത്ത ഇനം"
+
+#: ../cut-n-paste/smclient/eggsmclient.c:225
+msgid "Disable connection to session manager"
+msgstr "സെഷന്‍ മാനേജറിലേയ്ക്കുള്ള ബന്ധം നിര്‍ജ്ജീവമാക്കുക"
+
+#: ../cut-n-paste/smclient/eggsmclient.c:228
+msgid "Specify file containing saved configuration"
+msgstr "സജ്ജീകരണങ്ങള്‍ സൂക്ഷിച്ച ഫയല്‍ പറയുക"
+
+#: ../cut-n-paste/smclient/eggsmclient.c:228 ../previewer/ev-previewer.c:48
+#: ../previewer/ev-previewer.c:49
+msgid "FILE"
+msgstr "FILE"
+
+#: ../cut-n-paste/smclient/eggsmclient.c:231
+msgid "Specify session management ID"
+msgstr "സെഷന്‍ മാനേജ്മെന്റ് ഐഡി പറയുക"
+
+#: ../cut-n-paste/smclient/eggsmclient.c:231
+msgid "ID"
+msgstr "ID"
+
+#: ../cut-n-paste/smclient/eggsmclient.c:252
+msgid "Session management options:"
+msgstr "സെഷന്‍ മാനേജ്മെന്റ് ഉപാധികള്‍:"
+
+#: ../cut-n-paste/smclient/eggsmclient.c:253
+msgid "Show session management options"
+msgstr "സെഷന്‍ മാനേജ്മെന്റിനുള്ള ഉപാധികള്‍ കാണിയ്ക്കുക"
+
+#. Translaters: This string is for a toggle to display a toolbar.
+#. * The name of the toolbar is automatically computed from the widgets
+#. * on the toolbar, and is placed at the %s. Note the _ before the %s
+#. * which is used to add mnemonics. We know that this is likely to
+#. * produce duplicates, but don't worry about it. If your language
+#. * normally has a mnemonic at the start, please use the _. If not,
+#. * please remove.
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:934
+#, c-format
+msgid "Show “_%s”"
+msgstr "“_%s” കാണിക്കുക"
+
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1397
+msgid "_Move on Toolbar"
+msgstr "ടൂള്‍ ബാറില്‍ മാറ്റുക "
+
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1398
+msgid "Move the selected item on the toolbar"
+msgstr "തെരഞ്ഞെടുത്ത വസ്തുവിനെ ടൂള്‍ ബാറില്‍ മാറ്റുക"
+
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1399
+msgid "_Remove from Toolbar"
+msgstr "ടൂള്‍ ബാറില്‍ നിന്നും _നീക്കം ചെയ്യുക"
+
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1400
+msgid "Remove the selected item from the toolbar"
+msgstr "തെരഞ്ഞെടുത്ത വസ്തുവിനെ ടൂള്‍ ബാറില്‍ നിന്നും നീക്കം ചെയ്യുക"
+
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1401
+msgid "_Delete Toolbar"
+msgstr "ടൂള്‍ ബാര്‍ _നീക്കം ചെയ്യുക"
+
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1402
+msgid "Remove the selected toolbar"
+msgstr "തെരഞ്ഞെടുത്ത ടൂള്‍ ബാര്‍ നീക്കം ചെയ്യുക"
+
+#: ../cut-n-paste/toolbar-editor/egg-toolbar-editor.c:485
+msgid "Separator"
+msgstr "വിടവടയാളം"
+
+#: ../cut-n-paste/totem-screensaver/totem-scrsaver.c:115
+msgid "Running in presentation mode"
+msgstr "അവതരണ രീതിയില്‍ പ്രവര്‍ത്തിപ്പിക്കുന്നു"
+
+#. translators: this is the label for toolbar button
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:48 ../shell/ev-window.c:5301
+msgid "Best Fit"
+msgstr "ഏറ്റവും അനുയോജ്യമായ വലുപ്പം"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:49
+msgid "Fit Page Width"
+msgstr "പേജിന്റെ വീതിയനുസരിച്ച് ജാലകത്തില്‍ താള്‍ പ്രദര്‍ശിപ്പിക്കുക"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:51
+msgid "50%"
+msgstr "50%"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:52
+msgid "70%"
+msgstr "70%"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:53
+msgid "85%"
+msgstr "85%"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:54
+msgid "100%"
+msgstr "100%"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:55
+msgid "125%"
+msgstr "125%"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:56
+msgid "150%"
+msgstr "150%"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:57
+msgid "175%"
+msgstr "175%"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:58
+msgid "200%"
+msgstr "200%"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:59
+msgid "300%"
+msgstr "300%"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:60
+msgid "400%"
+msgstr "400%"
+
+#. Manually set name and icon
+#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:4167
+#: ../shell/ev-window-title.c:149 ../shell/main.c:287
+#, c-format
+msgid "Document Viewer"
+msgstr "രേഖാദര്‍ശിനി"
+
+#: ../data/evince.desktop.in.in.h:2
+#, fuzzy
+msgid "View multi-page documents"
+msgstr "അനവധി പേജുകളുളള രേഖ കാണുക"
+
+#: ../data/evince.schemas.in.h:1
+msgid "Override document restrictions"
+msgstr "രേഖയിലുള്ള പരിമിതികളെ മാറ്റി എഴുതുക"
+
+#: ../data/evince.schemas.in.h:2
+msgid "Override document restrictions, like restriction to copy or to print."
+msgstr ""
+"രേഖയിലുള്ള പരിമിതികളെ മാറ്റി എഴുതുക, പകര്‍ത്തുവാനോ പ്രിന്റ് ചെയ്യുവാനോ ഉള്ള പരിമിതി പോലെ."
+
+#: ../previewer/ev-previewer.c:47
+msgid "Delete the temporary file"
+msgstr "താല്‍ക്കാലിക ഫയല്‍ വെട്ടി നീക്കുക"
+
+#: ../previewer/ev-previewer.c:48
+msgid "Print settings file"
+msgstr "സജ്ജീകരണ ഫയല്‍ പ്രിന്റ് ചെയ്യുക"
+
+#: ../previewer/ev-previewer.c:143 ../previewer/ev-previewer.c:177
+msgid "MATE Document Previewer"
+msgstr "ഗ്നോം രേഖാദര്‍ശിനി"
+
+#: ../previewer/ev-previewer-window.c:91 ../shell/ev-window.c:2965
+msgid "Failed to print document"
+msgstr "രേഖ പ്രിന്‍റ് ചെയ്യുന്നതില്‍ പരാജയപ്പെട്ടു"
+
+#: ../previewer/ev-previewer-window.c:237
+#, c-format
+msgid "The selected printer '%s' could not be found"
+msgstr "തെരഞ്ഞെടുത്ത പ്രിന്റര്‍ '%s' ലഭ്യമല്ല"
+
+#. Go menu
+#: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:5050
+msgid "_Previous Page"
+msgstr "തൊട്ട് മുമ്പുളള താള്‍ "
+
+#: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:5051
+msgid "Go to the previous page"
+msgstr "മുമ്പുള്ള താളിലേയ്ക്കു് പോകുക"
+
+#: ../previewer/ev-previewer-window.c:287 ../shell/ev-window.c:5053
+msgid "_Next Page"
+msgstr "_അടുത്ത താള്‍"
+
+#: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:5054
+msgid "Go to the next page"
+msgstr "തൊട്ടടുത്ത താളിലേയ്ക്കു് പോകുക"
+
+#: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:5037
+msgid "Enlarge the document"
+msgstr "രേഖ വലുതാക്കുക"
+
+#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:5040
+msgid "Shrink the document"
+msgstr "രേഖ ചെറുതാക്കുക"
+
+#: ../previewer/ev-previewer-window.c:297 ../libview/ev-print-operation.c:1307
+msgid "Print"
+msgstr "അച്ചടിയ്ക്കുക"
+
+#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:5008
+msgid "Print this document"
+msgstr "ഈ രേഖ അച്ചടിക്കുക"
+
+#: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:5152
+msgid "_Best Fit"
+msgstr "_അനുയോജ്യമായ വലുപ്പം"
+
+#: ../previewer/ev-previewer-window.c:343 ../shell/ev-window.c:5153
+msgid "Make the current document fill the window"
+msgstr "നിലവിലുളള രേഖ സ്ക്രീന്റെ പരാമാവധി വലുപ്പത്തില്‍ ആക്കി ജാലകം നിറയ്ക്കുക"
+
+#: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:5155
+msgid "Fit Page _Width"
+msgstr "പേജിന്റെ _വീതിയനുസരിച്ചു്"
+
+#: ../previewer/ev-previewer-window.c:346 ../shell/ev-window.c:5156
+msgid "Make the current document fill the window width"
+msgstr ""
+"നിലവിലുളള രേഖയുടെ വീതിയനുസരിച്ച് സ്ക്രീന്റെ പരാമാവധി വലുപ്പത്തില്‍ ആക്കി ജാലകം നിറയ്ക്കുക"
+
+#: ../previewer/ev-previewer-window.c:558 ../shell/ev-window.c:5223
+msgid "Page"
+msgstr "താള്‍"
+
+#: ../previewer/ev-previewer-window.c:559 ../shell/ev-window.c:5224
+msgid "Select Page"
+msgstr "താള്‍ തെരഞ്ഞെടുക്കുക"
+
+#: ../properties/ev-properties-main.c:116
+msgid "Document"
+msgstr "രേഖ"
+
+#: ../properties/ev-properties-view.c:60
+msgid "Title:"
+msgstr "തലക്കെട്ട്:"
+
+#: ../properties/ev-properties-view.c:61
+msgid "Location:"
+msgstr "സ്ഥാനം:"
+
+#: ../properties/ev-properties-view.c:62
+msgid "Subject:"
+msgstr "വിഷയം:"
+
+#: ../properties/ev-properties-view.c:63
+msgid "Author:"
+msgstr "രചയിതാവു്:"
+
+#: ../properties/ev-properties-view.c:64
+msgid "Keywords:"
+msgstr "കീ വേര്‍ഡുകള്‍:"
+
+#: ../properties/ev-properties-view.c:65
+msgid "Producer:"
+msgstr "നിര്‍മ്മാതാവ്:"
+
+#: ../properties/ev-properties-view.c:66
+msgid "Creator:"
+msgstr "സൃഷ്ടികര്‍ത്താവ്:"
+
+#: ../properties/ev-properties-view.c:67
+msgid "Created:"
+msgstr "സൃഷ്ടിച്ചത്:"
+
+#: ../properties/ev-properties-view.c:68
+msgid "Modified:"
+msgstr "മാറ്റം വരുത്തിയത്:"
+
+#: ../properties/ev-properties-view.c:69
+msgid "Number of Pages:"
+msgstr "പേജുകളുടെ എണ്ണം:"
+
+#: ../properties/ev-properties-view.c:70
+msgid "Optimized:"
+msgstr "ഒപ്റ്റിമൈസ്ഡ്:"
+
+#: ../properties/ev-properties-view.c:71
+msgid "Format:"
+msgstr "രീതി:"
+
+#: ../properties/ev-properties-view.c:72
+msgid "Security:"
+msgstr "സുരക്ഷിതത്വം:"
+
+#: ../properties/ev-properties-view.c:73
+msgid "Paper Size:"
+msgstr "പേപ്പറിന്റെ വ്യാപ്തി:"
+
+#: ../properties/ev-properties-view.c:211 ../libview/ev-print-operation.c:1868
+msgid "None"
+msgstr "ഒന്നുമില്ല"
+
+#. Translate to the default units to use for presenting
+#. * lengths to the user. Translate to default:inch if you
+#. * want inches, otherwise translate to default:mm.
+#. * Do *not* translate it to "predefinito:mm", if it
+#. * it isn't default:mm or default:inch it will not work
+#.
+#: ../properties/ev-properties-view.c:240
+msgid "default:mm"
+msgstr "default:mm"
+
+#: ../properties/ev-properties-view.c:284
+#, fuzzy, c-format
+msgid "%.0f × %.0f mm"
+msgstr "%.0f x %.0f mm"
+
+#: ../properties/ev-properties-view.c:288
+#, fuzzy, c-format
+msgid "%.2f × %.2f inch"
+msgstr "%.2f x %.2f ഇഞ്ച്"
+
+#. Note to translators: first placeholder is the paper name (eg.
+#. * A4), second placeholder is the paper size (eg. 297x210 mm)
+#: ../properties/ev-properties-view.c:312
+#, c-format
+msgid "%s, Portrait (%s)"
+msgstr "%s, ചിത്രം (%s)"
+
+#. Note to translators: first placeholder is the paper name (eg.
+#. * A4), second placeholder is the paper size (eg. 297x210 mm)
+#: ../properties/ev-properties-view.c:319
+#, c-format
+msgid "%s, Landscape (%s)"
+msgstr "%s,  ലാന്‍ഡ്സ്കെയിപ്പ് (%s)"
+
+#: ../libmisc/ev-page-action-widget.c:68
+#, c-format
+msgid "(%d of %d)"
+msgstr "(%d-ന്റെ %d)"
+
+#: ../libmisc/ev-page-action-widget.c:70
+#, c-format
+msgid "of %d"
+msgstr "%d-ന്റെ"
+
+#. Initial state
+#: ../libview/ev-print-operation.c:334
+#, fuzzy
+msgid "Preparing to print…"
+msgstr "പ്രിന്റ് ചെയ്യുന്നതിനായി പ്രിന്റ് ചെയ്യുക..."
+
+#: ../libview/ev-print-operation.c:336
+#, fuzzy
+msgid "Finishing…"
+msgstr "പൂര്‍ത്തിയാക്കുന്നു..."
+
+#: ../libview/ev-print-operation.c:338
+#, fuzzy, c-format
+msgid "Printing page %d of %d…"
+msgstr "താള്‍ %d പ്രിന്റ് ചെയ്യുന്നു, മൊത്തം %d..."
+
+#: ../libview/ev-print-operation.c:1161
+msgid "Printing is not supported on this printer."
+msgstr "ഈ അച്ചടിയന്ത്രത്തില്‍ അച്ചടിയ്ക്കുവാന്‍ ഈ കമ്പ്യൂട്ടറില്‍ പിന്തുണ ലഭ്യമല്ല."
+
+#: ../libview/ev-print-operation.c:1226
+msgid "Invalid page selection"
+msgstr "തെറ്റായ താള്‍ സജ്ജീകരണം"
+
+#: ../libview/ev-print-operation.c:1227
+msgid "Warning"
+msgstr "മുന്നറിയിപ്പു്"
+
+#: ../libview/ev-print-operation.c:1229
+#, fuzzy
+msgid "Your print range selection does not include any pages"
+msgstr "നിങ്ങള്‍ തെരഞ്ഞെടുത്ത പ്രിന്റ് പരിധിയില്‍ ഒരു താളും ഉള്‍പ്പെടുന്നില്ല"
+
+#: ../libview/ev-print-operation.c:1863
+msgid "Page Scaling:"
+msgstr ""
+
+#: ../libview/ev-print-operation.c:1869
+msgid "Shrink to Printable Area"
+msgstr ""
+
+#: ../libview/ev-print-operation.c:1870
+msgid "Fit to Printable Area"
+msgstr ""
+
+#: ../libview/ev-print-operation.c:1873
+msgid ""
+"Scale document pages to fit the selected printer page. Select from one of "
+"the following:\n"
+"\n"
+"• \"None\": No page scaling is performed.\n"
+"\n"
+"• \"Shrink to Printable Area\": Document pages larger than the printable "
+"area are reduced to fit the printable area of the printer page.\n"
+"\n"
+"• \"Fit to Printable Area\": Document pages are enlarged or reduced as "
+"required to fit the printable area of the printer page.\n"
+msgstr ""
+
+#: ../libview/ev-print-operation.c:1885
+msgid "Auto Rotate and Center"
+msgstr ""
+
+#: ../libview/ev-print-operation.c:1888
+msgid ""
+"Rotate printer page orientation of each page to match orientation of each "
+"document page. Document pages will be centered within the printer page."
+msgstr ""
+
+#: ../libview/ev-print-operation.c:1893
+msgid "Select page size using document page size"
+msgstr ""
+
+#: ../libview/ev-print-operation.c:1895
+msgid ""
+"When enabled, each page will be printed on the same size paper as the "
+"document page."
+msgstr ""
+
+#: ../libview/ev-print-operation.c:1977
+msgid "Page Handling"
+msgstr ""
+
+#: ../libview/ev-jobs.c:1438
+#, c-format
+msgid "Failed to print page %d: %s"
+msgstr "%d താള്‍ പ്രിന്റ് ചെയ്യുന്നതില്‍ പരാജയം: %s"
+
+#: ../libview/ev-view-accessible.c:41
+msgid "Scroll Up"
+msgstr "കീബോര്‍ഡ് ഉപയോഗിച്ച് മുകളിലേക്ക് പോവുക"
+
+#: ../libview/ev-view-accessible.c:42
+msgid "Scroll Down"
+msgstr "കീബോര്‍ഡ് ഉപയോഗിച്ച് താഴേക്ക് പോവുക"
+
+#: ../libview/ev-view-accessible.c:48
+msgid "Scroll View Up"
+msgstr "കാഴ്ച മുകളിലേക്ക് ആക്കുക"
+
+#: ../libview/ev-view-accessible.c:49
+msgid "Scroll View Down"
+msgstr "കാഴ്ച താഴേക്കാക്കുക"
+
+#: ../libview/ev-view-accessible.c:533
+msgid "Document View"
+msgstr "രേഖാ കാഴ്ച"
+
+#: ../libview/ev-view-presentation.c:668
+msgid "Jump to page:"
+msgstr "പോകേണ്ട താള്‍:"
+
+#: ../libview/ev-view-presentation.c:970
+#, fuzzy
+msgid "End of presentation. Click to exit."
+msgstr "അവതരണം അവസാനിച്ചിരിക്കുന്നു. പുറത്ത് കടക്കുന്നതിനായി Esc അമര്‍ത്തുക."
+
+#: ../libview/ev-view.c:1727
+msgid "Go to first page"
+msgstr "ആദ്യത്തെ താളിലേയ്ക്കു് പോകുക"
+
+#: ../libview/ev-view.c:1729
+msgid "Go to previous page"
+msgstr "മുമ്പുളള താളിലേയ്ക്കു് പോകുക"
+
+#: ../libview/ev-view.c:1731
+msgid "Go to next page"
+msgstr "അടുത്ത താളിലേയ്ക്കു് പോകുക"
+
+#: ../libview/ev-view.c:1733
+msgid "Go to last page"
+msgstr "അവസാന താളിലേയ്ക്കു് പോകുക"
+
+#: ../libview/ev-view.c:1735
+msgid "Go to page"
+msgstr "പോകേണ്ട താള്‍"
+
+#: ../libview/ev-view.c:1737
+msgid "Find"
+msgstr "കണ്ടുപിടിക്കുക"
+
+#: ../libview/ev-view.c:1765
+#, c-format
+msgid "Go to page %s"
+msgstr "%s താളിലേയ്ക്കു് പോകുക"
+
+#: ../libview/ev-view.c:1771
+#, c-format
+msgid "Go to %s on file “%s”"
+msgstr "“%s” ഫയലിലുളള %s-ലേക്ക് പോകുക"
+
+#: ../libview/ev-view.c:1774
+#, c-format
+msgid "Go to file “%s”"
+msgstr "“%s” ഫയലിലേക്ക് പോകുക"
+
+#: ../libview/ev-view.c:1782
+#, c-format
+msgid "Launch %s"
+msgstr "%s പ്രദര്‍ശിപ്പിക്കുക"
+
+#: ../libview/ev-view.c:3926 ../shell/ev-sidebar-layers.c:125
+#: ../shell/ev-sidebar-links.c:262
+#, fuzzy
+msgid "Loading…"
+msgstr "ലഭ്യമാക്കുന്നു..."
+
+#: ../shell/eggfindbar.c:320
+msgid "Find:"
+msgstr "കണ്ടുപിടിക്കേണ്ടതു്:"
+
+#: ../shell/eggfindbar.c:329 ../shell/ev-window.c:5025
+msgid "Find Pre_vious"
+msgstr "_മുമ്പുള്ളതു് കണ്ടു പിടിക്കുക"
+
+#: ../shell/eggfindbar.c:333
+msgid "Find previous occurrence of the search string"
+msgstr "തിരച്ചില്‍ നടത്തുന്ന വാചകം ഇതിന് മുന്പ് ഏത് വരിയില്‍ ഉളളത് എന്ന് കണ്ടുപിടിക്കുക"
+
+#: ../shell/eggfindbar.c:337 ../shell/ev-window.c:5023
+msgid "Find Ne_xt"
+msgstr "_അടുത്തത് കണ്ടു പിടിക്കുക"
+
+#: ../shell/eggfindbar.c:341
+msgid "Find next occurrence of the search string"
+msgstr "തിരച്ചില്‍ നടത്തുന്ന വാചകം ഇതിന് ശേഷം ഏത് വരിയില്‍ ഉളളത് എന്ന് കണ്ടുപിടിക്കുക"
+
+#: ../shell/eggfindbar.c:348
+msgid "C_ase Sensitive"
+msgstr "_കേസ് സെന്‍സിറ്റീവ്"
+
+#: ../shell/eggfindbar.c:351
+msgid "Toggle case sensitive search"
+msgstr "കേസ് സെന്‍സിറ്റീവ് തിരച്ചില്‍ ടൊഗിള്‍ ചെയ്യുക"
+
+#: ../shell/ev-keyring.c:102
+#, c-format
+msgid "Password for document %s"
+msgstr "%s രേഖയ്ക്കുളള അടയാളവാക്കു്"
+
+#: ../shell/ev-convert-metadata.c:88
+#, fuzzy, c-format
+msgid "Converting %s"
+msgstr "%s തുടങ്ങുന്നു"
+
+#: ../shell/ev-convert-metadata.c:92
+#, c-format
+msgid "%d of %d documents converted"
+msgstr ""
+
+#: ../shell/ev-convert-metadata.c:165 ../shell/ev-convert-metadata.c:181
+msgid "Converting metadata"
+msgstr ""
+
+#: ../shell/ev-convert-metadata.c:187
+msgid ""
+"The metadata format used by Evince has changed, and hence it needs to be "
+"migrated. If the migration is cancelled the metadata storage will not work."
+msgstr ""
+
+#: ../shell/ev-open-recent-action.c:72
+msgid "Open a recently used document"
+msgstr "ഏറ്റവും ഒടുവില്‍ ഉപയോഗിച്ച ഒരു രേഖ തുറക്കുക"
+
+#: ../shell/ev-password-view.c:144
+msgid ""
+"This document is locked and can only be read by entering the correct "
+"password."
+msgstr "രേഖ പൂട്ടിയ അവസ്ഥയിലാണു്. ഇത് ലഭ്യമാക്കുന്നതിനായി ശരിയായ അടയാളവാക്കു് നല്‍കേണ്ടതാണ്."
+
+#: ../shell/ev-password-view.c:153 ../shell/ev-password-view.c:272
+msgid "_Unlock Document"
+msgstr "രേഖയുടെ _പൂട്ട് തുറക്കുക"
+
+#: ../shell/ev-password-view.c:264
+msgid "Enter password"
+msgstr "അടയാളവാക്കു് നല്‍കുക"
+
+#: ../shell/ev-password-view.c:304
+msgid "Password required"
+msgstr "അടയാളവാക്കു് ആവശ്യമുണ്ട്"
+
+#: ../shell/ev-password-view.c:305
+#, c-format
+msgid ""
+"The document “%s” is locked and requires a password before it can be opened."
+msgstr "രേഖ “%s” പൂട്ടിയിരിക്കുന്നു, അത് തുറക്കുന്നതിനായി ഒരു അടയാളവാക്കു് ആവശ്യമാണ്."
+
+#: ../shell/ev-password-view.c:335
+msgid "_Password:"
+msgstr "അടയാള_വാക്കു്:"
+
+#: ../shell/ev-password-view.c:368
+msgid "Forget password _immediately"
+msgstr "അടയാളവാക്കു് ഉടന്‍ _മറക്കുക"
+
+#: ../shell/ev-password-view.c:380
+#, fuzzy
+msgid "Remember password until you _log out"
+msgstr "_പുറത്തുപോകുന്നതുവരെ അടയാളവാക്കു് ഓര്‍ത്തുവെയ്ക്കുക "
+
+#: ../shell/ev-password-view.c:392
+msgid "Remember _forever"
+msgstr "എക്കാലത്തേയ്ക്കുമായി _ഓര്‍ത്തുവെയ്ക്കുക"
+
+#: ../shell/ev-properties-dialog.c:62
+msgid "Properties"
+msgstr "ഗുണഗണങ്ങള്‍"
+
+#: ../shell/ev-properties-dialog.c:95
+msgid "General"
+msgstr "സാധാരണ"
+
+#: ../shell/ev-properties-dialog.c:105
+msgid "Fonts"
+msgstr "അക്ഷരസഞ്ചയങ്ങള്‍"
+
+#: ../shell/ev-properties-dialog.c:118
+#, fuzzy
+msgid "Document License"
+msgstr "രേഖാദര്‍ശിനി"
+
+#: ../shell/ev-properties-fonts.c:135
+msgid "Font"
+msgstr "അക്ഷരസഞ്ചയം"
+
+#: ../shell/ev-properties-fonts.c:162
+#, fuzzy, c-format
+msgid "Gathering font information… %3d%%"
+msgstr "അക്ഷരസഞ്ചയം സംബന്ധിച്ചുളള വിവരങ്ങള്‍ ലഭ്യമാക്കുന്നു...%3d%%"
+
+#: ../shell/ev-properties-license.c:137
+msgid "Usage terms"
+msgstr ""
+
+#: ../shell/ev-properties-license.c:143
+msgid "Text License"
+msgstr ""
+
+#: ../shell/ev-properties-license.c:149
+msgid "Further Information"
+msgstr ""
+
+#: ../shell/ev-sidebar-attachments.c:697
+msgid "Attachments"
+msgstr "അറ്റാച്ച്മെന്റുകള്‍"
+
+#: ../shell/ev-sidebar-layers.c:401
+msgid "Layers"
+msgstr "ലേയറുകള്‍"
+
+#: ../shell/ev-sidebar-links.c:335
+#, fuzzy
+msgid "Print…"
+msgstr "അച്ചടിയ്ക്കുക"
+
+#: ../shell/ev-sidebar-links.c:750
+msgid "Index"
+msgstr "സൂചിക"
+
+#: ../shell/ev-sidebar-thumbnails.c:962
+msgid "Thumbnails"
+msgstr "നഖചിത്രങ്ങള്‍"
+
+#: ../shell/ev-window.c:836
+#, fuzzy, c-format
+msgid "Page %s — %s"
+msgstr "താള്‍ %s - %s"
+
+#: ../shell/ev-window.c:838
+#, c-format
+msgid "Page %s"
+msgstr "%s താള്‍"
+
+#: ../shell/ev-window.c:1282
+msgid "The document contains no pages"
+msgstr "ഈ രേഖയില്‍ താളുകളൊന്നും ഇല്ല"
+
+#: ../shell/ev-window.c:1285
+msgid "The document contains only empty pages"
+msgstr "ഈ രേഖയില്‍ ശൂന്യമായ താളുകള്‍ മാത്രമേയുള്ളൂ"
+
+#: ../shell/ev-window.c:1479 ../shell/ev-window.c:1645
+msgid "Unable to open document"
+msgstr "രേഖ തുറക്കുവാന്‍ സാധ്യമായില്ല"
+
+#: ../shell/ev-window.c:1616
+#, c-format
+msgid "Loading document from “%s”"
+msgstr "“%s”-ല്‍ നിന്നും രേഖ ലഭ്യമാക്കുന്നു"
+
+#: ../shell/ev-window.c:1758 ../shell/ev-window.c:2035
+#, c-format
+msgid "Downloading document (%d%%)"
+msgstr "രേഖ ഡൌണ്‍ലോട് ചെയ്യുന്നു (%d%%)"
+
+#: ../shell/ev-window.c:1791
+#, fuzzy
+msgid "Failed to load remote file."
+msgstr "രേഖ വീണ്ടും ലഭ്യമാക്കുന്നതില്‍ പരാജയപ്പെട്ടു."
+
+#: ../shell/ev-window.c:1979
+#, c-format
+msgid "Reloading document from %s"
+msgstr "%s-ല്‍ നിന്നും രേഖ വീണ്ടും എടുക്കുന്നു"
+
+#: ../shell/ev-window.c:2011
+msgid "Failed to reload document."
+msgstr "രേഖ വീണ്ടും ലഭ്യമാക്കുന്നതില്‍ പരാജയപ്പെട്ടു."
+
+#: ../shell/ev-window.c:2166
+msgid "Open Document"
+msgstr "രേഖ തുറക്കുക"
+
+#: ../shell/ev-window.c:2430
+#, c-format
+msgid "Saving document to %s"
+msgstr "%s-ലേക്കു് രേഖ സൂക്ഷിക്കുക"
+
+#: ../shell/ev-window.c:2433
+#, c-format
+msgid "Saving attachment to %s"
+msgstr "%s-ലേക്കു് അറ്റാച്ച്മെന്റ് സൂക്ഷിക്കുക"
+
+#: ../shell/ev-window.c:2436
+#, c-format
+msgid "Saving image to %s"
+msgstr "%s-ലേക്കു് ചിത്രം സൂക്ഷിക്കുന്നു"
+
+#: ../shell/ev-window.c:2480 ../shell/ev-window.c:2580
+#, c-format
+msgid "The file could not be saved as “%s”."
+msgstr "“%s” ആയി ഫയല്‍ സൂക്ഷിയ്ക്കുവാന്‍ സാധ്യമായില്ല."
+
+#: ../shell/ev-window.c:2511
+#, c-format
+msgid "Uploading document (%d%%)"
+msgstr "രേഖ അപ്‌ലോഡ് ചെയ്യുന്നു (%d%%)"
+
+#: ../shell/ev-window.c:2515
+#, c-format
+msgid "Uploading attachment (%d%%)"
+msgstr "അറ്റാച്മെന്റ് അപ്‌ലോഡ് ചെയ്യുന്നു (%d%%)"
+
+#: ../shell/ev-window.c:2519
+#, c-format
+msgid "Uploading image (%d%%)"
+msgstr "ചിത്രം അപ്‌ലോഡ് ചെയ്യുന്നു (%d%%)"
+
+#: ../shell/ev-window.c:2641
+msgid "Save a Copy"
+msgstr "ഒരു പകര്‍പ്പ് സൂക്ഷിയ്ക്കുക"
+
+#: ../shell/ev-window.c:2909
+#, c-format
+msgid "%d pending job in queue"
+msgid_plural "%d pending jobs in queue"
+msgstr[0] "ക്യൂവില്‍ %d ജോലി ബാക്കിയുണ്ടു്"
+msgstr[1] "ക്യൂവില്‍ %d ജോലികള്‍ ബാക്കിയുണ്ടു്"
+
+#: ../shell/ev-window.c:3022
+#, c-format
+msgid "Printing job “%s”"
+msgstr "“%s” ജോലി പ്രിന്റ് ചെയ്യുന്നു"
+
+#: ../shell/ev-window.c:3234
+#, c-format
+msgid "Wait until print job “%s” finishes before closing?"
+msgstr ""
+"അടയ്ക്കുന്നതിനു് മുമ്പായി “%s” ജോലി പ്രിന്റ് ചെയ്യുന്നതു് പൂര്‍ത്തിയാകുന്നതു് വരെ കാത്തിരിക്കണമോ?"
+
+#: ../shell/ev-window.c:3237
+#, c-format
+msgid ""
+"There are %d print jobs active. Wait until print finishes before closing?"
+msgstr ""
+"%d പ്രിന്റ് ജോലികള്‍ സജീവമാണു്. അടയ്ക്കുന്നതിനു് മുമ്പായി പ്രിന്റ് പൂര്‍ത്തിയാക്കുന്നതിനായി "
+"കാത്തിരിക്കുക?"
+
+#: ../shell/ev-window.c:3249
+msgid "If you close the window, pending print jobs will not be printed."
+msgstr "നിങ്ങള്‍ ജാലകം അടച്ചാല്‍, ബാക്കിയുള്ള പ്രിന്റ് ചെയ്യുവാനുള്ള ജോലികള്‍ നടപ്പിലാകുന്നതല്ല."
+
+#: ../shell/ev-window.c:3253
+msgid "Cancel _print and Close"
+msgstr "_പ്രിന്റ് ചെയ്യുന്നതു് റദ്ദാക്കി അടയ്ക്കുക"
+
+#: ../shell/ev-window.c:3257
+msgid "Close _after Printing"
+msgstr "പ്രിന്റ് ചെയ്യുന്നതിനു് _ശേഷം അടയ്ക്കുക"
+
+#: ../shell/ev-window.c:3819
+msgid "Toolbar Editor"
+msgstr "ടൂള്‍ ബാര്‍ എഡിറ്റര്‍"
+
+#: ../shell/ev-window.c:3952
+msgid "There was an error displaying help"
+msgstr "സഹായം ലഭ്യമാക്കുന്നതില്‍ ഒരു പിശക്"
+
+#: ../shell/ev-window.c:4163
+#, fuzzy, c-format
+msgid ""
+"Document Viewer\n"
+"Using %s (%s)"
+msgstr ""
+"രേഖ നിരീക്ഷക്കുന്നതിനുളള സംവിധാനം.\n"
+"പോപ്ളര്‍ %s (%s) ഉപയോഗിക്കുന്നു"
+
+#: ../shell/ev-window.c:4194
+msgid ""
+"Evince is free software; you can redistribute it and/or modify it under the "
+"terms of the GNU General Public License as published by the Free Software "
+"Foundation; either version 2 of the License, or (at your option) any later "
+"version.\n"
+msgstr ""
+"എവിന്‍സ് ഒരു ഒരു സ്വതന്ത്ര സോഫ്റ്റ്‌വെയര്‍ ആണു്; സ്വതന്ത്ര സോഫ്റ്റ്‌വെയര്‍ ഫൌണ്ടേഷന്‍ പ്രസിദ്ധീകരിച്ചഗ്നു "
+"ജനറല്‍ പബ്ലിക് ലൈസന്‍സ് അനുസരിച്ചു് നിങ്ങള്‍ക്കിതു്  വീണ്ടും വിതരണം ചെയ്യാവുന്നതും "
+"മാറ്റങ്ങള്‍വരുത്താവുന്നതുമാണു്; ലൈസന്‍സിന്റെ ലക്കം 2 അല്ലെങ്കില്‍ (നിങ്ങള്‍ തെരഞ്ഞെടുക്കുന്ന) അതിനു് "
+"ശേഷമുള്ളഏതെങ്കിലും ലക്കമോ ഉപയോഗിക്കാം.\n"
+
+#: ../shell/ev-window.c:4198
+msgid ""
+"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
+"FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
+"details.\n"
+msgstr ""
+"എവിന്‍സ് നിങ്ങള്‍ക്കു് പ്രയോജനപ്പെടും എന്ന പ്രതീക്ഷയില്‍ വിതരണം ചെയ്യുന്നതാണു്,പക്ഷേ, ഇതിനു് ഒരു "
+"വാറണ്ടിയും ലഭ്യമല്ല; വ്യാപാരയോഗ്യതയോ ഒരു പ്രത്യേക കാര്യത്തിനു്ചേരുന്നതാണെന്നോ പരോക്ഷമായി "
+"ഉള്‍‌ക്കൊള്ളുന്ന വാറണ്ടി പോലും ഇല്ല. കൂടുതല്‍ വിവരങ്ങള്‍ക്കു്ഗ്നു ജനറല്‍ പബ്ലിക് ലൈസന്‍സ് കാണുക.\n"
+
+#: ../shell/ev-window.c:4202
+#, fuzzy
+msgid ""
+"You should have received a copy of the GNU General Public License along with "
+"Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
+msgstr ""
+"Evince-നോടൊപ്പം നിങ്ങള്‍ക്ക് GNU General Public License-ന്റെ ഒരു പകര്‍പ്പും "
+"ലഭിച്ചിട്ടുണ്ടാവണം; ഇല്ലായെങ്കില്‍, ദയവായി താഴെ പറയുന്ന മേല്‍വിലാസത്തിലേക്ക് എഴുതുക: Free "
+"Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-"
+"1307  USA\n"
+
+#: ../shell/ev-window.c:4227
+msgid "Evince"
+msgstr "എവിന്‍സ്"
+
+#: ../shell/ev-window.c:4230
+msgid "© 1996–2009 The Evince authors"
+msgstr "© 1996–2009 എവിന്‍സ് രചയിതാക്കള്‍"
+
+#: ../shell/ev-window.c:4236
+msgid "translator-credits"
+msgstr ""
+"അനി പീറ്റര്‍ <peter.ani@gmail.com>\n"
+"സന്തോഷ് തോട്ടിങ്ങല്‍ <santhosh.thottingal@gmail.com>"
+
+#. TRANS: Sometimes this could be better translated as
+#. "%d hit(s) on this page".  Therefore this string
+#. contains plural cases.
+#: ../shell/ev-window.c:4506
+#, c-format
+msgid "%d found on this page"
+msgid_plural "%d found on this page"
+msgstr[0] "%d ഈ താളില്‍ കണ്ടുകിട്ടിയിരിക്കുന്നു"
+msgstr[1] "%d ഈ താളില്‍ കണ്ടുകിട്ടിയിരിക്കുന്നു"
+
+#: ../shell/ev-window.c:4514
+#, c-format
+msgid "%3d%% remaining to search"
+msgstr "%3d%% ബാക്കി തെരയുവാനുണ്ട്"
+
+#: ../shell/ev-window.c:4991
+msgid "_File"
+msgstr "_ഫയല്‍"
+
+#: ../shell/ev-window.c:4992
+msgid "_Edit"
+msgstr "_ചിട്ട"
+
+#: ../shell/ev-window.c:4993
+msgid "_View"
+msgstr "_കാഴ്ച"
+
+#: ../shell/ev-window.c:4994
+msgid "_Go"
+msgstr "_പോവുക"
+
+#: ../shell/ev-window.c:4995
+msgid "_Help"
+msgstr "_സഹായം"
+
+#. File menu
+#: ../shell/ev-window.c:4998 ../shell/ev-window.c:5263
+#, fuzzy
+msgid "_Open…"
+msgstr "_തുറക്കുക..."
+
+#: ../shell/ev-window.c:4999 ../shell/ev-window.c:5264
+msgid "Open an existing document"
+msgstr "നിലവിലുളള ഒരു രേഖ തുറക്കുക"
+
+#: ../shell/ev-window.c:5001
+msgid "Op_en a Copy"
+msgstr "ഒരു പകര്‍പ്പ് തു_റക്കുക"
+
+#: ../shell/ev-window.c:5002
+msgid "Open a copy of the current document in a new window"
+msgstr "നിലവിലുളള രേഖയുടെ ഒരു പകര്‍പ്പ് പുതിയ ജാലകത്തില്‍ തുറക്കുക"
+
+#: ../shell/ev-window.c:5004
+#, fuzzy
+msgid "_Save a Copy…"
+msgstr "ഒരു പകര്‍പ്പ് സൂക്ഷിയ്ക്കുക"
+
+#: ../shell/ev-window.c:5005
+msgid "Save a copy of the current document"
+msgstr "നിലവിലുളള രേഖയുടെ ഒരു പകര്‍പ്പ് സൂക്ഷിയ്ക്കുക"
+
+#: ../shell/ev-window.c:5007
+#, fuzzy
+msgid "_Print…"
+msgstr "അച്ചടിയ്ക്കുക"
+
+#: ../shell/ev-window.c:5010
+msgid "P_roperties"
+msgstr "ഗു_ണഗണങ്ങള്‍"
+
+#: ../shell/ev-window.c:5018
+msgid "Select _All"
+msgstr "_എല്ലാം തെരഞ്ഞെടുക്കുക "
+
+#: ../shell/ev-window.c:5020
+#, fuzzy
+msgid "_Find…"
+msgstr "കണ്ടുപിടിക്കുക"
+
+#: ../shell/ev-window.c:5021
+msgid "Find a word or phrase in the document"
+msgstr "രേഖയില്‍ ഒരു വാക്ക് ആല്ലങ്കില്‍ വാചകം കണ്ടെത്തുക"
+
+#: ../shell/ev-window.c:5027
+msgid "T_oolbar"
+msgstr "_ടൂള്‍ ബാര്‍ "
+
+#: ../shell/ev-window.c:5029
+msgid "Rotate _Left"
+msgstr "_ഇടത്തേക്ക് തിരിയ്ക്കുക"
+
+#: ../shell/ev-window.c:5031
+msgid "Rotate _Right"
+msgstr "_വലത്തേയ്ക്ക തിരിയ്ക്കുക"
+
+#: ../shell/ev-window.c:5042
+msgid "_Reload"
+msgstr "_വീണ്ടും എടുക്കുക"
+
+#: ../shell/ev-window.c:5043
+msgid "Reload the document"
+msgstr "രേഖ വീണ്ടും എടുക്കുക"
+
+#: ../shell/ev-window.c:5046
+msgid "Auto_scroll"
+msgstr "ഓട്ടോ_സ്ക്രോള്‍"
+
+#: ../shell/ev-window.c:5056
+msgid "_First Page"
+msgstr "_ആദ്യത്തെ താള്‍"
+
+#: ../shell/ev-window.c:5057
+msgid "Go to the first page"
+msgstr "ആദ്യത്തെ താളിലേയ്ക്കു് പോകുക"
+
+#: ../shell/ev-window.c:5059
+msgid "_Last Page"
+msgstr "അ_വസാനത്തെ താള്‍"
+
+#: ../shell/ev-window.c:5060
+msgid "Go to the last page"
+msgstr "അവസാനത്തെ താളിലേയ്ക്കു് പോകുക"
+
+#. Help menu
+#: ../shell/ev-window.c:5064
+msgid "_Contents"
+msgstr "_ഉളളടക്കം"
+
+#: ../shell/ev-window.c:5067
+msgid "_About"
+msgstr "_എവിന്‍സിനെപ്പറ്റി"
+
+#. Toolbar-only
+#: ../shell/ev-window.c:5071
+msgid "Leave Fullscreen"
+msgstr "പൂര്‍ണ്ണസ്ക്രീനില്‍ നിന്നും പുറത്ത് കടക്കുക"
+
+#: ../shell/ev-window.c:5072
+msgid "Leave fullscreen mode"
+msgstr "പൂര്‍ണ്ണസ്ക്രീനില്‍ നിന്നും പുറത്ത് കടക്കുക"
+
+#: ../shell/ev-window.c:5074
+msgid "Start Presentation"
+msgstr "അവതരണം ആരംഭിക്കുക"
+
+#: ../shell/ev-window.c:5075
+msgid "Start a presentation"
+msgstr "ഒരു അവതരണം ആരംഭിക്കുക"
+
+#. View Menu
+#: ../shell/ev-window.c:5134
+msgid "_Toolbar"
+msgstr "_ടൂള്‍ ബാര്‍"
+
+#: ../shell/ev-window.c:5135
+msgid "Show or hide the toolbar"
+msgstr "ടൂള്‍ ബാര്‍ ദൃശ്യമാക്കുകയോ അദൃശ്യമാക്കുകയോ ചെയ്യുക"
+
+#: ../shell/ev-window.c:5137
+msgid "Side _Pane"
+msgstr "_പാര്‍ശ്വപട്ട"
+
+#: ../shell/ev-window.c:5138
+msgid "Show or hide the side pane"
+msgstr "പാര്‍ശ്വപട്ട ദൃശ്യമാക്കുകയോ അദൃശ്യമാക്കുകയോ ചെയ്യുക"
+
+#: ../shell/ev-window.c:5140
+msgid "_Continuous"
+msgstr "_തുടരെയുളള"
+
+#: ../shell/ev-window.c:5141
+msgid "Show the entire document"
+msgstr "രേഖ മുഴുവന്‍ കാണിക്കുക"
+
+#: ../shell/ev-window.c:5143
+msgid "_Dual"
+msgstr "_ഇരട്ടയായ"
+
+#: ../shell/ev-window.c:5144
+msgid "Show two pages at once"
+msgstr "രണ്ട് പേജുകള്‍ ഒരേ സ്ക്രീനില്‍ കാണിക്കുക"
+
+#: ../shell/ev-window.c:5146
+msgid "_Fullscreen"
+msgstr "_പരമാവധി വലുപ്പത്തിലുളള സ്ക്രീന്‍"
+
+#: ../shell/ev-window.c:5147
+msgid "Expand the window to fill the screen"
+msgstr "സ്ക്രീന്‍ മുഴുവന്‍ നിറയ്ക്കുന്നതിനായി ജാലകം വികസിപ്പിക്കുക"
+
+#: ../shell/ev-window.c:5149
+msgid "Pre_sentation"
+msgstr "അവ_തരണം"
+
+#: ../shell/ev-window.c:5150
+msgid "Run document as a presentation"
+msgstr "ഒരു അവതരണം ആയി രേഖ പ്രവര്‍ത്തിപ്പിക്കുക"
+
+#: ../shell/ev-window.c:5158
+msgid "_Inverted Colors"
+msgstr ""
+
+#: ../shell/ev-window.c:5159
+msgid "Show page contents with the colors inverted"
+msgstr ""
+
+#. Links
+#: ../shell/ev-window.c:5167
+msgid "_Open Link"
+msgstr "_കണ്ണി തുറക്കുക"
+
+#: ../shell/ev-window.c:5169
+msgid "_Go To"
+msgstr "_പോകേണ്ടതു് "
+
+#: ../shell/ev-window.c:5171
+msgid "Open in New _Window"
+msgstr "പുതിയ _ജാലകത്തില്‍ തുറക്കുക"
+
+#: ../shell/ev-window.c:5173
+msgid "_Copy Link Address"
+msgstr "കണ്ണി വിലാസം _പകര്‍ത്തുക"
+
+#: ../shell/ev-window.c:5175
+#, fuzzy
+msgid "_Save Image As…"
+msgstr "ചിത്രം പേരു് മാറ്റി _സൂക്ഷിയ്ക്കുക..."
+
+#: ../shell/ev-window.c:5177
+msgid "Copy _Image"
+msgstr "_ചിത്രം പകര്‍ത്തുക"
+
+#: ../shell/ev-window.c:5182
+#, fuzzy
+msgid "_Open Attachment"
+msgstr "അറ്റാച്ച്മെന്റ് സൂക്ഷിക്കുക"
+
+#: ../shell/ev-window.c:5184
+#, fuzzy
+msgid "_Save Attachment As…"
+msgstr "അറ്റാച്ച്മെന്റ് സൂക്ഷിക്കുക"
+
+#: ../shell/ev-window.c:5237
+msgid "Zoom"
+msgstr "വലുതാക്കുക"
+
+#: ../shell/ev-window.c:5239
+msgid "Adjust the zoom level"
+msgstr "വലുപ്പം ക്രമീകരിക്കുക"
+
+#: ../shell/ev-window.c:5249
+msgid "Navigation"
+msgstr "നാവിഗേഷന്‍"
+
+#: ../shell/ev-window.c:5251
+msgid "Back"
+msgstr "പുറകോട്ട്"
+
+#. translators: this is the history action
+#: ../shell/ev-window.c:5254
+msgid "Move across visited pages"
+msgstr "സന്ദര്‍ശിച്ച താളുകളിലൂടെ നീങ്ങുക"
+
+#. translators: this is the label for toolbar button
+#: ../shell/ev-window.c:5284
+msgid "Previous"
+msgstr "മുമ്പുള്ള"
+
+#. translators: this is the label for toolbar button
+#: ../shell/ev-window.c:5289
+msgid "Next"
+msgstr "അടുത്ത"
+
+#. translators: this is the label for toolbar button
+#: ../shell/ev-window.c:5293
+msgid "Zoom In"
+msgstr "വലുതാക്കുക"
+
+#. translators: this is the label for toolbar button
+#: ../shell/ev-window.c:5297
+msgid "Zoom Out"
+msgstr "ചെറുതാക്കുക"
+
+#. translators: this is the label for toolbar button
+#: ../shell/ev-window.c:5305
+msgid "Fit Width"
+msgstr "വീതിയനുസരിച്ച്"
+
+#: ../shell/ev-window.c:5466 ../shell/ev-window.c:5483
+msgid "Unable to launch external application."
+msgstr "പുറത്തുനിന്നുള്ള പ്രയോഗം ലഭ്യമാക്കുവാന്‍ സാധ്യമല്ല."
+
+#: ../shell/ev-window.c:5540
+msgid "Unable to open external link"
+msgstr "പുറത്തേക്കുള്ള ഒരു കണ്ണി തുറക്കുവാന്‍ സാധ്യമല്ല"
+
+#: ../shell/ev-window.c:5707
+msgid "Couldn't find appropriate format to save image"
+msgstr "ഇമേജ് സൂക്ഷിക്കുന്നതിനുള്ള ശരിയായ ഒരു രീതി ലഭ്യമായില്ല"
+
+#: ../shell/ev-window.c:5749
+msgid "The image could not be saved."
+msgstr "ഇമേജ് സൂക്ഷിക്കുവാന്‍ സാധ്യമായില്ല."
+
+#: ../shell/ev-window.c:5781
+msgid "Save Image"
+msgstr "ഇമേജ് സൂക്ഷിക്കുക"
+
+#: ../shell/ev-window.c:5848
+msgid "Unable to open attachment"
+msgstr "അറ്റാച്ച്മെന്റ് തുറക്കുവാന്‍ സാധ്യമല്ല"
+
+#: ../shell/ev-window.c:5901
+msgid "The attachment could not be saved."
+msgstr "അറ്റാച്ച്മെന്റ് സൂക്ഷിയ്ക്കുവാന്‍ സാധ്യമല്ല."
+
+#: ../shell/ev-window.c:5946
+msgid "Save Attachment"
+msgstr "അറ്റാച്ച്മെന്റ് സൂക്ഷിക്കുക"
+
+#: ../shell/ev-window-title.c:162
+#, fuzzy, c-format
+msgid "%s — Password Required"
+msgstr "%s - അടയാളവാക്കു് ആവശ്യമാണ്"
+
+#: ../shell/ev-utils.c:317
+msgid "By extension"
+msgstr "എക്സ്റ്റെന്‍ഷന്‍ അനുസരിച്ച്"
+
+#: ../shell/main.c:72 ../shell/main.c:251
+msgid "MATE Document Viewer"
+msgstr "MATE രേഖാദര്‍ശിനി"
+
+#: ../shell/main.c:80
+#, fuzzy
+msgid "The page label of the document to display."
+msgstr "പ്രദര്‍ശിപ്പിക്കുന്നതിനുളള രേഖയുടെ താള്‍."
+
+#: ../shell/main.c:80
+msgid "PAGE"
+msgstr "PAGE"
+
+#: ../shell/main.c:81
+#, fuzzy
+msgid "The page number of the document to display."
+msgstr "പ്രദര്‍ശിപ്പിക്കുന്നതിനുളള രേഖയുടെ താള്‍."
+
+#: ../shell/main.c:81
+msgid "NUMBER"
+msgstr ""
+
+#: ../shell/main.c:82
+msgid "Run evince in fullscreen mode"
+msgstr "സ്ക്രീനിന്റെ പരമാവധി വലിപ്പത്തിലുളള രീതിയില്‍ evince പ്രവര്‍ത്തിപ്പിക്കുക"
+
+#: ../shell/main.c:83
+msgid "Run evince in presentation mode"
+msgstr "അവതരണ രീതിയില്‍ evince പ്രവര്‍ത്തിപ്പിക്കുക"
+
+#: ../shell/main.c:84
+msgid "Run evince as a previewer"
+msgstr "പ്രീവ്യൂവര്‍ രീതിയില്‍ evince പ്രവര്‍ത്തിപ്പിക്കുക"
+
+#: ../shell/main.c:85
+msgid "The word or phrase to find in the document"
+msgstr "രേഖയില്‍ കണ്ടുപിടിക്കുവാനുള്ള വാക്ക് അല്ലെങ്കില്‍ വാചകം"
+
+#: ../shell/main.c:85
+msgid "STRING"
+msgstr "STRING"
+
+#: ../shell/main.c:89
+#, fuzzy
+msgid "[FILE…]"
+msgstr "[FILE...]"
+
+#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+#, fuzzy
+msgid ""
+"Boolean options available: true enables thumbnailing and false disables the "
+"creation of new thumbnails"
+msgstr ""
+"ബൂളിയന്‍ ഉപാധികള്‍ ലഭ്യമാണ്, ട്രൂ എന്നാല്‍ തംബ്നെയിലിങ് സജ്ജമാക്കുന്നു, ഫാള്‍സ് എന്നാല്‍ പുതിയ "
+"തംബ്നെയില്‍ ഉണ്ടാക്കുന്നത് നിര്‍ജ്ജീവമാക്കുന്നു"
+
+#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+msgid "Enable thumbnailing of PDF Documents"
+msgstr "പിഡിഎഫ് രേഖകള്‍ക്കുള്ള തംബ്നെയിലിങ് സജ്ജമാക്കുക"
+
+#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+msgid "Thumbnail command for PDF Documents"
+msgstr "പിഡിഎഫ് രേഖകള്‍ക്കുള്ള തംബ്നെയില്‍ കമാന്‍ഡ്"
+
+#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+#, fuzzy
+msgid ""
+"Valid command plus arguments for the PDF Document thumbnailer. See Caja "
+"thumbnailer documentation for more information."
+msgstr ""
+"പിഡിഎഫ് രേഖകള്‍ക്കുള്ള തംബ്നെയിലറിനുള്ള ശരിയായ കമാന്‍ഡുകളും ആര്‍ഗ്യുമെന്റുകളും. കൂടുതല്‍ "
+"വിവരങ്ങള്‍ക്കായി നോട്ടിലസ് തംബ്നെയിലര്‍ രേഖകള്‍ കാണുക."
+
+#~ msgid "DJVU document has incorrect format"
+#~ msgstr "DJVU രേഖ തെറ്റായ രീതിയിലാണു്"
+
+#~ msgid "Failed to create file “%s”: %s"
+#~ msgstr "“%s” ഫയല്‍ ഉണ്ടാക്കുന്നതില്‍ പരാജയം: %s"
+
+#~ msgid "Search string"
+#~ msgstr "തിരയേണ്ട വാചകം"
+
+#~ msgid "The name of the string to be found"
+#~ msgstr "കണ്ടുപിടിക്കേണ്ട വാചകത്തിന്റെ (സ്ട്രിങ്) പേരു്"
+
+#~ msgid "Case sensitive"
+#~ msgstr "കേസ് സെന്‍സിറ്റീവ്"
+
+#~ msgid "TRUE for a case sensitive search"
+#~ msgstr "ഒരു കേസ് സെന്‍സിറ്റീവ് തിരച്ചിലിന് ട്രൂ ആണ്"
+
+#~ msgid "Highlight color"
+#~ msgstr "നിറം എടുത്ത് കാണിക്കുക"
+
+#~ msgid "Color of highlight for all matches"
+#~ msgstr "ചേര്‍ച്ചയുളള എല്ലാ വാചകങ്ങള്‍ക്ക് കൊടുക്കണ്ട നിറം"
+
+#~ msgid "Current color"
+#~ msgstr "നിലവിലുളള നിറം"
+
+#~ msgid "Color of highlight for the current match"
+#~ msgstr "നിലവില്‍ പൊരുത്തമുളള വാചകത്തിന്റെ നിറം"
+
+#~ msgid "Recover previous documents?"
+#~ msgstr "മുമ്പുള്ള രേഖകള്‍ വീണ്ടെടുക്കണമോ?"
+
+#~ msgid ""
+#~ "Evince appears to have exited unexpectedly the last time it was run. You "
+#~ "can recover the opened documents."
+#~ msgstr ""
+#~ "അവസാനമായി പ്രവര്‍ത്തിക്കുമ്പോള്‍ എവിന്‍സ് അപ്രതീക്ഷിതമായ പുറത്തു് കടന്നിരിക്കുന്നു. അപ്പോള്‍ "
+#~ "ഉപയോഗത്തിലുണ്ടായിരുന്ന രേഖകള്‍ നിങ്ങള്‍ക്കു് വീണ്ടെടുക്കാം."
+
+#~ msgid "_Don't Recover"
+#~ msgstr "_വീണ്ടെടുക്കേണ്ട"
+
+#~ msgid "_Recover"
+#~ msgstr "_വീണ്ടെടുക്കുക"
+
+#~ msgid "Crash Recovery"
+#~ msgstr "തകരാറുള്ളവ വീണ്ടെടുക്കല്‍"
+
+#~ msgid "Print..."
+#~ msgstr "അച്ചടിക്കുക..."
+
+#~ msgid "Couldn't create symlink “%s”: "
+#~ msgstr "സിംകണ്ണി “%s” ഉണ്ടാക്കുവാന്‍ സാധ്യമായില്ല"
+
+#~ msgid "Cannot open a copy."
+#~ msgstr "പകര്‍പ്പ് തുറക്കുവാന്‍ സാധ്യമായില്ല."
+
+#~ msgid "The document doesn't support search"
+#~ msgstr "ഈ രേഖയില്‍ തെരച്ചില്‍ പിന്തുണയ്ക്കുന്നില്ല"
+
+#~ msgid "_Save a Copy..."
+#~ msgstr "ഒരു _പകര്‍പ്പ് സൂക്ഷിയ്ക്കുക..."
+
+#~ msgid "Page Set_up..."
+#~ msgstr "താള്‍ ടി ക്രമി_കരണം..."
+
+#~ msgid "Setup the page settings for printing"
+#~ msgstr "അച്ചടിക്കുന്നതിനായി താള്‍ ക്രമികരണങ്ങള്‍ സജ്ജമാക്കുക"
+
+#~ msgid "_Print..."
+#~ msgstr "_അച്ചടിക്കുക."
+
+#~ msgid "_Find..."
+#~ msgstr "_കണ്ടു പിടിക്കുക..."

@@ -1,0 +1,191 @@
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* Enable support for comics. */
+#undef ENABLE_COMICS
+
+/* Define if DBUS support is enabled */
+#undef ENABLE_DBUS
+
+/* Enable djvu viewer support. */
+#undef ENABLE_DJVU
+
+/* Enable dvi viewer support. */
+#undef ENABLE_DVI
+
+/* Enable support for impress. */
+#undef ENABLE_IMPRESS
+
+/* always defined to indicate that i18n is enabled */
+#undef ENABLE_NLS
+
+/* Enable pixbuf support. */
+#undef ENABLE_PIXBUF
+
+/* Enable support for PostScript files. */
+#undef ENABLE_PS
+
+/* Enable multipage tiff support. */
+#undef ENABLE_TIFF
+
+/* Gettext package */
+#undef GETTEXT_PACKAGE
+
+/* Define if gtk+-unix-print is enabled. */
+#undef GTKUNIXPRINT_ENABLED
+
+/* Define to 1 if you have the `bind_textdomain_codeset' function. */
+#undef HAVE_BIND_TEXTDOMAIN_CODESET
+
+/* Define to 1 if you have the `cairo_format_stride_for_width' function. */
+#undef HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH
+
+/* defined if cairo-pdf is available */
+#undef HAVE_CAIRO_PDF
+
+/* defined if cairo-ps is available */
+#undef HAVE_CAIRO_PS
+
+/* defined if you build the caja plugin */
+#undef HAVE_CAJA
+
+/* Define to 1 if you have the `dcgettext' function. */
+#undef HAVE_DCGETTEXT
+
+/* Define to 1 if you have the <dlfcn.h> header file. */
+#undef HAVE_DLFCN_H
+
+/* Define to 1 if you have the <execinfo.h> header file. */
+#undef HAVE_EXECINFO_H
+
+/* Define if the GNU gettext() function is already present or preinstalled. */
+#undef HAVE_GETTEXT
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#undef HAVE_INTTYPES_H
+
+/* Define if your <locale.h> file defines LC_MESSAGES. */
+#undef HAVE_LC_MESSAGES
+
+/* Define to 1 if you have the <locale.h> header file. */
+#undef HAVE_LOCALE_H
+
+/* Defines if localtime_r is available on your system */
+#undef HAVE_LOCALTIME_R
+
+/* Define to 1 if you have the <memory.h> header file. */
+#undef HAVE_MEMORY_H
+
+/* Define to 1 if you have the `poppler_page_add_annot' function. */
+#undef HAVE_POPPLER_PAGE_ADD_ANNOT
+
+/* Define to 1 if you have the `poppler_page_get_selected_text' function. */
+#undef HAVE_POPPLER_PAGE_GET_SELECTED_TEXT
+
+/* Define to 1 if you have the `poppler_page_get_text_layout' function. */
+#undef HAVE_POPPLER_PAGE_GET_TEXT_LAYOUT
+
+/* Have libspectre */
+#undef HAVE_SPECTRE
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#undef HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#undef HAVE_STDLIB_H
+
+/* Define to 1 if you have the <strings.h> header file. */
+#undef HAVE_STRINGS_H
+
+/* Define to 1 if you have the <string.h> header file. */
+#undef HAVE_STRING_H
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#undef HAVE_SYS_STAT_H
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#undef HAVE_SYS_TYPES_H
+
+/* Define to 1 if you have the <tiff.h> header file. */
+#undef HAVE_TIFF_H
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#undef HAVE_UNISTD_H
+
+/* Define if _NL_MEASUREMENT_MEASUREMENT is available */
+#undef HAVE__NL_MEASUREMENT_MEASUREMENT
+
+/* Define to the sub-directory in which libtool stores uninstalled libraries.
+   */
+#undef LT_OBJDIR
+
+/* Define to 1 if your C compiler doesn't accept -c and -o together. */
+#undef NO_MINUS_C_MINUS_O
+
+/* Enable offline help */
+#undef OFFLINE_HELP_ENABLED
+
+/* Name of package */
+#undef PACKAGE
+
+/* Define to the address where bug reports for this package should be sent. */
+#undef PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#undef PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#undef PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#undef PACKAGE_TARNAME
+
+/* Define to the home page for this package. */
+#undef PACKAGE_URL
+
+/* Define to the version of this package. */
+#undef PACKAGE_VERSION
+
+/* Define if building for the hildon platform */
+#undef PLATFORM_HILDON
+
+/* The size of `int', as computed by sizeof. */
+#undef SIZEOF_INT
+
+/* The size of `long', as computed by sizeof. */
+#undef SIZEOF_LONG
+
+/* The size of `short', as computed by sizeof. */
+#undef SIZEOF_SHORT
+
+/* The size of `void *', as computed by sizeof. */
+#undef SIZEOF_VOID_P
+
+/* Define to 1 if you have the ANSI C header files. */
+#undef STDC_HEADERS
+
+/* Version number of package */
+#undef VERSION
+
+/* Define if MateConf support is enabled */
+#undef WITH_MATECONF
+
+/* Define if KEYRING support is enabled */
+#undef WITH_KEYRING
+
+/* Define if smclient is enabled */
+#undef WITH_SMCLIENT
+
+/* Enable t1lib support in dvi. */
+#undef WITH_TYPE1_FONTS
+
+/* Define to empty if `const' does not conform to ANSI C. */
+#undef const
+
+/* Define to `__inline__' or `__inline' if that's what the C compiler
+   calls it, or to nothing if 'inline' is not supported under any name.  */
+#ifndef __cplusplus
+#undef inline
+#endif
+
+/* Define to `unsigned int' if <sys/types.h> does not define. */
+#undef size_t

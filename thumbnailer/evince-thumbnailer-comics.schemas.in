@@ -1,0 +1,106 @@
+<mateconfschemafile>
+    <schemalist>
+
+        <schema>
+            <key>/schemas/desktop/mate/thumbnailers/application@x-cbz/enable</key>
+            <applyto>/desktop/mate/thumbnailers/application@x-cbz/enable</applyto>
+            <owner>evince</owner>
+            <type>bool</type>
+            <default>true</default>
+            <locale name="C">
+                <short></short>
+                <long></long>
+            </locale>
+        </schema>
+
+
+        <schema>
+            <key>/schemas/desktop/mate/thumbnailers/application@x-cbz/command</key>
+            <applyto>/desktop/mate/thumbnailers/application@x-cbz/command</applyto>
+            <owner>evince</owner>
+            <type>string</type>
+            <default>evince-thumbnailer -s %s %u %o</default>
+            <locale name="C">
+                <short></short>
+                <long></long>
+            </locale>
+        </schema>
+
+        <schema>
+            <key>/schemas/desktop/mate/thumbnailers/application@x-cbr/enable</key>
+            <applyto>/desktop/mate/thumbnailers/application@x-cbr/enable</applyto>
+            <owner>evince</owner>
+            <type>bool</type>
+            <default>true</default>
+            <locale name="C">
+                <short></short>
+                <long></long>
+            </locale>
+        </schema>
+
+
+        <schema>
+            <key>/schemas/desktop/mate/thumbnailers/application@x-cbr/command</key>
+            <applyto>/desktop/mate/thumbnailers/application@x-cbr/command</applyto>
+            <owner>evince</owner>
+            <type>string</type>
+            <default>evince-thumbnailer -s %s %u %o</default>
+            <locale name="C">
+                <short></short>
+                <long></long>
+            </locale>
+        </schema>
+
+
+	<schema>
+            <key>/schemas/desktop/mate/thumbnailers/application@x-cb7/enable</key>
+            <applyto>/desktop/mate/thumbnailers/application@x-cb7/enable</applyto>
+            <owner>evince</owner>
+            <type>bool</type>
+            <default>true</default>
+            <locale name="C">
+                <short></short>
+                <long></long>
+            </locale>
+        </schema>
+
+
+        <schema>
+            <key>/schemas/desktop/mate/thumbnailers/application@x-cb7/command</key>
+            <applyto>/desktop/mate/thumbnailers/application@x-cb7/command</applyto>
+            <owner>evince</owner>
+            <type>string</type>
+            <default>evince-thumbnailer -s %s %u %o</default>
+            <locale name="C">
+                <short></short>
+                <long></long>
+            </locale>
+        </schema>
+
+	<schema>
+            <key>/schemas/desktop/mate/thumbnailers/application@x-cbt/enable</key>
+            <applyto>/desktop/mate/thumbnailers/application@x-cbt/enable</applyto>
+            <owner>evince</owner>
+            <type>bool</type>
+            <default>true</default>
+            <locale name="C">
+                <short></short>
+                <long></long>
+            </locale>
+        </schema>
+
+
+        <schema>
+            <key>/schemas/desktop/mate/thumbnailers/application@x-cbt/command</key>
+            <applyto>/desktop/mate/thumbnailers/application@x-cbt/command</applyto>
+            <owner>evince</owner>
+            <type>string</type>
+            <default>evince-thumbnailer -s %s %u %o</default>
+            <locale name="C">
+                <short></short>
+                <long></long>
+            </locale>
+        </schema>
+
+    </schemalist>
+</mateconfschemafile>

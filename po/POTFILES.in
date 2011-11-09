@@ -1,0 +1,66 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+[encoding: UTF-8]
+backend/comics/comics-document.c
+[type: gettext/ini] backend/comics/comicsdocument.evince-backend.in
+backend/djvu/djvu-document.c
+[type: gettext/ini] backend/djvu/djvudocument.evince-backend.in
+backend/dvi/dvi-document.c
+[type: gettext/ini] backend/dvi/dvidocument.evince-backend.in
+backend/pdf/ev-poppler.cc
+[type: gettext/ini] backend/pdf/pdfdocument.evince-backend.in
+backend/impress/impress-document.c
+[type: gettext/ini] backend/impress/impressdocument.evince-backend.in
+backend/impress/zip.c
+backend/ps/ev-spectre.c
+[type: gettext/ini] backend/ps/psdocument.evince-backend.in
+backend/tiff/tiff-document.c
+libdocument/ev-attachment.c
+libdocument/ev-document-factory.c
+libdocument/ev-file-helpers.c
+cut-n-paste/smclient/eggdesktopfile.c
+cut-n-paste/smclient/eggsmclient.c
+cut-n-paste/toolbar-editor/egg-editable-toolbar.c
+cut-n-paste/toolbar-editor/egg-toolbar-editor.c
+cut-n-paste/zoom-control/ephy-zoom.h
+data/evince.desktop.in.in
+data/org.mate.Evince.gschema.xml.in
+previewer/ev-previewer.c
+previewer/ev-previewer-window.c
+properties/ev-properties-main.c
+properties/ev-properties-view.c
+libmisc/ev-page-action.c
+libmisc/ev-page-action-widget.c
+libview/ev-loading-window.c
+libview/ev-print-operation.c
+libview/ev-jobs.c
+libview/ev-view-accessible.c
+libview/ev-view-presentation.c
+libview/ev-view.c
+shell/eggfindbar.c
+shell/ev-annotation-properties-dialog.c
+shell/ev-application.c
+shell/ev-history.c
+shell/ev-keyring.c
+shell/ev-convert-metadata.c
+shell/ev-navigation-action.c
+shell/ev-navigation-action-widget.c
+shell/ev-open-recent-action.c
+shell/ev-password-view.c
+shell/ev-properties-dialog.c
+shell/ev-properties-fonts.c
+shell/ev-properties-license.c
+shell/ev-sidebar-annotations.c
+shell/ev-sidebar-attachments.c
+shell/ev-sidebar-layers.c
+shell/ev-sidebar-links.c
+shell/ev-sidebar-thumbnails.c
+shell/ev-window.c
+shell/ev-window-title.c
+shell/ev-utils.c
+shell/main.c
+thumbnailer/evince-thumbnailer-comics.schemas.in
+thumbnailer/evince-thumbnailer-djvu.schemas.in
+thumbnailer/evince-thumbnailer-dvi.schemas.in
+thumbnailer/evince-thumbnailer-ps.schemas.in
+thumbnailer/evince-thumbnailer.schemas.in

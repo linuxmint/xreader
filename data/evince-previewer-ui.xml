@@ -1,0 +1,34 @@
+<ui>
+  <toolbar name="PreviewToolbar">
+    <toolitem name="GoPreviousPage" action="GoPreviousPage"/>
+    <toolitem name="GoNextPage" action="GoNextPage"/>
+    <separator/>
+    <toolitem name="PageSelector" action="PageSelector"/>
+    <separator/>
+    <toolitem name="ViewPageWidth" action="ViewPageWidth"/>
+    <toolitem name="ViewBestFit" action="ViewBestFit"/>
+    <toolitem name="ViewZoomIn" action="ViewZoomIn"/>
+    <toolitem name="ViewZoomOut" action="ViewZoomOut"/>
+    <separator/>
+    <toolitem name="PreviewPrint" action="PreviewPrint"/>
+  </toolbar>
+
+  <accelerator name="FileCloseWindowAccel" action="FileCloseWindow"/>
+  <accelerator name="SpaceAccel" action="Space"/>
+  <accelerator name="ReturnAccel" action="Return"/>
+  <accelerator name="BackSpaceAccel" action="BackSpace"/>
+  <accelerator name="ShiftSpaceAccel" action="ShiftSpace"/>
+  <accelerator name="ShiftBackSpaceAccel" action="ShiftBackSpace"/>
+  <accelerator name="pAccel" action="p"/>
+  <accelerator name="nAccel" action="n"/>
+  <accelerator name="ShiftReturnAccel" action="ShiftReturn"/>
+  <accelerator name="FocusPageSelectorAccel" action="FocusPageSelector"/>
+  <accelerator name="PlusAccel" action="Plus"/>
+  <accelerator name="MinusAccel" action="Minus"/>
+  <accelerator name="Equal" action="Equal"/>
+  <accelerator name="CtrlEqualAccel" action="CtrlEqual"/>
+  <accelerator name="KpPlusAccel" action="KpPlus"/>
+  <accelerator name="KpMinusAccel" action="KpMinus"/>
+  <accelerator name="CtrlKpPlusAccel" action="CtrlKpPlus"/>
+  <accelerator name="CtrlKpMinusAccel" action="CtrlKpMinus"/>
+</ui>

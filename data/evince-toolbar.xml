@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<toolbars version="1.0">
+<available>
+    <toolitem name="FileOpenRecent"/>
+    <toolitem name="FilePrint"/>
+    <toolitem name="FileSaveAs"/>
+    <toolitem name="ViewContinuous"/>
+    <toolitem name="ViewDual"/>
+    <toolitem name="ViewInvertedColors"/>
+    <toolitem name="ViewReload"/>
+    <toolitem name="ViewAutoscroll"/>
+    <toolitem name="ViewSidebar"/>
+    <toolitem name="ViewZoom"/>
+    <toolitem name="ViewZoomIn"/>
+    <toolitem name="ViewZoomOut"/>
+    <toolitem name="ViewBestFit"/>
+    <toolitem name="ViewPageWidth"/>
+    <toolitem name="ViewFullscreen"/>
+    <toolitem name="ViewPresentation"/>
+    <toolitem name="GoPreviousPage"/>
+    <toolitem name="GoNextPage"/>
+    <toolitem name="GoFirstPage"/>
+    <toolitem name="GoLastPage"/>
+    <toolitem name="EditRotateLeft"/>
+    <toolitem name="EditRotateRight"/>
+    <toolitem name="EditSelectAll"/>
+    <toolitem name="EditFind"/>
+    <toolitem name="PageSelector"/>
+    <toolitem name="Navigation"/>
+</available>
+ <toolbar name="DefaultToolBar">
+    <toolitem name="GoPreviousPage"/>
+    <toolitem name="GoNextPage"/>
+    <separator/>
+    <toolitem name="PageSelector"/>
+    <separator/>
+    <toolitem name="ViewZoom"/>
+ </toolbar>
+</toolbars>

@@ -1,0 +1,17 @@
+[Desktop Entry]
+_Name=Document Viewer
+_Comment=View multi-page documents
+TryExec=evince
+Exec=evince %U
+StartupNotify=true
+Terminal=false
+Type=Application
+Icon=evince
+NoDisplay=true
+X-MATE-DocPath=
+X-MATE-Bugzilla-Bugzilla=MATE
+X-MATE-Bugzilla-Product=evince
+X-MATE-Bugzilla-Component=BugBuddyBugs
+X-MATE-Bugzilla-Version=@VERSION@
+Categories=MATE;GTK;Graphics;VectorGraphics;Viewer;
+MimeType=@EVINCE_MIME_TYPES@

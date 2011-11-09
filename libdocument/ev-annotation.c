@@ -1,0 +1,1002 @@
+/* ev-annotation.c
+ *  this file is part of evince, a mate document viewer
+ *
+ * Copyright (C) 2009 Carlos Garcia Campos <carlosgc@gnome.org>
+ * Copyright (C) 2007 Iñigo Martinez <inigomartinez@gmail.com>
+ *
+ * Evince is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * Evince is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ */
+
+#include "config.h"
+
+#include "ev-annotation.h"
+#include "ev-document-misc.h"
+#include "ev-document-type-builtins.h"
+
+struct _EvAnnotation {
+	GObject          parent;
+
+	EvAnnotationType type;
+	EvPage          *page;
+
+	gchar           *contents;
+	gchar           *name;
+	gchar           *modified;
+	GdkColor         color;
+
+};
+
+struct _EvAnnotationClass {
+	GObjectClass parent_class;
+};
+
+struct _EvAnnotationMarkupInterface {
+	GTypeInterface base_iface;
+};
+
+struct _EvAnnotationText {
+	EvAnnotation parent;
+
+	gboolean             is_open : 1;
+	EvAnnotationTextIcon icon;
+};
+
+struct _EvAnnotationTextClass {
+	EvAnnotationClass parent_class;
+};
+
+struct _EvAnnotationAttachment {
+	EvAnnotation parent;
+
+	EvAttachment *attachment;
+};
+
+struct _EvAnnotationAttachmentClass {
+	EvAnnotationClass parent_class;
+};
+
+static void ev_annotation_markup_default_init          (EvAnnotationMarkupInterface *iface);
+static void ev_annotation_text_markup_iface_init       (EvAnnotationMarkupInterface *iface);
+static void ev_annotation_attachment_markup_iface_init (EvAnnotationMarkupInterface *iface);
+
+/* EvAnnotation */
+enum {
+	PROP_ANNOT_0,
+	PROP_ANNOT_PAGE,
+	PROP_ANNOT_CONTENTS,
+	PROP_ANNOT_NAME,
+	PROP_ANNOT_MODIFIED,
+	PROP_ANNOT_COLOR
+};
+
+/* EvAnnotationMarkup */
+enum {
+	PROP_MARKUP_0,
+	PROP_MARKUP_LABEL,
+	PROP_MARKUP_OPACITY,
+	PROP_MARKUP_HAS_POPUP,
+	PROP_MARKUP_RECTANGLE,
+	PROP_MARKUP_POPUP_IS_OPEN
+};
+
+/* EvAnnotationText */
+enum {
+	PROP_TEXT_ICON = PROP_MARKUP_POPUP_IS_OPEN + 1,
+	PROP_TEXT_IS_OPEN
+};
+
+/* EvAnnotationAttachment */
+enum {
+	PROP_ATTACHMENT_ATTACHMENT = PROP_MARKUP_POPUP_IS_OPEN + 1
+};
+
+G_DEFINE_ABSTRACT_TYPE (EvAnnotation, ev_annotation, G_TYPE_OBJECT)
+G_DEFINE_INTERFACE (EvAnnotationMarkup, ev_annotation_markup, EV_TYPE_ANNOTATION)
+G_DEFINE_TYPE_WITH_CODE (EvAnnotationText, ev_annotation_text, EV_TYPE_ANNOTATION,
+	 {
+		 G_IMPLEMENT_INTERFACE (EV_TYPE_ANNOTATION_MARKUP,
+					ev_annotation_text_markup_iface_init);
+	 });
+G_DEFINE_TYPE_WITH_CODE (EvAnnotationAttachment, ev_annotation_attachment, EV_TYPE_ANNOTATION,
+	 {
+		 G_IMPLEMENT_INTERFACE (EV_TYPE_ANNOTATION_MARKUP,
+					ev_annotation_attachment_markup_iface_init);
+	 });
+
+/* EvAnnotation */
+static void
+ev_annotation_finalize (GObject *object)
+{
+        EvAnnotation *annot = EV_ANNOTATION (object);
+
+	if (annot->page) {
+		g_object_unref (annot->page);
+		annot->page = NULL;
+	}
+
+        if (annot->contents) {
+                g_free (annot->contents);
+                annot->contents = NULL;
+        }
+
+        if (annot->name) {
+                g_free (annot->name);
+                annot->name = NULL;
+        }
+
+        if (annot->modified) {
+                g_free (annot->modified);
+                annot->modified = NULL;
+        }
+
+        G_OBJECT_CLASS (ev_annotation_parent_class)->finalize (object);
+}
+
+static void
+ev_annotation_init (EvAnnotation *annot)
+{
+	annot->type = EV_ANNOTATION_TYPE_UNKNOWN;
+}
+
+static void
+ev_annotation_set_property (GObject      *object,
+			    guint         prop_id,
+			    const GValue *value,
+			    GParamSpec   *pspec)
+{
+	EvAnnotation *annot = EV_ANNOTATION (object);
+
+	switch (prop_id) {
+	case PROP_ANNOT_PAGE:
+		annot->page = g_value_dup_object (value);
+		break;
+	case PROP_ANNOT_CONTENTS:
+		ev_annotation_set_contents (annot, g_value_get_string (value));
+		break;
+	case PROP_ANNOT_NAME:
+		ev_annotation_set_name (annot, g_value_get_string (value));
+		break;
+	case PROP_ANNOT_MODIFIED:
+		ev_annotation_set_modified (annot, g_value_get_string (value));
+		break;
+	case PROP_ANNOT_COLOR:
+		ev_annotation_set_color (annot, g_value_get_pointer (value));
+		break;
+	default:
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+	}
+}
+
+static void
+ev_annotation_get_property (GObject    *object,
+			    guint       prop_id,
+			    GValue     *value,
+			    GParamSpec *pspec)
+{
+	EvAnnotation *annot = EV_ANNOTATION (object);
+
+	switch (prop_id) {
+	case PROP_ANNOT_CONTENTS:
+		g_value_set_string (value, ev_annotation_get_contents (annot));
+		break;
+	case PROP_ANNOT_NAME:
+		g_value_set_string (value, ev_annotation_get_name (annot));
+		break;
+	case PROP_ANNOT_MODIFIED:
+		g_value_set_string (value, ev_annotation_get_modified (annot));
+		break;
+	case PROP_ANNOT_COLOR:
+		g_value_set_pointer (value, &annot->color);
+		break;
+	default:
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+	}
+}
+
+static void
+ev_annotation_class_init (EvAnnotationClass *klass)
+{
+	GObjectClass *g_object_class = G_OBJECT_CLASS (klass);
+
+	g_object_class->finalize = ev_annotation_finalize;
+	g_object_class->set_property = ev_annotation_set_property;
+	g_object_class->get_property = ev_annotation_get_property;
+
+	g_object_class_install_property (g_object_class,
+					 PROP_ANNOT_PAGE,
+					 g_param_spec_object ("page",
+							      "Page",
+							      "The page wehere the annotation is",
+							      EV_TYPE_PAGE,
+							      G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY));
+	g_object_class_install_property (g_object_class,
+					 PROP_ANNOT_CONTENTS,
+					 g_param_spec_string ("contents",
+							      "Contents",
+							      "The annotation contents",
+							      NULL,
+							      G_PARAM_READWRITE));
+	g_object_class_install_property (g_object_class,
+					 PROP_ANNOT_NAME,
+					 g_param_spec_string ("name",
+							      "Name",
+							      "The annotation unique name",
+							      NULL,
+							      G_PARAM_READWRITE));
+	g_object_class_install_property (g_object_class,
+					 PROP_ANNOT_MODIFIED,
+					 g_param_spec_string ("modified",
+							      "Modified",
+							      "Last modified date as string",
+							      NULL,
+							      G_PARAM_READWRITE));
+	g_object_class_install_property (g_object_class,
+					 PROP_ANNOT_COLOR,
+					 g_param_spec_pointer ("color",
+							       "Color",
+							       "The annotation color",
+							       G_PARAM_READWRITE));
+}
+
+EvAnnotationType
+ev_annotation_get_annotation_type (EvAnnotation *annot)
+{
+	g_return_val_if_fail (EV_IS_ANNOTATION (annot), 0);
+
+	return annot->type;
+}
+
+EvPage *
+ev_annotation_get_page (EvAnnotation *annot)
+{
+	g_return_val_if_fail (EV_IS_ANNOTATION (annot), NULL);
+
+	return annot->page;
+}
+
+guint
+ev_annotation_get_page_index (EvAnnotation *annot)
+{
+	g_return_val_if_fail (EV_IS_ANNOTATION (annot), 0);
+
+	return annot->page->index;
+}
+
+gboolean
+ev_annotation_equal (EvAnnotation *annot,
+		     EvAnnotation *other)
+{
+	g_return_val_if_fail (EV_IS_ANNOTATION (annot), FALSE);
+	g_return_val_if_fail (EV_IS_ANNOTATION (other), FALSE);
+
+	return (annot == other || g_strcmp0 (annot->name, other->name) == 0);
+}
+
+const gchar *
+ev_annotation_get_contents (EvAnnotation *annot)
+{
+	g_return_val_if_fail (EV_IS_ANNOTATION (annot), NULL);
+
+	return annot->contents;
+}
+
+gboolean
+ev_annotation_set_contents (EvAnnotation *annot,
+			    const gchar  *contents)
+{
+	g_return_val_if_fail (EV_IS_ANNOTATION (annot), FALSE);
+
+	if (g_strcmp0 (annot->contents, contents) == 0)
+		return FALSE;
+
+	if (annot->contents)
+		g_free (annot->contents);
+	annot->contents = contents ? g_strdup (contents) : NULL;
+
+	g_object_notify (G_OBJECT (annot), "contents");
+
+	return TRUE;
+}
+
+const gchar *
+ev_annotation_get_name (EvAnnotation *annot)
+{
+	g_return_val_if_fail (EV_IS_ANNOTATION (annot), NULL);
+
+	return annot->name;
+}
+
+gboolean
+ev_annotation_set_name (EvAnnotation *annot,
+			const gchar  *name)
+{
+	g_return_val_if_fail (EV_IS_ANNOTATION (annot), FALSE);
+
+	if (g_strcmp0 (annot->name, name) == 0)
+		return FALSE;
+
+	if (annot->name)
+		g_free (annot->name);
+	annot->name = name ? g_strdup (name) : NULL;
+
+	g_object_notify (G_OBJECT (annot), "name");
+
+	return TRUE;
+}
+
+const gchar *
+ev_annotation_get_modified (EvAnnotation *annot)
+{
+	g_return_val_if_fail (EV_IS_ANNOTATION (annot), NULL);
+
+	return annot->modified;
+}
+
+gboolean
+ev_annotation_set_modified (EvAnnotation *annot,
+			    const gchar  *modified)
+{
+	g_return_val_if_fail (EV_IS_ANNOTATION (annot), FALSE);
+
+	if (g_strcmp0 (annot->modified, modified) == 0)
+		return FALSE;
+
+	if (annot->modified)
+		g_free (annot->modified);
+	annot->modified = modified ? g_strdup (modified) : NULL;
+
+	g_object_notify (G_OBJECT (annot), "modified");
+
+	return TRUE;
+}
+
+gboolean
+ev_annotation_set_modified_from_time (EvAnnotation *annot,
+				      GTime         utime)
+{
+	gchar *modified;
+
+	g_return_val_if_fail (EV_IS_ANNOTATION (annot), FALSE);
+
+	modified = ev_document_misc_format_date (utime);
+
+	if (g_strcmp0 (annot->modified, modified) == 0) {
+		g_free (modified);
+		return FALSE;
+	}
+
+	if (annot->modified)
+		g_free (annot->modified);
+	annot->modified = modified;
+
+	g_object_notify (G_OBJECT (annot), "modified");
+
+	return TRUE;
+}
+
+void
+ev_annotation_get_color (EvAnnotation *annot,
+			 GdkColor     *color)
+{
+	g_return_if_fail (EV_IS_ANNOTATION (annot));
+
+	if (color)
+		*color = annot->color;
+}
+
+gboolean
+ev_annotation_set_color (EvAnnotation   *annot,
+			 const GdkColor *color)
+{
+	g_return_val_if_fail (EV_IS_ANNOTATION (annot), FALSE);
+
+	if (annot->color.red == color->red &&
+	    annot->color.green == color->green &&
+	    annot->color.blue == color->blue)
+		return FALSE;
+
+	if (color)
+		annot->color = *color;
+
+	g_object_notify (G_OBJECT (annot), "color");
+
+	return TRUE;
+}
+
+/* EvAnnotationMarkup */
+typedef struct {
+	gchar   *label;
+	gdouble  opacity;
+	gboolean has_popup;
+	gboolean popup_is_open;
+	EvRectangle rectangle;
+} EvAnnotationMarkupProps;
+
+static void
+ev_annotation_markup_default_init (EvAnnotationMarkupInterface *iface)
+{
+	static gboolean initialized = FALSE;
+
+	if (!initialized) {
+		g_object_interface_install_property (iface,
+						     g_param_spec_string ("label",
+									  "Label",
+									  "Label of the markup annotation",
+									  NULL,
+									  G_PARAM_READWRITE));
+		g_object_interface_install_property (iface,
+						     g_param_spec_double ("opacity",
+									  "Opacity",
+									  "Opacity of the markup annotation",
+									  0,
+									  G_MAXDOUBLE,
+									  1.,
+									  G_PARAM_READWRITE));
+		g_object_interface_install_property (iface,
+						     g_param_spec_boolean ("has_popup",
+									   "Has popup",
+									   "Whether the markup annotation has "
+									   "a popup window associated",
+									   TRUE,
+									   G_PARAM_READWRITE));
+		g_object_interface_install_property (iface,
+						     g_param_spec_boxed ("rectangle",
+									 "Rectangle",
+									 "The Rectangle of the popup associated "
+									 "to the markup annotation",
+									 EV_TYPE_RECTANGLE,
+									 G_PARAM_READWRITE));
+		g_object_interface_install_property (iface,
+						     g_param_spec_boolean ("popup_is_open",
+									   "PopupIsOpen",
+									   "Whether the popup associated to "
+									   "the markup annotation is open",
+									   FALSE,
+									   G_PARAM_READWRITE));
+		initialized = TRUE;
+	}
+}
+
+static void
+ev_annotation_markup_props_free (EvAnnotationMarkupProps *props)
+{
+	g_free (props->label);
+	g_slice_free (EvAnnotationMarkupProps, props);
+}
+
+static EvAnnotationMarkupProps *
+ev_annotation_markup_get_properties (EvAnnotationMarkup *markup)
+{
+	EvAnnotationMarkupProps *props;
+	static GQuark props_key = 0;
+
+	if (!props_key)
+		props_key = g_quark_from_static_string ("ev-annotation-markup-props");
+
+	props = g_object_get_qdata (G_OBJECT (markup), props_key);
+	if (!props) {
+		props = g_slice_new0 (EvAnnotationMarkupProps);
+		g_object_set_qdata_full (G_OBJECT (markup),
+					 props_key, props,
+					 (GDestroyNotify) ev_annotation_markup_props_free);
+	}
+
+	return props;
+}
+
+static void
+ev_annotation_markup_set_property (GObject      *object,
+				   guint         prop_id,
+				   const GValue *value,
+				   GParamSpec   *pspec)
+{
+	EvAnnotationMarkup *markup = EV_ANNOTATION_MARKUP (object);
+
+	switch (prop_id) {
+	case PROP_MARKUP_LABEL:
+		ev_annotation_markup_set_label (markup, g_value_get_string (value));
+		break;
+	case PROP_MARKUP_OPACITY:
+		ev_annotation_markup_set_opacity (markup, g_value_get_double (value));
+		break;
+	case PROP_MARKUP_HAS_POPUP:
+		ev_annotation_markup_set_has_popup (markup, g_value_get_boolean (value));
+		break;
+	case PROP_MARKUP_RECTANGLE:
+		ev_annotation_markup_set_rectangle (markup, g_value_get_boxed (value));
+		break;
+	case PROP_MARKUP_POPUP_IS_OPEN:
+		ev_annotation_markup_set_popup_is_open (markup, g_value_get_boolean (value));
+		break;
+	default:
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+	}
+}
+
+static void
+ev_annotation_markup_get_property (GObject    *object,
+				   guint       prop_id,
+				   GValue     *value,
+				   GParamSpec *pspec)
+{
+	EvAnnotationMarkupProps *props;
+
+	props = ev_annotation_markup_get_properties (EV_ANNOTATION_MARKUP (object));
+
+	switch (prop_id) {
+	case PROP_MARKUP_LABEL:
+		g_value_set_string (value, props->label);
+		break;
+	case PROP_MARKUP_OPACITY:
+		g_value_set_double (value, props->opacity);
+		break;
+	case PROP_MARKUP_HAS_POPUP:
+		g_value_set_boolean (value, props->has_popup);
+		break;
+	case PROP_MARKUP_RECTANGLE:
+		g_value_set_boxed (value, &props->rectangle);
+		break;
+	case PROP_MARKUP_POPUP_IS_OPEN:
+		g_value_set_boolean (value, props->popup_is_open);
+		break;
+	default:
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+	}
+}
+
+static void
+ev_annotation_markup_class_install_properties (GObjectClass *klass)
+{
+	klass->set_property = ev_annotation_markup_set_property;
+	klass->get_property = ev_annotation_markup_get_property;
+
+	g_object_class_override_property (klass, PROP_MARKUP_LABEL, "label");
+	g_object_class_override_property (klass, PROP_MARKUP_OPACITY, "opacity");
+	g_object_class_override_property (klass, PROP_MARKUP_HAS_POPUP, "has_popup");
+	g_object_class_override_property (klass, PROP_MARKUP_RECTANGLE, "rectangle");
+	g_object_class_override_property (klass, PROP_MARKUP_POPUP_IS_OPEN, "popup_is_open");
+}
+
+const gchar *
+ev_annotation_markup_get_label (EvAnnotationMarkup *markup)
+{
+	EvAnnotationMarkupProps *props;
+
+	g_return_val_if_fail (EV_IS_ANNOTATION_MARKUP (markup), NULL);
+
+	props = ev_annotation_markup_get_properties (markup);
+	return props->label;
+}
+
+gboolean
+ev_annotation_markup_set_label (EvAnnotationMarkup *markup,
+				const gchar        *label)
+{
+	EvAnnotationMarkupProps *props;
+
+	g_return_val_if_fail (EV_IS_ANNOTATION_MARKUP (markup), FALSE);
+	g_return_val_if_fail (label != NULL, FALSE);
+
+	props = ev_annotation_markup_get_properties (markup);
+	if (g_strcmp0 (props->label, label) == 0)
+		return FALSE;
+
+	if (props->label)
+		g_free (props->label);
+	props->label = g_strdup (label);
+
+	g_object_notify (G_OBJECT (markup), "label");
+
+	return TRUE;
+}
+
+gdouble
+ev_annotation_markup_get_opacity (EvAnnotationMarkup *markup)
+{
+	EvAnnotationMarkupProps *props;
+
+	g_return_val_if_fail (EV_IS_ANNOTATION_MARKUP (markup), 1.0);
+
+	props = ev_annotation_markup_get_properties (markup);
+	return props->opacity;
+}
+
+gboolean
+ev_annotation_markup_set_opacity (EvAnnotationMarkup *markup,
+				  gdouble             opacity)
+{
+	EvAnnotationMarkupProps *props;
+
+	g_return_val_if_fail (EV_IS_ANNOTATION_MARKUP (markup), FALSE);
+
+	props = ev_annotation_markup_get_properties (markup);
+	if (props->opacity == opacity)
+		return FALSE;
+
+	props->opacity = opacity;
+
+	g_object_notify (G_OBJECT (markup), "opacity");
+
+	return TRUE;
+}
+
+gboolean
+ev_annotation_markup_has_popup (EvAnnotationMarkup *markup)
+{
+	EvAnnotationMarkupProps *props;
+
+	g_return_val_if_fail (EV_IS_ANNOTATION_MARKUP (markup), FALSE);
+
+	props = ev_annotation_markup_get_properties (markup);
+	return props->has_popup;
+}
+
+gboolean
+ev_annotation_markup_set_has_popup (EvAnnotationMarkup *markup,
+				    gboolean            has_popup)
+{
+	EvAnnotationMarkupProps *props;
+
+	g_return_val_if_fail (EV_IS_ANNOTATION_MARKUP (markup), FALSE);
+
+	props = ev_annotation_markup_get_properties (markup);
+	if (props->has_popup == has_popup)
+		return FALSE;
+
+	props->has_popup = has_popup;
+
+	g_object_notify (G_OBJECT (markup), "has-popup");
+
+	return TRUE;
+}
+
+void
+ev_annotation_markup_get_rectangle (EvAnnotationMarkup *markup,
+				    EvRectangle        *ev_rect)
+{
+	EvAnnotationMarkupProps *props;
+
+	g_return_if_fail (EV_IS_ANNOTATION_MARKUP (markup));
+	g_return_if_fail (ev_rect != NULL);
+
+	props = ev_annotation_markup_get_properties (markup);
+	*ev_rect = props->rectangle;
+}
+
+gboolean
+ev_annotation_markup_set_rectangle (EvAnnotationMarkup *markup,
+				    const EvRectangle  *ev_rect)
+{
+	EvAnnotationMarkupProps *props;
+
+	g_return_val_if_fail (EV_IS_ANNOTATION_MARKUP (markup), FALSE);
+	g_return_val_if_fail (ev_rect != NULL, FALSE);
+
+	props = ev_annotation_markup_get_properties (markup);
+	if (props->rectangle.x1 == ev_rect->x1 &&
+	    props->rectangle.y1 == ev_rect->y1 &&
+	    props->rectangle.x2 == ev_rect->x2 &&
+	    props->rectangle.y2 == ev_rect->y2)
+		return FALSE;
+
+	props->rectangle = *ev_rect;
+
+	g_object_notify (G_OBJECT (markup), "rectangle");
+
+	return TRUE;
+}
+
+gboolean
+ev_annotation_markup_get_popup_is_open (EvAnnotationMarkup *markup)
+{
+	EvAnnotationMarkupProps *props;
+
+	g_return_val_if_fail (EV_IS_ANNOTATION_MARKUP (markup), FALSE);
+
+	props = ev_annotation_markup_get_properties (markup);
+	return props->popup_is_open;
+}
+
+gboolean
+ev_annotation_markup_set_popup_is_open (EvAnnotationMarkup *markup,
+					gboolean            is_open)
+{
+	EvAnnotationMarkupProps *props;
+
+	g_return_val_if_fail (EV_IS_ANNOTATION_MARKUP (markup), FALSE);
+
+	props = ev_annotation_markup_get_properties (markup);
+	if (props->popup_is_open == is_open)
+		return FALSE;
+
+	props->popup_is_open = is_open;
+
+	g_object_notify (G_OBJECT (markup), "popup_is_open");
+
+	return TRUE;
+}
+
+/* EvAnnotationText */
+static void
+ev_annotation_text_init (EvAnnotationText *annot)
+{
+	EV_ANNOTATION (annot)->type = EV_ANNOTATION_TYPE_TEXT;
+}
+
+static void
+ev_annotation_text_set_property (GObject      *object,
+				 guint         prop_id,
+				 const GValue *value,
+				 GParamSpec   *pspec)
+{
+	EvAnnotationText *annot = EV_ANNOTATION_TEXT (object);
+
+	if (prop_id < PROP_ATTACHMENT_ATTACHMENT) {
+		ev_annotation_markup_set_property (object, prop_id, value, pspec);
+		return;
+	}
+
+	switch (prop_id) {
+	case PROP_TEXT_ICON:
+		ev_annotation_text_set_icon (annot, g_value_get_enum (value));
+		break;
+	case PROP_TEXT_IS_OPEN:
+		ev_annotation_text_set_is_open (annot, g_value_get_boolean (value));
+		break;
+	default:
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+	}
+}
+
+static void
+ev_annotation_text_get_property (GObject    *object,
+				 guint       prop_id,
+				 GValue     *value,
+				 GParamSpec *pspec)
+{
+	EvAnnotationText *annot = EV_ANNOTATION_TEXT (object);
+
+	if (prop_id < PROP_ATTACHMENT_ATTACHMENT) {
+		ev_annotation_markup_get_property (object, prop_id, value, pspec);
+		return;
+	}
+
+	switch (prop_id) {
+	case PROP_TEXT_ICON:
+		g_value_set_enum (value, annot->icon);
+		break;
+	case PROP_TEXT_IS_OPEN:
+		g_value_set_boolean (value, annot->is_open);
+		break;
+	default:
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+	}
+}
+
+static void
+ev_annotation_text_class_init (EvAnnotationTextClass *klass)
+{
+	GObjectClass *g_object_class = G_OBJECT_CLASS (klass);
+
+	ev_annotation_markup_class_install_properties (g_object_class);
+
+	g_object_class->set_property = ev_annotation_text_set_property;
+	g_object_class->get_property = ev_annotation_text_get_property;
+
+	g_object_class_install_property (g_object_class,
+					 PROP_TEXT_ICON,
+					 g_param_spec_enum ("icon",
+							    "Icon",
+							    "The icon fo the text annotation",
+							    EV_TYPE_ANNOTATION_TEXT_ICON,
+							    EV_ANNOTATION_TEXT_ICON_NOTE,
+							    G_PARAM_READWRITE));
+	g_object_class_install_property (g_object_class,
+					 PROP_TEXT_IS_OPEN,
+					 g_param_spec_boolean ("is_open",
+							       "IsOpen",
+							       "Whether text annot is initially open",
+							       FALSE,
+							       G_PARAM_READWRITE));
+}
+
+static void
+ev_annotation_text_markup_iface_init (EvAnnotationMarkupInterface *iface)
+{
+}
+
+EvAnnotation *
+ev_annotation_text_new (EvPage *page)
+{
+	return EV_ANNOTATION (g_object_new (EV_TYPE_ANNOTATION_TEXT,
+					    "page", page,
+					    NULL));
+}
+
+EvAnnotationTextIcon
+ev_annotation_text_get_icon (EvAnnotationText *text)
+{
+	g_return_val_if_fail (EV_IS_ANNOTATION_TEXT (text), 0);
+
+	return text->icon;
+}
+
+gboolean
+ev_annotation_text_set_icon (EvAnnotationText    *text,
+			     EvAnnotationTextIcon icon)
+{
+	g_return_val_if_fail (EV_IS_ANNOTATION_TEXT (text), FALSE);
+
+	if (text->icon == icon)
+		return FALSE;
+
+	text->icon = icon;
+
+	g_object_notify (G_OBJECT (text), "icon");
+
+	return TRUE;
+}
+
+gboolean
+ev_annotation_text_get_is_open (EvAnnotationText *text)
+{
+	g_return_val_if_fail (EV_IS_ANNOTATION_TEXT (text), FALSE);
+
+	return text->is_open;
+}
+
+gboolean
+ev_annotation_text_set_is_open (EvAnnotationText *text,
+				gboolean          is_open)
+{
+	g_return_val_if_fail (EV_IS_ANNOTATION_TEXT (text), FALSE);
+
+	if (text->is_open == is_open)
+		return FALSE;
+
+	text->is_open = is_open;
+
+	g_object_notify (G_OBJECT (text), "is_open");
+
+	return TRUE;
+}
+
+/* EvAnnotationAttachment */
+static void
+ev_annotation_attachment_finalize (GObject *object)
+{
+	EvAnnotationAttachment *annot = EV_ANNOTATION_ATTACHMENT (object);
+
+	if (annot->attachment) {
+		g_object_unref (annot->attachment);
+		annot->attachment = NULL;
+	}
+
+	G_OBJECT_CLASS (ev_annotation_attachment_parent_class)->finalize (object);
+}
+
+static void
+ev_annotation_attachment_init (EvAnnotationAttachment *annot)
+{
+	EV_ANNOTATION (annot)->type = EV_ANNOTATION_TYPE_ATTACHMENT;
+}
+
+static void
+ev_annotation_attachment_set_property (GObject      *object,
+				       guint         prop_id,
+				       const GValue *value,
+				       GParamSpec   *pspec)
+{
+	EvAnnotationAttachment *annot = EV_ANNOTATION_ATTACHMENT (object);
+
+	if (prop_id < PROP_ATTACHMENT_ATTACHMENT) {
+		ev_annotation_markup_set_property (object, prop_id, value, pspec);
+		return;
+	}
+
+	switch (prop_id) {
+	case PROP_ATTACHMENT_ATTACHMENT:
+		ev_annotation_attachment_set_attachment (annot, g_value_get_object (value));
+		break;
+	default:
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+	}
+}
+
+static void
+ev_annotation_attachment_get_property (GObject    *object,
+				       guint       prop_id,
+				       GValue     *value,
+				       GParamSpec *pspec)
+{
+	EvAnnotationAttachment *annot = EV_ANNOTATION_ATTACHMENT (object);
+
+	if (prop_id < PROP_ATTACHMENT_ATTACHMENT) {
+		ev_annotation_markup_get_property (object, prop_id, value, pspec);
+		return;
+	}
+
+	switch (prop_id) {
+	case PROP_ATTACHMENT_ATTACHMENT:
+		g_value_set_object (value, annot->attachment);
+		break;
+	default:
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+	}
+}
+
+static void
+ev_annotation_attachment_class_init (EvAnnotationAttachmentClass *klass)
+{
+	GObjectClass *g_object_class = G_OBJECT_CLASS (klass);
+
+	ev_annotation_markup_class_install_properties (g_object_class);
+
+	g_object_class->set_property = ev_annotation_attachment_set_property;
+	g_object_class->get_property = ev_annotation_attachment_get_property;
+	g_object_class->finalize = ev_annotation_attachment_finalize;
+
+	g_object_class_install_property (g_object_class,
+					 PROP_ATTACHMENT_ATTACHMENT,
+					 g_param_spec_object ("attachment",
+							      "Attachment",
+							      "The attachment of the annotation",
+							      EV_TYPE_ATTACHMENT,
+							      G_PARAM_CONSTRUCT |
+							      G_PARAM_READWRITE));
+}
+
+static void
+ev_annotation_attachment_markup_iface_init (EvAnnotationMarkupInterface *iface)
+{
+}
+
+EvAnnotation *
+ev_annotation_attachment_new (EvPage       *page,
+			      EvAttachment *attachment)
+{
+	g_return_val_if_fail (EV_IS_ATTACHMENT (attachment), NULL);
+
+	return EV_ANNOTATION (g_object_new (EV_TYPE_ANNOTATION_ATTACHMENT,
+					    "page", page,
+					    "attachment", attachment,
+					    NULL));
+}
+
+EvAttachment *
+ev_annotation_attachment_get_attachment (EvAnnotationAttachment *annot)
+{
+	g_return_val_if_fail (EV_IS_ANNOTATION_ATTACHMENT (annot), NULL);
+
+	return annot->attachment;
+}
+
+gboolean
+ev_annotation_attachment_set_attachment (EvAnnotationAttachment *annot,
+					 EvAttachment           *attachment)
+{
+	g_return_val_if_fail (EV_IS_ANNOTATION_ATTACHMENT (annot), FALSE);
+
+	if (annot->attachment == attachment)
+		return FALSE;
+
+	if (annot->attachment)
+		g_object_unref (annot->attachment);
+	annot->attachment = attachment ? g_object_ref (attachment) : NULL;
+
+	g_object_notify (G_OBJECT (annot), "attachment");
+
+	return TRUE;
+}

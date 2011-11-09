@@ -1,0 +1,1322 @@
+# Përkthimi i mesazheve të evince në shqip.
+# This file is distributed under the same license as the Evince package.
+# Copyright (C) 2006, 2007, 2008 Free Software Foundation, Inc.
+#
+# Laurent Dhima <laurenti@alblinux.net>, 2005-2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: evince HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-02 07:24+0000\n"
+"PO-Revision-Date: 2008-09-04 10:12+0200\n"
+"Last-Translator: Laurent Dhima <laurenti@alblinux.net>\n"
+"Language-Team: albanian <mate-albanian-perkthyesit@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../backend/comics/comics-document.c:169
+#, c-format
+msgid "File corrupted."
+msgstr "File i dëmtuar."
+
+#: ../backend/comics/comics-document.c:203
+#, c-format
+msgid "No images found in archive %s"
+msgstr "Nuk u gjetën figura tek arkivi %s"
+
+#: ../backend/comics/comicsdocument.evince-backend.in.h:1
+msgid "Comic Books"
+msgstr "Libra komikë"
+
+#: ../backend/djvu/djvu-document.c:247
+#, c-format
+msgid ""
+"The document is composed by several files. One or more of such files cannot "
+"be accessed."
+msgstr ""
+"Dokumenti përbëhet nga disa file. E pamundur hyrja tek një apo më shumë prej "
+"tyre."
+
+#: ../backend/djvu/djvudocument.evince-backend.in.h:1
+msgid "Djvu Documents"
+msgstr "Dokumente Djvu"
+
+#: ../backend/dvi/dvi-document.c:94
+#, c-format
+msgid "File not available"
+msgstr "File jo në dispozicion"
+
+#: ../backend/dvi/dvi-document.c:109
+#, c-format
+msgid "DVI document has incorrect format"
+msgstr "Dokumenti DVI është i një formati të parregullt"
+
+#: ../backend/dvi/dvidocument.evince-backend.in.h:1
+msgid "DVI Documents"
+msgstr "Dokumente DVI"
+
+#. translators: this is the document security state
+#: ../backend/pdf/ev-poppler.cc:688
+msgid "Yes"
+msgstr "Po"
+
+#. translators: this is the document security state
+#: ../backend/pdf/ev-poppler.cc:691
+msgid "No"
+msgstr "Jo"
+
+#: ../backend/pdf/ev-poppler.cc:765
+msgid "Type 1"
+msgstr "Lloji 1"
+
+#: ../backend/pdf/ev-poppler.cc:767
+msgid "Type 1C"
+msgstr "Lloji 1C"
+
+#: ../backend/pdf/ev-poppler.cc:769
+msgid "Type 3"
+msgstr "Lloji 3"
+
+#: ../backend/pdf/ev-poppler.cc:771
+msgid "TrueType"
+msgstr "TrueType"
+
+#: ../backend/pdf/ev-poppler.cc:773
+msgid "Type 1 (CID)"
+msgstr "Lloji 1 (CID)"
+
+#: ../backend/pdf/ev-poppler.cc:775
+msgid "Type 1C (CID)"
+msgstr "Lloji 1C (CID)"
+
+#: ../backend/pdf/ev-poppler.cc:777
+msgid "TrueType (CID)"
+msgstr "TrueType (CID)"
+
+#: ../backend/pdf/ev-poppler.cc:779
+msgid "Unknown font type"
+msgstr "Lloj gërmë e panjohur"
+
+#: ../backend/pdf/ev-poppler.cc:805
+msgid "No name"
+msgstr "Pa emër"
+
+#: ../backend/pdf/ev-poppler.cc:813
+msgid "Embedded subset"
+msgstr "E nënpërbashkët e trupëzuar"
+
+#: ../backend/pdf/ev-poppler.cc:815
+msgid "Embedded"
+msgstr "Trupëzuar"
+
+#: ../backend/pdf/ev-poppler.cc:817
+msgid "Not embedded"
+msgstr "Jo e trupëzuar"
+
+#: ../backend/pdf/pdfdocument.evince-backend.in.h:1
+msgid "PDF Documents"
+msgstr "Dokumente PDF"
+
+#: ../backend/impress/impress-document.c:297
+#, c-format
+msgid "Remote files aren't supported"
+msgstr "File në distancë nuk suportohen"
+
+#: ../backend/impress/impress-document.c:308
+#, c-format
+msgid "Invalid document"
+msgstr "Dokument i pavlefshëm"
+
+#.
+#. * vim: sw=2 ts=8 cindent noai bs=2
+#.
+#: ../backend/impress/impressdocument.evince-backend.in.h:1
+msgid "Impress Slides"
+msgstr "Prezantime Impress"
+
+#: ../backend/impress/zip.c:53
+msgid "No error"
+msgstr "Asnjë gabim"
+
+#: ../backend/impress/zip.c:56
+msgid "Not enough memory"
+msgstr "Memorje e pamjaftueshme"
+
+#: ../backend/impress/zip.c:59
+msgid "Cannot find zip signature"
+msgstr "E pamundur gjetja e firmës së zip"
+
+#: ../backend/impress/zip.c:62
+msgid "Invalid zip file"
+msgstr "File i pavlefshëm zip"
+
+#: ../backend/impress/zip.c:65
+msgid "Multi file zips are not supported"
+msgstr "File zip shumëfishë nuk suportohen"
+
+#: ../backend/impress/zip.c:68
+msgid "Cannot open the file"
+msgstr "E pamundur hapja e file"
+
+#: ../backend/impress/zip.c:71
+msgid "Cannot read data from file"
+msgstr "I pamundur leximi i të dhënave nga file"
+
+#: ../backend/impress/zip.c:74
+msgid "Cannot find file in the zip archive"
+msgstr "E pamundur gjetja e file në arkivin zip"
+
+#: ../backend/impress/zip.c:77
+msgid "Unknown error"
+msgstr "Gabim i panjohur"
+
+#: ../backend/ps/ev-spectre.c:113
+#, c-format
+msgid "Failed to load document “%s”"
+msgstr "E pamundur hapja e dokumentit “%s”"
+
+#: ../backend/ps/ev-spectre.c:146
+#, c-format
+msgid "Failed to save document “%s”"
+msgstr "E pamundur ruajtja e dokumentit “%s”"
+
+#: ../backend/ps/psdocument.evince-backend.in.h:1
+msgid "PostScript Documents"
+msgstr "Dokumente PostScript"
+
+#: ../libdocument/ev-attachment.c:303 ../libdocument/ev-attachment.c:324
+#, c-format
+msgid "Couldn't save attachment “%s”: %s"
+msgstr "E pamundur ruajtja e të bashkangjiturit “%s”: %s"
+
+#: ../libdocument/ev-attachment.c:360
+#, c-format
+msgid "Couldn't open attachment “%s”: %s"
+msgstr "E pamundur hapja e të bashkangjiturit “%s”: %s"
+
+#: ../libdocument/ev-attachment.c:393
+#, c-format
+msgid "Couldn't open attachment “%s”"
+msgstr "E pamundur hapja e të bashkangjiturit “%s”"
+
+#: ../libdocument/ev-document-factory.c:181
+#: ../libdocument/ev-document-factory.c:302
+#, c-format
+msgid "Unknown MIME Type"
+msgstr "Lloj MIME i panjohur"
+
+#: ../libdocument/ev-document-factory.c:201
+#, c-format
+msgid "File type %s (%s) is not supported"
+msgstr "File i llojit %s (%s) nuk suportohet"
+
+#: ../libdocument/ev-document-factory.c:357
+msgid "All Documents"
+msgstr "Të gjithë dokumentët"
+
+#: ../libdocument/ev-document-factory.c:389
+msgid "All Files"
+msgstr "Të gjithë files"
+
+#: ../cut-n-paste/evmountoperation/ev-mount-operation.c:439
+msgid "Co_nnect"
+msgstr "Li_dhu"
+
+#: ../cut-n-paste/evmountoperation/ev-mount-operation.c:483
+msgid "Connect _anonymously"
+msgstr "Lidhu në menyrë _anonime"
+
+#: ../cut-n-paste/evmountoperation/ev-mount-operation.c:492
+msgid "Connect as u_ser:"
+msgstr "Lidhu si _përdorues:"
+
+#: ../cut-n-paste/evmountoperation/ev-mount-operation.c:529
+msgid "_Username:"
+msgstr "_Përdoruesi:"
+
+#: ../cut-n-paste/evmountoperation/ev-mount-operation.c:533
+msgid "_Domain:"
+msgstr "_Domain:"
+
+#: ../cut-n-paste/evmountoperation/ev-mount-operation.c:538
+#: ../data/evince-password.glade.h:4
+msgid "_Password:"
+msgstr "_Fjalëkalimi:"
+
+#: ../cut-n-paste/evmountoperation/ev-mount-operation.c:553
+msgid "_Forget password immediately"
+msgstr "_Harro menjëherë fjalëkalimin"
+
+#: ../cut-n-paste/evmountoperation/ev-mount-operation.c:561
+msgid "_Remember password until you logout"
+msgstr "_Kujto fjalëkalimin derisa të shkëputesh"
+
+#: ../cut-n-paste/evmountoperation/ev-mount-operation.c:569
+msgid "_Remember forever"
+msgstr "_Kujto përgjithmonë"
+
+#: ../cut-n-paste/smclient/eggdesktopfile.c:139
+#, c-format
+msgid "File is not a valid .desktop file"
+msgstr "File nuk është një file i vlefshëm .desktop"
+
+#: ../cut-n-paste/smclient/eggdesktopfile.c:161
+#, c-format
+msgid "Unrecognized desktop file Version '%s'"
+msgstr "Version i pasaktë file desktop '%s'"
+
+#: ../cut-n-paste/smclient/eggdesktopfile.c:872
+#, c-format
+msgid "Starting %s"
+msgstr "Duke nisur %s"
+
+#: ../cut-n-paste/smclient/eggdesktopfile.c:1006
+#, c-format
+msgid "Application does not accept documents on command line"
+msgstr "Aplikativi nuk pranon dokumente në rreshtin e komandës"
+
+#: ../cut-n-paste/smclient/eggdesktopfile.c:1074
+#, c-format
+msgid "Unrecognized launch option: %d"
+msgstr "Opsion i pasaktë nisje: %d"
+
+#: ../cut-n-paste/smclient/eggdesktopfile.c:1276
+#, c-format
+msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
+msgstr "Nuk mund t'i kalohen URLtë e dokumenteve një zëri desktop 'Type=Link'"
+
+#: ../cut-n-paste/smclient/eggdesktopfile.c:1295
+#, c-format
+msgid "Not a launchable item"
+msgstr "Nuk është një element i ekzekutueshëm"
+
+#: ../cut-n-paste/smclient/eggsmclient.c:185
+msgid "Disable connection to session manager"
+msgstr "Çaktivizon lidhjen me menazhuesin e seancës"
+
+#: ../cut-n-paste/smclient/eggsmclient.c:188
+msgid "Specify file containing saved configuration"
+msgstr "Specifikon file që përmban konfiurimin e ruajtur"
+
+#: ../cut-n-paste/smclient/eggsmclient.c:188
+msgid "FILE"
+msgstr "FILE"
+
+#: ../cut-n-paste/smclient/eggsmclient.c:191
+msgid "Specify session management ID"
+msgstr "Specifikon ID e menazhuesit të seancës"
+
+#: ../cut-n-paste/smclient/eggsmclient.c:191
+msgid "ID"
+msgstr "ID"
+
+#: ../cut-n-paste/smclient/eggsmclient.c:227
+msgid "Session Management Options"
+msgstr "Opsionet e menazhimit të seancës"
+
+#: ../cut-n-paste/smclient/eggsmclient.c:228
+msgid "Show Session Management options"
+msgstr "Shfaq opsionet e menazhimit të seancës"
+
+#. Translaters: This string is for a toggle to display a toolbar.
+#. * The name of the toolbar is automatically computed from the widgets
+#. * on the toolbar, and is placed at the %s. Note the _ before the %s
+#. * which is used to add mnemonics. We know that this is likely to
+#. * produce duplicates, but don't worry about it. If your language
+#. * normally has a mnemonic at the start, please use the _. If not,
+#. * please remove.
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:938
+#, c-format
+msgid "Show “_%s”"
+msgstr "Shfaq “_%s”"
+
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1401
+msgid "_Move on Toolbar"
+msgstr "_Lëviz tek paneli i instrumentëve"
+
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1402
+msgid "Move the selected item on the toolbar"
+msgstr "Lëviz elementin e zgjedhur tek paneli i instrumentëve"
+
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1403
+msgid "_Remove from Toolbar"
+msgstr "_Hiq nga paneli i instrumentëve"
+
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1404
+msgid "Remove the selected item from the toolbar"
+msgstr "Hiq elementin e zgjedhur nga paneli i instrumentëve"
+
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1405
+msgid "_Delete Toolbar"
+msgstr "_Hiq panelin e instrumentëve"
+
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1406
+msgid "Remove the selected toolbar"
+msgstr "Hiq panelin e zgjedhur të instrumentëve"
+
+#: ../cut-n-paste/toolbar-editor/egg-toolbar-editor.c:441
+msgid "Separator"
+msgstr "Ndarës"
+
+#: ../cut-n-paste/totem-screensaver/totem-scrsaver.c:111
+msgid "Running in presentation mode"
+msgstr "Duke punuar në mënyrën prezantim"
+
+#. translators: this is the label for toolbar button
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:48 ../shell/ev-window.c:4719
+msgid "Best Fit"
+msgstr "Përshtatja më e mirë"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:49
+msgid "Fit Page Width"
+msgstr "Përshtat gjerësinë e faqes"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:51
+msgid "50%"
+msgstr "50%"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:52
+msgid "70%"
+msgstr "70%"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:53
+msgid "85%"
+msgstr "85%"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:54
+msgid "100%"
+msgstr "100%"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:55
+msgid "125%"
+msgstr "125%"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:56
+msgid "150%"
+msgstr "150%"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:57
+msgid "175%"
+msgstr "175%"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:58
+msgid "200%"
+msgstr "200%"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:59
+msgid "300%"
+msgstr "300%"
+
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:60
+msgid "400%"
+msgstr "400%"
+
+#: ../data/evince.desktop.in.in.h:1 ../shell/ev-window.c:3751
+#: ../shell/ev-window-title.c:132
+#, c-format
+msgid "Document Viewer"
+msgstr "Shikues dokumentesh"
+
+#: ../data/evince.desktop.in.in.h:2
+msgid "View multipage documents"
+msgstr "Shiko dokumentë shumfaqësh"
+
+#: ../data/evince-password.glade.h:1
+msgid "Password Entry"
+msgstr "Dhënia e fjalëkalimit"
+
+#: ../data/evince-password.glade.h:2
+msgid "Remember password for this session"
+msgstr "Kujto fjalëkalimin për këtë seancë"
+
+#: ../data/evince-password.glade.h:3
+msgid "Save password in keyring"
+msgstr "Ruaje fjalëkalimin në keyring"
+
+#: ../data/evince-properties.glade.h:1
+msgid "<b>Author:</b>"
+msgstr "<b>Autori:</b>"
+
+#: ../data/evince-properties.glade.h:2
+msgid "<b>Created:</b>"
+msgstr "<b>Krijuar:</b>"
+
+#: ../data/evince-properties.glade.h:3
+msgid "<b>Creator:</b>"
+msgstr "<b>Krijuesi:</b>"
+
+#: ../data/evince-properties.glade.h:4
+msgid "<b>Format:</b>"
+msgstr "<b>Formati:</b>"
+
+#: ../data/evince-properties.glade.h:5
+msgid "<b>Keywords:</b>"
+msgstr "<b>Fjalë kyçe:</b>"
+
+#: ../data/evince-properties.glade.h:6
+msgid "<b>Modified:</b>"
+msgstr "<b>Ndryshuar:</b>"
+
+#: ../data/evince-properties.glade.h:7
+msgid "<b>Number of Pages:</b>"
+msgstr "<b>Numri i faqeve:</b>"
+
+#: ../data/evince-properties.glade.h:8
+msgid "<b>Optimized:</b>"
+msgstr "<b>Optimizuar:</b>"
+
+#: ../data/evince-properties.glade.h:9
+msgid "<b>Paper Size:</b>"
+msgstr "<b>Madhësia e fletës:</b>"
+
+#: ../data/evince-properties.glade.h:10
+msgid "<b>Producer:</b>"
+msgstr "<b>Prodhues:</b>"
+
+#: ../data/evince-properties.glade.h:11
+msgid "<b>Security:</b>"
+msgstr "<b>Siguria:</b>"
+
+#: ../data/evince-properties.glade.h:12
+msgid "<b>Subject:</b>"
+msgstr "<b>Subjekti:</b>"
+
+#: ../data/evince-properties.glade.h:13
+msgid "<b>Title:</b>"
+msgstr "<b>Titulli:</b>"
+
+#: ../data/evince.schemas.in.h:1
+msgid "Override document restrictions"
+msgstr "Mbishkruaj kufizimet në dokument"
+
+#: ../data/evince.schemas.in.h:2
+msgid "Override document restrictions, like restriction to copy or to print."
+msgstr "Mbishkruaj kufizimet në dokument, si p.sh. kufizimin e kopjes apo shtypjes."
+
+#: ../properties/ev-properties-main.c:114
+msgid "Document"
+msgstr "Dokument"
+
+#: ../properties/ev-properties-view.c:180
+msgid "None"
+msgstr "Asnjë"
+
+#. Translate to the default units to use for presenting
+#. * lengths to the user. Translate to default:inch if you
+#. * want inches, otherwise translate to default:mm.
+#. * Do *not* translate it to "predefinito:mm", if it
+#. * it isn't default:mm or default:inch it will not work
+#.
+#: ../properties/ev-properties-view.c:205
+#: ../properties/ev-properties-view.c:367
+msgid "default:mm"
+msgstr "default:mm"
+
+#. Metric measurement (millimeters)
+#: ../properties/ev-properties-view.c:249
+#: ../properties/ev-properties-view.c:404
+#, c-format
+msgid "%.0f x %.0f mm"
+msgstr "%.0f x %.0f mm"
+
+#: ../properties/ev-properties-view.c:253
+#, c-format
+msgid "%.2f x %.2f inch"
+msgstr "%.2f x %.2f inch"
+
+#. Note to translators: first placeholder is the paper name (eg.
+#. * A4), second placeholder is the paper size (eg. 297x210 mm)
+#: ../properties/ev-properties-view.c:277
+#: ../properties/ev-properties-view.c:415
+#, c-format
+msgid "%s, Portrait (%s)"
+msgstr "%s, Vertikale (%s)"
+
+#. Note to translators: first placeholder is the paper name (eg.
+#. * A4), second placeholder is the paper size (eg. 297x210 mm)
+#: ../properties/ev-properties-view.c:284
+#: ../properties/ev-properties-view.c:422
+#, c-format
+msgid "%s, Landscape (%s)"
+msgstr "%s, Horizontale (%s)"
+
+#. Imperial measurement (inches)
+#: ../properties/ev-properties-view.c:399
+#, c-format
+msgid "%.2f x %.2f in"
+msgstr "%.2f x %.2f in"
+
+#: ../shell/eggfindbar.c:146
+msgid "Search string"
+msgstr "Kërko tekstin"
+
+#: ../shell/eggfindbar.c:147
+msgid "The name of the string to be found"
+msgstr "Emri i tekstit që duhet gjetur"
+
+#: ../shell/eggfindbar.c:160
+msgid "Case sensitive"
+msgstr "Ndjeshmëri gërma të mëdha/të vogla"
+
+#: ../shell/eggfindbar.c:161
+msgid "TRUE for a case sensitive search"
+msgstr "TRUE për kërkim të ndjeshëm ndaj ndryshimit gërma të mëdha/vogla"
+
+#: ../shell/eggfindbar.c:168
+msgid "Highlight color"
+msgstr "Ngjyra e vënies në dukje"
+
+#: ../shell/eggfindbar.c:169
+msgid "Color of highlight for all matches"
+msgstr "Ngjyra e vënies në dukje për të gjithë rezultatet"
+
+#: ../shell/eggfindbar.c:175
+msgid "Current color"
+msgstr "Ngjyra aktuale"
+
+#: ../shell/eggfindbar.c:176
+msgid "Color of highlight for the current match"
+msgstr "Ngjyra e vënies në dukje për rezultatin aktual"
+
+#: ../shell/eggfindbar.c:309
+msgid "Find:"
+msgstr "Gjej:"
+
+#: ../shell/eggfindbar.c:318
+msgid "Find Previous"
+msgstr "Gjej paraardhësen"
+
+#: ../shell/eggfindbar.c:322 ../shell/eggfindbar.c:325
+msgid "Find previous occurrence of the search string"
+msgstr "Gjej korrispondimin paraardhës të tekstit të kërkuar"
+
+#: ../shell/eggfindbar.c:331
+msgid "Find Next"
+msgstr "Gjej në vazhdim"
+
+#: ../shell/eggfindbar.c:335 ../shell/eggfindbar.c:338
+msgid "Find next occurrence of the search string"
+msgstr "Gjej korrispondimin në vazhdim të tekstit të kërkuar"
+
+#: ../shell/eggfindbar.c:347
+msgid "C_ase Sensitive"
+msgstr "I ndje_shëm ndaj gërma të mëdha/vogla"
+
+#: ../shell/eggfindbar.c:351 ../shell/eggfindbar.c:354
+msgid "Toggle case sensitive search"
+msgstr "Ndrysho kërkimin e ndjeshëm ndaj ndryshimit gërma të mëdha/vogla"
+
+#: ../shell/ev-jobs.c:962
+#, c-format
+msgid "Failed to create file “%s”: %s"
+msgstr "I pamundur krijimi i file “%s”: %s"
+
+#: ../shell/ev-open-recent-action.c:73
+msgid "Open a recently used document"
+msgstr "Hap një dokument të përdorur së fundmi"
+
+#: ../shell/ev-page-action.c:76
+#, c-format
+msgid "(%d of %d)"
+msgstr "(%d në %d)"
+
+#: ../shell/ev-page-action.c:78
+#, c-format
+msgid "of %d"
+msgstr "nga %d"
+
+#: ../shell/ev-password.c:88
+msgid "Password required"
+msgstr "Kërkohet fjalëkalimi"
+
+#: ../shell/ev-password.c:89
+#, c-format
+msgid "The document “%s” is locked and requires a password before it can be opened."
+msgstr "Dokumenti “%s” është bllokuar dhe kërkon një fjalëkalim për t'u hapur."
+
+#: ../shell/ev-password.c:154
+msgid "Enter password"
+msgstr "Shkruaj fjalëkalimin"
+
+#: ../shell/ev-password.c:260
+#, c-format
+msgid "Password for document %s"
+msgstr "Fjalëkalimi për dokumentin %s"
+
+#: ../shell/ev-password.c:347
+msgid "Incorrect password"
+msgstr "Fjalëkalim i gabuar"
+
+#: ../shell/ev-password-view.c:112
+msgid ""
+"This document is locked and can only be read by entering the correct "
+"password."
+msgstr ""
+"Ky dokument është bllokuar dhe mund të lexohet vetë mbasi të jepet "
+"fjalëkalimi korrekt."
+
+# (pofilter) accelerators: accelerator _ appears before an invalid accelerator character 'Ç' (eg. space)
+#: ../shell/ev-password-view.c:121
+msgid "_Unlock Document"
+msgstr "Ç_blloko dokumentin"
+
+#: ../shell/ev-properties-dialog.c:57
+msgid "Properties"
+msgstr "Pronësitë"
+
+#: ../shell/ev-properties-dialog.c:90
+msgid "General"
+msgstr "Të përgjithshme"
+
+#: ../shell/ev-properties-dialog.c:100
+msgid "Fonts"
+msgstr "Gërmat"
+
+#: ../shell/ev-properties-fonts.c:139
+msgid "Font"
+msgstr "Gërmat"
+
+#: ../shell/ev-properties-fonts.c:150
+#, c-format
+msgid "Gathering font information... %3d%%"
+msgstr "Duke bashkuar informacionet mbi gërmat... %3d%%"
+
+#: ../shell/ev-sidebar-attachments.c:690
+msgid "Attachments"
+msgstr "Të bashkangjitur"
+
+#: ../shell/ev-sidebar-links.c:267 ../shell/ev-view.c:3638
+msgid "Loading..."
+msgstr "Duke ngarkuar..."
+
+#: ../shell/ev-sidebar-links.c:340
+msgid "Print..."
+msgstr "Printo..."
+
+#: ../shell/ev-sidebar-links.c:720
+msgid "Index"
+msgstr "Treguesi"
+
+#: ../shell/ev-sidebar-thumbnails.c:731
+msgid "Thumbnails"
+msgstr "Miniaturat"
+
+#: ../shell/ev-view-accessible.c:41
+msgid "Scroll Up"
+msgstr "Sipër"
+
+#: ../shell/ev-view-accessible.c:42
+msgid "Scroll Down"
+msgstr "Poshtë"
+
+#: ../shell/ev-view-accessible.c:48
+msgid "Scroll View Up"
+msgstr "Rrëshqit sipër pamjen"
+
+#: ../shell/ev-view-accessible.c:49
+msgid "Scroll View Down"
+msgstr "Rrëshqit poshtë pamjen"
+
+#: ../shell/ev-view-accessible.c:533
+msgid "Document View"
+msgstr "Shikimi i dokumentit"
+
+#: ../shell/ev-view.c:1437
+msgid "Go to first page"
+msgstr "Shko tek faqja e parë"
+
+#: ../shell/ev-view.c:1439
+msgid "Go to previous page"
+msgstr "Shko tek faqja paraardhëse"
+
+#: ../shell/ev-view.c:1441
+msgid "Go to next page"
+msgstr "Shko tek faqja në vazhdim"
+
+#: ../shell/ev-view.c:1443
+msgid "Go to last page"
+msgstr "Shko tek faqja e fundit"
+
+#: ../shell/ev-view.c:1445
+msgid "Go to page"
+msgstr "Shko tek faqja"
+
+#: ../shell/ev-view.c:1447
+msgid "Find"
+msgstr "Gjej"
+
+#: ../shell/ev-view.c:1475
+#, c-format
+msgid "Go to page %s"
+msgstr "Shko tek faqja %s"
+
+#: ../shell/ev-view.c:1481
+#, c-format
+msgid "Go to %s on file “%s”"
+msgstr "Shko tek %s tek file “%s”"
+
+#: ../shell/ev-view.c:1484
+#, c-format
+msgid "Go to file “%s”"
+msgstr "Shko tek file “%s”"
+
+#: ../shell/ev-view.c:1492
+#, c-format
+msgid "Launch %s"
+msgstr "Nis %s"
+
+#: ../shell/ev-view.c:2444
+msgid "End of presentation. Press Escape to exit."
+msgstr "Fund i prezantimit. Shtyp Escape për dalje."
+
+#: ../shell/ev-view.c:3368
+msgid "Jump to page:"
+msgstr "Shko tek faqja:"
+
+#: ../shell/ev-window.c:790
+#, c-format
+msgid "Page %s - %s"
+msgstr "Faqja %s - %s"
+
+#: ../shell/ev-window.c:792
+#, c-format
+msgid "Page %s"
+msgstr "Faqja %s"
+
+#: ../shell/ev-window.c:1201
+msgid "The document contains no pages"
+msgstr "Dokumenti nuk përmban asnjë faqe"
+
+#: ../shell/ev-window.c:1425 ../shell/ev-window.c:1500
+msgid "Unable to open document"
+msgstr "E pamundur hapja e dokumentit"
+
+#: ../shell/ev-window.c:1697
+msgid "Open Document"
+msgstr "Hap dokumentin"
+
+#: ../shell/ev-window.c:1758
+#, c-format
+msgid "Couldn't create symlink “%s”: %s"
+msgstr "I pamundur krijimi i lidhjes simbolike “%s”: %s"
+
+#: ../shell/ev-window.c:1787
+msgid "Cannot open a copy."
+msgstr "E pamundur hapja e një kopje."
+
+#: ../shell/ev-window.c:2031 ../shell/ev-window.c:2081
+#, c-format
+msgid "The file could not be saved as “%s”."
+msgstr "File nuk mund të ruhet si “%s”."
+
+#: ../shell/ev-window.c:2126
+msgid "Save a Copy"
+msgstr "Ruaj një kopje"
+
+#: ../shell/ev-window.c:2247 ../shell/ev-window.c:3452
+msgid "Failed to print document"
+msgstr "I pamundur prinitmi i dokumentit"
+
+#: ../shell/ev-window.c:2412
+msgid "Printing is not supported on this printer."
+msgstr "Printimi nuk suportohet nga ky printer."
+
+#: ../shell/ev-window.c:2538 ../shell/ev-window.c:4511
+msgid "Print"
+msgstr "Printo"
+
+#: ../shell/ev-window.c:3205
+msgid "Toolbar Editor"
+msgstr "Edituesi i panelit të instrumentëve"
+
+#: ../shell/ev-window.c:3747
+#, c-format
+msgid ""
+"Document Viewer.\n"
+"Using poppler %s (%s)"
+msgstr ""
+"Shikuesi i dokumentëve.\n"
+"Duke përdorur poppler %s (%s)"
+
+#: ../shell/ev-window.c:3775
+msgid ""
+"Evince is free software; you can redistribute it and/or modify it under the "
+"terms of the GNU General Public License as published by the Free Software "
+"Foundation; either version 2 of the License, or (at your option) any later "
+"version.\n"
+msgstr ""
+"Evince është program i lirë; mund t'a rishpërndani dhe/apo ndryshoninën "
+"kushtet e Liçencës Publike të Përgjithshme GNU sikurse publikuar ngaFree "
+"Software Foundation; sipas versionit 2 të Liçencës, ose(sipas dëshirës suaj) "
+"çdo versioni tjetër pasardhës.\n"
+
+#: ../shell/ev-window.c:3779
+msgid ""
+"Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+"WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
+"FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
+"details.\n"
+msgstr ""
+"Evince shpërndahet me shpresën që do t'ju jetë i dobishëm,por PA ASNJË LLOJ "
+"GARANCIE; pa as garancinë e shprehur të TREGËTIMIT apo VLEFSHMËRINË PËR NJË "
+"PËRDORIM PRECIZ.  Shiko Liçencën Publike të Përgjithshme GNU për hollësi të "
+"tjera.\n"
+
+#: ../shell/ev-window.c:3783
+msgid ""
+"You should have received a copy of the GNU General Public License along with "
+"Evince; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Place, Suite 330, Boston, MA  02111-1307  USA\n"
+msgstr ""
+"Së bashku me Evince duhet të keni marrë edhe një kopje të Liçencës Publiketë "
+"Përgjithshme; nëse jo, kërkoja Fondacionit Free Software, INC.,59 Temple "
+"Place, Suite 330, Boston, MA  02111-1307  USA\n"
+
+#: ../shell/ev-window.c:3807
+msgid "Evince"
+msgstr "Evince"
+
+#: ../shell/ev-window.c:3810
+msgid "© 1996-2007 The Evince authors"
+msgstr "© 1996-2007 Autorët e Evince"
+
+#: ../shell/ev-window.c:3816
+msgid "translator-credits"
+msgstr "Laurent Dhima <laurenti@alblinux.net>"
+
+#. TRANS: Sometimes this could be better translated as
+#. "%d hit(s) on this page".  Therefore this string
+#. contains plural cases.
+#: ../shell/ev-window.c:4032
+#, c-format
+msgid "%d found on this page"
+msgid_plural "%d found on this page"
+msgstr[0] "%d gjetur në këtë faqe"
+msgstr[1] "%d gjetur në këtë faqe"
+
+#: ../shell/ev-window.c:4040
+#, c-format
+msgid "%3d%% remaining to search"
+msgstr "%3d%% akoma për t'u kërkuar"
+
+#: ../shell/ev-window.c:4423
+msgid "_File"
+msgstr "_File"
+
+#: ../shell/ev-window.c:4424
+msgid "_Edit"
+msgstr "_Ndrysho"
+
+#: ../shell/ev-window.c:4425
+msgid "_View"
+msgstr "_Shfaq"
+
+#: ../shell/ev-window.c:4426
+msgid "_Go"
+msgstr "_Shko"
+
+#: ../shell/ev-window.c:4427
+msgid "_Help"
+msgstr "_Ndihmë"
+
+#. File menu
+#: ../shell/ev-window.c:4430 ../shell/ev-window.c:4609
+#: ../shell/ev-window.c:4681
+msgid "_Open..."
+msgstr "_Hap..."
+
+#: ../shell/ev-window.c:4431 ../shell/ev-window.c:4682
+msgid "Open an existing document"
+msgstr "Hap një dokument ekzistues"
+
+#: ../shell/ev-window.c:4433
+msgid "Op_en a Copy"
+msgstr "Hap një kopj_e"
+
+#: ../shell/ev-window.c:4434
+msgid "Open a copy of the current document in a new window"
+msgstr "Hap një kopje të dokumentit aktual në një dritare të re"
+
+#: ../shell/ev-window.c:4436 ../shell/ev-window.c:4611
+msgid "_Save a Copy..."
+msgstr "_Ruaj një kopje..."
+
+#: ../shell/ev-window.c:4437
+msgid "Save a copy of the current document"
+msgstr "Ruaj një kopje të dokumentit aktual"
+
+#: ../shell/ev-window.c:4439
+msgid "Print Set_up..."
+msgstr "Rreg_ullimet e printimit..."
+
+#: ../shell/ev-window.c:4440
+msgid "Setup the page settings for printing"
+msgstr "Konfiguro rregullimet e faqes për printim"
+
+#: ../shell/ev-window.c:4442
+msgid "_Print..."
+msgstr "_Printo..."
+
+#: ../shell/ev-window.c:4443 ../shell/ev-window.c:4512
+msgid "Print this document"
+msgstr "Printo këtë dokument"
+
+#: ../shell/ev-window.c:4445
+msgid "P_roperties"
+msgstr "P_ronësitë"
+
+#: ../shell/ev-window.c:4453
+msgid "Select _All"
+msgstr "Zgjidh _gjithçka"
+
+#: ../shell/ev-window.c:4455
+msgid "_Find..."
+msgstr "_Gjej..."
+
+#: ../shell/ev-window.c:4456
+msgid "Find a word or phrase in the document"
+msgstr "Gjej një fjalë apo frazë në dokument"
+
+#: ../shell/ev-window.c:4458
+msgid "Find Ne_xt"
+msgstr "Gjej në va_zhdim"
+
+#: ../shell/ev-window.c:4460
+msgid "Find Pre_vious"
+msgstr "Gjej para_ardhësen"
+
+#: ../shell/ev-window.c:4462
+msgid "T_oolbar"
+msgstr "Paneli i _instrumentëve"
+
+#: ../shell/ev-window.c:4464
+msgid "Rotate _Left"
+msgstr "Rrotullo _Majtas"
+
+#: ../shell/ev-window.c:4466
+msgid "Rotate _Right"
+msgstr "Rrotullo _Djathtas"
+
+#: ../shell/ev-window.c:4471
+msgid "Enlarge the document"
+msgstr "Zmadho dokumentin"
+
+#: ../shell/ev-window.c:4474
+msgid "Shrink the document"
+msgstr "Ngushto dokumentin"
+
+#: ../shell/ev-window.c:4476
+msgid "_Reload"
+msgstr "_Rilexo"
+
+#: ../shell/ev-window.c:4477
+msgid "Reload the document"
+msgstr "Rilexo dokumentin"
+
+#: ../shell/ev-window.c:4480
+msgid "Auto_scroll"
+msgstr "Rë_shkitje automatike"
+
+#. Go menu
+#: ../shell/ev-window.c:4484
+msgid "_Previous Page"
+msgstr "Faqja _Paraardhëse"
+
+#: ../shell/ev-window.c:4485
+msgid "Go to the previous page"
+msgstr "Shko tek faqja paraardhëse"
+
+#: ../shell/ev-window.c:4487
+msgid "_Next Page"
+msgstr "Faqja në _Vazhdim"
+
+#: ../shell/ev-window.c:4488
+msgid "Go to the next page"
+msgstr "Shko tek faqja në vazhdim"
+
+#: ../shell/ev-window.c:4490
+msgid "_First Page"
+msgstr "_Faqja e parë"
+
+#: ../shell/ev-window.c:4491
+msgid "Go to the first page"
+msgstr "Shko tek faqja e parë"
+
+#: ../shell/ev-window.c:4493
+msgid "_Last Page"
+msgstr "Faqja e _fundit"
+
+#: ../shell/ev-window.c:4494
+msgid "Go to the last page"
+msgstr "Shko tek faqja e fundit"
+
+#. Help menu
+#: ../shell/ev-window.c:4498
+msgid "_Contents"
+msgstr "_Përmbajtja"
+
+#: ../shell/ev-window.c:4501
+msgid "_About"
+msgstr "_Informacione"
+
+#. Toolbar-only
+#: ../shell/ev-window.c:4505
+msgid "Leave Fullscreen"
+msgstr "Largohu nga modaliteti me ekran të plotë"
+
+#: ../shell/ev-window.c:4506
+msgid "Leave fullscreen mode"
+msgstr "Dil nga modaliteti me ekran të plotë"
+
+#: ../shell/ev-window.c:4508
+msgid "Start Presentation"
+msgstr "Fillo prezantimin"
+
+#: ../shell/ev-window.c:4509
+msgid "Start a presentation"
+msgstr "Fillo një prezantim"
+
+#. View Menu
+#: ../shell/ev-window.c:4565
+msgid "_Toolbar"
+msgstr "_Paneli i instrumentëve"
+
+#: ../shell/ev-window.c:4566
+msgid "Show or hide the toolbar"
+msgstr "Shfaq ose fsheh panelin"
+
+#: ../shell/ev-window.c:4568
+msgid "Side _Pane"
+msgstr "_Paneli anës"
+
+#: ../shell/ev-window.c:4569
+msgid "Show or hide the side pane"
+msgstr "Shfaq ose fsheh panelin anësor"
+
+#: ../shell/ev-window.c:4571
+msgid "_Continuous"
+msgstr "_Pa ndërprerje"
+
+#: ../shell/ev-window.c:4572
+msgid "Show the entire document"
+msgstr "Shfaq krejt dokumentin"
+
+#: ../shell/ev-window.c:4574
+msgid "_Dual"
+msgstr "_Dopjo"
+
+#: ../shell/ev-window.c:4575
+msgid "Show two pages at once"
+msgstr "Shfaq dy faqe njëkohësisht"
+
+#: ../shell/ev-window.c:4577
+msgid "_Fullscreen"
+msgstr "_Ekran i plotë"
+
+#: ../shell/ev-window.c:4578
+msgid "Expand the window to fill the screen"
+msgstr "Zmadho dritaren për t'ju përshtatur krejt ekranit"
+
+#: ../shell/ev-window.c:4580
+msgid "Pre_sentation"
+msgstr "Pre_zantim"
+
+#: ../shell/ev-window.c:4581
+msgid "Run document as a presentation"
+msgstr "Zbato dokumentin si një prezantim"
+
+#: ../shell/ev-window.c:4583
+msgid "_Best Fit"
+msgstr "_Përshtate"
+
+#: ../shell/ev-window.c:4584
+msgid "Make the current document fill the window"
+msgstr "Përshtatja dritares dokumentin aktual"
+
+#: ../shell/ev-window.c:4586
+msgid "Fit Page _Width"
+msgstr "Përshtat _gjerësinë e faqes"
+
+#: ../shell/ev-window.c:4587
+msgid "Make the current document fill the window width"
+msgstr "Përshtatja dokumentin aktual gjerësisë së dritares"
+
+#. Links
+#: ../shell/ev-window.c:4594
+msgid "_Open Link"
+msgstr "_Hap adresën"
+
+#: ../shell/ev-window.c:4596
+msgid "_Go To"
+msgstr "_Shko tek"
+
+#: ../shell/ev-window.c:4598
+msgid "Open in New _Window"
+msgstr "Hap në _Dritare të re"
+
+#: ../shell/ev-window.c:4600
+msgid "_Copy Link Address"
+msgstr "_Kopjo adresën e lidhjes"
+
+#: ../shell/ev-window.c:4602
+msgid "_Save Image As..."
+msgstr "Ruaj figurën _Si..."
+
+#: ../shell/ev-window.c:4604
+msgid "Copy _Image"
+msgstr "Kopjo f_igurën"
+
+#: ../shell/ev-window.c:4643
+msgid "Page"
+msgstr "Faqja"
+
+#: ../shell/ev-window.c:4644
+msgid "Select Page"
+msgstr "Zgjidh faqen"
+
+#: ../shell/ev-window.c:4655
+msgid "Zoom"
+msgstr "Shkalla e zmadhimit"
+
+#: ../shell/ev-window.c:4657
+msgid "Adjust the zoom level"
+msgstr "Rregullo nivelin e zmadhimit"
+
+#: ../shell/ev-window.c:4667
+msgid "Navigation"
+msgstr "Lundrimi"
+
+#: ../shell/ev-window.c:4669
+msgid "Back"
+msgstr "Mbrapa"
+
+#. translators: this is the history action
+#: ../shell/ev-window.c:4672
+msgid "Move across visited pages"
+msgstr "Lëviz midis faqeve të vizituara"
+
+#. translators: this is the label for toolbar button
+#: ../shell/ev-window.c:4702
+msgid "Previous"
+msgstr "Paraardhëse"
+
+#. translators: this is the label for toolbar button
+#: ../shell/ev-window.c:4707
+msgid "Next"
+msgstr "Në vazhdim"
+
+#. translators: this is the label for toolbar button
+#: ../shell/ev-window.c:4711
+msgid "Zoom In"
+msgstr "Zmadho"
+
+#. translators: this is the label for toolbar button
+#: ../shell/ev-window.c:4715
+msgid "Zoom Out"
+msgstr "Zvogëlo"
+
+#. translators: this is the label for toolbar button
+#: ../shell/ev-window.c:4723
+msgid "Fit Width"
+msgstr "Përshtat sipas gjerësisë"
+
+#: ../shell/ev-window.c:4928
+msgid "Unable to open external link"
+msgstr "E pamundur hapja e lidhjes së jashtme"
+
+#: ../shell/ev-window.c:5089
+msgid "Couldn't find appropriate format to save image"
+msgstr "E pamundur gjetja e formatit të duhur për ruajtjen e figurës"
+
+#: ../shell/ev-window.c:5129
+msgid "The image could not be saved."
+msgstr "E pamundur ruajtja e figurës."
+
+#: ../shell/ev-window.c:5161
+msgid "Save Image"
+msgstr "Ruaj figurën"
+
+#: ../shell/ev-window.c:5220
+msgid "Unable to open attachment"
+msgstr "E pamundur hapja e të bashkangjiturit"
+
+#: ../shell/ev-window.c:5272
+msgid "The attachment could not be saved."
+msgstr "E pamundur ruajtja e të bashkangjiturit."
+
+#: ../shell/ev-window.c:5317
+msgid "Save Attachment"
+msgstr "Ruaj të bashkangjiturin"
+
+#: ../shell/ev-window-title.c:145
+#, c-format
+msgid "%s - Password Required"
+msgstr "%s - Kërkohet fjalëkalimi"
+
+#: ../shell/ev-utils.c:330
+msgid "By extension"
+msgstr "Sipas prapashtesës"
+
+#: ../shell/main.c:52
+msgid "The page of the document to display."
+msgstr "Faqja e dokumentit për t'u shfaqur."
+
+#: ../shell/main.c:52
+msgid "PAGE"
+msgstr "FAQJA"
+
+#: ../shell/main.c:53
+msgid "Run evince in fullscreen mode"
+msgstr "Ekzekuto evince në modalitetin me ekran të plotë"
+
+#: ../shell/main.c:54
+msgid "Run evince in presentation mode"
+msgstr "Ekzekuto evince në modalitetin prezantime"
+
+#: ../shell/main.c:55
+msgid "Run evince as a previewer"
+msgstr "Ekzekuto evince si vështrues i shpejtë"
+
+#: ../shell/main.c:56
+msgid "The word or phrase to find in the document"
+msgstr "Fjala apo fraza për tu kërkuar në dokument"
+
+#: ../shell/main.c:56
+msgid "STRING"
+msgstr "VARG"
+
+#: ../shell/main.c:59
+msgid "[FILE...]"
+msgstr "[FILE...]"
+
+#: ../shell/main.c:325
+msgid "MATE Document Viewer"
+msgstr "Shikues dokumentesh për MATE"
+
+#: ../thumbnailer/evince-thumbnailer.schemas.in.h:1
+msgid ""
+"Boolean options available, true enables thumbnailing and false disables the "
+"creation of new thumbnails"
+msgstr ""
+"Opcionet booleane në dispozicion, true aktivon krijimin e miniaturave dhe "
+"false çaktivon krijimin e miniaturave të reja"
+
+#: ../thumbnailer/evince-thumbnailer.schemas.in.h:2
+msgid "Enable thumbnailing of PDF Documents"
+msgstr "Aktivo krijimin e miniaturave të dokumentëve PDF"
+
+#: ../thumbnailer/evince-thumbnailer.schemas.in.h:3
+msgid "Thumbnail command for PDF Documents"
+msgstr "Komanda për miniaturat e dokumentëve PDF"
+
+#: ../thumbnailer/evince-thumbnailer.schemas.in.h:4
+msgid ""
+"Valid command plus arguments for the PDF Document thumbnailer. See caja "
+"thumbnailer documentation for more information."
+msgstr ""
+"Komanda e vlefshme plus argumentët për krijimin e miniaturave të dokumentit "
+"PDF. Shiko dokumentet e krijuesit të miniaturave caja për informacione "
+"të mëtejshme."
+
