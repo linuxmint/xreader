@@ -1,0 +1,39 @@
+pkgname=mate-document-viewer
+pkgver=2011.08.31
+pkgrel=2
+pkgdesc="Simply a document viewer"
+url="http://projects.gnome.org/evince/"
+arch=('i686' 'x86_64')
+license=('GPL')
+depends=('gtk2' 'libspectre' 'gsfonts' 'poppler-glib' 'djvulibre' 'mate-icon-theme'
+         't1lib' 'libmatekeyring' 'desktop-file-utils') #  'dconf' 'gsettings-desktop-schemas'
+makedepends=('mate-doc-utils' 'mate-file-manager' 'texlive-bin' 'intltool' 'gobject-introspection')
+optdepends=('texlive-bin: DVI support')
+groups=('mate-extra')
+install=mate-document-viewer.install
+options=('!libtool' '!emptydirs')
+source=(http://sourceforge.net/projects/matede/files/${pkgver}/${pkgname}.tar.gz/download)
+sha256sums=('4adbcfab482edaa5e873131421ee27cd7d90e2a9745acf64f90de7d8725a4583')
+
+build() {
+	cd "${srcdir}/${pkgname}"
+
+	./autogen.sh --prefix=/usr   --sysconfdir=/etc \
+		--localstatedir=/var    --libexecdir=/usr/lib/${pkgname} \
+		--disable-static        --enable-caja \
+		--enable-pdf            --enable-tiff \
+		--enable-djvu           --enable-dvi \
+		--enable-t1lib          --enable-comics \
+		--disable-scrollkeeper \
+		--enable-introspection || return 1
+	make || return 1
+}
+
+package() {
+	cd "${srcdir}/${pkgname}"
+	make MATECONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 DESTDIR="${pkgdir}" install || return 1
+
+	install -m755 -d "${pkgdir}/usr/share/mateconf/schemas"
+	mateconf-merge-schema "${pkgdir}/usr/share/mateconf/schemas/${pkgname}.schemas" --domain ${pkgname} ${pkgdir}/etc/mateconf/schemas/*.schemas
+	rm -f ${pkgdir}/etc/mateconf/schemas/*.schemas
+}
