@@ -1,6 +1,6 @@
 pkgname=mate-document-viewer
 pkgver=2011.11.21
-pkgrel=3
+pkgrel=1
 pkgdesc="Simply a document viewer"
 url="https://github.com/perberos/mate-document-viewer"
 arch=('i686' 'x86_64')
@@ -31,9 +31,13 @@ build() {
         --enable-dvi \
         --enable-t1lib \
         --enable-comics \
+        --enable-pixbuf \
+        --enable-impress \
         --disable-scrollkeeper \
         --enable-introspection \
+        --disable-schemas-compile \
         --disable-schemas-install || return 1
+
     make || return 1
 }
 

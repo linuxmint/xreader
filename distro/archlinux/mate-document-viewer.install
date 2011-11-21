@@ -1,6 +1,7 @@
 pkgname=mate-document-viewer
 
 post_install() {
+    usr/bin/glib-compile-schemas usr/share/glib-2.0/schemas
     usr/sbin/mateconfpkg --install ${pkgname}
     gtk-update-icon-cache -q -t -f usr/share/icons/hicolor
 
@@ -22,6 +23,7 @@ pre_remove() {
 }
 
 post_remove() {
+    usr/bin/glib-compile-schemas usr/share/glib-2.0/schemas
     gtk-update-icon-cache -q -t -f usr/share/icons/hicolor
     update-desktop-database -q
     update-mime-database usr/share/mime > /dev/null
