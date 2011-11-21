@@ -13,7 +13,7 @@ groups=('mate-extra')
 install=mate-document-viewer.install
 options=('!libtool' '!emptydirs')
 source=(http://sourceforge.net/projects/matede/files/${pkgver}/${pkgname}.tar.gz/download)
-sha256sums=('98f9d51bf648b199c80d1fba00fa56e99c7ba10d40c23422913f00c9cec84ef9')
+sha256sums=('0103f3a9e6c88b123ca76365b79ad4b7aa74e51b0e2a7537ada871c9be2de668')
 
 build() {
     cd "${srcdir}/${pkgname}"
