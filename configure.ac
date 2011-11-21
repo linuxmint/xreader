@@ -4,7 +4,7 @@
 
 m4_define([ev_major_version], [2011])
 m4_define([ev_minor_version], [11])
-m4_define([ev_micro_version], [9])
+m4_define([ev_micro_version], [21])
 m4_define([ev_extra_version], [])
 m4_define([ev_version], [ev_major_version.ev_minor_version.ev_micro_version()ev_extra_version])
 
@@ -35,7 +35,7 @@ m4_define([ev_view_lt_version_info], [ev_view_lt_current:ev_view_lt_revision:ev_
 m4_define([ev_view_lt_current_minus_age], [m4_eval(ev_view_lt_current - ev_view_lt_age)])
 
 # Binary version for the document backends
-m4_define([ev_binary_version],[ev_document_lt_current])
+m4_define([ev_binary_version], [ev_document_lt_current])
 
 # *****************************************************************************
 
