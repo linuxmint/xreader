@@ -181,7 +181,7 @@ case "$with_platform" in
         # would like to require the icon theme at compile-time. But, because
         # the hicolor-icon-theme does not have a pkgconfig file, on mate we
         # require the mate icon theme instead.
-        SHELL_PLATFORM_PKGS="mate-icon-theme >= $MATE_ICON_THEME_REQUIRED"
+        SHELL_PLATFORM_PKGS="mate-icon-theme >= 1.1.0"
         # The totem-screensaver and egg_smclient code use x11 directly.
         SHELL_PLATFORM_PKGS="$SHELL_PLATFORM_PKGS x11"
         ;;
