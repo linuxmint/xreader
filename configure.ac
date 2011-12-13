@@ -2,9 +2,9 @@
 # Versioning
 # *****************************************************************************
 
-m4_define([ev_major_version], [2011])
-m4_define([ev_minor_version], [12])
-m4_define([ev_micro_version], [01])
+m4_define([ev_major_version], [1])
+m4_define([ev_minor_version], [1])
+m4_define([ev_micro_version], [0])
 m4_define([ev_extra_version], [])
 m4_define([ev_version], [ev_major_version.ev_minor_version.ev_micro_version()ev_extra_version])
 
@@ -134,7 +134,7 @@ AC_MSG_RESULT([$with_gtk])
 dnl Specify required versions of dependencies
 CAIRO_REQUIRED=1.9.10
 GLIB_REQUIRED=2.25.11
-KEYRING_REQUIRED=2.22.0
+KEYRING_REQUIRED=1.1.0
 
 case "$with_gtk" in
   2.0) GTK_API_VERSION=2.0
