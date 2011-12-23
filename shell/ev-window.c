@@ -4568,7 +4568,10 @@ ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
 		"Bryan Clark <clarkbw@gnome.org>",
 		"Carlos Garcia Campos <carlosgc@gnome.org>",
 		"Wouter Bolsterlee <wbolster@gnome.org>",
-                "Christian Persch <chpe" "\100" "mate.org>",
+		"Christian Persch <chpe" "\100" "gnome.org>",
+		"Perberos <perberos@gmail.com>",
+		"Stefano Karapetsas <stefano@karapetsas.com>",
+		"Steve Zesch <stevezesch2@gmail.com>",
 		NULL
 	};
 
@@ -4616,7 +4619,7 @@ ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
 		"copyright",
 		_("© 1996–2009 The Atril authors"),
 		"license", license_trans,
-		"website", "http://www.mate.org/projects/atril",
+		"website", "http://www.mate-desktop.org/",
 		"comments", comments,
 		"authors", authors,
 		"documenters", documenters,
