@@ -862,7 +862,11 @@ static void ev_application_accel_map_save(EvApplication* application)
 	}
 	else
 	{
-		accel_map_file = g_build_filename(g_get_home_dir(), ".config", "accels", "atril", NULL);
+		#if GLIB_CHECK_VERSION(2, 6, 0)
+			accel_map_file = g_build_filename(g_get_user_config_dir(), "accels", "atril", NULL);
+		#else // glib version < 2.6.0
+			accel_map_file = g_build_filename(g_get_home_dir(), ".config", "accels", "atril", NULL);
+		#endif
 	}
 
 	tmp_filename = g_strdup_printf("%s.XXXXXX", accel_map_file);
@@ -900,7 +904,11 @@ static void ev_application_accel_map_load(EvApplication* application)
 	}
 	else
 	{
-		accel_map_file = g_build_filename(g_get_home_dir(), ".config", "accels", "atril", NULL);
+		#if GLIB_CHECK_VERSION(2, 6, 0)
+			accel_map_file = g_build_filename(g_get_user_config_dir(), "accels", "atril", NULL);
+		#else // glib version < 2.6.0
+			accel_map_file = g_build_filename(g_get_home_dir(), ".config", "accels", "atril", NULL);
+		#endif
 	}
 
 	gtk_accel_map_load(accel_map_file);
@@ -976,7 +984,11 @@ static void ev_application_init(EvApplication* ev_application)
 	}
 	else
 	{
-		ev_application->dot_dir = g_build_filename(g_get_home_dir(), ".config", "atril", NULL);
+		#if GLIB_CHECK_VERSION(2, 6, 0)
+			ev_application->dot_dir = g_build_filename(g_get_user_config_dir(), "atril", NULL);
+		#else // glib version < 2.6.0
+			ev_application->dot_dir = g_build_filename(g_get_home_dir(), ".config", "atril", NULL);
+		#endif
 	}
 
 #ifdef G_OS_WIN32
