@@ -379,7 +379,6 @@ static cairo_surface_t *
 pdf_document_render (EvDocument      *document,
 		     EvRenderContext *rc)
 {
-	PdfDocument *pdf_document;
 	PopplerPage *poppler_page;
 	double width_points, height_points;
 	gint width, height;
@@ -632,7 +631,6 @@ pdf_document_get_info (EvDocument *document)
 	PopplerPageMode mode;
 	PopplerViewerPreferences view_prefs;
 	PopplerPermissions permissions;
-	EvPage *page;
 	char *metadata;
 	gboolean linearized;
 
@@ -1355,7 +1353,6 @@ pdf_document_images_get_image_mapping (EvDocumentImages *document_images,
 	GList *mapping_list;
 	GList *list;
 
-	pdf_document = PDF_DOCUMENT (document_images);
 	poppler_page = POPPLER_PAGE (page->backend_page);
 	mapping_list = poppler_page_get_image_mapping (poppler_page);
 
@@ -1590,7 +1587,6 @@ pdf_document_file_exporter_begin (EvFileExporter        *exporter,
 	PdfDocument *pdf_document = PDF_DOCUMENT (exporter);
 	PdfPrintContext *ctx;
 #ifdef HAVE_CAIRO_PRINT
-	gdouble width, height;
 	cairo_surface_t *surface = NULL;
 #endif
 	
@@ -1854,8 +1850,6 @@ pdf_document_print_print_page (EvDocumentPrint *document,
 			       EvPage          *page,
 			       cairo_t         *cr)
 {
-	PdfDocument *pdf_document = PDF_DOCUMENT (document);
-
 	poppler_page_render_for_printing (POPPLER_PAGE (page->backend_page), cr);
 }
 
@@ -2109,6 +2103,7 @@ pdf_document_page_transition_iface_init (EvDocumentTransitionInterface *iface)
 }
 
 /* Forms */
+#if 0
 static void
 pdf_document_get_crop_box (EvDocument  *document, 
 			   int          page, 
@@ -2126,6 +2121,7 @@ pdf_document_get_crop_box (EvDocument  *document,
 	rect->y1 = poppler_rect.y1;
 	rect->y2 = poppler_rect.y2;
 }
+#endif
 
 static EvFormField *
 ev_form_field_from_poppler_field (PopplerFormField *poppler_field)
@@ -2598,7 +2594,6 @@ ev_annot_from_poppler_annot (PopplerAnnot *poppler_annot,
 			break;
 	        case POPPLER_ANNOT_FILE_ATTACHMENT: {
 			PopplerAnnotFileAttachment *poppler_annot_attachment;
-			EvAnnotationAttachment     *ev_annot_attachment;
 			PopplerAttachment          *poppler_attachment;
 			gchar                      *data = NULL;
 			gsize                       size;
@@ -2829,8 +2824,6 @@ pdf_document_annotations_add_annotation (EvDocumentAnnotations *document_annotat
 	gdouble          height;
 	PopplerColor     poppler_color;
 	GdkColor         color;
-	time_t           utime;
-	gchar           *modified;
 	gchar           *name;
 
 	pdf_document = PDF_DOCUMENT (document_annotations);
@@ -3202,7 +3195,6 @@ static void
 pdf_document_layers_show_layer (EvDocumentLayers *document,
 				EvLayer          *layer)
 {
-	PdfDocument  *pdf_document = PDF_DOCUMENT (document);
 	PopplerLayer *poppler_layer;
 
 	poppler_layer = POPPLER_LAYER (g_object_get_data (G_OBJECT (layer), "poppler-layer"));
@@ -3213,7 +3205,6 @@ static void
 pdf_document_layers_hide_layer (EvDocumentLayers *document,
 				EvLayer          *layer)
 {
-	PdfDocument  *pdf_document = PDF_DOCUMENT (document);
 	PopplerLayer *poppler_layer;
 
 	poppler_layer = POPPLER_LAYER (g_object_get_data (G_OBJECT (layer), "poppler-layer"));
@@ -3224,7 +3215,6 @@ static gboolean
 pdf_document_layers_layer_is_visible (EvDocumentLayers *document,
 				      EvLayer          *layer)
 {
-	PdfDocument  *pdf_document = PDF_DOCUMENT (document);
 	PopplerLayer *poppler_layer;
 
 	poppler_layer = POPPLER_LAYER (g_object_get_data (G_OBJECT (layer), "poppler-layer"));
