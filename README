@@ -5,13 +5,15 @@ multiple and single page document formats like PDF
 and Postscript.  For more general information about 
 Atril please visit our website at 
 
-https://github.com/perberos/mate-document-viewer
+https://github.com/mate-desktop/mate-document-viewer
+
+Atril is a fork of Evince
 
 This software is licensed under the GPL
 
 Atril Requirements
 ==================================================
-MATE Platform libraries [ https://github.com/perberos/mate-desktop-environment ]
+MATE Platform libraries [ https://github.com/mate-desktop/ ]
 Poppler for PDF viewing [ http://poppler.freedesktop.org/ ]
 GhostScript for Postscript viewing [ http://www.cs.wisc.edu/~ghost/ ]
 
