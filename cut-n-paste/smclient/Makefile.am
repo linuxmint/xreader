@@ -20,7 +20,8 @@ libsmclient_la_CFLAGS = \
 	$(AM_CFLAGS)
 
 libsmclient_la_LIBADD = \
-	$(SMCLIENT_LIBS)
+	$(SMCLIENT_LIBS) \
+	-lICE
 
 if WITH_SMCLIENT_XSMP
 libsmclient_la_SOURCES += \
