@@ -30,6 +30,10 @@ if ENABLE_COMICS
      SUBDIRS += comics
 endif
 
+if ENABLE_XPS
+    SUBDIRS += xps
+endif
+
 if ENABLE_IMPRESS
      SUBDIRS += impress
 endif
