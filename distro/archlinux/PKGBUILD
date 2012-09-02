@@ -1,53 +1,55 @@
 pkgname=mate-document-viewer
-pkgver=1.1.1
+pkgver=1.4.0
 pkgrel=1
 pkgdesc="Simply a document viewer"
-url="https://github.com/perberos/mate-document-viewer"
+url="https://github.com/mate-desktop/mate-document-viewer"
 arch=('i686' 'x86_64')
 license=('GPL')
-depends=('gtk2' 'libspectre' 'gsfonts' 'poppler-glib' 'djvulibre' 'mate-icon-theme'
-         't1lib' 'libmatekeyring' 'desktop-file-utils' 'texlive-bin') #  'dconf' 'gsettings-desktop-schemas'
+depends=('gtk2' 'libspectre' 'gsfonts' 'poppler-glib' 'libgxps' 'djvulibre'
+         'mate-icon-theme' 't1lib' 'libmatekeyring' 'desktop-file-utils'
+         'texlive-bin') #  'dconf' 'gsettings-desktop-schemas'
 makedepends=('mate-doc-utils' 'mate-file-manager' 'intltool' 'gobject-introspection')
 optdepends=('texlive-bin: DVI support')
 groups=('mate-extra')
 install=mate-document-viewer.install
 options=('!libtool' '!emptydirs')
-source=(http://sourceforge.net/projects/matede/files/${pkgver}/${pkgname}.tar.gz/download)
-sha256sums=('0103f3a9e6c88b123ca76365b79ad4b7aa74e51b0e2a7537ada871c9be2de668')
+source=()
+sha256sums=()
 
 build() {
-    cd "${srcdir}/${pkgname}"
+	cd "${srcdir}/../../../"
 
-    ./autogen.sh \
-        --prefix=/usr \
-        --sysconfdir=/etc \
-        --localstatedir=/var \
-        --libexecdir=/usr/lib/mate-document-viewer \
-        --disable-static \
-        --enable-caja \
-        --enable-pdf \
-        --enable-tiff \
-        --enable-djvu \
-        --enable-dvi \
-        --enable-t1lib \
-        --enable-comics \
-        --enable-pixbuf \
-        --enable-impress \
-        --disable-scrollkeeper \
-        --enable-introspection \
-        --disable-schemas-compile \
-        --disable-schemas-install || return 1
+	./autogen.sh \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--localstatedir=/var \
+		--libexecdir=/usr/lib/mate-document-viewer \
+		--disable-static \
+		--enable-caja \
+		--enable-pdf \
+		--enable-tiff \
+		--enable-xps \
+		--enable-djvu \
+		--enable-dvi \
+		--enable-t1lib \
+		--enable-comics \
+		--enable-pixbuf \
+		--enable-impress \
+		--disable-scrollkeeper \
+		--enable-introspection \
+		--disable-schemas-compile \
+		--disable-schemas-install || return 1
 
-    make || return 1
+	make || return 1
 }
 
 package() {
-    cd "${srcdir}/${pkgname}"
-    make MATECONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 DESTDIR="${pkgdir}" install || return 1
+	cd "${srcdir}/../../../"
+	make MATECONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 DESTDIR="${pkgdir}" install || return 1
 
-    ln -s atril ${pkgdir}/usr/bin/mate-document-viewer
+	ln -s atril ${pkgdir}/usr/bin/mate-document-viewer
 
-    install -m755 -d "${pkgdir}/usr/share/mateconf/schemas"
-    mateconf-merge-schema "${pkgdir}/usr/share/mateconf/schemas/${pkgname}.schemas" --domain ${pkgname} ${pkgdir}/etc/mateconf/schemas/*.schemas
-    rm -f ${pkgdir}/etc/mateconf/schemas/*.schemas
+	install -m755 -d "${pkgdir}/usr/share/mateconf/schemas"
+	mateconf-merge-schema "${pkgdir}/usr/share/mateconf/schemas/${pkgname}.schemas" --domain ${pkgname} ${pkgdir}/etc/mateconf/schemas/*.schemas
+	rm -f ${pkgdir}/etc/mateconf/schemas/*.schemas
 }
