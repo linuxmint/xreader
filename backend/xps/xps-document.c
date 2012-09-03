@@ -1,3 +1,4 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; c-indent-level: 8 -*- */
 /* this file is part of atril, a mate document viewer
  *
  * Copyright (C) 2010 Carlos Garcia Campos <carlosgc@gnome.org>
@@ -26,6 +27,7 @@
 #include "xps-document.h"
 #include "ev-document-links.h"
 #include "ev-document-misc.h"
+#include "ev-document-thumbnails.h"
 #include "ev-document-print.h"
 
 struct _XPSDocument {
@@ -42,6 +44,7 @@ struct _XPSDocumentClass {
 
 static void xps_document_document_links_iface_init (EvDocumentLinksInterface *iface);
 static void xps_document_document_print_iface_init (EvDocumentPrintInterface *iface);
+static void xps_document_document_thumbnails_iface_init (EvDocumentThumbnailsInterface *iface);
 
 EV_BACKEND_REGISTER_WITH_CODE (XPSDocument, xps_document,
 	       {
@@ -49,6 +52,8 @@ EV_BACKEND_REGISTER_WITH_CODE (XPSDocument, xps_document,
 						       xps_document_document_links_iface_init);
 		       EV_BACKEND_IMPLEMENT_INTERFACE (EV_TYPE_DOCUMENT_PRINT,
 						       xps_document_document_print_iface_init);
+		       EV_BACKEND_IMPLEMENT_INTERFACE (EV_TYPE_DOCUMENT_THUMBNAILS,
+						       xps_document_document_thumbnails_iface_init);
 	       })
 
 /* XPSDocument */
@@ -501,5 +506,56 @@ static void
 xps_document_document_print_iface_init (EvDocumentPrintInterface *iface)
 {
 	iface->print_page = xps_document_print_print_page;
+}
+
+static GdkPixbuf *
+xps_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
+                                       EvRenderContext      *rc,
+                                       gboolean              border)
+{
+	GdkPixbuf *thumbnail;
+	cairo_surface_t *surface;
+	
+	surface = xps_document_render (EV_DOCUMENT (document), rc);
+	
+	thumbnail = ev_document_misc_pixbuf_from_surface (surface);
+	
+	cairo_surface_destroy (surface);
+	
+	if (border) {
+		GdkPixbuf *tmp_pixbuf = thumbnail;
+
+		thumbnail = ev_document_misc_get_thumbnail_frame (-1, -1, tmp_pixbuf);
+		g_object_unref (tmp_pixbuf);
+	}
+
+	return thumbnail;
+}
+
+static void
+xps_document_thumbnails_get_dimensions (EvDocumentThumbnails *document,
+                                        EvRenderContext      *rc,
+                                        gint                 *width,
+                                        gint                 *height)
+{
+	gdouble page_width, page_height;
+	
+	xps_document_get_page_size (EV_DOCUMENT (document), rc->page,
+	                            &page_width, &page_height);
+
+	if (rc->rotation == 90 || rc->rotation == 270) {
+		*width = (gint) (page_height * rc->scale);
+		*height = (gint) (page_width * rc->scale);
+	} else {
+		*width = (gint) (page_width * rc->scale);
+		*height = (gint) (page_height * rc->scale);
+	}
+}
+
+static void
+xps_document_document_thumbnails_iface_init (EvDocumentThumbnailsInterface *iface)
+{
+	iface->get_thumbnail = xps_document_thumbnails_get_thumbnail;
+	iface->get_dimensions = xps_document_thumbnails_get_dimensions;
 }
 

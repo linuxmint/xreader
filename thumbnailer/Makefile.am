@@ -33,6 +33,7 @@ schema_files = \
 	atril-thumbnailer-djvu.schemas.in \
 	atril-thumbnailer-comics.schemas.in \
 	atril-thumbnailer-ps.schemas.in \
+	atril-thumbnailer-xps.schemas.in \
 	atril-thumbnailer.schemas.in
 
 if WITH_MATECONF
@@ -59,6 +60,10 @@ endif
 
 if ENABLE_COMICS
 schema_DATA += atril-thumbnailer-comics.schemas
+endif
+
+if ENABLE_XPS
+schema_DATA += atril-thumbnailer-xps.schemas
 endif
 
 schemadir = $(MATECONF_SCHEMA_FILE_DIR)
