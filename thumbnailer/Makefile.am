@@ -1,4 +1,3 @@
-
 bin_PROGRAMS = atril-thumbnailer
 
 atril_thumbnailer_SOURCES = \
@@ -27,6 +26,16 @@ endif
 atril_thumbnailer_LDADD = \
 	$(top_builddir)/libdocument/libatrildocument.la	\
 	$(FRONTEND_LIBS)
+
+thumbnailerdir = $(datadir)/thumbnailers
+thumbnailer_in_files = atril.thumbnailer.in
+thumbnailer_DATA = $(thumbnailer_in_files:.thumbnailer.in=.thumbnailer)
+
+
+atril.thumbnailer: $(thumbnailer_in_files)
+	$(AM_V_GEN)sed \
+		-e "s|\@ATRIL_MIME_TYPES\@|$(ATRIL_MIME_TYPES)|" \
+		$< > $@
 
 schema_files = \
 	atril-thumbnailer-dvi.schemas.in  \
@@ -80,9 +89,11 @@ endif
 endif # WITH_MATECONF
 
 EXTRA_DIST =         	\
-	$(schema_files)
+	$(schema_files) \
+	$(thumbnailer_in_files)
 
 DISTCLEANFILES = \
-	$(schema_DATA)
+	$(schema_DATA) \
+	$(thumbnailer_DATA)
 
 -include $(top_srcdir)/git.mk

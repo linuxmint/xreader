@@ -1,0 +1,6 @@
+[Thumbnailer Entry]
+TryExec=atril-thumbnailer
+Exec=atril-thumbnailer -s %s %u %o
+MimeType=@ATRIL_MIME_TYPES@
+
+
