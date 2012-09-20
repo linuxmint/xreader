@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Oz Nahum (2012)" />
+  <meta name="author" content="Nickolay V. Shmyrev" />
+  <meta name="author" content="Niels Giesen" />
+  <meta name="author" content="Claude Paroz (2004)" />
+  <meta name="date" content="2012-09-18" />
+  <title>Atril</title>
+
+
+<style type="text/css">
+
+/*
+:Author: Enrico Troeger
+:Contact: enrico(dot)troeger(at)uvena(dot)de
+:Copyright: This stylesheet has been placed in the public domain.
+
+Stylesheet Atril is based on Geany's documentation based on a version of John Gabriele.
+see www.geany.org
+*/
+
+@media screen {
+
+	body {
+		background-color: #f2f2f2;
+		color: #404040;
+		margin-left: 0.4em;
+		max-width: 60em;
+		font-size: 90%;
+	}
+
+	a {
+		color: #990000;
+	}
+
+	a:visited {
+		color: #7E558E;
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+
+	h1 {
+		border-top: 1px dotted;
+		margin-top: 2em;
+	}
+
+	h1, h2, h3 {
+		font-family: sans-serif;
+		color: #5D0606;
+	}
+
+	h1.title {
+	  text-align: left }
+
+	h2 {
+		margin-top: 30px;
+	}
+
+	h2.subtitle {
+	  text-align: left }
+
+	h3 {
+		padding-left: 3px;
+	}
+
+	blockquote, pre {
+		border: 1px solid;
+		padding: 0.4em;
+	}
+
+	blockquote {
+		font-family: sans-serif;
+		background-color: #DBEDD5;
+		border: 1px dotted;
+		border-left: 4px solid;
+		border-color: #9FD98C;
+	}
+
+	pre {
+		background-color: #ECDFCE;
+		border: 1px dotted;
+		border-left: 4px solid;
+		border-color: #D9BE9A;
+	}
+
+	tt, pre, code {
+		color: #6D4212;
+	}
+
+	table {
+		border: 1px solid #D9BE9A;
+	}
+
+	th {
+		background-color: #ECDFCE;
+		border: 1px dotted #D9BE9A;
+	}
+
+	td {
+		border: 1px dotted #D9BE9A;
+	}
+
+	.docinfo-name {
+		color: #5D0606;
+	}
+
+	p.admonition-title {
+		color: #990000;
+		font-weight: bold;
+	}
+
+	div.note {
+		margin: 1em 3em;
+		padding: 0em;
+	}
+
+	dt {
+		font-style: italic;
+	}
+
+}
+
+@media print {
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="document" id="Atril">
+<h1 class="title">Atril</h1>
+<h2 class="subtitle" id="Mate Document Viewer">A simple document viewer</h2>
+<table class="docinfo" frame="void" rules="none">
+<col class="docinfo-name" />
+<col class="docinfo-content" />
+<tbody valign="top">
+<tr><th class="docinfo-name">Authors:</th>
+<td>Oz Nahum (2012)
+<br /> Nickolay V. Shmyrev (2005)
+<br />Niels Giesen (2004)
+<br /> Claude Paroz (2004) </td></tr>
+<tr><th class="docinfo-name">Date:</th>
+<td>2012-09-18</td></tr>
+<tr><th class="docinfo-name">Version:</th>
+<td>1.22</td></tr>
+</tbody>
+</table>
+<p>Copyright © 2004-2012</p>
+<p>This document is distributed under the terms of the GNU General Public
+License as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version. A copy of this
+license can be found in the file COPYING included with the source code
+of this program, and also in the chapter 
+<a class="reference internal" href="#gnu-general-public-license">GNU General Public License</a>.</p>
+<div class="contents topic" id="contents">
+
+
+
+<h1 id="introduction">Introduction</h1>
+<p>Atril enables you to view documents of various formats like Portable Document Format (PDF) files and PostScript files. Atril follows Freedesktop.org and MATE standards to provide integration with Desktop Environment.</p>
+<h1 id="getting-started">Getting Started</h1>
+<h2 id="to-start-atril">To Start atril</h2>
+<p>atril starts when you open a document such as a PDF or PostScript file.</p>
+<p>Alternatively, you can start atril from the command line, with the command: <code>atril</code>.</p>
+<h2 id="when-you-start-atril">When You Start atril</h2>
+<p>When you start atril, the following window is displayed.</p>
+<div class="figure">
+<img src="figures/atril_start_window.png" alt="Shows atril main window. Contains titlebar, menubar, toolbar and display area. Menubar contains File, Edit, View, Go and Help menus." /><p class="caption">Shows atril main window. Contains titlebar, menubar, toolbar and display area. Menubar contains File, Edit, View, Go and Help menus.</p>
+</div>
+<p>Atril window contains the following elements:</p>
+<dl>
+<dt>Menubar</dt>
+<dd><p>The menus on the menubar contain all of the commands that you need to work with documents in APP.</p>
+</dd>
+<dt>Toolbar</dt>
+<dd><p>The toolbar contains a subset of the commands that you can access from the menubar.</p>
+</dd>
+<dt>Display area</dt>
+<dd><p>The display area displays the document.</p>
+</dd>
+</dl>
+<p>In atril, you can perform the same action in several ways. For example, you can open a document in the following ways:</p>
+<table>
+<col width="48%" />
+<col width="48%" />
+<thead>
+<tr class="header">
+<th align="left">UI Component</th>
+<th align="left">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Window</td>
+<td align="left">- Drag a file into the APP window from another application such as a file manager.</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">- Double-click on the file name in the file manager</td>
+</tr>
+<tr class="odd">
+<td align="left">Menubar</td>
+<td align="left">Choose FileOpen.</td>
+</tr>
+<tr class="even">
+<td align="left">Shortcut keys</td>
+<td align="left">Press CtrlO.</td>
+</tr>
+</tbody>
+</table>
+<p>This manual documents functionality from the menubar.</p>
+<h1 id="usage">Usage</h1>
+<h2 id="to-open-a-document">To Open A Document</h2>
+<p>To open a document, perform the following steps:</p>
+<ol style="list-style-type: decimal">
+<li><p>Choose FileOpen.</p></li>
+<li><p>In the Open Document dialog, select the file you want to open.</p></li>
+<li><p>Click Open. atril displays the name of the document in the titlebar of the window.</p></li>
+</ol>
+<p>To open another document, choose FileOpen again. atril opens each file in a new window.</p>
+<p>If you try to open a document with format that atril does not recognize, the application displays an error message.</p>
+<h2 id="to-navigate-through-a-document">To Navigate Through a Document</h2>
+<p>You can navigate through a file as follows:</p>
+<ul>
+<li><p>To view the next page, choose Go Next Page.</p></li>
+<li><p>To view the previous page, choose Go Previous Page.</p></li>
+<li><p>To view the first page in the document, choose Go First Page.</p></li>
+<li><p>To view the last page in the document, choose Go Last Page.</p></li>
+<li><p>To view a particular page, enter the page number or page label in the text box on the toolbar, then press Return.</p></li>
+</ul>
+<h2 id="to-scroll-a-page">To Scroll a Page</h2>
+<p>To display the page contents that are not currently displayed in the display area, use the following methods:</p>
+<ul>
+<li><p>Use the arrow keys or space key on the keyboard.</p></li>
+<li><p>Drag the display area by clicking with the middle mouse button somewhere in the document and then moving the mouse. For example, to scroll down the page, drag the display area upwards in the window.</p></li>
+<li><p>Use the scrollbars on the window.</p></li>
+</ul>
+<h2 id="to-change-the-page-size">To Change the Page Size</h2>
+<p>You can use the following methods to resize a page in the atril display area:</p>
+<ul>
+<li><p>To increase the page size, choose View Zoom In.</p></li>
+<li><p>To decrease the page size, choose View Zoom Out.</p></li>
+<li><p>To resize a page to have the same width as the atril display area, choose View Fit page width.</p></li>
+<li><p>To resize a page to fit within the atril display area, choose View Best Fit.</p></li>
+<li><p>To resize the atril window to have the same width and height as the screen, choose View Full Screen. To resize the atril window to the original size, click on the Exit Full Screen button.</p></li>
+</ul>
+<h2 id="to-view-pages-or-document-structure">To View Pages or Document Structure</h2>
+<p>To view bookmarks or pages, perform the following steps:</p>
+<ol style="list-style-type: decimal">
+<li><p>Choose View Sidebar or press F9.</p></li>
+<li><p>Use the drop-down list in the side-pane header to select whether to display document structure or pages in the side pane.</p></li>
+<li><p>Use the side-pane scrollbars to display the required item or page in the side pane.</p></li>
+<li><p>Click on an entry to navigate to that location in the document. Click on a page to navigate to that page in the document.</p></li>
+</ol>
+<h2 id="to-view-the-properties-of-a-document">To View the Properties of a Document</h2>
+<p>To view the properties of a document, choose File Properties.</p>
+<p>The Properties dialog displays all information available</p>
+<h2 id="to-print-a-document">To Print a Document</h2>
+<p>To print a Document, choose File Print.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>If you cannot choose the Print menu item, the author of the document has disabled the print option for this document. To enable the print option, you must enter the master password when you open the document.</p>
+</blockquote>
+<p>The Print dialog has the following tabbed sections:</p>
+<ul>
+<li><p><a href="#print-dialog-job">Job</a></p></li>
+<li><p><a href="#print-dialog-printer">Printer</a></p></li>
+<li><p><a href="#print-dialog-paper">Paper</a></p></li>
+</ul>
+<h3 id="job">Job</h3>
+<dl>
+<dt>Print range</dt>
+<dd><p>Select one of the following options to determine how many pages to print:</p>
+<ul>
+<li><p>All</p>
+<p>Select this option to print all of the pages in the document.</p></li>
+<li><p>Pages From</p>
+<p>Select this option to print the selected range of pages in the document. Use the spin boxes to specify the first page and last page of the range.</p></li>
+</ul>
+</dd>
+</dl>
+<h3 id="printer">Printer</h3>
+<dl>
+<dt>Printer</dt>
+<dd><p>Use this drop-down list to select the printer to which you want to print the document.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>The Create a PDF document option is not supported in this version of APP.</p>
+</blockquote>
+</dd>
+<dt>Settings</dt>
+<dd><p>Use this drop-down list to select the printer settings.</p>
+<p>To configure the printer, click Configure. For example, you can enable or disable duplex printing, or schedule delayed printing, if this functionality is supported by the printer.</p>
+</dd>
+<dt>Location</dt>
+<dd><p>Use this drop-down list to select one of the following print destinations:</p>
+<dl>
+<dt>CUPS</dt>
+<dd><p>Print the document to a CUPS printer.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>If the selected printer is a CUPS printer, CUPS is the only entry in this drop-down list.</p>
+</blockquote>
+</dd>
+<dt>lpr</dt>
+<dd><p>Print the document to a printer.</p>
+</dd>
+<dt>File</dt>
+<dd><p>Print the document to a PostScript file.</p>
+<p>Click Save As to display a dialog where you specify the name and location of the PostScript file.</p>
+</dd>
+<dt>Custom</dt>
+<dd><p>Use the specified command to print the document.</p>
+<p>Type the name of the command in the text box. Include all command-line arguments.</p>
+</dd>
+</dl>
+</dd>
+<dt>State</dt>
+<dd><p>This functionality is not supported in this version of atril.</p>
+</dd>
+<dt>Type</dt>
+<dd><p>This functionality is not supported in this version of atril.</p>
+</dd>
+<dt>Comment</dt>
+<dd><p>This functionality is not supported in this version of atril.</p>
+</dd>
+</dl>
+<h3 id="paper">Paper</h3>
+<dl>
+<dt>Paper size</dt>
+<dd><p>Use this drop-down list to select the size of the paper to which you want to print the document.</p>
+</dd>
+<dt>Width</dt>
+<dd><p>Use this spin box to specify the width of the paper. Use the adjacent drop-down list to change the measurement unit.</p>
+</dd>
+<dt>Height</dt>
+<dd><p>Use this spin box to specify the height of the paper.</p>
+</dd>
+<dt>Feed orientation</dt>
+<dd><p>Use this drop-down list to select the orientation of the paper in the printer.</p>
+</dd>
+<dt>Page orientation</dt>
+<dd><p>Use this drop-down list to select the page orientation.</p>
+</dd>
+<dt>Layout</dt>
+<dd><p>Use this drop-down list to select the page layout. A preview of each layout that you select is displayed in the Preview area.</p>
+</dd>
+<dt>Paper Tray</dt>
+<dd><p>Use this drop-down list to select the paper tray.</p>
+</dd>
+</dl>
+<h2 id="to-copy-a-document">To Copy a Document</h2>
+<p>To copy a file, perform the following steps:</p>
+<ol style="list-style-type: decimal">
+<li><p>Choose File Save a Copy.</p></li>
+<li><p>Type the new filename in the Filename text box in the Save a Copy dialog.</p>
+<p>If necessary, specify the location of the copied document. By default, copies are saved in your home directory.</p></li>
+<li><p>Click Save.</p></li>
+</ol>
+<h2 id="to-work-with-password-protected-documents">To Work With Password-Protected Documents</h2>
+<p>An author can use the following password levels to protect a document:</p>
+<ul>
+<li><p>User password that allows others only to read the document.</p></li>
+<li><p>Master password that allows others to perform additional actions, such as print the document.</p></li>
+</ul>
+<p>When you try to open a password-protected document, atril displays a security dialog. Type either the user password or the master password in the Enter document password text box, then click Open Document.</p>
+<h2 id="to-close-a-document">To Close a Document</h2>
+<p>To close a document, choose File Close.</p>
+<p>If the window is the last atril window open, the application exits.</p>
+<h1 id="list-of-keyboard-shortcuts">List of Keyboard Shortcuts</h1>
+<p>Below is a table of all shortcuts present in atril:</p>
+<table>
+<col width="33%" />
+<col width="38%" />
+<thead>
+<tr class="header">
+<th align="left">Shortcut</th>
+<th align="left">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Ctrl-O</td>
+<td align="left">Open an existing document</td>
+</tr>
+<tr class="even">
+<td align="left">Ctrl-S</td>
+<td align="left">Save a copy of the current document</td>
+</tr>
+<tr class="odd">
+<td align="left">Ctrl-P</td>
+<td align="left">Print document</td>
+</tr>
+<tr class="even">
+<td align="left">Ctrl-W</td>
+<td align="left">Close window</td>
+</tr>
+<tr class="odd">
+<td align="left">Ctrl-C</td>
+<td align="left">Copy selection</td>
+</tr>
+<tr class="even">
+<td align="left">Ctrl-A</td>
+<td align="left">Select All</td>
+</tr>
+<tr class="odd">
+<td align="left"><p>Ctrl-F ,</p>
+<p>/ (slash)</p></td>
+<td align="left">Find a word or phrase in the document</td>
+</tr>
+<tr class="even">
+<td align="left">Ctrl-G F3</td>
+<td align="left">Find next</td>
+</tr>
+<tr class="odd">
+<td align="left"><p>Ctrl + (plus sign)</p>
+<p>+</p>
+<p>=</p></td>
+<td align="left">Zoom in</td>
+</tr>
+<tr class="even">
+<td align="left">Ctrl -(minus sign),-</td>
+<td align="left">Zoom out</td>
+</tr>
+<tr class="odd">
+<td align="left">Ctrl-R</td>
+<td align="left">Reload the document</td>
+</tr>
+<tr class="even">
+<td align="left">Page Up</td>
+<td align="left">Go to the previous page</td>
+</tr>
+<tr class="odd">
+<td align="left">Page Down</td>
+<td align="left">Go to the next page</td>
+</tr>
+<tr class="even">
+<td align="left"><p>Space, j</p>
+<p>Shift Backspace</p>
+<p>Return</p></td>
+<td align="left">Scroll forward</td>
+</tr>
+<tr class="odd">
+<td align="left">Shift Space, k Backspace</td>
+<td align="left">Scroll backward</td>
+</tr>
+<tr class="even">
+<td align="left">Shift Return Shift Page Up</td>
+<td align="left">Go a bunch of pages up</td>
+</tr>
+<tr class="odd">
+<td align="left">Shift Page Down</td>
+<td align="left">Go a bunch of pages down</td>
+</tr>
+<tr class="even">
+<td align="left">Home</td>
+<td align="left">Go to the first page</td>
+</tr>
+<tr class="odd">
+<td align="left">End</td>
+<td align="left">Go to the last page</td>
+</tr>
+<tr class="even">
+<td align="left">Ctrl-L</td>
+<td align="left">Go to page by number or label</td>
+</tr>
+<tr class="odd">
+<td align="left">F1</td>
+<td align="left">Help</td>
+</tr>
+<tr class="even">
+<td align="left">F5</td>
+<td align="left">Run document as presentation</td>
+</tr>
+<tr class="odd">
+<td align="left">F9</td>
+<td align="left">Show or hide the side pane</td>
+</tr>
+<tr class="even">
+<td align="left">F11</td>
+<td align="left">Toggle fullscreen mode</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

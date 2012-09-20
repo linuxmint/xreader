@@ -14,4 +14,13 @@ DOC_LINGUAS = bg ca cs de el en_GB es eu fi fr it ja nl oc pt_BR ru sl sr sv uk 
 
 -include $(top_srcdir)/git.mk
 
+DOCDIR = $(DESTDIR)$(docdir)
+
 endif
+
+htmldir=$(datadir)/doc/mate/atril/
+
+html_DATA = C/atril.html \
+            C/figures/atril_start_window.png
+
+EXTRA_DIST = $(html_DATA)

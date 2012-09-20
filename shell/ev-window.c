@@ -4318,8 +4318,15 @@ ev_window_cmd_view_autoscroll (GtkAction *action, EvWindow *ev_window)
 	ev_view_autoscroll_start (EV_VIEW (ev_window->priv->view));
 }
 
+/*#define EV_HELP "ghelp:atril"*/
+
+/*
+ * NOTE: The hard coded variable should be replaced with 
+ * some configure aware variable ...
+ */ 
+
 #if OFFLINE_HELP_ENABLED
-#define EV_HELP "ghelp:atril"
+#define EV_HELP "file://usr/local/share/doc/mate/atril/atril.html"
 #else
 #define EV_HELP "http://library.mate.org/users/atril/stable/"
 #endif
