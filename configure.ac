@@ -308,35 +308,6 @@ fi
 
 AM_CONDITIONAL([ENABLE_DBUS], [test "$enable_dbus" = "yes"])
 
-dnl ========= Check for MateConf
-
-AC_MSG_CHECKING([whether MateConf support is requested])
-AC_ARG_WITH([mateconf],
-  [AS_HELP_STRING([--without-mateconf],
-                  [Disable the use of mateconf])],
-  [],
-  [case "$os_win32" in
-     yes) with_mateconf=no ;;
-     *) with_mateconf=yes ;;
-   esac])
-AC_MSG_RESULT([$with_mateconf])
-
-AM_CONDITIONAL([WITH_MATECONF],[test "$with_mateconf" = "yes"])
-
-if test "$with_mateconf" = "yes"; then
-   PKG_CHECK_MODULES([MATECONF],[mateconf-2.0])
-   AC_DEFINE([WITH_MATECONF],[1],[Define if MateConf support is enabled])
-
-   AM_MATECONF_SOURCE_2
-
-   AC_PATH_PROG([MATECONFTOOL], [mateconftool-2], [false])
-   if test "$MATECONFTOOL" = "false"; then
-      AC_MSG_ERROR([mateconftool-2 executable not found in your path - should be installed with MateConf])
-   fi
-else
-   AM_CONDITIONAL([MATECONF_SCHEMAS_INSTALL],false)
-fi
-
 dnl Debug mode
 
 AC_ARG_ENABLE([debug],
@@ -371,8 +342,8 @@ BACKEND_LIBS="$BACKEND_LIBS -lm"
 AC_SUBST(BACKEND_CFLAGS)
 AC_SUBST(BACKEND_LIBS)
 
-SHELL_CFLAGS="$SHELL_CORE_CFLAGS $KEYRING_CFLAGS $MATECONF_CFLAGS -DGDK_MULTIHEAD_SAFE -DGTK_MULTIHEAD_SAFE $DEBUG_FLAGS"
-SHELL_LIBS="$SHELL_CORE_LIBS $KEYRING_LIBS $MATECONF_LIBS -lz -lm"
+SHELL_CFLAGS="$SHELL_CORE_CFLAGS $KEYRING_CFLAGS -DGDK_MULTIHEAD_SAFE -DGTK_MULTIHEAD_SAFE $DEBUG_FLAGS"
+SHELL_LIBS="$SHELL_CORE_LIBS $KEYRING_LIBS -lz -lm"
 AC_SUBST(SHELL_CFLAGS)
 AC_SUBST(SHELL_LIBS)
 
@@ -890,7 +861,6 @@ Configure summary:
 
     Platform...........:    $with_platform
     GTK+ version.......:    $with_gtk
-    MateConf Support...:    $with_mateconf
     GTK+ Unix Print....:    $with_gtk_unix_print
     Keyring Support....:    $with_keyring
     DBUS Support.......:    $enable_dbus

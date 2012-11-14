@@ -41,10 +41,6 @@
 #include <gio/gio.h>
 #include <gtk/gtk.h>
 
-#ifdef WITH_MATECONF
-#include <mateconf/mateconf-client.h>
-#endif
-
 #include "egg-editable-toolbar.h"
 #include "egg-toolbar-editor.h"
 #include "egg-toolbars-model.h"
@@ -214,9 +210,7 @@ struct _EvWindowPrivate {
 	GtkPrintSettings *print_settings;
 	GtkPageSetup     *print_page_setup;
 	gboolean          close_after_print;
-#ifdef WITH_MATECONF
-	MateConfClient *mateconf_client;
-#endif
+	GSettings        *lockdown_settings;
 #ifdef ENABLE_DBUS
 	/* DBus */
 	guint  dbus_object_id;
@@ -233,10 +227,10 @@ struct _EvWindowPrivate {
 #define ZOOM_CONTROL_ACTION	"ViewZoom"
 #define NAVIGATION_ACTION	"Navigation"
 
-#define MATECONF_LOCKDOWN_DIR          "/desktop/mate/lockdown"
-#define MATECONF_LOCKDOWN_SAVE         "/desktop/mate/lockdown/disable_save_to_disk"
-#define MATECONF_LOCKDOWN_PRINT        "/desktop/mate/lockdown/disable_printing"
-#define MATECONF_LOCKDOWN_PRINT_SETUP  "/desktop/mate/lockdown/disable_print_setup"
+#define MATE_LOCKDOWN_SCHEMA       "org.mate.lockdown"
+#define MATE_LOCKDOWN_SAVE         "disable-save-to-disk"
+#define MATE_LOCKDOWN_PRINT        "disable-printing"
+#define MATE_LOCKDOWN_PRINT_SETUP  "disable-print-setup"
 
 #ifdef ENABLE_DBUS
 #define EV_WINDOW_DBUS_OBJECT_PATH "/org/mate/atril/Window/%d"
@@ -422,17 +416,15 @@ ev_window_setup_action_sensitivity (EvWindow *ev_window)
 	if (has_document && !ev_print_operation_exists_for_document(document))
 		ok_to_print = FALSE;
 
-#ifdef WITH_MATECONF
 	if (has_document &&
-	    mateconf_client_get_bool (ev_window->priv->mateconf_client, MATECONF_LOCKDOWN_SAVE, NULL)) {
+	    g_settings_get_boolean (ev_window->priv->lockdown_settings, MATE_LOCKDOWN_SAVE)) {
 		ok_to_copy = FALSE;
 	}
 
 	if (has_document &&
-	    mateconf_client_get_bool (ev_window->priv->mateconf_client, MATECONF_LOCKDOWN_PRINT, NULL)) {
+	    g_settings_get_boolean (ev_window->priv->lockdown_settings, MATE_LOCKDOWN_PRINT)) {
 		ok_to_print = FALSE;
 	}
-#endif
 
 	/* File menu */
 	ev_window_set_action_sensitive (ev_window, "FileOpenCopy", has_document);
@@ -1345,16 +1337,13 @@ override_restrictions_changed (GSettings *settings,
 	ev_window_setup_action_sensitivity (ev_window);
 }
 
-#ifdef WITH_MATECONF
 static void
-lockdown_changed (MateConfClient *client,
-		  guint        cnxn_id,
-		  MateConfEntry  *entry,
+lockdown_changed (GSettings *settings,
+		  gchar       *key,
 		  EvWindow    *ev_window)
 {
 	ev_window_setup_action_sensitivity (ev_window);
 }
-#endif /* WITH_MATECONF */
 
 static gboolean
 ev_window_setup_document (EvWindow *ev_window)
@@ -1379,18 +1368,12 @@ ev_window_setup_document (EvWindow *ev_window)
 				  ev_window);
 	}
 
-#ifdef WITH_MATECONF
-	if (!ev_window->priv->mateconf_client)
-		ev_window->priv->mateconf_client = mateconf_client_get_default ();
-	mateconf_client_add_dir (ev_window->priv->mateconf_client,
-			      MATECONF_LOCKDOWN_DIR,
-			      MATECONF_CLIENT_PRELOAD_ONELEVEL,
-			      NULL);
-	mateconf_client_notify_add (ev_window->priv->mateconf_client,
-				 MATECONF_LOCKDOWN_DIR,
-				 (MateConfClientNotifyFunc)lockdown_changed,
-				 ev_window, NULL, NULL);
-#endif /* WITH_MATECONF */
+	if (!ev_window->priv->lockdown_settings)
+		ev_window->priv->lockdown_settings = g_settings_new (MATE_LOCKDOWN_SCHEMA);
+	g_signal_connect (ev_window->priv->lockdown_settings,
+				 "changed",
+				 G_CALLBACK (lockdown_changed),
+				 ev_window);
 
 	ev_window_setup_action_sensitivity (ev_window);
 
@@ -3337,13 +3320,9 @@ ev_window_print_range (EvWindow *ev_window,
 	ev_print_operation_set_current_page (op, current_page);
 	ev_print_operation_set_print_settings (op, print_settings);
 	ev_print_operation_set_default_page_setup (op, print_page_setup);
-#ifdef WITH_MATECONF
-	ev_print_operation_set_embed_page_setup (op, !mateconf_client_get_bool (ev_window->priv->mateconf_client,
-									     MATECONF_LOCKDOWN_PRINT_SETUP,
-									     NULL));
-#else
-	ev_print_operation_set_embed_page_setup (op, TRUE);
-#endif
+
+	ev_print_operation_set_embed_page_setup (op, !g_settings_get_boolean (ev_window->priv->lockdown_settings,
+									     MATE_LOCKDOWN_PRINT_SETUP));
 
 	g_object_unref (print_settings);
 	g_object_unref (print_page_setup);
@@ -5160,12 +5139,10 @@ ev_window_dispose (GObject *object)
 		priv->setup_document_idle = 0;
 	}
 
-#ifdef WITH_MATECONF
-	if (priv->mateconf_client) {
-		g_object_unref (priv->mateconf_client);
-		priv->mateconf_client = NULL;
+	if (priv->lockdown_settings) {
+		g_object_unref (priv->lockdown_settings);
+		priv->lockdown_settings = NULL;
 	}
-#endif
 
 	if (priv->monitor) {
 		g_object_unref (priv->monitor);
