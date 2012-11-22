@@ -713,7 +713,7 @@ if test "x$enable_pixbuf" = "xyes"; then
     ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}image/*;"
 fi
 if test "x$enable_xps" = "xyes"; then
-    EVINCE_MIME_TYPES="${EVINCE_MIME_TYPES}application/oxps;application/vnd.ms-xpsdocument;"
+    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/oxps;application/vnd.ms-xpsdocument;"
 fi
 if test "x$enable_impress" = "xyes"; then
     ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/vnd.sun.xml.impress;application/vnd.oasis.opendocument.presentation;"
