@@ -1,5 +1,6 @@
 [Desktop Entry]
-_Name=Document Viewer
+_Name=Atril Document Viewer
+_GenericName=Document Viewer
 _Comment=View multi-page documents
 TryExec=atril
 Exec=atril %U
@@ -12,5 +13,5 @@ X-MATE-Bugzilla-Bugzilla=MATE
 X-MATE-Bugzilla-Product=atril
 X-MATE-Bugzilla-Component=BugBuddyBugs
 X-MATE-Bugzilla-Version=@VERSION@
-Categories=MATE;GTK;Graphics;VectorGraphics;Viewer;
+Categories=GTK;Graphics;VectorGraphics;Viewer;
 MimeType=@ATRIL_MIME_TYPES@
