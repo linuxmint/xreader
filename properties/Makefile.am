@@ -1,4 +1,4 @@
-INCLUDES=					\
+AM_CPPFLAGS=					\
 	-DATRILDATADIR=\"$(pkgdatadir)\"	\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
 	-I$(top_srcdir)				\

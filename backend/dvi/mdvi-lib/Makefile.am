@@ -1,4 +1,4 @@
-INCLUDES = $(WARN_CFLAGS)
+AM_CPPFLAGS = $(WARN_CFLAGS)
 noinst_LTLIBRARIES = libmdvi.la
 
 libmdvi_la_SOURCES = \
