@@ -1,6 +1,6 @@
 SUBDIRS = mdvi-lib
 
-INCLUDES = 					\
+AM_CPPFLAGS = 					\
 	-I$(top_srcdir)				\
 	-I$(top_srcdir)/libdocument		\
 	-I$(srcdir)/mdvi-lib			\

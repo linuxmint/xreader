@@ -1,4 +1,4 @@
-INCLUDES=							\
+AM_CPPFLAGS=							\
 	-DATRILDATADIR=\"$(pkgdatadir)\"				\
 	-DMATEDATADIR=\"$(datadir)\"				\
 	-I$(top_srcdir)						\
