@@ -1,6 +1,8 @@
 
 bin_PROGRAMS = atril-previewer
 
+man_MANS = atril-previewer.1
+
 atril_previewer_SOURCES = \
 	ev-previewer.c		\
 	ev-previewer-window.h	\
@@ -33,5 +35,6 @@ atril_previewer_LDADD = \
 	$(top_builddir)/libmisc/libevmisc.la		\
 	$(PREVIEWER_LIBS)
 
+EXTRA_DIST = $(man_MANS)
 
 -include $(top_srcdir)/git.mk
