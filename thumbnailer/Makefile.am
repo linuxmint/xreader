@@ -1,5 +1,7 @@
 bin_PROGRAMS = atril-thumbnailer
 
+man_MANS = atril-thumbnailer.1
+
 atril_thumbnailer_SOURCES = \
 	atril-thumbnailer.c
 
@@ -38,7 +40,8 @@ atril.thumbnailer: $(thumbnailer_in_files)
 		$< > $@
 
 EXTRA_DIST =         	\
-	$(thumbnailer_in_files)
+	$(thumbnailer_in_files) \
+	$(man_MANS)
 
 DISTCLEANFILES = \
 	$(thumbnailer_DATA)
