@@ -9,9 +9,6 @@ backend/dvi/dvi-document.c
 [type: gettext/ini] backend/dvi/dvidocument.atril-backend.in
 backend/pdf/ev-poppler.cc
 [type: gettext/ini] backend/pdf/pdfdocument.atril-backend.in
-backend/impress/impress-document.c
-[type: gettext/ini] backend/impress/impressdocument.atril-backend.in
-backend/impress/zip.c
 backend/ps/ev-spectre.c
 [type: gettext/ini] backend/ps/psdocument.atril-backend.in
 backend/tiff/tiff-document.c

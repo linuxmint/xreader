@@ -673,21 +673,6 @@ AM_CONDITIONAL(ENABLE_XPS, test x$enable_xps = xyes)
 
 dnl ================== End of XPS checks ===================================================
 
-dnl ================== impress book checks ===================================================
-
-AC_ARG_ENABLE(impress,
-    [AS_HELP_STRING([--enable-impress],
-                    [Compile with support for impress presentations])],
-    [enable_impress=$enableval],
-    [enable_impress=no])
-
-if test "x$enable_impress" = "xyes"; then
-    AC_DEFINE([ENABLE_IMPRESS], [1], [Enable support for impress.])
-fi
-AM_CONDITIONAL(ENABLE_IMPRESS, test x$enable_impress = xyes)
-
-dnl ================== End of impress book checks ============================================
-
 dnl =================== Mime types list ====================================================
 
 if test "x$enable_pdf" = "xyes" ; then
@@ -713,9 +698,6 @@ if test "x$enable_pixbuf" = "xyes"; then
 fi
 if test "x$enable_xps" = "xyes"; then
     ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/oxps;application/vnd.ms-xpsdocument;"
-fi
-if test "x$enable_impress" = "xyes"; then
-    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/vnd.sun.xml.impress;application/vnd.oasis.opendocument.presentation;"
 fi
 AC_SUBST(ATRIL_MIME_TYPES)
 
@@ -791,7 +773,6 @@ backend/comics/Makefile
 backend/djvu/Makefile
 backend/dvi/Makefile
 backend/dvi/mdvi-lib/Makefile
-backend/impress/Makefile
 backend/pdf/Makefile
 backend/pixbuf/Makefile
 backend/ps/Makefile
@@ -881,5 +862,4 @@ Configure summary:
     Pixbuf Backend.....:    $enable_pixbuf
     Comics Backend.....:    $enable_comics
     XPS Backend........:    $enable_xps
-    Impress Backend....:    $enable_impress
 "
