@@ -6488,10 +6488,10 @@ compute_new_selection_text (EvView          *view,
 								    &selection->rect.x2,
 								    &selection->rect.y2);
 
-		list = g_list_append (list, selection);
+		list = g_list_prepend (list, selection);
 	}
 
-	return list;
+	return g_list_reverse (list);
 }
 
 /* This function takes the newly calculated list, and figures out which regions
@@ -6694,10 +6694,10 @@ ev_view_select_all (EvView *view)
 		selection->rect.x2 = width;
 		selection->rect.y2 = height;
 
-		selections = g_list_append (selections, selection);
+		selections = g_list_prepend (selections, selection);
 	}
 
-	merge_selection_region (view, selections);
+	merge_selection_region (view, g_list_reverse (selections));
 	gtk_widget_queue_draw (GTK_WIDGET (view));
 }
 
