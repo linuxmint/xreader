@@ -133,7 +133,7 @@ AC_MSG_RESULT([$with_gtk])
 dnl Specify required versions of dependencies
 CAIRO_REQUIRED=1.9.10
 GLIB_REQUIRED=2.25.11
-KEYRING_REQUIRED=1.1.0
+LIBSECRET_REQUIRED=0.5
 
 case "$with_gtk" in
   2.0) GTK_API_VERSION=2.0
@@ -268,12 +268,12 @@ if test "$with_gtk_unix_print" = "yes"; then
 fi
 
 # *********************
-# MATE Keyring support
+# Keyring support
 # *********************
 
 AC_ARG_WITH(keyring,
         [AS_HELP_STRING([--without-keyring],
-                        [Disable the use of mate-keyring])],
+                        [Disable the use of libsecret and keyring])],
         [],
         [case "$with_platform" in
            mate) with_keyring=yes ;;
@@ -283,7 +283,7 @@ AC_ARG_WITH(keyring,
 AM_CONDITIONAL([WITH_KEYRING],[test "$with_keyring" = "yes"])
 
 if test "$with_keyring" = "yes"; then
-        PKG_CHECK_MODULES(KEYRING, mate-keyring-1 >= $KEYRING_REQUIRED)
+        PKG_CHECK_MODULES(LIBSECRET, libsecret-1 >= $LIBSECRET_REQUIRED)
         AC_DEFINE([WITH_KEYRING],[1],[Define if KEYRING support is enabled])
 fi
 
@@ -341,8 +341,8 @@ BACKEND_LIBS="$BACKEND_LIBS -lm"
 AC_SUBST(BACKEND_CFLAGS)
 AC_SUBST(BACKEND_LIBS)
 
-SHELL_CFLAGS="$SHELL_CORE_CFLAGS $KEYRING_CFLAGS -DGDK_MULTIHEAD_SAFE -DGTK_MULTIHEAD_SAFE $DEBUG_FLAGS"
-SHELL_LIBS="$SHELL_CORE_LIBS $KEYRING_LIBS -lz -lm"
+SHELL_CFLAGS="$SHELL_CORE_CFLAGS $LIBSECRET_CFLAGS -DGDK_MULTIHEAD_SAFE -DGTK_MULTIHEAD_SAFE $DEBUG_FLAGS"
+SHELL_LIBS="$SHELL_CORE_LIBS $LIBSECRET_LIBS -lz -lm"
 AC_SUBST(SHELL_CFLAGS)
 AC_SUBST(SHELL_LIBS)
 
