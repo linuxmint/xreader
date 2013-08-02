@@ -707,7 +707,7 @@ AC_CHECK_FUNC(localtime_r, AC_DEFINE(HAVE_LOCALTIME_R, 1, [Defines if localtime_
 # Help files
 # *****************
 
-YELP_HELP_INIT)
+YELP_HELP_INIT
 
 # *****************
 # API documentation
