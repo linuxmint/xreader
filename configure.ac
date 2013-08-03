@@ -707,29 +707,7 @@ AC_CHECK_FUNC(localtime_r, AC_DEFINE(HAVE_LOCALTIME_R, 1, [Defines if localtime_
 # Help files
 # *****************
 
-MATE_DOC_INIT([], mate_doc_utils=yes, mate_doc_utils=no)
-
-AC_ARG_ENABLE(help,
-    [AS_HELP_STRING([--disable-help], [Disable offline help files])],
-    [enable_help=$enableval],
-    [enable_help=yes])
-
-if test "x$enable_help" = "xyes" && test "x$os_win32" = "xyes" ; then
-    AC_MSG_WARN([Offline help is disabled (not implemented on Windows).])
-    enable_help=no
-fi
-
-if test "x$enable_help" = "xyes" && test "x$mate_doc_utils" == "xno"; then
-    AC_MSG_ERROR(
-        [mate-doc-utils not found; use --disable-help to disable help files]
-    )
-fi
-
-if test "x$enable_help" = "xyes"; then
-    AC_DEFINE([OFFLINE_HELP_ENABLED], [1], [Enable offline help])
-fi
-
-AM_CONDITIONAL(ENABLE_HELP, test "x$enable_help" = "xyes")
+YELP_HELP_INIT
 
 # *****************
 # API documentation
@@ -845,7 +823,6 @@ Configure summary:
     Keyring Support....:    $with_keyring
     DBUS Support.......:    $enable_dbus
     SM client support..:    $with_smclient
-    Help files.........:    $enable_help
     Caja Plugin........:    $enable_caja
     Thumbnailer........:    $enable_thumbnailer
     Previewer..........:    $enable_previewer

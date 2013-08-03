@@ -4297,7 +4297,7 @@ ev_window_cmd_view_autoscroll (GtkAction *action, EvWindow *ev_window)
 	ev_view_autoscroll_start (EV_VIEW (ev_window->priv->view));
 }
 
-/*#define EV_HELP "ghelp:atril"*/
+/*#define EV_HELP "help:atril"*/
 
 /*
  * NOTE: The hard coded variable should be replaced with 
