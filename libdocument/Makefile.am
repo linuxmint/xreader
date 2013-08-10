@@ -115,7 +115,8 @@ libatrildocument_la_LDFLAGS = \
 libatrildocument_la_LIBADD = \
 	$(LIBDOCUMENT_LIBS)	\
 	$(GMODULE_LIBS)		\
-	$(top_builddir)/cut-n-paste/synctex/libsynctex.la
+	$(top_builddir)/cut-n-paste/synctex/libsynctex.la \
+	$(ZLIB_LIBS)
 
 
 BUILT_SOURCES = 			\

@@ -196,6 +196,20 @@ esac
 
 PKG_CHECK_MODULES([SHELL_CORE],[libxml-2.0 >= $LIBXML_REQUIRED gtk+-$GTK_API_VERSION >= $GTK_REQUIRED gio-2.0 >= $GLIB_REQUIRED gthread-2.0 $SHELL_PLATFORM_PKGS])
 
+dnl
+dnl zlib support
+dnl
+
+PKG_CHECK_MODULES([ZLIB], [zlib], [found_zlib=yes], [found_zlib=no])
+AS_IF([test "x$found_zlib" = "xno"], [
+  AC_CHECK_LIB(z, inflate, [AC_CHECK_HEADER(zlib.h, found_zlib=yes)])
+  if test "x$found_zlib" = "xno" ; then
+    AC_MSG_ERROR([*** Working zlib library and headers not found ***])
+  fi
+  ZLIB_LIBS='-lz'
+  AC_SUBST(ZLIB_LIBS)
+])
+
 # *********
 # SM client
 # *********
