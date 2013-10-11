@@ -243,8 +243,10 @@ ev_page_action_widget_finalize (GObject *object)
 
 	if (action_widget->doc_model != NULL) {
 		if (action_widget->signal_id > 0) {
-			g_signal_handler_disconnect (action_widget->doc_model,
-						     action_widget->signal_id);
+			if (g_signal_handler_is_connected(action_widget->doc_model,
+							  action_widget->signal_id))
+				g_signal_handler_disconnect (action_widget->doc_model,
+							     action_widget->signal_id);
 			action_widget->signal_id = 0;
 		}
 		g_object_remove_weak_pointer (G_OBJECT (action_widget->doc_model),
