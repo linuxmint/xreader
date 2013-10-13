@@ -235,13 +235,13 @@ previous_clicked_callback (GtkButton *button,
 }
 
 static void
-case_sensitive_toggled_callback (GtkCheckButton *button,
-                                 void           *data)
+case_sensitive_toggled_callback (GtkToggleToolButton  *button,
+                                 void                 *data)
 {
   EggFindBar *find_bar = EGG_FIND_BAR (data);
 
   egg_find_bar_set_case_sensitive (find_bar,
-                                   gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button)));
+                                   gtk_toggle_tool_button_get_active (button));
 }
 
 static void
@@ -345,7 +345,7 @@ egg_find_bar_init (EggFindBar *find_bar)
 
   /* Case button */
   priv->case_button = gtk_toggle_tool_button_new ();
-  g_object_set (G_OBJECT (priv->case_button), "label", _("C_ase Sensitive"), NULL);
+  g_object_set (G_OBJECT (priv->case_button), "label", _("Case Sensitive"), NULL);
   gtk_tool_item_set_is_important (priv->case_button, TRUE);
   gtk_widget_set_tooltip_text (GTK_WIDGET (priv->case_button),
 			       _("Toggle case sensitive search"));
@@ -392,6 +392,7 @@ egg_find_bar_init (EggFindBar *find_bar)
   gtk_widget_show_all (GTK_WIDGET (item));
   gtk_widget_show_all (GTK_WIDGET (priv->next_button));
   gtk_widget_show_all (GTK_WIDGET (priv->previous_button));
+  gtk_widget_show_all (GTK_WIDGET (priv->case_button));
   gtk_widget_show (priv->status_label);
 }
 
@@ -628,8 +629,8 @@ egg_find_bar_set_case_sensitive (EggFindBar *find_bar,
     {
       priv->case_sensitive = case_sensitive;
 
-      gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (priv->case_button),
-                                    priv->case_sensitive);
+      gtk_toggle_tool_button_set_active (priv->case_button,
+                                         priv->case_sensitive);
 
       g_object_notify (G_OBJECT (find_bar),
                        "case_sensitive");
