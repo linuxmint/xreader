@@ -1,25 +1,26 @@
-# Chinese (Taiwan) Translation for atril.
-# Copyright (C) 2004-07 Free Software Foundation, Inc.
-# This file is distributed under the same license as the atril package.
-# Funda Wang <fundawang@linux.net.cn>, 2004
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
 # Abel Cheung <maddog@linuxhall.org>, 2005
+# Chao-Hsiung Liao  <j_h_liau@yahoo.com.tw>, 2008,2010
+# Funda Wang <fundawang@linux.net.cn>, 2004
+# Wei-Lun Chao <bluebat@member.fsf.org>, 2005,2012
 # Wei-Lun Chao <chaoweilun@pcmail.com.tw>, 2005
-# Woodman Tuen <wmtuen@gmail.com>, 2006-07
-# Chao-Hsiung Liao  <j_h_liau@yahoo.com.tw>, 2008, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: atril 2.31.90\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-21 20:05+0800\n"
-"PO-Revision-Date: 2010-08-20 08:37+0800\n"
-"Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
-"Language-Team: Chinese (traditional)\n"
+"Project-Id-Version: MATE Desktop Environment\n"
+"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"POT-Creation-Date: 2012-07-10 23:12+0200\n"
+"PO-Revision-Date: 2013-04-10 16:29+0000\n"
+"Last-Translator: Wei-Lun Chao <bluebat@member.fsf.org>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/MATE/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Virtaal 0.5.1\n"
 
 #: ../backend/comics/comics-document.c:217
 #, c-format
@@ -43,7 +44,8 @@ msgid "Not a comic book MIME type: %s"
 msgstr "並非漫畫書 MIME 類型：%s"
 
 #: ../backend/comics/comics-document.c:427
-msgid "Can't find an appropriate command to decompress this type of comic book"
+msgid ""
+"Can't find an appropriate command to decompress this type of comic book"
 msgstr "找不到合適的指令可將這個類型的漫畫書解壓縮"
 
 #: ../backend/comics/comics-document.c:465
@@ -85,8 +87,8 @@ msgstr "DjVu 文件有不正確的格式"
 
 #: ../backend/djvu/djvu-document.c:250
 msgid ""
-"The document is composed of several files. One or more of these files cannot "
-"be accessed."
+"The document is composed of several files. One or more of these files cannot"
+" be accessed."
 msgstr "此文件由多個檔案組成。其中一個或更多的檔案無法存取。"
 
 #: ../backend/djvu/djvudocument.atril-backend.in.h:1
@@ -106,12 +108,12 @@ msgid "This work is in the Public Domain"
 msgstr "這個作品是屬於公有領域"
 
 #. translators: this is the document security state
-#: ../backend/pdf/ev-poppler.cc:779
+#: ../backend/pdf/ev-poppler.cc:779 ../properties/ev-properties-view.c:364
 msgid "Yes"
 msgstr "是"
 
 #. translators: this is the document security state
-#: ../backend/pdf/ev-poppler.cc:782
+#: ../backend/pdf/ev-poppler.cc:782 ../properties/ev-properties-view.c:368
 msgid "No"
 msgstr "否"
 
@@ -167,14 +169,13 @@ msgstr "沒有嵌入"
 msgid "PDF Documents"
 msgstr "PDF 文件"
 
-#: ../backend/impress/impress-document.c:302
+#: ../backend/impress/impress-document.c:307
 #: ../backend/tiff/tiff-document.c:113
 msgid "Invalid document"
 msgstr "無效的文件"
 
-#.
 #. * vim: sw=2 ts=8 cindent noai bs=2
-#.
+#. 
 #: ../backend/impress/impressdocument.atril-backend.in.h:1
 msgid "Impress Slides"
 msgstr "Impress 幻燈片"
@@ -372,7 +373,7 @@ msgid "Separator"
 msgstr "分隔線"
 
 #. translators: this is the label for toolbar button
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:48 ../shell/ev-window.c:5741
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:48 ../shell/ev-window.c:5764
 msgid "Best Fit"
 msgstr "最適大小"
 
@@ -437,7 +438,7 @@ msgid "6400%"
 msgstr "6400%"
 
 #. Manually set name and icon
-#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4536
+#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4554
 #: ../shell/ev-window-title.c:149 ../shell/main.c:310
 #, c-format
 msgid "Document Viewer"
@@ -467,7 +468,7 @@ msgstr "列印設定值檔案"
 msgid "MATE Document Previewer"
 msgstr "MATE 文件預覽器"
 
-#: ../previewer/ev-previewer-window.c:91 ../shell/ev-window.c:3168
+#: ../previewer/ev-previewer-window.c:91 ../shell/ev-window.c:3185
 msgid "Failed to print document"
 msgstr "無法列印文件"
 
@@ -477,27 +478,27 @@ msgid "The selected printer '%s' could not be found"
 msgstr "找不到選取的印表機「%s」"
 
 #. Go menu
-#: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:5456
+#: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:5479
 msgid "_Previous Page"
 msgstr "上一頁(_P)"
 
-#: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:5457
+#: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:5480
 msgid "Go to the previous page"
 msgstr "回到上一頁"
 
-#: ../previewer/ev-previewer-window.c:287 ../shell/ev-window.c:5459
+#: ../previewer/ev-previewer-window.c:287 ../shell/ev-window.c:5482
 msgid "_Next Page"
 msgstr "下一頁(_N)"
 
-#: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:5460
+#: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:5483
 msgid "Go to the next page"
 msgstr "前往下一頁"
 
-#: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:5443
+#: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:5466
 msgid "Enlarge the document"
 msgstr "放大文件"
 
-#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:5446
+#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:5469
 msgid "Shrink the document"
 msgstr "縮小文件"
 
@@ -505,31 +506,31 @@ msgstr "縮小文件"
 msgid "Print"
 msgstr "列印"
 
-#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:5412
+#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:5435
 msgid "Print this document"
 msgstr "列印這份文件"
 
-#: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:5558
+#: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:5581
 msgid "_Best Fit"
 msgstr "最適大小(_B)"
 
-#: ../previewer/ev-previewer-window.c:343 ../shell/ev-window.c:5559
+#: ../previewer/ev-previewer-window.c:343 ../shell/ev-window.c:5582
 msgid "Make the current document fill the window"
 msgstr "令視窗可以顯示整頁頁面"
 
-#: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:5561
+#: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:5584
 msgid "Fit Page _Width"
 msgstr "符合頁寬(_W)"
 
-#: ../previewer/ev-previewer-window.c:346 ../shell/ev-window.c:5562
+#: ../previewer/ev-previewer-window.c:346 ../shell/ev-window.c:5585
 msgid "Make the current document fill the window width"
 msgstr "使目前文件符合視窗寬度"
 
-#: ../previewer/ev-previewer-window.c:558 ../shell/ev-window.c:5663
+#: ../previewer/ev-previewer-window.c:558 ../shell/ev-window.c:5686
 msgid "Page"
 msgstr "頁次"
 
-#: ../previewer/ev-previewer-window.c:559 ../shell/ev-window.c:5664
+#: ../previewer/ev-previewer-window.c:559 ../shell/ev-window.c:5687
 msgid "Select Page"
 msgstr "選擇頁次"
 
@@ -603,7 +604,7 @@ msgstr "沒有"
 #. * want inches, otherwise translate to default:mm.
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
-#.
+#. 
 #: ../properties/ev-properties-view.c:217
 msgid "default:mm"
 msgstr "default:mm"
@@ -632,13 +633,11 @@ msgstr "%s, 直向 (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, 橫向 (%s)"
 
-# (Abel) 這裡是頁數 (%d of %d)
 #: ../libmisc/ev-page-action-widget.c:68
 #, c-format
 msgid "(%d of %d)"
 msgstr "(%d / %d)"
 
-# (Abel) 這裡是頁數 (%d of %d)
 #: ../libmisc/ev-page-action-widget.c:70
 #, c-format
 msgid "of %d"
@@ -666,7 +665,7 @@ msgstr "正在列印頁面 %d / %d…"
 
 #: ../libview/ev-print-operation.c:1161
 msgid "Printing is not supported on this printer."
-msgstr "這台印表機不支援列印。"
+msgstr "這臺印表機不支援列印。"
 
 #: ../libview/ev-print-operation.c:1226
 msgid "Invalid page selection"
@@ -694,25 +693,14 @@ msgstr "符合可列印區域"
 
 #: ../libview/ev-print-operation.c:1870
 msgid ""
-"Scale document pages to fit the selected printer page. Select from one of "
-"the following:\n"
+"Scale document pages to fit the selected printer page. Select from one of the following:\n"
 "\n"
 "• \"None\": No page scaling is performed.\n"
 "\n"
-"• \"Shrink to Printable Area\": Document pages larger than the printable "
-"area are reduced to fit the printable area of the printer page.\n"
+"• \"Shrink to Printable Area\": Document pages larger than the printable area are reduced to fit the printable area of the printer page.\n"
 "\n"
-"• \"Fit to Printable Area\": Document pages are enlarged or reduced as "
-"required to fit the printable area of the printer page.\n"
-msgstr ""
-"將文件縮放至可列印區域。可選擇以下選項：\n"
-"\n"
-"• \"沒有\"：不進行頁面的縮放。\n"
-"\n"
-"• \"符合可列印區域\"：文件頁面超過可列印區域時會被縮小以符合印表機的可列印區"
-"域。\n"
-"\n"
-"• \"縮減至可列印區域\"：文件頁面會被放大或縮小以符合印表機的可列印區域。\n"
+"• \"Fit to Printable Area\": Document pages are enlarged or reduced as required to fit the printable area of the printer page.\n"
+msgstr "將文件縮放至可列印區域。可選擇以下選項：\n\n• \"沒有\"：不進行頁面的縮放。\n\n• \"符合可列印區域\"：文件頁面超過可列印區域時會被縮小以符合印表機的可列印區域。\n\n• \"縮減至可列印區域\"：文件頁面會被放大或縮小以符合印表機的可列印區域。\n"
 
 #: ../libview/ev-print-operation.c:1882
 msgid "Auto Rotate and Center"
@@ -722,9 +710,7 @@ msgstr "自動旋轉並置中"
 msgid ""
 "Rotate printer page orientation of each page to match orientation of each "
 "document page. Document pages will be centered within the printer page."
-msgstr ""
-"旋轉每一頁的印表機頁面方向以符合文件頁面的方向。文件的頁面會在印表機的頁面裡"
-"置中。"
+msgstr "旋轉每一頁的印表機頁面方向以符合文件頁面的方向。文件的頁面會在印表機的頁面裡置中。"
 
 #: ../libview/ev-print-operation.c:1890
 msgid "Select page size using document page size"
@@ -821,7 +807,7 @@ msgstr "執行 %s"
 msgid "Find:"
 msgstr "尋找："
 
-#: ../shell/eggfindbar.c:329 ../shell/ev-window.c:5429
+#: ../shell/eggfindbar.c:329 ../shell/ev-window.c:5452
 msgid "Find Pre_vious"
 msgstr "找上一個(_V)"
 
@@ -829,7 +815,7 @@ msgstr "找上一個(_V)"
 msgid "Find previous occurrence of the search string"
 msgstr "尋找上一個出現搜尋字串的地方"
 
-#: ../shell/eggfindbar.c:337 ../shell/ev-window.c:5427
+#: ../shell/eggfindbar.c:337 ../shell/ev-window.c:5450
 msgid "Find Ne_xt"
 msgstr "找下一個(_X)"
 
@@ -921,7 +907,7 @@ msgstr "開啟"
 msgid "Close"
 msgstr "關閉"
 
-#: ../shell/ev-application.c:1022
+#: ../shell/ev-application.c:1037
 msgid "Running in presentation mode"
 msgstr "以簡報模式執行"
 
@@ -948,9 +934,7 @@ msgstr "正在轉換中繼資料"
 msgid ""
 "The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
-msgstr ""
-"Atril 所使用的中繼資料已經改變，因此需要做轉移。如果轉移的動作被取消，中繼資"
-"料的儲存就無法運作。"
+msgstr "Atril 所使用的中繼資料已經改變，因此需要做轉移。如果轉移的動作被取消，中繼資料的儲存就無法運作。"
 
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
@@ -1082,544 +1066,525 @@ msgstr "索引"
 msgid "Thumbnails"
 msgstr "縮圖"
 
-#: ../shell/ev-window.c:867
+#: ../shell/ev-window.c:875
 #, c-format
 msgid "Page %s — %s"
 msgstr "頁 %s — %s"
 
-#: ../shell/ev-window.c:869
+#: ../shell/ev-window.c:877
 #, c-format
 msgid "Page %s"
 msgstr "頁 %s"
 
-#: ../shell/ev-window.c:1422
+#: ../shell/ev-window.c:1436
 msgid "The document contains no pages"
 msgstr "此文件不包含任何頁面"
 
-#: ../shell/ev-window.c:1425
+#: ../shell/ev-window.c:1439
 msgid "The document contains only empty pages"
 msgstr "文件只包含空白頁面"
 
-#: ../shell/ev-window.c:1627 ../shell/ev-window.c:1793
+#: ../shell/ev-window.c:1644 ../shell/ev-window.c:1810
 msgid "Unable to open document"
 msgstr "無法開啟文件"
 
-#: ../shell/ev-window.c:1764
+#: ../shell/ev-window.c:1781
 #, c-format
 msgid "Loading document from “%s”"
 msgstr "正在從「%s」載入文件"
 
-#: ../shell/ev-window.c:1906 ../shell/ev-window.c:2185
+#: ../shell/ev-window.c:1923 ../shell/ev-window.c:2202
 #, c-format
 msgid "Downloading document (%d%%)"
 msgstr "正在下載文件 (%d%%)"
 
-#: ../shell/ev-window.c:1939
+#: ../shell/ev-window.c:1956
 msgid "Failed to load remote file."
 msgstr "載入遠端的檔案失敗。"
 
-#: ../shell/ev-window.c:2129
+#: ../shell/ev-window.c:2146
 #, c-format
 msgid "Reloading document from %s"
 msgstr "從 %s 重新載入文件"
 
-#: ../shell/ev-window.c:2161
+#: ../shell/ev-window.c:2178
 msgid "Failed to reload document."
 msgstr "重新載入文件失敗。"
 
-#: ../shell/ev-window.c:2316
+#: ../shell/ev-window.c:2333
 msgid "Open Document"
 msgstr "開啟文件"
 
-#: ../shell/ev-window.c:2614
+#: ../shell/ev-window.c:2631
 #, c-format
 msgid "Saving document to %s"
 msgstr "正儲存文件到 %s"
 
-#: ../shell/ev-window.c:2617
+#: ../shell/ev-window.c:2634
 #, c-format
 msgid "Saving attachment to %s"
 msgstr "正儲存附加檔案到 %s"
 
-#: ../shell/ev-window.c:2620
+#: ../shell/ev-window.c:2637
 #, c-format
 msgid "Saving image to %s"
 msgstr "正儲存圖片到 %s"
 
-#: ../shell/ev-window.c:2664 ../shell/ev-window.c:2764
+#: ../shell/ev-window.c:2681 ../shell/ev-window.c:2781
 #, c-format
 msgid "The file could not be saved as “%s”."
 msgstr "檔案無法儲存為“%s”。"
 
-#: ../shell/ev-window.c:2695
+#: ../shell/ev-window.c:2712
 #, c-format
 msgid "Uploading document (%d%%)"
 msgstr "正在上傳文件 (%d%%)"
 
-#: ../shell/ev-window.c:2699
+#: ../shell/ev-window.c:2716
 #, c-format
 msgid "Uploading attachment (%d%%)"
 msgstr "正在上傳附加檔案 (%d%%)"
 
-#: ../shell/ev-window.c:2703
+#: ../shell/ev-window.c:2720
 #, c-format
 msgid "Uploading image (%d%%)"
 msgstr "正在上傳圖片 (%d%%)"
 
-#: ../shell/ev-window.c:2827
+#: ../shell/ev-window.c:2844
 msgid "Save a Copy"
 msgstr "儲存副本"
 
-#: ../shell/ev-window.c:3112
+#: ../shell/ev-window.c:3129
 #, c-format
 msgid "%d pending job in queue"
 msgid_plural "%d pending jobs in queue"
 msgstr[0] "佇列中 %d 項預定的工作"
 
-#: ../shell/ev-window.c:3225
+#: ../shell/ev-window.c:3242
 #, c-format
 msgid "Printing job “%s”"
 msgstr "正在列印工作“%s”"
 
-#: ../shell/ev-window.c:3402
+#: ../shell/ev-window.c:3420
 msgid ""
-"Document contains form fields that have been filled out. If you don't save a "
-"copy, changes will be permanently lost."
+"Document contains form fields that have been filled out. If you don't save a"
+" copy, changes will be permanently lost."
 msgstr "文件包含尚未填寫的表單欄位。如果您不儲存複本，這些變更就會永遠消失。"
 
-#: ../shell/ev-window.c:3406
+#: ../shell/ev-window.c:3424
 msgid ""
 "Document contains new or modified annotations. If you don't save a copy, "
 "changes will be permanently lost."
 msgstr "文件包含新的或修改過的註解。如果您不儲存複本，這些變更就會永遠消失。"
 
-#: ../shell/ev-window.c:3413
+#: ../shell/ev-window.c:3431
 #, c-format
 msgid "Save a copy of document “%s” before closing?"
 msgstr "關閉前要儲存文件「%s」的複本嗎？"
 
-#: ../shell/ev-window.c:3432
+#: ../shell/ev-window.c:3450
 msgid "Close _without Saving"
 msgstr "關閉但不儲存(_W)"
 
-#: ../shell/ev-window.c:3436
+#: ../shell/ev-window.c:3454
 msgid "Save a _Copy"
 msgstr "儲存副本(_C)"
 
-#: ../shell/ev-window.c:3510
+#: ../shell/ev-window.c:3528
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
 msgstr "在關閉前是否要等待列印工作“%s”結束？"
 
-#: ../shell/ev-window.c:3513
+#: ../shell/ev-window.c:3531
 #, c-format
 msgid ""
 "There are %d print jobs active. Wait until print finishes before closing?"
 msgstr "還有 %d 項列印工作在使用中。在關閉前是否要等待列印結束？"
 
-#: ../shell/ev-window.c:3525
+#: ../shell/ev-window.c:3543
 msgid "If you close the window, pending print jobs will not be printed."
 msgstr "如果您關閉視窗，預定的列印工作將不會列印。"
 
-#: ../shell/ev-window.c:3529
+#: ../shell/ev-window.c:3547
 msgid "Cancel _print and Close"
 msgstr "取消列印並關閉(_P)"
 
-#: ../shell/ev-window.c:3533
+#: ../shell/ev-window.c:3551
 msgid "Close _after Printing"
 msgstr "於列印完成後關閉(_A)"
 
-#: ../shell/ev-window.c:4153
+#: ../shell/ev-window.c:4171
 msgid "Toolbar Editor"
 msgstr "工具列編輯器"
 
-#: ../shell/ev-window.c:4320
+#: ../shell/ev-window.c:4338
 msgid "There was an error displaying help"
 msgstr "顯示說明文件時發生錯誤"
 
-#: ../shell/ev-window.c:4532
+#: ../shell/ev-window.c:4550
 #, c-format
 msgid ""
 "Document Viewer\n"
 "Using %s (%s)"
-msgstr ""
-"文件檢視器\n"
-"使用 %s (%s)"
+msgstr "文件檢視器\n使用 %s (%s)"
 
-# (Abel) 大致上參考 slat.org 的建議
-#: ../shell/ev-window.c:4563
+#: ../shell/ev-window.c:4584
 msgid ""
 "Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
-msgstr ""
-"Atril 為自由軟體；您可依據自由軟體基金會所發表的 GNU 通用公共授權條款規定，"
-"就本程式再為散佈與／或修改；無論您依據的是本授權的第二版或（您自行選擇的）任"
-"一日後發行的版本。\n"
+msgstr "Atril 為自由軟體；您可依據自由軟體基金會所發表的 GNU 通用公共授權條款規定，就本程式再為散布與／或修改；無論您依據的是本授權的第二版或（您自行選擇的）任一日後發行的版本。\n"
 
-#: ../shell/ev-window.c:4567
+#: ../shell/ev-window.c:4588
 msgid ""
 "Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
-msgstr ""
-"Atril 係基於使用目的而加以散佈，然而不負任何擔保責任；亦無對適售性或特定目的"
-"適用性所為的默示性擔保。詳情請參照 GNU 通用公共授權。\n"
+msgstr "Atril 係基於使用目的而加以散布，然而不負任何擔保責任；亦無對適售性或特定目的適用性所為的默示性擔保。詳情請參照 GNU 通用公共授權。\n"
 
-#: ../shell/ev-window.c:4571
+#: ../shell/ev-window.c:4592
 msgid ""
-"You should have received a copy of the GNU General Public License along with "
-"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"You should have received a copy of the GNU General Public License along with"
+" Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
-msgstr ""
-"您應該已經和 Atril 程式一起收到一份 GNU 通用公共許可證的副本。如果還沒有，寫"
-"信給：  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, "
-"Boston, MA 02110-1301 USA\n"
+msgstr "您應該已收到附於 Atril 的 GNU 通用公共授權的副本。如果沒有，請寫信至：Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA\n"
 
-#: ../shell/ev-window.c:4596
+#: ../shell/ev-window.c:4617
 msgid "Atril"
 msgstr "Atril"
 
-#: ../shell/ev-window.c:4599
+#: ../shell/ev-window.c:4620
 msgid "© 1996–2009 The Atril authors"
 msgstr "© 1996-2009 Atril 作者群"
 
-#: ../shell/ev-window.c:4605
+#: ../shell/ev-window.c:4626
 msgid "translator-credits"
-msgstr ""
-"如對翻譯有任何意見，請送一封電子郵件給\n"
-"以下地址，MATE 翻譯團隊會儘快回覆您：\n"
-"zh-l10n@lists.linux.org.tw\n"
-"\n"
-"Woodman Tuen <wmtuen@gmail.com>, 2006-07\n"
-"趙惟倫 <chaoweilun@pcmail.com.tw>, 2005\n"
-"Abel Cheung <maddog@linuxhall.org>, 2005\n"
-"Funda Wang <fundawang@linux.net.cn>, 2004"
+msgstr "Woodman Tuen <wmtuen@gmail.com>, 2006-07\n趙惟倫 <bluebat@member.fsf.org>, 2005, 2012.\nAbel Cheung <maddog@linuxhall.org>, 2005\nFunda Wang <fundawang@linux.net.cn>, 2004"
 
 #. TRANS: Sometimes this could be better translated as
 #. "%d hit(s) on this page".  Therefore this string
 #. contains plural cases.
-#: ../shell/ev-window.c:4871
+#: ../shell/ev-window.c:4892
 #, c-format
 msgid "%d found on this page"
 msgid_plural "%d found on this page"
 msgstr[0] "本頁找到 %d 處"
 
-#: ../shell/ev-window.c:4876
+#: ../shell/ev-window.c:4897
 msgid "Not found"
 msgstr "找不到"
 
-#: ../shell/ev-window.c:4882
+#: ../shell/ev-window.c:4903
 #, c-format
 msgid "%3d%% remaining to search"
 msgstr "還有 %3d%% 尚待搜尋"
 
-#: ../shell/ev-window.c:5395
+#: ../shell/ev-window.c:5418
 msgid "_File"
 msgstr "檔案(_F)"
 
-#: ../shell/ev-window.c:5396
+#: ../shell/ev-window.c:5419
 msgid "_Edit"
 msgstr "編輯(_E)"
 
-#: ../shell/ev-window.c:5397
+#: ../shell/ev-window.c:5420
 msgid "_View"
 msgstr "檢視(_V)"
 
-#: ../shell/ev-window.c:5398
+#: ../shell/ev-window.c:5421
 msgid "_Go"
 msgstr "前往(_G)"
 
-#: ../shell/ev-window.c:5399
+#: ../shell/ev-window.c:5422
 msgid "_Help"
 msgstr "求助(_H)"
 
 #. File menu
-#: ../shell/ev-window.c:5402 ../shell/ev-window.c:5703
+#: ../shell/ev-window.c:5425 ../shell/ev-window.c:5726
 msgid "_Open…"
 msgstr "開啟(_O)…"
 
-#: ../shell/ev-window.c:5403 ../shell/ev-window.c:5704
+#: ../shell/ev-window.c:5426 ../shell/ev-window.c:5727
 msgid "Open an existing document"
 msgstr "開啟現存文件"
 
-#: ../shell/ev-window.c:5405
+#: ../shell/ev-window.c:5428
 msgid "Op_en a Copy"
 msgstr "開啟副本(_E)"
 
-#: ../shell/ev-window.c:5406
+#: ../shell/ev-window.c:5429
 msgid "Open a copy of the current document in a new window"
 msgstr "在新的視窗開啟目前文件的副本"
 
-#: ../shell/ev-window.c:5408
+#: ../shell/ev-window.c:5431
 msgid "_Save a Copy…"
 msgstr "儲存副本(_S)…"
 
-#: ../shell/ev-window.c:5409
+#: ../shell/ev-window.c:5432
 msgid "Save a copy of the current document"
 msgstr "儲存一個目前文件的副本"
 
-#: ../shell/ev-window.c:5411
+#: ../shell/ev-window.c:5434
 msgid "_Print…"
 msgstr "列印(_P)…"
 
-#: ../shell/ev-window.c:5414
+#: ../shell/ev-window.c:5437
 msgid "P_roperties"
 msgstr "屬性(_R)"
 
-#: ../shell/ev-window.c:5422
+#: ../shell/ev-window.c:5445
 msgid "Select _All"
 msgstr "全部選取(_A)"
 
-#: ../shell/ev-window.c:5424
+#: ../shell/ev-window.c:5447
 msgid "_Find…"
 msgstr "尋找(_F)…"
 
-#: ../shell/ev-window.c:5425
+#: ../shell/ev-window.c:5448
 msgid "Find a word or phrase in the document"
 msgstr "在文件中尋找字詞"
 
-#: ../shell/ev-window.c:5431
+#: ../shell/ev-window.c:5454
 msgid "T_oolbar"
 msgstr "工具列(_O)"
 
-#: ../shell/ev-window.c:5433
+#: ../shell/ev-window.c:5456
 msgid "Rotate _Left"
 msgstr "向左旋轉(_L)"
 
-#: ../shell/ev-window.c:5435
+#: ../shell/ev-window.c:5458
 msgid "Rotate _Right"
 msgstr "向右旋轉(_R)"
 
-#: ../shell/ev-window.c:5437
+#: ../shell/ev-window.c:5460
 msgid "Save Current Settings as _Default"
 msgstr "將目前的設定值儲存為預設值(_D)"
 
-#: ../shell/ev-window.c:5448
+#: ../shell/ev-window.c:5471
 msgid "_Reload"
 msgstr "重新載入(_R)"
 
-#: ../shell/ev-window.c:5449
+#: ../shell/ev-window.c:5472
 msgid "Reload the document"
 msgstr "重新載入文件"
 
-#: ../shell/ev-window.c:5452
+#: ../shell/ev-window.c:5475
 msgid "Auto_scroll"
 msgstr "自動捲動(_S)"
 
-#: ../shell/ev-window.c:5462
+#: ../shell/ev-window.c:5485
 msgid "_First Page"
 msgstr "第一頁(_F)"
 
-#: ../shell/ev-window.c:5463
+#: ../shell/ev-window.c:5486
 msgid "Go to the first page"
 msgstr "回到第一頁"
 
-#: ../shell/ev-window.c:5465
+#: ../shell/ev-window.c:5488
 msgid "_Last Page"
 msgstr "最後一頁(_L)"
 
-#: ../shell/ev-window.c:5466
+#: ../shell/ev-window.c:5489
 msgid "Go to the last page"
 msgstr "前往最後一頁"
 
 #. Help menu
-#: ../shell/ev-window.c:5470
+#: ../shell/ev-window.c:5493
 msgid "_Contents"
 msgstr "內容(_C)"
 
-#: ../shell/ev-window.c:5473
+#: ../shell/ev-window.c:5496
 msgid "_About"
 msgstr "關於(_A)"
 
 #. Toolbar-only
-#: ../shell/ev-window.c:5477
+#: ../shell/ev-window.c:5500
 msgid "Leave Fullscreen"
 msgstr "離開全螢幕"
 
-#: ../shell/ev-window.c:5478
+#: ../shell/ev-window.c:5501
 msgid "Leave fullscreen mode"
 msgstr "離開全螢幕模式"
 
-#: ../shell/ev-window.c:5480
+#: ../shell/ev-window.c:5503
 msgid "Start Presentation"
 msgstr "開始簡報"
 
-#: ../shell/ev-window.c:5481
+#: ../shell/ev-window.c:5504
 msgid "Start a presentation"
 msgstr "簡報式顯示"
 
 #. View Menu
-#: ../shell/ev-window.c:5540
+#: ../shell/ev-window.c:5563
 msgid "_Toolbar"
 msgstr "工具列(_T)"
 
-#: ../shell/ev-window.c:5541
+#: ../shell/ev-window.c:5564
 msgid "Show or hide the toolbar"
 msgstr "顯示或隱藏工具列"
 
-#: ../shell/ev-window.c:5543
+#: ../shell/ev-window.c:5566
 msgid "Side _Pane"
 msgstr "側邊窗格(_P)"
 
-#: ../shell/ev-window.c:5544
+#: ../shell/ev-window.c:5567
 msgid "Show or hide the side pane"
 msgstr "顯示或隱藏側面窗格"
 
-#: ../shell/ev-window.c:5546
+#: ../shell/ev-window.c:5569
 msgid "_Continuous"
 msgstr "連續(_C)"
 
-#: ../shell/ev-window.c:5547
+#: ../shell/ev-window.c:5570
 msgid "Show the entire document"
 msgstr "顯示整份文件"
 
-#: ../shell/ev-window.c:5549
+#: ../shell/ev-window.c:5572
 msgid "_Dual"
 msgstr "兩頁(_D)"
 
-#: ../shell/ev-window.c:5550
+#: ../shell/ev-window.c:5573
 msgid "Show two pages at once"
 msgstr "一次顯示兩頁"
 
-#: ../shell/ev-window.c:5552
+#: ../shell/ev-window.c:5575
 msgid "_Fullscreen"
 msgstr "全螢幕(_F)"
 
-#: ../shell/ev-window.c:5553
+#: ../shell/ev-window.c:5576
 msgid "Expand the window to fill the screen"
 msgstr "將視窗展開為全螢幕"
 
-#: ../shell/ev-window.c:5555
+#: ../shell/ev-window.c:5578
 msgid "Pre_sentation"
 msgstr "簡報(_S)"
 
-#: ../shell/ev-window.c:5556
+#: ../shell/ev-window.c:5579
 msgid "Run document as a presentation"
 msgstr "如同簡報般執行文件"
 
-#: ../shell/ev-window.c:5564
+#: ../shell/ev-window.c:5587
 msgid "_Inverted Colors"
 msgstr "反轉顏色(_I)"
 
-#: ../shell/ev-window.c:5565
+#: ../shell/ev-window.c:5588
 msgid "Show page contents with the colors inverted"
 msgstr "以顏色反轉的方式顯示頁面內容"
 
 #. Links
-#: ../shell/ev-window.c:5573
+#: ../shell/ev-window.c:5596
 msgid "_Open Link"
 msgstr "開啟連結(_O)"
 
-#: ../shell/ev-window.c:5575
+#: ../shell/ev-window.c:5598
 msgid "_Go To"
 msgstr "移至(_G)"
 
-#: ../shell/ev-window.c:5577
+#: ../shell/ev-window.c:5600
 msgid "Open in New _Window"
 msgstr "在新的視窗中開啟(_W)"
 
-#: ../shell/ev-window.c:5579
+#: ../shell/ev-window.c:5602
 msgid "_Copy Link Address"
 msgstr "複製連結位址(_C)"
 
-#: ../shell/ev-window.c:5581
+#: ../shell/ev-window.c:5604
 msgid "_Save Image As…"
 msgstr "另存圖片(_S)…"
 
-#: ../shell/ev-window.c:5583
+#: ../shell/ev-window.c:5606
 msgid "Copy _Image"
 msgstr "複製圖片(_I)"
 
-#: ../shell/ev-window.c:5585
+#: ../shell/ev-window.c:5608
 msgid "Annotation Properties…"
 msgstr "註解屬性…"
 
-#: ../shell/ev-window.c:5590
+#: ../shell/ev-window.c:5613
 msgid "_Open Attachment"
 msgstr "開啟附件(_O)"
 
-#: ../shell/ev-window.c:5592
+#: ../shell/ev-window.c:5615
 msgid "_Save Attachment As…"
 msgstr "另存附件為(_S)…"
 
-#: ../shell/ev-window.c:5677
+#: ../shell/ev-window.c:5700
 msgid "Zoom"
 msgstr "縮放"
 
-#: ../shell/ev-window.c:5679
+#: ../shell/ev-window.c:5702
 msgid "Adjust the zoom level"
 msgstr "調整縮放等級"
 
-#: ../shell/ev-window.c:5689
+#: ../shell/ev-window.c:5712
 msgid "Navigation"
 msgstr "導航"
 
-#: ../shell/ev-window.c:5691
+#: ../shell/ev-window.c:5714
 msgid "Back"
 msgstr "後退"
 
 #. translators: this is the history action
-#: ../shell/ev-window.c:5694
+#: ../shell/ev-window.c:5717
 msgid "Move across visited pages"
 msgstr "在已閱讀的頁面間移動"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:5724
+#: ../shell/ev-window.c:5747
 msgid "Previous"
 msgstr "上一頁"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:5729
+#: ../shell/ev-window.c:5752
 msgid "Next"
 msgstr "下一頁"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:5733
+#: ../shell/ev-window.c:5756
 msgid "Zoom In"
 msgstr "拉近"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:5737
+#: ../shell/ev-window.c:5760
 msgid "Zoom Out"
 msgstr "拉遠"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:5745
+#: ../shell/ev-window.c:5768
 msgid "Fit Width"
 msgstr "符合頁寬"
 
-#: ../shell/ev-window.c:5890 ../shell/ev-window.c:5907
+#: ../shell/ev-window.c:5913 ../shell/ev-window.c:5930
 msgid "Unable to launch external application."
 msgstr "無法啟動外部應用程式。"
 
-#: ../shell/ev-window.c:5964
+#: ../shell/ev-window.c:5987
 msgid "Unable to open external link"
 msgstr "無法開啟外部連結"
 
-#: ../shell/ev-window.c:6131
+#: ../shell/ev-window.c:6154
 msgid "Couldn't find appropriate format to save image"
 msgstr "找不到合適的格式來儲存圖片"
 
-#: ../shell/ev-window.c:6173
+#: ../shell/ev-window.c:6196
 msgid "The image could not be saved."
 msgstr "圖片無法儲存。"
 
-#: ../shell/ev-window.c:6205
+#: ../shell/ev-window.c:6228
 msgid "Save Image"
 msgstr "儲存圖片"
 
-#: ../shell/ev-window.c:6333
+#: ../shell/ev-window.c:6356
 msgid "Unable to open attachment"
 msgstr "無法開啟附件"
 
-#: ../shell/ev-window.c:6386
+#: ../shell/ev-window.c:6409
 msgid "The attachment could not be saved."
 msgstr "附件無法儲存。"
 
-#: ../shell/ev-window.c:6431
+#: ../shell/ev-window.c:6454
 msgid "Save Attachment"
 msgstr "儲存附件"
 
@@ -1674,17 +1639,17 @@ msgstr "字串"
 
 #: ../shell/main.c:86
 msgid "[FILE…]"
-msgstr "[檔案...]"
+msgstr "[檔案…]"
 
 #: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
+msgid "Enable thumbnailing of PDF Documents"
+msgstr "啟動 PDF 文件的縮圖功能"
+
+#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
 msgstr "可用的布林選項：“true”會開啟縮圖功能，而“false”會停止建立新的縮圖"
-
-#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
-msgid "Enable thumbnailing of PDF Documents"
-msgstr "啟動 PDF 文件的縮圖功能"
 
 #: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
@@ -1694,248 +1659,4 @@ msgstr "PDF 文件的縮圖命令"
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."
-msgstr ""
-"正確的指令加上代表 PDF 文件縮圖的引數。請參見 Caja 縮圖文件以得到更多資"
-"訊。"
-
-#~ msgid "Page Set_up…"
-#~ msgstr "頁面設定(_U)…"
-
-#~ msgid "Set up the page settings for printing"
-#~ msgstr "設定列印用的頁面設定"
-
-#~ msgid "DJVU document has incorrect format"
-#~ msgstr "DJVU 文件有不正確的格式"
-
-#~ msgid "Failed to create file “%s”: %s"
-#~ msgstr "無法建立檔案“%s”：%s"
-
-#~ msgid "Search string"
-#~ msgstr "搜尋字串"
-
-#~ msgid "The name of the string to be found"
-#~ msgstr "欲搜尋的字串名稱"
-
-#~ msgid "Case sensitive"
-#~ msgstr "區分大小寫"
-
-#~ msgid "TRUE for a case sensitive search"
-#~ msgstr "TRUE 代表區分大小寫的搜尋"
-
-#~ msgid "Highlight color"
-#~ msgstr "標示顏色"
-
-#~ msgid "Color of highlight for all matches"
-#~ msgstr "用來標示所有符合字串的顏色"
-
-#~ msgid "Current color"
-#~ msgstr "目前的顏色"
-
-#~ msgid "Color of highlight for the current match"
-#~ msgstr "用來標示目前符合字串的顏色"
-
-#~ msgid "Recover previous documents?"
-#~ msgstr "是否復原前一份文件？"
-
-#~ msgid ""
-#~ "Atril appears to have exited unexpectedly the last time it was run. You "
-#~ "can recover the opened documents."
-#~ msgstr "Atril 在上次執行時似乎突然關閉了。您可以復原已開啟的文件。"
-
-#~ msgid "_Don't Recover"
-#~ msgstr "不要復原(_D)"
-
-#~ msgid "_Recover"
-#~ msgstr "復原(_R)"
-
-#~ msgid "Crash Recovery"
-#~ msgstr "當機後復原"
-
-#~ msgid "Print..."
-#~ msgstr "列印..."
-
-#~ msgid "Couldn't create symlink “%s”: "
-#~ msgstr "無法建立符號連結「%s」："
-
-#~ msgid "Cannot open a copy."
-#~ msgstr "無法開啟副本。"
-
-#~ msgid "_Save a Copy..."
-#~ msgstr "儲存副本(_S)..."
-
-#~ msgid "_Print..."
-#~ msgstr "列印(_P)..."
-
-#~ msgid "_Find..."
-#~ msgstr "尋找(_F)..."
-
-#~ msgid "Co_nnect"
-#~ msgstr "連線(_N)"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "匿名連線(_A)"
-
-#~ msgid "Connect as u_ser:"
-#~ msgstr "以使用者連線(_S):"
-
-#~ msgid "_Username:"
-#~ msgstr "使用者名稱(_U):"
-
-#~ msgid "_Domain:"
-#~ msgstr "網域(_D):"
-
-#~ msgid "_Forget password immediately"
-#~ msgstr "立刻忘掉密碼(_F) "
-
-#~ msgid "_Remember password until you logout"
-#~ msgstr "在您登出前記住密碼(_R)"
-
-#~ msgid "_Remember forever"
-#~ msgstr "永遠記住(_R)"
-
-#~ msgid "File not available"
-#~ msgstr "檔案不存在"
-
-#~ msgid "Remote files aren't supported"
-#~ msgstr "不支援遠端檔案"
-
-#~ msgid "Find Previous"
-#~ msgstr "找上一個"
-
-#~ msgid "Find Next"
-#~ msgstr "找下一個"
-
-#~ msgid "Password Entry"
-#~ msgstr "密碼輸入欄"
-
-#~ msgid "Remember password for this session"
-#~ msgstr "在此作業階段中記住密碼"
-
-#~ msgid "Save password in keyring"
-#~ msgstr "儲存密碼於鑰匙圈程式中"
-
-#~ msgid "<b>Title:</b>"
-#~ msgstr "<b>標題：</b>"
-
-#~ msgid "%.2f x %.2f in"
-#~ msgstr "%.2f x %.2f 寸"
-
-#~ msgid "Incorrect password"
-#~ msgstr "密碼不正確"
-
-#~ msgid "Atril Document Viewer"
-#~ msgstr "Atril 文件檢視器"
-
-#~ msgid "BBox"
-#~ msgstr "BBox"
-
-#~ msgid "Letter"
-#~ msgstr "Letter"
-
-#~ msgid "Tabloid"
-#~ msgstr "Tabloid"
-
-#~ msgid "Ledger"
-#~ msgstr "Ledger"
-
-#~ msgid "Legal"
-#~ msgstr "Legal"
-
-#~ msgid "Statement"
-#~ msgstr "陳述"
-
-#~ msgid "Executive"
-#~ msgstr "Executive"
-
-#~ msgid "A0"
-#~ msgstr "A0"
-
-#~ msgid "A1"
-#~ msgstr "A1"
-
-#~ msgid "A2"
-#~ msgstr "A2"
-
-#~ msgid "A3"
-#~ msgstr "A3"
-
-#~ msgid "A4"
-#~ msgstr "A4"
-
-#~ msgid "A5"
-#~ msgstr "A5"
-
-#~ msgid "B4"
-#~ msgstr "B4"
-
-#~ msgid "B5"
-#~ msgstr "B5"
-
-#~ msgid "Folio"
-#~ msgstr "Folio"
-
-#~ msgid "Quarto"
-#~ msgstr "Quarto"
-
-#~ msgid "10x14"
-#~ msgstr "10x14"
-
-#~ msgid "Cannot open file “%s”."
-#~ msgstr "無法開啟檔案“%s”。"
-
-#~ msgid ""
-#~ "Failed to load document “%s”. Ghostscript interpreter was not found in "
-#~ "path"
-#~ msgstr "無法載入檔案“%s”。在路徑中找不到 Ghostscript 解譯器"
-
-#~ msgid "Encapsulated PostScript"
-#~ msgstr "Encapsulated PostScript"
-
-#~ msgid "PostScript"
-#~ msgstr "PostScript"
-
-#~ msgid "Interpreter failed."
-#~ msgstr "解譯程式失誤。"
-
-#~ msgid "Unhandled MIME type: “%s”"
-#~ msgstr "無法處理的 MIME 類型：“%s”"
-
-#~ msgid "Generating PDF is not supported"
-#~ msgstr "不支援產生 PDF 文件"
-
-#~ msgid ""
-#~ "You were trying to print to a printer using the “%s” driver. This program "
-#~ "requires a PostScript printer driver."
-#~ msgstr ""
-#~ "您剛剛試著利用“%s”印表機驅動程式，可是本程式需要 PostScript 印表機驅動程"
-#~ "式。"
-
-#~ msgid "Pages"
-#~ msgstr "頁數"
-
-#~ msgid "Images"
-#~ msgstr "圖片"
-
-#~ msgid "Open “%s”"
-#~ msgstr "開啟“%s”"
-
-#~ msgid "Empty"
-#~ msgstr "空的"
-
-#~ msgid "75%"
-#~ msgstr "75%"
-
-#~ msgid "No document loaded."
-#~ msgstr "沒有載入任何文件。"
-
-#~ msgid "Broken pipe."
-#~ msgstr "管線作業中斷"
-
-#~ msgid "Error while decompressing file “%s”:\n"
-#~ msgstr "檔案“%s”解壓縮時產生錯誤：\n"
-
-#~ msgid "File is not readable."
-#~ msgstr "檔案為不可讀。"
-
-#~ msgid "Document loaded."
-#~ msgstr "文件已載入。"
+msgstr "正確的指令加上代表 PDF 文件縮圖的引數。請參見 Caja 縮圖文件以得到更多資訊。"

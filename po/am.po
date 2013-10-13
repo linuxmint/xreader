@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# samson <sambelet@yahoo.com>, 2013.
+# samson <sambelet@yahoo.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
 "POT-Creation-Date: 2012-07-10 23:12+0200\n"
-"PO-Revision-Date: 2013-03-26 22:12+0000\n"
+"PO-Revision-Date: 2013-06-12 20:57+0000\n"
 "Last-Translator: samson <sambelet@yahoo.com>\n"
 "Language-Team: Amharic (http://www.transifex.com/projects/p/MATE/language/am/)\n"
 "MIME-Version: 1.0\n"
@@ -79,7 +79,7 @@ msgstr "አስቂኝ መጽሀፍ "
 
 #: ../backend/djvu/djvu-document.c:173
 msgid "DjVu document has incorrect format"
-msgstr ""
+msgstr "የ DjVu ሰነድ የተሳሳተ አቀራረብ ነው ያለው "
 
 #: ../backend/djvu/djvu-document.c:250
 msgid ""
@@ -89,15 +89,15 @@ msgstr ""
 
 #: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
-msgstr ""
+msgstr "የ DjVu ሰነዶች"
 
 #: ../backend/dvi/dvi-document.c:113
 msgid "DVI document has incorrect format"
-msgstr ""
+msgstr "የ DVI ሰነድ የተሳሳተ አቀራረብ ነው ያለው "
 
 #: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
-msgstr ""
+msgstr "የ DVI ሰነዶች"
 
 #: ../backend/pdf/ev-poppler.cc:526
 msgid "This work is in the Public Domain"
@@ -115,31 +115,31 @@ msgstr "አይ "
 
 #: ../backend/pdf/ev-poppler.cc:910
 msgid "Type 1"
-msgstr "አይነት 1 "
+msgstr "Type 1"
 
 #: ../backend/pdf/ev-poppler.cc:912
 msgid "Type 1C"
-msgstr "አይነት 1C"
+msgstr "Type 1C"
 
 #: ../backend/pdf/ev-poppler.cc:914
 msgid "Type 3"
-msgstr "አይነት 3 "
+msgstr "Type 3"
 
 #: ../backend/pdf/ev-poppler.cc:916
 msgid "TrueType"
-msgstr ""
+msgstr "TrueType"
 
 #: ../backend/pdf/ev-poppler.cc:918
 msgid "Type 1 (CID)"
-msgstr ""
+msgstr "Type 1 (CID)"
 
 #: ../backend/pdf/ev-poppler.cc:920
 msgid "Type 1C (CID)"
-msgstr ""
+msgstr "Type 1C (CID)"
 
 #: ../backend/pdf/ev-poppler.cc:922
 msgid "TrueType (CID)"
-msgstr ""
+msgstr "TrueType (CID)"
 
 #: ../backend/pdf/ev-poppler.cc:924
 msgid "Unknown font type"
@@ -151,19 +151,19 @@ msgstr "ስም የለም "
 
 #: ../backend/pdf/ev-poppler.cc:958
 msgid "Embedded subset"
-msgstr ""
+msgstr "Embedded subset"
 
 #: ../backend/pdf/ev-poppler.cc:960
 msgid "Embedded"
-msgstr ""
+msgstr "Embedded"
 
 #: ../backend/pdf/ev-poppler.cc:962
 msgid "Not embedded"
-msgstr ""
+msgstr "Not embedded"
 
 #: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
-msgstr ""
+msgstr "የ PDF ሰነዶች"
 
 #: ../backend/impress/impress-document.c:307
 #: ../backend/tiff/tiff-document.c:113
@@ -182,7 +182,7 @@ msgstr "ስህተት የለም "
 
 #: ../backend/impress/zip.c:56
 msgid "Not enough memory"
-msgstr ""
+msgstr "በቂ memory የለም "
 
 #: ../backend/impress/zip.c:59
 msgid "Cannot find ZIP signature"
@@ -190,11 +190,11 @@ msgstr ""
 
 #: ../backend/impress/zip.c:62
 msgid "Invalid ZIP file"
-msgstr ""
+msgstr "ዋጋ የሌለው የ ZIP ፋይል "
 
 #: ../backend/impress/zip.c:65
 msgid "Multi file ZIPs are not supported"
-msgstr ""
+msgstr "Multi file ZIPs are not supported"
 
 #: ../backend/impress/zip.c:68
 msgid "Cannot open the file"
@@ -206,7 +206,7 @@ msgstr "ከፋይሉ ላይ ዳታ ማንበብ አልተቻለም "
 
 #: ../backend/impress/zip.c:74
 msgid "Cannot find file in the ZIP archive"
-msgstr ""
+msgstr "ፋይሉን በ ZIP ማህደር ውስጥ ማግኘት አልተቻለም "
 
 #: ../backend/impress/zip.c:77
 msgid "Unknown error"
@@ -301,7 +301,7 @@ msgstr ""
 
 #: ../cut-n-paste/smclient/eggsmclient.c:225
 msgid "Disable connection to session manager"
-msgstr ""
+msgstr "ወደ ከፍለ ጊዜ አስተዳዳሪ ግንኙነት ማሰናከያ"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:228
 msgid "Specify file containing saved configuration"
@@ -318,7 +318,7 @@ msgstr ""
 
 #: ../cut-n-paste/smclient/eggsmclient.c:231
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:252
 msgid "Session management options:"
@@ -471,7 +471,7 @@ msgstr "ሰነዱን ማተም አልተቻለም "
 #: ../previewer/ev-previewer-window.c:237
 #, c-format
 msgid "The selected printer '%s' could not be found"
-msgstr ""
+msgstr "የተመረጠውን ማተሚያ '%s' ማግኘት አልተቻለም "
 
 #. Go menu
 #: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:5479
@@ -512,7 +512,7 @@ msgstr ""
 
 #: ../previewer/ev-previewer-window.c:343 ../shell/ev-window.c:5582
 msgid "Make the current document fill the window"
-msgstr ""
+msgstr "የአሁኑን ሰነድ በመስኮቱ ሙሉ ልክ ማድረጊያ"
 
 #: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:5584
 msgid "Fit Page _Width"
@@ -520,7 +520,7 @@ msgstr "በገጹ_ስፋት ልክ "
 
 #: ../previewer/ev-previewer-window.c:346 ../shell/ev-window.c:5585
 msgid "Make the current document fill the window width"
-msgstr ""
+msgstr "የአሁኑን ሰነድ በመስኮቱ ስፋት ልክ ማድረጊያ"
 
 #: ../previewer/ev-previewer-window.c:558 ../shell/ev-window.c:5686
 msgid "Page"
@@ -536,24 +536,24 @@ msgstr "ሰነድ "
 
 #: ../properties/ev-properties-view.c:60
 msgid "Title:"
-msgstr "አርእስት :"
+msgstr "አርእስት:"
 
 #: ../properties/ev-properties-view.c:61
 msgid "Location:"
-msgstr "አካባቢ :"
+msgstr "አካባቢ:"
 
 #: ../properties/ev-properties-view.c:62
 msgid "Subject:"
-msgstr "ጉዳዩ :"
+msgstr "ጉዳዩ:"
 
 #: ../properties/ev-properties-view.c:63
 #: ../shell/ev-annotation-properties-dialog.c:160
 msgid "Author:"
-msgstr "ደራሲ :"
+msgstr "ደራሲ:"
 
 #: ../properties/ev-properties-view.c:64
 msgid "Keywords:"
-msgstr "ቁልፍ ቃሎች :"
+msgstr "ቁልፍ ቃሎች:"
 
 #: ../properties/ev-properties-view.c:65
 msgid "Producer:"
@@ -561,35 +561,35 @@ msgstr ""
 
 #: ../properties/ev-properties-view.c:66
 msgid "Creator:"
-msgstr "ፋጣሪው :"
+msgstr "ፈጣሪው:"
 
 #: ../properties/ev-properties-view.c:67
 msgid "Created:"
-msgstr "የተፈጠረው :"
+msgstr "የተፈጠረው:"
 
 #: ../properties/ev-properties-view.c:68
 msgid "Modified:"
-msgstr "የተሻሻለው :"
+msgstr "የተሻሻለው:"
 
 #: ../properties/ev-properties-view.c:69
 msgid "Number of Pages:"
-msgstr "የገጾች ቁጥር :"
+msgstr "የገጾች ቁጥር:"
 
 #: ../properties/ev-properties-view.c:70
 msgid "Optimized:"
-msgstr ""
+msgstr "አጥጋቢ:"
 
 #: ../properties/ev-properties-view.c:71
 msgid "Format:"
-msgstr "አቀራረብ :"
+msgstr "አቀራረብ:"
 
 #: ../properties/ev-properties-view.c:72
 msgid "Security:"
-msgstr "ደህንነት :"
+msgstr "ደህንነት:"
 
 #: ../properties/ev-properties-view.c:73
 msgid "Paper Size:"
-msgstr "የወረቀት መጠን :"
+msgstr "የወረቀት መጠን:"
 
 #: ../properties/ev-properties-view.c:188 ../libview/ev-print-operation.c:1865
 msgid "None"
@@ -603,7 +603,7 @@ msgstr "ምንም "
 #. 
 #: ../properties/ev-properties-view.c:217
 msgid "default:mm"
-msgstr "ነባር : ሚሚ "
+msgstr "ነባር:ሚሚ "
 
 #: ../properties/ev-properties-view.c:261
 #, c-format
@@ -627,7 +627,7 @@ msgstr "%s, ምስል (%s)"
 #: ../properties/ev-properties-view.c:296
 #, c-format
 msgid "%s, Landscape (%s)"
-msgstr "%s, የመሬት አቀማመጥ (%s)"
+msgstr "%s, በ መሬት አቀማመጥ (%s)"
 
 #: ../libmisc/ev-page-action-widget.c:68
 #, c-format
@@ -661,7 +661,7 @@ msgstr "በማተም ላይ ገጹን %d ከ %d…"
 
 #: ../libview/ev-print-operation.c:1161
 msgid "Printing is not supported on this printer."
-msgstr ""
+msgstr "በዚህ ማተሚያ ህትመት የተደገፈ አይደለም "
 
 #: ../libview/ev-print-operation.c:1226
 msgid "Invalid page selection"
@@ -677,7 +677,7 @@ msgstr ""
 
 #: ../libview/ev-print-operation.c:1860
 msgid "Page Scaling:"
-msgstr "ገጽ መመጠኛ :"
+msgstr "ገጽ መመጠኛ:"
 
 #: ../libview/ev-print-operation.c:1866
 msgid "Shrink to Printable Area"
@@ -685,7 +685,7 @@ msgstr ""
 
 #: ../libview/ev-print-operation.c:1867
 msgid "Fit to Printable Area"
-msgstr ""
+msgstr "በማተሚያው ቦታ ልክ"
 
 #: ../libview/ev-print-operation.c:1870
 msgid ""
@@ -700,7 +700,7 @@ msgstr ""
 
 #: ../libview/ev-print-operation.c:1882
 msgid "Auto Rotate and Center"
-msgstr ""
+msgstr "በራሱ ማሽከርከሪያ እና መሀከል ማድረጊያ "
 
 #: ../libview/ev-print-operation.c:1885
 msgid ""
@@ -749,7 +749,7 @@ msgstr "ሰነድ መመልከቻ "
 
 #: ../libview/ev-view-presentation.c:672
 msgid "Jump to page:"
-msgstr "መዝለያ ወደ ገጽ :"
+msgstr "መዝለያ ወደ ገጽ:"
 
 #: ../libview/ev-view-presentation.c:968
 msgid "End of presentation. Click to exit."
@@ -801,7 +801,7 @@ msgstr "ማስጀመሪያ %s"
 
 #: ../shell/eggfindbar.c:320
 msgid "Find:"
-msgstr "መፈለጊያ :"
+msgstr "መፈለጊያ:"
 
 #: ../shell/eggfindbar.c:329 ../shell/ev-window.c:5452
 msgid "Find Pre_vious"
@@ -821,7 +821,7 @@ msgstr ""
 
 #: ../shell/eggfindbar.c:348
 msgid "C_ase Sensitive"
-msgstr ""
+msgstr "C_ase Sensitive"
 
 #: ../shell/eggfindbar.c:351
 msgid "Toggle case sensitive search"
@@ -829,7 +829,7 @@ msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:97
 msgid "Icon:"
-msgstr "ምልክት :"
+msgstr "ምልክት:"
 
 #: ../shell/ev-annotation-properties-dialog.c:104
 msgid "Note"
@@ -877,11 +877,11 @@ msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:173
 msgid "Color:"
-msgstr "ቀለም :"
+msgstr "ቀለም:"
 
 #: ../shell/ev-annotation-properties-dialog.c:185
 msgid "Style:"
-msgstr "ዘዴ :"
+msgstr "ዘዴ:"
 
 #: ../shell/ev-annotation-properties-dialog.c:201
 msgid "Transparent"
@@ -962,7 +962,7 @@ msgstr "ይህ ሰነድ “%s” የተቆለፈ ነው እና ከመከፈቱ 
 
 #: ../shell/ev-password-view.c:335
 msgid "_Password:"
-msgstr "_የመግቢያ ቃል :"
+msgstr "_የመግቢያ ቃል:"
 
 #: ../shell/ev-password-view.c:368
 msgid "Forget password _immediately"
@@ -1027,7 +1027,7 @@ msgstr "ጽሁፍ "
 
 #: ../shell/ev-sidebar-annotations.c:210
 msgid "Add text annotation"
-msgstr ""
+msgstr "የጽሁፍ ማብራሪያ መጨመሪያ "
 
 #: ../shell/ev-sidebar-annotations.c:221
 msgid "Add"
@@ -1035,7 +1035,7 @@ msgstr "መጨመሪያ "
 
 #: ../shell/ev-sidebar-annotations.c:364
 msgid "Document contains no annotations"
-msgstr ""
+msgstr "ሰነዱ ማብራሪያ አልያዘም "
 
 #: ../shell/ev-sidebar-annotations.c:396
 #, c-format
@@ -1060,7 +1060,7 @@ msgstr "ማውጫ "
 
 #: ../shell/ev-sidebar-thumbnails.c:965
 msgid "Thumbnails"
-msgstr ""
+msgstr "በአውራ ጥፍር ልክ "
 
 #: ../shell/ev-window.c:875
 #, c-format
@@ -1190,7 +1190,7 @@ msgstr "_ኮፒ ማስቀመጫ "
 #: ../shell/ev-window.c:3528
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
-msgstr ""
+msgstr "የህትመቱ ስራ እስከሚጨርስ ድረስ “%s” ልጠብቅ ከመዘጋቱ በፊት?"
 
 #: ../shell/ev-window.c:3531
 #, c-format
@@ -1258,7 +1258,7 @@ msgstr "© 1996–2009 The Atril authors"
 
 #: ../shell/ev-window.c:4626
 msgid "translator-credits"
-msgstr "ምስጋና-ለተርጓሚ "
+msgstr "ምስጋና-ለተርጓሚዎች "
 
 #. TRANS: Sometimes this could be better translated as
 #. "%d hit(s) on this page".  Therefore this string
@@ -1358,7 +1358,7 @@ msgstr "ማዞሪያ _ወደ ቀኝ "
 
 #: ../shell/ev-window.c:5460
 msgid "Save Current Settings as _Default"
-msgstr ""
+msgstr "የአሁኑን ማሰናጃ እንደ _ነባር ማስቀመጫ"
 
 #: ../shell/ev-window.c:5471
 msgid "_Reload"
@@ -1433,7 +1433,7 @@ msgstr "የጎን ክፍል ማሳያ ወይንም መደበቂያ"
 
 #: ../shell/ev-window.c:5569
 msgid "_Continuous"
-msgstr ""
+msgstr "_የሚቀጥል"
 
 #: ../shell/ev-window.c:5570
 msgid "Show the entire document"
@@ -1461,11 +1461,11 @@ msgstr "ማቅ_ረቢያ "
 
 #: ../shell/ev-window.c:5579
 msgid "Run document as a presentation"
-msgstr ""
+msgstr "ሰነዱን እንደ ማቅረቢያ ማስኬጃ "
 
 #: ../shell/ev-window.c:5587
 msgid "_Inverted Colors"
-msgstr ""
+msgstr "_የተገለበጡ ቀለሞች"
 
 #: ../shell/ev-window.c:5588
 msgid "Show page contents with the colors inverted"
@@ -1474,7 +1474,7 @@ msgstr ""
 #. Links
 #: ../shell/ev-window.c:5596
 msgid "_Open Link"
-msgstr ""
+msgstr "አገናኝ _መክፈቻ "
 
 #: ../shell/ev-window.c:5598
 msgid "_Go To"
@@ -1486,7 +1486,7 @@ msgstr "በአዲስ _መስኮት መክፈቻ "
 
 #: ../shell/ev-window.c:5602
 msgid "_Copy Link Address"
-msgstr ""
+msgstr "አገናኝ አድራሻ _ኮፒ ማድረጊያ "
 
 #: ../shell/ev-window.c:5604
 msgid "_Save Image As…"
@@ -1498,7 +1498,7 @@ msgstr "_ምስሉን ኮፒ ማድረጊያ "
 
 #: ../shell/ev-window.c:5608
 msgid "Annotation Properties…"
-msgstr ""
+msgstr "የማብራሪያ ባህሪዎች..."
 
 #: ../shell/ev-window.c:5613
 msgid "_Open Attachment"
@@ -1560,15 +1560,15 @@ msgstr ""
 
 #: ../shell/ev-window.c:5987
 msgid "Unable to open external link"
-msgstr ""
+msgstr "የውጭ አገናኞችን መክፈት አልተቻለም"
 
 #: ../shell/ev-window.c:6154
 msgid "Couldn't find appropriate format to save image"
-msgstr ""
+msgstr "ምስሉን ለማስቀመጥ ተገቢውን አቀራረብ ማግኘት አልተቻለም"
 
 #: ../shell/ev-window.c:6196
 msgid "The image could not be saved."
-msgstr ""
+msgstr "ምስሉን ማስቀመጥ አልተቻለም "
 
 #: ../shell/ev-window.c:6228
 msgid "Save Image"
