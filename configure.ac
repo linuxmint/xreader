@@ -40,7 +40,7 @@ m4_define([ev_binary_version], [ev_document_lt_current])
 # *****************************************************************************
 
 AC_PREREQ([2.57])
-AC_INIT([Atril], [ev_version], [http://www.mate-desktop.org/], [mate-document-viewer])
+AC_INIT([atril], [ev_version], [http://www.mate-desktop.org/], [atril])
 AM_INIT_AUTOMAKE([1.10 foreign dist-xz no-dist-gzip])
 
 AC_CONFIG_HEADERS([config.h])
