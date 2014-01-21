@@ -872,7 +872,12 @@ export_print_done (EvPrintOperationExport *export)
 			app = g_app_info_create_from_commandline (cmd, NULL, 0, &error);
 
 			if (app != NULL) {
+#if GTK_CHECK_VERSION (3, 0, 0)
 				ctx = gdk_display_get_app_launch_context (gtk_widget_get_display (GTK_WIDGET (export->parent_window)));
+#else
+				ctx = gdk_app_launch_context_new ();
+				gdk_app_launch_context_set_display (ctx, gtk_widget_get_display (GTK_WIDGET (export->parent_window)));
+#endif
 				gdk_app_launch_context_set_screen (ctx, gtk_window_get_screen (export->parent_window));
 
 				g_app_info_launch (app, NULL, G_APP_LAUNCH_CONTEXT (ctx), &error);
