@@ -28,6 +28,9 @@
 
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
+#if GTK_CHECK_VERSION (3, 0, 0)
+#include <gdk/gdkkeysyms-compat.h>
+#endif
 
 #include "ev-sidebar.h"
 #include "ev-sidebar-page.h"
@@ -64,7 +67,11 @@ G_DEFINE_TYPE (EvSidebar, ev_sidebar, GTK_TYPE_VBOX)
 		(G_TYPE_INSTANCE_GET_PRIVATE ((object), EV_TYPE_SIDEBAR, EvSidebarPrivate))
 
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+ev_sidebar_dispose (GObject *object)
+#else
 ev_sidebar_destroy (GtkObject *object)
+#endif
 {
 	EvSidebar *ev_sidebar = EV_SIDEBAR (object);
 
@@ -78,8 +85,11 @@ ev_sidebar_destroy (GtkObject *object)
 		ev_sidebar->priv->page_model = NULL;
 	}
 		
-	   
+#if GTK_CHECK_VERSION (3, 0, 0)
+	(* G_OBJECT_CLASS (ev_sidebar_parent_class)->dispose) (object);
+#else
 	(* GTK_OBJECT_CLASS (ev_sidebar_parent_class)->destroy) (object);
+#endif
 }
 
 static void
@@ -176,16 +186,22 @@ static void
 ev_sidebar_class_init (EvSidebarClass *ev_sidebar_class)
 {
 	GObjectClass *g_object_class;
-	GtkWidgetClass *widget_class;
+#if !GTK_CHECK_VERSION (3, 0, 0)
 	GtkObjectClass *gtk_object_klass;
- 
+#endif
+
 	g_object_class = G_OBJECT_CLASS (ev_sidebar_class);
-	widget_class = GTK_WIDGET_CLASS (ev_sidebar_class);
+#if !GTK_CHECK_VERSION (3, 0, 0)
 	gtk_object_klass = GTK_OBJECT_CLASS (ev_sidebar_class);
+#endif
 	   
 	g_type_class_add_private (g_object_class, sizeof (EvSidebarPrivate));
 	   
+#if GTK_CHECK_VERSION (3, 0, 0)
+	g_object_class->dispose = ev_sidebar_dispose;
+#else
 	gtk_object_klass->destroy = ev_sidebar_destroy;
+#endif
 	g_object_class->get_property = ev_sidebar_get_property;
 	g_object_class->set_property = ev_sidebar_set_property;
 
