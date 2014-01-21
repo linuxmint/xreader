@@ -855,8 +855,8 @@ export_print_done (EvPrintOperationExport *export)
 		g_key_file_free (key_file);
 
 		if (!error) {
-			gint    argc;
-			gchar **argv;
+			GAppInfo *app;
+			GdkAppLaunchContext *ctx;
 			gchar  *cmd;
 			gchar  *quoted_filename;
 			gchar  *quoted_settings_filename;
@@ -866,21 +866,22 @@ export_print_done (EvPrintOperationExport *export)
 			cmd = g_strdup_printf ("atril-previewer --unlink-tempfile --print-settings %s %s",
 					       quoted_settings_filename, quoted_filename);
 
-			g_shell_parse_argv (cmd, &argc, &argv, &error);
-
 			g_free (quoted_filename);
 			g_free (quoted_settings_filename);
-			g_free (cmd);
 
-			if (!error) {
-				gdk_spawn_on_screen (gtk_window_get_screen (export->parent_window),
-						     NULL, argv, NULL,
-						     G_SPAWN_SEARCH_PATH,
-						     NULL, NULL, NULL,
-						     &error);
+			app = g_app_info_create_from_commandline (cmd, NULL, 0, &error);
+
+			if (app != NULL) {
+				ctx = gdk_display_get_app_launch_context (gtk_widget_get_display (GTK_WIDGET (export->parent_window)));
+				gdk_app_launch_context_set_screen (ctx, gtk_window_get_screen (export->parent_window));
+
+				g_app_info_launch (app, NULL, G_APP_LAUNCH_CONTEXT (ctx), &error);
+
+				g_object_unref (app);
+				g_object_unref (ctx);
 			}
 
-			g_strfreev (argv);
+			g_free (cmd);
 		}
 
 		if (error) {
@@ -1861,10 +1862,10 @@ ev_print_operation_print_create_custom_widget (EvPrintOperationPrint *print,
 	gtk_table_attach (GTK_TABLE (table), label, 0, 1, 0, 1, GTK_FILL, 0, 0, 0);
 	gtk_widget_show (label);
 
-	print->scale_combo = gtk_combo_box_new_text ();
-	gtk_combo_box_append_text (GTK_COMBO_BOX (print->scale_combo), _("None"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (print->scale_combo), _("Shrink to Printable Area"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (print->scale_combo), _("Fit to Printable Area"));
+	print->scale_combo = gtk_combo_box_text_new ();
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (print->scale_combo), _("None"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (print->scale_combo), _("Shrink to Printable Area"));
+	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (print->scale_combo), _("Fit to Printable Area"));
 	gtk_combo_box_set_active (GTK_COMBO_BOX (print->scale_combo), page_scale);
 	gtk_widget_set_tooltip_text (print->scale_combo,
 		_("Scale document pages to fit the selected printer page. Select from one of the following:\n"
