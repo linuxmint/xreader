@@ -159,9 +159,9 @@ AtrilDocument-$(EV_API_VERSION).gir: libatrildocument.la Makefile $(INST_H_FILES
 	--nsversion=$(EV_API_VERSION) \
 	--include=GLib-2.0 \
 	--include=Gio-2.0 \
-	--include=Gdk-2.0 \
+	--include=Gdk-$(GTK_API_VERSION) \
 	--include=GdkPixbuf-2.0 \
-	--include=Gtk-2.0 \
+	--include=Gtk-$(GTK_API_VERSION) \
 	--library=atrildocument \
 	--libtool="$(SAVED_LIBTOOL)" \
 	--output $@ \
