@@ -132,17 +132,17 @@ AC_MSG_RESULT([$with_gtk])
 
 dnl Specify required versions of dependencies
 CAIRO_REQUIRED=1.9.10
-GLIB_REQUIRED=2.25.11
+GLIB_REQUIRED=2.32.0
 LIBSECRET_REQUIRED=0.5
 
 case "$with_gtk" in
   2.0) GTK_API_VERSION=2.0
        GAIL_API_VERSION=
-       GTK_REQUIRED=2.21.5
+       GTK_REQUIRED=2.24.0
        ;;
   3.0) GTK_API_VERSION=3.0
        GAIL_API_VERSION=-3.0
-       GTK_REQUIRED=2.90.5
+       GTK_REQUIRED=3.0.0
        ;;
 esac
 
