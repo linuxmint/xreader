@@ -134,7 +134,11 @@ menu_position_func (GtkMenu           *menu,
 	gint monitor_num;
 	GdkScreen *screen;
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	gtk_widget_get_preferred_size (GTK_WIDGET (button->menu), &menu_req, NULL);
+#else
 	gtk_widget_size_request (GTK_WIDGET (button->menu), &menu_req);
+#endif
 	direction = gtk_widget_get_direction (widget);
 	screen = gtk_widget_get_screen (GTK_WIDGET (menu));
 
