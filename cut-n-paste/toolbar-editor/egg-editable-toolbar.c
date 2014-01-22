@@ -599,8 +599,18 @@ action_sensitive_cb (GtkAction   *action,
                      GParamSpec  *pspec,
                      GtkToolItem *item)
 {
-  EggEditableToolbar *etoolbar = EGG_EDITABLE_TOOLBAR
+  EggEditableToolbar *etoolbar;
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+  GtkWidget *ancestor = gtk_widget_get_ancestor (GTK_WIDGET (item), EGG_TYPE_EDITABLE_TOOLBAR);
+  if (!ancestor)
+    return;
+
+  etoolbar = EGG_EDITABLE_TOOLBAR (ancestor);
+#else
+  etoolbar = EGG_EDITABLE_TOOLBAR
     (gtk_widget_get_ancestor (GTK_WIDGET (item), EGG_TYPE_EDITABLE_TOOLBAR));
+#endif
 
   if (etoolbar->priv->edit_mode > 0)
     {
