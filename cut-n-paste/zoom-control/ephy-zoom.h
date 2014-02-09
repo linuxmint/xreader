@@ -48,7 +48,7 @@ zoom_levels[] =
 {
 	{ N_("Best Fit"),       EPHY_ZOOM_BEST_FIT  },
 	{ N_("Fit Page Width"), EPHY_ZOOM_FIT_WIDTH },
-	{ N_("Expand Window To Fit"), EPHY_ZOOM_EXPAND_WINDOW_TO_FIT },
+	{ N_("Expand Window to Fit"), EPHY_ZOOM_EXPAND_WINDOW_TO_FIT },
 	{ NULL,                 EPHY_ZOOM_SEPARATOR },
 	{ N_("50%"), 0.5 },
 	{ N_("70%"), 0.7071067811 },
