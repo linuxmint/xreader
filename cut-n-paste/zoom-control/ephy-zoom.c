@@ -35,11 +35,13 @@ ephy_zoom_get_zoom_level_index (float level)
 	  return 0;
 	} else if (level == EPHY_ZOOM_FIT_WIDTH) {
 	  return 1;
+	} else if (level == EPHY_ZOOM_EXPAND_WINDOW_TO_FIT) {
+	  return 2;
 	}
 
-	previous = zoom_levels[3].level;
+	previous = zoom_levels[4].level;
 
-	for (i = 4; i < n_zoom_levels; i++)
+	for (i = 5; i < n_zoom_levels; i++)
 	{
 		current = zoom_levels[i].level;
 		mean = sqrt (previous * current);

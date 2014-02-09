@@ -326,6 +326,8 @@ static void	ev_window_cmd_view_best_fit 		(GtkAction 	  *action,
 							 EvWindow 	  *ev_window);
 static void	ev_window_cmd_view_page_width 		(GtkAction 	  *action, 
 							 EvWindow 	  *ev_window);
+static void	ev_window_cmd_view_expand_window       (GtkAction *action, 
+                                                        EvWindow *ev_window);
 static void	view_handle_link_cb 			(EvView           *view, 
 							 EvLink           *link, 
 							 EvWindow         *window);
@@ -345,6 +347,10 @@ static void     ev_window_update_max_min_scale          (EvWindow         *windo
 static void	ev_window_emit_closed			(EvWindow         *window);
 static void 	ev_window_emit_doc_loaded		(EvWindow	  *window);
 #endif
+
+static void    zoom_control_changed_cb                 (EphyZoomAction *action,
+                                                         float           zoom,
+                                                         EvWindow       *ev_window);
 
 static guint ev_window_n_copies = 0;
 
@@ -447,6 +453,7 @@ ev_window_setup_action_sensitivity (EvWindow *ev_window)
 	ev_window_set_action_sensitive (ev_window, "ViewReload", has_pages);
 	ev_window_set_action_sensitive (ev_window, "ViewAutoscroll", has_pages);
 	ev_window_set_action_sensitive (ev_window, "ViewInvertedColors", has_pages);
+	ev_window_set_action_sensitive (ev_window, "ViewExpandWindow", has_pages);
 
 	/* Toolbar-specific actions: */
 	ev_window_set_action_sensitive (ev_window, PAGE_SELECTOR_ACTION, has_pages);
@@ -4298,6 +4305,14 @@ ev_window_cmd_view_reload (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
+ev_window_cmd_view_expand_window (GtkAction *action, EvWindow *ev_window)
+{
+	g_return_if_fail (EV_IS_WINDOW (ev_window));
+
+	zoom_control_changed_cb (NULL, EPHY_ZOOM_EXPAND_WINDOW_TO_FIT, ev_window);
+}
+
+static void
 ev_window_cmd_view_autoscroll (GtkAction *action, EvWindow *ev_window)
 {
 	ev_view_autoscroll_start (EV_VIEW (ev_window->priv->view));
@@ -5027,6 +5042,50 @@ zoom_control_changed_cb (EphyZoomAction *action,
 			 EvWindow       *ev_window)
 {
 	EvSizingMode mode;
+	GtkWindow *window;
+	gdouble doc_width, doc_height, scale;
+	gint old_width, old_height;
+	gint new_width, new_height;
+
+	if (zoom == EPHY_ZOOM_EXPAND_WINDOW_TO_FIT) {
+		window = GTK_WINDOW (ev_window);
+
+		ev_document_get_max_page_size (ev_window->priv->document, &doc_width, &doc_height);
+		scale = ev_document_model_get_scale (ev_window->priv->model);
+
+		new_width = (gint)(doc_width * scale);
+		new_height = (gint)(doc_height * scale);
+
+		/*
+		 * If the sidebar, menu bar, or tool bars are open, 
+		 * we must account for their sizes in calculating 
+		 * the new expanded window size.
+		 */
+		if (ev_window->priv->chrome & EV_CHROME_SIDEBAR)
+			new_width += ev_window->priv->sidebar_thumbs->allocation.width;
+
+		if (ev_window->priv->chrome & EV_CHROME_TOOLBAR)
+			new_height += GTK_WIDGET(ev_window->priv->toolbar)->allocation.height;
+
+		if (ev_window->priv->chrome & EV_CHROME_MENUBAR)
+			new_height += GTK_WIDGET(ev_window->priv->menubar)->allocation.height;
+
+		/*
+		 * Add a little slack
+		 */
+		new_width += 50;
+		new_height += 50;
+
+		/*
+		 * Only resize if the old window isn't already
+		 * big enough.
+		 */
+		gtk_window_get_size(window, &old_width, &old_height);
+		if (!(old_width >= new_width && old_height >= new_height))
+			gtk_window_resize (window, new_width, new_height);
+
+		return;
+	}
 
 	if (zoom == EPHY_ZOOM_BEST_FIT) {
 		mode = EV_SIZING_BEST_FIT;
@@ -5450,6 +5509,9 @@ static const GtkActionEntry entries[] = {
         { "ViewReload", GTK_STOCK_REFRESH, N_("_Reload"), "<control>R",
           N_("Reload the document"),
           G_CALLBACK (ev_window_cmd_view_reload) },
+        { "ViewExpandWindow", GTK_STOCK_ZOOM_FIT, N_("_Expand Window to Fit"), "<control>e",
+          N_("Expand Window to Fit"),
+          G_CALLBACK (ev_window_cmd_view_expand_window) },
 
 	{ "ViewAutoscroll", GTK_STOCK_MEDIA_PLAY, N_("Auto_scroll"), NULL, NULL,
 	  G_CALLBACK (ev_window_cmd_view_autoscroll) },

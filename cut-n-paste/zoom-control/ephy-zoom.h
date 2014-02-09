@@ -34,7 +34,8 @@ G_BEGIN_DECLS
 
 #define EPHY_ZOOM_BEST_FIT  (-3.0)
 #define EPHY_ZOOM_FIT_WIDTH (-4.0)
-#define EPHY_ZOOM_SEPARATOR (-5.0)
+#define EPHY_ZOOM_EXPAND_WINDOW_TO_FIT (-5.0)
+#define EPHY_ZOOM_SEPARATOR (-6.0)
 
 static const
 struct
@@ -47,6 +48,7 @@ zoom_levels[] =
 {
 	{ N_("Best Fit"),       EPHY_ZOOM_BEST_FIT  },
 	{ N_("Fit Page Width"), EPHY_ZOOM_FIT_WIDTH },
+	{ N_("Expand Window To Fit"), EPHY_ZOOM_EXPAND_WINDOW_TO_FIT },
 	{ NULL,                 EPHY_ZOOM_SEPARATOR },
 	{ N_("50%"), 0.5 },
 	{ N_("70%"), 0.7071067811 },
