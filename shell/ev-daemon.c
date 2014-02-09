@@ -2,7 +2,7 @@
  *  this file is part of xreader, a generic document viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos  <carlosgc@gnome.org>
- * Copyright © 2010 Christian Persch
+ * Copyright © 2010, 2012 Christian Persch
  *
  * Xreader is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -21,12 +21,14 @@
 
 #include "config.h"
 
+#define G_LOG_DOMAIN "XreaderDaemon"
 #include <glib.h>
 #include <glib/gstdio.h>
 #include <gio/gio.h>
 #include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/wait.h>
 #include <fcntl.h>
 #include <unistd.h>
 
@@ -40,7 +42,7 @@
 
 #define DAEMON_TIMEOUT (30) /* seconds */
 
-#define LOG g_printerr
+#define LOG g_debug
 
 
 #define EV_TYPE_DAEMON_APPLICATION              (ev_daemon_application_get_type ())
@@ -221,7 +223,7 @@ handle_register_document_cb (EvDaemon              *object,
 
     doc = ev_daemon_application_find_doc (application, uri);
     if (doc != NULL) {
-        LOG ("RegisterDocument found owner '%s' for URI '%s'\n", doc->dbus_name, uri);
+        LOG ("RegisterDocument found owner '%s' for URI '%s'", doc->dbus_name, uri);
         ev_daemon_complete_register_document (object, invocation, doc->dbus_name);
 
         return TRUE;
@@ -230,7 +232,7 @@ handle_register_document_cb (EvDaemon              *object,
     sender = g_dbus_method_invocation_get_sender (invocation);
     connection = g_dbus_method_invocation_get_connection (invocation);
 
-    LOG ("RegisterDocument registered owner '%s' for URI '%s'\n", sender, uri);
+    LOG ("RegisterDocument registered owner '%s' for URI '%s'", sender, uri);
 
     doc = g_new (EvDoc, 1);
     doc->dbus_name = g_strdup (sender);
@@ -261,11 +263,11 @@ handle_unregister_document_cb (EvDaemon              *object,
     EvDoc *doc;
     const char *sender;
 
-    LOG ("UnregisterDocument URI '%s'\n", uri);
+    LOG ("UnregisterDocument URI '%s'", uri);
 
     doc = ev_daemon_application_find_doc (application, uri);
     if (doc == NULL) {
-        LOG ("UnregisterDocument URI was not registered!\n");
+        LOG ("UnregisterDocument URI was not registered!");
         g_dbus_method_invocation_return_error_literal (invocation,
                 G_DBUS_ERROR,
                 G_DBUS_ERROR_INVALID_ARGS,
@@ -275,7 +277,7 @@ handle_unregister_document_cb (EvDaemon              *object,
 
     sender = g_dbus_method_invocation_get_sender (invocation);
     if (strcmp (doc->dbus_name, sender) != 0) {
-        LOG ("UnregisterDocument called by non-owner (owner '%s' sender '%s')\n",
+        LOG ("UnregisterDocument called by non-owner (owner '%s' sender '%s')",
                 doc->dbus_name, sender);
 
         g_dbus_method_invocation_return_error_literal (invocation,
@@ -311,7 +313,7 @@ handle_find_document_cb (EvDaemon              *object,
 {
     EvDoc *doc;
 
-    LOG ("FindDocument URI '%s' \n", uri);
+    LOG ("FindDocument URI '%s' ", uri);
 
     doc = ev_daemon_application_find_doc (application, uri);
     if (doc != NULL) {
@@ -341,7 +343,7 @@ handle_find_document_cb (EvDaemon              *object,
         }
     }
 
-    LOG ("FindDocument URI '%s' was not registered!\n", uri);
+    LOG ("FindDocument URI '%s' was not registered!", uri);
     // FIXME: shouldn't this return an error then?
     ev_daemon_complete_find_document (object, invocation, "");
 
@@ -371,6 +373,7 @@ ev_daemon_application_dbus_register (GApplication    *gapplication,
     }
 
     application->daemon = skeleton;
+
     g_signal_connect (skeleton, "handle-register-document",
             G_CALLBACK (handle_register_document_cb), application);
     g_signal_connect (skeleton, "handle-unregister-document",
