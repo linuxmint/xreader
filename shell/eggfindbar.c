@@ -65,7 +65,7 @@ static void egg_find_bar_set_property  (GObject        *object,
                                         GParamSpec     *pspec);
 static void egg_find_bar_show          (GtkWidget *widget);
 static void egg_find_bar_hide          (GtkWidget *widget);
-static void egg_find_bar_grab_focus    (GtkWidget *widget);
+void egg_find_bar_grab_focus    (GtkWidget *widget);
 
 G_DEFINE_TYPE (EggFindBar, egg_find_bar, GTK_TYPE_TOOLBAR);
 
@@ -495,7 +495,7 @@ egg_find_bar_hide (GtkWidget *widget)
   GTK_WIDGET_CLASS (egg_find_bar_parent_class)->hide (widget);
 }
 
-static void
+void
 egg_find_bar_grab_focus (GtkWidget *widget)
 {
   EggFindBar *find_bar = EGG_FIND_BAR (widget);

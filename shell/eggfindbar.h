@@ -75,6 +75,8 @@ void        egg_find_bar_get_current_match_color (EggFindBar *find_bar,
 void        egg_find_bar_set_status_text         (EggFindBar *find_bar,
                                                   const char *text);
 
+void        egg_find_bar_grab_focus               (GtkWidget *widget);
+
 G_END_DECLS
 
 #endif /* __EGG_FIND_BAR_H__ */
