@@ -3651,7 +3651,16 @@ ev_window_cmd_edit_select_all (GtkAction *action, EvWindow *ev_window)
 {
 	g_return_if_fail (EV_IS_WINDOW (ev_window));
 
-	ev_view_select_all (EV_VIEW (ev_window->priv->view));
+	/*
+	 * If the find bar is open, select all applies to
+	 * the find field contents. Otherwise it applies
+	 * to the viewing window's contents.
+	 */
+	if (ev_window->priv->chrome & EV_CHROME_FINDBAR) {
+		egg_find_bar_grab_focus(ev_window->priv->find_bar);
+	} else {
+		ev_view_select_all (EV_VIEW (ev_window->priv->view));
+	}
 }
 
 static void
