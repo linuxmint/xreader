@@ -8,13 +8,14 @@
 # Funda Wang <fundawang@linux.net.cn>, 2004
 # Wei-Lun Chao <bluebat@member.fsf.org>, 2005,2012
 # Wei-Lun Chao <chaoweilun@pcmail.com.tw>, 2005
+# 柏諺 黃 <s8321414@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-09 18:05+0100\n"
-"PO-Revision-Date: 2014-02-09 17:07+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2014-02-15 13:28+0000\n"
+"Last-Translator: 柏諺 黃 <s8321414@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/MATE/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -340,7 +341,7 @@ msgstr "符合頁寬"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:5522
 msgid "Expand Window to Fit"
-msgstr ""
+msgstr "放大視窗以符合大小"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:53
 msgid "50%"
@@ -400,7 +401,7 @@ msgstr "6400%"
 
 #: ../data/atril.desktop.in.in.h:1
 msgid "Atril Document Viewer"
-msgstr ""
+msgstr "Atril 文件檢視器"
 
 #. Manually set name and icon
 #: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:4559
@@ -789,7 +790,7 @@ msgstr "尋找下一個出現搜尋字串的地方"
 
 #: ../shell/eggfindbar.c:351
 msgid "Case Sensitive"
-msgstr ""
+msgstr "區分大小寫"
 
 #: ../shell/eggfindbar.c:354
 msgid "Toggle case sensitive search"
@@ -1223,11 +1224,11 @@ msgstr "Atril"
 msgid ""
 "© 1996–2009 The Evince authors\n"
 "© 2012–2014 The MATE developers"
-msgstr ""
+msgstr "© 1996–2009 Evince 作者群\n© 2012–2014 MATE 開發者群"
 
 #: ../shell/ev-window.c:4631
 msgid "translator-credits"
-msgstr "Woodman Tuen <wmtuen@gmail.com>, 2006-07\n趙惟倫 <bluebat@member.fsf.org>, 2005, 2012.\nAbel Cheung <maddog@linuxhall.org>, 2005\nFunda Wang <fundawang@linux.net.cn>, 2004"
+msgstr "Woodman Tuen <wmtuen@gmail.com>, 2006-07\n趙惟倫 <bluebat@member.fsf.org>, 2005, 2012.\nAbel Cheung <maddog@linuxhall.org>, 2005\nFunda Wang <fundawang@linux.net.cn>, 2004\n黃柏諺 <s8321414@gmail.com>,2013-14"
 
 #. TRANS: Sometimes this could be better translated as
 #. "%d hit(s) on this page".  Therefore this string
@@ -1338,7 +1339,7 @@ msgstr "重新載入文件"
 
 #: ../shell/ev-window.c:5521
 msgid "_Expand Window to Fit"
-msgstr ""
+msgstr "放大視窗以符合大小 (_E)"
 
 #: ../shell/ev-window.c:5525
 msgid "Auto_scroll"

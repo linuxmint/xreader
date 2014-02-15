@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-09 18:05+0100\n"
-"PO-Revision-Date: 2014-02-09 17:07+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2014-02-14 10:53+0000\n"
+"Last-Translator: RacerBG <georgiev_1994@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/projects/p/MATE/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,7 +87,7 @@ msgstr "Комикси"
 
 #: ../backend/djvu/djvu-document.c:173
 msgid "DjVu document has incorrect format"
-msgstr "Документът DjVu е в некоректен формат"
+msgstr "Документът DjVu е в неправилен формат"
 
 #: ../backend/djvu/djvu-document.c:250
 msgid ""
@@ -101,7 +101,7 @@ msgstr "Документи DjVu"
 
 #: ../backend/dvi/dvi-document.c:113
 msgid "DVI document has incorrect format"
-msgstr "Документът DVI е в некоректен формат"
+msgstr "Документът DVI е в неправилен формат"
 
 #: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
@@ -287,7 +287,7 @@ msgstr "ИДЕНТИФИКАТОР"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:252
 msgid "Session management options:"
-msgstr "Опции на управлението на сесии:"
+msgstr "Настройки на управлението на сесии:"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:253
 msgid "Show session management options"
@@ -327,7 +327,7 @@ msgstr "П_ремахване на лентата с инструменти"
 
 #: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1464
 msgid "Remove the selected toolbar"
-msgstr "Премахване на лентата с инструменти"
+msgstr "Премахване на избраната лента с инструменти"
 
 #: ../cut-n-paste/toolbar-editor/egg-toolbar-editor.c:486
 msgid "Separator"
@@ -344,7 +344,7 @@ msgstr "Напасване по широчина"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:5522
 msgid "Expand Window to Fit"
-msgstr ""
+msgstr "Разширяване на прозореца до запълване"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:53
 msgid "50%"
@@ -793,7 +793,7 @@ msgstr "Откриване на следващата поява на търсе�
 
 #: ../shell/eggfindbar.c:351
 msgid "Case Sensitive"
-msgstr "Има разлика между главни/малки букви"
+msgstr "Чувствителност към регистъра"
 
 #: ../shell/eggfindbar.c:354
 msgid "Toggle case sensitive search"
@@ -1032,7 +1032,7 @@ msgstr "Съдържание"
 
 #: ../shell/ev-sidebar-thumbnails.c:992
 msgid "Thumbnails"
-msgstr "Мини изображения"
+msgstr "Миниатюри"
 
 #: ../shell/ev-window.c:874
 #, c-format
@@ -1344,7 +1344,7 @@ msgstr "Презареждане на документа"
 
 #: ../shell/ev-window.c:5521
 msgid "_Expand Window to Fit"
-msgstr ""
+msgstr "Разширяване на прозореца до запълване"
 
 #: ../shell/ev-window.c:5525
 msgid "Auto_scroll"
@@ -1399,7 +1399,7 @@ msgstr "Лента с _инструменти"
 
 #: ../shell/ev-window.c:5614
 msgid "Show or hide the toolbar"
-msgstr "Показване или скриване на лентата с инструментите"
+msgstr "Показване и скриване на лентата с инструментите"
 
 #: ../shell/ev-window.c:5616
 msgid "Side _Pane"
@@ -1407,7 +1407,7 @@ msgstr "Страничен _панел"
 
 #: ../shell/ev-window.c:5617
 msgid "Show or hide the side pane"
-msgstr "Показване или скриване на страничния панел"
+msgstr "Показване и скриване на страничния панел"
 
 #: ../shell/ev-window.c:5619
 msgid "_Continuous"
