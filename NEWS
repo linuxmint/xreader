@@ -1,0 +1,11 @@
+1.7.90
+------
+
+ * Drop libmatekeyring and use libsecret.
+ * Move from mate-doc-utils to yelp-tools.
+ * Better sort files by name in commic book archives.
+ * Enable case sensitive search (not available on all backends).
+ * Move Atril to "Offcie" in the menu.
+ * Show "filename (title)" in the window title.
+ * Gtk+3, add support to build against Gtk+3, still unsupported.
+ * Add Gtk3 primary toolbar style.
