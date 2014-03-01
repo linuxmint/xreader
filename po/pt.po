@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-09 18:05+0100\n"
-"PO-Revision-Date: 2014-02-17 22:30+0000\n"
+"PO-Revision-Date: 2014-02-26 23:46+0000\n"
 "Last-Translator: Carlos <crolidge@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/MATE/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -30,12 +30,12 @@ msgstr "Erro ao iniciar o comando “%s” de forma a descomprimir o livro de ba
 #: ../backend/comics/comics-document.c:231
 #, c-format
 msgid "The command “%s” failed at decompressing the comic book."
-msgstr "O comando “%s” falhou na descompressão do livro de banda desenhada"
+msgstr "O comando “%s” falhou na descompressão do livro de banda desenhada."
 
 #: ../backend/comics/comics-document.c:240
 #, c-format
 msgid "The command “%s” did not end normally."
-msgstr "O comando “%s” terminou abruptamente"
+msgstr "O comando “%s” não terminou bem."
 
 #: ../backend/comics/comics-document.c:420
 #, c-format
@@ -51,7 +51,7 @@ msgstr "Incapaz de encontrar um comando apropriado para descomprimir este tipo d
 #: ../libdocument/ev-document-factory.c:143
 #: ../libdocument/ev-document-factory.c:286
 msgid "Unknown MIME Type"
-msgstr "Tipo MIME desconhecido"
+msgstr "Tipo MIME Desconhecido"
 
 #: ../backend/comics/comics-document.c:528
 msgid "File corrupted"
@@ -521,7 +521,7 @@ msgstr "Autor:"
 
 #: ../properties/ev-properties-view.c:64
 msgid "Keywords:"
-msgstr "Palavras chave:"
+msgstr "Palavras-chave:"
 
 #: ../properties/ev-properties-view.c:65
 msgid "Producer:"
