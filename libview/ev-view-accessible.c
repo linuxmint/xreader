@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; c-indent-level: 8 -*- */
-/* this file is part of xreader, a mate document viewer
+/* this file is part of xreader, a generic document viewer
  *
  *  Copyright (C) 2004 Red Hat, Inc
  *
@@ -488,7 +488,7 @@ ev_view_accessible_get_offset_at_point (AtkText      *text,
 	}
 
 	ev_view_get_page_extents (view, view->current_page, &page_area, &border);
-	_ev_view_transform_view_point_to_doc_point (view, &view_point, &page_area, &doc_x, &doc_y);
+	_ev_view_transform_view_point_to_doc_point (view, &view_point, &page_area, &border, &doc_x, &doc_y);
 
 	for (i = 0; i < n_areas; i++) {
 		rect = areas + i;
