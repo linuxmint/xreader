@@ -654,7 +654,7 @@ djvu_document_find_find_text (EvDocumentFind   *document,
 		
 		djvu_text_page_prepare_search (tpage, case_sensitive);
 		if (tpage->links->len > 0) {
-			djvu_text_page_search (tpage, text);
+			djvu_text_page_search (tpage, text, case_sensitive);
 			matches = tpage->results;
 		}
 		djvu_text_page_free (tpage);
