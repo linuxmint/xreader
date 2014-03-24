@@ -5070,14 +5070,26 @@ zoom_control_changed_cb (EphyZoomAction *action,
 		 * we must account for their sizes in calculating 
 		 * the new expanded window size.
 		 */
+
+
 		if (ev_window->priv->chrome & EV_CHROME_SIDEBAR)
-			new_width += ev_window->priv->sidebar_thumbs->allocation.width;
-
+		{
+			GtkAllocation alloc;
+			gtk_widget_get_allocation(ev_window->priv->sidebar_thumbs, &alloc);
+			new_width += alloc.width;
+		}
 		if (ev_window->priv->chrome & EV_CHROME_TOOLBAR)
-			new_height += GTK_WIDGET(ev_window->priv->toolbar)->allocation.height;
-
+		{
+			GtkAllocation alloc;
+			gtk_widget_get_allocation(GTK_WIDGET(ev_window->priv->toolbar), &alloc);
+			new_height += alloc.height;
+		}
 		if (ev_window->priv->chrome & EV_CHROME_MENUBAR)
-			new_height += GTK_WIDGET(ev_window->priv->menubar)->allocation.height;
+		{
+			GtkAllocation alloc;
+			gtk_widget_get_allocation(GTK_WIDGET(ev_window->priv->menubar), &alloc);
+			new_height += alloc.height;
+		}
 
 		/*
 		 * Add a little slack
