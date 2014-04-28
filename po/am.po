@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# samson <sambelet@yahoo.com>, 2013
+# samson <sambelet@yahoo.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-09 18:05+0100\n"
-"PO-Revision-Date: 2014-02-09 17:07+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2014-04-19 01:37+0000\n"
+"Last-Translator: samson <sambelet@yahoo.com>\n"
 "Language-Team: Amharic (http://www.transifex.com/projects/p/MATE/language/am/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +32,7 @@ msgstr "ትእዛዙ “%s” አስቂኝ መጽሀፉን መክፈት አል�
 #: ../backend/comics/comics-document.c:240
 #, c-format
 msgid "The command “%s” did not end normally."
-msgstr "ተዛዙ “%s” በትክክል አልተፈጸመም "
+msgstr "ትእዛዙ “%s” በትክክል አልተፈጸመም "
 
 #: ../backend/comics/comics-document.c:420
 #, c-format
@@ -522,7 +522,7 @@ msgstr "ቁልፍ ቃሎች:"
 
 #: ../properties/ev-properties-view.c:65
 msgid "Producer:"
-msgstr ""
+msgstr "አምራቹ:"
 
 #: ../properties/ev-properties-view.c:66
 msgid "Creator:"
@@ -645,7 +645,7 @@ msgstr "ገጽ መመጠኛ:"
 
 #: ../libview/ev-print-operation.c:1872
 msgid "Shrink to Printable Area"
-msgstr ""
+msgstr "በማተሚያው ቦታ ልክ ማሳነሻ"
 
 #: ../libview/ev-print-operation.c:1873
 msgid "Fit to Printable Area"
@@ -674,7 +674,7 @@ msgstr ""
 
 #: ../libview/ev-print-operation.c:1896
 msgid "Select page size using document page size"
-msgstr ""
+msgstr "የ ገጽ መጠን ይምረጡ የ ሰነድ ገጽ መጠንን በመጠቀም"
 
 #: ../libview/ev-print-operation.c:1898
 msgid ""
@@ -849,11 +849,11 @@ msgstr "ዘዴ:"
 
 #: ../shell/ev-annotation-properties-dialog.c:203
 msgid "Transparent"
-msgstr ""
+msgstr "ግልጽ"
 
 #: ../shell/ev-annotation-properties-dialog.c:210
 msgid "Opaque"
-msgstr ""
+msgstr " በውስጡ የማያሳልፍ"
 
 #: ../shell/ev-annotation-properties-dialog.c:221
 msgid "Initial window state:"
@@ -983,7 +983,7 @@ msgstr "ዝርዝር "
 
 #: ../shell/ev-sidebar-annotations.c:203 ../shell/ev-sidebar-annotations.c:533
 msgid "Annotations"
-msgstr ""
+msgstr "ማብራሪያዎች"
 
 #: ../shell/ev-sidebar-annotations.c:209
 msgid "Text"

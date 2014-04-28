@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Alex Nehaichik <nab@mail.by>, 2005,2008
+# Alex Nehaichik <nab@mail.by>, 2005,2008
 # booxter <ihar.hrachyshka@gmail.com>, 2006,2014
 # booxter <ihar.hrachyshka@gmail.com>, 2006
 msgid ""
@@ -11,7 +12,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-09 18:05+0100\n"
-"PO-Revision-Date: 2014-02-27 10:26+0000\n"
+"PO-Revision-Date: 2014-03-17 11:27+0000\n"
 "Last-Translator: meequz <meequz@gmail.com>\n"
 "Language-Team: Belarusian (http://www.transifex.com/projects/p/MATE/language/be/)\n"
 "MIME-Version: 1.0\n"
@@ -305,7 +306,7 @@ msgstr "Пера_несці на панэль"
 
 #: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1460
 msgid "Move the selected item on the toolbar"
-msgstr "Перанесці вылучаны элемент на панэль сродкаў"
+msgstr "Перанесці вылучаны элемент на панэль начыння"
 
 #: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1461
 msgid "_Remove from Toolbar"
@@ -313,7 +314,7 @@ msgstr "Вы_даліць з панэлі"
 
 #: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1462
 msgid "Remove the selected item from the toolbar"
-msgstr "Выдаліць вылучаны элемент з панэлі сродкаў"
+msgstr "Выдаліць вылучаны элемент з панэлі начыння"
 
 #: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1463
 msgid "_Delete Toolbar"
@@ -338,7 +339,7 @@ msgstr "Па шырыні старонкі"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:5522
 msgid "Expand Window to Fit"
-msgstr ""
+msgstr "Падладзіць вакно, каб улезла"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:53
 msgid "50%"
@@ -495,7 +496,7 @@ msgstr "Старонка"
 
 #: ../previewer/ev-previewer-window.c:559 ../shell/ev-window.c:5737
 msgid "Select Page"
-msgstr "Вылучыць старонку"
+msgstr "Перайсці да пэўнай старонкі"
 
 #: ../properties/ev-properties-main.c:116
 msgid "Document"
@@ -839,7 +840,7 @@ msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:139
 msgid "Annotation Properties"
-msgstr ""
+msgstr "Уласцівасці анатацый"
 
 #: ../shell/ev-annotation-properties-dialog.c:175
 msgid "Color:"
@@ -965,7 +966,7 @@ msgstr "Шрыфт"
 #: ../shell/ev-properties-fonts.c:162
 #, c-format
 msgid "Gathering font information… %3d%%"
-msgstr ""
+msgstr "Атрыманне інфармацыі пра шрыфты… %3d%%"
 
 #: ../shell/ev-properties-license.c:137
 msgid "Usage terms"
@@ -981,32 +982,32 @@ msgstr ""
 
 #: ../shell/ev-sidebar-annotations.c:161
 msgid "List"
-msgstr ""
+msgstr "Спіс"
 
 #: ../shell/ev-sidebar-annotations.c:203 ../shell/ev-sidebar-annotations.c:533
 msgid "Annotations"
-msgstr ""
+msgstr "Анатацыі"
 
 #: ../shell/ev-sidebar-annotations.c:209
 msgid "Text"
-msgstr ""
+msgstr "Тэкст"
 
 #: ../shell/ev-sidebar-annotations.c:210
 msgid "Add text annotation"
-msgstr ""
+msgstr "Дадаць тэкставую анатацыю"
 
 #: ../shell/ev-sidebar-annotations.c:221
 msgid "Add"
-msgstr ""
+msgstr "Дадаць"
 
 #: ../shell/ev-sidebar-annotations.c:364
 msgid "Document contains no annotations"
-msgstr ""
+msgstr "Дакумент не змяшчае анатацый"
 
 #: ../shell/ev-sidebar-annotations.c:396
 #, c-format
 msgid "Page %d"
-msgstr ""
+msgstr "Старонка %d"
 
 #: ../shell/ev-sidebar-attachments.c:713
 msgid "Attachments"
@@ -1031,7 +1032,7 @@ msgstr "Мініяцюры"
 #: ../shell/ev-window.c:874
 #, c-format
 msgid "Page %s — %s"
-msgstr ""
+msgstr "Старонка %s — %s"
 
 #: ../shell/ev-window.c:876
 #, c-format
@@ -1040,7 +1041,7 @@ msgstr "Старонка %s"
 
 #: ../shell/ev-window.c:1426
 msgid "The document contains no pages"
-msgstr ""
+msgstr "Дакумент не змяшчае старонак"
 
 #: ../shell/ev-window.c:1429
 msgid "The document contains only empty pages"
@@ -1191,7 +1192,7 @@ msgstr ""
 msgid ""
 "Document Viewer\n"
 "Using %s (%s)"
-msgstr ""
+msgstr "Прагляднік дакументаў\nВыкарыстоўвае %s (%s)"
 
 #: ../shell/ev-window.c:4589
 msgid ""
@@ -1417,7 +1418,7 @@ msgstr "Паказаць увесь дакумент"
 
 #: ../shell/ev-window.c:5622
 msgid "_Dual"
-msgstr "_Падвоены"
+msgstr "_Падвойны"
 
 #: ../shell/ev-window.c:5623
 msgid "Show two pages at once"
@@ -1441,11 +1442,11 @@ msgstr "Адкрыць дакумент у рэжыме прэзентацыі"
 
 #: ../shell/ev-window.c:5637
 msgid "_Inverted Colors"
-msgstr "_Інвертаваныя колеры"
+msgstr "_Інвертаваць колеры"
 
 #: ../shell/ev-window.c:5638
 msgid "Show page contents with the colors inverted"
-msgstr ""
+msgstr "Паказаваць змесціва старонкі  з інвертаванымі колерамі"
 
 #. Links
 #: ../shell/ev-window.c:5646
@@ -1474,7 +1475,7 @@ msgstr "Скапіяваць _выяву"
 
 #: ../shell/ev-window.c:5658
 msgid "Annotation Properties…"
-msgstr ""
+msgstr "Уласцівасці анатацый..."
 
 #: ../shell/ev-window.c:5663
 msgid "_Open Attachment"

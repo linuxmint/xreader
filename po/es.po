@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-09 18:05+0100\n"
-"PO-Revision-Date: 2014-02-16 17:38+0000\n"
+"PO-Revision-Date: 2014-03-06 02:15+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitoschido@ubuntu.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/MATE/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -969,7 +969,7 @@ msgstr "Tipografía"
 #: ../shell/ev-properties-fonts.c:162
 #, c-format
 msgid "Gathering font information… %3d%%"
-msgstr "Obteniendo información tipográfica… %3d%%"
+msgstr "Obteniendo información de tipos de letra… %3d %%"
 
 #: ../shell/ev-properties-license.c:137
 msgid "Usage terms"
@@ -1062,7 +1062,7 @@ msgstr "Cargando documento desde «%s»"
 #: ../shell/ev-window.c:1913 ../shell/ev-window.c:2192
 #, c-format
 msgid "Downloading document (%d%%)"
-msgstr "Descargando documento (%d%%)"
+msgstr "Descargando el documento (%d %%)"
 
 #: ../shell/ev-window.c:1946
 msgid "Failed to load remote file."
@@ -1104,17 +1104,17 @@ msgstr "El archivo no se pudo guardar como «%s»."
 #: ../shell/ev-window.c:2702
 #, c-format
 msgid "Uploading document (%d%%)"
-msgstr "Subiendo el documento (%d%%)"
+msgstr "Subiendo el documento (%d %%)"
 
 #: ../shell/ev-window.c:2706
 #, c-format
 msgid "Uploading attachment (%d%%)"
-msgstr "Subiendo el adjunto (%d%%)"
+msgstr "Subiendo el archivo adjunto (%d %%)"
 
 #: ../shell/ev-window.c:2710
 #, c-format
 msgid "Uploading image (%d%%)"
-msgstr "Subiendo la imagen (%d%%)"
+msgstr "Subiendo la imagen (%d %%)"
 
 #: ../shell/ev-window.c:2834
 msgid "Save a Copy"
@@ -1249,7 +1249,7 @@ msgstr "No encontrado"
 #: ../shell/ev-window.c:4908
 #, c-format
 msgid "%3d%% remaining to search"
-msgstr "%3d%% restante para buscar"
+msgstr "Queda un %3d %% por buscar"
 
 #: ../shell/ev-window.c:5465
 msgid "_File"

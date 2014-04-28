@@ -7,13 +7,14 @@
 # Sameer N. Ingole <strike@proscrutiny.com>, 2006
 # Sandeep Shedmake <sandeep.shedmake@gmail.com>, 2008, 2009
 # sandeeps <sshedmak@redhat.com>, 2009, 2010
+# vaibhav.dlv <vaibhav.dlv@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-09 18:05+0100\n"
-"PO-Revision-Date: 2014-02-09 17:07+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2014-03-27 22:14+0000\n"
+"Last-Translator: vaibhav.dlv <vaibhav.dlv@gmail.com>\n"
 "Language-Team: Marathi (http://www.transifex.com/projects/p/MATE/language/mr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -82,17 +83,17 @@ msgstr "चित्राक्षर पुस्तक"
 
 #: ../backend/djvu/djvu-document.c:173
 msgid "DjVu document has incorrect format"
-msgstr ""
+msgstr "DjVu दस्तऐवजाची रचना चुक आहे"
 
 #: ../backend/djvu/djvu-document.c:250
 msgid ""
 "The document is composed of several files. One or more of these files cannot"
 " be accessed."
-msgstr ""
+msgstr "दस्तऐवज अनेक फाइलचे समायोजन आहे. एक किंवा त्यापेक्षा जास्त फाइल करीता प्रवेश प्राप्त होऊ शकत नाही."
 
 #: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
-msgstr ""
+msgstr "DjVu दस्तऐवज"
 
 #: ../backend/dvi/dvi-document.c:113
 msgid "DVI document has incorrect format"
@@ -104,7 +105,7 @@ msgstr "DVI दस्तऐवज"
 
 #: ../backend/pdf/ev-poppler.cc:526
 msgid "This work is in the Public Domain"
-msgstr ""
+msgstr "हि प्रणाली सार्वजनिक आहे"
 
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:779 ../properties/ev-properties-view.c:364
@@ -217,12 +218,12 @@ msgstr "सर्व फाइल्स"
 #: ../libdocument/ev-file-helpers.c:146
 #, c-format
 msgid "Failed to create a temporary file: %s"
-msgstr ""
+msgstr "तात्पुरती फ़ाइल:%s निर्माण करण्यास असफल"
 
 #: ../libdocument/ev-file-helpers.c:308
 #, c-format
 msgid "Failed to create a temporary directory: %s"
-msgstr ""
+msgstr "तात्पुरती निर्देशिका:%s निर्माण करण्यास असफल"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:165
 #, c-format
@@ -339,7 +340,7 @@ msgstr "पानाच्या रुंदीत बसवा"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:5522
 msgid "Expand Window to Fit"
-msgstr ""
+msgstr "खिडकी पूर्ण भरण्याकरिता मोठी करा"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:53
 msgid "50%"
@@ -383,23 +384,23 @@ msgstr "400%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:63
 msgid "800%"
-msgstr ""
+msgstr "800%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:64
 msgid "1600%"
-msgstr ""
+msgstr "1600%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:65
 msgid "3200%"
-msgstr ""
+msgstr "3200%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:66
 msgid "6400%"
-msgstr ""
+msgstr "6400%"
 
 #: ../data/atril.desktop.in.in.h:1
 msgid "Atril Document Viewer"
-msgstr ""
+msgstr "Atril दस्तऐवज दर्शक"
 
 #. Manually set name and icon
 #: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:4559
@@ -410,7 +411,7 @@ msgstr "दस्तऐवज दर्शक"
 
 #: ../data/atril.desktop.in.in.h:3
 msgid "View multi-page documents"
-msgstr ""
+msgstr "अनेक पानाचे दस्तऐवज बघा"
 
 #: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
@@ -575,12 +576,12 @@ msgstr "मुलभूत:mm"
 #: ../properties/ev-properties-view.c:261
 #, c-format
 msgid "%.0f × %.0f mm"
-msgstr ""
+msgstr "%.0f × %.0f मिमि"
 
 #: ../properties/ev-properties-view.c:265
 #, c-format
 msgid "%.2f × %.2f inch"
-msgstr ""
+msgstr "%.2f × %.2f इंच"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
@@ -610,21 +611,21 @@ msgstr "चा %d"
 #: ../libview/ev-loading-window.c:76 ../shell/ev-sidebar-annotations.c:133
 #: ../shell/ev-sidebar-layers.c:125 ../shell/ev-sidebar-links.c:262
 msgid "Loading…"
-msgstr ""
+msgstr "लोड होत आहे..."
 
 #. Initial state
 #: ../libview/ev-print-operation.c:334
 msgid "Preparing to print…"
-msgstr ""
+msgstr "छपाई करीता तयार करत आहे ..."
 
 #: ../libview/ev-print-operation.c:336
 msgid "Finishing…"
-msgstr ""
+msgstr "संपवित आहे..."
 
 #: ../libview/ev-print-operation.c:338
 #, c-format
 msgid "Printing page %d of %d…"
-msgstr ""
+msgstr "%d पैकी %d पानाची छपाई करत आहे..."
 
 #: ../libview/ev-print-operation.c:1167
 msgid "Printing is not supported on this printer."
@@ -640,7 +641,7 @@ msgstr "सावधानता"
 
 #: ../libview/ev-print-operation.c:1235
 msgid "Your print range selection does not include any pages"
-msgstr ""
+msgstr "तुमच्या छपाई व्याप्ती नीवड मध्ये पान समाविष्टीत नाही"
 
 #: ../libview/ev-print-operation.c:1866
 msgid "Page Scaling:"
@@ -677,13 +678,13 @@ msgstr "प्रत्येक दस्तऐवज पानाची दि
 
 #: ../libview/ev-print-operation.c:1896
 msgid "Select page size using document page size"
-msgstr ""
+msgstr "दस्तऐवजाच्या आकाराप्रमाणे पानाचा आकार निवडा"
 
 #: ../libview/ev-print-operation.c:1898
 msgid ""
 "When enabled, each page will be printed on the same size paper as the "
 "document page."
-msgstr ""
+msgstr "कार्यान्वित केल्यावर, प्रत्येक पान दस्तऐवजाच्या पानाच्या आकाराच्या कागदावर छापले जाईल."
 
 #: ../libview/ev-print-operation.c:1980
 msgid "Page Handling"
@@ -720,7 +721,7 @@ msgstr "पानावर जा:"
 
 #: ../libview/ev-view-presentation.c:998
 msgid "End of presentation. Click to exit."
-msgstr ""
+msgstr "प्रस्तुतीकरण समाप्त. बाहेर पडण्याकरीता Escape दाबा."
 
 #: ../libview/ev-view.c:1827
 msgid "Go to first page"
@@ -788,7 +789,7 @@ msgstr "पुढली आढळणारी अक्षरमाला शो
 
 #: ../shell/eggfindbar.c:351
 msgid "Case Sensitive"
-msgstr ""
+msgstr "केस सेंसिटीव्ह"
 
 #: ../shell/eggfindbar.c:354
 msgid "Toggle case sensitive search"
@@ -796,79 +797,79 @@ msgstr "केस सेंसिटीव्ह शोध उलट करा"
 
 #: ../shell/ev-annotation-properties-dialog.c:97
 msgid "Icon:"
-msgstr ""
+msgstr "चिन्ह:"
 
 #: ../shell/ev-annotation-properties-dialog.c:104
 msgid "Note"
-msgstr ""
+msgstr "नोंद"
 
 #: ../shell/ev-annotation-properties-dialog.c:105
 msgid "Comment"
-msgstr ""
+msgstr "टीप"
 
 #: ../shell/ev-annotation-properties-dialog.c:106
 msgid "Key"
-msgstr ""
+msgstr "किल्ली"
 
 #: ../shell/ev-annotation-properties-dialog.c:107
 msgid "Help"
-msgstr ""
+msgstr "मदत"
 
 #: ../shell/ev-annotation-properties-dialog.c:108
 msgid "New Paragraph"
-msgstr ""
+msgstr "नवीन परिच्छेद"
 
 #: ../shell/ev-annotation-properties-dialog.c:109
 msgid "Paragraph"
-msgstr ""
+msgstr "परिच्छेद"
 
 #: ../shell/ev-annotation-properties-dialog.c:110
 msgid "Insert"
-msgstr ""
+msgstr "दाखल करा"
 
 #: ../shell/ev-annotation-properties-dialog.c:111
 msgid "Cross"
-msgstr ""
+msgstr "क्रॉस"
 
 #: ../shell/ev-annotation-properties-dialog.c:112
 msgid "Circle"
-msgstr ""
+msgstr "वर्तुळ"
 
 #: ../shell/ev-annotation-properties-dialog.c:113
 msgid "Unknown"
-msgstr ""
+msgstr "अपरिचीत"
 
 #: ../shell/ev-annotation-properties-dialog.c:139
 msgid "Annotation Properties"
-msgstr ""
+msgstr "टिप्पणी गुणधर्म"
 
 #: ../shell/ev-annotation-properties-dialog.c:175
 msgid "Color:"
-msgstr ""
+msgstr "रंग:"
 
 #: ../shell/ev-annotation-properties-dialog.c:187
 msgid "Style:"
-msgstr ""
+msgstr "शैली:"
 
 #: ../shell/ev-annotation-properties-dialog.c:203
 msgid "Transparent"
-msgstr ""
+msgstr "पारदर्शक"
 
 #: ../shell/ev-annotation-properties-dialog.c:210
 msgid "Opaque"
-msgstr ""
+msgstr "अपारदर्शक"
 
 #: ../shell/ev-annotation-properties-dialog.c:221
 msgid "Initial window state:"
-msgstr ""
+msgstr "सुरुवातीचा खिडकीचा आकार:"
 
 #: ../shell/ev-annotation-properties-dialog.c:228
 msgid "Open"
-msgstr ""
+msgstr "उघडा"
 
 #: ../shell/ev-annotation-properties-dialog.c:229
 msgid "Close"
-msgstr ""
+msgstr "बंद करा"
 
 #: ../shell/ev-application.c:1040
 msgid "Running in presentation mode"
@@ -882,22 +883,22 @@ msgstr "%s दस्तऐवजाकरीता परवलीचा शब�
 #: ../shell/ev-convert-metadata.c:88
 #, c-format
 msgid "Converting %s"
-msgstr ""
+msgstr "%s चे रुपांतर करत आहे"
 
 #: ../shell/ev-convert-metadata.c:92
 #, c-format
 msgid "%d of %d documents converted"
-msgstr ""
+msgstr "%d मधील %d दस्तऐवज रुपांतरीत झाले"
 
 #: ../shell/ev-convert-metadata.c:165 ../shell/ev-convert-metadata.c:185
 msgid "Converting metadata"
-msgstr ""
+msgstr "मेटाडाटा रुपांतरीत करत आहे"
 
 #: ../shell/ev-convert-metadata.c:191
 msgid ""
 "The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
-msgstr ""
+msgstr "Atrilच्या वापरातील मेटाडाटाचे स्वरूप बदलले आहे, त्यामुळे त्याचे स्वरूप बदलावे लागेल. जर स्वरूप रूपांतरण केले नाही, तर मेटाडाटा साठवण काम करणार नाही."
 
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
@@ -937,7 +938,7 @@ msgstr "परवलीचा शब्द ताबडतोब विसरा
 
 #: ../shell/ev-password-view.c:382
 msgid "Remember password until you _log out"
-msgstr ""
+msgstr "लॉगऑउट करेपर्यंत गुप्तशब्द स्मर्णात ठेवा (_R)"
 
 #: ../shell/ev-password-view.c:394
 msgid "Remember _forever"
@@ -957,7 +958,7 @@ msgstr "फॉंट्स"
 
 #: ../shell/ev-properties-dialog.c:120
 msgid "Document License"
-msgstr ""
+msgstr "दस्तऐवज परवाना"
 
 #: ../shell/ev-properties-fonts.c:135
 msgid "Font"
@@ -966,48 +967,48 @@ msgstr "फॉंट"
 #: ../shell/ev-properties-fonts.c:162
 #, c-format
 msgid "Gathering font information… %3d%%"
-msgstr ""
+msgstr "फॉंटची माहिती गोळा केली जातेय... %3d%%"
 
 #: ../shell/ev-properties-license.c:137
 msgid "Usage terms"
-msgstr ""
+msgstr "वापराच्या अटी"
 
 #: ../shell/ev-properties-license.c:143
 msgid "Text License"
-msgstr ""
+msgstr "पाठ्य परवाना "
 
 #: ../shell/ev-properties-license.c:149
 msgid "Further Information"
-msgstr ""
+msgstr "पुढील माहिती"
 
 #: ../shell/ev-sidebar-annotations.c:161
 msgid "List"
-msgstr ""
+msgstr "यादी"
 
 #: ../shell/ev-sidebar-annotations.c:203 ../shell/ev-sidebar-annotations.c:533
 msgid "Annotations"
-msgstr ""
+msgstr "टिप्पणी"
 
 #: ../shell/ev-sidebar-annotations.c:209
 msgid "Text"
-msgstr ""
+msgstr "पाठ्य"
 
 #: ../shell/ev-sidebar-annotations.c:210
 msgid "Add text annotation"
-msgstr ""
+msgstr "पाठ्य टिप्पणी जोडा"
 
 #: ../shell/ev-sidebar-annotations.c:221
 msgid "Add"
-msgstr ""
+msgstr "जोडा"
 
 #: ../shell/ev-sidebar-annotations.c:364
 msgid "Document contains no annotations"
-msgstr ""
+msgstr "दस्तऐवजात टिप्पणी नाही"
 
 #: ../shell/ev-sidebar-annotations.c:396
 #, c-format
 msgid "Page %d"
-msgstr ""
+msgstr "पान %d"
 
 #: ../shell/ev-sidebar-attachments.c:713
 msgid "Attachments"
@@ -1019,7 +1020,7 @@ msgstr "स्तर"
 
 #: ../shell/ev-sidebar-links.c:335
 msgid "Print…"
-msgstr ""
+msgstr "छपाई करा..."
 
 #: ../shell/ev-sidebar-links.c:750
 msgid "Index"
@@ -1032,7 +1033,7 @@ msgstr "छोट्या प्रतीमा"
 #: ../shell/ev-window.c:874
 #, c-format
 msgid "Page %s — %s"
-msgstr ""
+msgstr "पान %s — %s"
 
 #: ../shell/ev-window.c:876
 #, c-format
@@ -1063,7 +1064,7 @@ msgstr "दस्तऐवज  (%d%%) डाऊनलोड करत आहे"
 
 #: ../shell/ev-window.c:1946
 msgid "Failed to load remote file."
-msgstr ""
+msgstr "दूरस्थ फ़ाइल %s दाखल करण्यास अपयशी"
 
 #: ../shell/ev-window.c:2136
 #, c-format
@@ -1133,26 +1134,26 @@ msgstr "कार्य “%s” ची छपाई करा"
 msgid ""
 "Document contains form fields that have been filled out. If you don't save a"
 " copy, changes will be permanently lost."
-msgstr ""
+msgstr "दस्तऐवजात भरलेली फाॅर्म फील्ड्स आहेत. दस्तऐवज सुरक्षित केला नाही, तर सर्व बदल नष्ट होतील."
 
 #: ../shell/ev-window.c:3410
 msgid ""
 "Document contains new or modified annotations. If you don't save a copy, "
 "changes will be permanently lost."
-msgstr ""
+msgstr "दस्तऐवजात नवीन टिप्पण्या आहेत. दस्तऐवज सुरक्षित नाही केला, तर सर्व बदल नष्ट होतील."
 
 #: ../shell/ev-window.c:3417
 #, c-format
 msgid "Save a copy of document “%s” before closing?"
-msgstr ""
+msgstr "\"%s\" दस्तऐवजाची एक प्रत साठवा?"
 
 #: ../shell/ev-window.c:3436
 msgid "Close _without Saving"
-msgstr ""
+msgstr "सुरक्षित न करता बंद करा(_w)"
 
 #: ../shell/ev-window.c:3440
 msgid "Save a _Copy"
-msgstr ""
+msgstr "एक प्रत साठवा(_C)"
 
 #: ../shell/ev-window.c:3514
 #, c-format
@@ -1190,7 +1191,7 @@ msgstr "मदत दर्शवितेवेळी त्रुटी आढ
 msgid ""
 "Document Viewer\n"
 "Using %s (%s)"
-msgstr ""
+msgstr "दस्तऐवज दर्शक\n%s (%s) वापरा"
 
 #: ../shell/ev-window.c:4589
 msgid ""
@@ -1213,7 +1214,7 @@ msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
-msgstr ""
+msgstr "You should have received a copy of the GNU General Public License along with Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 
 #: ../shell/ev-window.c:4622
 msgid "Atril"
@@ -1223,7 +1224,7 @@ msgstr "Atril"
 msgid ""
 "© 1996–2009 The Evince authors\n"
 "© 2012–2014 The MATE developers"
-msgstr ""
+msgstr "© 1996–2009 एविंस लेखक\n© 2012–2014 MATE विकासक "
 
 #: ../shell/ev-window.c:4631
 msgid "translator-credits"
@@ -1241,7 +1242,7 @@ msgstr[1] "%d या पानावर मिळालेत"
 
 #: ../shell/ev-window.c:4902
 msgid "Not found"
-msgstr ""
+msgstr "आढळले नाही"
 
 #: ../shell/ev-window.c:4908
 #, c-format
@@ -1271,7 +1272,7 @@ msgstr "मदत(_H)"
 #. File menu
 #: ../shell/ev-window.c:5472 ../shell/ev-window.c:5776
 msgid "_Open…"
-msgstr ""
+msgstr "उघडा (_O)..."
 
 #: ../shell/ev-window.c:5473 ../shell/ev-window.c:5777
 msgid "Open an existing document"
@@ -1287,7 +1288,7 @@ msgstr "सद्याचे दस्तऐवजाची प्रत नव
 
 #: ../shell/ev-window.c:5478
 msgid "_Save a Copy…"
-msgstr ""
+msgstr "प्रत संचयीत करा(_S)..."
 
 #: ../shell/ev-window.c:5479
 msgid "Save a copy of the current document"
@@ -1295,7 +1296,7 @@ msgstr "सध्याच्या दस्तऐवजाची एक प्
 
 #: ../shell/ev-window.c:5481
 msgid "_Print…"
-msgstr ""
+msgstr "छपाई करा (_P)..."
 
 #: ../shell/ev-window.c:5484
 msgid "P_roperties"
@@ -1307,7 +1308,7 @@ msgstr "सर्व निवडा(_A)"
 
 #: ../shell/ev-window.c:5494
 msgid "_Find…"
-msgstr ""
+msgstr "शोधा (_F):"
 
 #: ../shell/ev-window.c:5495
 msgid "Find a word or phrase in the document"
@@ -1327,7 +1328,7 @@ msgstr "उजवीकडे फिरवा(_R)"
 
 #: ../shell/ev-window.c:5507
 msgid "Save Current Settings as _Default"
-msgstr ""
+msgstr "सध्याची संयोजना मुलभूत निश्चित करा (_D)"
 
 #: ../shell/ev-window.c:5518
 msgid "_Reload"
@@ -1339,7 +1340,7 @@ msgstr "दस्तऐवज पुन्हा वाचा"
 
 #: ../shell/ev-window.c:5521
 msgid "_Expand Window to Fit"
-msgstr ""
+msgstr "खिडकी पूर्ण भरण्याकरिता मोठी करा (_E)"
 
 #: ../shell/ev-window.c:5525
 msgid "Auto_scroll"
@@ -1438,11 +1439,11 @@ msgstr "दस्तऐवज प्रस्तुतीकरण म्हण�
 
 #: ../shell/ev-window.c:5637
 msgid "_Inverted Colors"
-msgstr ""
+msgstr "रंग उलटे करा (_I)"
 
 #: ../shell/ev-window.c:5638
 msgid "Show page contents with the colors inverted"
-msgstr ""
+msgstr "पानाचा मजकूर रंग उलटे करून दाखवा "
 
 #. Links
 #: ../shell/ev-window.c:5646
@@ -1463,7 +1464,7 @@ msgstr "लिंक पत्ताचे प्रत बनवा (_C)"
 
 #: ../shell/ev-window.c:5654
 msgid "_Save Image As…"
-msgstr ""
+msgstr "प्रतिमा संचयीत करा (_S)..."
 
 #: ../shell/ev-window.c:5656
 msgid "Copy _Image"
@@ -1471,15 +1472,15 @@ msgstr "प्रतिमा उघडा (_I)"
 
 #: ../shell/ev-window.c:5658
 msgid "Annotation Properties…"
-msgstr ""
+msgstr "टिप्पणी गुणधर्म..."
 
 #: ../shell/ev-window.c:5663
 msgid "_Open Attachment"
-msgstr ""
+msgstr "जोडणी उघडा(_O)"
 
 #: ../shell/ev-window.c:5665
 msgid "_Save Attachment As…"
-msgstr ""
+msgstr "जोडणी संचयीत करा(_S)..."
 
 #: ../shell/ev-window.c:5750
 msgid "Zoom"
@@ -1562,7 +1563,7 @@ msgstr "जोडणी संचयीत करा"
 #: ../shell/ev-window-title.c:162
 #, c-format
 msgid "%s — Password Required"
-msgstr ""
+msgstr "%s — परवलीचा शब्द आवश्यक"
 
 #: ../shell/ev-utils.c:326
 msgid "By extension"
@@ -1574,7 +1575,7 @@ msgstr "MATE दस्तऐवज दर्शक"
 
 #: ../shell/main.c:77
 msgid "The page label of the document to display."
-msgstr ""
+msgstr "दाखविण्याजोगी दस्तऐवजाचे पान."
 
 #: ../shell/main.c:77
 msgid "PAGE"
@@ -1582,11 +1583,11 @@ msgstr "पान"
 
 #: ../shell/main.c:78
 msgid "The page number of the document to display."
-msgstr ""
+msgstr "दाखविण्याजोगी दस्तऐवजाचा पान क्रमांक "
 
 #: ../shell/main.c:78
 msgid "NUMBER"
-msgstr ""
+msgstr "क्रमांक"
 
 #: ../shell/main.c:79
 msgid "Run atril in fullscreen mode"
@@ -1610,4 +1611,4 @@ msgstr "अक्षरमाळा"
 
 #: ../shell/main.c:86
 msgid "[FILE…]"
-msgstr ""
+msgstr "[फाइल...]"

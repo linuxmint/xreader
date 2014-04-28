@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# AsavarTzeth <asavartzeth@gmail.com>, 2014
 # Christian Rose <menthos@menthos.com>, 2004, 2005
 # Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010
 msgid ""
@@ -10,8 +11,8 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-09 18:05+0100\n"
-"PO-Revision-Date: 2014-02-09 17:07+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2014-04-07 20:32+0000\n"
+"Last-Translator: AsavarTzeth <asavartzeth@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/MATE/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -337,7 +338,7 @@ msgstr "Anpassa till sidbredd"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:5522
 msgid "Expand Window to Fit"
-msgstr ""
+msgstr "Expandera fönstret så att det passar"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:53
 msgid "50%"
@@ -397,7 +398,7 @@ msgstr "6400%"
 
 #: ../data/atril.desktop.in.in.h:1
 msgid "Atril Document Viewer"
-msgstr ""
+msgstr "Atril Dokumentvisare"
 
 #. Manually set name and icon
 #: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:4559
@@ -786,7 +787,7 @@ msgstr "Sök nästa förekomst av söksträngen"
 
 #: ../shell/eggfindbar.c:351
 msgid "Case Sensitive"
-msgstr ""
+msgstr "Gör skillnad på gemener/VERSALER"
 
 #: ../shell/eggfindbar.c:354
 msgid "Toggle case sensitive search"
@@ -1221,11 +1222,11 @@ msgstr "Atril"
 msgid ""
 "© 1996–2009 The Evince authors\n"
 "© 2012–2014 The MATE developers"
-msgstr ""
+msgstr "© 1996–2009 Evince skaparna\n© 2012–2014 MATE utvecklarna"
 
 #: ../shell/ev-window.c:4631
 msgid "translator-credits"
-msgstr "Daniel Nylander <po@danielnylander.se>\nChristian Rose\n\nSkicka synpunkter på översättningen till\n<tp-sv@listor.tp-sv.se>."
+msgstr "Christian Rose\nDaniel Nylander <po@danielnylander.se>\nPatrik Nilsson <asavar@tzeth.com>\n\nSkicka synpunkter på översättningen till\n<tp-sv@listor.tp-sv.se>."
 
 #. TRANS: Sometimes this could be better translated as
 #. "%d hit(s) on this page".  Therefore this string
@@ -1337,7 +1338,7 @@ msgstr "Läs om dokumentet"
 
 #: ../shell/ev-window.c:5521
 msgid "_Expand Window to Fit"
-msgstr ""
+msgstr "_Expandera fönstret så att det passar"
 
 #: ../shell/ev-window.c:5525
 msgid "Auto_scroll"
