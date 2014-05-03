@@ -41,6 +41,8 @@
 #include <gio/gio.h>
 #include <gtk/gtk.h>
 
+#include <libmate-desktop/mate-aboutdialog.h>
+
 #include "egg-editable-toolbar.h"
 #include "egg-toolbar-editor.h"
 #include "egg-toolbars-model.h"
@@ -4617,7 +4619,7 @@ ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
 
 	comments = build_comments_string (ev_window->priv->document);
 
-	gtk_show_about_dialog (
+	mate_show_about_dialog (
 		GTK_WINDOW (ev_window),
 		"name", _("Atril"),
 		"version", VERSION,

@@ -134,6 +134,7 @@ dnl Specify required versions of dependencies
 CAIRO_REQUIRED=1.9.10
 GLIB_REQUIRED=2.32.0
 LIBSECRET_REQUIRED=0.5
+MATEDESKTOP_REQUIRED=1.9.0
 
 case "$with_gtk" in
   2.0) GTK_API_VERSION=2.0
@@ -194,7 +195,7 @@ case "$with_platform" in
         ;;
 esac
 
-PKG_CHECK_MODULES([SHELL_CORE],[libxml-2.0 >= $LIBXML_REQUIRED gtk+-$GTK_API_VERSION >= $GTK_REQUIRED gio-2.0 >= $GLIB_REQUIRED gthread-2.0 $SHELL_PLATFORM_PKGS])
+PKG_CHECK_MODULES([SHELL_CORE],[libxml-2.0 >= $LIBXML_REQUIRED gtk+-$GTK_API_VERSION >= $GTK_REQUIRED gio-2.0 >= $GLIB_REQUIRED gthread-2.0 mate-desktop-2.0 >= $MATEDESKTOP_REQUIRED $SHELL_PLATFORM_PKGS])
 
 dnl
 dnl zlib support
