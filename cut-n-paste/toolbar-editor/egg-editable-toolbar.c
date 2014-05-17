@@ -202,11 +202,7 @@ drag_begin_cb (GtkWidget          *widget,
 
   gtk_widget_hide (widget);
 
-#if GTK_CHECK_VERSION (2, 16, 0)
   action = gtk_activatable_get_related_action (GTK_ACTIVATABLE (widget));
-#else
-  action = gtk_widget_get_action (widget);
-#endif
 
   if (action == NULL) return;
 
@@ -233,11 +229,7 @@ drag_end_cb (GtkWidget          *widget,
     {
       gtk_widget_show (widget);
 
-#if GTK_CHECK_VERSION (2, 16, 0)
       action = gtk_activatable_get_related_action (GTK_ACTIVATABLE (widget));
-#else
-      action = gtk_widget_get_action (widget);
-#endif
 
       if (action == NULL) return;
 
@@ -547,11 +539,7 @@ configure_item_tooltip (GtkToolItem *item)
 {
   GtkAction *action;
 
-#if GTK_CHECK_VERSION (2, 16, 0)
   action = gtk_activatable_get_related_action (GTK_ACTIVATABLE (item));
-#else
-  action = gtk_widget_get_action (GTK_WIDGET (item));
-#endif
 
   if (action != NULL)
     {
@@ -922,11 +910,7 @@ toolbar_visibility_refresh (EggEditableToolbar *etoolbar)
 
   priv->visibility_id = gtk_ui_manager_new_merge_id (priv->manager);
 
-#if GTK_CHECK_VERSION(2,20,0)
   showing = gtk_widget_get_visible (GTK_WIDGET (etoolbar));
-#else
-  showing = GTK_WIDGET_VISIBLE (etoolbar);
-#endif
 
   n_toolbars = egg_toolbars_model_n_toolbars (priv->model);
   for (i = 0; i < n_toolbars; i++)
@@ -1008,13 +992,8 @@ toolbar_visibility_refresh (EggEditableToolbar *etoolbar)
       gtk_action_set_visible (GTK_ACTION (action), (egg_toolbars_model_get_flags (priv->model, i)
 						    & EGG_TB_MODEL_NOT_REMOVABLE) == 0);
       gtk_action_set_sensitive (GTK_ACTION (action), showing);
-#if GTK_CHECK_VERSION(2,20,0)
       gtk_toggle_action_set_active (action, gtk_widget_get_visible
 				    (get_dock_nth (etoolbar, i)));
-#else
-      gtk_toggle_action_set_active (action, GTK_WIDGET_VISIBLE
-				    (get_dock_nth (etoolbar, i)));
-#endif
 
       for (list = priv->visibility_paths; list != NULL; list = g_list_next (list))
         {
