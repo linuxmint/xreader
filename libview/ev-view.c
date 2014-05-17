@@ -2242,7 +2242,7 @@ ev_view_form_field_choice_changed (GtkWidget   *widget,
 {
 	EvFormFieldChoice *field_choice = EV_FORM_FIELD_CHOICE (field);
 	
-	if (GTK_IS_COMBO_BOX (widget)) {
+	if (gtk_combo_box_get_has_entry ( GTK_COMBO_BOX (widget))) {
 		gint item;
 		
 		item = gtk_combo_box_get_active (GTK_COMBO_BOX (widget));
