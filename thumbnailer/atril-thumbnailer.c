@@ -83,7 +83,7 @@ static void
 time_monitor_start (const char *input)
 {
         finished = FALSE;
-        g_thread_create (time_monitor, (gpointer) input, FALSE, NULL);
+        g_thread_new ("EvThumbnailerTimer", time_monitor, (gpointer) input);
 }
 
 static void
@@ -293,11 +293,6 @@ main (int argc, char *argv[])
 	input = file_arguments[0];
 	output = file_arguments[1];
 
-	g_type_init ();
-
-	if (!g_thread_supported ())
-		g_thread_init (NULL);
-
         if (!ev_init ())
                 return -1;
 
@@ -328,8 +323,9 @@ main (int argc, char *argv[])
 		data.output = output;
 		data.size = size;
 
-		g_thread_create ((GThreadFunc) atril_thumbnail_pngenc_get_async,
-				 &data, FALSE, NULL);
+		g_thread_new ("EvThumbnailerAsyncRenderer",
+				(GThreadFunc) atril_thumbnail_pngenc_get_async,
+				&data);
 		
 		gtk_main ();
 

@@ -521,8 +521,6 @@ main (gint argc, gchar **argv)
 
         g_set_prgname ("atril-daemon");
 
-	g_type_init ();
-
 	loop = g_main_loop_new (NULL, FALSE);
 
 	pending_invocations = g_hash_table_new_full (g_str_hash,

@@ -41,7 +41,7 @@
 #endif
 #include <stdlib.h>
 
-GMutex *dvi_context_mutex = NULL;
+GMutex dvi_context_mutex;
 
 enum {
 	PROP_0,
@@ -98,12 +98,12 @@ dvi_document_load (EvDocument  *document,
 	if (!filename)
         	return FALSE;
 	
-	g_mutex_lock (dvi_context_mutex);
+	g_mutex_lock (&dvi_context_mutex);
 	if (dvi_document->context)
 		mdvi_destroy_context (dvi_document->context);
 
 	dvi_document->context = mdvi_init_context(dvi_document->params, dvi_document->spec, filename);
-	g_mutex_unlock (dvi_context_mutex);
+	g_mutex_unlock (&dvi_context_mutex);
 	g_free (filename);
 	
 	if (!dvi_document->context) {
@@ -175,9 +175,9 @@ dvi_document_render (EvDocument      *document,
 	 * thread safe. The work to the future - 
 	 * let context render page independently
 	 */
-	g_mutex_lock (dvi_context_mutex);
+	g_mutex_lock (&dvi_context_mutex);
 	
-	mdvi_setpage (dvi_document->context, rc->page->index);
+	mdvi_setpage (&dvi_document->context, rc->page->index);
 	
 	mdvi_set_shrink (dvi_document->context, 
 			 (int)((dvi_document->params->hshrink - 1) / rc->scale) + 1,
@@ -198,7 +198,7 @@ dvi_document_render (EvDocument      *document,
 	mdvi_cairo_device_render (dvi_document->context);
 	surface = mdvi_cairo_device_get_surface (&dvi_document->context->device);
 
-	g_mutex_unlock (dvi_context_mutex);
+	g_mutex_unlock (&dvi_context_mutex);
 
 	rotated_surface = ev_document_misc_surface_rotate_and_scale (surface,
 								     required_width,
@@ -214,12 +214,12 @@ dvi_document_finalize (GObject *object)
 {	
 	DviDocument *dvi_document = DVI_DOCUMENT(object);
 	
-	g_mutex_lock (dvi_context_mutex);
+	g_mutex_lock (&dvi_context_mutex);
 	if (dvi_document->context) {
 		mdvi_cairo_device_free (&dvi_document->context->device);
 		mdvi_destroy_context (dvi_document->context);
 	}
-	g_mutex_unlock (dvi_context_mutex);
+	g_mutex_unlock (&dvi_context_mutex);
 
 	if (dvi_document->params)
 		g_free (dvi_document->params);
@@ -256,8 +256,6 @@ dvi_document_class_init (DviDocumentClass *klass)
 
 	mdvi_register_special ("Color", "color", NULL, dvi_document_do_color_special, 1);
 	mdvi_register_fonts ();
-
-	dvi_context_mutex = g_mutex_new ();
 
 	ev_document_class->load = dvi_document_load;
 	ev_document_class->save = dvi_document_save;
@@ -301,7 +299,7 @@ dvi_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 	thumb_width = (gint) (dvi_document->base_width * rc->scale);
 	thumb_height = (gint) (dvi_document->base_height * rc->scale);
 
-	g_mutex_lock (dvi_context_mutex);
+	g_mutex_lock (&dvi_context_mutex);
 	
 	mdvi_setpage (dvi_document->context, rc->page->index);
 
@@ -325,7 +323,7 @@ dvi_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 	mdvi_cairo_device_set_scale (&dvi_document->context->device, rc->scale);
         mdvi_cairo_device_render (dvi_document->context);
 	surface = mdvi_cairo_device_get_surface (&dvi_document->context->device);
-	g_mutex_unlock (dvi_context_mutex);
+	g_mutex_unlock (&dvi_context_mutex);
 
 	pixbuf = ev_document_misc_pixbuf_from_surface (surface);
 	cairo_surface_destroy (surface);
