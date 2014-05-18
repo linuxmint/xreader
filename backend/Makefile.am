@@ -34,6 +34,10 @@ if ENABLE_XPS
     SUBDIRS += xps
 endif
 
+if ENABLE_EPUB
+	SUBDIRS += epub
+endif
+
 EXTRA_DIST = \
 	backend.symbols
 

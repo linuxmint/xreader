@@ -688,6 +688,31 @@ AM_CONDITIONAL(ENABLE_XPS, test x$enable_xps = xyes)
 
 dnl ================== End of XPS checks ===================================================
 
+
+dnl ================== EPUB checks ===================================================
+dnl TODO : complete this once library dependencies are added and finalized
+AC_ARG_ENABLE(epub,
+	[AS_HELP_STRING([--enable-epub],
+			[Compile with support for ePub documents.])],
+	[enable_epub=$enableval],
+	[enable_epub=yes])
+
+if test "x$enable_epub" = "xyes"; then
+   WEBKIT_REQUIRED=2.4.2
+   PKG_CHECK_MODULES(WEBKIT, webkit2gtk-3.0 >= $WEBKIT_REQUIRED,enable_epub=yes,enable_epub=no)
+
+   if test "x$enable_epub" = "xyes"; then
+      AC_DEFINE([ENABLE_EPUB], [1], [Enable support for ePub documents.])
+   else
+      enable_epub="no"
+      AC_MSG_WARN(["ePub support is disabled since webkit2gtk-3.0( version >= $WEBKIT_REQUIRED ) is needed"])
+   fi
+fi
+
+AM_CONDITIONAL(ENABLE_EPUB, test x$enable_epub = xyes)
+
+dnl ================== End of EPUB checks ===================================================
+
 dnl =================== Mime types list ====================================================
 
 if test "x$enable_pdf" = "xyes" ; then
@@ -714,6 +739,10 @@ fi
 if test "x$enable_xps" = "xyes"; then
     ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/oxps;application/vnd.ms-xpsdocument;"
 fi
+if test "x$enable_epub" = "xyes"; then
+	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/epub+zip"
+fi
+
 AC_SUBST(ATRIL_MIME_TYPES)
 
 AC_CHECK_FUNC(localtime_r, AC_DEFINE(HAVE_LOCALTIME_R, 1, [Defines if localtime_r is available on your system]))
@@ -766,6 +795,7 @@ backend/comics/Makefile
 backend/djvu/Makefile
 backend/dvi/Makefile
 backend/dvi/mdvi-lib/Makefile
+backend/epub/Makefile
 backend/pdf/Makefile
 backend/pixbuf/Makefile
 backend/ps/Makefile
@@ -854,4 +884,5 @@ Configure summary:
     Pixbuf Backend.....:    $enable_pixbuf
     Comics Backend.....:    $enable_comics
     XPS Backend........:    $enable_xps
+    EPUB Backend.......:	$enable_epub
 "
