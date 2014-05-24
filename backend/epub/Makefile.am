@@ -1,4 +1,4 @@
-AM_CPPFLAGS = 					\
+AM_CPPFLAGS = 		       			\
 	-I$(top_srcdir)				\
 	-I$(top_srcdir)/libdocument		\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
@@ -9,8 +9,9 @@ AM_CPPFLAGS = 					\
 
 backend_LTLIBRARIES = libepubdocument.la
 
-libepubdocument_la_SOURCES =			
-	
+libepubdocument_la_SOURCES =	\
+	epub-document.c \
+	epub-document.h 
 
 libepubdocument_la_LDFLAGS = $(BACKEND_LIBTOOL_FLAGS)
 libepubdocument_la_LIBADD =				\

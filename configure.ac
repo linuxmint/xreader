@@ -884,5 +884,5 @@ Configure summary:
     Pixbuf Backend.....:    $enable_pixbuf
     Comics Backend.....:    $enable_comics
     XPS Backend........:    $enable_xps
-    EPUB Backend.......:	$enable_epub
+    ePub Backend.......:	$enable_epub
 "
