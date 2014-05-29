@@ -1,25 +1,20 @@
-#include <gtk/gtk.h>
-#include <glib.h>
-#include <libxml/parser.h>
-#include <libxml/xmlmemory.h>
+#ifndef __EPUB_DOCUMENT_H__
+#define __EPUB_DOCUMENT_H__
 
-typedef enum  
-{
-	xmlattribute,
-	xmlkeyword
-}XMLparsereturntype;
+#include "ev-document.h"
 
-gboolean  openXmlDocument ( const gchar* filename );
+G_BEGIN_DECLS
 
-gboolean  checkRoot       (xmlChar* rootname);
+#define EPUB_TYPE_DOCUMENT             (EPUB_document_get_type ())
+#define EPUB_DOCUMENT(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), EPUB_TYPE_DOCUMENT, ePubDocument))
+#define EPUB_IS_DOCUMENT(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), EPUB_TYPE_DOCUMENT))
 
-void      parseChildren   (xmlNodePtr parent, 
-                	       xmlChar* parserfor,
-           		           XMLparsereturntype rettype,
-                   		   xmlChar* attributename );
+typedef struct _ePubDocument ePubDocument;
 
-xmlChar*  parseXMLchildren (xmlChar* parserfor,
-				            XMLparsereturntype rettype,
-                            xmlChar* attributename );
+GType                 ePub_document_get_type (void) G_GNUC_CONST;
 
-void      xmlFreeAll();
+G_MODULE_EXPORT GType register_atril_backend  (GTypeModule *module); 
+     
+G_END_DECLS
+
+#endif /* __EPUB_DOCUMENT_H__ */

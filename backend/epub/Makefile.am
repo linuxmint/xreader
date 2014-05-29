@@ -10,8 +10,12 @@ AM_CPPFLAGS = 		       			\
 backend_LTLIBRARIES = libepubdocument.la
 
 libepubdocument_la_SOURCES =	\
-	epub-document.c \
-	epub-document.h 
+	epub-document.c		\
+	epub-document.h		\
+	ioapi.c			\
+	ioapi.h			\
+	unzip.c			\
+	unzip.h
 
 libepubdocument_la_LDFLAGS = $(BACKEND_LIBTOOL_FLAGS)
 libepubdocument_la_LIBADD =				\
