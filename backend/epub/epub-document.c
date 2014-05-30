@@ -4,6 +4,7 @@
 #include <libxml/parser.h>
 #include <libxml/xmlmemory.h>
 #include <config.h>
+#include <glib/gi18n.h>
 
 /* A variable to hold the path where we extact our ePub */
 static gchar* tmp_dir ;

@@ -1,25 +1,25 @@
 AM_CPPFLAGS = 		       			\
 	-I$(top_srcdir)				\
 	-I$(top_srcdir)/libdocument		\
+	-I$(srcdir)/minizip			\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
 	-DATRIL_COMPILATION			\
 	$(BACKEND_CFLAGS)			\
 	$(WARN_CXXFLAGS)			\
+	$(WEBKIT_CFLAGS)			\
 	$(DISABLE_DEPRECATED)
 
 backend_LTLIBRARIES = libepubdocument.la
 
 libepubdocument_la_SOURCES =	\
 	epub-document.c		\
-	epub-document.h		\
-	ioapi.c			\
-	ioapi.h			\
-	unzip.c			\
-	unzip.h
+	epub-document.h		
 
 libepubdocument_la_LDFLAGS = $(BACKEND_LIBTOOL_FLAGS)
 libepubdocument_la_LIBADD =				\
 	$(top_builddir)/libdocument/libatrildocument.la	\
+	minizip/libminizip.la				\
+	$(WEBKIT_LIBS)					\
 	$(BACKEND_LIBS)					
 	
 

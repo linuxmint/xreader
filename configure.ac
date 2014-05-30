@@ -699,7 +699,7 @@ AC_ARG_ENABLE(epub,
 
 if test "x$enable_epub" = "xyes"; then
    WEBKIT_REQUIRED=2.4.2
-   PKG_CHECK_MODULES(WEBKIT, webkit2gtk-3.0 >= $WEBKIT_REQUIRED,enable_epub=yes,enable_epub=no)
+   PKG_CHECK_MODULES(WEBKIT, webkit2gtk-3.0 >= $WEBKIT_REQUIRED libxml-2.0 >= $LIBXML_REQUIRED zlib,enable_epub=yes,enable_epub=no)
 
    if test "x$enable_epub" = "xyes"; then
       AC_DEFINE([ENABLE_EPUB], [1], [Enable support for ePub documents.])
@@ -796,6 +796,7 @@ backend/djvu/Makefile
 backend/dvi/Makefile
 backend/dvi/mdvi-lib/Makefile
 backend/epub/Makefile
+backend/epub/minizip/Makefile
 backend/pdf/Makefile
 backend/pixbuf/Makefile
 backend/ps/Makefile
