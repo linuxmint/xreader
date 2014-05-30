@@ -5,7 +5,7 @@
 
 G_BEGIN_DECLS
 
-#define EPUB_TYPE_DOCUMENT             (EPUB_document_get_type ())
+#define EPUB_TYPE_DOCUMENT             (epub_document_get_type ())
 #define EPUB_DOCUMENT(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), EPUB_TYPE_DOCUMENT, ePubDocument))
 #define EPUB_IS_DOCUMENT(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), EPUB_TYPE_DOCUMENT))
 
