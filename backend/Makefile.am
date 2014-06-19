@@ -6,6 +6,10 @@ if ENABLE_PDF
 SUBDIRS += pdf
 endif
 
+if ENABLE_EPUB
+SUBDIRS += epub
+endif
+
 if ENABLE_PS 
 SUBDIRS += ps
 endif
@@ -32,10 +36,6 @@ endif
 
 if ENABLE_XPS
     SUBDIRS += xps
-endif
-
-if ENABLE_EPUB
-	SUBDIRS += epub
 endif
 
 EXTRA_DIST = \

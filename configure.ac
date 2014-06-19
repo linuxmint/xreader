@@ -53,14 +53,14 @@ AM_MAINTAINER_MODE([enable])
 
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
-AM_PROG_LIBTOOL
+
 
 AC_ISC_POSIX
 AC_PROG_CC
 AM_PROG_CC_C_O
 AC_PROG_CXX
 AC_STDC_HEADERS
-
+AM_PROG_LIBTOOL
 AC_PROG_SED
 AC_PATH_PROG([GLIB_GENMARSHAL], [glib-genmarshal])
 AC_PATH_PROG([GLIB_MKENUMS], [glib-mkenums])
@@ -693,7 +693,7 @@ dnl ================== EPUB checks =============================================
 dnl TODO : complete this once library dependencies are added and finalized
 AC_ARG_ENABLE(epub,
 	[AS_HELP_STRING([--enable-epub],
-			[Compile with support for ePub documents.])],
+			[Compile with support for epub documents.])],
 	[enable_epub=$enableval],
 	[enable_epub=yes])
 
