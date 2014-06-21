@@ -20,6 +20,7 @@ AM_CPPFLAGS=							\
 	-DATRIL_COMPILATION					\
 	$(SHELL_CFLAGS)						\
 	$(WARN_CFLAGS)						\
+	$(WEBKIT_CFLAGS)					\
 	$(DISABLE_DEPRECATED)
 
 bin_PROGRAMS=atril
@@ -109,7 +110,8 @@ atril_LDADD=										\
 	$(top_builddir)/libdocument/libatrildocument.la					\
 	$(top_builddir)/libview/libatrilview.la						\
 	$(top_builddir)/libmisc/libevmisc.la						\
-	$(SHELL_LIBS)
+	$(SHELL_LIBS)									\
+	$(WEBKIT_LIBS)
 
 if PLATFORM_WIN32
 atril_LDADD += atril-icon.o

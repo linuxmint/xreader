@@ -699,13 +699,13 @@ AC_ARG_ENABLE(epub,
 
 if test "x$enable_epub" = "xyes"; then
    WEBKIT_REQUIRED=2.4.2
-   PKG_CHECK_MODULES(WEBKIT, webkit2gtk-3.0 >= $WEBKIT_REQUIRED libxml-2.0 >= $LIBXML_REQUIRED zlib,enable_epub=yes,enable_epub=no)
+   PKG_CHECK_MODULES(WEBKIT, webkit-1.0 >= $WEBKIT_REQUIRED libxml-2.0 >= $LIBXML_REQUIRED zlib,enable_epub=yes,enable_epub=no)
 
    if test "x$enable_epub" = "xyes"; then
       AC_DEFINE([ENABLE_EPUB], [1], [Enable support for ePub documents.])
    else
       enable_epub="no"
-      AC_MSG_WARN(["ePub support is disabled since webkit2gtk-3.0( version >= $WEBKIT_REQUIRED ) is needed"])
+      AC_MSG_WARN(["ePub support is disabled since webkit-1.0( version >= $WEBKIT_REQUIRED ) is needed"])
    fi
 fi
 

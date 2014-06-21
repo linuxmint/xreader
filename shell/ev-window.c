@@ -99,6 +99,9 @@
 #include "ev-media-player-keys.h"
 #endif /* ENABLE_DBUS */
 
+#ifdef ENABLE_EPUB
+#include <webkit/webkit.h>
+#endif
 typedef enum {
 	PAGE_MODE_DOCUMENT,
 	PAGE_MODE_PASSWORD
@@ -141,7 +144,9 @@ struct _EvWindowPrivate {
 	GtkWidget *sidebar_attachments;
 	GtkWidget *sidebar_layers;
 	GtkWidget *sidebar_annots;
-
+#ifdef ENABLE_EPUB
+	GtkWidget *web_view ;
+#endif
 	/* Settings */
 	GSettings *settings;
 	GSettings *default_settings;
@@ -5294,6 +5299,12 @@ ev_window_dispose (GObject *object)
 		priv->view = NULL;
 	}
 
+#ifdef ENABLE_EPUB
+	if ( priv->web_view ) {
+		g_object_unref (priv->web_view);
+		priv->web_view = NULL ;
+	}
+#endif
 	if (priv->password_view) {
 		g_object_unref (priv->password_view);
 		priv->password_view = NULL;
@@ -7019,6 +7030,9 @@ ev_window_init (EvWindow *ev_window)
 	gtk_widget_show (ev_window->priv->view_box);
 
 	ev_window->priv->view = ev_view_new ();
+#ifdef ENABLE_EPUB
+		ev_window->priv->web_view = webkit_web_view_new () ;
+#endif
 	ev_view_set_page_cache_size (EV_VIEW (ev_window->priv->view), PAGE_CACHE_SIZE);
 	ev_view_set_model (EV_VIEW (ev_window->priv->view), ev_window->priv->model);
 
@@ -7065,10 +7079,18 @@ ev_window_init (EvWindow *ev_window)
 	/* We own a ref on these widgets, as we can swap them in and out */
 	g_object_ref (ev_window->priv->view);
 	g_object_ref (ev_window->priv->password_view);
-
-	gtk_container_add (GTK_CONTAINER (ev_window->priv->scrolled_window),
+#ifdef ENABLE_EPUB
+	if (0)
+	{
+		gtk_container_add (GTK_CONTAINER (ev_window->priv->scrolled_window),
+			   ev_window->priv->web_view);
+	}
+	else
+#endif
+	{
+		gtk_container_add (GTK_CONTAINER (ev_window->priv->scrolled_window),
 			   ev_window->priv->view);
-
+	}
 	/* Connect to model signals */
 	g_signal_connect_swapped (ev_window->priv->model,
 				  "page-changed",
