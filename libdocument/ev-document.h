@@ -85,6 +85,11 @@ struct _EvDocument
 	GObject base;
 
 	EvDocumentPrivate *priv;
+		/*
+	 * Since we can only access the members of this structure from the window frontend,
+	 * we need a flag to detemine whether to replace the atril-view with a web-view.
+	 */
+	gboolean	iswebdocument;
 };
 
 struct _EvDocumentClass

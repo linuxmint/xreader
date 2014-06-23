@@ -1369,8 +1369,8 @@ ev_window_setup_document (EvWindow *ev_window)
 	ev_window->priv->setup_document_idle = 0;
 
 	ev_window_refresh_window_thumbnail (ev_window);
-
-	ev_window_set_page_mode (ev_window, PAGE_MODE_DOCUMENT);
+	if ( document->iswebdocument == FALSE )
+		ev_window_set_page_mode (ev_window, PAGE_MODE_DOCUMENT);
 	ev_window_title_set_document (ev_window->priv->title, document);
 	ev_window_title_set_uri (ev_window->priv->title, ev_window->priv->uri);
 
@@ -1405,12 +1405,15 @@ ev_window_setup_document (EvWindow *ev_window)
 	
 	info = ev_document_get_info (document);
 	update_document_mode (ev_window, info->mode);
-
-	if (EV_WINDOW_IS_PRESENTATION (ev_window))
+	/*FIXME*/
+	if (EV_WINDOW_IS_PRESENTATION (ev_window) && document->iswebdocument == FALSE)
 		gtk_widget_grab_focus (ev_window->priv->presentation_view);
-	else
-		gtk_widget_grab_focus (ev_window->priv->view);
-
+	else {
+		if ( gtk_widget_get_parent(ev_window->priv->view) != NULL )
+			gtk_widget_grab_focus (ev_window->priv->view);
+		else
+			gtk_widget_grab_focus (ev_window->priv->web_view);
+	}
 	return FALSE;
 }
 
@@ -1431,15 +1434,28 @@ ev_window_set_document (EvWindow *ev_window, EvDocument *document)
 	if (ev_document_get_n_pages (document) <= 0) {
 		ev_window_warning_message (ev_window, "%s",
 					   _("The document contains no pages"));
-	} else if (!ev_document_check_dimensions (document)) {
+	} else if (!ev_document_check_dimensions (document) && document->iswebdocument == FALSE) {
 		ev_window_warning_message (ev_window, "%s",
 					   _("The document contains only empty pages"));
 	}
+#ifdef ENABLE_EPUB
+	else if (document->iswebdocument == TRUE){
 
-	if (EV_WINDOW_IS_PRESENTATION (ev_window)) {
+		/*We have encountered a web document, replace the atril view with a web view.*/
+		gtk_container_remove (GTK_CONTAINER(ev_window->priv->scrolled_window),ev_window->priv->view);
+		gtk_container_add (GTK_CONTAINER (ev_window->priv->scrolled_window),
+				   ev_window->priv->web_view);
+		gtk_widget_show(ev_window->priv->web_view);
+	}
+#endif
+	if (EV_WINDOW_IS_PRESENTATION (ev_window) && document->iswebdocument == FALSE) {
 		gtk_widget_destroy (ev_window->priv->presentation_view);
 		ev_window->priv->presentation_view = NULL;
 		ev_window_run_presentation (ev_window);
+	} else if ( EV_WINDOW_IS_PRESENTATION (ev_window) && document->iswebdocument == TRUE )
+	{
+		ev_window_warning_message (ev_window, "%s",
+					   _("Presentation mode is currently not supported for Web documents."));
 	}
 
 	if (ev_window->priv->setup_document_idle > 0)
@@ -1539,7 +1555,7 @@ ev_window_load_job_cb (EvJob *job,
 	ev_view_set_loading (EV_VIEW (ev_window->priv->view), FALSE);
 
 	/* Success! */
-	if (!ev_job_is_failed (job)) {
+	if (!ev_job_is_failed (job)) {  
 		ev_document_model_set_document (ev_window->priv->model, document);
 
 #ifdef ENABLE_DBUS
@@ -5295,13 +5311,24 @@ ev_window_dispose (GObject *object)
 	}
 	
 	if (priv->view) {
-		g_object_unref (priv->view);
+		if ( gtk_widget_get_parent (priv->view) == NULL )
+		{
+			g_object_ref_sink (priv->view);
+		}
+		else
+		{
+			g_object_unref (priv->view);
+		}
 		priv->view = NULL;
 	}
 
 #ifdef ENABLE_EPUB
 	if ( priv->web_view ) {
-		g_object_unref (priv->web_view);
+		if (gtk_widget_get_parent(priv->web_view) == NULL )    {
+			g_object_ref_sink (priv->web_view);
+		}else {
+			g_object_unref (priv->web_view);
+		}
 		priv->web_view = NULL ;
 	}
 #endif
@@ -7079,18 +7106,10 @@ ev_window_init (EvWindow *ev_window)
 	/* We own a ref on these widgets, as we can swap them in and out */
 	g_object_ref (ev_window->priv->view);
 	g_object_ref (ev_window->priv->password_view);
-#ifdef ENABLE_EPUB
-	if (0)
-	{
-		gtk_container_add (GTK_CONTAINER (ev_window->priv->scrolled_window),
-			   ev_window->priv->web_view);
-	}
-	else
-#endif
-	{
-		gtk_container_add (GTK_CONTAINER (ev_window->priv->scrolled_window),
-			   ev_window->priv->view);
-	}
+	
+	gtk_container_add (GTK_CONTAINER (ev_window->priv->scrolled_window),
+		   ev_window->priv->view);
+
 	/* Connect to model signals */
 	g_signal_connect_swapped (ev_window->priv->model,
 				  "page-changed",

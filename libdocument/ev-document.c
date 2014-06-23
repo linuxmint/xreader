@@ -26,6 +26,7 @@
 
 #include "ev-document.h"
 #include "synctex_parser.h"
+#include "ev-file-helpers.h"
 
 #define EV_DOCUMENT_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), EV_TYPE_DOCUMENT, EvDocumentPrivate))
 
@@ -141,6 +142,8 @@ ev_document_init (EvDocument *document)
 
 	/* Assume all pages are the same size until proven otherwise */
 	document->priv->uniform = TRUE;
+	/* Assume that the document is not a web document*/
+	document->iswebdocument = FALSE ;
 }
 
 static void
@@ -237,6 +240,14 @@ ev_document_load (EvDocument  *document,
 	gboolean retval;
 	GError *err = NULL;
 
+	/*
+	 * Hardcoding a check for ePub documents, cause it needs a web document DOM
+	 * and webkit, support for any other web document types can be added similarly.
+	 */
+
+	if ( !g_strcmp0 (ev_file_get_mime_type(uri,TRUE,&err),"application/epub+zip") )
+		document->iswebdocument=TRUE ;
+		
 	retval = klass->load (document, uri, &err);
 	if (!retval) {
 		if (err) {
@@ -258,16 +269,28 @@ ev_document_load (EvDocument  *document,
 		/* Cache some info about the document to avoid
 		 * going to the backends since it requires locks
 		 */
-		priv->uri = g_strdup (uri);
-		priv->n_pages = _ev_document_get_n_pages (document);
 
+		priv->uri = g_strdup (uri);
+
+		priv->n_pages = _ev_document_get_n_pages (document);
+		
 		for (i = 0; i < priv->n_pages; i++) {
+
+			/*
+			 * Since there is no sense of paging in an ePub,it makes no sense to have pages sizes.
+			 * We are however geeneralising the scenario by considering epub as a type of web document.
+			 * FIXME: Labels, or bookmarks though, can be done.
+			 */
+			if ( document->iswebdocument == TRUE )
+				break;
+			
 			EvPage     *page = ev_document_get_page (document, i);
 			gdouble     page_width = 0;
 			gdouble     page_height = 0;
 			EvPageSize *page_size;
 			gchar      *page_label;
-
+			
+			
 			_ev_document_get_page_size (document, page, &page_width, &page_height);
 
 			if (i == 0) {
@@ -277,6 +300,7 @@ ev_document_load (EvDocument  *document,
 				priv->max_height = priv->uniform_height;
 				priv->min_width = priv->uniform_width;
 				priv->min_height = priv->uniform_height;
+				
 			} else if (priv->uniform &&
 				   (priv->uniform_width != page_width ||
 				    priv->uniform_height != page_height)) {
