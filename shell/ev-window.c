@@ -100,7 +100,11 @@
 #endif /* ENABLE_DBUS */
 
 #ifdef ENABLE_EPUB
-#include <webkit/webkit.h>
+	#if GTK_CHECK_VERSION(3, 0, 0)
+		#include <webkit2/webkit2.h>
+	#else
+		#include <webkit/webkit.h>
+	#endif
 #endif
 typedef enum {
 	PAGE_MODE_DOCUMENT,
@@ -144,7 +148,9 @@ struct _EvWindowPrivate {
 	GtkWidget *sidebar_attachments;
 	GtkWidget *sidebar_layers;
 	GtkWidget *sidebar_annots;
+
 #ifdef ENABLE_EPUB
+	/*For web documents.(epub)*/
 	GtkWidget *web_view ;
 #endif
 	/* Settings */
@@ -1367,10 +1373,11 @@ ev_window_setup_document (EvWindow *ev_window)
 	GtkAction *action;
 
 	ev_window->priv->setup_document_idle = 0;
-
-	ev_window_refresh_window_thumbnail (ev_window);
-	if ( document->iswebdocument == FALSE )
-		ev_window_set_page_mode (ev_window, PAGE_MODE_DOCUMENT);
+	if ( document->iswebdocument == FALSE ) {
+		ev_window_refresh_window_thumbnail (ev_window);
+	}
+	ev_window_set_page_mode (ev_window, PAGE_MODE_DOCUMENT);
+	
 	ev_window_title_set_document (ev_window->priv->title, document);
 	ev_window_title_set_uri (ev_window->priv->title, ev_window->priv->uri);
 
@@ -1411,7 +1418,7 @@ ev_window_setup_document (EvWindow *ev_window)
 	else {
 		if ( gtk_widget_get_parent(ev_window->priv->view) != NULL )
 			gtk_widget_grab_focus (ev_window->priv->view);
-		else
+		else if ( document->iswebdocument == TRUE )
 			gtk_widget_grab_focus (ev_window->priv->web_view);
 	}
 	return FALSE;
@@ -1439,13 +1446,17 @@ ev_window_set_document (EvWindow *ev_window, EvDocument *document)
 					   _("The document contains only empty pages"));
 	}
 #ifdef ENABLE_EPUB
-	else if (document->iswebdocument == TRUE){
-
-		/*We have encountered a web document, replace the atril view with a web view.*/
-		gtk_container_remove (GTK_CONTAINER(ev_window->priv->scrolled_window),ev_window->priv->view);
+	GtkWidget *parent= gtk_widget_get_parent(ev_window->priv->web_view);
+	if (document->iswebdocument == TRUE && 
+	          parent == NULL )
+	{
+		/*We have encountered a web document, replace the atril view with a web view, if the web view is not already loaded.*/
+		gtk_container_remove (GTK_CONTAINER(ev_window->priv->scrolled_window),
+		                      ev_window->priv->view);
 		gtk_container_add (GTK_CONTAINER (ev_window->priv->scrolled_window),
 				   ev_window->priv->web_view);
 		gtk_widget_show(ev_window->priv->web_view);
+		g_object_ref_sink (ev_window->priv->view);		
 	}
 #endif
 	if (EV_WINDOW_IS_PRESENTATION (ev_window) && document->iswebdocument == FALSE) {
@@ -1552,8 +1563,9 @@ ev_window_load_job_cb (EvJob *job,
 
 	g_assert (job_load->uri);
 
-	ev_view_set_loading (EV_VIEW (ev_window->priv->view), FALSE);
-
+	if (document->iswebdocument == FALSE) {
+		ev_view_set_loading (EV_VIEW (ev_window->priv->view), FALSE);
+	}
 	/* Success! */
 	if (!ev_job_is_failed (job)) {  
 		ev_document_model_set_document (ev_window->priv->model, document);
@@ -4114,7 +4126,12 @@ ev_window_set_page_mode (EvWindow         *window,
 
 	switch (page_mode) {
 	        case PAGE_MODE_DOCUMENT:
-			child = window->priv->view;
+			if ( window->priv->document && window->priv->document->iswebdocument == FALSE ) {
+				child = window->priv->view;
+			}
+			else {
+				child=window->priv->web_view;
+			}
 			break;
 	        case PAGE_MODE_PASSWORD:
 			child = window->priv->password_view;
@@ -4347,7 +4364,12 @@ ev_window_cmd_view_expand_window (GtkAction *action, EvWindow *ev_window)
 static void
 ev_window_cmd_view_autoscroll (GtkAction *action, EvWindow *ev_window)
 {
-	ev_view_autoscroll_start (EV_VIEW (ev_window->priv->view));
+	EvDocument* document = ev_window->priv->document;
+	if (document->iswebdocument == TRUE ) {
+		return ;
+	}else {
+		ev_view_autoscroll_start (EV_VIEW (ev_window->priv->view));
+	}
 }
 
 #define EV_HELP "help:atril"
@@ -4600,6 +4622,7 @@ ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
 		"Perberos <perberos@gmail.com>",
 		"Stefano Karapetsas <stefano@karapetsas.com>",
 		"Steve Zesch <stevezesch2@gmail.com>",
+		"Avishkar Gupta <avishkar.gupta.delhi@gmail.com>",
 		NULL
 	};
 
@@ -5314,6 +5337,7 @@ ev_window_dispose (GObject *object)
 		if ( gtk_widget_get_parent (priv->view) == NULL )
 		{
 			g_object_ref_sink (priv->view);
+			g_object_unref(priv->view);
 		}
 		else
 		{
@@ -5326,6 +5350,7 @@ ev_window_dispose (GObject *object)
 	if ( priv->web_view ) {
 		if (gtk_widget_get_parent(priv->web_view) == NULL )    {
 			g_object_ref_sink (priv->web_view);
+			g_object_unref (priv->web_view);
 		}else {
 			g_object_unref (priv->web_view);
 		}
@@ -5454,13 +5479,21 @@ ev_window_key_press_event (GtkWidget   *widget,
 	 * It's needed to be able to type in
 	 * annot popups windows
 	 */
-	if (priv->view) {
+	GtkWidget* parent = gtk_widget_get_parent(priv->view);
+	if (priv->view &&  parent != NULL) {
 		g_object_ref (priv->view);
 		if (gtk_widget_is_sensitive (priv->view))
 			handled = gtk_widget_event (priv->view, (GdkEvent*) event);
 		g_object_unref (priv->view);
 	}
-
+	
+	else if ( priv->web_view && (parent=gtk_widget_get_parent(priv->web_view) ) != NULL) {  
+		g_object_ref (priv->web_view);
+		if (gtk_widget_is_sensitive (priv->web_view))
+			handled = gtk_widget_event (priv->web_view, (GdkEvent*) event);
+		g_object_unref (priv->web_view);
+	}
+	
 	if (!handled && !EV_WINDOW_IS_PRESENTATION (ev_window)) {
 		guint modifier = event->state & gtk_accelerator_get_default_mod_mask ();
 
@@ -7056,10 +7089,14 @@ ev_window_init (EvWindow *ev_window)
 			ev_window->priv->view_box);
 	gtk_widget_show (ev_window->priv->view_box);
 
-	ev_window->priv->view = ev_view_new ();
+
 #ifdef ENABLE_EPUB
 		ev_window->priv->web_view = webkit_web_view_new () ;
+
+		/*Signals for the web view*/
+		g_signal_connect_swapped(ev_window,"destroy",G_CALLBACK(gtk_widget_destroy),ev_window->priv->web_view);
 #endif
+	ev_window->priv->view = ev_view_new ();
 	ev_view_set_page_cache_size (EV_VIEW (ev_window->priv->view), PAGE_CACHE_SIZE);
 	ev_view_set_model (EV_VIEW (ev_window->priv->view), ev_window->priv->model);
 

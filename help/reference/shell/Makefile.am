@@ -106,6 +106,7 @@ GTKDOC_CFLAGS = \
 	-DATRIL_COMPILATION				\
 	$(SHELL_CFLAGS)					\
 	$(WARN_CFLAGS)					\
+	$(WEBKIT_CFLAGS)				\
 	$(DISABLE_DEPRECATED)				\
 	$(GTK_PRINT_CFLAGS)
 
@@ -126,6 +127,7 @@ GTKDOC_LIBS = \
 	$(top_builddir)/libmisc/libevmisc.la				\
 	$(SHELL_LIBS)							\
 	$(GTK_PRINT_LIBS)						\
+	$(WEBKIT_LIBS)							\
 	$(filter-out $(FILTER_OUT),$(wildcard $(top_builddir)/shell/*.o))
 
 # This includes the standard gtk-doc make rules, copied by gtkdocize.

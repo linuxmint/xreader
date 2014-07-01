@@ -114,6 +114,7 @@ struct _EvDocumentClass
                                                EvPage          *page);
         cairo_surface_t * (* render)          (EvDocument      *document,
                                                EvRenderContext *rc);
+/*	void            * (*webkit_render)    (EvDocument      *document);*/
         EvDocumentInfo  * (* get_info)        (EvDocument      *document);
         gboolean          (* get_backend_info)(EvDocument      *document,
                                                EvDocumentBackendInfo *info);

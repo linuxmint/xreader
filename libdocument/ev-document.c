@@ -605,6 +605,13 @@ ev_document_render (EvDocument      *document,
 	return klass->render (document, rc);
 }
 
+/*gchar*
+ev_web_document_render(EvDocument *document)
+{
+	Layout engine takes care of the rendering, so what we are essentially doing is serving pages to the webview
+	EvDocumentClass *klass = EV_DOCUMENT_GET_CLASS (document);
+	klass->webkit_render(document);
+}*/
 const gchar *
 ev_document_get_uri (EvDocument *document)
 {

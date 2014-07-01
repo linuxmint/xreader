@@ -568,6 +568,24 @@ ev_job_render_run (EvJob *job)
 	ev_document_fc_mutex_lock ();
 
 	ev_page = ev_document_get_page (job->document, job_render->page);
+
+	if ( job->document->iswebdocument == TRUE )
+	{
+		return TRUE;
+		
+		if (g_cancellable_is_cancelled (job->cancellable)) {
+		ev_document_fc_mutex_unlock ();
+		ev_document_doc_mutex_unlock ();
+		g_object_unref (rc);
+
+		return FALSE;
+		}
+		
+		ev_document_fc_mutex_unlock ();
+		ev_document_doc_mutex_unlock ();
+		ev_job_succeeded (job);
+		return FALSE;
+	}
 	rc = ev_render_context_new (ev_page, job_render->rotation, job_render->scale);
 	g_object_unref (ev_page);
 

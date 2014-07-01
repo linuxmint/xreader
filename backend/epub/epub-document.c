@@ -145,14 +145,14 @@ epub_webkit_render(cairo_surface_t **surface,EpubDocument *epub_document,
 	g_object_unref(offscreen_window);
 }
 
-static cairo_surface_t *
+/*static void
 epub_document_render (EvDocument *document)
 {
-	cairo_surface_t *surface;
 	EpubDocument *epub_document = EPUB_DOCUMENT(document);
-	epub_webkit_render(&surface,epub_document,epub_document->currentpageuri);
-	return surface;
-}
+	epub_document->contentList = epub_document->contentList->next;
+	contentListNode *current = contentList->data;
+	
+}*/
 
 /**
  * epub_remove_temporary_dir : Removes a directory recursively. 
@@ -927,15 +927,15 @@ epub_document_get_info(EvDocument *document)
 	if ( metanode == NULL )
 	  epubinfo->author = g_strdup("unknown");
 	else
-	  epubinfo->author = xml_get_data_from_node(metanode,XML_KEYWORD,NULL);
+	  epubinfo->author = (char*)xml_get_data_from_node(metanode,XML_KEYWORD,NULL);
 
 	metanode = xml_get_pointer_to_node((xmlChar*)"subject",NULL,NULL);
 	if ( metanode == NULL )
 	   epubinfo->subject = g_strdup("unknown");
 	else
-	   epubinfo->subject = xml_get_data_from_node(metanode,XML_KEYWORD,NULL);
+	   epubinfo->subject = (char*)xml_get_data_from_node(metanode,XML_KEYWORD,NULL);
 
-	buffer = g_string_new(xml_get_data_from_node (xmlroot,XML_ATTRIBUTE,(xmlChar*)"version"));
+	buffer = g_string_new((gchar*)xml_get_data_from_node (xmlroot,XML_ATTRIBUTE,(xmlChar*)"version"));
 	g_string_prepend(buffer,"epub ");
 	epubinfo->format = g_strdup(buffer->str);
 	
@@ -948,7 +948,7 @@ epub_document_get_info(EvDocument *document)
 	if ( metanode == NULL )
 	   epubinfo->creator = g_strdup("unknown");
 	else
-	   epubinfo->creator = xml_get_data_from_node(metanode,XML_KEYWORD,NULL);
+	   epubinfo->creator = (char*)xml_get_data_from_node(metanode,XML_KEYWORD,NULL);
 
 	/*TODO : Add a function to get date*/
 	g_free(uri);
@@ -979,7 +979,7 @@ epub_document_class_init (EpubDocumentClass *klass)
 	ev_document_class->load = epub_document_load;
 	ev_document_class->save = epub_document_save;
 	ev_document_class->get_n_pages = epub_document_get_n_pages;
-	ev_document_class->render = epub_document_render;
+/*	ev_document_class->wekit_render->render = epub_document_render;*/
 	ev_document_class->get_info = epub_document_get_info; 
 	ev_document_class->get_page = epub_document_get_page;
 }
