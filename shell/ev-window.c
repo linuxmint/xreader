@@ -150,7 +150,7 @@ struct _EvWindowPrivate {
 	GtkWidget *sidebar_annots;
 
 #ifdef ENABLE_EPUB
-	/*For web documents.(epub)*/
+	/* For web documents.(epub) */
 	GtkWidget *web_view ;
 #endif
 	/* Settings */
@@ -1312,6 +1312,9 @@ static void
 ev_window_set_icon_from_thumbnail (EvJobThumbnail *job,
 				   EvWindow       *ev_window)
 {
+	if (ev_window->priv->document->iswebdocument == TRUE) {
+		return;
+	}
 	if (job->thumbnail) {
 		if (ev_document_model_get_inverted_colors (ev_window->priv->model))
 			ev_document_misc_invert_pixbuf (job->thumbnail);
@@ -1563,9 +1566,7 @@ ev_window_load_job_cb (EvJob *job,
 
 	g_assert (job_load->uri);
 
-	if (document->iswebdocument == FALSE) {
-		ev_view_set_loading (EV_VIEW (ev_window->priv->view), FALSE);
-	}
+	ev_view_set_loading (EV_VIEW (ev_window->priv->view), FALSE);
 	/* Success! */
 	if (!ev_job_is_failed (job)) {  
 		ev_document_model_set_document (ev_window->priv->model, document);
@@ -4289,7 +4290,7 @@ static void
 ev_window_cmd_go_previous_page (GtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
-
+/*	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(ev_window->web_view),"");*/
 	ev_view_previous_page (EV_VIEW (ev_window->priv->view));
 }
 

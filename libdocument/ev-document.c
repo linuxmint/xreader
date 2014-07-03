@@ -281,8 +281,6 @@ ev_document_load (EvDocument  *document,
 			 * We are however geeneralising the scenario by considering epub as a type of web document.
 			 * FIXME: Labels, or bookmarks though, can be done.
 			 */
-			if ( document->iswebdocument == TRUE )
-				break;
 			
 			EvPage     *page = ev_document_get_page (document, i);
 			gdouble     page_width = 0;
@@ -290,9 +288,15 @@ ev_document_load (EvDocument  *document,
 			EvPageSize *page_size;
 			gchar      *page_label;
 			
+			if ( document->iswebdocument == FALSE ) {
+				_ev_document_get_page_size (document, page, &page_width, &page_height);
+			}
+			else {
+				//Fixed page sized to resolve the X-windowing system error.
+				page_width = 800;
+				page_height= 600;
+			}
 			
-			_ev_document_get_page_size (document, page, &page_width, &page_height);
-
 			if (i == 0) {
 				priv->uniform_width = page_width;
 				priv->uniform_height = page_height;
@@ -300,15 +304,21 @@ ev_document_load (EvDocument  *document,
 				priv->max_height = priv->uniform_height;
 				priv->min_width = priv->uniform_width;
 				priv->min_height = priv->uniform_height;
-				
+				if (document->iswebdocument == TRUE ) {
+					priv->page_sizes = g_new0 (EvPageSize, 1);
+					priv->page_sizes->width = priv->uniform_width;
+					priv->page_sizes->height = priv->uniform_height;
+					priv->uniform = TRUE ;
+					break;
+				}
 			} else if (priv->uniform &&
 				   (priv->uniform_width != page_width ||
 				    priv->uniform_height != page_height)) {
 				/* It's a different page size.  Backfill the array. */
 				int j;
-
+				
 				priv->page_sizes = g_new0 (EvPageSize, priv->n_pages);
-
+				
 				for (j = 0; j < i; j++) {
 					page_size = &(priv->page_sizes[j]);
 					page_size->width = priv->uniform_width;
@@ -535,15 +545,21 @@ ev_document_get_page_size (EvDocument *document,
 {
 	g_return_if_fail (EV_IS_DOCUMENT (document));
 	g_return_if_fail (page_index >= 0 || page_index < document->priv->n_pages);
-
-	if (width)
-		*width = document->priv->uniform ?
-			document->priv->uniform_width :
-			document->priv->page_sizes[page_index].width;
-	if (height)
-		*height = document->priv->uniform ?
-			document->priv->uniform_height :
-			document->priv->page_sizes[page_index].height;
+	if (document->iswebdocument == TRUE ) {
+		if (width)
+			*width = document->priv->uniform_width;
+		if (height)
+			*height = document->priv->uniform_height;
+	} else {
+		if (width)
+			*width = document->priv->uniform ?
+				document->priv->uniform_width :
+				document->priv->page_sizes[page_index].width;
+		if (height)
+			*height = document->priv->uniform ?
+				document->priv->uniform_height :
+				document->priv->page_sizes[page_index].height;
+	}
 }
 
 static gchar *

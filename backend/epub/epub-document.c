@@ -2,7 +2,7 @@
 #include "epub-document.h"
 #include "unzip.h"
 #include "ev-document-thumbnails.h"
-
+#include "ev-document-misc.h"
 #include <libxml/parser.h>
 #include <libxml/xmlmemory.h>
 
@@ -56,12 +56,26 @@ EV_BACKEND_REGISTER_WITH_CODE (EpubDocument, epub_document,
 						epub_document_document_thumbnails_iface_init);
 	} );
 
+static void
+epub_webkit_render(cairo_surface_t **surface,
+                   const char* uri);
 static GdkPixbuf *
 epub_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 					  EvRenderContext      *rc,
 					  gboolean              border)
 {
 	GdkPixbuf *thumbnail;
+	cairo_surface_t* surface=NULL;
+	gchar* uri = (gchar*) rc->page->backend_page;
+	epub_webkit_render (&surface,uri);
+	while ( !surface ) 
+		;
+	gint width = cairo_image_surface_get_width (surface);
+	gint height = cairo_image_surface_get_height (surface);
+	if (surface) {
+		thumbnail = ev_document_misc_pixbuf_from_surface (surface);
+		cairo_surface_destroy (surface);
+	}
 	return thumbnail;
 }
 
@@ -71,19 +85,10 @@ epub_document_thumbnails_get_dimensions (EvDocumentThumbnails *document,
 					   gint                 *width,
 					   gint                 *height)
 {
-	gdouble page_width, page_height;
-	
-	/*epub_document_get_page_size (EV_DOCUMENT (document), rc->page,
-				       &page_width, &page_height);*/
-	page_width = 800 ;
-	page_width = 600 ;
-	if (rc->rotation == 90 || rc->rotation == 270) {
-		*width = (gint) (page_height * rc->scale);
-		*height = (gint) (page_width * rc->scale);
-	} else {
-		*width = (gint) (page_width * rc->scale);
-		*height = (gint) (page_height * rc->scale);
-	}
+	gdouble page_width = 800;
+	gdouble page_height = 600;
+	*width = MAX ((gint)(page_width * rc->scale + 0.5), 1);
+	*height = MAX ((gint)(page_height * rc->scale + 0.5), 1);
 }
 
 static void
@@ -115,9 +120,9 @@ epub_document_get_n_pages (EvDocument *document)
 }
 
 static void 
-render_cb_function(GtkWidget *web_view,
-                   GParamSpec *specification,
-               	   cairo_surface_t **surface)
+webkit_render_cb(GtkWidget *web_view,
+                 GParamSpec *specification,
+           	     cairo_surface_t **surface)
 {
 	WebKitLoadStatus status = webkit_web_view_get_load_status (WEBKIT_WEB_VIEW(web_view));
 
@@ -126,33 +131,22 @@ render_cb_function(GtkWidget *web_view,
 		*(surface) = webkit_web_view_get_snapshot (WEBKIT_WEB_VIEW(web_view));
 	}
 }
+
 static void
-epub_webkit_render(cairo_surface_t **surface,EpubDocument *epub_document,
-		   const char* uri)
+epub_webkit_render(cairo_surface_t **surface,
+                   const char* uri)
 {
 	GtkWidget *offscreen_window = gtk_offscreen_window_new ();
 	gtk_window_set_default_size(GTK_WINDOW(offscreen_window),800,600);
-	GtkWidget* web_view = webkit_web_view_new ();
 	GtkWidget* scroll_view = gtk_scrolled_window_new (NULL,NULL);
 	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scroll_view),GTK_POLICY_AUTOMATIC,GTK_POLICY_AUTOMATIC);
-	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(web_view),epub_document->currentpageuri);
+	GtkWidget* web_view = webkit_web_view_new ();
+	g_signal_connect(WEBKIT_WEB_VIEW(web_view),"notify::load-status",G_CALLBACK(webkit_render_cb),surface);
 	gtk_container_add(GTK_CONTAINER(scroll_view),web_view);
 	gtk_container_add(GTK_CONTAINER(offscreen_window),scroll_view);
-	g_signal_connect(WEBKIT_WEB_VIEW(web_view),"notify::load-status",G_CALLBACK(render_cb_function),surface);
 	gtk_widget_show_all (offscreen_window);
-	g_object_unref(web_view);
-	g_object_unref(scroll_view);
-	g_object_unref(offscreen_window);
+	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(web_view),uri);
 }
-
-/*static void
-epub_document_render (EvDocument *document)
-{
-	EpubDocument *epub_document = EPUB_DOCUMENT(document);
-	epub_document->contentList = epub_document->contentList->next;
-	contentListNode *current = contentList->data;
-	
-}*/
 
 /**
  * epub_remove_temporary_dir : Removes a directory recursively. 
@@ -963,7 +957,7 @@ epub_document_get_page(EvDocument *document,
 {
 	EpubDocument *epub_document = EPUB_DOCUMENT(document);
 	EvPage* page = ev_page_new(index);
-	contentListNode *listptr = g_list_nth_data (epub_document->contentList,--index);
+	contentListNode *listptr = g_list_nth_data (epub_document->contentList,index);
 	page->backend_page = g_strdup(listptr->value);
 	return page ;
 }
