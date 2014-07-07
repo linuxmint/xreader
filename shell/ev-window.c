@@ -87,6 +87,7 @@
 #include "ev-utils.h"
 #include "ev-keyring.h"
 #include "ev-view.h"
+#include "ev-web-view.h"
 #include "ev-view-presentation.h"
 #include "ev-view-type-builtins.h"
 #include "ev-window.h"
@@ -99,13 +100,6 @@
 #include "ev-media-player-keys.h"
 #endif /* ENABLE_DBUS */
 
-#ifdef ENABLE_EPUB
-	#if GTK_CHECK_VERSION(3, 0, 0)
-		#include <webkit2/webkit2.h>
-	#else
-		#include <webkit/webkit.h>
-	#endif
-#endif
 typedef enum {
 	PAGE_MODE_DOCUMENT,
 	PAGE_MODE_PASSWORD
@@ -148,10 +142,8 @@ struct _EvWindowPrivate {
 	GtkWidget *sidebar_attachments;
 	GtkWidget *sidebar_layers;
 	GtkWidget *sidebar_annots;
-
 #ifdef ENABLE_EPUB
-	/* For web documents.(epub) */
-	GtkWidget *web_view ;
+	GtkWidget *webview;
 #endif
 	/* Settings */
 	GSettings *settings;
@@ -491,7 +483,7 @@ ev_window_update_actions (EvWindow *ev_window)
 		n_pages = ev_document_get_n_pages (ev_window->priv->document);
 		has_pages = n_pages > 0;
 	}
-
+	
 	can_find_in_page = (ev_window->priv->find_job &&
 			    ev_job_find_has_results (EV_JOB_FIND (ev_window->priv->find_job)));
 
@@ -507,15 +499,16 @@ ev_window_update_actions (EvWindow *ev_window)
 
 	presentation_mode = EV_WINDOW_IS_PRESENTATION (ev_window);
 	
-	ev_window_set_action_sensitive (ev_window, "ViewZoomIn",
-					has_pages &&
-					ev_view_can_zoom_in (view) &&
-					!presentation_mode);
-	ev_window_set_action_sensitive (ev_window, "ViewZoomOut",
-					has_pages &&
-					ev_view_can_zoom_out (view) &&
-					!presentation_mode);
-	
+	if (ev_window->priv->document && ev_window->priv->document->iswebdocument == FALSE ) {
+		ev_window_set_action_sensitive (ev_window, "ViewZoomIn",
+						has_pages &&
+						ev_view_can_zoom_in (view) &&
+						!presentation_mode);
+		ev_window_set_action_sensitive (ev_window, "ViewZoomOut",
+						has_pages &&
+						ev_view_can_zoom_out (view) &&
+						!presentation_mode);
+	}
         /* Go menu */
 	if (has_pages) {
 		ev_window_set_action_sensitive (ev_window, "GoPreviousPage", page > 0);
@@ -1312,9 +1305,6 @@ static void
 ev_window_set_icon_from_thumbnail (EvJobThumbnail *job,
 				   EvWindow       *ev_window)
 {
-	if (ev_window->priv->document->iswebdocument == TRUE) {
-		return;
-	}
 	if (job->thumbnail) {
 		if (ev_document_model_get_inverted_colors (ev_window->priv->model))
 			ev_document_misc_invert_pixbuf (job->thumbnail);
@@ -1421,8 +1411,8 @@ ev_window_setup_document (EvWindow *ev_window)
 	else {
 		if ( gtk_widget_get_parent(ev_window->priv->view) != NULL )
 			gtk_widget_grab_focus (ev_window->priv->view);
-		else if ( document->iswebdocument == TRUE )
-			gtk_widget_grab_focus (ev_window->priv->web_view);
+		else
+			gtk_widget_grab_focus (ev_window->priv->webview);
 	}
 	return FALSE;
 }
@@ -1449,17 +1439,17 @@ ev_window_set_document (EvWindow *ev_window, EvDocument *document)
 					   _("The document contains only empty pages"));
 	}
 #ifdef ENABLE_EPUB
-	GtkWidget *parent= gtk_widget_get_parent(ev_window->priv->web_view);
+	GtkWidget *parent= gtk_widget_get_parent(ev_window->priv->webview);
 	if (document->iswebdocument == TRUE && 
 	          parent == NULL )
 	{
 		/*We have encountered a web document, replace the atril view with a web view, if the web view is not already loaded.*/
 		gtk_container_remove (GTK_CONTAINER(ev_window->priv->scrolled_window),
 		                      ev_window->priv->view);
+		g_object_unref(ev_window->priv->view);
 		gtk_container_add (GTK_CONTAINER (ev_window->priv->scrolled_window),
-				   ev_window->priv->web_view);
-		gtk_widget_show(ev_window->priv->web_view);
-		g_object_ref_sink (ev_window->priv->view);		
+				   ev_window->priv->webview);
+		gtk_widget_show(ev_window->priv->webview);		
 	}
 #endif
 	if (EV_WINDOW_IS_PRESENTATION (ev_window) && document->iswebdocument == FALSE) {
@@ -1537,6 +1527,9 @@ static void
 ev_window_handle_link (EvWindow *ev_window,
 		       EvLinkDest *dest)
 {
+	if (ev_window->priv->document->iswebdocument == FALSE ) {
+		return;
+	}
 	if (dest) {
 		EvLink *link;
 		EvLinkAction *link_action;
@@ -1830,6 +1823,8 @@ static void
 ev_window_load_remote_failed (EvWindow *ev_window,
 			      GError   *error)
 {
+	if ( !ev_window->priv->view ) return;
+	
 	ev_view_set_loading (EV_VIEW (ev_window->priv->view), FALSE);
 	ev_window->priv->in_reload = FALSE;
 	ev_window_error_message (ev_window, error, 
@@ -2109,7 +2104,7 @@ ev_window_open_document (EvWindow       *ev_window,
 	setup_document_from_metadata (ev_window);
 	setup_view_from_metadata (ev_window);
 
-	if (dest) {
+	if (dest && document->iswebdocument == FALSE) {
 		EvLink *link;
 		EvLinkAction *link_action;
 
@@ -2303,13 +2298,10 @@ ev_window_reload_document (EvWindow *ev_window,
 			   EvLinkDest *dest)
 {
 	gint page;
-
-	
 	ev_window_clear_reload_job (ev_window);
 	ev_window->priv->in_reload = TRUE;
 
 	page = ev_document_model_get_page (ev_window->priv->model);
-	
 	if (ev_window->priv->dest)
 		g_object_unref (ev_window->priv->dest);
 	ev_window->priv->dest = dest ? g_object_ref (dest) : NULL;
@@ -3633,12 +3625,18 @@ ev_window_cmd_focus_page_selector (GtkAction *act, EvWindow *window)
 static void
 ev_window_cmd_scroll_forward (GtkAction *action, EvWindow *window)
 {
+	/*If the webview is occupying the window*/
+	if ( window->priv->document->iswebdocument == FALSE ) return ;
+	
 	ev_view_scroll (EV_VIEW (window->priv->view), GTK_SCROLL_PAGE_FORWARD, FALSE);
 }
 
 static void
 ev_window_cmd_scroll_backward (GtkAction *action, EvWindow *window)
 {
+	/*If the webview is occupying the window*/
+	if ( window->priv->document->iswebdocument == FALSE ) return ;
+	
 	ev_view_scroll (EV_VIEW (window->priv->view), GTK_SCROLL_PAGE_BACKWARD, FALSE);
 }
 
@@ -3701,7 +3699,7 @@ ev_window_cmd_edit_select_all (GtkAction *action, EvWindow *ev_window)
 	 */
 	if (ev_window->priv->chrome & EV_CHROME_FINDBAR) {
 		egg_find_bar_grab_focus(ev_window->priv->find_bar);
-	} else {
+	} else if (ev_window->priv->document->iswebdocument == FALSE ) {
 		ev_view_select_all (EV_VIEW (ev_window->priv->view));
 	}
 }
@@ -3729,7 +3727,11 @@ ev_window_cmd_edit_find_next (GtkAction *action, EvWindow *ev_window)
 	update_chrome_flag (ev_window, EV_CHROME_FINDBAR, TRUE);
 	update_chrome_visibility (ev_window);
 	gtk_widget_grab_focus (ev_window->priv->find_bar);
-	ev_view_find_next (EV_VIEW (ev_window->priv->view));
+	if (ev_window->priv->document->iswebdocument == FALSE) {
+		ev_view_find_next (EV_VIEW (ev_window->priv->view));
+	} else {
+		ev_web_view_find_next(EV_WEB_VIEW(ev_window->priv->webview));
+	}
 }
 
 static void
@@ -3740,14 +3742,19 @@ ev_window_cmd_edit_find_previous (GtkAction *action, EvWindow *ev_window)
 	update_chrome_flag (ev_window, EV_CHROME_FINDBAR, TRUE);
 	update_chrome_visibility (ev_window);
 	gtk_widget_grab_focus (ev_window->priv->find_bar);
-	ev_view_find_previous (EV_VIEW (ev_window->priv->view));
+	if (ev_window->priv->document->iswebdocument == FALSE) {
+		ev_view_find_previous (EV_VIEW (ev_window->priv->view));
+	} else {
+		ev_web_view_find_previous(EV_WEB_VIEW(ev_window->priv->webview));
+	}
 }
 
 static void
 ev_window_cmd_edit_copy (GtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
-
+	if ( ev_window->priv->document->iswebdocument == TRUE ) return;
+	
 	ev_view_copy (EV_VIEW (ev_window->priv->view));
 }
 
@@ -3860,8 +3867,12 @@ ev_window_run_fullscreen (EvWindow *window)
 
 	if (fullscreen_window)
 		gtk_window_fullscreen (GTK_WINDOW (window));
-	gtk_widget_grab_focus (window->priv->view);
-
+	if (window->priv->view) {
+		gtk_widget_grab_focus (window->priv->view);
+	}
+	else  {
+		gtk_widget_grab_focus(window->priv->webview);
+	}
 	if (window->priv->metadata && !ev_window_is_empty (window))
 		ev_metadata_set_boolean (window->priv->metadata, "fullscreen", TRUE);
 }
@@ -3989,9 +4000,13 @@ ev_window_stop_presentation (EvWindow *window,
 	update_chrome_visibility (window);
 	if (unfullscreen_window)
 		gtk_window_unfullscreen (GTK_WINDOW (window));
-
-	gtk_widget_grab_focus (window->priv->view);
-
+	
+	if (window->priv->view) {
+		gtk_widget_grab_focus (window->priv->view);
+	} else {
+		gtk_widget_grab_focus (window->priv->webview);
+	}
+	
 	ev_application_screensaver_enable (EV_APP);
 
 	if (window->priv->metadata && !ev_window_is_empty (window))
@@ -4131,7 +4146,7 @@ ev_window_set_page_mode (EvWindow         *window,
 				child = window->priv->view;
 			}
 			else {
-				child=window->priv->web_view;
+				child=window->priv->webview;
 			}
 			break;
 	        case PAGE_MODE_PASSWORD:
@@ -4272,7 +4287,7 @@ static void
 ev_window_cmd_view_zoom_in (GtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
-
+	if ( ev_window->priv->document->iswebdocument == TRUE ) return ;
 	ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FREE);
 	ev_view_zoom_in (EV_VIEW (ev_window->priv->view));
 }
@@ -4281,7 +4296,8 @@ static void
 ev_window_cmd_view_zoom_out (GtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
-
+	if ( ev_window->priv->document->iswebdocument == TRUE ) return ;
+	
 	ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FREE);
 	ev_view_zoom_out (EV_VIEW (ev_window->priv->view));
 }
@@ -4290,8 +4306,11 @@ static void
 ev_window_cmd_go_previous_page (GtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
-/*	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(ev_window->web_view),"");*/
-	ev_view_previous_page (EV_VIEW (ev_window->priv->view));
+	if ( ev_window->priv->document->iswebdocument == TRUE ) {
+		ev_web_view_previous_page(EV_WEB_VIEW(ev_window->priv->webview));
+	} else {
+		ev_view_previous_page (EV_VIEW (ev_window->priv->view));
+	}
 }
 
 static void
@@ -4299,7 +4318,11 @@ ev_window_cmd_go_next_page (GtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
 
-	ev_view_next_page (EV_VIEW (ev_window->priv->view));
+	if ( ev_window->priv->document->iswebdocument == TRUE ) {
+		ev_web_view_next_page(EV_WEB_VIEW(ev_window->priv->webview));
+	} else {
+		ev_view_next_page (EV_VIEW (ev_window->priv->view));
+	}
 }
 
 static void
@@ -4407,7 +4430,7 @@ static void
 ev_window_cmd_escape (GtkAction *action, EvWindow *window)
 {
 	GtkWidget *widget;
-
+	if ( window->priv->document->iswebdocument == FALSE ) return ;
 	ev_view_autoscroll_stop (EV_VIEW (window->priv->view));
 	
 	widget = gtk_window_get_focus (GTK_WINDOW (window));
@@ -4746,6 +4769,8 @@ view_menu_link_popup (EvWindow *ev_window,
 	gboolean   show_external = FALSE;
 	gboolean   show_internal = FALSE;
 	GtkAction *action;
+
+	if ( ev_window->priv->document->iswebdocument == TRUE ) return ;
 	
 	if (ev_window->priv->link)
 		g_object_unref (ev_window->priv->link);
@@ -4798,7 +4823,8 @@ view_menu_image_popup (EvWindow  *ev_window,
 {
 	GtkAction *action;
 	gboolean   show_image = FALSE;
-	
+
+	if (ev_window->priv->document->iswebdocument == TRUE ) return ;
 	if (ev_window->priv->image)
 		g_object_unref (ev_window->priv->image);
 	
@@ -4824,7 +4850,7 @@ view_menu_annot_popup (EvWindow     *ev_window,
 {
 	GtkAction *action;
 	gboolean   show_annot = FALSE;
-
+	if (ev_window->priv->document->iswebdocument == TRUE ) return ;
 	if (ev_window->priv->annot)
 		g_object_unref (ev_window->priv->annot);
 	ev_window->priv->annot = (annot) ? g_object_ref (annot) : NULL;
@@ -4973,7 +4999,7 @@ ev_window_find_job_updated_cb (EvJobFind *job,
 			       EvWindow  *ev_window)
 {
 	ev_window_update_actions (ev_window);
-	
+	if (ev_window->priv->document->iswebdocument == TRUE ) return ;
 	ev_view_find_changed (EV_VIEW (ev_window->priv->view),
 			      ev_job_find_get_results (job),
 			      page);
@@ -5002,6 +5028,7 @@ static void
 find_bar_previous_cb (EggFindBar *find_bar,
 		      EvWindow   *ev_window)
 {
+	if (ev_window->priv->document->iswebdocument == TRUE ) return ;
 	ev_view_find_previous (EV_VIEW (ev_window->priv->view));
 }
 
@@ -5009,6 +5036,7 @@ static void
 find_bar_next_cb (EggFindBar *find_bar,
 		  EvWindow   *ev_window)
 {
+	if (ev_window->priv->document->iswebdocument == TRUE ) return ;
 	ev_view_find_next (EV_VIEW (ev_window->priv->view));
 }
 
@@ -5016,6 +5044,7 @@ static void
 find_bar_close_cb (EggFindBar *find_bar,
 		   EvWindow   *ev_window)
 {
+	if (ev_window->priv->document->iswebdocument == TRUE ) return ;
 	ev_view_find_cancel (EV_VIEW (ev_window->priv->view));
 	ev_window_clear_find_job (ev_window);
 	update_chrome_flag (ev_window, EV_CHROME_FINDBAR, FALSE);
@@ -5032,7 +5061,7 @@ find_bar_search_changed_cb (EggFindBar *find_bar,
 
 	if (!ev_window->priv->document || !EV_IS_DOCUMENT_FIND (ev_window->priv->document))
 		return;
-	
+	if (ev_window->priv->document->iswebdocument == TRUE ) return ;
 	/* Either the string or case sensitivity could have changed. */
 	case_sensitive = egg_find_bar_get_case_sensitive (find_bar);
 	search_string = egg_find_bar_get_search_string (find_bar);
@@ -5068,7 +5097,7 @@ find_bar_visibility_changed_cb (EggFindBar *find_bar,
 				EvWindow   *ev_window)
 {
 	gboolean visible;
-
+	if (ev_window->priv->document->iswebdocument == TRUE ) return ;
 	visible = gtk_widget_get_visible (GTK_WIDGET (find_bar));
 
 	if (ev_window->priv->document &&
@@ -5089,6 +5118,7 @@ find_bar_scroll (EggFindBar   *find_bar,
 		 GtkScrollType scroll,
 		 EvWindow     *ev_window)
 {
+	if (ev_window->priv->document->iswebdocument == TRUE ) return ;
 	ev_view_scroll (EV_VIEW (ev_window->priv->view), scroll, FALSE);
 }
 
@@ -5348,14 +5378,14 @@ ev_window_dispose (GObject *object)
 	}
 
 #ifdef ENABLE_EPUB
-	if ( priv->web_view ) {
-		if (gtk_widget_get_parent(priv->web_view) == NULL )    {
-			g_object_ref_sink (priv->web_view);
-			g_object_unref (priv->web_view);
+	if ( priv->webview ) {
+		if (gtk_widget_get_parent(priv->webview) == NULL )    {
+			g_object_ref_sink (priv->webview);
+			g_object_unref (priv->webview);
 		}else {
-			g_object_unref (priv->web_view);
+			g_object_unref (priv->webview);
 		}
-		priv->web_view = NULL ;
+		priv->webview = NULL ;
 	}
 #endif
 	if (priv->password_view) {
@@ -5488,11 +5518,11 @@ ev_window_key_press_event (GtkWidget   *widget,
 		g_object_unref (priv->view);
 	}
 	
-	else if ( priv->web_view && (parent=gtk_widget_get_parent(priv->web_view) ) != NULL) {  
-		g_object_ref (priv->web_view);
-		if (gtk_widget_is_sensitive (priv->web_view))
-			handled = gtk_widget_event (priv->web_view, (GdkEvent*) event);
-		g_object_unref (priv->web_view);
+	else if ( priv->webview && (parent=gtk_widget_get_parent(priv->webview) ) != NULL) {  
+		g_object_ref (priv->webview);
+		if (gtk_widget_is_sensitive (priv->webview))
+			handled = gtk_widget_event (priv->webview, (GdkEvent*) event);
+		g_object_unref (priv->webview);
 	}
 	
 	if (!handled && !EV_WINDOW_IS_PRESENTATION (ev_window)) {
@@ -5755,7 +5785,10 @@ static const GtkActionEntry attachment_popup_entries [] = {
 static void
 sidebar_links_link_activated_cb (EvSidebarLinks *sidebar_links, EvLink *link, EvWindow *window)
 {
-	ev_view_handle_link (EV_VIEW (window->priv->view), link);
+	if (window->priv->document->iswebdocument == FALSE ) {
+		ev_view_handle_link (EV_VIEW (window->priv->view), link);
+	}
+	ev_web_view_handle_link(EV_WEB_VIEW(window->priv->webview), link);
 }
 
 static void
@@ -5768,6 +5801,7 @@ activate_link_cb (EvPageAction *page_action, EvLink *link, EvWindow *window)
 static void
 navigation_action_activate_link_cb (EvNavigationAction *action, EvLink *link, EvWindow *window)
 {
+	if (window->priv->document->iswebdocument == FALSE )  return;
 	
 	ev_view_handle_link (EV_VIEW (window->priv->view), link);
 	gtk_widget_grab_focus (window->priv->view);
@@ -5777,7 +5811,13 @@ static void
 sidebar_layers_visibility_changed (EvSidebarLayers *layers,
 				   EvWindow        *window)
 {
-	ev_view_reload (EV_VIEW (window->priv->view));
+	if (window->priv->document->iswebdocument == FALSE ) {
+		ev_view_reload (EV_VIEW (window->priv->view));
+	}
+	else
+	{
+		ev_web_view_reload(EV_WEB_VIEW(window->priv->webview));
+	}
 }
 
 static void
@@ -5785,6 +5825,7 @@ sidebar_annots_annot_activated_cb (EvSidebarAnnotations *sidebar_annots,
 				   EvMapping            *annot_mapping,
 				   EvWindow             *window)
 {
+	if (window->priv->document->iswebdocument == FALSE ) return;
 	ev_view_focus_annotation (EV_VIEW (window->priv->view), annot_mapping);
 }
 
@@ -5793,6 +5834,7 @@ sidebar_annots_begin_annot_add (EvSidebarAnnotations *sidebar_annots,
 				EvAnnotationType      annot_type,
 				EvWindow             *window)
 {
+	if (window->priv->document->iswebdocument == FALSE ) return;
 	ev_view_begin_add_annotation (EV_VIEW (window->priv->view), annot_type);
 }
 
@@ -5809,6 +5851,7 @@ static void
 sidebar_annots_annot_add_cancelled (EvSidebarAnnotations *sidebar_annots,
 				    EvWindow             *window)
 {
+	if (window->priv->document->iswebdocument == FALSE ) return;
 	ev_view_cancel_add_annotation (EV_VIEW (window->priv->view));
 }
 
@@ -6212,6 +6255,7 @@ view_external_link_cb (EvView *view, EvLinkAction *action, EvWindow *window)
 static void
 ev_view_popup_cmd_open_link (GtkAction *action, EvWindow *window)
 {
+	if (window->priv->document->iswebdocument == FALSE ) return;
 	ev_view_handle_link (EV_VIEW (window->priv->view), window->priv->link);
 }
 
@@ -6236,7 +6280,7 @@ static void
 ev_view_popup_cmd_copy_link_address (GtkAction *action, EvWindow *window)
 {
 	EvLinkAction *ev_action;
-
+	if (window->priv->document->iswebdocument == FALSE ) return;
 	ev_action = ev_link_get_action (window->priv->link);
 	if (!ev_action)
 		return;
@@ -6411,6 +6455,8 @@ static void
 ev_view_popup_cmd_annot_properties (GtkAction *action,
 				    EvWindow  *window)
 {
+	if (window->priv->document->iswebdocument == FALSE ) return;
+	
 	const gchar                  *author;
 	GdkColor                      color;
 	gdouble                       opacity;
@@ -6796,8 +6842,9 @@ method_call_cb (GDBusConnection       *connection,
                 GDBusMethodInvocation *invocation,
                 gpointer               user_data)
 {
-        EvWindow *window = EV_WINDOW (user_data);
-
+	EvWindow *window = EV_WINDOW (user_data);
+	if (window->priv->document->iswebdocument == FALSE ) return;
+  
         if (g_strcmp0 (method_name, "SyncView") != 0)
                 return;
 
@@ -7090,14 +7137,11 @@ ev_window_init (EvWindow *ev_window)
 			ev_window->priv->view_box);
 	gtk_widget_show (ev_window->priv->view_box);
 
+	ev_window->priv->view = ev_view_new ();
 
 #ifdef ENABLE_EPUB
-		ev_window->priv->web_view = webkit_web_view_new () ;
-
-		/*Signals for the web view*/
-		g_signal_connect_swapped(ev_window,"destroy",G_CALLBACK(gtk_widget_destroy),ev_window->priv->web_view);
+	ev_window->priv->webview = ev_web_view_new();
 #endif
-	ev_window->priv->view = ev_view_new ();
 	ev_view_set_page_cache_size (EV_VIEW (ev_window->priv->view), PAGE_CACHE_SIZE);
 	ev_view_set_model (EV_VIEW (ev_window->priv->view), ev_window->priv->model);
 

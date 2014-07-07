@@ -1,3 +1,25 @@
+/* this file is part of atril, a mate document viewer
+ *
+ *  Copyright (C) 2014 Avishkar Gupta
+ *
+ *  Author:
+ *   Avishkar Gupta <avishkar.gupta.delhi@gmail.com>
+ *
+ * Atril is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * Atril is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ */
+
 #include "ev-file-helpers.h"
 #include "epub-document.h"
 #include "unzip.h"
@@ -11,7 +33,12 @@
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
 
-#include <webkit/webkit.h>
+#if GTK_CHECK_VERSION(3, 0, 0)
+	#include <webkit2/webkit2.h>
+#else
+	#include <webkit/webkit.h>
+#endif
+
 #include <gtk/gtk.h>
 
 typedef enum _xmlParseReturnType 
@@ -42,8 +69,6 @@ struct _EpubDocument
     gchar* tmp_archive_dir ;
 	/*Stores the contentlist in a sorted manner*/
     GList* contentList ;
-	/*uri of the current page being displayed in the webview*/
-    gchar* currentpageuri ;
     /* A variable to hold our epubDocument for unzipping*/
     unzFile epubDocument ;
 };
@@ -68,10 +93,10 @@ epub_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 	cairo_surface_t* surface=NULL;
 	gchar* uri = (gchar*) rc->page->backend_page;
 	epub_webkit_render (&surface,uri);
-	while ( !surface ) 
-		;
-	gint width = cairo_image_surface_get_width (surface);
-	gint height = cairo_image_surface_get_height (surface);
+	if ( !surface ) {
+		return NULL ;
+	}
+	
 	if (surface) {
 		thumbnail = ev_document_misc_pixbuf_from_surface (surface);
 		cairo_surface_destroy (surface);
@@ -118,7 +143,7 @@ epub_document_get_n_pages (EvDocument *document)
             
 	return g_list_length(epub_document->contentList);
 }
-
+#if !GTK_CHECK_VERSION(3, 0, 0)
 static void 
 webkit_render_cb(GtkWidget *web_view,
                  GParamSpec *specification,
@@ -148,6 +173,51 @@ epub_webkit_render(cairo_surface_t **surface,
 	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(web_view),uri);
 }
 
+#else /* The webkit2 code for GTK3 */
+
+static void 
+snapshot_chain_cb(WebKitWebView *web_view,
+				  GAsyncResult* res,
+				  cairo_surface_t **surface)
+{
+	GError * err = NULL ;
+	*surface = webkit_web_view_get_snapshot_finish(WEBKIT_WEB_VIEW(web_view),res,&err);
+	if ( err ) {
+		surface = NULL ;	
+	}
+}
+
+static void 
+webkit_render_cb(WebKitWebView *webview,
+			     WebKitLoadEvent load_status,
+		         cairo_surface_t **surface)
+{
+	if ( load_status != WEBKIT_LOAD_FINISHED )
+		return ;
+
+	webkit_web_view_get_snapshot(webview,
+								 WEBKIT_SNAPSHOT_REGION_FULL_DOCUMENT,
+								 WEBKIT_SNAPSHOT_OPTIONS_INCLUDE_SELECTION_HIGHLIGHTING,
+								 NULL,
+								 (GAsyncReadyCallback)snapshot_chain_cb,
+								 surface);
+}
+
+static void epub_webkit_render(cairo_surface_t **surface,
+                   const char* uri)
+{
+	GtkWidget *offscreen_window = gtk_offscreen_window_new ();
+	gtk_window_set_default_size(GTK_WINDOW(offscreen_window),800,600);
+	GtkWidget* scroll_view = gtk_scrolled_window_new (NULL,NULL);
+	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scroll_view),GTK_POLICY_AUTOMATIC,GTK_POLICY_AUTOMATIC);
+	GtkWidget* web_view = webkit_web_view_new ();
+	gtk_container_add(GTK_CONTAINER(offscreen_window),scroll_view);
+	gtk_container_add(GTK_CONTAINER(scroll_view),web_view);
+	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(web_view),uri);
+	gtk_widget_show_all(offscreen_window);
+	g_signal_connect(web_view,"load-changed",G_CALLBACK(webkit_render_cb),surface);
+}
+#endif
 /**
  * epub_remove_temporary_dir : Removes a directory recursively. 
  * This function is same as comics_remove_temporary_dir
@@ -793,7 +863,6 @@ epub_document_init (EpubDocument *epub_document)
     epub_document->archivename = NULL ;
     epub_document->tmp_archive_dir = NULL ;
     epub_document->contentList = NULL ;
-    epub_document->currentpageuri =  NULL;
 }
 
 static gboolean
@@ -869,11 +938,12 @@ epub_document_finalize (GObject *object)
 	if ( epub_document->contentList ) {
                g_list_free_full(epub_document->contentList,(GDestroyNotify)free_tree_nodes);
 	}
-
-	g_free (epub_document->tmp_archive_dir);
-	g_free (epub_document->currentpageuri);
-	g_free (epub_document->archivename);
-
+	if ( epub_document->tmp_archive_dir) {
+		g_free (epub_document->tmp_archive_dir);
+	}
+	if ( epub_document->archivename) {
+		g_free (epub_document->archivename);
+	}
 	G_OBJECT_CLASS (epub_document_parent_class)->finalize (object);
 }
 
