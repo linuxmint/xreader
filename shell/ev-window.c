@@ -471,7 +471,9 @@ ev_window_setup_action_sensitivity (EvWindow *ev_window)
 static void
 ev_window_update_actions (EvWindow *ev_window)
 {
-	EvView *view = EV_VIEW (ev_window->priv->view);
+	EvWebView *webview = NULL;
+	EvView *view = NULL;
+	
 	int n_pages = 0, page = -1;
 	gboolean has_pages = FALSE;
 	gboolean presentation_mode;
@@ -483,13 +485,20 @@ ev_window_update_actions (EvWindow *ev_window)
 		n_pages = ev_document_get_n_pages (ev_window->priv->document);
 		has_pages = n_pages > 0;
 	}
+
+	if (ev_window->priv->document && ev_window->priv->document->iswebdocument == TRUE ) {
+		webview = EV_WEB_VIEW(ev_window->priv->webview);
+	} else {
+		view = EV_VIEW (ev_window->priv->view);
+	}
 	
 	can_find_in_page = (ev_window->priv->find_job &&
 			    ev_job_find_has_results (EV_JOB_FIND (ev_window->priv->find_job)));
-
-	ev_window_set_action_sensitive (ev_window, "EditCopy",
-					has_pages &&
-					ev_view_get_has_selection (view));
+	if (view) {
+		ev_window_set_action_sensitive (ev_window, "EditCopy",
+						has_pages &&
+				ev_view_get_has_selection (view));
+	}
 	ev_window_set_action_sensitive (ev_window, "EditFindNext",
 					has_pages && can_find_in_page);
 	ev_window_set_action_sensitive (ev_window, "EditFindPrevious",
@@ -1409,7 +1418,7 @@ ev_window_setup_document (EvWindow *ev_window)
 	if (EV_WINDOW_IS_PRESENTATION (ev_window) && document->iswebdocument == FALSE)
 		gtk_widget_grab_focus (ev_window->priv->presentation_view);
 	else {
-		if ( gtk_widget_get_parent(ev_window->priv->view) != NULL )
+		if ( document->iswebdocument == FALSE )
 			gtk_widget_grab_focus (ev_window->priv->view);
 		else
 			gtk_widget_grab_focus (ev_window->priv->webview);
@@ -5510,19 +5519,19 @@ ev_window_key_press_event (GtkWidget   *widget,
 	 * It's needed to be able to type in
 	 * annot popups windows
 	 */
-	GtkWidget* parent = gtk_widget_get_parent(priv->view);
-	if (priv->view &&  parent != NULL) {
-		g_object_ref (priv->view);
-		if (gtk_widget_is_sensitive (priv->view))
-			handled = gtk_widget_event (priv->view, (GdkEvent*) event);
-		g_object_unref (priv->view);
-	}
-	
-	else if ( priv->webview && (parent=gtk_widget_get_parent(priv->webview) ) != NULL) {  
+	if (priv->webview &&  priv->document && priv->document->iswebdocument == TRUE) {
 		g_object_ref (priv->webview);
 		if (gtk_widget_is_sensitive (priv->webview))
 			handled = gtk_widget_event (priv->webview, (GdkEvent*) event);
 		g_object_unref (priv->webview);
+		
+	}
+	
+	else if ( priv->view) {  
+		g_object_ref (priv->view);
+		if (gtk_widget_is_sensitive (priv->view))
+			handled = gtk_widget_event (priv->view, (GdkEvent*) event);
+		g_object_unref (priv->view);
 	}
 	
 	if (!handled && !EV_WINDOW_IS_PRESENTATION (ev_window)) {

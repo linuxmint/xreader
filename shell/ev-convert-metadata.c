@@ -26,7 +26,7 @@
 #include <glib/gi18n.h>
 #include <string.h>
 #include <libxml/tree.h>
-
+#include <X11/Xlib.h>
 #define EV_METADATA_NAMESPACE "metadata::atril"
 
 typedef struct {
@@ -294,7 +294,7 @@ main (gint argc, gchar **argv)
 		g_printerr ("%s\n", "Usage: atril-convert-metadata FILE");
 		return 1;
 	}
-
+	XInitThreads();
 	gtk_init (&argc, &argv);
 
 	if (!convert_metadata_file (argv[1]))

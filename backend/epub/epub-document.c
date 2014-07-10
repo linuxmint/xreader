@@ -71,6 +71,8 @@ struct _EpubDocument
     GList* contentList ;
     /* A variable to hold our epubDocument for unzipping*/
     unzFile epubDocument ;
+	/* A pointer to an offscreen WebKitWebView, for thumbnails*/
+	WebKitWebView *webview;
 };
 
 static void       epub_document_document_thumbnails_iface_init (EvDocumentThumbnailsInterface *iface);
@@ -81,27 +83,39 @@ EV_BACKEND_REGISTER_WITH_CODE (EpubDocument, epub_document,
 						epub_document_document_thumbnails_iface_init);
 	} );
 
+/* A cairo surface for the thumbnails, this probably dosen't need to be global, but I couldn't find a better solution.*/
+static cairo_surface_t* surface = NULL ;
+static gboolean completed = FALSE;
+static GdkPixbuf *thumbnail=NULL ;
+
 static void
-epub_webkit_render(cairo_surface_t **surface,
-                   const char* uri);
+epub_webkit_render(EpubDocument *document,const char* uri);
+
 static GdkPixbuf *
 epub_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 					  EvRenderContext      *rc,
 					  gboolean              border)
 {
-	GdkPixbuf *thumbnail;
-	cairo_surface_t* surface=NULL;
 	gchar* uri = (gchar*) rc->page->backend_page;
-	epub_webkit_render (&surface,uri);
-	if ( !surface ) {
-		return NULL ;
+	EpubDocument *epub_document = EPUB_DOCUMENT(document);
+	completed = FALSE ;
+	thumbnail=NULL;
+	if (surface) {
+		cairo_surface_destroy (surface);
+		surface=NULL;
+	}
+	epub_webkit_render (epub_document,uri);
+
+	while (completed != TRUE ) {
+		/*Wait for the job to complete*/
 	}
 	
-	if (surface) {
-		thumbnail = ev_document_misc_pixbuf_from_surface (surface);
-		cairo_surface_destroy (surface);
+	if (thumbnail) {
+		return thumbnail;
 	}
-	return thumbnail;
+	else {
+		return NULL;
+	}
 }
 
 static void
@@ -110,8 +124,11 @@ epub_document_thumbnails_get_dimensions (EvDocumentThumbnails *document,
 					   gint                 *width,
 					   gint                 *height)
 {
-	gdouble page_width = 800;
-	gdouble page_height = 600;
+	gdouble page_width, page_height;
+	
+	page_width = 800;
+	page_height = 600;
+	
 	*width = MAX ((gint)(page_width * rc->scale + 0.5), 1);
 	*height = MAX ((gint)(page_height * rc->scale + 0.5), 1);
 }
@@ -147,30 +164,40 @@ epub_document_get_n_pages (EvDocument *document)
 static void 
 webkit_render_cb(GtkWidget *web_view,
                  GParamSpec *specification,
-           	     cairo_surface_t **surface)
+           	     gpointer data)
 {
 	WebKitLoadStatus status = webkit_web_view_get_load_status (WEBKIT_WEB_VIEW(web_view));
 
 	if ( status == WEBKIT_LOAD_FINISHED )
 	{
-		*(surface) = webkit_web_view_get_snapshot (WEBKIT_WEB_VIEW(web_view));
+		surface = webkit_web_view_get_snapshot (WEBKIT_WEB_VIEW(web_view));
+		thumbnail = ev_document_misc_pixbuf_from_surface(surface);
+		completed=TRUE;
 	}
 }
 
-static void
-epub_webkit_render(cairo_surface_t **surface,
-                   const char* uri)
+static void epub_webkit_render(EpubDocument *epub_document,const char* uri)
 {
-	GtkWidget *offscreen_window = gtk_offscreen_window_new ();
+	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(epub_document->webview),uri);
+}
+
+static WebKitWebView*
+offscreen_webview_init() 
+{
+	GtkWidget *offscreen_window = gtk_offscreen_window_new();
 	gtk_window_set_default_size(GTK_WINDOW(offscreen_window),800,600);
+	
 	GtkWidget* scroll_view = gtk_scrolled_window_new (NULL,NULL);
 	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scroll_view),GTK_POLICY_AUTOMATIC,GTK_POLICY_AUTOMATIC);
 	GtkWidget* web_view = webkit_web_view_new ();
-	g_signal_connect(WEBKIT_WEB_VIEW(web_view),"notify::load-status",G_CALLBACK(webkit_render_cb),surface);
+	WebKitWebSettings *webviewsettings = webkit_web_settings_new ();
+	g_object_set (G_OBJECT(webviewsettings), "enable-plugins", FALSE, NULL);
+	webkit_web_view_set_settings (WEBKIT_WEB_VIEW(web_view),webviewsettings);
+	g_signal_connect(WEBKIT_WEB_VIEW(web_view),"notify::load-status",G_CALLBACK(webkit_render_cb),NULL);
 	gtk_container_add(GTK_CONTAINER(scroll_view),web_view);
 	gtk_container_add(GTK_CONTAINER(offscreen_window),scroll_view);
 	gtk_widget_show_all (offscreen_window);
-	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(web_view),uri);
+	return WEBKIT_WEB_VIEW(web_view);
 }
 
 #else /* The webkit2 code for GTK3 */
@@ -203,20 +230,21 @@ webkit_render_cb(WebKitWebView *webview,
 								 surface);
 }
 
-static void epub_webkit_render(cairo_surface_t **surface,
-                   const char* uri)
 {
 	GtkWidget *offscreen_window = gtk_offscreen_window_new ();
 	gtk_window_set_default_size(GTK_WINDOW(offscreen_window),800,600);
 	GtkWidget* scroll_view = gtk_scrolled_window_new (NULL,NULL);
 	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scroll_view),GTK_POLICY_AUTOMATIC,GTK_POLICY_AUTOMATIC);
 	GtkWidget* web_view = webkit_web_view_new ();
+	
 	gtk_container_add(GTK_CONTAINER(offscreen_window),scroll_view);
 	gtk_container_add(GTK_CONTAINER(scroll_view),web_view);
-	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(web_view),uri);
+	
 	gtk_widget_show_all(offscreen_window);
 	g_signal_connect(web_view,"load-changed",G_CALLBACK(webkit_render_cb),surface);
+	return web_view ;
 }
+
 #endif
 /**
  * epub_remove_temporary_dir : Removes a directory recursively. 
@@ -863,6 +891,7 @@ epub_document_init (EpubDocument *epub_document)
     epub_document->archivename = NULL ;
     epub_document->tmp_archive_dir = NULL ;
     epub_document->contentList = NULL ;
+	epub_document->webview = offscreen_webview_init();
 }
 
 static gboolean
@@ -1037,13 +1066,12 @@ epub_document_class_init (EpubDocumentClass *klass)
 {
 	GObjectClass    *gobject_class = G_OBJECT_CLASS (klass);
 	EvDocumentClass *ev_document_class = EV_DOCUMENT_CLASS (klass);
-
+	
 	gobject_class->finalize = epub_document_finalize;
 
 	ev_document_class->load = epub_document_load;
 	ev_document_class->save = epub_document_save;
 	ev_document_class->get_n_pages = epub_document_get_n_pages;
-/*	ev_document_class->wekit_render->render = epub_document_render;*/
 	ev_document_class->get_info = epub_document_get_info; 
 	ev_document_class->get_page = epub_document_get_page;
 }

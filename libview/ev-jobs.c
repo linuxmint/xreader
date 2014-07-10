@@ -211,7 +211,7 @@ ev_job_run (EvJob *job)
 {
 	EvJobClass *class = EV_JOB_GET_CLASS (job);
 	
-	return class->run (job);
+	return class->  run (job);
 }
 
 void
@@ -791,7 +791,12 @@ ev_job_thumbnail_run (EvJob *job)
 	ev_document_doc_mutex_lock ();
 
 	page = ev_document_get_page (job->document, job_thumb->page);
-	rc = ev_render_context_new (page, job_thumb->rotation, job_thumb->scale);
+	if (job->document->iswebdocument == TRUE ) {
+		rc = ev_render_context_new (page, 0, job_thumb->scale);
+	}
+	else {		
+		rc = ev_render_context_new (page, job_thumb->rotation, job_thumb->scale);
+	}
 	g_object_unref (page);
 
 	job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (job->document),
