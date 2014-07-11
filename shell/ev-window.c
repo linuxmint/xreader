@@ -5834,7 +5834,7 @@ sidebar_annots_annot_activated_cb (EvSidebarAnnotations *sidebar_annots,
 				   EvMapping            *annot_mapping,
 				   EvWindow             *window)
 {
-	if (window->priv->document->iswebdocument == FALSE ) return;
+	if (window->priv->document->iswebdocument == TRUE ) return;
 	ev_view_focus_annotation (EV_VIEW (window->priv->view), annot_mapping);
 }
 
@@ -5843,7 +5843,7 @@ sidebar_annots_begin_annot_add (EvSidebarAnnotations *sidebar_annots,
 				EvAnnotationType      annot_type,
 				EvWindow             *window)
 {
-	if (window->priv->document->iswebdocument == FALSE ) return;
+	if (window->priv->document->iswebdocument == TRUE ) return;
 	ev_view_begin_add_annotation (EV_VIEW (window->priv->view), annot_type);
 }
 
@@ -5860,7 +5860,7 @@ static void
 sidebar_annots_annot_add_cancelled (EvSidebarAnnotations *sidebar_annots,
 				    EvWindow             *window)
 {
-	if (window->priv->document->iswebdocument == FALSE ) return;
+	if (window->priv->document->iswebdocument == TRUE ) return;
 	ev_view_cancel_add_annotation (EV_VIEW (window->priv->view));
 }
 
