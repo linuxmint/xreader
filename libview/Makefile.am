@@ -77,7 +77,7 @@ libatrilview_la_LDFLAGS = \
 libatrilview_la_LIBADD = \
 	$(top_builddir)/libdocument/libatrildocument.la \
 	$(LIBVIEW_LIBS)								 \
-	$(WEBKIT_CFLAGS)
+	$(WEBKIT_LIBS)
 
 BUILT_SOURCES = 			\
 	ev-view-marshal.h		\
