@@ -529,10 +529,12 @@ extract_one_file(EpubDocument* epub_document,GError ** error)
     GString * gfilepath ;
     unz_file_info64 info ;  
     gchar* directory;
+	GString* dir_create;
     GFileOutputStream * outstream ;
     gpointer currentfilename = g_malloc0(512);
     gpointer buffer = g_malloc0(512);
-
+    gchar* createdirnametemp = NULL ;
+    gchar* createdirname = NULL;
     if ( unzOpenCurrentFile(epub_document->epubDocument) != UNZ_OK )
     {
             return FALSE ;
@@ -551,28 +553,51 @@ extract_one_file(EpubDocument* epub_document,GError ** error)
     if (directory != NULL && *directory == '\0')
     {
         g_mkdir(gfilepath->str,0777);
+        unzCloseCurrentFile (epub_document->epubDocument) ;
+        g_string_free(gfilepath,TRUE);
+        g_free(currentfilename);
+        g_free(buffer);
+        return TRUE;
     }
-    else
-    {
-        outfile = g_file_new_for_path(gfilepath->str);
-        outstream = g_file_create(outfile,G_FILE_CREATE_PRIVATE,NULL,error);
-        while ( (writesize = unzReadCurrentFile(epub_document->epubDocument,buffer,512) ) != 0 )
-        {
-            if ( g_output_stream_write((GOutputStream*)outstream,buffer,writesize,NULL,error) == -1 )
-            {
-                return FALSE ;
-            }
+    else if (directory != NULL && *directory != '\0' ) {
+        gchar* createdir = currentfilename;
+        /*Since a substring can't be longer than the parent string, allocating space equal to the parent's size should suffice*/
+        createdirname = g_malloc0(strlen(currentfilename));
+        /* Add the name of the directory and subdiectories,if any to a buffer and then create it */
+        createdirnametemp = createdirname;        
+        while ( createdir != directory ) {
+            (*createdirnametemp) = (*createdir);
+            createdirnametemp++;
+            createdir++;
         }
-        g_output_stream_close((GOutputStream*)outstream,NULL,error);
-        g_object_unref(outfile) ;
-        g_object_unref(outstream) ;
+        (*createdirnametemp) = '\0';
+		dir_create = g_string_new(epub_document->tmp_archive_dir);
+		g_string_append_printf(dir_create,"/%s",createdirname);
+        g_mkdir_with_parents(dir_create->str,0777);
+		g_string_free(dir_create,TRUE);
     }
 
+    outfile = g_file_new_for_path(gfilepath->str);
+    outstream = g_file_create(outfile,G_FILE_CREATE_PRIVATE,NULL,error);
+    while ( (writesize = unzReadCurrentFile(epub_document->epubDocument,buffer,512) ) != 0 )
+    {
+        if ( g_output_stream_write((GOutputStream*)outstream,buffer,writesize,NULL,error) == -1 )
+        {
+            return FALSE ;
+        }
+    }
+    g_output_stream_close((GOutputStream*)outstream,NULL,error);
+    g_object_unref(outfile) ;
+    g_object_unref(outstream) ;
+   
     unzCloseCurrentFile (epub_document->epubDocument) ;
     g_string_free(gfilepath,TRUE);
     g_free(currentfilename);
     g_free(buffer);
-    return TRUE;
+	if ( createdirname != NULL) {
+		g_free(createdirname);
+	}
+	return TRUE;
 }
 
 static gboolean 
