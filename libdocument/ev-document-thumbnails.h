@@ -53,7 +53,6 @@ struct _EvDocumentThumbnailsInterface {
                                          gint                 *width,
                                          gint                 *height);
 	
-	GtkWidget  *(*render_in_webview) (gchar* webpage);
 };
 
 GType      ev_document_thumbnails_get_type       (void) G_GNUC_CONST;
@@ -65,8 +64,6 @@ void       ev_document_thumbnails_get_dimensions (EvDocumentThumbnails *document
                                                   EvRenderContext      *rc,
                                                   gint                 *width,
                                                   gint                 *height);
-GtkWidget* ev_document_thumbnails_get_webview_with_rendered_document    (EvDocumentThumbnails *document,
-                                                  gchar* webpageuri);
 G_END_DECLS
 
 #endif /* EV_DOCUMENT_THUMBNAILS_H */

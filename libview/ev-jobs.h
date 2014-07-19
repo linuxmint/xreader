@@ -307,6 +307,7 @@ struct _EvJobWebThumbnail
 	GtkWidget *offscreenwindow;
 	gboolean  *completed;
 	cairo_surface_t *surface;
+	gchar* page;
 };
 
 struct _EvJobWebThumbnailClass
@@ -474,8 +475,9 @@ EvJob          *ev_job_thumbnail_new      (EvDocument      *document,
 /* EvJobWebThumbnail */
 GType           ev_job_web_thumbnail_get_type (void) G_GNUC_CONST;
 EvJob          *ev_job_web_thumbnail_new      (EvDocument      *document,
+                                               gboolean        *completed,
                                                GtkWidget       *webview,
-                                               gboolean        *completed);
+                                               gchar           *webpage);
 /* EvJobFonts */
 GType 		ev_job_fonts_get_type 	  (void) G_GNUC_CONST;
 EvJob 	       *ev_job_fonts_new 	  (EvDocument      *document);

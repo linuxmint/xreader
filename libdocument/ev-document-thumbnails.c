@@ -60,14 +60,3 @@ ev_document_thumbnails_get_dimensions (EvDocumentThumbnails *document,
 	iface = EV_DOCUMENT_THUMBNAILS_GET_IFACE (document);
 	iface->get_dimensions (document, rc, width, height);
 }
-
-GtkWidget*
-ev_document_thumbnails_get_webview_with_rendered_document(EvDocumentThumbnails *document,
-                                                          gchar *webpageuri)
-{
-	EvDocumentThumbnailsInterface *iface;
-	g_return_val_if_fail (EV_IS_DOCUMENT_THUMBNAILS (document),NULL);
-
-	iface = EV_DOCUMENT_THUMBNAILS_GET_IFACE(document);
-	return iface->render_in_webview(webpageuri);
-}

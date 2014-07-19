@@ -801,7 +801,6 @@ ev_job_thumbnail_run (EvJob *job)
 	EvJobThumbnail  *job_thumb = EV_JOB_THUMBNAIL (job);
 	EvRenderContext *rc;
 	EvPage          *page;
-	GtkWidget       *webview;
 	ev_debug_message (DEBUG_JOBS, "%d (%p)", job_thumb->page, job);
 	ev_profiler_start (EV_PROFILE_JOBS, "%s (%p)", EV_GET_TYPE_NAME (job), job);
 
@@ -817,20 +816,24 @@ ev_job_thumbnail_run (EvJob *job)
 	g_object_unref (page);
 
 	if (job->document->iswebdocument == TRUE) {
-		webview = ev_document_thumbnails_get_webview_with_rendered_document(EV_DOCUMENT_THUMBNAILS(job->document),(gchar*)rc->page->backend_page);
 		gboolean completed = FALSE;
-
+		GtkWidget *webview = webkit_web_view_new();
+		
 		EvJobWebThumbnail *web_thumb_job = 
-			EV_JOB_WEB_THUMBNAIL(ev_job_web_thumbnail_new(job->document, webview, &completed));
+			EV_JOB_WEB_THUMBNAIL(ev_job_web_thumbnail_new(job->document, &completed, webview, (gchar*)rc->page->backend_page));
 		
 		ev_job_scheduler_push_job (EV_JOB (web_thumb_job), EV_JOB_PRIORITY_HIGH);
+
+		WebKitLoadStatus status ;
 		
-		while (completed == FALSE) {
+		while ((status = webkit_web_view_get_load_status (WEBKIT_WEB_VIEW(webview))) != WEBKIT_LOAD_FINISHED && 
+		       status != WEBKIT_LOAD_FAILED) {
 			/*Let the job complete before we proceed.
 			 *This fix SHOULD solve all problems.
 			 */
 		}
-		
+
+		web_thumb_job->surface = webkit_web_view_get_snapshot (WEBKIT_WEB_VIEW(webview));
 		/* For the purpose of thumbnails only, we make the page a cairo surface, instead of the uri's we are passing around*/
 		EvPage *screenshotpage;
 		screenshotpage = ev_page_new(rc->page->index);
@@ -838,11 +841,15 @@ ev_job_thumbnail_run (EvJob *job)
 		screenshotpage->backend_destroy_func = (EvBackendPageDestroyFunc)cairo_surface_destroy ;
 		ev_render_context_set_page(rc,screenshotpage);
 
+		job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (job->document),
+								     rc, TRUE);
+		
 		g_object_unref(web_thumb_job);
 	}
-	
-	job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (job->document),
-								     rc, TRUE);
+	else {
+		job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (job->document),
+										 rc, TRUE);
+	}
 	g_object_unref (rc);
 	ev_document_doc_mutex_unlock ();
 
@@ -897,20 +904,24 @@ ev_job_web_thumbnail_dispose (GObject *object)
 	job = EV_JOB_WEB_THUMBNAIL (object);
 
 	ev_debug_message (DEBUG_JOBS, "%d (%p)", job->page, job);
-	
-	if(job->webview) {
-		g_object_unref(job->webview);
-		job->webview = NULL;
-	}
 
 	if(job->offscreenwindow) {
 		gtk_widget_destroy(job->offscreenwindow);
 		job->offscreenwindow = NULL;
 	}
-
+	
+	if(job->webview) {
+		job->webview = NULL;
+	}
+	
 	if(job->surface) {
 		cairo_surface_destroy (job->surface);
 		job->surface = NULL;
+	}
+
+	if(job->page) {
+		g_free(job->page);
+		job->page = NULL;
 	}
 	(* G_OBJECT_CLASS (ev_job_web_thumbnail_parent_class)->dispose) (object);
 }
@@ -919,19 +930,23 @@ static gboolean
 ev_job_web_thumbnail_run (EvJob *job)
 {
 	EvJobWebThumbnail *web_thumb_job = EV_JOB_WEB_THUMBNAIL(job);
+
+	ev_debug_message (DEBUG_JOBS, "%s (%p)", web_thumb_job->page, job);
+	
+#ifdef EV_ENABLE_DEBUG
+	/* We use the #ifdef in this case because of the if */
+	if (web_thumb_job->surface == NULL)
+		ev_profiler_start (EV_PROFILE_JOBS, "%s (%p)", EV_GET_TYPE_NAME (job), job);
+#endif
+	
 	gtk_window_set_default_size (GTK_WINDOW(web_thumb_job->offscreenwindow),800,1080);
-	gtk_container_add(GTK_CONTAINER(web_thumb_job->offscreenwindow),GTK_WIDGET(web_thumb_job->webview));
+
+	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(web_thumb_job->webview),web_thumb_job->page);
+
 	gtk_widget_show_all(web_thumb_job->offscreenwindow);
 	
-	web_thumb_job->surface = webkit_web_view_get_snapshot (WEBKIT_WEB_VIEW(web_thumb_job->webview));
+	ev_job_succeeded (EV_JOB(job));
 
-	while (!web_thumb_job->surface) {
-		/* Wait for a surface */
-	}
-	*(web_thumb_job->completed) = TRUE ;
-	
-	ev_job_succeeded (job);
-	
 	return FALSE;
 }
 
@@ -947,8 +962,9 @@ ev_job_web_thumbnail_class_init (EvJobWebThumbnailClass *class)
 
 EvJob *
 ev_job_web_thumbnail_new (EvDocument *document,
+                          gboolean   *completed,
                           GtkWidget  *webview,
-                          gboolean   *completed)
+                          gchar      *webpage)
 {
 	EvJobWebThumbnail *job;
 
@@ -957,10 +973,16 @@ ev_job_web_thumbnail_new (EvDocument *document,
 	job = g_object_new (EV_TYPE_JOB_WEB_THUMBNAIL, NULL);
 
 	EV_JOB (job)->document = g_object_ref (document);
-	job->webview = g_object_ref(webview);
+
+	job->webview = webview;
 	job->completed = completed;
 	job->offscreenwindow = gtk_offscreen_window_new();
+
+	gtk_container_add(GTK_CONTAINER(job->offscreenwindow),GTK_WIDGET(job->webview));
+	
 	job->surface = NULL;
+	job->page = g_strdup(webpage);
+
 	return EV_JOB (job);
 }
 

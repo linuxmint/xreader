@@ -113,38 +113,10 @@ epub_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 }
 
 static void
-load_finished_cb(WebKitWebView *webview,
-             	 GParamSpec    *spec,
-                 gboolean      *completed)
-{
-	WebKitLoadStatus status = webkit_web_view_get_load_status (webview);
-
-	if (status == WEBKIT_LOAD_FINISHED) {
-		(*completed) = TRUE;
-	}
-}
-
-GtkWidget* 
-epub_document_thumbnails_render_in_webview(gchar* webpage)
-{
-	GtkWidget *webview = webkit_web_view_new();
-	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),webpage);
-	gboolean completed = FALSE;
-	g_signal_connect(webview,"notify::load-status",G_CALLBACK(load_finished_cb),&completed);
-
-	while (completed == FALSE) {
-		/* Wait for the load to complete*/
-	}
-
-	return webview;
-}
-
-static void
 epub_document_document_thumbnails_iface_init (EvDocumentThumbnailsInterface *iface)
 {
 	iface->get_thumbnail = epub_document_thumbnails_get_thumbnail;
 	iface->get_dimensions = epub_document_thumbnails_get_dimensions;
-	iface->render_in_webview = epub_document_thumbnails_render_in_webview;
 }
 
 static gboolean
