@@ -99,8 +99,7 @@ ev_web_view_destroy (GtkObject *object)
 	if (webview->model) {
 		g_object_unref(webview->model);
 		webview->model = NULL;
-	}
-	WebKitWebViewClass *klass = WEBKIT_WEB_VIEW_GET_CLASS(webview);
+	};
 	
 #if GTK_CHECK_VERSION (3, 0, 0)
 	G_OBJECT_CLASS (ev_web_view_parent_class)->dispose (object);
@@ -193,7 +192,7 @@ ev_web_view_document_changed_cb (EvDocumentModel *model,
 		if (webview->current_page != current_page) {
 			ev_web_view_change_page (webview, current_page);
 		} else {
-			webkit_web_view_reload (webview);
+			webkit_web_view_reload (WEBKIT_WEB_VIEW(webview));
 		}
 		
 	}
@@ -227,7 +226,6 @@ ev_web_view_fullscreen_changed_cb (EvDocumentModel *model,
 	webkit_web_view_set_view_mode(WEBKIT_WEB_VIEW(webview), WEBKIT_WEB_VIEW_VIEW_MODE_FULLSCREEN);
 #endif
 }
-
 void
 ev_web_view_set_model (EvWebView          *webview,
 		       EvDocumentModel    *model)
@@ -296,9 +294,13 @@ ev_web_view_next_page (EvWebView *webview)
 
 	if (page < n_pages) {
 		ev_document_model_set_page (webview->model, page);
+		EvPage *webpage = ev_document_get_page(webview->document,page);
+		webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),(gchar*)webpage->backend_page);
 		return TRUE;
 	} else if (page == n_pages) {
 		ev_document_model_set_page (webview->model, page - 1);
+		EvPage *webpage = ev_document_get_page(webview->document,page);
+		webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),(gchar*)webpage->backend_page);
 		return TRUE;
 	} else {
 		return FALSE;
@@ -321,9 +323,13 @@ ev_web_view_previous_page (EvWebView *webview)
 
 	if (page >= 0) {
 		ev_document_model_set_page (webview->model, page);
+		EvPage *webpage = ev_document_get_page(webview->document,page);
+		webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),(gchar*)webpage->backend_page);
 		return TRUE;
 	} else if (page == -1) {
 		ev_document_model_set_page (webview->model, 0);
+		EvPage *webpage = ev_document_get_page(webview->document,page);
+		webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),(gchar*)webpage->backend_page);
 		return TRUE;
 	} else {	
 		return FALSE;

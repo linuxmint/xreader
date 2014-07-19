@@ -2089,9 +2089,6 @@ ev_window_open_document (EvWindow       *ev_window,
 			 EvWindowRunMode mode,
 			 const gchar    *search_string)
 {
-	if (document == ev_window->priv->document)
-		return;
-
 	ev_window_close_dialogs (ev_window);
 	ev_window_clear_load_job (ev_window);
 	ev_window_clear_local_uri (ev_window);

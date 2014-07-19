@@ -68,7 +68,6 @@ struct _EvSidebarThumbnailsPrivate {
 	EvDocument *document;
 	EvDocumentModel *model;
 	EvThumbsSizeCache *size_cache;
-
 	gint n_pages, pages_done;
 
 	int rotation;
@@ -136,8 +135,14 @@ ev_thumbnails_size_cache_new (EvDocument *document)
 
 		page = ev_document_get_page (document, i);
 
-		ev_document_get_page_size (document, i, &page_width, &page_height);
-
+		if (document->iswebdocument == FALSE ) {
+			ev_document_get_page_size (document, i, &page_width, &page_height);
+		}
+		else {
+			/* Hardcoding these values to a large enough dimesnsion so as to achieve max content without loss in visibility*/
+			page_width = 800;
+			page_height = 1080;
+		}
 		if (!rc) {
 			rc = ev_render_context_new (page, 0, (gdouble)THUMBNAIL_WIDTH / page_width);
 		} else {
@@ -368,6 +373,10 @@ clear_range (EvSidebarThumbnails *sidebar_thumbnails,
 	     result && start_page <= end_page;
 	     result = gtk_tree_model_iter_next (GTK_TREE_MODEL (priv->list_store), &iter), start_page ++) {
 		EvJobThumbnail *job;
+
+		if (priv->document->iswebdocument == TRUE) {
+			EV_JOB(job)->run_mode = EV_JOB_RUN_MAIN_LOOP ;
+		}
 		GdkPixbuf *loading_icon = NULL;
 		gint width, height;
 
@@ -409,9 +418,12 @@ get_scale_for_page (EvSidebarThumbnails *sidebar_thumbnails,
 {
 	EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
 	gdouble width;
-
-	ev_document_get_page_size (priv->document, page, &width, NULL);
-
+	if (priv->document->iswebdocument == TRUE ) {
+		/* Hardcoded for epub documents*/
+		width = 800;
+	} else {
+		ev_document_get_page_size (priv->document, page, &width, NULL);
+	}
 	return (gdouble)THUMBNAIL_WIDTH / width;
 }
 
@@ -433,6 +445,7 @@ add_range (EvSidebarThumbnails *sidebar_thumbnails,
 	     result && page <= end_page;
 	     result = gtk_tree_model_iter_next (GTK_TREE_MODEL (priv->list_store), &iter), page ++) {
 		EvJob *job;
+
 		gboolean thumbnail_set;
 
 		gtk_tree_model_get (GTK_TREE_MODEL (priv->list_store), &iter,
@@ -444,6 +457,7 @@ add_range (EvSidebarThumbnails *sidebar_thumbnails,
 			job = ev_job_thumbnail_new (priv->document,
 						    page, priv->rotation,
 						    get_scale_for_page (sidebar_thumbnails, page));
+
 			ev_job_scheduler_push_job (EV_JOB (job), EV_JOB_PRIORITY_HIGH);
 			
 			g_object_set_data_full (G_OBJECT (job), "tree_iter",

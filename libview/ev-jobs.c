@@ -24,6 +24,7 @@
 #include "ev-document-thumbnails.h"
 #include "ev-document-links.h"
 #include "ev-document-images.h"
+#include "ev-job-scheduler.h"
 #include "ev-document-forms.h"
 #include "ev-file-exporter.h"
 #include "ev-document-factory.h"
@@ -39,6 +40,14 @@
 #include "ev-document-text.h"
 #include "ev-debug.h"
 
+#include <gtk/gtk.h>
+#ifdef ENABLE_EPUB
+#if GTK_CHECK_VERSION(3, 0, 0)
+#include <webkit2/webkit2.h>
+#else
+#include <webkit/webkit.h>
+#endif
+#endif
 #include <errno.h>
 #include <glib/gstdio.h>
 #include <glib/gi18n-lib.h>
@@ -58,6 +67,8 @@ static void ev_job_page_data_init         (EvJobPageData         *job);
 static void ev_job_page_data_class_init   (EvJobPageDataClass    *class);
 static void ev_job_thumbnail_init         (EvJobThumbnail        *job);
 static void ev_job_thumbnail_class_init   (EvJobThumbnailClass   *class);
+static void ev_job_web_thumbnail_init         (EvJobWebThumbnail        *job);
+static void ev_job_web_thumbnail_class_init   (EvJobWebThumbnailClass   *class);
 static void ev_job_load_init    	  (EvJobLoad	         *job);
 static void ev_job_load_class_init 	  (EvJobLoadClass	 *class);
 static void ev_job_save_init              (EvJobSave             *job);
@@ -87,6 +98,11 @@ enum {
 	FIND_LAST_SIGNAL
 };
 
+typedef struct _WebKitScreenShot {
+	cairo_surface_t *surface;
+	gboolean completed;
+}WebKitScreenShot;
+
 static guint job_signals[LAST_SIGNAL] = { 0 };
 static guint job_fonts_signals[FONTS_LAST_SIGNAL] = { 0 };
 static guint job_find_signals[FIND_LAST_SIGNAL] = { 0 };
@@ -98,6 +114,7 @@ G_DEFINE_TYPE (EvJobAnnots, ev_job_annots, EV_TYPE_JOB)
 G_DEFINE_TYPE (EvJobRender, ev_job_render, EV_TYPE_JOB)
 G_DEFINE_TYPE (EvJobPageData, ev_job_page_data, EV_TYPE_JOB)
 G_DEFINE_TYPE (EvJobThumbnail, ev_job_thumbnail, EV_TYPE_JOB)
+G_DEFINE_TYPE (EvJobWebThumbnail, ev_job_web_thumbnail, EV_TYPE_JOB)
 G_DEFINE_TYPE (EvJobFonts, ev_job_fonts, EV_TYPE_JOB)
 G_DEFINE_TYPE (EvJobLoad, ev_job_load, EV_TYPE_JOB)
 G_DEFINE_TYPE (EvJobSave, ev_job_save, EV_TYPE_JOB)
@@ -758,7 +775,7 @@ ev_job_page_data_new (EvDocument        *document,
 static void
 ev_job_thumbnail_init (EvJobThumbnail *job)
 {
-	EV_JOB (job)->run_mode = EV_JOB_RUN_THREAD;
+		EV_JOB (job)->run_mode = EV_JOB_RUN_THREAD;
 }
 
 static void
@@ -784,10 +801,10 @@ ev_job_thumbnail_run (EvJob *job)
 	EvJobThumbnail  *job_thumb = EV_JOB_THUMBNAIL (job);
 	EvRenderContext *rc;
 	EvPage          *page;
-
+	GtkWidget       *webview;
 	ev_debug_message (DEBUG_JOBS, "%d (%p)", job_thumb->page, job);
 	ev_profiler_start (EV_PROFILE_JOBS, "%s (%p)", EV_GET_TYPE_NAME (job), job);
-	
+
 	ev_document_doc_mutex_lock ();
 
 	page = ev_document_get_page (job->document, job_thumb->page);
@@ -799,13 +816,38 @@ ev_job_thumbnail_run (EvJob *job)
 	}
 	g_object_unref (page);
 
+	if (job->document->iswebdocument == TRUE) {
+		webview = ev_document_thumbnails_get_webview_with_rendered_document(EV_DOCUMENT_THUMBNAILS(job->document),(gchar*)rc->page->backend_page);
+		gboolean completed = FALSE;
+
+		EvJobWebThumbnail *web_thumb_job = 
+			EV_JOB_WEB_THUMBNAIL(ev_job_web_thumbnail_new(job->document, webview, &completed));
+		
+		ev_job_scheduler_push_job (EV_JOB (web_thumb_job), EV_JOB_PRIORITY_HIGH);
+		
+		while (completed == FALSE) {
+			/*Let the job complete before we proceed.
+			 *This fix SHOULD solve all problems.
+			 */
+		}
+		
+		/* For the purpose of thumbnails only, we make the page a cairo surface, instead of the uri's we are passing around*/
+		EvPage *screenshotpage;
+		screenshotpage = ev_page_new(rc->page->index);
+		screenshotpage->backend_page = (EvBackendPage)web_thumb_job->surface;
+		screenshotpage->backend_destroy_func = (EvBackendPageDestroyFunc)cairo_surface_destroy ;
+		ev_render_context_set_page(rc,screenshotpage);
+
+		g_object_unref(web_thumb_job);
+	}
+	
 	job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (job->document),
 								     rc, TRUE);
 	g_object_unref (rc);
 	ev_document_doc_mutex_unlock ();
 
 	ev_job_succeeded (job);
-	
+
 	return FALSE;
 }
 
@@ -836,6 +878,89 @@ ev_job_thumbnail_new (EvDocument *document,
 	job->rotation = rotation;
 	job->scale = scale;
 
+	return EV_JOB (job);
+}
+
+/* This job is a part of thumbnails, but will run as a thread and call the otherwise main loop job on a signal*/
+/* EvJobWebThumbnail */
+static void
+ev_job_web_thumbnail_init (EvJobWebThumbnail *job)
+{
+		EV_JOB (job)->run_mode = EV_JOB_RUN_MAIN_LOOP;
+}
+
+static void
+ev_job_web_thumbnail_dispose (GObject *object)
+{
+	EvJobWebThumbnail *job;
+
+	job = EV_JOB_WEB_THUMBNAIL (object);
+
+	ev_debug_message (DEBUG_JOBS, "%d (%p)", job->page, job);
+	
+	if(job->webview) {
+		g_object_unref(job->webview);
+		job->webview = NULL;
+	}
+
+	if(job->offscreenwindow) {
+		gtk_widget_destroy(job->offscreenwindow);
+		job->offscreenwindow = NULL;
+	}
+
+	if(job->surface) {
+		cairo_surface_destroy (job->surface);
+		job->surface = NULL;
+	}
+	(* G_OBJECT_CLASS (ev_job_web_thumbnail_parent_class)->dispose) (object);
+}
+
+static gboolean
+ev_job_web_thumbnail_run (EvJob *job)
+{
+	EvJobWebThumbnail *web_thumb_job = EV_JOB_WEB_THUMBNAIL(job);
+	gtk_window_set_default_size (GTK_WINDOW(web_thumb_job->offscreenwindow),800,1080);
+	gtk_container_add(GTK_CONTAINER(web_thumb_job->offscreenwindow),GTK_WIDGET(web_thumb_job->webview));
+	gtk_widget_show_all(web_thumb_job->offscreenwindow);
+	
+	web_thumb_job->surface = webkit_web_view_get_snapshot (WEBKIT_WEB_VIEW(web_thumb_job->webview));
+
+	while (!web_thumb_job->surface) {
+		/* Wait for a surface */
+	}
+	*(web_thumb_job->completed) = TRUE ;
+	
+	ev_job_succeeded (job);
+	
+	return FALSE;
+}
+
+static void
+ev_job_web_thumbnail_class_init (EvJobWebThumbnailClass *class)
+{
+	GObjectClass *oclass = G_OBJECT_CLASS (class);
+	EvJobClass   *job_class = EV_JOB_CLASS (class);
+
+	oclass->dispose = ev_job_web_thumbnail_dispose;
+	job_class->run = ev_job_web_thumbnail_run;
+}
+
+EvJob *
+ev_job_web_thumbnail_new (EvDocument *document,
+                          GtkWidget  *webview,
+                          gboolean   *completed)
+{
+	EvJobWebThumbnail *job;
+
+	ev_debug_message (DEBUG_JOBS, "%d", page);
+	
+	job = g_object_new (EV_TYPE_JOB_WEB_THUMBNAIL, NULL);
+
+	EV_JOB (job)->document = g_object_ref (document);
+	job->webview = g_object_ref(webview);
+	job->completed = completed;
+	job->offscreenwindow = gtk_offscreen_window_new();
+	job->surface = NULL;
 	return EV_JOB (job);
 }
 

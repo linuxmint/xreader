@@ -71,8 +71,8 @@ struct _EpubDocument
     GList* contentList ;
     /* A variable to hold our epubDocument for unzipping*/
     unzFile epubDocument ;
-	/* A pointer to an offscreen WebKitWebView, for thumbnails*/
-	WebKitWebView *webview;
+	/*The (sub)directory that actually houses the document*/
+	gchar* documentdir;
 };
 
 static void       epub_document_document_thumbnails_iface_init (EvDocumentThumbnailsInterface *iface);
@@ -83,54 +83,60 @@ EV_BACKEND_REGISTER_WITH_CODE (EpubDocument, epub_document,
 						epub_document_document_thumbnails_iface_init);
 	} );
 
-/* A cairo surface for the thumbnails, this probably dosen't need to be global, but I couldn't find a better solution.*/
-static cairo_surface_t* surface = NULL ;
-static gboolean completed = FALSE;
-static GdkPixbuf *thumbnail=NULL ;
-
-static void
-epub_webkit_render(EpubDocument *document,const char* uri);
-
-static GdkPixbuf *
-epub_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
-					  EvRenderContext      *rc,
-					  gboolean              border)
-{
-	gchar* uri = (gchar*) rc->page->backend_page;
-	EpubDocument *epub_document = EPUB_DOCUMENT(document);
-	completed = FALSE ;
-	thumbnail=NULL;
-	if (surface) {
-		cairo_surface_destroy (surface);
-		surface=NULL;
-	}
-	epub_webkit_render (epub_document,uri);
-
-	while (completed != TRUE ) {
-		/*Wait for the job to complete*/
-	}
-	
-	if (thumbnail) {
-		return thumbnail;
-	}
-	else {
-		return NULL;
-	}
-}
-
 static void
 epub_document_thumbnails_get_dimensions (EvDocumentThumbnails *document,
-					   EvRenderContext      *rc,
-					   gint                 *width,
-					   gint                 *height)
+                                         EvRenderContext      *rc,
+                                         gint                 *width,
+                                         gint                 *height)
 {
 	gdouble page_width, page_height;
 	
 	page_width = 800;
-	page_height = 600;
+	page_height = 1080;
 	
 	*width = MAX ((gint)(page_width * rc->scale + 0.5), 1);
 	*height = MAX ((gint)(page_height * rc->scale + 0.5), 1);
+}
+
+static GdkPixbuf *
+epub_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
+                                        EvRenderContext      *rc,
+                                        gboolean              border)
+{
+	cairo_surface_t *webpage;
+	GdkPixbuf *thumbnailpix = NULL ;
+	gint width,height;
+	epub_document_thumbnails_get_dimensions(document,rc,&width,&height);
+	webpage = ev_document_misc_surface_rotate_and_scale(rc->page->backend_page,width,height,0);
+	thumbnailpix = ev_document_misc_pixbuf_from_surface(webpage);
+	return thumbnailpix;
+}
+
+static void
+load_finished_cb(WebKitWebView *webview,
+             	 GParamSpec    *spec,
+                 gboolean      *completed)
+{
+	WebKitLoadStatus status = webkit_web_view_get_load_status (webview);
+
+	if (status == WEBKIT_LOAD_FINISHED) {
+		(*completed) = TRUE;
+	}
+}
+
+GtkWidget* 
+epub_document_thumbnails_render_in_webview(gchar* webpage)
+{
+	GtkWidget *webview = webkit_web_view_new();
+	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),webpage);
+	gboolean completed = FALSE;
+	g_signal_connect(webview,"notify::load-status",G_CALLBACK(load_finished_cb),&completed);
+
+	while (completed == FALSE) {
+		/* Wait for the load to complete*/
+	}
+
+	return webview;
 }
 
 static void
@@ -138,12 +144,13 @@ epub_document_document_thumbnails_iface_init (EvDocumentThumbnailsInterface *ifa
 {
 	iface->get_thumbnail = epub_document_thumbnails_get_thumbnail;
 	iface->get_dimensions = epub_document_thumbnails_get_dimensions;
+	iface->render_in_webview = epub_document_thumbnails_render_in_webview;
 }
 
 static gboolean
 epub_document_save (EvDocument *document,
-		      const char *uri,
-		      GError    **error)
+                    const char *uri,
+                    GError    **error)
 {
 	EpubDocument *epub_document = EPUB_DOCUMENT (document);
 
@@ -161,45 +168,6 @@ epub_document_get_n_pages (EvDocument *document)
 	return g_list_length(epub_document->contentList);
 }
 #if !GTK_CHECK_VERSION(3, 0, 0)
-static void 
-webkit_render_cb(GtkWidget *web_view,
-                 GParamSpec *specification,
-           	     gpointer data)
-{
-	WebKitLoadStatus status = webkit_web_view_get_load_status (WEBKIT_WEB_VIEW(web_view));
-
-	if ( status == WEBKIT_LOAD_FINISHED )
-	{
-		surface = webkit_web_view_get_snapshot (WEBKIT_WEB_VIEW(web_view));
-		thumbnail = ev_document_misc_pixbuf_from_surface(surface);
-		completed=TRUE;
-	}
-}
-
-static void epub_webkit_render(EpubDocument *epub_document,const char* uri)
-{
-	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(epub_document->webview),uri);
-}
-
-static WebKitWebView*
-offscreen_webview_init() 
-{
-	GtkWidget *offscreen_window = gtk_offscreen_window_new();
-	gtk_window_set_default_size(GTK_WINDOW(offscreen_window),800,600);
-	
-	GtkWidget* scroll_view = gtk_scrolled_window_new (NULL,NULL);
-	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scroll_view),GTK_POLICY_AUTOMATIC,GTK_POLICY_AUTOMATIC);
-	GtkWidget* web_view = webkit_web_view_new ();
-	WebKitWebSettings *webviewsettings = webkit_web_settings_new ();
-	g_object_set (G_OBJECT(webviewsettings), "enable-plugins", FALSE, NULL);
-	webkit_web_view_set_settings (WEBKIT_WEB_VIEW(web_view),webviewsettings);
-	g_signal_connect(WEBKIT_WEB_VIEW(web_view),"notify::load-status",G_CALLBACK(webkit_render_cb),NULL);
-	gtk_container_add(GTK_CONTAINER(scroll_view),web_view);
-	gtk_container_add(GTK_CONTAINER(offscreen_window),scroll_view);
-	gtk_widget_show_all (offscreen_window);
-	return WEBKIT_WEB_VIEW(web_view);
-}
-
 #else /* The webkit2 code for GTK3 */
 
 static void 
@@ -690,16 +658,18 @@ extract_epub_from_container (const gchar* uri,
     return TRUE ;
 }
 
-
 static gchar* 
-get_uri_to_content(const gchar* uri,GError ** error,gchar* tmp_archive_dir)
+get_uri_to_content(const gchar* uri,GError ** error,EpubDocument *epub_document)
 {
+	gchar* tmp_archive_dir = epub_document->tmp_archive_dir;
     GError *   err = NULL ; 
     gchar*     containerpath = g_filename_from_uri(uri,NULL,&err);
     GString*   absolutepath ;
     gchar*     content_uri ;
     xmlNodePtr rootfileNode ;
     xmlChar*   relativepath;
+	gchar*     directorybuffer = g_malloc0(sizeof(gchar*)*100);
+	
     if ( !containerpath )
     {
         if (err) {
@@ -752,6 +722,27 @@ get_uri_to_content(const gchar* uri,GError ** error,gchar* tmp_archive_dir)
         return NULL ;
     }
 	absolutepath = g_string_new(tmp_archive_dir);
+	gchar* documentfolder = g_strrstr((gchar*)relativepath,"/");
+	if (documentfolder != NULL) {
+		gchar* copybuffer = (gchar*)relativepath ;
+		gchar* writer = directorybuffer;
+
+		while(copybuffer != documentfolder) {
+			(*writer) = (*copybuffer);
+			writer++;copybuffer++;
+		}
+		*writer = '\0';
+		GString *documentdir = g_string_new(tmp_archive_dir);
+		g_string_append_printf(documentdir,"/%s",directorybuffer);
+		epub_document->documentdir = g_strdup(documentdir->str);
+
+		g_string_free(documentdir,TRUE);
+	}
+	else
+	{
+		epub_document->documentdir = g_strdup(tmp_archive_dir);
+	}
+
     g_string_append_printf(absolutepath,"/%s",relativepath);
     content_uri = g_filename_to_uri(absolutepath->str,NULL,&err);
     if ( !content_uri )  {
@@ -767,12 +758,12 @@ get_uri_to_content(const gchar* uri,GError ** error,gchar* tmp_archive_dir)
         return NULL ;
     }
     g_string_free(absolutepath,TRUE);
-
+	g_free(directorybuffer);
     return content_uri ; 
 }
 
 static GList*
-setup_document_content_list(const gchar* content_uri, GError** error,gchar *tmp_archive_dir)
+setup_document_content_list(const gchar* content_uri, GError** error,gchar *documentdir)
 {
     GList* newlist = NULL ;
     GError *   err = NULL ; 
@@ -860,7 +851,7 @@ setup_document_content_list(const gchar* content_uri, GError** error,gchar *tmp_
                 break;
             }
             relativepath = (gchar*)xml_get_data_from_node(itemptr,XML_ATTRIBUTE,(xmlChar*)"href");
-            g_string_assign(absolutepath,tmp_archive_dir);
+            g_string_assign(absolutepath,documentdir);
             g_string_append_printf(absolutepath,"/%s",relativepath);
             newnode->value = g_filename_to_uri(absolutepath->str,NULL,&err);
             if ( newnode->value == NULL )
@@ -916,7 +907,7 @@ epub_document_init (EpubDocument *epub_document)
     epub_document->archivename = NULL ;
     epub_document->tmp_archive_dir = NULL ;
     epub_document->contentList = NULL ;
-	epub_document->webview = offscreen_webview_init();
+	epub_document->documentdir = NULL;
 }
 
 static gboolean
@@ -953,8 +944,8 @@ epub_document_load (EvDocument* document,
 		g_propagate_error(error,err);
 		return FALSE;
 	}
-	contentOpfUri = get_uri_to_content (containeruri,&err,epub_document->tmp_archive_dir);
-	
+	contentOpfUri = get_uri_to_content (containeruri,&err,epub_document);
+
 	if ( contentOpfUri == NULL )
 	{
 		g_propagate_error(error,err);
@@ -963,7 +954,7 @@ epub_document_load (EvDocument* document,
 
 	xml_free_doc() ;
 	
-	epub_document->contentList = setup_document_content_list (contentOpfUri,&err,epub_document->tmp_archive_dir);
+	epub_document->contentList = setup_document_content_list (contentOpfUri,&err,epub_document->documentdir);
 
 	if ( xmldocument != NULL )
 		xml_free_doc ();
@@ -998,6 +989,9 @@ epub_document_finalize (GObject *object)
 	if ( epub_document->archivename) {
 		g_free (epub_document->archivename);
 	}
+	if ( epub_document->documentdir) {
+		g_free (epub_document->documentdir);
+	}
 	G_OBJECT_CLASS (epub_document_parent_class)->finalize (object);
 }
 
@@ -1017,7 +1011,7 @@ epub_document_get_info(EvDocument *document)
 	{
 		return NULL ;
 	}
-	gchar* uri = get_uri_to_content (containeruri,&error,archive_dir);
+	gchar* uri = get_uri_to_content (containeruri,&error,epub_document);
 	if ( error )
 	{
 		return NULL ;
@@ -1093,7 +1087,6 @@ epub_document_class_init (EpubDocumentClass *klass)
 	EvDocumentClass *ev_document_class = EV_DOCUMENT_CLASS (klass);
 	
 	gobject_class->finalize = epub_document_finalize;
-
 	ev_document_class->load = epub_document_load;
 	ev_document_class->save = epub_document_save;
 	ev_document_class->get_n_pages = epub_document_get_n_pages;
