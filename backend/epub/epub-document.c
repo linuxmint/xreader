@@ -989,7 +989,17 @@ epub_document_get_info(EvDocument *document)
 		return NULL ;
 	}
 	EvDocumentInfo* epubinfo = g_new0 (EvDocumentInfo, 1);
-	
+
+	epubinfo->fields_mask = EV_DOCUMENT_INFO_TITLE |
+			    EV_DOCUMENT_INFO_FORMAT |
+			    EV_DOCUMENT_INFO_AUTHOR |
+			    EV_DOCUMENT_INFO_SUBJECT |
+			    EV_DOCUMENT_INFO_KEYWORDS |
+			    EV_DOCUMENT_INFO_LAYOUT |
+			    EV_DOCUMENT_INFO_CREATOR |
+			    EV_DOCUMENT_INFO_LINEARIZED |
+			    EV_DOCUMENT_INFO_N_PAGES ;
+
 	if ( xmldocument != NULL )
 		xml_free_doc();
 	
@@ -1024,8 +1034,7 @@ epub_document_get_info(EvDocument *document)
 	epubinfo->format = g_strdup(buffer->str);
 	
 	/*FIXME: Add more of these as you write the corresponding modules*/
-	epubinfo->permissions = EV_DOCUMENT_PERMISSIONS_OK_TO_ADD_NOTES;
-
+	
 	epubinfo->layout = EV_DOCUMENT_LAYOUT_SINGLE_PAGE;
 
 	metanode = xml_get_pointer_to_node((xmlChar*)"publisher",NULL,NULL);
@@ -1034,6 +1043,9 @@ epub_document_get_info(EvDocument *document)
 	else
 	   epubinfo->creator = (char*)xml_get_data_from_node(metanode,XML_KEYWORD,NULL);
 
+	/* number of pages */
+	epubinfo->n_pages = epub_document_get_n_pages(document);
+	
 	/*TODO : Add a function to get date*/
 	g_free(uri);
 	g_string_free(containerpath,TRUE);

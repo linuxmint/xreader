@@ -408,7 +408,9 @@ ev_window_setup_action_sensitivity (EvWindow *ev_window)
 	if (has_document && EV_IS_SELECTION (document)) {
 		can_get_text = TRUE;
 	}
-	
+	else if (has_document && document->iswebdocument) {
+		can_get_text = TRUE;
+	}
 	if (has_pages && EV_IS_DOCUMENT_FIND (document)) {
 		can_find = TRUE;
 	}
@@ -447,18 +449,20 @@ ev_window_setup_action_sensitivity (EvWindow *ev_window)
 	ev_window_set_action_sensitive (ev_window, "EditSelectAll", has_pages && can_get_text);
 	ev_window_set_action_sensitive (ev_window, "EditFind", can_find);
 	ev_window_set_action_sensitive (ev_window, "Slash", can_find);
-	ev_window_set_action_sensitive (ev_window, "EditRotateLeft", has_pages);
-	ev_window_set_action_sensitive (ev_window, "EditRotateRight", has_pages);
+	ev_window_set_action_sensitive (ev_window, "EditRotateLeft", has_pages && !(document->iswebdocument));
+	ev_window_set_action_sensitive (ev_window, "EditRotateRight", has_pages && !(document->iswebdocument));
 
         /* View menu */
-	ev_window_set_action_sensitive (ev_window, "ViewContinuous", has_pages);
-	ev_window_set_action_sensitive (ev_window, "ViewDual", has_pages);
-	ev_window_set_action_sensitive (ev_window, "ViewBestFit", has_pages);
+	/*If it has pages it is a document, so our check for a webdocument lead to a crash. We need to switch these off since more than one 
+	 *webview is hard to manage                   */
+	ev_window_set_action_sensitive (ev_window, "ViewContinuous", has_pages && !(document->iswebdocument));
+	ev_window_set_action_sensitive (ev_window, "ViewDual", has_pages && !(document->iswebdocument));
+	ev_window_set_action_sensitive (ev_window, "ViewBestFit", has_pages && !(document->iswebdocument));
 	ev_window_set_action_sensitive (ev_window, "ViewPageWidth", has_pages);
 	ev_window_set_action_sensitive (ev_window, "ViewReload", has_pages);
-	ev_window_set_action_sensitive (ev_window, "ViewAutoscroll", has_pages);
+	ev_window_set_action_sensitive (ev_window, "ViewAutoscroll", has_pages && !(document->iswebdocument));
 	ev_window_set_action_sensitive (ev_window, "ViewInvertedColors", has_pages);
-	ev_window_set_action_sensitive (ev_window, "ViewExpandWindow", has_pages);
+	ev_window_set_action_sensitive (ev_window, "ViewExpandWindow", has_pages && !(document->iswebdocument));
 
 	/* Toolbar-specific actions: */
 	ev_window_set_action_sensitive (ev_window, PAGE_SELECTOR_ACTION, has_pages);
@@ -498,6 +502,11 @@ ev_window_update_actions (EvWindow *ev_window)
 		ev_window_set_action_sensitive (ev_window, "EditCopy",
 						has_pages &&
 				ev_view_get_has_selection (view));
+	}
+	else if(webview) {
+		ev_window_set_action_sensitive (ev_window, "EditCopy",
+						has_pages &&
+				ev_web_view_get_has_selection (webview));
 	}
 	ev_window_set_action_sensitive (ev_window, "EditFindNext",
 					has_pages && can_find_in_page);

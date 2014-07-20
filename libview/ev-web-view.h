@@ -62,6 +62,9 @@ void       ev_web_view_handle_link (EvWebView *webview, EvLink* link);
 void	ev_web_view_find_next	    (EvWebView *webview);
 void	ev_web_view_find_previous   (EvWebView *webview);
 
+/*Selection*/
+gboolean ev_web_view_get_has_selection  (EvWebView *webview);
+
 G_END_DECLS
 
 #endif /* __EV_WEB_VIEW_H__ */

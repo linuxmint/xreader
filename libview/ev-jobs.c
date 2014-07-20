@@ -968,7 +968,7 @@ ev_job_web_thumbnail_new (EvDocument *document,
 {
 	EvJobWebThumbnail *job;
 
-	ev_debug_message (DEBUG_JOBS, "%d", page);
+	ev_debug_message (DEBUG_JOBS, "%s", webpage);
 	
 	job = g_object_new (EV_TYPE_JOB_WEB_THUMBNAIL, NULL);
 
