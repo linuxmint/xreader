@@ -817,23 +817,15 @@ ev_job_thumbnail_run (EvJob *job)
 
 	if (job->document->iswebdocument == TRUE) {
 		gboolean completed = FALSE;
-		GtkWidget *webview = webkit_web_view_new();
 		
 		EvJobWebThumbnail *web_thumb_job = 
-			EV_JOB_WEB_THUMBNAIL(ev_job_web_thumbnail_new(job->document, &completed, webview, (gchar*)rc->page->backend_page));
+			EV_JOB_WEB_THUMBNAIL(ev_job_web_thumbnail_new(job->document, &completed, (gchar*)rc->page->backend_page));
 		
 		ev_job_scheduler_push_job (EV_JOB (web_thumb_job), EV_JOB_PRIORITY_HIGH);
 
-		WebKitLoadStatus status ;
-		
-		while ((status = webkit_web_view_get_load_status (WEBKIT_WEB_VIEW(webview))) != WEBKIT_LOAD_FINISHED && 
-		       status != WEBKIT_LOAD_FAILED) {
-			/*Let the job complete before we proceed.
-			 *This fix SHOULD solve all problems.
-			 */
+		while (completed == FALSE) {
+			/* Let the job complete*/
 		}
-
-		web_thumb_job->surface = webkit_web_view_get_snapshot (WEBKIT_WEB_VIEW(webview));
 		/* For the purpose of thumbnails only, we make the page a cairo surface, instead of the uri's we are passing around*/
 		EvPage *screenshotpage;
 		screenshotpage = ev_page_new(rc->page->index);
@@ -903,7 +895,7 @@ ev_job_web_thumbnail_dispose (GObject *object)
 
 	job = EV_JOB_WEB_THUMBNAIL (object);
 
-	ev_debug_message (DEBUG_JOBS, "%d (%p)", job->page, job);
+	ev_debug_message (DEBUG_JOBS, "%s (%p)", job->page, job);
 
 	if(job->offscreenwindow) {
 		gtk_widget_destroy(job->offscreenwindow);
@@ -923,13 +915,40 @@ ev_job_web_thumbnail_dispose (GObject *object)
 		g_free(job->page);
 		job->page = NULL;
 	}
+
+	if (&job->screenlock)
+	{
+		g_rw_lock_clear (&job->screenlock);
+	}
 	(* G_OBJECT_CLASS (ev_job_web_thumbnail_parent_class)->dispose) (object);
+}
+
+static void
+web_thumbnail_get_screenshot_cb(WebKitWebView *webview,
+                                GParamSpec    *spec,
+                                EvJobWebThumbnail *web_thumb_job)
+{
+	WebKitLoadStatus status = webkit_web_view_get_load_status(webview);
+
+	if (status == WEBKIT_LOAD_FINISHED) {
+		g_rw_lock_writer_unlock (&web_thumb_job->screenlock);
+		g_rw_lock_reader_trylock (&web_thumb_job->screenlock);
+		web_thumb_job->surface = webkit_web_view_get_snapshot (WEBKIT_WEB_VIEW(webview));
+		g_rw_lock_reader_unlock (&web_thumb_job->screenlock);
+		*(web_thumb_job->completed) = TRUE;
+	}
 }
 
 static gboolean
 ev_job_web_thumbnail_run (EvJob *job)
 {
 	EvJobWebThumbnail *web_thumb_job = EV_JOB_WEB_THUMBNAIL(job);
+
+	web_thumb_job->webview = webkit_web_view_new();
+	web_thumb_job->offscreenwindow = gtk_offscreen_window_new();
+	gtk_container_add(GTK_CONTAINER(web_thumb_job->offscreenwindow),GTK_WIDGET(web_thumb_job->webview));
+
+	gtk_window_set_default_size (GTK_WINDOW(web_thumb_job->offscreenwindow),800,1080);
 
 	ev_debug_message (DEBUG_JOBS, "%s (%p)", web_thumb_job->page, job);
 	
@@ -939,10 +958,10 @@ ev_job_web_thumbnail_run (EvJob *job)
 		ev_profiler_start (EV_PROFILE_JOBS, "%s (%p)", EV_GET_TYPE_NAME (job), job);
 #endif
 	
-	gtk_window_set_default_size (GTK_WINDOW(web_thumb_job->offscreenwindow),800,1080);
-
+	
+	g_rw_lock_writer_trylock (&web_thumb_job->screenlock);
 	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(web_thumb_job->webview),web_thumb_job->page);
-
+	g_signal_connect(WEBKIT_WEB_VIEW(web_thumb_job->webview),"notify::load-status",G_CALLBACK(web_thumbnail_get_screenshot_cb),web_thumb_job);
 	gtk_widget_show_all(web_thumb_job->offscreenwindow);
 	
 	ev_job_succeeded (EV_JOB(job));
@@ -963,7 +982,6 @@ ev_job_web_thumbnail_class_init (EvJobWebThumbnailClass *class)
 EvJob *
 ev_job_web_thumbnail_new (EvDocument *document,
                           gboolean   *completed,
-                          GtkWidget  *webview,
                           gchar      *webpage)
 {
 	EvJobWebThumbnail *job;
@@ -974,15 +992,11 @@ ev_job_web_thumbnail_new (EvDocument *document,
 
 	EV_JOB (job)->document = g_object_ref (document);
 
-	job->webview = webview;
 	job->completed = completed;
-	job->offscreenwindow = gtk_offscreen_window_new();
-
-	gtk_container_add(GTK_CONTAINER(job->offscreenwindow),GTK_WIDGET(job->webview));
 	
 	job->surface = NULL;
 	job->page = g_strdup(webpage);
-
+	g_rw_lock_init (&job->screenlock);
 	return EV_JOB (job);
 }
 

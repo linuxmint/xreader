@@ -453,8 +453,9 @@ ev_window_setup_action_sensitivity (EvWindow *ev_window)
 	ev_window_set_action_sensitive (ev_window, "EditRotateRight", has_pages && !(document->iswebdocument));
 
         /* View menu */
-	/*If it has pages it is a document, so our check for a webdocument lead to a crash. We need to switch these off since more than one 
-	 *webview is hard to manage                   */
+	/*If it has pages it is a document, so our check for a webdocument won't lead to a crash. We need to switch these off since more than one 
+	 *webview is hard to manage, and would lead to unexpected behaviour in case the number of webviews gets too large.
+	 */
 	ev_window_set_action_sensitive (ev_window, "ViewContinuous", has_pages && !(document->iswebdocument));
 	ev_window_set_action_sensitive (ev_window, "ViewDual", has_pages && !(document->iswebdocument));
 	ev_window_set_action_sensitive (ev_window, "ViewBestFit", has_pages && !(document->iswebdocument));
@@ -1468,6 +1469,10 @@ ev_window_set_document (EvWindow *ev_window, EvDocument *document)
 		gtk_container_add (GTK_CONTAINER (ev_window->priv->scrolled_window),
 				   ev_window->priv->webview);
 		gtk_widget_show(ev_window->priv->webview);		
+	}
+	else {
+		/*Since the document is not a webdocument might as well get rid of the webview now*/
+		g_object_unref(ev_window->priv->webview);
 	}
 #endif
 	if (EV_WINDOW_IS_PRESENTATION (ev_window) && document->iswebdocument == FALSE) {
@@ -5380,26 +5385,13 @@ ev_window_dispose (GObject *object)
 	}
 	
 	if (priv->view) {
-		if ( gtk_widget_get_parent (priv->view) == NULL )
-		{
-			g_object_ref_sink (priv->view);
-			g_object_unref(priv->view);
-		}
-		else
-		{
-			g_object_unref (priv->view);
-		}
+		g_object_unref (priv->view);		
 		priv->view = NULL;
 	}
 
 #ifdef ENABLE_EPUB
 	if ( priv->webview ) {
-		if (gtk_widget_get_parent(priv->webview) == NULL )    {
-			g_object_ref_sink (priv->webview);
-			g_object_unref (priv->webview);
-		}else {
-			g_object_unref (priv->webview);
-		}
+		g_object_unref (priv->webview);
 		priv->webview = NULL ;
 	}
 #endif
