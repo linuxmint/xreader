@@ -374,9 +374,6 @@ clear_range (EvSidebarThumbnails *sidebar_thumbnails,
 	     result = gtk_tree_model_iter_next (GTK_TREE_MODEL (priv->list_store), &iter), start_page ++) {
 		EvJobThumbnail *job;
 
-		if (priv->document->iswebdocument == TRUE) {
-			EV_JOB(job)->run_mode = EV_JOB_RUN_MAIN_LOOP ;
-		}
 		GdkPixbuf *loading_icon = NULL;
 		gint width, height;
 

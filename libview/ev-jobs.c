@@ -98,10 +98,8 @@ enum {
 	FIND_LAST_SIGNAL
 };
 
-typedef struct _WebKitScreenShot {
-	cairo_surface_t *surface;
-	gboolean completed;
-}WebKitScreenShot;
+static GtkWidget* webview;
+static GtkWidget* offscreenwindow;
 
 static guint job_signals[LAST_SIGNAL] = { 0 };
 static guint job_fonts_signals[FONTS_LAST_SIGNAL] = { 0 };
@@ -924,18 +922,17 @@ ev_job_web_thumbnail_dispose (GObject *object)
 }
 
 static void
-web_thumbnail_get_screenshot_cb(WebKitWebView *webview,
-                                GParamSpec    *spec,
+web_thumbnail_get_screenshot_cb(WebKitWebView  *webview,
+                                WebKitWebFrame *webframe,
                                 EvJobWebThumbnail *web_thumb_job)
 {
 	WebKitLoadStatus status = webkit_web_view_get_load_status(webview);
 
 	if (status == WEBKIT_LOAD_FINISHED) {
-		g_rw_lock_writer_unlock (&web_thumb_job->screenlock);
-		g_rw_lock_reader_trylock (&web_thumb_job->screenlock);
 		web_thumb_job->surface = webkit_web_view_get_snapshot (WEBKIT_WEB_VIEW(webview));
-		g_rw_lock_reader_unlock (&web_thumb_job->screenlock);
-		*(web_thumb_job->completed) = TRUE;
+		if (web_thumb_job->surface) {
+			*(web_thumb_job->completed) = TRUE;
+		}
 	}
 }
 
@@ -943,12 +940,17 @@ static gboolean
 ev_job_web_thumbnail_run (EvJob *job)
 {
 	EvJobWebThumbnail *web_thumb_job = EV_JOB_WEB_THUMBNAIL(job);
+	if (!webview) {
+		webview = webkit_web_view_new();
+	}
+	
+	if (!offscreenwindow) {
+		offscreenwindow = gtk_offscreen_window_new();
+		
+		gtk_container_add(GTK_CONTAINER(offscreenwindow),GTK_WIDGET(webview));
 
-	web_thumb_job->webview = webkit_web_view_new();
-	web_thumb_job->offscreenwindow = gtk_offscreen_window_new();
-	gtk_container_add(GTK_CONTAINER(web_thumb_job->offscreenwindow),GTK_WIDGET(web_thumb_job->webview));
-
-	gtk_window_set_default_size (GTK_WINDOW(web_thumb_job->offscreenwindow),800,1080);
+		gtk_window_set_default_size (GTK_WINDOW(offscreenwindow),800,1080);
+	}
 
 	ev_debug_message (DEBUG_JOBS, "%s (%p)", web_thumb_job->page, job);
 	
@@ -958,11 +960,9 @@ ev_job_web_thumbnail_run (EvJob *job)
 		ev_profiler_start (EV_PROFILE_JOBS, "%s (%p)", EV_GET_TYPE_NAME (job), job);
 #endif
 	
-	
-	g_rw_lock_writer_trylock (&web_thumb_job->screenlock);
-	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(web_thumb_job->webview),web_thumb_job->page);
-	g_signal_connect(WEBKIT_WEB_VIEW(web_thumb_job->webview),"notify::load-status",G_CALLBACK(web_thumbnail_get_screenshot_cb),web_thumb_job);
-	gtk_widget_show_all(web_thumb_job->offscreenwindow);
+	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),web_thumb_job->page);
+	g_signal_connect(WEBKIT_WEB_VIEW(webview),"document-load-finished",G_CALLBACK(web_thumbnail_get_screenshot_cb),web_thumb_job);
+	gtk_widget_show_all(offscreenwindow);
 	
 	ev_job_succeeded (EV_JOB(job));
 

@@ -682,8 +682,10 @@ update_sizing_buttons (EvWindow *window)
 		ephy_zoom_action_set_zoom_level (EPHY_ZOOM_ACTION (action), 
 						 EPHY_ZOOM_BEST_FIT);
 	} else if (page_width) {
-		ephy_zoom_action_set_zoom_level (EPHY_ZOOM_ACTION (action), 
-						 EPHY_ZOOM_FIT_WIDTH);
+		if (!window->priv->document || (window->priv->document && !window->priv->document->iswebdocument)) {
+			ephy_zoom_action_set_zoom_level (EPHY_ZOOM_ACTION (action), 
+							 EPHY_ZOOM_FIT_WIDTH);
+		}
 	}
 }
 
