@@ -307,7 +307,7 @@ struct _EvJobWebThumbnail
 	GtkWidget *offscreenwindow;
 	gboolean  *completed;
 	GRWLock screenlock;
-	cairo_surface_t *surface;
+	cairo_surface_t **surface;
 	gchar* page;
 };
 
@@ -477,7 +477,8 @@ EvJob          *ev_job_thumbnail_new      (EvDocument      *document,
 GType           ev_job_web_thumbnail_get_type (void) G_GNUC_CONST;
 EvJob          *ev_job_web_thumbnail_new      (EvDocument      *document,
                                                gboolean        *completed,
-                                               gchar           *webpage);
+                                               gchar           *webpage,
+                                               cairo_surface_t **surface);
 /* EvJobFonts */
 GType 		ev_job_fonts_get_type 	  (void) G_GNUC_CONST;
 EvJob 	       *ev_job_fonts_new 	  (EvDocument      *document);

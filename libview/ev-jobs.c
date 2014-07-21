@@ -815,9 +815,9 @@ ev_job_thumbnail_run (EvJob *job)
 
 	if (job->document->iswebdocument == TRUE) {
 		gboolean completed = FALSE;
-		
+		cairo_surface_t *surface = NULL ;
 		EvJobWebThumbnail *web_thumb_job = 
-			EV_JOB_WEB_THUMBNAIL(ev_job_web_thumbnail_new(job->document, &completed, (gchar*)rc->page->backend_page));
+			EV_JOB_WEB_THUMBNAIL(ev_job_web_thumbnail_new(job->document, &completed, (gchar*)rc->page->backend_page,&surface));
 		
 		ev_job_scheduler_push_job (EV_JOB (web_thumb_job), EV_JOB_PRIORITY_HIGH);
 
@@ -827,7 +827,7 @@ ev_job_thumbnail_run (EvJob *job)
 		/* For the purpose of thumbnails only, we make the page a cairo surface, instead of the uri's we are passing around*/
 		EvPage *screenshotpage;
 		screenshotpage = ev_page_new(rc->page->index);
-		screenshotpage->backend_page = (EvBackendPage)web_thumb_job->surface;
+		screenshotpage->backend_page = (EvBackendPage)surface;
 		screenshotpage->backend_destroy_func = (EvBackendPageDestroyFunc)cairo_surface_destroy ;
 		ev_render_context_set_page(rc,screenshotpage);
 
@@ -835,6 +835,7 @@ ev_job_thumbnail_run (EvJob *job)
 								     rc, TRUE);
 		
 		g_object_unref(web_thumb_job);
+		g_object_unref(screenshotpage);
 	}
 	else {
 		job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (job->document),
@@ -903,11 +904,6 @@ ev_job_web_thumbnail_dispose (GObject *object)
 	if(job->webview) {
 		job->webview = NULL;
 	}
-	
-	if(job->surface) {
-		cairo_surface_destroy (job->surface);
-		job->surface = NULL;
-	}
 
 	if(job->page) {
 		g_free(job->page);
@@ -926,14 +922,11 @@ web_thumbnail_get_screenshot_cb(WebKitWebView  *webview,
                                 WebKitWebFrame *webframe,
                                 EvJobWebThumbnail *web_thumb_job)
 {
-	WebKitLoadStatus status = webkit_web_view_get_load_status(webview);
-
-	if (status == WEBKIT_LOAD_FINISHED) {
-		web_thumb_job->surface = webkit_web_view_get_snapshot (WEBKIT_WEB_VIEW(webview));
-		if (web_thumb_job->surface) {
-			*(web_thumb_job->completed) = TRUE;
-		}
-	}
+	*(web_thumb_job->surface) = webkit_web_view_get_snapshot (WEBKIT_WEB_VIEW(webview));
+	if (*(web_thumb_job->surface)) {
+		//TODO : what if you don't get one?
+		*(web_thumb_job->completed) = TRUE;
+	}	
 }
 
 static gboolean
@@ -950,6 +943,8 @@ ev_job_web_thumbnail_run (EvJob *job)
 		gtk_container_add(GTK_CONTAINER(offscreenwindow),GTK_WIDGET(webview));
 
 		gtk_window_set_default_size (GTK_WINDOW(offscreenwindow),800,1080);
+
+		gtk_widget_show_all(offscreenwindow);
 	}
 
 	ev_debug_message (DEBUG_JOBS, "%s (%p)", web_thumb_job->page, job);
@@ -961,11 +956,8 @@ ev_job_web_thumbnail_run (EvJob *job)
 #endif
 	
 	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),web_thumb_job->page);
-	g_signal_connect(WEBKIT_WEB_VIEW(webview),"document-load-finished",G_CALLBACK(web_thumbnail_get_screenshot_cb),web_thumb_job);
-	gtk_widget_show_all(offscreenwindow);
-	
-	ev_job_succeeded (EV_JOB(job));
-
+	g_signal_connect(WEBKIT_WEB_VIEW(webview),"document-load-finished",G_CALLBACK(web_thumbnail_get_screenshot_cb),EV_JOB_WEB_THUMBNAIL(job));
+	ev_job_succeeded (EV_JOB(web_thumb_job));
 	return FALSE;
 }
 
@@ -982,7 +974,8 @@ ev_job_web_thumbnail_class_init (EvJobWebThumbnailClass *class)
 EvJob *
 ev_job_web_thumbnail_new (EvDocument *document,
                           gboolean   *completed,
-                          gchar      *webpage)
+                          gchar      *webpage,
+                          cairo_surface_t **surface)
 {
 	EvJobWebThumbnail *job;
 
@@ -994,7 +987,7 @@ ev_job_web_thumbnail_new (EvDocument *document,
 
 	job->completed = completed;
 	
-	job->surface = NULL;
+	job->surface = surface;
 	job->page = g_strdup(webpage);
 	g_rw_lock_init (&job->screenlock);
 	return EV_JOB (job);
