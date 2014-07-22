@@ -64,6 +64,7 @@ void	ev_web_view_find_previous   (EvWebView *webview);
 
 /*Selection*/
 gboolean ev_web_view_get_has_selection  (EvWebView *webview);
+void ev_web_view_select_all            (EvWebView  *webview);
 
 G_END_DECLS
 

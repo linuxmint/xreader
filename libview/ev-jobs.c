@@ -896,24 +896,11 @@ ev_job_web_thumbnail_dispose (GObject *object)
 
 	ev_debug_message (DEBUG_JOBS, "%s (%p)", job->page, job);
 
-	if(job->offscreenwindow) {
-		gtk_widget_destroy(job->offscreenwindow);
-		job->offscreenwindow = NULL;
-	}
-	
-	if(job->webview) {
-		job->webview = NULL;
-	}
-
 	if(job->page) {
 		g_free(job->page);
 		job->page = NULL;
 	}
 
-	if (&job->screenlock)
-	{
-		g_rw_lock_clear (&job->screenlock);
-	}
 	(* G_OBJECT_CLASS (ev_job_web_thumbnail_parent_class)->dispose) (object);
 }
 
@@ -972,9 +959,9 @@ ev_job_web_thumbnail_class_init (EvJobWebThumbnailClass *class)
 }
 
 EvJob *
-ev_job_web_thumbnail_new (EvDocument *document,
-                          gboolean   *completed,
-                          gchar      *webpage,
+ev_job_web_thumbnail_new (EvDocument       *document,
+                          gboolean         *completed,
+                          gchar            *webpage,
                           cairo_surface_t **surface)
 {
 	EvJobWebThumbnail *job;
@@ -989,7 +976,7 @@ ev_job_web_thumbnail_new (EvDocument *document,
 	
 	job->surface = surface;
 	job->page = g_strdup(webpage);
-	g_rw_lock_init (&job->screenlock);
+
 	return EV_JOB (job);
 }
 

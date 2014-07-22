@@ -359,3 +359,9 @@ ev_web_view_get_has_selection(EvWebView *webview)
 {
 	return webkit_web_view_has_selection(WEBKIT_WEB_VIEW(webview));
 }
+
+void
+ev_web_view_select_all(EvWebView *webview)
+{
+	webkit_web_view_select_all(WEBKIT_WEB_VIEW(webview));
+}

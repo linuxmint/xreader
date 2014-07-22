@@ -453,13 +453,13 @@ ev_window_setup_action_sensitivity (EvWindow *ev_window)
 	ev_window_set_action_sensitive (ev_window, "EditRotateRight", has_pages && !(document->iswebdocument));
 
         /* View menu */
-	/*If it has pages it is a document, so our check for a webdocument won't lead to a crash. We need to switch these off since more than one 
+	/*If it has pages it is a document, so our check for a webdocument won't lead to a crash. We need to switch these view modes off since more than one 
 	 *webview is hard to manage, and would lead to unexpected behaviour in case the number of webviews gets too large.
 	 */
 	ev_window_set_action_sensitive (ev_window, "ViewContinuous", has_pages && !(document->iswebdocument));
 	ev_window_set_action_sensitive (ev_window, "ViewDual", has_pages && !(document->iswebdocument));
 	ev_window_set_action_sensitive (ev_window, "ViewBestFit", has_pages && !(document->iswebdocument));
-	ev_window_set_action_sensitive (ev_window, "ViewPageWidth", has_pages);
+	ev_window_set_action_sensitive (ev_window, "ViewPageWidth", has_pages && !(document->iswebdocument));
 	ev_window_set_action_sensitive (ev_window, "ViewReload", has_pages);
 	ev_window_set_action_sensitive (ev_window, "ViewAutoscroll", has_pages && !(document->iswebdocument));
 	ev_window_set_action_sensitive (ev_window, "ViewInvertedColors", has_pages);
@@ -927,6 +927,13 @@ view_selection_changed_cb (EvView   *view,
 {
 	ev_window_set_action_sensitive (window, "EditCopy",
 					ev_view_get_has_selection (view));
+}
+
+static void
+web_view_selection_changed_cb(EvWebView *webview,
+				EvWindow *window)
+{
+
 }
 
 static void
@@ -3723,6 +3730,8 @@ ev_window_cmd_edit_select_all (GtkAction *action, EvWindow *ev_window)
 		egg_find_bar_grab_focus(ev_window->priv->find_bar);
 	} else if (ev_window->priv->document->iswebdocument == FALSE ) {
 		ev_view_select_all (EV_VIEW (ev_window->priv->view));
+	} else {
+		ev_web_view_select_all(EV_WEB_VIEW(ev_window->priv->webview));
 	}
 }
 
