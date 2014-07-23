@@ -66,6 +66,10 @@ void	ev_web_view_find_previous   (EvWebView *webview);
 gboolean ev_web_view_get_has_selection  (EvWebView *webview);
 void ev_web_view_select_all            (EvWebView  *webview);
 
+/*Zoom control*/
+gboolean     ev_web_view_zoom_in        (EvWebView *webview);
+gboolean     ev_web_view_zoom_out       (EvWebView *webview);
+
 G_END_DECLS
 
 #endif /* __EV_WEB_VIEW_H__ */

@@ -933,7 +933,8 @@ static void
 web_view_selection_changed_cb(EvWebView *webview,
 				EvWindow *window)
 {
-
+	ev_window_set_action_sensitive (window,"EditCopy",
+					ev_web_view_get_has_selection(webview));
 }
 
 static void
@@ -1018,6 +1019,13 @@ static void
 update_document_mode (EvWindow *window, EvDocumentMode mode)
 {
 	if (mode == EV_DOCUMENT_MODE_PRESENTATION) {
+		if (window->priv->document) {
+			if (window->priv->document->iswebdocument) {
+				ev_window_warning_message(window,_("Cannot enter presentation mode with ePub documents\
+								use fullscreen mode instead."));
+				return;
+			}
+		}
 		ev_window_run_presentation (window);
 	}
 	else if (mode == EV_DOCUMENT_MODE_FULL_SCREEN) {
@@ -1309,7 +1317,12 @@ setup_view_from_metadata (EvWindow *window)
 	/* Presentation */
 	if (ev_metadata_get_boolean (window->priv->metadata, "presentation", &presentation)) {
 		if (presentation) {
-			ev_window_run_presentation (window);
+			if (window->priv->document->iswebdocument == TRUE ) {
+				return;
+			}
+			else {
+				ev_window_run_presentation (window);
+			}
 		}
 	}
 }
@@ -1394,9 +1407,8 @@ ev_window_setup_document (EvWindow *ev_window)
 	GtkAction *action;
 
 	ev_window->priv->setup_document_idle = 0;
-	if ( document->iswebdocument == FALSE ) {
-		ev_window_refresh_window_thumbnail (ev_window);
-	}
+	ev_window_refresh_window_thumbnail (ev_window);
+	
 	ev_window_set_page_mode (ev_window, PAGE_MODE_DOCUMENT);
 	
 	ev_window_title_set_document (ev_window->priv->title, document);
@@ -1491,7 +1503,7 @@ ev_window_set_document (EvWindow *ev_window, EvDocument *document)
 	} else if ( EV_WINDOW_IS_PRESENTATION (ev_window) && document->iswebdocument == TRUE )
 	{
 		ev_window_warning_message (ev_window, "%s",
-					   _("Presentation mode is currently not supported for Web documents."));
+					   _("Presentation mode is not supported for ePub documents."));
 	}
 
 	if (ev_window->priv->setup_document_idle > 0)
@@ -4318,19 +4330,29 @@ static void
 ev_window_cmd_view_zoom_in (GtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
-	if ( ev_window->priv->document->iswebdocument == TRUE ) return ;
+
 	ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FREE);
-	ev_view_zoom_in (EV_VIEW (ev_window->priv->view));
+	if (ev_window->priv->document->iswebdocument) {
+		ev_web_view_zoom_in(EV_WEB_VIEW(ev_window->priv->webview));
+	}
+	else {
+		ev_view_zoom_in (EV_VIEW (ev_window->priv->view));
+	}
 }
 
 static void
 ev_window_cmd_view_zoom_out (GtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
-	if ( ev_window->priv->document->iswebdocument == TRUE ) return ;
-	
+
 	ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FREE);
-	ev_view_zoom_out (EV_VIEW (ev_window->priv->view));
+
+	if ( ev_window->priv->document->iswebdocument)  {
+		ev_web_view_zoom_out(EV_WEB_VIEW(ev_window->priv->webview));
+	}
+	else {
+		ev_view_zoom_out (EV_VIEW (ev_window->priv->view));
+	}
 }
 
 static void

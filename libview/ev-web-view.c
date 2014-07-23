@@ -365,3 +365,15 @@ ev_web_view_select_all(EvWebView *webview)
 {
 	webkit_web_view_select_all(WEBKIT_WEB_VIEW(webview));
 }
+
+gboolean
+ev_web_view_zoom_in(EvWebView *webview)
+{
+	webkit_web_view_zoom_in(WEBKIT_WEB_VIEW(webview));
+}
+
+gboolean
+ev_web_view_zoom_out(EvWebView *webview)
+{
+	webkit_web_view_zoom_out(WEBKIT_WEB_VIEW(webview));
+}
