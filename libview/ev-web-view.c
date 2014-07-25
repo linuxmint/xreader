@@ -48,7 +48,6 @@ struct _EvWebViewClass
 {
 	WebKitWebViewClass base_class;
 };
-G_DEFINE_TYPE (EvWebView, ev_web_view, WEBKIT_TYPE_WEB_VIEW)
 
 /*** Callbacks ***/
 static void       ev_web_view_change_page                   (EvWebView          *webview,
@@ -59,15 +58,13 @@ static void       ev_web_view_page_changed_cb               (EvDocumentModel    
 															  gint                 new_page,
 														      EvWebView           *webview);
 /*** GObject ***/
+static void       ev_web_view_dispose                           (GObject             *object);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-static void       ev_view_dispose                           (GObject             *object);
-#else
-static void       ev_web_view_destroy                       (GtkObject           *object);
-#endif
+static void       ev_web_view_finalize						 (GObject             *object);
 static void       ev_web_view_class_init                    (EvWebViewClass      *klass);
 static void       ev_web_view_init                          (EvWebView           *webview);
 
+G_DEFINE_TYPE (EvWebView, ev_web_view, WEBKIT_TYPE_WEB_VIEW)
 static void
 web_view_update_range_and_current_page (EvWebView *webview)
 {
@@ -83,11 +80,7 @@ web_view_update_range_and_current_page (EvWebView *webview)
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 ev_web_view_dispose (GObject *object)
-#else
-ev_web_view_destroy (GtkObject *object)
-#endif
 {
 	EvWebView *webview = EV_WEB_VIEW (object);
 
@@ -101,30 +94,34 @@ ev_web_view_destroy (GtkObject *object)
 		webview->model = NULL;
 	};
 	
-#if GTK_CHECK_VERSION (3, 0, 0)
+
 	G_OBJECT_CLASS (ev_web_view_parent_class)->dispose (object);
-#else
-	GTK_OBJECT_CLASS (ev_web_view_parent_class)->destroy (object);
-#endif
 }
 
 static void
 ev_web_view_class_init (EvWebViewClass *klass)
 {
+	G_OBJECT_CLASS(klass)->finalize = ev_web_view_finalize;
+	G_OBJECT_CLASS(klass)->dispose = ev_web_view_dispose;
 }
 
 static void
 ev_web_view_init (EvWebView *webview)
 {
 	gtk_widget_set_can_focus (GTK_WIDGET (webview), TRUE);
-#if GTK_CHECK_VERSION (3, 0, 0)
+
 	gtk_widget_set_has_window (GTK_WIDGET (webview), TRUE);
-#endif
 	
 	webview->current_page = 0;
 
 	webview->fullscreen = FALSE;
 
+}
+
+static void
+ev_web_view_finalize (GObject *object)
+{
+	G_OBJECT_CLASS(ev_web_view_parent_class)->finalize(object);
 }
 
 /*** Callbacks ***/
@@ -140,6 +137,7 @@ ev_web_view_change_page (EvWebView *webview,
 	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),(gchar*)page->backend_page);
 
 	webview->current_page = new_page;
+	ev_document_model_set_page(webview->model,new_page);
 }
 
 static void
@@ -249,6 +247,7 @@ ev_web_view_set_model (EvWebView          *webview,
 
 	/* Initialize webview from model */
 	webview->fullscreen = ev_document_model_get_fullscreen (webview->model);
+	webview->document = ev_document_model_get_document(webview->model);
 	webview->inverted_colors = ev_document_model_get_inverted_colors(webview->model);
 	ev_web_view_document_changed_cb (webview->model, NULL, webview);
 
@@ -265,7 +264,7 @@ ev_web_view_set_model (EvWebView          *webview,
 
 void
 ev_web_view_reload_page (EvWebView         *webview,
-  		         gint               page)
+                         gint               page)
 {
 	webkit_web_view_reload (WEBKIT_WEB_VIEW(webview));
 }
@@ -370,10 +369,12 @@ gboolean
 ev_web_view_zoom_in(EvWebView *webview)
 {
 	webkit_web_view_zoom_in(WEBKIT_WEB_VIEW(webview));
+	return TRUE;
 }
 
 gboolean
 ev_web_view_zoom_out(EvWebView *webview)
 {
 	webkit_web_view_zoom_out(WEBKIT_WEB_VIEW(webview));
+	return TRUE;
 }

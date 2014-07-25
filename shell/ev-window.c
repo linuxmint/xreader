@@ -1487,6 +1487,7 @@ ev_window_set_document (EvWindow *ev_window, EvDocument *document)
 		gtk_container_remove (GTK_CONTAINER(ev_window->priv->scrolled_window),
 		                      ev_window->priv->view);
 		g_object_unref(ev_window->priv->view);
+		ev_window->priv->view = NULL;
 		gtk_container_add (GTK_CONTAINER (ev_window->priv->scrolled_window),
 				   ev_window->priv->webview);
 		gtk_widget_show(ev_window->priv->webview);		
@@ -5422,12 +5423,12 @@ ev_window_dispose (GObject *object)
 		priv->view = NULL;
 	}
 
-#ifdef ENABLE_EPUB
+/*#ifdef ENABLE_EPUB
 	if ( priv->webview ) {
-		g_object_unref (priv->webview);
+		g_object_unref (EV_WEB_VIEW(priv->webview));
 		priv->webview = NULL ;
 	}
-#endif
+#endif*/
 	if (priv->password_view) {
 		g_object_unref (priv->password_view);
 		priv->password_view = NULL;
@@ -7181,6 +7182,7 @@ ev_window_init (EvWindow *ev_window)
 
 #ifdef ENABLE_EPUB
 	ev_window->priv->webview = ev_web_view_new();
+	ev_web_view_set_model(EV_WEB_VIEW(ev_window->priv->webview),ev_window->priv->model);
 #endif
 	ev_view_set_page_cache_size (EV_VIEW (ev_window->priv->view), PAGE_CACHE_SIZE);
 	ev_view_set_model (EV_VIEW (ev_window->priv->view), ev_window->priv->model);

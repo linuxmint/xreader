@@ -949,20 +949,23 @@ epub_document_finalize (GObject *object)
 		if (epub_remove_temporary_dir (epub_document->tmp_archive_dir) == -1)
 			g_warning (_("There was an error deleting “%s”."),
 				   epub_document->tmp_archive_dir);
-		g_free (epub_document->tmp_archive_dir);
 	}
 	
 	if ( epub_document->contentList ) {
                g_list_free_full(epub_document->contentList,(GDestroyNotify)free_tree_nodes);
+			epub_document->contentList = NULL;
 	}
 	if ( epub_document->tmp_archive_dir) {
 		g_free (epub_document->tmp_archive_dir);
+		epub_document->tmp_archive_dir = NULL;
 	}
 	if ( epub_document->archivename) {
 		g_free (epub_document->archivename);
+		epub_document->archivename = NULL;
 	}
 	if ( epub_document->documentdir) {
 		g_free (epub_document->documentdir);
+		epub_document->documentdir = NULL;
 	}
 	G_OBJECT_CLASS (epub_document_parent_class)->finalize (object);
 }
