@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; c-indent-level: 8 -*- */
-/* this file is part of xreader, a mate document viewer
+/* this file is part of xreader, a generic document viewer
  *
  *  Copyright (C) 2004 Red Hat, Inc
  *
@@ -114,11 +114,21 @@ typedef struct _EvHeightToPageCache {
 	gdouble *dual_height_to_page;
 } EvHeightToPageCache;
 
+/* Information for handling annotations */
+typedef struct {
+	GdkPoint         start;
+	GdkPoint         stop;
+	gboolean         adding_annot;
+	EvAnnotationType type;
+	EvAnnotation    *annot;
+} AddingAnnotInfo;
+
 struct _EvView {
 	GtkLayout layout;
 
 	/* Container */
 	GList *children;
+
 	EvDocument *document;
 
 	/* Find */
@@ -200,8 +210,7 @@ struct _EvView {
 	GList             *window_children;
 	EvViewWindowChild *window_child_focus;
 	EvMapping         *focus_annotation;
-	gboolean           adding_annot;
-	EvAnnotationType   adding_annot_type;
+	AddingAnnotInfo    adding_annot_info;
 	
 	/* Focus */
 	EvMapping *focused_element;
