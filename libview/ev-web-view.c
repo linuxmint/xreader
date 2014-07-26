@@ -1,7 +1,7 @@
 /* this file is part of atril, a mate document viewer
  *
  *  Copyright (C) 2014 Avishkar Gupta
- *  Based on ev-view.c
+ *  Based on ev-view.c, also a part of atril, a mate document viewer.
  *
  * Atril is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -28,8 +28,10 @@
 #else
 #include <webkit/webkit.h>
 #endif
+
 #include "ev-web-view.h"
 #include "ev-document-model.h"
+
 #define EV_WEB_VIEW_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), EV_TYPE_WEB_VIEW, EvWebViewClass))
 #define EV_IS_WEB_VIEW_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), EV_TYPE_WEB_VIEW))
 #define EV_WEB_VIEW_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), EV_TYPE_WEB_VIEW, EvWebViewClass))
@@ -133,11 +135,12 @@ ev_web_view_change_page (EvWebView *webview,
 	g_return_if_fail(EV_IS_WEB_VIEW(webview));
 	
 	EvDocumentClass *klass = EV_DOCUMENT_GET_CLASS(webview->document);
+
 	EvPage *page = klass->get_page(webview->document,new_page);
-	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),(gchar*)page->backend_page);
 
 	webview->current_page = new_page;
 	ev_document_model_set_page(webview->model,new_page);
+	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),(gchar*)page->backend_page);
 }
 
 static void
@@ -187,11 +190,8 @@ ev_web_view_document_changed_cb (EvDocumentModel *model,
 		}
 
 		gint current_page = ev_document_model_get_page(model);
-		if (webview->current_page != current_page) {
-			ev_web_view_change_page (webview, current_page);
-		} else {
-			webkit_web_view_reload (WEBKIT_WEB_VIEW(webview));
-		}
+		
+		ev_web_view_change_page (webview, current_page);
 		
 	}
 }       
@@ -363,6 +363,18 @@ void
 ev_web_view_select_all(EvWebView *webview)
 {
 	webkit_web_view_select_all(WEBKIT_WEB_VIEW(webview));
+}
+
+void
+ev_web_view_copy(EvWebView *webview)
+{
+		/* If for some reason we don't have a selection any longer,best to be safe*/
+		if (ev_web_view_get_has_selection(webview) == FALSE)
+			return;
+		if (webkit_web_view_can_copy_clipboard(WEBKIT_WEB_VIEW(webview))) {
+			webkit_web_view_copy_clipboard(WEBKIT_WEB_VIEW(webview));
+		}
+	
 }
 
 gboolean

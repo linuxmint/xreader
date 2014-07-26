@@ -1,7 +1,7 @@
-/* this file is part of atril, a mate document web_viewer
+/* this file is part of atril, a mate document viewer
  *
  *  Copyright (C) 2014 Avishkar Gupta
- *  Based on ev-view.h
+ *  Based on ev-view.h, also a part of atril, a mate document viewer
  *
  * Atril is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -63,8 +63,9 @@ void	ev_web_view_find_next	    (EvWebView *webview);
 void	ev_web_view_find_previous   (EvWebView *webview);
 
 /*Selection*/
-gboolean ev_web_view_get_has_selection  (EvWebView *webview);
-void ev_web_view_select_all            (EvWebView  *webview);
+gboolean	ev_web_view_get_has_selection   (EvWebView *webview);
+void		ev_web_view_select_all			(EvWebView  *webview);
+void		ev_web_view_copy				(EvWebView  *webview);
 
 /*Zoom control*/
 gboolean     ev_web_view_zoom_in        (EvWebView *webview);

@@ -1021,8 +1021,7 @@ update_document_mode (EvWindow *window, EvDocumentMode mode)
 	if (mode == EV_DOCUMENT_MODE_PRESENTATION) {
 		if (window->priv->document) {
 			if (window->priv->document->iswebdocument) {
-				ev_window_warning_message(window,_("Cannot enter presentation mode with ePub documents\
-								use fullscreen mode instead."));
+				ev_window_warning_message(window,_("Cannot enter presentation mode with ePub documents use fullscreen mode instead."));
 				return;
 			}
 		}
@@ -3797,9 +3796,12 @@ static void
 ev_window_cmd_edit_copy (GtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
-	if ( ev_window->priv->document->iswebdocument == TRUE ) return;
 	
-	ev_view_copy (EV_VIEW (ev_window->priv->view));
+	if (ev_window->priv->document->iswebdocument) {
+		ev_web_view_copy(EV_WEB_VIEW(ev_window->priv->webview));
+	} else {
+		ev_view_copy (EV_VIEW (ev_window->priv->view));
+	}
 }
 
 static void
@@ -3986,7 +3988,11 @@ ev_window_run_presentation (EvWindow *window)
 
 	if (EV_WINDOW_IS_PRESENTATION (window))
 		return;
-
+	
+	if (window->priv->document->iswebdocument) {
+		ev_window_warning_message(window,_("Presentation mode is not supported for ePub documents"));
+		return;
+	}
 	if (ev_document_model_get_fullscreen (window->priv->model)) {
 		ev_window_stop_fullscreen (window, FALSE);
 		fullscreen_window = FALSE;
@@ -7180,9 +7186,13 @@ ev_window_init (EvWindow *ev_window)
 
 	ev_window->priv->view = ev_view_new ();
 
-#ifdef ENABLE_EPUB
+#ifdef ENABLE_EPUB /*The webview, we won't add it now but it will replace the atril-view if a web(epub) document is encountered.*/
 	ev_window->priv->webview = ev_web_view_new();
 	ev_web_view_set_model(EV_WEB_VIEW(ev_window->priv->webview),ev_window->priv->model);
+
+	g_signal_connect_object (ev_window->priv->webview,"selection-changed",
+	                         G_CALLBACK(web_view_selection_changed_cb),
+	                         ev_window, 0);
 #endif
 	ev_view_set_page_cache_size (EV_VIEW (ev_window->priv->view), PAGE_CACHE_SIZE);
 	ev_view_set_model (EV_VIEW (ev_window->priv->view), ev_window->priv->model);
