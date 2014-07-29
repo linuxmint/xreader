@@ -1,6 +1,7 @@
 #ifndef __EPUB_DOCUMENT_H__
 #define __EPUB_DOCUMENT_H__
 
+#define _GNU_SOURCE
 #include "ev-document.h"
 
 G_BEGIN_DECLS

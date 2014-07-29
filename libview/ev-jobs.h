@@ -365,6 +365,7 @@ struct _EvJobFind
 	gint current_page;
 	gint n_pages;
 	GList **pages;
+	guint *results;
 	gchar *text;
 	gboolean case_sensitive;
 	gboolean has_results;

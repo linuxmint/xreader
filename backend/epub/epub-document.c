@@ -20,10 +20,11 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#include "ev-file-helpers.h"
 #include "epub-document.h"
+#include "ev-file-helpers.h"
 #include "unzip.h"
 #include "ev-document-thumbnails.h"
+#include "ev-document-find.h"
 #include "ev-document-misc.h"
 #include <libxml/parser.h>
 #include <libxml/xmlmemory.h>
@@ -40,6 +41,11 @@
 #endif
 
 #include <gtk/gtk.h>
+#include <stdio.h>
+
+/*For strcasestr()*/
+
+#include <string.h>
 
 typedef enum _xmlParseReturnType 
 {
@@ -76,11 +82,14 @@ struct _EpubDocument
 };
 
 static void       epub_document_document_thumbnails_iface_init (EvDocumentThumbnailsInterface *iface);
+static void       epub_document_find_iface_init                (EvDocumentFindInterface       *iface); 
 
 EV_BACKEND_REGISTER_WITH_CODE (EpubDocument, epub_document,
 	{
 		EV_BACKEND_IMPLEMENT_INTERFACE (EV_TYPE_DOCUMENT_THUMBNAILS,
 						epub_document_document_thumbnails_iface_init);
+		 EV_BACKEND_IMPLEMENT_INTERFACE (EV_TYPE_DOCUMENT_FIND,
+								 epub_document_find_iface_init);
 	} );
 
 static void
@@ -112,11 +121,61 @@ epub_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 	return thumbnailpix;
 }
 
+static gboolean
+epub_document_check_hits(EvDocumentFind *document_find,
+                         EvPage         *page,
+                         const gchar    *text,
+                         gboolean        case_sensitive)
+{
+	gchar *filepath = g_filename_from_uri((gchar*)page->backend_page,NULL,NULL);
+	FILE *fp = fopen(filepath,"r");
+	GString *buffer; 
+	gchar *found ;
+	
+	while (!feof(fp)) {
+		gchar c;
+		gint pos=0;
+		buffer = g_string_sized_new (1024);
+		
+		while ((c = fgetc(fp)) != '\n' && !feof(fp)) {
+			g_string_insert_c(buffer,pos++,c);
+		}
+
+		g_string_insert_c(buffer,pos,'\0');
+		
+		if (case_sensitive) {
+			if ((found = strstr(buffer->str,text)) != NULL) {
+				g_string_free(buffer,TRUE);
+				fclose(fp);
+				return TRUE;
+			}
+		}
+		else {
+			
+			if ( (found = strcasestr(buffer->str,text)) != NULL) {
+				g_string_free(buffer,TRUE);
+				fclose(fp);
+				return TRUE;
+			}
+		}
+		g_string_free(buffer,TRUE);
+	}
+	
+	fclose(fp);
+	return FALSE;
+}
+
 static void
 epub_document_document_thumbnails_iface_init (EvDocumentThumbnailsInterface *iface)
 {
 	iface->get_thumbnail = epub_document_thumbnails_get_thumbnail;
 	iface->get_dimensions = epub_document_thumbnails_get_dimensions;
+}
+
+static void
+epub_document_find_iface_init (EvDocumentFindInterface *iface) 
+{
+	iface->check_for_hits = epub_document_check_hits;
 }
 
 static gboolean
@@ -139,53 +198,7 @@ epub_document_get_n_pages (EvDocument *document)
             
 	return g_list_length(epub_document->contentList);
 }
-#if !GTK_CHECK_VERSION(3, 0, 0)
-#else /* The webkit2 code for GTK3 */
 
-static void 
-snapshot_chain_cb(WebKitWebView *web_view,
-				  GAsyncResult* res,
-				  cairo_surface_t **surface)
-{
-	GError * err = NULL ;
-	*surface = webkit_web_view_get_snapshot_finish(WEBKIT_WEB_VIEW(web_view),res,&err);
-	if ( err ) {
-		surface = NULL ;	
-	}
-}
-
-static void 
-webkit_render_cb(WebKitWebView *webview,
-			     WebKitLoadEvent load_status,
-		         cairo_surface_t **surface)
-{
-	if ( load_status != WEBKIT_LOAD_FINISHED )
-		return ;
-
-	webkit_web_view_get_snapshot(webview,
-								 WEBKIT_SNAPSHOT_REGION_FULL_DOCUMENT,
-								 WEBKIT_SNAPSHOT_OPTIONS_INCLUDE_SELECTION_HIGHLIGHTING,
-								 NULL,
-								 (GAsyncReadyCallback)snapshot_chain_cb,
-								 surface);
-}
-
-{
-	GtkWidget *offscreen_window = gtk_offscreen_window_new ();
-	gtk_window_set_default_size(GTK_WINDOW(offscreen_window),800,600);
-	GtkWidget* scroll_view = gtk_scrolled_window_new (NULL,NULL);
-	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scroll_view),GTK_POLICY_AUTOMATIC,GTK_POLICY_AUTOMATIC);
-	GtkWidget* web_view = webkit_web_view_new ();
-	
-	gtk_container_add(GTK_CONTAINER(offscreen_window),scroll_view);
-	gtk_container_add(GTK_CONTAINER(scroll_view),web_view);
-	
-	gtk_widget_show_all(offscreen_window);
-	g_signal_connect(web_view,"load-changed",G_CALLBACK(webkit_render_cb),surface);
-	return web_view ;
-}
-
-#endif
 /**
  * epub_remove_temporary_dir : Removes a directory recursively. 
  * This function is same as comics_remove_temporary_dir
@@ -431,8 +444,10 @@ static gboolean
 check_mime_type(const gchar* uri,GError** error)
 {
     GError * err = NULL ;
-    gchar* mimeFromFile = ev_file_get_mime_type(uri,FALSE,&err);
+    const gchar* mimeFromFile = ev_file_get_mime_type(uri,FALSE,&err);
     
+    gchar* mimetypes[] = {"application/epub+zip","application/x-booki+zip"};
+    int typecount = 2;
     if ( !mimeFromFile )
     {
         if (err)    {
@@ -446,12 +461,16 @@ check_mime_type(const gchar* uri,GError** error)
         }
         return FALSE;
     }
-    else if ( g_strcmp0(mimeFromFile, "application/epub+zip") == 0  )
-    {
-        return TRUE ;
-    }
     else
     {
+        int i=0;
+        for (i=0; i < typecount ;i++) {
+           if ( g_strcmp0(mimeFromFile, mimetypes[i]) == 0  ) {
+                return TRUE;
+           }
+        }
+
+        /*We didn't find a match*/
         g_set_error_literal (error,
                      EV_DOCUMENT_ERROR,
                      EV_DOCUMENT_ERROR_INVALID,
@@ -882,6 +901,18 @@ epub_document_init (EpubDocument *epub_document)
 	epub_document->documentdir = NULL;
 }
 
+typedef struct _linknode {
+    guint page;
+    gchar *linktext;
+}linknode;
+
+static void
+setup_document_index(EpubDocument *epub_document,const gchar* contentUri) 
+{
+    linknode *index;
+
+}
+
 static gboolean
 epub_document_load (EvDocument* document,
                     const char* uri,
@@ -906,6 +937,7 @@ epub_document_load (EvDocument* document,
 		g_propagate_error( error,err );
 		return FALSE;
 	}
+
 	/*FIXME : can this be different, ever?*/
 	containerpath = g_string_new(epub_document->tmp_archive_dir);
 	g_string_append_printf(containerpath,"/META-INF/container.xml");
@@ -952,7 +984,7 @@ epub_document_finalize (GObject *object)
 	}
 	
 	if ( epub_document->contentList ) {
-               g_list_free_full(epub_document->contentList,(GDestroyNotify)free_tree_nodes);
+            g_list_free_full(epub_document->contentList,(GDestroyNotify)free_tree_nodes);
 			epub_document->contentList = NULL;
 	}
 	if ( epub_document->tmp_archive_dir) {

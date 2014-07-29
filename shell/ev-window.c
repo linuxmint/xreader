@@ -1493,6 +1493,7 @@ ev_window_set_document (EvWindow *ev_window, EvDocument *document)
 	}
 	else {
 		/*Since the document is not a webdocument might as well get rid of the webview now*/
+		g_object_ref_sink(ev_window->priv->webview);
 		g_object_unref(ev_window->priv->webview);
 	}
 #endif
@@ -4490,14 +4491,19 @@ static void
 ev_window_cmd_escape (GtkAction *action, EvWindow *window)
 {
 	GtkWidget *widget;
-	if ( window->priv->document->iswebdocument == FALSE ) return ;
-	ev_view_autoscroll_stop (EV_VIEW (window->priv->view));
+
+	if (!window->priv->document->iswebdocument && window->priv->view)
+		ev_view_autoscroll_stop (EV_VIEW (window->priv->view));
 	
 	widget = gtk_window_get_focus (GTK_WINDOW (window));
 	if (widget && gtk_widget_get_ancestor (widget, EGG_TYPE_FIND_BAR)) {
 		update_chrome_flag (window, EV_CHROME_FINDBAR, FALSE);
 		update_chrome_visibility (window);
-		gtk_widget_grab_focus (window->priv->view);
+
+		if (window->priv->view)
+			gtk_widget_grab_focus (window->priv->view);
+		else
+			gtk_widget_grab_focus (window->priv->webview);
 	} else {
 		gboolean fullscreen;
 
@@ -4509,7 +4515,10 @@ ev_window_cmd_escape (GtkAction *action, EvWindow *window)
 			ev_window_stop_presentation (window, TRUE);
 			gtk_widget_grab_focus (window->priv->view);
 		} else {
-			gtk_widget_grab_focus (window->priv->view);
+			if (window->priv->view)
+				gtk_widget_grab_focus (window->priv->view);
+			else
+				gtk_widget_grab_focus (window->priv->webview);
 		}
 
 		if (fullscreen && EV_WINDOW_IS_PRESENTATION (window))
@@ -5059,10 +5068,14 @@ ev_window_find_job_updated_cb (EvJobFind *job,
 			       EvWindow  *ev_window)
 {
 	ev_window_update_actions (ev_window);
-	if (ev_window->priv->document->iswebdocument == TRUE ) return ;
-	ev_view_find_changed (EV_VIEW (ev_window->priv->view),
-			      ev_job_find_get_results (job),
-			      page);
+	if (ev_window->priv->document->iswebdocument == TRUE ) {
+		ev_web_view_find_changed(EV_WEB_VIEW(ev_window->priv->webview), page,job);
+	}
+	else {
+		ev_view_find_changed (EV_VIEW (ev_window->priv->view),
+				      ev_job_find_get_results (job),
+				      page);
+	}
 	ev_window_update_find_status_message (ev_window);
 }
 
@@ -5088,24 +5101,34 @@ static void
 find_bar_previous_cb (EggFindBar *find_bar,
 		      EvWindow   *ev_window)
 {
-	if (ev_window->priv->document->iswebdocument == TRUE ) return ;
-	ev_view_find_previous (EV_VIEW (ev_window->priv->view));
+	if (ev_window->priv->document->iswebdocument == TRUE ) {
+		ev_web_view_find_previous(EV_WEB_VIEW(ev_window->priv->webview));
+	}else {
+		ev_view_find_previous (EV_VIEW (ev_window->priv->view));
+	}
 }
 
 static void
 find_bar_next_cb (EggFindBar *find_bar,
 		  EvWindow   *ev_window)
 {
-	if (ev_window->priv->document->iswebdocument == TRUE ) return ;
-	ev_view_find_next (EV_VIEW (ev_window->priv->view));
+	if (ev_window->priv->document->iswebdocument == TRUE ) {
+		ev_web_view_find_next(EV_WEB_VIEW(ev_window->priv->webview));
+	} else {
+		ev_view_find_next (EV_VIEW (ev_window->priv->view));
+	}
 }
 
 static void
 find_bar_close_cb (EggFindBar *find_bar,
 		   EvWindow   *ev_window)
 {
-	if (ev_window->priv->document->iswebdocument == TRUE ) return ;
-	ev_view_find_cancel (EV_VIEW (ev_window->priv->view));
+	if (ev_window->priv->document->iswebdocument == TRUE ) {		
+		ev_web_view_find_cancel(EV_WEB_VIEW(ev_window->priv->webview));
+	}
+	else {
+			ev_view_find_cancel (EV_VIEW (ev_window->priv->view));
+	}
 	ev_window_clear_find_job (ev_window);
 	update_chrome_flag (ev_window, EV_CHROME_FINDBAR, FALSE);
 	update_chrome_visibility (ev_window);
@@ -5121,13 +5144,16 @@ find_bar_search_changed_cb (EggFindBar *find_bar,
 
 	if (!ev_window->priv->document || !EV_IS_DOCUMENT_FIND (ev_window->priv->document))
 		return;
-	if (ev_window->priv->document->iswebdocument == TRUE ) return ;
+	
 	/* Either the string or case sensitivity could have changed. */
 	case_sensitive = egg_find_bar_get_case_sensitive (find_bar);
 	search_string = egg_find_bar_get_search_string (find_bar);
 
-	ev_view_find_search_changed (EV_VIEW (ev_window->priv->view));
-
+	if (ev_window->priv->document->iswebdocument) {
+		ev_web_view_find_search_changed(EV_WEB_VIEW(ev_window->priv->webview));
+	} else {
+		ev_view_find_search_changed (EV_VIEW (ev_window->priv->view));
+	}
 	ev_window_clear_find_job (ev_window);
 
 	if (search_string && search_string[0]) {
@@ -5136,6 +5162,7 @@ find_bar_search_changed_cb (EggFindBar *find_bar,
 							     ev_document_get_n_pages (ev_window->priv->document),
 							     search_string,
 							     case_sensitive);
+		
 		g_signal_connect (ev_window->priv->find_job, "finished",
 				  G_CALLBACK (ev_window_find_job_finished_cb),
 				  ev_window);
@@ -5147,7 +5174,11 @@ find_bar_search_changed_cb (EggFindBar *find_bar,
 		ev_window_update_actions (ev_window);
 		egg_find_bar_set_status_text (EGG_FIND_BAR (ev_window->priv->find_bar),
 					      NULL);
-		gtk_widget_queue_draw (GTK_WIDGET (ev_window->priv->view));
+		if (ev_window->priv->document->iswebdocument == TRUE) {
+			ev_web_view_empty_search(EV_WEB_VIEW(ev_window->priv->webview));
+		} else {
+			gtk_widget_queue_draw (GTK_WIDGET (ev_window->priv->view));
+		}
 	}
 }
 
@@ -5157,13 +5188,20 @@ find_bar_visibility_changed_cb (EggFindBar *find_bar,
 				EvWindow   *ev_window)
 {
 	gboolean visible;
-	if (ev_window->priv->document->iswebdocument == TRUE ) return ;
 	visible = gtk_widget_get_visible (GTK_WIDGET (find_bar));
 
 	if (ev_window->priv->document &&
 	    EV_IS_DOCUMENT_FIND (ev_window->priv->document)) {
-		ev_view_find_set_highlight_search (EV_VIEW (ev_window->priv->view), visible);
-		ev_view_find_search_changed (EV_VIEW (ev_window->priv->view));
+
+		if (!ev_window->priv->document->iswebdocument) {
+			ev_view_find_set_highlight_search (EV_VIEW (ev_window->priv->view), visible);
+			ev_view_find_search_changed (EV_VIEW (ev_window->priv->view));
+		}
+		else {
+			ev_web_view_find_set_highlight_search(EV_WEB_VIEW(ev_window->priv->webview),visible);
+			ev_web_view_find_search_changed(EV_WEB_VIEW(ev_window->priv->webview));
+		}
+
 		ev_window_update_actions (ev_window);
 
 		if (visible)
@@ -5429,12 +5467,6 @@ ev_window_dispose (GObject *object)
 		priv->view = NULL;
 	}
 
-/*#ifdef ENABLE_EPUB
-	if ( priv->webview ) {
-		g_object_unref (EV_WEB_VIEW(priv->webview));
-		priv->webview = NULL ;
-	}
-#endif*/
 	if (priv->password_view) {
 		g_object_unref (priv->password_view);
 		priv->password_view = NULL;

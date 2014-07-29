@@ -1349,6 +1349,10 @@ ev_job_find_dispose (GObject *object)
 		g_free (job->pages);
 		job->pages = NULL;
 	}
+
+	if (job->results) {
+		g_free(job->results);
+	}
 	
 	(* G_OBJECT_CLASS (ev_job_find_parent_class)->dispose) (object);
 }
@@ -1360,7 +1364,6 @@ ev_job_find_run (EvJob *job)
 	EvDocumentFind *find = EV_DOCUMENT_FIND (job->document);
 	EvPage         *ev_page;
 	GList          *matches;
-
 	ev_debug_message (DEBUG_JOBS, NULL);
 	
 	/* Do not block the main loop */
@@ -1374,16 +1377,26 @@ ev_job_find_run (EvJob *job)
 #endif
 
 	ev_page = ev_document_get_page (job->document, job_find->current_page);
-	matches = ev_document_find_find_text (find, ev_page, job_find->text,
-					      job_find->case_sensitive);
+
+	if (job->document->iswebdocument) {
+		job_find->has_results = ev_document_find_check_for_hits(find, ev_page, job_find->text,
+		                                                        job_find->case_sensitive);
+	}else {
+		matches = ev_document_find_find_text (find, ev_page, job_find->text,
+					      job_find->case_sensitive);	
+	}
+	
 	g_object_unref (ev_page);
 	
 	ev_document_doc_mutex_unlock ();
 
-	if (!job_find->has_results)
+	if (!job_find->has_results && !job->document->iswebdocument) {
 		job_find->has_results = (matches != NULL);
-
-	job_find->pages[job_find->current_page] = matches;
+	}
+	
+	if (job->document->iswebdocument == FALSE) {
+		job_find->pages[job_find->current_page] = matches;
+	}
 	g_signal_emit (job_find, job_find_signals[FIND_UPDATED], 0, job_find->current_page);
 		       
 	job_find->current_page = (job_find->current_page + 1) % job_find->n_pages;
@@ -1433,7 +1446,13 @@ ev_job_find_new (EvDocument  *document,
 	job->start_page = start_page;
 	job->current_page = start_page;
 	job->n_pages = n_pages;
-	job->pages = g_new0 (GList *, n_pages);
+
+	if (document->iswebdocument) {
+		job->results = g_malloc0 (sizeof(guint) *n_pages);
+	}
+	else {
+		job->pages = g_new0 (GList *, n_pages);
+	}
 	job->text = g_strdup (text);
 	job->case_sensitive = case_sensitive;
 	job->has_results = FALSE;
@@ -1445,7 +1464,12 @@ gint
 ev_job_find_get_n_results (EvJobFind *job,
 			   gint       page)
 {
-	return g_list_length (job->pages[page]);
+	if (EV_JOB(job)->document->iswebdocument) {
+		return job->results[page];
+	}
+	else {
+		return g_list_length (job->pages[page]);
+	}
 }
 
 gdouble

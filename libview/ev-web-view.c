@@ -31,10 +31,20 @@
 
 #include "ev-web-view.h"
 #include "ev-document-model.h"
+#include "ev-jobs.h"
 
 #define EV_WEB_VIEW_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), EV_TYPE_WEB_VIEW, EvWebViewClass))
 #define EV_IS_WEB_VIEW_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), EV_TYPE_WEB_VIEW))
 #define EV_WEB_VIEW_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), EV_TYPE_WEB_VIEW, EvWebViewClass))
+
+typedef struct _SearchParams {
+	gboolean case_sensitive;
+	guint    page_current;
+	gboolean search_jump;
+	gchar*   search_string;
+	guint    on_result;
+	guint    n_results;
+}SearchParams;
 
 struct _EvWebView
 {
@@ -44,6 +54,7 @@ struct _EvWebView
 	gint current_page;
 	gboolean inverted_colors ;
 	gboolean fullscreen;
+	SearchParams *search;
 };
 
 struct _EvWebViewClass 
@@ -116,8 +127,11 @@ ev_web_view_init (EvWebView *webview)
 	
 	webview->current_page = 0;
 
-	webview->fullscreen = FALSE;
+	webview->search = g_new0(SearchParams, 1);
+	
+	webview->search->search_jump = TRUE ;
 
+	webview->fullscreen = FALSE;
 }
 
 static void
@@ -294,6 +308,7 @@ ev_web_view_next_page (EvWebView *webview)
 	if (page < n_pages) {
 		ev_document_model_set_page (webview->model, page);
 		EvPage *webpage = ev_document_get_page(webview->document,page);
+		webview->current_page = page ;
 		webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),(gchar*)webpage->backend_page);
 		return TRUE;
 	} else if (page == n_pages) {
@@ -341,18 +356,116 @@ ev_web_view_handle_link(EvWebView *webview,EvLink *link)
 
 }
 
+/* Searching */
 void 
 ev_web_view_find_next(EvWebView *webview)
 {
-
+	/*First search for the next item on the current page*/
+	 webkit_web_view_search_text (WEBKIT_WEB_VIEW(webview),
+                                  webview->search->search_string,
+                                  webview->search->case_sensitive,
+                                  TRUE,
+                                  FALSE);
 }
 
 void 
 ev_web_view_find_previous(EvWebView *webview)
 {
-
+	webkit_web_view_search_text (WEBKIT_WEB_VIEW(webview),
+                          		webview->search->search_string,
+                          		webview->search->case_sensitive,
+                          		FALSE,
+                          		TRUE);
 }
 
+void
+ev_web_view_find_set_highlight_search(EvWebView *webview, gboolean visible)
+{
+	webkit_web_view_set_highlight_text_matches(WEBKIT_WEB_VIEW(webview),visible);
+}
+
+typedef struct _FindCBStruct {
+	EvJobFind *job;
+	gint page;
+}FindCBStruct;
+
+static void
+find_page_change_cb(WebKitWebView  *webview,
+                    WebKitWebFrame *webframe,
+                    FindCBStruct   *findcbs)
+{
+	findcbs->job->results[findcbs->page] = webkit_web_view_mark_text_matches(WEBKIT_WEB_VIEW(webview),
+	                                                                         findcbs->job->text,
+	                                                                         findcbs->job->case_sensitive,
+	                                                                         0);
+	ev_web_view_find_set_highlight_search(webview, TRUE);
+	
+	webkit_web_view_search_text (WEBKIT_WEB_VIEW(webview),
+	                             findcbs->job->text,
+	                             findcbs->job->case_sensitive,
+                                 TRUE,
+                                 FALSE);
+}
+void
+ev_web_view_find_changed(EvWebView *webview, gint page_found_on,EvJobFind *job)
+{
+	if (job->has_results == FALSE)
+		return;
+	
+	if (webview->search->search_jump == TRUE) {
+
+		webview->search->on_result = 1;
+		webview->search->case_sensitive = job->case_sensitive;
+		webview->search->search_string = g_strdup(job->text);
+		webview->search->search_jump = FALSE;
+		
+		if (page_found_on != webview->current_page) {
+			ev_web_view_change_page(webview, page_found_on);
+
+			FindCBStruct *findstruct = g_new0 (FindCBStruct, 1);
+			findstruct->job = job;
+			findstruct->page = page_found_on;
+			
+			g_signal_connect(WEBKIT_WEB_VIEW(webview),"document-load-finished",G_CALLBACK(find_page_change_cb),findstruct);
+		}
+		else {
+			job->results[webview->current_page] = webkit_web_view_mark_text_matches(WEBKIT_WEB_VIEW(webview),
+			                                                                        job->text,
+			                                                                        job->case_sensitive,
+			                                                                        0);
+
+				ev_web_view_find_set_highlight_search(webview, TRUE);
+		}
+	}
+}
+
+void
+ev_web_view_find_search_changed(EvWebView *webview)
+{
+	ev_web_view_find_set_highlight_search(webview,FALSE);
+	webkit_web_view_unmark_text_matches (WEBKIT_WEB_VIEW(webview));
+	webview->search->search_jump = TRUE;
+}
+
+void
+ev_web_view_find_cancel(EvWebView *webview)
+{
+	ev_web_view_find_set_highlight_search(webview,FALSE);
+	webkit_web_view_unmark_text_matches (WEBKIT_WEB_VIEW(webview));
+}
+
+void
+ev_web_view_empty_search(EvWebView *webview)
+{
+	SearchParams *search = webview->search ;
+	search->case_sensitive = FALSE;
+	if (search->search_string) 
+		g_free(search->search_string);
+	search->search_string = NULL;
+	search->search_jump = TRUE ;
+}
+
+/* Selection */
 gboolean 
 ev_web_view_get_has_selection(EvWebView *webview)
 {

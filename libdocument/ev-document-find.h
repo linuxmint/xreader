@@ -52,6 +52,11 @@ struct _EvDocumentFindInterface
 				    EvPage         *page,
 				    const gchar    *text,
 				    gboolean        case_sensitive);
+
+	gboolean (* check_for_hits)(EvDocumentFind *document_find,
+				    EvPage         *page,
+				    const gchar    *text,
+				    gboolean        case_sensitive);
 };
 
 GType  ev_document_find_get_type  (void) G_GNUC_CONST;
@@ -60,6 +65,10 @@ GList *ev_document_find_find_text (EvDocumentFind *document_find,
 				   const gchar    *text,
 				   gboolean        case_sensitive);
 
+gboolean ev_document_find_check_for_hits(EvDocumentFind *document_find,
+                                         EvPage         *page,
+                                         const gchar    *text,
+                                         gboolean        case_sensitive);
 G_END_DECLS
 
 #endif /* EV_DOCUMENT_FIND_H */

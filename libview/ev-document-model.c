@@ -106,15 +106,8 @@ ev_document_model_set_property (GObject      *object,
 		ev_document_model_set_page (model, g_value_get_int (value));
 		break;
 	case PROP_ROTATION:
-		{
-			if ( model->document->iswebdocument == TRUE ) {
-				model->rotation=0;
-			}
-			else {
-				ev_document_model_set_rotation (model, g_value_get_int (value));
-			}			
-			break;
-		}
+		ev_document_model_set_rotation (model, g_value_get_int (value));
+		break;
 	case PROP_INVERTED_COLORS:
 		if ( model->document->iswebdocument == TRUE ) {
 			atril_web_document_set_inverted_colors(model,g_value_get_boolean(value));

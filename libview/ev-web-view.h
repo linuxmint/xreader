@@ -28,7 +28,7 @@
 #include <gtk/gtk.h>
 
 #include <atril-document.h>
-
+#include "ev-jobs.h"
 #include "ev-document-model.h"
 #include <glib-object.h>
 G_BEGIN_DECLS
@@ -44,30 +44,37 @@ typedef struct _EvWebViewClass  EvWebViewClass;
 GType		ev_web_view_get_type			(void) G_GNUC_CONST;
 
 GtkWidget*	ev_web_view_new					(void);
+
 void		ev_web_view_set_model	        (EvWebView          *webview,
 										     EvDocumentModel *model);
-void       ev_web_view_reload              (EvWebView          *webview);
-void
-ev_web_view_reload_page						(EvWebView         *webview,
+
+void       ev_web_view_reload               (EvWebView          *webview);
+
+void       ev_web_view_reload_page			(EvWebView         *webview,
   		    								 gint               page);
 	
 /* Navigation */
 gboolean       ev_web_view_next_page		  (EvWebView         *webview);
 gboolean       ev_web_view_previous_page	  (EvWebView         *webview);
 
-/*Sidebar links*/
+/* Sidebar links */
 void       ev_web_view_handle_link (EvWebView *webview, EvLink* link);
 
-/*Searching*/
-void	ev_web_view_find_next	    (EvWebView *webview);
-void	ev_web_view_find_previous   (EvWebView *webview);
+/* Searching */
+void     ev_web_view_find_next                 (EvWebView *webview);
+void     ev_web_view_find_previous             (EvWebView *webview);
+void     ev_web_view_find_changed              (EvWebView *webview, gint page_found_on,EvJobFind *job);
+void     ev_web_view_find_search_changed       (EvWebView *webview);
+void     ev_web_view_find_cancel               (EvWebView *webview);
+void     ev_web_view_find_set_highlight_search (EvWebView *webview,gboolean visible);
+void     ev_web_view_empty_search              (EvWebView *webview);
 
-/*Selection*/
+/* Selection */
 gboolean	ev_web_view_get_has_selection   (EvWebView *webview);
 void		ev_web_view_select_all			(EvWebView  *webview);
 void		ev_web_view_copy				(EvWebView  *webview);
 
-/*Zoom control*/
+/* Zoom control */
 gboolean     ev_web_view_zoom_in        (EvWebView *webview);
 gboolean     ev_web_view_zoom_out       (EvWebView *webview);
 
