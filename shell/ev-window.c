@@ -3668,7 +3668,7 @@ static void
 ev_window_cmd_scroll_forward (GtkAction *action, EvWindow *window)
 {
 	/*If the webview is occupying the window*/
-	if ( window->priv->document->iswebdocument == FALSE ) return ;
+	if ( window->priv->document->iswebdocument == FALSE) return ;
 	
 	ev_view_scroll (EV_VIEW (window->priv->view), GTK_SCROLL_PAGE_FORWARD, FALSE);
 }
@@ -5880,7 +5880,11 @@ activate_link_cb (EvPageAction *page_action, EvLink *link, EvWindow *window)
 static void
 navigation_action_activate_link_cb (EvNavigationAction *action, EvLink *link, EvWindow *window)
 {
-	if (window->priv->document->iswebdocument == FALSE )  return;
+	if (window->priv->document->iswebdocument == TRUE )  {
+		ev_web_view_handle_link(EV_WEB_VIEW(window->priv->webview),link);
+		gtk_widget_grab_focus (window->priv->webview);
+		return;
+	}
 	
 	ev_view_handle_link (EV_VIEW (window->priv->view), link);
 	gtk_widget_grab_focus (window->priv->view);
@@ -6334,7 +6338,7 @@ view_external_link_cb (EvView *view, EvLinkAction *action, EvWindow *window)
 static void
 ev_view_popup_cmd_open_link (GtkAction *action, EvWindow *window)
 {
-	if (window->priv->document->iswebdocument == FALSE ) return;
+	if (window->priv->document->iswebdocument == TRUE ) return;
 	ev_view_handle_link (EV_VIEW (window->priv->view), window->priv->link);
 }
 
@@ -6359,7 +6363,7 @@ static void
 ev_view_popup_cmd_copy_link_address (GtkAction *action, EvWindow *window)
 {
 	EvLinkAction *ev_action;
-	if (window->priv->document->iswebdocument == FALSE ) return;
+	if (window->priv->document->iswebdocument == TRUE ) return;
 	ev_action = ev_link_get_action (window->priv->link);
 	if (!ev_action)
 		return;
@@ -6534,7 +6538,7 @@ static void
 ev_view_popup_cmd_annot_properties (GtkAction *action,
 				    EvWindow  *window)
 {
-	if (window->priv->document->iswebdocument == FALSE ) return;
+	if (window->priv->document->iswebdocument == TRUE ) return;
 	
 	const gchar                  *author;
 	GdkColor                      color;
@@ -6922,7 +6926,7 @@ method_call_cb (GDBusConnection       *connection,
                 gpointer               user_data)
 {
 	EvWindow *window = EV_WINDOW (user_data);
-	if (window->priv->document->iswebdocument == FALSE ) return;
+	if (window->priv->document->iswebdocument == TRUE ) return;
   
         if (g_strcmp0 (method_name, "SyncView") != 0)
                 return;

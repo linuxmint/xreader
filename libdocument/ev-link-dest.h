@@ -49,6 +49,7 @@ typedef enum {
 	EV_LINK_DEST_TYPE_FITR,
 	EV_LINK_DEST_TYPE_NAMED,
 	EV_LINK_DEST_TYPE_PAGE_LABEL,
+	EV_LINK_DEST_TYPE_HLINK,
 	EV_LINK_DEST_TYPE_UNKNOWN
 } EvLinkDestType; 
 
@@ -89,6 +90,7 @@ EvLinkDest     *ev_link_dest_new_fitr       (gint         page,
 					     gdouble      top);
 EvLinkDest     *ev_link_dest_new_named      (const gchar *named_dest);
 EvLinkDest     *ev_link_dest_new_page_label (const gchar *page_label);
+EvLinkDest     *ev_link_dest_new_hlink      (const gchar* hlink,gint page);
 
 G_END_DECLS
 

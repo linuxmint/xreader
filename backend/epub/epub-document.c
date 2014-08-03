@@ -25,6 +25,7 @@
 #include "unzip.h"
 #include "ev-document-thumbnails.h"
 #include "ev-document-find.h"
+#include "ev-document-links.h"
 #include "ev-document-misc.h"
 #include <libxml/parser.h>
 #include <libxml/xmlmemory.h>
@@ -34,17 +35,10 @@
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
 
-#if GTK_CHECK_VERSION(3, 0, 0)
-	#include <webkit2/webkit2.h>
-#else
-	#include <webkit/webkit.h>
-#endif
-
 #include <gtk/gtk.h>
 #include <stdio.h>
 
-/*For strcasestr()*/
-
+/*For strcasestr(),strstr()*/
 #include <string.h>
 
 typedef enum _xmlParseReturnType 
@@ -58,6 +52,12 @@ typedef struct _contentListNode {
     gchar* value ;
 	gint index ;
 }contentListNode;
+
+typedef struct _linknode {
+    gchar *pagelink;
+    gchar *linktext;
+	guint page;
+}linknode;
 
 typedef struct _EpubDocumentClass EpubDocumentClass;
 
@@ -79,17 +79,25 @@ struct _EpubDocument
     unzFile epubDocument ;
 	/*The (sub)directory that actually houses the document*/
 	gchar* documentdir;
+	/*Stores the table of contents*/
+	GList *index;
+	/*Document title, for the sidebar links*/
+	gchar *docTitle;
 };
 
 static void       epub_document_document_thumbnails_iface_init (EvDocumentThumbnailsInterface *iface);
-static void       epub_document_find_iface_init                (EvDocumentFindInterface       *iface); 
+static void       epub_document_document_find_iface_init       (EvDocumentFindInterface       *iface); 
+static void       epub_document_document_links_iface_init      (EvDocumentLinksInterface      *iface);
 
 EV_BACKEND_REGISTER_WITH_CODE (EpubDocument, epub_document,
 	{
 		EV_BACKEND_IMPLEMENT_INTERFACE (EV_TYPE_DOCUMENT_THUMBNAILS,
 						epub_document_document_thumbnails_iface_init);
 		 EV_BACKEND_IMPLEMENT_INTERFACE (EV_TYPE_DOCUMENT_FIND,
-								 epub_document_find_iface_init);
+								 epub_document_document_find_iface_init);
+        EV_BACKEND_IMPLEMENT_INTERFACE (EV_TYPE_DOCUMENT_LINKS,
+                                 epub_document_document_links_iface_init);
+
 	} );
 
 static void
@@ -165,6 +173,108 @@ epub_document_check_hits(EvDocumentFind *document_find,
 	return FALSE;
 }
 
+static gboolean
+epub_document_links_has_document_links(EvDocumentLinks *document_links)
+{
+    EpubDocument *epub_document = EPUB_DOCUMENT(document_links);
+
+    g_return_if_fail(EPUB_IS_DOCUMENT(epub_document));
+
+    if (!epub_document->index)
+        return FALSE;
+
+    return TRUE;
+}
+
+
+typedef struct _LinksCBStruct {
+	GtkTreeModel *model;
+	GtkTreeIter  *parent;
+}LinksCBStruct;
+
+static void
+epub_document_make_tree_entry(linknode* ListData,LinksCBStruct* UserData)
+{
+	GtkTreeIter tree_iter;
+	EvLink *link = NULL;
+	gboolean expand;
+	char *title_markup;
+
+	//These are all children of the document title, and have no chlidren nodes
+	expand = FALSE;
+
+	EvLinkDest *ev_dest = NULL;
+	EvLinkAction *ev_action;
+
+	/* We shall use a EV_LINK_DEST_TYPE_PAGE for page links,
+	 * and a EV_LINK_DEST_TYPE_HLINK(custom) for refs on a page of type url#label
+	 * because we need both dest and page label for this.
+	 */
+
+	if (g_strrstr(ListData->pagelink,"#") == NULL) {
+		ev_dest = ev_link_dest_new_page(ListData->page);
+	}
+	else {
+		ev_dest = ev_link_dest_new_hlink((gchar*)ListData->pagelink,ListData->page);
+	}
+	
+	ev_action = ev_link_action_new_dest (ev_dest);
+
+	link = ev_link_new((gchar*)ListData->linktext,ev_action);
+
+	gtk_tree_store_append (GTK_TREE_STORE (UserData->model), &tree_iter,(UserData->parent));
+	title_markup = g_strdup((gchar*)ListData->linktext);
+	
+	gtk_tree_store_set (GTK_TREE_STORE (UserData->model), &tree_iter,
+			    EV_DOCUMENT_LINKS_COLUMN_MARKUP, title_markup,
+			    EV_DOCUMENT_LINKS_COLUMN_LINK, link,
+			    EV_DOCUMENT_LINKS_COLUMN_EXPAND, expand,
+			    -1);
+	
+	g_free (title_markup);
+	g_object_unref (link);		
+}
+
+static GtkTreeModel *
+epub_document_links_get_links_model(EvDocumentLinks *document_links) 
+{
+    GtkTreeModel *model = NULL;
+
+	g_return_val_if_fail (EPUB_IS_DOCUMENT (document_links), NULL);
+	
+    EpubDocument *epub_document = EPUB_DOCUMENT(document_links);
+	
+    model = (GtkTreeModel*) gtk_tree_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
+                                                G_TYPE_STRING,
+                                                G_TYPE_OBJECT,
+                                                G_TYPE_BOOLEAN,
+                                                G_TYPE_STRING);
+
+	LinksCBStruct linkStruct;
+	linkStruct.model = model;
+	EvLink *link = ev_link_new(epub_document->docTitle,
+	                           ev_link_action_new_dest(ev_link_dest_new_page(0)));
+	GtkTreeIter parent;
+
+	linkStruct.parent = &parent;
+	
+	gtk_tree_store_append (GTK_TREE_STORE (model), &parent,NULL);
+		
+	gtk_tree_store_set (GTK_TREE_STORE (model), &parent,
+			    EV_DOCUMENT_LINKS_COLUMN_MARKUP, epub_document->docTitle,
+			    EV_DOCUMENT_LINKS_COLUMN_LINK, link,
+			    EV_DOCUMENT_LINKS_COLUMN_EXPAND, TRUE,
+			    -1);
+
+	g_object_unref(link);
+	
+	if (epub_document->index) {
+		g_list_foreach (epub_document->index,(GFunc)epub_document_make_tree_entry,&linkStruct);
+	}
+	
+    return model;
+}
+
 static void
 epub_document_document_thumbnails_iface_init (EvDocumentThumbnailsInterface *iface)
 {
@@ -173,9 +283,16 @@ epub_document_document_thumbnails_iface_init (EvDocumentThumbnailsInterface *ifa
 }
 
 static void
-epub_document_find_iface_init (EvDocumentFindInterface *iface) 
+epub_document_document_find_iface_init (EvDocumentFindInterface *iface) 
 {
 	iface->check_for_hits = epub_document_check_hits;
+}
+
+static void
+epub_document_document_links_iface_init(EvDocumentLinksInterface *iface)
+{
+    iface->has_document_links = epub_document_links_has_document_links;
+    iface->get_links_model = epub_document_links_get_links_model;  
 }
 
 static gboolean
@@ -190,7 +307,7 @@ epub_document_save (EvDocument *document,
 
 static int
 epub_document_get_n_pages (EvDocument *document)
-{
+{   
 	EpubDocument *epub_document = EPUB_DOCUMENT (document);
 
         if (epub_document-> contentList == NULL)
@@ -404,6 +521,7 @@ static void
 xml_free_doc()
 {
     xmlFreeDoc(xmldocument);
+	xmldocument = NULL;
 }
 
 static gboolean 
@@ -750,18 +868,30 @@ get_uri_to_content(const gchar* uri,GError ** error,EpubDocument *epub_document)
     }
     g_string_free(absolutepath,TRUE);
 	g_free(directorybuffer);
+	xml_free_doc();
     return content_uri ; 
 }
 
+static gboolean
+link_present_on_page(const gchar* link,const gchar *page_uri)
+{
+	if (g_strrstr(link, page_uri)) {
+		return TRUE;
+	}
+	else {
+		return FALSE;
+	}
+}
+
 static GList*
-setup_document_content_list(const gchar* content_uri, GError** error,gchar *documentdir)
+setup_document_content_list(const gchar* content_uri, GError** error,gchar *documentdir,GList *docindex)
 {
     GList* newlist = NULL ;
     GError *   err = NULL ; 
     gint indexcounter= 1;
     xmlNodePtr manifest,spine,itemrefptr,itemptr ;
     gboolean errorflag = FALSE;
-
+	GList *indexcopy = docindex,*indexcopyiter = docindex;
     gchar* relativepath ;
     GString* absolutepath = g_string_new(NULL);
 
@@ -815,6 +945,7 @@ setup_document_content_list(const gchar* content_uri, GError** error,gchar *docu
     /*Parse the spine for remaining itemrefs*/
     do
     {
+		indexcopyiter = indexcopy ;
         /*for the first time that we enter the loop, if errorflag is set we break*/
         if ( errorflag )
         {
@@ -850,8 +981,21 @@ setup_document_content_list(const gchar* content_uri, GError** error,gchar *docu
                 errorflag =TRUE;    
                 break;
             }
-
+			
 			newnode->index = indexcounter++ ;
+
+			/* NOTE:Because the TOC is not always in a sorted manner, we need to check all remaining pages every time.
+			 */
+			while (indexcopyiter != NULL) {
+				linknode *linkdata = indexcopyiter->data;
+
+				if (link_present_on_page(linkdata->pagelink,newnode->value)) {
+					linkdata->page = newnode->index - 1;
+					indexcopy = indexcopy->next;
+				}
+				indexcopyiter = indexcopyiter->next;
+			}
+			
             newlist = g_list_prepend(newlist,newnode);
         }
         itemrefptr = itemrefptr->next ;
@@ -878,6 +1022,7 @@ setup_document_content_list(const gchar* content_uri, GError** error,gchar *docu
     }
 	newlist = g_list_reverse(newlist);
     g_string_free(absolutepath,TRUE);
+	xml_free_doc();
     return newlist ;
 
 }
@@ -893,113 +1038,109 @@ free_tree_nodes(gpointer data)
 }
 
 static void
-epub_document_init (EpubDocument *epub_document)
+free_link_nodes(gpointer data)
 {
-    epub_document->archivename = NULL ;
-    epub_document->tmp_archive_dir = NULL ;
-    epub_document->contentList = NULL ;
-	epub_document->documentdir = NULL;
+    linknode* dataptr = data ;
+    g_free(dataptr->pagelink);
+    g_free(dataptr->linktext);
+    g_free(dataptr);
 }
 
-typedef struct _linknode {
-    guint page;
-    gchar *linktext;
-}linknode;
-
-static void
-setup_document_index(EpubDocument *epub_document,const gchar* contentUri) 
+static gchar*
+get_toc_file_name(gchar *containeruri)
 {
-    linknode *index;
+	gchar *containerfilename = g_filename_from_uri(containeruri,NULL,NULL);
 
+	open_xml_document(containerfilename);
+
+	set_xml_root_node(NULL);
+
+	xmlNodePtr manifest = xml_get_pointer_to_node((xmlChar*)"manifest",NULL,NULL);
+	xmlNodePtr spine = xml_get_pointer_to_node((xmlChar*)"spine",NULL,NULL);
+
+	xmlChar *ncx = xml_get_data_from_node(spine,XML_ATTRIBUTE,(xmlChar*)"toc");
+	xmlretval = NULL;
+	xml_parse_children_of_node(manifest,(xmlChar*)"item",(xmlChar*)"id",ncx);
+
+	gchar* tocfilename = (gchar*)xml_get_data_from_node(xmlretval,XML_ATTRIBUTE,(xmlChar*)"href");
+	xml_free_doc();
+
+	return tocfilename;
 }
 
-static gboolean
-epub_document_load (EvDocument* document,
-                    const char* uri,
-                    GError**    error)
+static GList*
+setup_document_index(EpubDocument *epub_document,gchar *containeruri) 
 {
-	EpubDocument *epub_document = EPUB_DOCUMENT(document);
-	GError* err = NULL ;
-	gchar* containeruri ;
-	GString *containerpath ;
-	gchar* contentOpfUri ;
-	if ( check_mime_type (uri,&err) == FALSE )
-	{
-		/*Error would've been set by the function*/
-		g_propagate_error(error,err);
-		return FALSE;
-	}
+    GString *tocpath = g_string_new(epub_document->documentdir);
+    gchar *tocfilename = get_toc_file_name(containeruri);
+    GList *index = NULL;
+    g_string_append_printf (tocpath,"/%s",tocfilename);
+    GString *pagelink;
+    open_xml_document(tocpath->str);
+    g_string_free(tocpath,TRUE);
+    set_xml_root_node((xmlChar*)"ncx");
 
-	extract_epub_from_container (uri,epub_document,&err);
+	xmlNodePtr docTitle = xml_get_pointer_to_node((xmlChar*)"docTitle",NULL,NULL);
+	xmlretval = NULL;
+	xml_parse_children_of_node(docTitle,(xmlChar*)"text",NULL,NULL);
 
-	if ( err )
-	{
-		g_propagate_error( error,err );
-		return FALSE;
+	while (epub_document->docTitle == NULL && xmlretval != NULL) {
+		epub_document->docTitle = (gchar*)xml_get_data_from_node(xmlretval,XML_KEYWORD,NULL);
+		xmlretval = xmlretval->next;
 	}
+    xmlNodePtr navMap = xml_get_pointer_to_node((xmlChar*)"navMap",NULL,NULL);
+	xmlretval = NULL;
+    xml_parse_children_of_node(navMap,(xmlChar*)"navPoint",NULL,NULL);
 
-	/*FIXME : can this be different, ever?*/
-	containerpath = g_string_new(epub_document->tmp_archive_dir);
-	g_string_append_printf(containerpath,"/META-INF/container.xml");
-	containeruri = g_filename_to_uri(containerpath->str,NULL,&err);
+    xmlNodePtr navPoint = xmlretval;
 
-	if ( err )
-	{
-		g_propagate_error(error,err);
-		return FALSE;
-	}
-	contentOpfUri = get_uri_to_content (containeruri,&err,epub_document);
+    do {
 
-	if ( contentOpfUri == NULL )
-	{
-		g_propagate_error(error,err);
-		return FALSE;
-	}
+        if ( !xmlStrcmp(navPoint->name,(xmlChar*)"navPoint")) {
+    		xmlretval = NULL;
+    		xml_parse_children_of_node(navPoint,(xmlChar*)"navLabel",NULL,NULL);
+    		xmlNodePtr navLabel = xmlretval;
+    		xmlretval = NULL;
+    		gchar *fragment=NULL,*end=NULL;
+    		GString *uri = NULL;
 
-	xml_free_doc() ;
-	
-	epub_document->contentList = setup_document_content_list (contentOpfUri,&err,epub_document->documentdir);
+    		xml_parse_children_of_node(navLabel,(xmlChar*)"text",NULL,NULL);
+            linknode *newnode = g_new0(linknode,1);
+    		newnode->linktext = NULL;
+    		while (newnode->linktext == NULL) {
+        		newnode->linktext = (gchar*)xml_get_data_from_node(xmlretval,XML_KEYWORD,NULL);
+    			xmlretval = xmlretval->next;
+    		}
+    		xmlretval = NULL;
+            xml_parse_children_of_node(navPoint,(xmlChar*)"content",NULL,NULL);
+            pagelink = g_string_new(epub_document->documentdir);
+            newnode->pagelink = (gchar*)xml_get_data_from_node(xmlretval,XML_ATTRIBUTE,(xmlChar*)"src");
+            g_string_append_printf(pagelink,"/%s",newnode->pagelink);
+            xmlFree(newnode->pagelink);
 
-	if ( xmldocument != NULL )
-		xml_free_doc ();
-	
-	if ( epub_document->contentList == NULL )
-	{
-		g_propagate_error(error,err);
-		return FALSE;
-	}
+            if ((end = g_strrstr(pagelink->str,"#")) != NULL) {
+            	fragment = g_strdup(g_strrstr(pagelink->str,"#"));
+            	*end = '\0';
+            }
+            uri = g_string_new(g_filename_to_uri(pagelink->str,NULL,NULL));
+     		g_string_free(pagelink,TRUE);
+     		       
+            if (fragment) {
+            	g_string_append(uri,fragment);
+            }
 
-	return TRUE ;
-}
+            newnode->pagelink = g_strdup(uri->str);
+            g_string_free(uri,TRUE);
+            index = g_list_prepend(index,newnode);
+        }
+        
+        navPoint = navPoint->next;
 
-static void
-epub_document_finalize (GObject *object)
-{
-	EpubDocument *epub_document = EPUB_DOCUMENT (object);
-	
-	if (epub_document->epubDocument != NULL) {
-		if (epub_remove_temporary_dir (epub_document->tmp_archive_dir) == -1)
-			g_warning (_("There was an error deleting “%s”."),
-				   epub_document->tmp_archive_dir);
-	}
-	
-	if ( epub_document->contentList ) {
-            g_list_free_full(epub_document->contentList,(GDestroyNotify)free_tree_nodes);
-			epub_document->contentList = NULL;
-	}
-	if ( epub_document->tmp_archive_dir) {
-		g_free (epub_document->tmp_archive_dir);
-		epub_document->tmp_archive_dir = NULL;
-	}
-	if ( epub_document->archivename) {
-		g_free (epub_document->archivename);
-		epub_document->archivename = NULL;
-	}
-	if ( epub_document->documentdir) {
-		g_free (epub_document->documentdir);
-		epub_document->documentdir = NULL;
-	}
-	G_OBJECT_CLASS (epub_document_parent_class)->finalize (object);
+    } while(navPoint != NULL);
+
+	xml_free_doc();
+    
+    return g_list_reverse(index);
 }
 
 static EvDocumentInfo*
@@ -1035,9 +1176,6 @@ epub_document_get_info(EvDocument *document)
 			    EV_DOCUMENT_INFO_LINEARIZED |
 			    EV_DOCUMENT_INFO_N_PAGES ;
 
-	if ( xmldocument != NULL )
-		xml_free_doc();
-	
 	infofile = g_filename_from_uri(uri,NULL,&error);
 	if ( error )
 		return epubinfo;
@@ -1085,6 +1223,9 @@ epub_document_get_info(EvDocument *document)
 	g_free(uri);
 	g_string_free(containerpath,TRUE);
 	g_string_free(buffer,TRUE);
+	
+	if (xmldocument)
+		xml_free_doc();
 	return epubinfo ;
 }
 
@@ -1097,6 +1238,115 @@ epub_document_get_page(EvDocument *document,
 	contentListNode *listptr = g_list_nth_data (epub_document->contentList,index);
 	page->backend_page = g_strdup(listptr->value);
 	return page ;
+}
+
+
+static gboolean
+epub_document_load (EvDocument* document,
+                    const char* uri,
+                    GError**    error)
+{
+	EpubDocument *epub_document = EPUB_DOCUMENT(document);
+	GError* err = NULL ;
+	gchar* containeruri ;
+	GString *containerpath ;
+	gchar* contentOpfUri ;
+	if ( check_mime_type (uri,&err) == FALSE )
+	{
+		/*Error would've been set by the function*/
+		g_propagate_error(error,err);
+		return FALSE;
+	}
+
+	extract_epub_from_container (uri,epub_document,&err);
+
+	if ( err )
+	{
+		g_propagate_error( error,err );
+		return FALSE;
+	}
+
+	/*FIXME : can this be different, ever?*/
+	containerpath = g_string_new(epub_document->tmp_archive_dir);
+	g_string_append_printf(containerpath,"/META-INF/container.xml");
+	containeruri = g_filename_to_uri(containerpath->str,NULL,&err);
+
+	if ( err )
+	{
+		g_propagate_error(error,err);
+		return FALSE;
+	}
+	contentOpfUri = get_uri_to_content (containeruri,&err,epub_document);
+
+	if ( contentOpfUri == NULL )
+	{
+		g_propagate_error(error,err);
+		return FALSE;
+	}
+	
+	epub_document->index = setup_document_index(epub_document,contentOpfUri);
+		
+	epub_document->contentList = setup_document_content_list (contentOpfUri,&err,epub_document->documentdir,epub_document->index);
+	
+	if ( epub_document->contentList == NULL )
+	{
+		g_propagate_error(error,err);
+		return FALSE;
+	}
+
+	return TRUE ;
+}
+
+static void
+epub_document_init (EpubDocument *epub_document)
+{
+    epub_document->archivename = NULL ;
+    epub_document->tmp_archive_dir = NULL ;
+    epub_document->contentList = NULL ;
+	epub_document->documentdir = NULL;
+	epub_document->index = NULL;
+	epub_document->docTitle = NULL;
+}
+
+static void
+epub_document_finalize (GObject *object)
+{
+	EpubDocument *epub_document = EPUB_DOCUMENT (object);
+	
+	if (epub_document->epubDocument != NULL) {
+		if (epub_remove_temporary_dir (epub_document->tmp_archive_dir) == -1)
+			g_warning (_("There was an error deleting “%s”."),
+				   epub_document->tmp_archive_dir);
+	}
+	
+	if ( epub_document->contentList ) {
+            g_list_free_full(epub_document->contentList,(GDestroyNotify)free_tree_nodes);
+			epub_document->contentList = NULL;
+	}
+
+	if (epub_document->index) {
+		g_list_free_full(epub_document->index,(GDestroyNotify)free_link_nodes);
+		epub_document->index = NULL;
+	}
+
+	if ( epub_document->tmp_archive_dir) {
+		g_free (epub_document->tmp_archive_dir);
+		epub_document->tmp_archive_dir = NULL;
+	}
+
+	if (epub_document->docTitle) {
+		g_free(epub_document->docTitle);
+		epub_document->docTitle = NULL;
+	}
+	if ( epub_document->archivename) {
+		g_free (epub_document->archivename);
+		epub_document->archivename = NULL;
+	}
+	if ( epub_document->documentdir) {
+		g_free (epub_document->documentdir);
+		epub_document->documentdir = NULL;
+	}
+	G_OBJECT_CLASS (epub_document_parent_class)->finalize (object);
 }
 
 static void

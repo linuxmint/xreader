@@ -55,6 +55,7 @@ struct _EvWebView
 	gboolean inverted_colors ;
 	gboolean fullscreen;
 	SearchParams *search;
+	gchar *hlink;
 };
 
 struct _EvWebViewClass 
@@ -106,7 +107,10 @@ ev_web_view_dispose (GObject *object)
 		g_object_unref(webview->model);
 		webview->model = NULL;
 	};
-	
+	if (webview->hlink) {
+		g_free(webview->hlink);
+		webview->hlink = NULL;
+	}
 
 	G_OBJECT_CLASS (ev_web_view_parent_class)->dispose (object);
 }
@@ -132,6 +136,8 @@ ev_web_view_init (EvWebView *webview)
 	webview->search->search_jump = TRUE ;
 
 	webview->fullscreen = FALSE;
+
+	webview->hlink = NULL;
 }
 
 static void
@@ -150,11 +156,19 @@ ev_web_view_change_page (EvWebView *webview,
 	
 	EvDocumentClass *klass = EV_DOCUMENT_GET_CLASS(webview->document);
 
-	EvPage *page = klass->get_page(webview->document,new_page);
-
 	webview->current_page = new_page;
 	ev_document_model_set_page(webview->model,new_page);
-	webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),(gchar*)page->backend_page);
+
+	webkit_web_view_unmark_text_matches (WEBKIT_WEB_VIEW(webview));
+	if (webview->hlink) {
+		webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),(gchar*)webview->hlink);
+		g_free(webview->hlink);
+		webview->hlink = NULL;
+	}
+	else {
+		EvPage *page = klass->get_page(webview->document,new_page);
+		webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),(gchar*)page->backend_page);
+	}
 }
 
 static void
@@ -179,7 +193,7 @@ ev_web_view_new (void)
 	GtkWidget *webview;
 
 	webview = g_object_new (EV_TYPE_WEB_VIEW, NULL);
-
+	
 	return webview;
 }
 
@@ -353,7 +367,36 @@ ev_web_view_previous_page (EvWebView *webview)
 void 
 ev_web_view_handle_link(EvWebView *webview,EvLink *link) 
 {
+	EvLinkAction *action = NULL;
+	EvLinkDest *dest = NULL;
+	EvLinkDestType dest_type ;
+	action = ev_link_get_action(link);
 
+	if (action == NULL)
+		return;
+
+	dest = ev_link_action_get_dest(action);
+	
+	if (dest == NULL)
+		return;
+
+	dest_type = ev_link_dest_get_dest_type(dest);
+	
+	switch(dest_type) {
+		case EV_LINK_DEST_TYPE_PAGE: {
+			ev_document_model_set_page(webview->model,ev_link_dest_get_page(dest));
+			break;
+		}
+
+		case EV_LINK_DEST_TYPE_HLINK: {
+			const gchar *uri = ev_link_dest_get_named_dest(dest);
+			ev_document_model_set_page(webview->model,ev_link_dest_get_page(dest));
+			webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),uri);
+			break;
+			
+		default:return;
+		}
+	}
 }
 
 /* Searching */
@@ -398,7 +441,7 @@ find_page_change_cb(WebKitWebView  *webview,
 	                                                                         findcbs->job->text,
 	                                                                         findcbs->job->case_sensitive,
 	                                                                         0);
-	ev_web_view_find_set_highlight_search(webview, TRUE);
+	ev_web_view_find_set_highlight_search(EV_WEB_VIEW(webview), TRUE);
 	
 	webkit_web_view_search_text (WEBKIT_WEB_VIEW(webview),
 	                             findcbs->job->text,

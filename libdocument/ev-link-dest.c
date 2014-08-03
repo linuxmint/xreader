@@ -509,3 +509,13 @@ ev_link_dest_new_page_label (const gchar *page_label)
 					   "type", EV_LINK_DEST_TYPE_PAGE_LABEL,
 					   NULL));
 }
+
+EvLinkDest *
+ev_link_dest_new_hlink(const gchar* hlink,gint page)
+{
+	return EV_LINK_DEST(g_object_new(EV_TYPE_LINK_DEST,
+	                                  "named",hlink,
+	                                  "page",page,
+	                                  "type", EV_LINK_DEST_TYPE_HLINK,
+	                                  NULL));
+}
