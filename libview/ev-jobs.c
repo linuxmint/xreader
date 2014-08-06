@@ -1379,7 +1379,7 @@ ev_job_find_run (EvJob *job)
 	ev_page = ev_document_get_page (job->document, job_find->current_page);
 
 	if (job->document->iswebdocument) {
-		job_find->has_results = ev_document_find_check_for_hits(find, ev_page, job_find->text,
+		job_find->results[job_find->current_page] = ev_document_find_check_for_hits(find, ev_page, job_find->text,
 		                                                        job_find->case_sensitive);
 	}else {
 		matches = ev_document_find_find_text (find, ev_page, job_find->text,
@@ -1393,10 +1393,14 @@ ev_job_find_run (EvJob *job)
 	if (!job_find->has_results && !job->document->iswebdocument) {
 		job_find->has_results = (matches != NULL);
 	}
-	
+	else if (!job_find->has_results && job->document->iswebdocument){
+		job_find->has_results = (job_find->results[job_find->current_page] > 0);
+	}
+
 	if (job->document->iswebdocument == FALSE) {
 		job_find->pages[job_find->current_page] = matches;
 	}
+
 	g_signal_emit (job_find, job_find_signals[FIND_UPDATED], 0, job_find->current_page);
 		       
 	job_find->current_page = (job_find->current_page + 1) % job_find->n_pages;

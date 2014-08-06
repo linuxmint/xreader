@@ -53,7 +53,7 @@ struct _EvDocumentFindInterface
 				    const gchar    *text,
 				    gboolean        case_sensitive);
 
-	gboolean (* check_for_hits)(EvDocumentFind *document_find,
+	guint (* check_for_hits)   (EvDocumentFind *document_find,
 				    EvPage         *page,
 				    const gchar    *text,
 				    gboolean        case_sensitive);
@@ -65,7 +65,7 @@ GList *ev_document_find_find_text (EvDocumentFind *document_find,
 				   const gchar    *text,
 				   gboolean        case_sensitive);
 
-gboolean ev_document_find_check_for_hits(EvDocumentFind *document_find,
+guint ev_document_find_check_for_hits   (EvDocumentFind *document_find,
                                          EvPage         *page,
                                          const gchar    *text,
                                          gboolean        case_sensitive);

@@ -29,14 +29,13 @@
 #include "ev-document-misc.h"
 #include <libxml/parser.h>
 #include <libxml/xmlmemory.h>
-
+#include <libxml/HTMLparser.h>
 #include <config.h>
 
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
 
 #include <gtk/gtk.h>
-#include <stdio.h>
 
 /*For strcasestr(),strstr()*/
 #include <string.h>
@@ -130,47 +129,72 @@ epub_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 }
 
 static gboolean
+in_tag(const char* found)
+{
+    const char* bracket = found ;
+
+    /* Since the dump started with the body tag, the '<' will be the first
+     * character in the haystack.
+     */
+    while (*bracket != '<') {
+        bracket--;
+        if (*bracket == '>') {
+            /*We encounted a close brace before an open*/
+            return FALSE ;
+        }
+    }
+
+    return TRUE;
+}
+
+static int 
+get_substr_count(const char * haystack,const char *needle,gboolean case_sensitive)
+{
+    const char* tmp = haystack ;
+    char* (*string_compare_function)(const char*,const char*);
+    int count=0;
+    if (case_sensitive) {
+        string_compare_function = strstr ;
+    }
+    else {
+        string_compare_function = strcasestr;
+    }
+
+    while ((tmp=string_compare_function(tmp,needle))) {
+        if (!in_tag(tmp)) {
+            count++;
+        }
+        tmp = tmp + strlen(needle);
+    }
+
+    return count;
+}
+
+static guint
 epub_document_check_hits(EvDocumentFind *document_find,
                          EvPage         *page,
                          const gchar    *text,
                          gboolean        case_sensitive)
 {
 	gchar *filepath = g_filename_from_uri((gchar*)page->backend_page,NULL,NULL);
-	FILE *fp = fopen(filepath,"r");
-	GString *buffer; 
-	gchar *found ;
-	
-	while (!feof(fp)) {
-		gchar c;
-		gint pos=0;
-		buffer = g_string_sized_new (1024);
-		
-		while ((c = fgetc(fp)) != '\n' && !feof(fp)) {
-			g_string_insert_c(buffer,pos++,c);
-		}
+	htmlDocPtr htmldoc =  xmlParseFile(filepath); 
+	htmlNodePtr htmltag = xmlDocGetRootElement(htmldoc);
+	int count=0;
+	htmlNodePtr bodytag = htmltag->xmlChildrenNode;
 
-		g_string_insert_c(buffer,pos,'\0');
-		
-		if (case_sensitive) {
-			if ((found = strstr(buffer->str,text)) != NULL) {
-				g_string_free(buffer,TRUE);
-				fclose(fp);
-				return TRUE;
-			}
-		}
-		else {
-			
-			if ( (found = strcasestr(buffer->str,text)) != NULL) {
-				g_string_free(buffer,TRUE);
-				fclose(fp);
-				return TRUE;
-			}
-		}
-		g_string_free(buffer,TRUE);
+	while ( xmlStrcmp(bodytag->name,(xmlChar*)"body") ) {
+		bodytag = bodytag->next;
 	}
 	
-	fclose(fp);
-	return FALSE;
+	xmlBufferPtr bodybuffer = xmlBufferCreate();
+	xmlNodeDump(bodybuffer,htmldoc,bodytag,0,1);
+
+	count = get_substr_count((char*)bodybuffer->content,text,case_sensitive);
+	
+	xmlBufferFree(bodybuffer);
+	xmlFreeDoc(htmldoc);
+
+	return count;
 }
 
 static gboolean

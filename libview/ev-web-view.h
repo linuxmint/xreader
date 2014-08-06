@@ -63,11 +63,15 @@ void       ev_web_view_handle_link (EvWebView *webview, EvLink* link);
 /* Searching */
 void     ev_web_view_find_next                 (EvWebView *webview);
 void     ev_web_view_find_previous             (EvWebView *webview);
-void     ev_web_view_find_changed              (EvWebView *webview, gint page_found_on,EvJobFind *job);
-void     ev_web_view_find_search_changed       (EvWebView *webview);
+
+void     ev_web_view_find_changed              (EvWebView *webview,
+                                                guint *results,
+                                                gchar *text, 
+                                                gboolean case_sensitive);
+
+void     ev_web_view_find_search_changed       (EvWebView *webview,gboolean visible);
 void     ev_web_view_find_cancel               (EvWebView *webview);
 void     ev_web_view_find_set_highlight_search (EvWebView *webview,gboolean visible);
-void     ev_web_view_empty_search              (EvWebView *webview);
 
 /* Selection */
 gboolean	ev_web_view_get_has_selection   (EvWebView *webview);

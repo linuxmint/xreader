@@ -40,7 +40,7 @@ ev_document_find_find_text (EvDocumentFind *document_find,
 	return iface->find_text (document_find, page, text, case_sensitive);
 }
 
-gboolean
+guint
 ev_document_find_check_for_hits(EvDocumentFind *document_find,
                                 EvPage         *page,
                                 const gchar    *text,

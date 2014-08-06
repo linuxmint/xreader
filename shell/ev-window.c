@@ -3668,7 +3668,7 @@ static void
 ev_window_cmd_scroll_forward (GtkAction *action, EvWindow *window)
 {
 	/*If the webview is occupying the window*/
-	if ( window->priv->document->iswebdocument == FALSE) return ;
+	if ( window->priv->document->iswebdocument == TRUE) return ;
 	
 	ev_view_scroll (EV_VIEW (window->priv->view), GTK_SCROLL_PAGE_FORWARD, FALSE);
 }
@@ -3677,7 +3677,7 @@ static void
 ev_window_cmd_scroll_backward (GtkAction *action, EvWindow *window)
 {
 	/*If the webview is occupying the window*/
-	if ( window->priv->document->iswebdocument == FALSE ) return ;
+	if ( window->priv->document->iswebdocument == TRUE ) return ;
 	
 	ev_view_scroll (EV_VIEW (window->priv->view), GTK_SCROLL_PAGE_BACKWARD, FALSE);
 }
@@ -5069,7 +5069,7 @@ ev_window_find_job_updated_cb (EvJobFind *job,
 {
 	ev_window_update_actions (ev_window);
 	if (ev_window->priv->document->iswebdocument == TRUE ) {
-		ev_web_view_find_changed(EV_WEB_VIEW(ev_window->priv->webview), page,job);
+		ev_web_view_find_changed(EV_WEB_VIEW(ev_window->priv->webview), job->results,job->text, job->case_sensitive);
 	}
 	else {
 		ev_view_find_changed (EV_VIEW (ev_window->priv->view),
@@ -5150,7 +5150,7 @@ find_bar_search_changed_cb (EggFindBar *find_bar,
 	search_string = egg_find_bar_get_search_string (find_bar);
 
 	if (ev_window->priv->document->iswebdocument) {
-		ev_web_view_find_search_changed(EV_WEB_VIEW(ev_window->priv->webview));
+		ev_web_view_find_search_changed(EV_WEB_VIEW(ev_window->priv->webview),TRUE);
 	} else {
 		ev_view_find_search_changed (EV_VIEW (ev_window->priv->view));
 	}
@@ -5174,9 +5174,7 @@ find_bar_search_changed_cb (EggFindBar *find_bar,
 		ev_window_update_actions (ev_window);
 		egg_find_bar_set_status_text (EGG_FIND_BAR (ev_window->priv->find_bar),
 					      NULL);
-		if (ev_window->priv->document->iswebdocument == TRUE) {
-			ev_web_view_empty_search(EV_WEB_VIEW(ev_window->priv->webview));
-		} else {
+		if (ev_window->priv->document->iswebdocument == FALSE) {
 			gtk_widget_queue_draw (GTK_WIDGET (ev_window->priv->view));
 		}
 	}
@@ -5199,7 +5197,7 @@ find_bar_visibility_changed_cb (EggFindBar *find_bar,
 		}
 		else {
 			ev_web_view_find_set_highlight_search(EV_WEB_VIEW(ev_window->priv->webview),visible);
-			ev_web_view_find_search_changed(EV_WEB_VIEW(ev_window->priv->webview));
+			ev_web_view_find_search_changed(EV_WEB_VIEW(ev_window->priv->webview),visible);
 		}
 
 		ev_window_update_actions (ev_window);
