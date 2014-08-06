@@ -442,7 +442,6 @@ add_range (EvSidebarThumbnails *sidebar_thumbnails,
 	     result && page <= end_page;
 	     result = gtk_tree_model_iter_next (GTK_TREE_MODEL (priv->list_store), &iter), page ++) {
 		EvJob *job;
-
 		gboolean thumbnail_set;
 
 		gtk_tree_model_get (GTK_TREE_MODEL (priv->list_store), &iter,
@@ -455,6 +454,10 @@ add_range (EvSidebarThumbnails *sidebar_thumbnails,
 						    page, priv->rotation,
 						    get_scale_for_page (sidebar_thumbnails, page));
 
+			if (priv->document->iswebdocument) {
+				ev_job_set_run_mode(job, EV_JOB_RUN_MAIN_LOOP);
+			}
+			
 			ev_job_scheduler_push_job (EV_JOB (job), EV_JOB_PRIORITY_HIGH);
 			
 			g_object_set_data_full (G_OBJECT (job), "tree_iter",

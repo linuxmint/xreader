@@ -292,26 +292,11 @@ struct _EvJobThumbnail
 	gint page;
 	gint rotation;
 	gdouble scale;
+	cairo_surface_t *surface;
 	GdkPixbuf *thumbnail;
 };
 
 struct _EvJobThumbnailClass
-{
-	EvJobClass parent_class;
-};
-
-struct _EvJobWebThumbnail
-{
-	EvJob parent;
-	GtkWidget *webview;
-	GtkWidget *offscreenwindow;
-	gboolean  *completed;
-	GRWLock screenlock;
-	cairo_surface_t **surface;
-	gchar* page;
-};
-
-struct _EvJobWebThumbnailClass
 {
 	EvJobClass parent_class;
 };
@@ -474,12 +459,6 @@ EvJob          *ev_job_thumbnail_new      (EvDocument      *document,
 					   gint             rotation,
 					   gdouble          scale);
 
-/* EvJobWebThumbnail */
-GType           ev_job_web_thumbnail_get_type (void) G_GNUC_CONST;
-EvJob          *ev_job_web_thumbnail_new      (EvDocument      *document,
-                                               gboolean        *completed,
-                                               gchar           *webpage,
-                                               cairo_surface_t **surface);
 /* EvJobFonts */
 GType 		ev_job_fonts_get_type 	  (void) G_GNUC_CONST;
 EvJob 	       *ev_job_fonts_new 	  (EvDocument      *document);
