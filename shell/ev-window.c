@@ -1376,6 +1376,10 @@ ev_window_refresh_window_thumbnail (EvWindow *ev_window)
 	rotation = ev_document_model_get_rotation (ev_window->priv->model);
 
 	ev_window->priv->thumbnail_job = ev_job_thumbnail_new (document, 0, rotation, scale);
+
+	if (document->iswebdocument) {
+		ev_job_set_run_mode(EV_JOB(ev_window->priv->thumbnail_job), EV_JOB_RUN_MAIN_LOOP);
+	}
 	g_signal_connect (ev_window->priv->thumbnail_job, "finished",
 			  G_CALLBACK (ev_window_set_icon_from_thumbnail),
 			  ev_window);
