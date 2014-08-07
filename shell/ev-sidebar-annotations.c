@@ -1,5 +1,5 @@
 /* ev-sidebar-annotations.c
- *  this file is part of xreader, a mate document viewer
+ *  this file is part of xreader, a generic document viewer
  *
  * Copyright (C) 2010 Carlos Garcia Campos  <carlosgc@gnome.org>
  *
@@ -15,7 +15,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
 #include "config.h"
@@ -53,7 +53,9 @@ struct _EvSidebarAnnotationsPrivate {
 
 	GtkWidget *notebook;
 	GtkWidget *tree_view;
-	GtkWidget *annot_text_item;
+	GtkWidget   *palette;
+	GtkToolItem *annot_text_item;
+	GtkToolItem *annot_highlight_item;
 
 	EvJob *job;
 	guint selection_changed_id;
@@ -132,6 +134,26 @@ ev_sidebar_annotations_text_annot_button_toggled (GtkWidget  *button,
 }
 
 static void
+ev_sidebar_annotations_highlight_annot_button_toggled (GtkWidget  *button,
+						  EvSidebarAnnotations *sidebar_annots)
+{
+	EvAnnotationType annot_type;
+
+	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button))) {
+		g_signal_emit (sidebar_annots, signals[ANNOT_ADD_CANCELLED], 0, NULL);
+		return;
+	}
+
+	if (button == sidebar_annots->priv->annot_highlight_item)
+		annot_type = EV_ANNOTATION_TYPE_TEXT_MARKUP;
+	else
+		annot_type = EV_ANNOTATION_TYPE_UNKNOWN;
+
+	g_signal_emit (sidebar_annots, signals[BEGIN_ANNOT_ADD], 0, annot_type);
+}
+
+
+static void
 ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 {
 	GtkWidget *swindow;
@@ -196,17 +218,34 @@ ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 	gtk_container_add (GTK_CONTAINER (toolitem), hbox);
 	gtk_widget_show (hbox);
 
+	/* Note annotation button */
 	ev_annots->priv->annot_text_item = gtk_toggle_button_new ();
-	image = gtk_image_new_from_icon_name ("list-add-symbolic", GTK_ICON_SIZE_BUTTON);
+	image = gtk_image_new_from_icon_name ("document-new", GTK_ICON_SIZE_BUTTON);
+	//gtk_tool_button_set_icon_widget(GTK_TOOL_BUTTON(ev_annots->priv->annot_text_item), image);
 	gtk_container_add (GTK_CONTAINER (ev_annots->priv->annot_text_item), image);
 	gtk_widget_show (image);
 
 	gtk_box_pack_start (GTK_BOX (hbox), ev_annots->priv->annot_text_item, FALSE, FALSE, 0);
-	gtk_widget_set_tooltip_text (GTK_WIDGET (ev_annots->priv->annot_text_item), _("Add text annotation"));
+	// gtk_toolbar_insert(GTK_TOOLBAR(toolbar), GTK_TOOL_ITEM(ev_annots->priv->annot_text_item), 0);
+	gtk_widget_set_tooltip_text (GTK_WIDGET (ev_annots->priv->annot_text_item), _("Add a note annotation"));
 	g_signal_connect (ev_annots->priv->annot_text_item, "toggled",
 			  G_CALLBACK (ev_sidebar_annotations_text_annot_button_toggled),
 			  ev_annots);
 	gtk_widget_show (GTK_WIDGET (ev_annots->priv->annot_text_item));
+
+	/* Highlight annotation button */
+	ev_annots->priv->annot_highlight_item = gtk_toggle_button_new ();
+	image = gtk_image_new_from_icon_name ("edit-select-all", GTK_ICON_SIZE_BUTTON);
+	gtk_container_add (GTK_CONTAINER (ev_annots->priv->annot_highlight_item), image);
+	gtk_widget_show (image);
+
+	gtk_box_pack_start (GTK_BOX (hbox), ev_annots->priv->annot_highlight_item, FALSE, FALSE, 0);
+	gtk_widget_set_tooltip_text (GTK_WIDGET (ev_annots->priv->annot_highlight_item), _("Add text annotation"));
+	g_signal_connect (ev_annots->priv->annot_highlight_item, "toggled",
+			  G_CALLBACK (ev_sidebar_annotations_highlight_annot_button_toggled),
+			  ev_annots);
+	gtk_widget_show (GTK_WIDGET (ev_annots->priv->annot_highlight_item));
+
 
 	gtk_box_pack_end (GTK_BOX (ev_annots), toolbar, FALSE, TRUE, 0);
 	gtk_widget_show (GTK_WIDGET (ev_annots));
