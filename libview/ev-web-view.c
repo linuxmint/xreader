@@ -436,10 +436,12 @@ jump_to_find_result_on_page(EvWebView *webview,EvWebViewFindDirection direction)
 	                             webview->search->case_sensitive,
 	                             forward,
 	                             wrap);
+
+	webview->search->search_jump = FALSE;
 }
 
 static void
-jump_to_find_result(EvWebView *webview,
+jump_to_find_results(EvWebView *webview,
                     GParamSpec *pspec,
                     gpointer    data)
 {
@@ -496,8 +498,7 @@ ev_web_view_find_get_n_results (EvWebView *webview, gint page)
  *
  * Jumps to the first page that has occurences of searched word.
  * Uses a direction where to look and a shift from current page. 
- *
- */
+**/
 static void
 jump_to_find_page (EvWebView *webview, EvWebViewFindDirection direction, gint shift)
 {
@@ -507,20 +508,22 @@ jump_to_find_page (EvWebView *webview, EvWebViewFindDirection direction, gint sh
 
 	for (i = 0; i < n_pages; i++) {
 		int page;
-		
+
 		if (direction == EV_WEB_VIEW_FIND_NEXT)
 			page = webview->current_page + i;
 		else
 			page = webview->current_page - i;		
 		page += shift;
-		
+
 		if (page >= n_pages) {
 			page = page - n_pages;
 		} else if (page < 0) 
 			page = page + n_pages;
 
-		if (page == webview->current_page) 
+		if (page == webview->current_page && ev_web_view_find_get_n_results(webview,page) > 0) { 
 			jump_to_find_result_on_page(webview,EV_WEB_VIEW_FIND_NEXT);
+			break;
+		}
 
 		if (ev_web_view_find_get_n_results (webview, page) > 0) {
 			webkit_web_view_unmark_text_matches (WEBKIT_WEB_VIEW(webview));
@@ -537,11 +540,9 @@ ev_web_view_find_changed (EvWebView *webview, guint *results, gchar *text,gboole
 	webview->search->results = results;
 	webview->search->search_string = g_strdup(text);
 	webview->search->case_sensitive = case_sensitive;
-	
+	webview->search->on_result = 0;
 	if (webview->search->search_jump == TRUE) {
 		jump_to_find_page (webview, EV_WEB_VIEW_FIND_NEXT, 0);
-	} else {
-		jump_to_find_result_on_page(webview,EV_WEB_VIEW_FIND_NEXT);
 	}
 }	
 
@@ -576,20 +577,9 @@ ev_web_view_find_previous (EvWebView *webview)
 }
 
 void
-ev_web_view_find_search_changed (EvWebView *webview,gboolean visible)
+ev_web_view_find_search_changed (EvWebView *webview)
 {
 	/* search string has changed, focus on new search result */
-	if (visible) {
-		g_signal_connect(webview,
-		                 "notify::load-status",
-		                 G_CALLBACK(jump_to_find_result),
-		                 NULL);
-	}
-	else {
-		g_signal_handlers_disconnect_by_func(webview,
-											 jump_to_find_result,
-											 NULL);		
-	}
 	webkit_web_view_unmark_text_matches(WEBKIT_WEB_VIEW(webview));
 
 	webview->search->search_jump = TRUE;
@@ -609,12 +599,25 @@ ev_web_view_find_set_highlight_search (EvWebView *webview, gboolean value)
 void
 ev_web_view_find_cancel (EvWebView *webview)
 {
-	g_signal_handlers_disconnect_by_func(webview,
-										 jump_to_find_result,
-										 NULL);
-
 	webkit_web_view_unmark_text_matches(WEBKIT_WEB_VIEW(webview));
 	ev_web_view_find_set_highlight_search(webview,FALSE);
+}
+
+
+void 
+ev_web_view_set_handler(EvWebView *webview,gboolean visible)
+{
+	if (visible) {
+		g_signal_connect(webview,
+			             "notify::load-status",
+			             G_CALLBACK(jump_to_find_results),
+			             NULL);
+	}
+	else {
+		g_signal_handlers_disconnect_by_func(webview,
+											 jump_to_find_results,
+											 NULL);		
+	}
 }
 
 /* Selection */
@@ -642,6 +645,7 @@ ev_web_view_copy(EvWebView *webview)
 	
 }
 
+/*Zoom control*/
 gboolean
 ev_web_view_zoom_in(EvWebView *webview)
 {

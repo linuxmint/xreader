@@ -69,10 +69,10 @@ void     ev_web_view_find_changed              (EvWebView *webview,
                                                 gchar *text, 
                                                 gboolean case_sensitive);
 
-void     ev_web_view_find_search_changed       (EvWebView *webview,gboolean visible);
+void     ev_web_view_find_search_changed       (EvWebView *webview);
 void     ev_web_view_find_cancel               (EvWebView *webview);
 void     ev_web_view_find_set_highlight_search (EvWebView *webview,gboolean visible);
-
+void     ev_web_view_set_handler               (EvWebView *webview,gboolean visible);
 /* Selection */
 gboolean	ev_web_view_get_has_selection   (EvWebView *webview);
 void		ev_web_view_select_all			(EvWebView  *webview);
