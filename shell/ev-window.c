@@ -504,11 +504,23 @@ ev_window_update_actions (EvWindow *ev_window)
 						has_pages &&
 				ev_view_get_has_selection (view));
 	}
+#if GTK_CHECK_VERSION (3, 0, 0)
+	else if (webview) {
+		/*
+		 * The webkit2 function for this is an asynchronous call,
+		 * so our only option is to set this to always on, and we'll take care of whether we can copy
+		 * or not when this command is actually given.
+		 */
+		ev_window_set_action_sensitive (ev_window,"EditCopy",
+						has_pages);
+	}
+#else
 	else if(webview) {
 		ev_window_set_action_sensitive (ev_window, "EditCopy",
 						has_pages &&
 				ev_web_view_get_has_selection (webview));
 	}
+#endif
 	ev_window_set_action_sensitive (ev_window, "EditFindNext",
 					has_pages && can_find_in_page);
 	ev_window_set_action_sensitive (ev_window, "EditFindPrevious",
@@ -928,7 +940,7 @@ view_selection_changed_cb (EvView   *view,
 	ev_window_set_action_sensitive (window, "EditCopy",
 					ev_view_get_has_selection (view));
 }
-
+#if !GTK_CHECK_VERSION (3, 0, 0)
 static void
 web_view_selection_changed_cb(EvWebView *webview,
 				EvWindow *window)
@@ -936,6 +948,7 @@ web_view_selection_changed_cb(EvWebView *webview,
 	ev_window_set_action_sensitive (window,"EditCopy",
 					ev_web_view_get_has_selection(webview));
 }
+#endif
 
 static void
 ev_window_page_changed_cb (EvWindow        *ev_window,
@@ -1489,6 +1502,7 @@ ev_window_set_document (EvWindow *ev_window, EvDocument *document)
 		/*We have encountered a web document, replace the atril view with a web view, if the web view is not already loaded.*/
 		gtk_container_remove (GTK_CONTAINER(ev_window->priv->scrolled_window),
 		                      ev_window->priv->view);
+		
 		g_object_unref(ev_window->priv->view);
 		ev_window->priv->view = NULL;
 		gtk_container_add (GTK_CONTAINER (ev_window->priv->scrolled_window),
@@ -5201,7 +5215,9 @@ find_bar_visibility_changed_cb (EggFindBar *find_bar,
 			ev_view_find_search_changed (EV_VIEW (ev_window->priv->view));
 		}
 		else {
+#if !GTK_CHECK_VERSION(3, 0, 0)
 			ev_web_view_find_set_highlight_search(EV_WEB_VIEW(ev_window->priv->webview),visible);
+#endif
 			ev_web_view_find_search_changed(EV_WEB_VIEW(ev_window->priv->webview));
 			ev_web_view_set_handler(EV_WEB_VIEW(ev_window->priv->webview),visible);
 		}
@@ -5593,15 +5609,7 @@ ev_window_key_press_event (GtkWidget   *widget,
 	 * It's needed to be able to type in
 	 * annot popups windows
 	 */
-	if (priv->webview &&  priv->document && priv->document->iswebdocument == TRUE) {
-		g_object_ref (priv->webview);
-		if (gtk_widget_is_sensitive (priv->webview))
-			handled = gtk_widget_event (priv->webview, (GdkEvent*) event);
-		g_object_unref (priv->webview);
-		
-	}
-	
-	else if ( priv->view) {  
+	if ( priv->view) {  
 		g_object_ref (priv->view);
 		if (gtk_widget_is_sensitive (priv->view))
 			handled = gtk_widget_event (priv->view, (GdkEvent*) event);
@@ -5871,7 +5879,9 @@ sidebar_links_link_activated_cb (EvSidebarLinks *sidebar_links, EvLink *link, Ev
 	if (window->priv->document->iswebdocument == FALSE ) {
 		ev_view_handle_link (EV_VIEW (window->priv->view), link);
 	}
-	ev_web_view_handle_link(EV_WEB_VIEW(window->priv->webview), link);
+	else {
+		ev_web_view_handle_link(EV_WEB_VIEW(window->priv->webview), link);
+	}
 }
 
 static void
@@ -7229,10 +7239,11 @@ ev_window_init (EvWindow *ev_window)
 #ifdef ENABLE_EPUB /*The webview, we won't add it now but it will replace the atril-view if a web(epub) document is encountered.*/
 	ev_window->priv->webview = ev_web_view_new();
 	ev_web_view_set_model(EV_WEB_VIEW(ev_window->priv->webview),ev_window->priv->model);
-
+#if !GTK_CHECK_VERSION (3, 0, 0)
 	g_signal_connect_object (ev_window->priv->webview,"selection-changed",
 	                         G_CALLBACK(web_view_selection_changed_cb),
 	                         ev_window, 0);
+#endif
 #endif
 	ev_view_set_page_cache_size (EV_VIEW (ev_window->priv->view), PAGE_CACHE_SIZE);
 	ev_view_set_model (EV_VIEW (ev_window->priv->view), ev_window->priv->model);

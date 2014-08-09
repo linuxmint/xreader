@@ -790,6 +790,7 @@ ev_job_thumbnail_dispose (GObject *object)
 	(* G_OBJECT_CLASS (ev_job_thumbnail_parent_class)->dispose) (object);
 }
 
+#if !GTK_CHECK_VERSION(3, 0, 0)
 static void
 web_thumbnail_get_screenshot_cb(WebKitWebView  *webview,
                                 WebKitWebFrame *webframe,
@@ -815,6 +816,50 @@ web_thumbnail_get_screenshot_cb(WebKitWebView  *webview,
 	ev_document_doc_mutex_unlock();
 	ev_job_succeeded(EV_JOB(job_thumb));
 }
+#else
+
+static void
+snapshot_callback(WebKitWebView *webview,
+                  GAsyncResult  *results,
+                  EvJobThumbnail *job_thumb)
+{
+	EvPage *page = ev_document_get_page (EV_JOB(job_thumb)->document, job_thumb->page);
+	job_thumb->surface = webkit_web_view_get_snapshot_finish (webview,
+	                                                          results,
+	                                                          NULL);
+	EvRenderContext *rc = ev_render_context_new (page, job_thumb->rotation, job_thumb->scale);
+	EvPage *screenshotpage;
+	screenshotpage = ev_page_new(job_thumb->page);
+	screenshotpage->backend_page = (EvBackendPage)job_thumb->surface;
+	screenshotpage->backend_destroy_func = (EvBackendPageDestroyFunc)cairo_surface_destroy ;
+	ev_render_context_set_page(rc,screenshotpage);
+
+	job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (EV_JOB(job_thumb)->document),
+							     rc, TRUE);	
+	g_object_unref(screenshotpage);
+	g_object_unref(rc);
+
+	ev_document_doc_mutex_unlock();
+	ev_job_succeeded(EV_JOB(job_thumb));
+}
+
+static void
+web_thumbnail_get_screenshot_cb (WebKitWebView  *webview,
+                                 WebKitLoadEvent event,
+                                 EvJobThumbnail *job_thumb)
+{
+	if (event != WEBKIT_LOAD_FINISHED) {
+		return;
+	}
+
+	webkit_web_view_get_snapshot (webview,
+	                              WEBKIT_SNAPSHOT_REGION_VISIBLE,
+	                              WEBKIT_SNAPSHOT_OPTIONS_NONE,
+	                              NULL,
+	                              (GAsyncReadyCallback)snapshot_callback,
+	                              g_object_ref(job_thumb));
+}
+#endif
 
 static gboolean
 ev_job_thumbnail_run (EvJob *job)
@@ -859,9 +904,17 @@ ev_job_thumbnail_run (EvJob *job)
 			}
 
 		webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),(gchar*)rc->page->backend_page);
+#if !GTK_CHECK_VERSION (3, 0, 0)
 		g_signal_connect(WEBKIT_WEB_VIEW(webview),"notify::load-status",
 						 G_CALLBACK(web_thumbnail_get_screenshot_cb),
 						 g_object_ref(job_thumb));
+#else
+		g_signal_connect(WEBKIT_WEB_VIEW(webview),"load-changed",
+						 G_CALLBACK(web_thumbnail_get_screenshot_cb),
+						 g_object_ref(job_thumb));
+
+#endif
+		g_object_unref(job_thumb);
 	}
 	else {
 		job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (job->document),

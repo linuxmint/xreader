@@ -1198,6 +1198,7 @@ epub_document_get_info(EvDocument *document)
 			    EV_DOCUMENT_INFO_LAYOUT |
 			    EV_DOCUMENT_INFO_CREATOR |
 			    EV_DOCUMENT_INFO_LINEARIZED |
+				EV_DOCUMENT_INFO_PERMISSIONS |
 			    EV_DOCUMENT_INFO_N_PAGES ;
 
 	infofile = g_filename_from_uri(uri,NULL,&error);
@@ -1242,7 +1243,9 @@ epub_document_get_info(EvDocument *document)
 
 	/* number of pages */
 	epubinfo->n_pages = epub_document_get_n_pages(document);
-	
+
+	/*Copying*/
+	epubinfo->permissions = EV_DOCUMENT_PERMISSIONS_OK_TO_COPY;
 	/*TODO : Add a function to get date*/
 	g_free(uri);
 	g_string_free(containerpath,TRUE);
