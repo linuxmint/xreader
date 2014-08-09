@@ -914,7 +914,6 @@ ev_job_thumbnail_run (EvJob *job)
 						 g_object_ref(job_thumb));
 
 #endif
-		g_object_unref(job_thumb);
 	}
 	else {
 		job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (job->document),

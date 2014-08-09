@@ -74,14 +74,16 @@ void     ev_web_view_find_cancel               (EvWebView *webview);
 void     ev_web_view_find_set_highlight_search (EvWebView *webview,gboolean visible);
 void     ev_web_view_set_handler               (EvWebView *webview,gboolean visible);
 /* Selection */
-gboolean	ev_web_view_get_has_selection   (EvWebView *webview);
-void		ev_web_view_select_all			(EvWebView  *webview);
-void		ev_web_view_copy				(EvWebView  *webview);
+gboolean	ev_web_view_get_has_selection      (EvWebView *webview);
+void		ev_web_view_select_all			   (EvWebView  *webview);
+void		ev_web_view_copy				   (EvWebView  *webview);
 
 /* Zoom control */
-gboolean     ev_web_view_zoom_in        (EvWebView *webview);
-gboolean     ev_web_view_zoom_out       (EvWebView *webview);
+gboolean     ev_web_view_zoom_in               (EvWebView *webview);
+gboolean     ev_web_view_zoom_out              (EvWebView *webview);
 
+/*For safe replacement by an EvView*/
+void       ev_web_view_disconnect_handlers    (EvWebView  *webview);
 G_END_DECLS
 
 #endif /* __EV_WEB_VIEW_H__ */

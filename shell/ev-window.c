@@ -1502,7 +1502,7 @@ ev_window_set_document (EvWindow *ev_window, EvDocument *document)
 		/*We have encountered a web document, replace the atril view with a web view, if the web view is not already loaded.*/
 		gtk_container_remove (GTK_CONTAINER(ev_window->priv->scrolled_window),
 		                      ev_window->priv->view);
-		
+		ev_view_disconnect_handlers(EV_VIEW(ev_window->priv->view));
 		g_object_unref(ev_window->priv->view);
 		ev_window->priv->view = NULL;
 		gtk_container_add (GTK_CONTAINER (ev_window->priv->scrolled_window),
@@ -1511,6 +1511,7 @@ ev_window_set_document (EvWindow *ev_window, EvDocument *document)
 	}
 	else {
 		/*Since the document is not a webdocument might as well get rid of the webview now*/
+		ev_web_view_disconnect_handlers(EV_WEB_VIEW(ev_window->priv->webview));
 		g_object_ref_sink(ev_window->priv->webview);
 		g_object_unref(ev_window->priv->webview);
 	}
@@ -5887,8 +5888,14 @@ sidebar_links_link_activated_cb (EvSidebarLinks *sidebar_links, EvLink *link, Ev
 static void
 activate_link_cb (EvPageAction *page_action, EvLink *link, EvWindow *window)
 {
-	ev_view_handle_link (EV_VIEW (window->priv->view), link);
-	gtk_widget_grab_focus (window->priv->view);
+	if (window->priv->view) {
+		ev_view_handle_link (EV_VIEW (window->priv->view), link);
+		gtk_widget_grab_focus (window->priv->view);
+	}
+	else {
+		ev_web_view_handle_link (EV_WEB_VIEW (window->priv->webview), link);
+		gtk_widget_grab_focus (window->priv->webview);
+	}
 }
 
 static void

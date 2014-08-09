@@ -22,6 +22,7 @@
 
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
+#include <stdlib.h>
 
 #if GTK_CHECK_VERSION (3, 0, 0)
 #include <webkit2/webkit2.h>
@@ -420,6 +421,15 @@ ev_web_view_handle_link(EvWebView *webview,EvLink *link)
 			break;
 		}
 
+		case EV_LINK_DEST_TYPE_PAGE_LABEL: {
+			const gchar *text = ev_link_dest_get_page_label (dest);
+			gint page = atoi(text);
+
+			if (page <= ev_document_get_n_pages(webview->document) && page > 0) {
+				ev_document_model_set_page(webview->model,page-1);
+			}
+			break;
+		}
 		case EV_LINK_DEST_TYPE_HLINK: {
 			const gchar *uri = ev_link_dest_get_named_dest(dest);
 			ev_document_model_set_page(webview->model,ev_link_dest_get_page(dest));
@@ -430,7 +440,6 @@ ev_web_view_handle_link(EvWebView *webview,EvLink *link)
 		}
 	}
 }
-
 /* Searching */
 
 #if !GTK_CHECK_VERSION (3, 0, 0)
@@ -841,4 +850,25 @@ ev_web_view_zoom_out(EvWebView *webview)
 	webkit_web_view_zoom_out(WEBKIT_WEB_VIEW(webview));
 #endif
 	return TRUE;
+}
+
+/**
+ * ev_web_view_disconnect_handlers
+ * @webview : #EvWebView instance
+ * 
+ * This function call will disconnect all model signal handlers from the webview, to ensure smooth operation of the Atril-view.
+ * Equivalent to function  ev_view_disconnect_handlers in ev-view.c
+ */
+void
+ev_web_view_disconnect_handlers(EvWebView *webview)
+{
+	g_signal_handlers_disconnect_by_func(webview->model,
+	                                     ev_web_view_document_changed_cb,
+	                                     webview);
+	g_signal_handlers_disconnect_by_func(webview->model,
+	                                     ev_web_view_inverted_colors_changed_cb,
+	                                     webview);
+	g_signal_handlers_disconnect_by_func(webview->model,
+	                                     ev_web_view_page_changed_cb,
+	                                     webview);
 }
