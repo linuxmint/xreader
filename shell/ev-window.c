@@ -42,6 +42,7 @@
 #include <gtk/gtk.h>
 
 #include <libmate-desktop/mate-aboutdialog.h>
+#include <libmate-desktop/mate-gsettings.h>
 
 #include "egg-editable-toolbar.h"
 #include "egg-toolbar-editor.h"
@@ -429,12 +430,12 @@ ev_window_setup_action_sensitivity (EvWindow *ev_window)
 	if (has_document && !ev_print_operation_exists_for_document(document))
 		ok_to_print = FALSE;
 
-	if (has_document &&
+	if (has_document && ev_window->priv->lockdown_settings &&
 	    g_settings_get_boolean (ev_window->priv->lockdown_settings, MATE_LOCKDOWN_SAVE)) {
 		ok_to_copy = FALSE;
 	}
 
-	if (has_document &&
+	if (has_document && ev_window->priv->lockdown_settings &&
 	    g_settings_get_boolean (ev_window->priv->lockdown_settings, MATE_LOCKDOWN_PRINT)) {
 		ok_to_print = FALSE;
 	}
@@ -1438,12 +1439,14 @@ ev_window_setup_document (EvWindow *ev_window)
 				  ev_window);
 	}
 
-	if (!ev_window->priv->lockdown_settings)
-		ev_window->priv->lockdown_settings = g_settings_new (MATE_LOCKDOWN_SCHEMA);
-	g_signal_connect (ev_window->priv->lockdown_settings,
-				 "changed",
-				 G_CALLBACK (lockdown_changed),
-				 ev_window);
+	if (mate_gsettings_schema_exists (MATE_LOCKDOWN_SCHEMA)) {
+		if (!ev_window->priv->lockdown_settings)
+			ev_window->priv->lockdown_settings = g_settings_new (MATE_LOCKDOWN_SCHEMA);
+		g_signal_connect (ev_window->priv->lockdown_settings,
+					 "changed",
+					 G_CALLBACK (lockdown_changed),
+					 ev_window);
+	}
 
 	ev_window_setup_action_sensitivity (ev_window);
 
@@ -3417,8 +3420,11 @@ ev_window_print_range (EvWindow *ev_window,
 	ev_print_operation_set_print_settings (op, print_settings);
 	ev_print_operation_set_default_page_setup (op, print_page_setup);
 
-	ev_print_operation_set_embed_page_setup (op, !g_settings_get_boolean (ev_window->priv->lockdown_settings,
-									     MATE_LOCKDOWN_PRINT_SETUP));
+	if (ev_window->priv->lockdown_settings)
+		ev_print_operation_set_embed_page_setup (op, !g_settings_get_boolean (ev_window->priv->lockdown_settings,
+												 MATE_LOCKDOWN_PRINT_SETUP));
+	else
+		ev_print_operation_set_embed_page_setup (op, TRUE);
 
 	g_object_unref (print_settings);
 	g_object_unref (print_page_setup);
