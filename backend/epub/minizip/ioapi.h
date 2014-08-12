@@ -19,7 +19,7 @@
 */
 
 #ifndef _ZLIBIOAPI64_H
-#define _ZLIBIOAPI64_H
+#define _ZLIBIOAPI64_H          
 
 #if (!defined(_WIN32)) && (!defined(WIN32)) && (!defined(__APPLE__))
 
@@ -102,7 +102,9 @@ typedef unsigned long long int ZPOS64_T;
 #endif
 #endif
 
-
+#ifndef OF
+#define OF _Z_OF
+#endif
 
 #ifdef __cplusplus
 extern "C" {
