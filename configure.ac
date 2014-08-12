@@ -138,12 +138,16 @@ MATEDESKTOP_REQUIRED=1.9.0
 
 case "$with_gtk" in
   2.0) GTK_API_VERSION=2.0
+	   WEBKIT_API_VERSION=1.0
        GAIL_API_VERSION=
        GTK_REQUIRED=2.24.0
+       WEBKIT_REQUIRED=2.4.3
        ;;
   3.0) GTK_API_VERSION=3.0
+	   WEBKIT_API_VERSION=3.0
        GAIL_API_VERSION=-3.0
        GTK_REQUIRED=3.0.0
+       WEBKIT_REQUIRED=2.4.3
        ;;
 esac
 
@@ -167,6 +171,14 @@ AC_SEARCH_LIBS([hypot],[m])
 
 PKG_CHECK_MODULES(LIBDOCUMENT, gtk+-$GTK_API_VERSION >= $GTK_REQUIRED gio-2.0 >= $GLIB_REQUIRED)
 PKG_CHECK_MODULES(LIBVIEW, gtk+-$GTK_API_VERSION >= $GTK_REQUIRED gail$GAIL_API_VERSION >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED)
+case "$with_gtk" in
+   2.0)
+    PKG_CHECK_MODULES(WEBKIT, webkit-$WEBKIT_API_VERSION >= $WEBKIT_REQUIRED)
+	;;
+    3.0)
+    PKG_CHECK_MODULES(WEBKIT, webkit2gtk-$WEBKIT_API_VERSION >= $WEBKIT_REQUIRED)
+	;;
+esac
 PKG_CHECK_MODULES(BACKEND, cairo >= $CAIRO_REQUIRED gtk+-$GTK_API_VERSION >= $GTK_REQUIRED)
 PKG_CHECK_MODULES(FRONTEND_CORE, gtk+-$GTK_API_VERSION >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED)
 PKG_CHECK_MODULES(GMODULE, gmodule-2.0 >= $GLIB_REQUIRED)
@@ -698,27 +710,13 @@ AC_ARG_ENABLE(epub,
 	[enable_epub=yes])
 
 if test "x$enable_epub" = "xyes"; then
-   WEBKIT_REQUIRED=2.4.2
-   case "$with_gtk" in
-   2.0)
-       PKG_CHECK_MODULES(WEBKIT, webkit-1.0 >= $WEBKIT_REQUIRED libxml-2.0 >= $LIBXML_REQUIRED zlib,enable_epub=yes,enable_epub=no)
-        ;;
-   3.0)
-       PKG_CHECK_MODULES(WEBKIT, webkit2gtk-3.0 >= $WEBKIT_REQUIRED libxml-2.0 >= $LIBXML_REQUIRED zlib,enable_epub=yes,enable_epub=no)
-	;;
-   esac
-	if test "x$enable_epub" = "xyes"; then
+    PKG_CHECK_MODULES(EPUB, libxml-2.0 >= $LIBXML_REQUIRED zlib,enable_epub=yes,enable_epub=no)
+
+   if test "x$enable_epub" = "xyes"; then
       AC_DEFINE([ENABLE_EPUB], [1], [Enable support for ePub documents.])
    else
       enable_epub="no"
-      AC_MSG_WARN(["ePub support is disabled since webkit-1.0( version >= $WEBKIT_REQUIRED ) is needed"])
-      case "$with_gtk" in
-      2.0) 
-          AC_MSG_WARN(["ePub support is disabled since webkit-1.0( version >= $WEBKIT_REQUIRED ) is needed"])
-          ;;
-      3.0)AC_MSG_WARN(["ePub support is disabled since webkit2gtk-3.0( version >= $WEBKIT_REQUIRED ) is needed"])
-          ;;
-      esac
+      AC_MSG_WARN(["ePub support is disabled."])
    fi
 fi
 

@@ -8,7 +8,7 @@ AM_CPPFLAGS = 		       			\
 	-DATRIL_COMPILATION			\
 	$(BACKEND_CFLAGS)			\
 	$(WARN_CXXFLAGS)			\
-	$(WEBKIT_CFLAGS)			\
+	$(EPUB_CFLAGS)			\
 	$(DISABLE_DEPRECATED)
 
 backend_LTLIBRARIES = libepubdocument.la
@@ -21,7 +21,7 @@ libepubdocument_la_LDFLAGS = $(BACKEND_LIBTOOL_FLAGS)
 libepubdocument_la_LIBADD =				\
 	$(top_builddir)/libdocument/libatrildocument.la	\
 	minizip/libminizip.la				\
-	$(WEBKIT_LIBS)					\
+	$(EPUB_LIBS)					\
 	$(BACKEND_LIBS)					
 	
 
