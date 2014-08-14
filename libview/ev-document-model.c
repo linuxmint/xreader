@@ -109,12 +109,7 @@ ev_document_model_set_property (GObject      *object,
 		ev_document_model_set_rotation (model, g_value_get_int (value));
 		break;
 	case PROP_INVERTED_COLORS:
-		if ( model->document->iswebdocument == TRUE ) {
-			atril_web_document_set_inverted_colors(model,g_value_get_boolean(value));
-		} 
-		else {
-			ev_document_model_set_inverted_colors (model, g_value_get_boolean (value));
-		}		
+		ev_document_model_set_inverted_colors (model, g_value_get_boolean (value));
 		break;
 	case PROP_SCALE:
 		ev_document_model_set_scale (model, g_value_get_double (value));
@@ -492,15 +487,6 @@ ev_document_model_set_inverted_colors (EvDocumentModel *model,
 
 	model->inverted_colors = inverted_colors;
 
-	g_object_notify (G_OBJECT (model), "inverted-colors");
-}
-
-void 
-atril_web_document_set_inverted_colors (EvDocumentModel *model,
-                                     gboolean inverted_colors)
-{
-	//TODO
-	model->inverted_colors = FALSE;
 	g_object_notify (G_OBJECT (model), "inverted-colors");
 }
 

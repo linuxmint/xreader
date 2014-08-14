@@ -58,7 +58,7 @@ struct _EvWebView
 	EvDocument *document;
 	EvDocumentModel *model;
 	gint current_page;
-	gboolean inverted_colors ;
+	gboolean inverted_stylesheet ;
 	gboolean fullscreen;
 	SearchParams *search;
 #if GTK_CHECK_VERSION (3, 0, 0)
@@ -157,7 +157,7 @@ ev_web_view_init (EvWebView *webview)
 	webview->search->search_jump = TRUE ;
 	
 	webview->fullscreen = FALSE;
-
+	webview->inverted_stylesheet = FALSE;
 	webview->hlink = NULL;
 }
 
@@ -262,29 +262,28 @@ ev_web_view_inverted_colors_changed_cb (EvDocumentModel *model,
 				        GParamSpec      *pspec,
 				        EvWebView       *webview)
 {
-	guint inverted_colors = ev_document_model_get_inverted_colors (model);
-	inverted_colors = !inverted_colors;
-	/*TODO*/
+	EvDocument *document = ev_document_model_get_document(model);
+	
+	if (ev_document_model_get_inverted_colors(model) == TRUE) {
+		if (document == NULL) {
+			ev_document_model_set_inverted_colors(model,FALSE);
+			return;
+		}		
+		if (webview->inverted_stylesheet == FALSE) {
+			ev_document_check_add_night_sheet(document);
+			webview->inverted_stylesheet = TRUE;
+		}
+		ev_document_toggle_night_mode(document,TRUE);
+		webkit_web_view_reload(WEBKIT_WEB_VIEW(webview));
+	}
+	else {
+		if (document != NULL) {
+			ev_document_toggle_night_mode(document,FALSE);
+			webkit_web_view_reload(WEBKIT_WEB_VIEW(webview));
+		}
+	}
 }
 
-static void
-ev_web_view_fullscreen_changed_cb (EvDocumentModel *model,
-			           GParamSpec      *pspec,
-			           EvWebView       *webview)
-{
-	gboolean fullscreen = ev_document_model_get_fullscreen (model);
-
-	webview->fullscreen = fullscreen;
-#if GTK_CHECK_VERSION (3, 0, 0)
-	WebKitWindowProperties *window_properties = 
-		webkit_web_view_get_window_properties (WEBKIT_WEB_VIEW(webview));
-
-	webkit_window_properties_get_fullscreen(window_properties);
-	/*TODO*/
-#else
-	webkit_web_view_set_view_mode(WEBKIT_WEB_VIEW(webview), WEBKIT_WEB_VIEW_VIEW_MODE_FULLSCREEN);
-#endif
-}
 void
 ev_web_view_set_model (EvWebView          *webview,
 		       EvDocumentModel    *model)
@@ -309,7 +308,7 @@ ev_web_view_set_model (EvWebView          *webview,
 	/* Initialize webview from model */
 	webview->fullscreen = ev_document_model_get_fullscreen (webview->model);
 	webview->document = ev_document_model_get_document(webview->model);
-	webview->inverted_colors = ev_document_model_get_inverted_colors(webview->model);
+
 	ev_web_view_document_changed_cb (webview->model, NULL, webview);
 
 	g_signal_connect (webview->model, "notify::document",

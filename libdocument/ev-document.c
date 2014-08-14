@@ -910,3 +910,17 @@ ev_rect_cmp (EvRectangle *a,
 		  (ABS (a->x2 - b->x2) < EPSILON) &&
 		  (ABS (a->y2 - b->y2) < EPSILON));
 }
+
+void
+ev_document_toggle_night_mode(EvDocument *document,gboolean night)
+{
+	EvDocumentClass *klass = EV_DOCUMENT_GET_CLASS(document);
+	return klass->toggle_night_mode(document,night) ;
+}
+
+void
+ev_document_check_add_night_sheet(EvDocument *document)
+{
+	EvDocumentClass *klass = EV_DOCUMENT_GET_CLASS(document);
+	return klass->check_add_night_sheet(document) ;
+}

@@ -1267,6 +1267,139 @@ epub_document_get_page(EvDocument *document,
 	return page ;
 }
 
+static void
+change_to_night_sheet(contentListNode *nodedata,gpointer user_data)
+{
+    gchar *filename = g_filename_from_uri(nodedata->value,NULL,NULL);
+    open_xml_document(filename);
+    set_xml_root_node(NULL);
+    xmlNodePtr head =xml_get_pointer_to_node((xmlChar*)"head",NULL,NULL);
+
+    xmlretval = NULL;
+    xml_parse_children_of_node(head,(xmlChar*)"link",(xmlChar*)"rel",(xmlChar*)"stylesheet");
+
+    xmlNodePtr day = xmlretval;
+    xmlSetProp(day,(xmlChar*)"rel",(xmlChar*)"alternate stylesheet");
+
+    xmlretval = NULL;
+    xml_parse_children_of_node(head,(xmlChar*)"link",(xmlChar*)"class",(xmlChar*)"night");
+    xmlSetProp(xmlretval,(xmlChar*)"rel",(xmlChar*)"stylesheet");
+    xmlSaveFormatFile (filename, xmldocument, 0);
+    xml_free_doc();
+    g_free(filename);
+}
+
+static void
+change_to_day_sheet(contentListNode *nodedata,gpointer user_data)
+{
+    gchar *filename = g_filename_from_uri(nodedata->value,NULL,NULL);
+    open_xml_document(filename);
+    set_xml_root_node(NULL);
+    xmlNodePtr head =xml_get_pointer_to_node((xmlChar*)"head",NULL,NULL);
+
+    xmlretval = NULL;
+    xml_parse_children_of_node(head,(xmlChar*)"link",(xmlChar*)"rel",(xmlChar*)"stylesheet");
+
+    xmlNodePtr day = xmlretval;
+    xmlSetProp(day,(xmlChar*)"rel",(xmlChar*)"alternate stylesheet");
+
+    xmlretval = NULL;
+    xml_parse_children_of_node(head,(xmlChar*)"link",(xmlChar*)"class",(xmlChar*)"day");
+    xmlSetProp(xmlretval,(xmlChar*)"rel",(xmlChar*)"stylesheet");
+    xmlSaveFormatFile (filename, xmldocument, 0);
+    xml_free_doc();
+    g_free(filename);
+}
+
+static gchar*
+epub_document_get_alternate_stylesheet(gchar *docuri)
+{
+    gchar *filename = g_filename_from_uri(docuri,NULL,NULL);
+    open_xml_document(filename);
+
+    set_xml_root_node(NULL);
+
+    xmlNodePtr head= xml_get_pointer_to_node((xmlChar*)"head",NULL,NULL);
+
+    xmlretval = NULL;
+
+    xml_parse_children_of_node(head,(xmlChar*)"link",(xmlChar*)"class",(xmlChar*)"night");
+
+    if (xmlretval != NULL) {
+        return (gchar*)xml_get_data_from_node(xmlretval,XML_ATTRIBUTE,(xmlChar*)"href");
+    }
+    g_free(filename);
+    xml_free_doc();
+    return NULL;
+}
+
+static void
+add_night_sheet(contentListNode *listdata,gchar *sheet)
+{
+    gchar *sheeturi = g_filename_to_uri(sheet,NULL,NULL);
+    open_xml_document(listdata->value);
+
+    set_xml_root_node(NULL);
+    xmlNodePtr head = xml_get_pointer_to_node((xmlChar*)"head",NULL,NULL);
+    
+    xmlNodePtr link = xmlNewTextChild(head,NULL,(xmlChar*)"link",NULL);
+    xmlAttrPtr href = xmlNewProp(link,(xmlChar*)"href",(xmlChar*)sheeturi);
+    xmlAttrPtr rel = xmlNewProp(link,(xmlChar*)"rel",(xmlChar*)"alternate stylesheet");
+    xmlAttrPtr class =  xmlNewProp(link,(xmlChar*)"class",(xmlChar*)"night");
+
+    xmlSaveFormatFile (listdata->value, xmldocument, 0);
+    xml_free_doc();
+    g_free(sheeturi);
+}
+
+static void
+epub_document_check_add_night_sheet(EvDocument *document)
+{
+    EpubDocument *epub_document = EPUB_DOCUMENT(document);
+
+    g_return_if_fail(EPUB_IS_DOCUMENT(epub_document));
+
+    /*
+     * We'll only check the first page for a supplied night mode stylesheet.
+     * Odds are, if this one has it, all others have it too.
+     */
+	contentListNode *node = epub_document->contentList->data;
+    gchar* stylesheetfilename = epub_document_get_alternate_stylesheet((gchar*)node->value) ;
+
+    if (stylesheetfilename == NULL) {
+        gchar *style = "body {color:rgb(255,255,255);background-color:rgb(0,0,0);text-align:justify;line-spacing:1.8; margin-top:0px;margin-bottom:4px;margin-right:50px;\
+        margin-left:50px;text-indent:3em;";
+
+        gchar *csspath = g_strdup_printf("%s/atrilnightstyle.css",epub_document->documentdir);
+
+        
+        GFile *styles = g_file_new_for_path (csspath);
+        GOutputStream *outstream = (GOutputStream*)g_file_create(styles,G_FILE_CREATE_PRIVATE,NULL,NULL);
+        if ( g_output_stream_write((GOutputStream*)outstream,style,strlen(style),NULL,NULL) == -1 )
+        {
+            return ;
+        }
+        g_output_stream_close((GOutputStream*)outstream,NULL,NULL);
+        g_object_unref(styles) ;
+        g_object_unref(outstream) ;
+        //add this stylesheet to each document, for later.
+        g_list_foreach(epub_document->contentList,(GFunc)add_night_sheet,csspath);
+        g_free(csspath);
+    }
+    g_free(stylesheetfilename);
+}
+
+static void
+epub_document_toggle_night_mode(EvDocument *document,gboolean night)
+{
+    EpubDocument *epub_document = EPUB_DOCUMENT(document);
+
+    g_return_if_fail(EPUB_IS_DOCUMENT(epub_document));
+    if (night) 
+        g_list_foreach(epub_document->contentList,(GFunc)change_to_night_sheet,NULL);
+    else
+        g_list_foreach(epub_document->contentList,(GFunc)change_to_day_sheet,NULL);
+}
 
 static gboolean
 epub_document_load (EvDocument* document,
@@ -1388,4 +1521,6 @@ epub_document_class_init (EpubDocumentClass *klass)
 	ev_document_class->get_n_pages = epub_document_get_n_pages;
 	ev_document_class->get_info = epub_document_get_info; 
 	ev_document_class->get_page = epub_document_get_page;
+	ev_document_class->toggle_night_mode = epub_document_toggle_night_mode;
+    ev_document_class->check_add_night_sheet = epub_document_check_add_night_sheet;
 }

@@ -870,7 +870,7 @@ thumbnail_job_completed_callback (EvJobThumbnail      *job,
 	GtkTreeIter *iter;
 
 	iter = (GtkTreeIter *) g_object_get_data (G_OBJECT (job), "tree_iter");
-	if (priv->inverted_colors)
+	if (priv->inverted_colors && priv->document->iswebdocument == FALSE)
 		ev_document_misc_invert_pixbuf (job->thumbnail);
 	gtk_list_store_set (priv->list_store,
 			    iter,
