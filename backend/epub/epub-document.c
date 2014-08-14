@@ -1274,13 +1274,16 @@ change_to_night_sheet(contentListNode *nodedata,gpointer user_data)
     open_xml_document(filename);
     set_xml_root_node(NULL);
     xmlNodePtr head =xml_get_pointer_to_node((xmlChar*)"head",NULL,NULL);
-
+	gchar *class = NULL;
     xmlretval = NULL;
     xml_parse_children_of_node(head,(xmlChar*)"link",(xmlChar*)"rel",(xmlChar*)"stylesheet");
 
     xmlNodePtr day = xmlretval;
+	if ( (class = (gchar*)xml_get_data_from_node(day,XML_ATTRIBUTE,(xmlChar*)"class")) == NULL) {
+		xmlSetProp(day,(xmlChar*)"class",(xmlChar*)"day");
+	}
+	g_free(class);
     xmlSetProp(day,(xmlChar*)"rel",(xmlChar*)"alternate stylesheet");
-
     xmlretval = NULL;
     xml_parse_children_of_node(head,(xmlChar*)"link",(xmlChar*)"class",(xmlChar*)"night");
     xmlSetProp(xmlretval,(xmlChar*)"rel",(xmlChar*)"stylesheet");
@@ -1367,8 +1370,20 @@ epub_document_check_add_night_sheet(EvDocument *document)
     gchar* stylesheetfilename = epub_document_get_alternate_stylesheet((gchar*)node->value) ;
 
     if (stylesheetfilename == NULL) {
-        gchar *style = "body {color:rgb(255,255,255);background-color:rgb(0,0,0);text-align:justify;line-spacing:1.8; margin-top:0px;margin-bottom:4px;margin-right:50px;\
-        margin-left:50px;text-indent:3em;";
+        gchar *style = "body {color:rgb(255,255,255);\
+                        background-color:rgb(0,0,0);\
+                        text-align:justify;\
+                        line-spacing:1.8;\
+                        margin-top:0px;\
+                        margin-bottom:4px;\
+                        margin-right:50px;\
+                        margin-left:50px;\
+                        text-indent:3em;}\
+                        h1, h2, h3, h4, h5, h6\
+                        {color:white;\
+                        text-align:center;\
+                        font-style:italic;\
+                        font-weight:bold;}";
 
         gchar *csspath = g_strdup_printf("%s/atrilnightstyle.css",epub_document->documentdir);
 
