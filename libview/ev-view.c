@@ -3064,7 +3064,7 @@ ev_view_create_annotation (EvView *view)
 
 	/* If the page didn't have annots, mark the cache as dirty */
 	if (!ev_page_cache_get_annot_mapping (view->page_cache, view->current_page))
-		ev_page_cache_mark_dirty (view->page_cache, view->current_page);
+		ev_page_cache_mark_dirty (view->page_cache, view->current_page, EV_PAGE_DATA_INCLUDE_ANNOTS);
 
 	_ev_view_transform_doc_rect_to_view_rect (view, view->current_page, &doc_rect, &view_rect);
 	view_rect.x -= view->scroll_x;
@@ -3154,7 +3154,7 @@ ev_view_remove_annotation (EvView       *view,
 							annot);
 	ev_document_doc_mutex_unlock ();
 
-	ev_page_cache_mark_dirty (view->page_cache, page);
+    ev_page_cache_mark_dirty (view->page_cache, page, EV_PAGE_DATA_INCLUDE_ANNOTS);
 
 	/* FIXME: only redraw the annot area */
 	ev_view_reload_page (view, page, NULL);
@@ -4365,7 +4365,7 @@ ev_view_button_release_event (GtkWidget      *widget,
 				ev_document_annotations_remove_annotation (EV_DOCUMENT_ANNOTATIONS (view->document),
 									   view->adding_annot_info.annot);
 				ev_document_doc_mutex_unlock ();
-				ev_page_cache_mark_dirty (view->page_cache, view->current_page);
+				ev_page_cache_mark_dirty (view->page_cache, view->current_page, EV_PAGE_DATA_INCLUDE_ANNOTS);
 			} else {
 				popup_rect.x1 = area.x2;
 				popup_rect.x2 = popup_rect.x1 + ANNOT_POPUP_WINDOW_DEFAULT_WIDTH;
