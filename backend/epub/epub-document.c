@@ -54,6 +54,7 @@ typedef struct _contentListNode {
 
 typedef struct _linknode {
     gchar *pagelink;
+	GList *children;
     gchar *linktext;
 	guint page;
 }linknode;
@@ -224,9 +225,13 @@ epub_document_make_tree_entry(linknode* ListData,LinksCBStruct* UserData)
 	gboolean expand;
 	char *title_markup;
 
-	//These are all children of the document title, and have no chlidren nodes
-	expand = FALSE;
-
+	if (ListData->children) {
+		expand=TRUE;
+	}
+	else {
+		expand=FALSE;
+	}
+	
 	EvLinkDest *ev_dest = NULL;
 	EvLinkAction *ev_action;
 
@@ -254,6 +259,13 @@ epub_document_make_tree_entry(linknode* ListData,LinksCBStruct* UserData)
 			    EV_DOCUMENT_LINKS_COLUMN_LINK, link,
 			    EV_DOCUMENT_LINKS_COLUMN_EXPAND, expand,
 			    -1);
+
+	if (ListData->children) {
+		LinksCBStruct cbstruct;
+		cbstruct.parent = &tree_iter;
+		cbstruct.model = UserData->model;
+		g_list_foreach (ListData->children,(GFunc)epub_document_make_tree_entry,&cbstruct);
+	}
 	
 	g_free (title_markup);
 	g_object_unref (link);		
@@ -899,7 +911,8 @@ get_uri_to_content(const gchar* uri,GError ** error,EpubDocument *epub_document)
 static gboolean
 link_present_on_page(const gchar* link,const gchar *page_uri)
 {
-	if (g_strrstr(link, page_uri)) {
+	gchar *res;
+	if ((res=g_strrstr(link, page_uri)) != NULL) {
 		return TRUE;
 	}
 	else {
@@ -907,15 +920,26 @@ link_present_on_page(const gchar* link,const gchar *page_uri)
 	}
 }
 
+static void
+check_add_page_numbers(linknode *listdata, contentListNode *comparenode)
+{
+    if (link_present_on_page(listdata->pagelink, comparenode->value)) {
+		listdata->page = comparenode->index - 1;
+	}
+    if (listdata->children != NULL) {
+        g_list_foreach(listdata->children,(GFunc)check_add_page_numbers,comparenode);
+    }
+}
+
 static GList*
-setup_document_content_list(const gchar* content_uri, GError** error,gchar *documentdir,GList *docindex)
+setup_document_content_list(const gchar* content_uri, GError** error,gchar *documentdir)
 {
     GList* newlist = NULL ;
     GError *   err = NULL ; 
     gint indexcounter= 1;
     xmlNodePtr manifest,spine,itemrefptr,itemptr ;
     gboolean errorflag = FALSE;
-	GList *indexcopy = docindex,*indexcopyiter = docindex;
+
     gchar* relativepath ;
     GString* absolutepath = g_string_new(NULL);
 
@@ -969,7 +993,6 @@ setup_document_content_list(const gchar* content_uri, GError** error,gchar *docu
     /*Parse the spine for remaining itemrefs*/
     do
     {
-		indexcopyiter = indexcopy ;
         /*for the first time that we enter the loop, if errorflag is set we break*/
         if ( errorflag )
         {
@@ -1008,18 +1031,6 @@ setup_document_content_list(const gchar* content_uri, GError** error,gchar *docu
 			
 			newnode->index = indexcounter++ ;
 
-			/* NOTE:Because the TOC is not always in a sorted manner, we need to check all remaining pages every time.
-			 */
-			while (indexcopyiter != NULL) {
-				linknode *linkdata = indexcopyiter->data;
-
-				if (link_present_on_page(linkdata->pagelink,newnode->value)) {
-					linkdata->page = newnode->index - 1;
-					indexcopy = indexcopy->next;
-				}
-				indexcopyiter = indexcopyiter->next;
-			}
-			
             newlist = g_list_prepend(newlist,newnode);
         }
         itemrefptr = itemrefptr->next ;
@@ -1067,6 +1078,10 @@ free_link_nodes(gpointer data)
     linknode* dataptr = data ;
     g_free(dataptr->pagelink);
     g_free(dataptr->linktext);
+
+	if (dataptr->children) {
+		g_list_free_full(dataptr->children,(GDestroyNotify)free_link_nodes);
+	}
     g_free(dataptr);
 }
 
@@ -1083,6 +1098,12 @@ get_toc_file_name(gchar *containeruri)
 	xmlNodePtr spine = xml_get_pointer_to_node((xmlChar*)"spine",NULL,NULL);
 
 	xmlChar *ncx = xml_get_data_from_node(spine,XML_ATTRIBUTE,(xmlChar*)"toc");
+
+    /*In an epub3, there is sometimes no toc, and we need to then use the nav file for this.*/
+    if (ncx == NULL) {
+        return NULL;
+    }
+
 	xmlretval = NULL;
 	xml_parse_children_of_node(manifest,(xmlChar*)"item",(xmlChar*)"id",ncx);
 
@@ -1092,12 +1113,98 @@ get_toc_file_name(gchar *containeruri)
 	return tocfilename;
 }
 
+static gchar*
+epub_document_get_nav_file(gchar* containeruri)
+{
+    open_xml_document(containeruri);
+    set_xml_root_node(NULL);
+    xmlNodePtr manifest = xml_get_pointer_to_node((xmlChar*)"manifest",NULL,NULL);
+    xmlretval = NULL;
+    xml_parse_children_of_node(manifest,(xmlChar*)"item",(xmlChar*)"properties",(xmlChar*)"nav");
+
+    gchar *uri = (gchar*)xml_get_data_from_node(xmlretval,XML_ATTRIBUTE, (xmlChar*)"href");
+
+    xml_free_doc();
+    return uri;
+}
+
+static GList*
+get_child_list(xmlNodePtr ol,gchar* documentdir)
+{
+    GList *childlist = NULL;
+    xmlNodePtr li = ol->xmlChildrenNode;
+
+    while (li != NULL) {
+		if (xmlStrcmp(li->name,(xmlChar*)"li")) {
+			li = li->next;
+			continue;
+		}
+        xmlNodePtr children = li->xmlChildrenNode;
+        linknode *newlinknode = g_new0(linknode, 1);
+        while (children != NULL) {
+            if ( !xmlStrcmp(children->name,(xmlChar*)"a")) {
+                newlinknode->linktext = (gchar*)xml_get_data_from_node(children,XML_KEYWORD,NULL);
+                gchar* filename = (gchar*)xml_get_data_from_node(children,XML_ATTRIBUTE,(xmlChar*)"href");
+				gchar *filepath = g_strdup_printf("%s/%s",documentdir,filename);
+				newlinknode->pagelink = g_filename_to_uri(filepath,NULL,NULL);
+				g_free(filename);
+				g_free(filepath);
+                newlinknode->children = NULL;
+                childlist = g_list_prepend(childlist,newlinknode);
+            }
+            else if ( !xmlStrcmp(children->name,(xmlChar*)"ol")){
+                newlinknode->children = get_child_list(children,documentdir);
+            }
+
+			children = children->next;
+        }
+
+        li = li->next;
+    }
+
+    return g_list_reverse(childlist);
+}
+
+/* For an epub3 style navfile */
+static GList*
+setup_index_from_navfile(gchar *tocpath)
+{
+    GList *index = NULL;
+    open_xml_document(tocpath);
+    set_xml_root_node(NULL);
+    xmlNodePtr nav = xml_get_pointer_to_node((xmlChar*)"nav",(xmlChar*)"id",(xmlChar*)"toc");
+    xmlretval=NULL;
+    xml_parse_children_of_node(nav,(xmlChar*)"ol", NULL,NULL);
+	gchar *navdirend = g_strrstr(tocpath,"/");
+	gchar *navdir = g_malloc0(strlen(tocpath));
+	gchar *reader = tocpath;
+	gchar *writer = navdir;
+
+	while (reader != navdirend) {
+		(*writer) = (*reader) ;
+		writer++;reader++;
+	}
+    index = get_child_list(xmlretval,navdir);
+	g_free(navdir);
+    xml_free_doc();
+    return index;
+}
+
 static GList*
 setup_document_index(EpubDocument *epub_document,gchar *containeruri) 
 {
     GString *tocpath = g_string_new(epub_document->documentdir);
     gchar *tocfilename = get_toc_file_name(containeruri);
     GList *index = NULL;
+
+    if (tocfilename == NULL) {
+        tocfilename = epub_document_get_nav_file(containeruri);
+        g_string_append_printf (tocpath,"/%s",tocfilename);
+        index = setup_index_from_navfile(tocpath->str);
+        g_string_free(tocpath,TRUE);
+        return index;
+    }
+
     g_string_append_printf (tocpath,"/%s",tocfilename);
     GString *pagelink;
     open_xml_document(tocpath->str);
@@ -1416,6 +1523,49 @@ epub_document_toggle_night_mode(EvDocument *document,gboolean night)
         g_list_foreach(epub_document->contentList,(GFunc)change_to_day_sheet,NULL);
 }
 
+static gchar*
+epub_document_set_document_title(gchar *containeruri)
+{
+	gchar *contentfilename = g_filename_from_uri(containeruri, NULL, NULL);
+	open_xml_document(containeruri);
+	gchar *doctitle;
+	set_xml_root_node(NULL);
+
+	xmlNodePtr title = xml_get_pointer_to_node((xmlChar*)"title",NULL,NULL);
+
+	doctitle = (gchar*)xml_get_data_from_node(title, XML_KEYWORD, NULL);
+	xml_free_doc();
+
+	return doctitle;
+}
+
+static void
+page_set_function(linknode *Link, GList *contentList)
+{
+	GList *listiter = contentList;
+	contentListNode *pagedata;
+
+	guint flag=0;
+	while (!flag) {
+		pagedata = listiter->data;
+		if (link_present_on_page(Link->pagelink, pagedata->value)) {
+			flag=1;
+			Link->page = pagedata->index - 1;
+		}
+		listiter = listiter->next;
+	}
+
+	if (Link->children) {
+		g_list_foreach(Link->children,(GFunc)page_set_function,contentList);
+	}
+}
+
+static void
+epub_document_set_index_pages(GList *index,GList *contentList)
+{
+	g_list_foreach(index,(GFunc)page_set_function,contentList);
+}
+
 static gboolean
 epub_document_load (EvDocument* document,
                     const char* uri,
@@ -1458,10 +1608,13 @@ epub_document_load (EvDocument* document,
 		g_propagate_error(error,err);
 		return FALSE;
 	}
-	
+
+	epub_document->docTitle = epub_document_set_document_title(contentOpfUri);
 	epub_document->index = setup_document_index(epub_document,contentOpfUri);
 		
-	epub_document->contentList = setup_document_content_list (contentOpfUri,&err,epub_document->documentdir,epub_document->index);
+	epub_document->contentList = setup_document_content_list (contentOpfUri,&err,epub_document->documentdir);
+
+	epub_document_set_index_pages(epub_document->index, epub_document->contentList);
 	
 	if ( epub_document->contentList == NULL )
 	{

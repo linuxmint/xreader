@@ -793,7 +793,7 @@ ev_job_thumbnail_dispose (GObject *object)
 #if !GTK_CHECK_VERSION(3, 0, 0)
 static void
 web_thumbnail_get_screenshot_cb(WebKitWebView  *webview,
-                                WebKitWebFrame *webframe,
+                                GParamSpec      *pspec,
                                 EvJobThumbnail *job_thumb)
 {
 	if (webkit_web_view_get_load_status(webview) != WEBKIT_LOAD_FINISHED) {

@@ -249,7 +249,7 @@ ev_web_view_document_changed_cb (EvDocumentModel *model,
 		if(webview->document) {
 			g_object_ref(webview->document);
 		}
-
+		webview->inverted_stylesheet = FALSE;
 		gint current_page = ev_document_model_get_page(model);
 		
 		ev_web_view_change_page (webview, current_page);
