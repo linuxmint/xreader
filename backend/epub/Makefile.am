@@ -1,4 +1,4 @@
-SUBDIRS = minizip
+SUBDIRS = minizip MathJax
 
 AM_CPPFLAGS = 		       			\
 	-I$(top_srcdir)				\

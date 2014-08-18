@@ -25,6 +25,7 @@
 #include "unzip.h"
 #include "ev-document-thumbnails.h"
 #include "ev-document-find.h"
+#include "ev-backends-manager.h"
 #include "ev-document-links.h"
 #include "ev-document-misc.h"
 #include <libxml/parser.h>
@@ -1566,6 +1567,82 @@ epub_document_set_index_pages(GList *index,GList *contentList)
 	g_list_foreach(index,(GFunc)page_set_function,contentList);
 }
 
+
+static void
+add_mathjax_script_node_to_file(gchar *filename, gchar *data)
+{
+	xmlDocPtr mathdocument = xmlParseFile (filename);
+	xmlNodePtr mathroot = xmlDocGetRootElement(mathdocument);
+
+	if (mathroot == NULL)
+		return;
+
+	xmlNodePtr head = mathroot->children;
+
+	while(head != NULL) {
+		if (!xmlStrcmp(head->name,(xmlChar*)"head")) {
+			break;
+		}
+		head = head->next;
+	}
+
+	if (xmlStrcmp(head->name,(xmlChar*)"head")) {
+		return ;
+	}
+
+	xmlNodePtr script = xmlNewTextChild (head,NULL,(xmlChar*)"script",(xmlChar*)"");
+	xmlNewProp(script,(xmlChar*)"type",(xmlChar*)"text/javascript");
+	xmlNewProp(script,(xmlChar*)"src",(xmlChar*)data);
+
+	xmlSaveFormatFile(filename, mathdocument, 0);
+	xmlFreeDoc (mathdocument);
+}
+
+static void
+epub_document_add_mathJax(gchar* containeruri,gchar* documentdir)
+{
+	gchar *containerfilename= g_filename_from_uri(containeruri,NULL,NULL);
+	gchar *backenddir = ev_backends_manager_get_backends_dir();
+	GString *mathjaxdir = g_string_new(backenddir);
+	g_string_append_printf(mathjaxdir,"/epub/MathJax");
+
+	gchar *mathjaxref = g_filename_to_uri(mathjaxdir->str,NULL,NULL);
+	gchar *nodedata = g_strdup_printf("%s/MathJax.js?config=TeX-AMS-MML_SVG",mathjaxref);
+
+	open_xml_document(containerfilename);
+	set_xml_root_node(NULL);
+	xmlNodePtr manifest = xml_get_pointer_to_node((xmlChar*)"manifest",NULL,NULL);
+
+	xmlNodePtr item = manifest->xmlChildrenNode;
+
+	while (item != NULL) {
+		if (xmlStrcmp(item->name,(xmlChar*)"item")) {
+			item = item->next;
+			continue;
+		}
+
+		xmlChar *mathml = xml_get_data_from_node(item,XML_ATTRIBUTE, (xmlChar*)"properties");
+
+		if (mathml != NULL &&
+		    !xmlStrcmp(mathml, (xmlChar*)"mathml") ) {
+			gchar *href = (gchar*)xml_get_data_from_node(item, XML_ATTRIBUTE, (xmlChar*)"href");
+			gchar *filename = g_strdup_printf("%s/%s",documentdir,href);
+
+			add_mathjax_script_node_to_file(filename,nodedata);
+			g_free(href);
+			g_free(filename);
+		}
+		g_free(mathml);
+		item = item->next;
+	}
+	xml_free_doc();
+	g_free(backenddir);
+	g_free(mathjaxref);
+	g_free(containerfilename);
+	g_free(nodedata);
+	g_string_free(mathjaxdir,TRUE);
+}
+
 static gboolean
 epub_document_load (EvDocument* document,
                     const char* uri,
@@ -1615,7 +1692,7 @@ epub_document_load (EvDocument* document,
 	epub_document->contentList = setup_document_content_list (contentOpfUri,&err,epub_document->documentdir);
 
 	epub_document_set_index_pages(epub_document->index, epub_document->contentList);
-	
+	epub_document_add_mathJax(contentOpfUri,epub_document->documentdir);
 	if ( epub_document->contentList == NULL )
 	{
 		g_propagate_error(error,err);
