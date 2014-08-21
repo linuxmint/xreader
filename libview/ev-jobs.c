@@ -67,8 +67,8 @@ static void ev_job_page_data_init         (EvJobPageData         *job);
 static void ev_job_page_data_class_init   (EvJobPageDataClass    *class);
 static void ev_job_thumbnail_init         (EvJobThumbnail        *job);
 static void ev_job_thumbnail_class_init   (EvJobThumbnailClass   *class);
-static void ev_job_load_init    	  (EvJobLoad	         *job);
-static void ev_job_load_class_init 	  (EvJobLoadClass	 *class);
+static void ev_job_load_init              (EvJobLoad	         *job);
+static void ev_job_load_class_init 	      (EvJobLoadClass	     *class);
 static void ev_job_save_init              (EvJobSave             *job);
 static void ev_job_save_class_init        (EvJobSaveClass        *class);
 static void ev_job_find_init              (EvJobFind             *job);
@@ -791,14 +791,13 @@ ev_job_thumbnail_dispose (GObject *object)
 }
 
 #if !GTK_CHECK_VERSION(3, 0, 0)
-static void
-web_thumbnail_get_screenshot_cb(WebKitWebView  *webview,
-                                GParamSpec      *pspec,
-                                EvJobThumbnail *job_thumb)
+static gboolean
+web_thumbnail_get_screenshot_cb(EvJobThumbnail *job_thumb)
 {
-	if (webkit_web_view_get_load_status(webview) != WEBKIT_LOAD_FINISHED) {
-		return;	
+	if (webkit_web_view_get_load_status (WEBKIT_WEB_VIEW(webview)) != WEBKIT_LOAD_FINISHED) {
+		return TRUE;
 	}
+
 	EvPage *page = ev_document_get_page (EV_JOB(job_thumb)->document, job_thumb->page);
 	job_thumb->surface = webkit_web_view_get_snapshot (WEBKIT_WEB_VIEW(webview));
 	EvRenderContext *rc = ev_render_context_new (page, job_thumb->rotation, job_thumb->scale);
@@ -815,6 +814,7 @@ web_thumbnail_get_screenshot_cb(WebKitWebView  *webview,
 
 	ev_document_doc_mutex_unlock();
 	ev_job_succeeded(EV_JOB(job_thumb));
+	return FALSE;
 }
 #else
 
@@ -904,10 +904,11 @@ ev_job_thumbnail_run (EvJob *job)
 			}
 
 		webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),(gchar*)rc->page->backend_page);
-#if !GTK_CHECK_VERSION (3, 0, 0)
-		g_signal_connect(WEBKIT_WEB_VIEW(webview),"notify::load-status",
-						 G_CALLBACK(web_thumbnail_get_screenshot_cb),
-						 g_object_ref(job_thumb));
+#if !GTK_CHECK_VERSION (3, 0, 0) 
+        g_idle_add_full (G_PRIORITY_DEFAULT_IDLE,
+		        		 (GSourceFunc)web_thumbnail_get_screenshot_cb,
+				          g_object_ref (job_thumb),
+				         (GDestroyNotify)g_object_unref);
 #else
 		g_signal_connect(WEBKIT_WEB_VIEW(webview),"load-changed",
 						 G_CALLBACK(web_thumbnail_get_screenshot_cb),
