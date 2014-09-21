@@ -110,6 +110,8 @@ void           ev_view_begin_add_annotation  (EvView          *view,
 					      EvAnnotationType annot_type);
 void           ev_view_cancel_add_annotation (EvView          *view);
 
+/*For epub*/
+void           ev_view_disconnect_handlers   (EvView          *view);
 G_END_DECLS
 
 #endif /* __EV_VIEW_H__ */

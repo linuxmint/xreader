@@ -53,14 +53,14 @@ AM_MAINTAINER_MODE([enable])
 
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
-AM_PROG_LIBTOOL
+
 
 AC_ISC_POSIX
 AC_PROG_CC
 AM_PROG_CC_C_O
 AC_PROG_CXX
 AC_STDC_HEADERS
-
+AM_PROG_LIBTOOL
 AC_PROG_SED
 AC_PATH_PROG([GLIB_GENMARSHAL], [glib-genmarshal])
 AC_PATH_PROG([GLIB_MKENUMS], [glib-mkenums])
@@ -138,12 +138,16 @@ MATEDESKTOP_REQUIRED=1.9.0
 
 case "$with_gtk" in
   2.0) GTK_API_VERSION=2.0
+	   WEBKIT_API_VERSION=1.0
        GAIL_API_VERSION=
        GTK_REQUIRED=2.24.0
+       WEBKIT_REQUIRED=2.4.3
        ;;
   3.0) GTK_API_VERSION=3.0
+	   WEBKIT_API_VERSION=3.0
        GAIL_API_VERSION=-3.0
        GTK_REQUIRED=3.0.0
+       WEBKIT_REQUIRED=2.4.3
        ;;
 esac
 
@@ -167,6 +171,14 @@ AC_SEARCH_LIBS([hypot],[m])
 
 PKG_CHECK_MODULES(LIBDOCUMENT, gtk+-$GTK_API_VERSION >= $GTK_REQUIRED gio-2.0 >= $GLIB_REQUIRED)
 PKG_CHECK_MODULES(LIBVIEW, gtk+-$GTK_API_VERSION >= $GTK_REQUIRED gail$GAIL_API_VERSION >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED)
+case "$with_gtk" in
+   2.0)
+    PKG_CHECK_MODULES(WEBKIT, webkit-$WEBKIT_API_VERSION >= $WEBKIT_REQUIRED)
+	;;
+    3.0)
+    PKG_CHECK_MODULES(WEBKIT, webkit2gtk-$WEBKIT_API_VERSION >= $WEBKIT_REQUIRED)
+	;;
+esac
 PKG_CHECK_MODULES(BACKEND, cairo >= $CAIRO_REQUIRED gtk+-$GTK_API_VERSION >= $GTK_REQUIRED)
 PKG_CHECK_MODULES(FRONTEND_CORE, gtk+-$GTK_API_VERSION >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED)
 PKG_CHECK_MODULES(GMODULE, gmodule-2.0 >= $GLIB_REQUIRED)
@@ -688,6 +700,30 @@ AM_CONDITIONAL(ENABLE_XPS, test x$enable_xps = xyes)
 
 dnl ================== End of XPS checks ===================================================
 
+
+dnl ================== EPUB checks ===================================================
+
+AC_ARG_ENABLE(epub,
+	[AS_HELP_STRING([--enable-epub],
+			[Compile with support for epub documents.])],
+	[enable_epub=$enableval],
+	[enable_epub=yes])
+
+if test "x$enable_epub" = "xyes"; then
+    PKG_CHECK_MODULES(EPUB, libxml-2.0 >= $LIBXML_REQUIRED zlib,enable_epub=yes,enable_epub=no)
+
+   if test "x$enable_epub" = "xyes"; then
+      AC_DEFINE([ENABLE_EPUB], [1], [Enable support for ePub documents.])
+   else
+      enable_epub="no"
+      AC_MSG_WARN(["ePub support is disabled."])
+   fi
+fi
+
+AM_CONDITIONAL(ENABLE_EPUB, test x$enable_epub = xyes)
+
+dnl ================== End of EPUB checks ===================================================
+
 dnl =================== Mime types list ====================================================
 
 if test "x$enable_pdf" = "xyes" ; then
@@ -714,6 +750,10 @@ fi
 if test "x$enable_xps" = "xyes"; then
     ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/oxps;application/vnd.ms-xpsdocument;"
 fi
+if test "x$enable_epub" = "xyes"; then
+	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/epub+zip"
+fi
+
 AC_SUBST(ATRIL_MIME_TYPES)
 
 AC_CHECK_FUNC(localtime_r, AC_DEFINE(HAVE_LOCALTIME_R, 1, [Defines if localtime_r is available on your system]))
@@ -766,6 +806,60 @@ backend/comics/Makefile
 backend/djvu/Makefile
 backend/dvi/Makefile
 backend/dvi/mdvi-lib/Makefile
+backend/epub/Makefile
+backend/epub/minizip/Makefile
+backend/epub/MathJax/Makefile
+backend/epub/MathJax/config/Makefile
+backend/epub/MathJax/config/local/Makefile
+backend/epub/MathJax/extensions/Makefile
+backend/epub/MathJax/extensions/MathML/Makefile
+backend/epub/MathJax/extensions/TeX/Makefile
+backend/epub/MathJax/images/Makefile
+backend/epub/MathJax/jax/Makefile
+backend/epub/MathJax/jax/element/Makefile
+backend/epub/MathJax/jax/element/mml/Makefile
+backend/epub/MathJax/jax/element/mml/optable/Makefile
+backend/epub/MathJax/jax/input/Makefile
+backend/epub/MathJax/jax/input/AsciiMath/Makefile
+backend/epub/MathJax/jax/input/TeX/Makefile
+backend/epub/MathJax/jax/input/MathML/Makefile
+backend/epub/MathJax/jax/input/MathML/entities/Makefile
+backend/epub/MathJax/jax/output/Makefile
+backend/epub/MathJax/jax/output/SVG/Makefile
+backend/epub/MathJax/jax/output/SVG/autoload/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/AMS/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/AMS/Regular/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Script/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Script/Regular/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Caligraphic/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Caligraphic/Bold/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Caligraphic/Regular/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Fraktur/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Fraktur/Regular/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Fraktur/Bold/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Math/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Math/Italic/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Math/BoldItalic/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Size1/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Size1/Regular/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Size2/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Size2/Regular/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Size3/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Size3/Regular/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Size4/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Size4/Regular/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Main/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Main/Regular/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Main/Bold/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Main/Italic/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/SansSerif/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/SansSerif/Bold/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/SansSerif/Italic/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/SansSerif/Regular/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Typewriter/Makefile
+backend/epub/MathJax/jax/output/SVG/fonts/TeX/Typewriter/Regular/Makefile
 backend/pdf/Makefile
 backend/pixbuf/Makefile
 backend/ps/Makefile
@@ -854,4 +948,5 @@ Configure summary:
     Pixbuf Backend.....:    $enable_pixbuf
     Comics Backend.....:    $enable_comics
     XPS Backend........:    $enable_xps
+    ePub Backend.......:    $enable_epub
 "

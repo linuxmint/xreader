@@ -60,4 +60,3 @@ ev_document_thumbnails_get_dimensions (EvDocumentThumbnails *document,
 	iface = EV_DOCUMENT_THUMBNAILS_GET_IFACE (document);
 	iface->get_dimensions (document, rc, width, height);
 }
-

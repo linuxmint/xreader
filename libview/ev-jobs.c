@@ -24,6 +24,7 @@
 #include "ev-document-thumbnails.h"
 #include "ev-document-links.h"
 #include "ev-document-images.h"
+#include "ev-job-scheduler.h"
 #include "ev-document-forms.h"
 #include "ev-file-exporter.h"
 #include "ev-document-factory.h"
@@ -39,6 +40,14 @@
 #include "ev-document-text.h"
 #include "ev-debug.h"
 
+#include <gtk/gtk.h>
+#ifdef ENABLE_EPUB
+#if GTK_CHECK_VERSION(3, 0, 0)
+#include <webkit2/webkit2.h>
+#else
+#include <webkit/webkit.h>
+#endif
+#endif
 #include <errno.h>
 #include <glib/gstdio.h>
 #include <glib/gi18n-lib.h>
@@ -58,8 +67,8 @@ static void ev_job_page_data_init         (EvJobPageData         *job);
 static void ev_job_page_data_class_init   (EvJobPageDataClass    *class);
 static void ev_job_thumbnail_init         (EvJobThumbnail        *job);
 static void ev_job_thumbnail_class_init   (EvJobThumbnailClass   *class);
-static void ev_job_load_init    	  (EvJobLoad	         *job);
-static void ev_job_load_class_init 	  (EvJobLoadClass	 *class);
+static void ev_job_load_init              (EvJobLoad	         *job);
+static void ev_job_load_class_init 	      (EvJobLoadClass	     *class);
 static void ev_job_save_init              (EvJobSave             *job);
 static void ev_job_save_class_init        (EvJobSaveClass        *class);
 static void ev_job_find_init              (EvJobFind             *job);
@@ -86,6 +95,9 @@ enum {
 	FIND_UPDATED,
 	FIND_LAST_SIGNAL
 };
+
+static GtkWidget* webview;
+static GtkWidget* offscreenwindow;
 
 static guint job_signals[LAST_SIGNAL] = { 0 };
 static guint job_fonts_signals[FONTS_LAST_SIGNAL] = { 0 };
@@ -211,7 +223,7 @@ ev_job_run (EvJob *job)
 {
 	EvJobClass *class = EV_JOB_GET_CLASS (job);
 	
-	return class->run (job);
+	return class->  run (job);
 }
 
 void
@@ -568,6 +580,24 @@ ev_job_render_run (EvJob *job)
 	ev_document_fc_mutex_lock ();
 
 	ev_page = ev_document_get_page (job->document, job_render->page);
+
+	if ( job->document->iswebdocument == TRUE )
+	{
+		return TRUE;
+		
+		if (g_cancellable_is_cancelled (job->cancellable)) {
+		ev_document_fc_mutex_unlock ();
+		ev_document_doc_mutex_unlock ();
+		g_object_unref (rc);
+
+		return FALSE;
+		}
+		
+		ev_document_fc_mutex_unlock ();
+		ev_document_doc_mutex_unlock ();
+		ev_job_succeeded (job);
+		return FALSE;
+	}
 	rc = ev_render_context_new (ev_page, job_render->rotation, job_render->scale);
 	g_object_unref (ev_page);
 
@@ -740,7 +770,7 @@ ev_job_page_data_new (EvDocument        *document,
 static void
 ev_job_thumbnail_init (EvJobThumbnail *job)
 {
-	EV_JOB (job)->run_mode = EV_JOB_RUN_THREAD;
+		EV_JOB (job)->run_mode = EV_JOB_RUN_THREAD;
 }
 
 static void
@@ -760,28 +790,140 @@ ev_job_thumbnail_dispose (GObject *object)
 	(* G_OBJECT_CLASS (ev_job_thumbnail_parent_class)->dispose) (object);
 }
 
+#if !GTK_CHECK_VERSION(3, 0, 0)
+static gboolean
+web_thumbnail_get_screenshot_cb(EvJobThumbnail *job_thumb)
+{
+	if (webkit_web_view_get_load_status (WEBKIT_WEB_VIEW(webview)) != WEBKIT_LOAD_FINISHED) {
+		return TRUE;
+	}
+
+	EvPage *page = ev_document_get_page (EV_JOB(job_thumb)->document, job_thumb->page);
+	job_thumb->surface = webkit_web_view_get_snapshot (WEBKIT_WEB_VIEW(webview));
+	EvRenderContext *rc = ev_render_context_new (page, job_thumb->rotation, job_thumb->scale);
+	EvPage *screenshotpage;
+	screenshotpage = ev_page_new(job_thumb->page);
+	screenshotpage->backend_page = (EvBackendPage)job_thumb->surface;
+	screenshotpage->backend_destroy_func = (EvBackendPageDestroyFunc)cairo_surface_destroy ;
+	ev_render_context_set_page(rc,screenshotpage);
+
+	job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (EV_JOB(job_thumb)->document),
+							     rc, TRUE);	
+	g_object_unref(screenshotpage);
+	g_object_unref(rc);
+
+	ev_document_doc_mutex_unlock();
+	ev_job_succeeded(EV_JOB(job_thumb));
+	return FALSE;
+}
+#else
+
+static void
+snapshot_callback(WebKitWebView *webview,
+                  GAsyncResult  *results,
+                  EvJobThumbnail *job_thumb)
+{
+	EvPage *page = ev_document_get_page (EV_JOB(job_thumb)->document, job_thumb->page);
+	job_thumb->surface = webkit_web_view_get_snapshot_finish (webview,
+	                                                          results,
+	                                                          NULL);
+	EvRenderContext *rc = ev_render_context_new (page, job_thumb->rotation, job_thumb->scale);
+	EvPage *screenshotpage;
+	screenshotpage = ev_page_new(job_thumb->page);
+	screenshotpage->backend_page = (EvBackendPage)job_thumb->surface;
+	screenshotpage->backend_destroy_func = (EvBackendPageDestroyFunc)cairo_surface_destroy ;
+	ev_render_context_set_page(rc,screenshotpage);
+
+	job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (EV_JOB(job_thumb)->document),
+							     rc, TRUE);	
+	g_object_unref(screenshotpage);
+	g_object_unref(rc);
+
+	ev_document_doc_mutex_unlock();
+	ev_job_succeeded(EV_JOB(job_thumb));
+}
+
+static void
+web_thumbnail_get_screenshot_cb (WebKitWebView  *webview,
+                                 WebKitLoadEvent event,
+                                 EvJobThumbnail *job_thumb)
+{
+	if (event != WEBKIT_LOAD_FINISHED) {
+		return;
+	}
+
+	webkit_web_view_get_snapshot (webview,
+	                              WEBKIT_SNAPSHOT_REGION_VISIBLE,
+	                              WEBKIT_SNAPSHOT_OPTIONS_NONE,
+	                              NULL,
+	                              (GAsyncReadyCallback)snapshot_callback,
+	                              g_object_ref(job_thumb));
+}
+#endif
+
 static gboolean
 ev_job_thumbnail_run (EvJob *job)
 {
 	EvJobThumbnail  *job_thumb = EV_JOB_THUMBNAIL (job);
 	EvRenderContext *rc;
 	EvPage          *page;
-
 	ev_debug_message (DEBUG_JOBS, "%d (%p)", job_thumb->page, job);
 	ev_profiler_start (EV_PROFILE_JOBS, "%s (%p)", EV_GET_TYPE_NAME (job), job);
-	
-	ev_document_doc_mutex_lock ();
+
+	if (job->document->iswebdocument) {
+		/* Do not block the main loop */
+		if (!ev_document_doc_mutex_trylock ())
+			return TRUE;
+	}
+	else {
+		ev_document_doc_mutex_lock ();
+	}
 
 	page = ev_document_get_page (job->document, job_thumb->page);
-	rc = ev_render_context_new (page, job_thumb->rotation, job_thumb->scale);
+	if (job->document->iswebdocument == TRUE ) {
+		rc = ev_render_context_new (page, 0, job_thumb->scale);
+	}
+	else {		
+		rc = ev_render_context_new (page, job_thumb->rotation, job_thumb->scale);
+	}
 	g_object_unref (page);
 
-	job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (job->document),
-								     rc, TRUE);
-	g_object_unref (rc);
-	ev_document_doc_mutex_unlock ();
+	if (job->document->iswebdocument == TRUE) {
+		if (!webview) {
+				webview = webkit_web_view_new();
+			}
+			
+			if (!offscreenwindow) {
+				offscreenwindow = gtk_offscreen_window_new();
+				
+				gtk_container_add(GTK_CONTAINER(offscreenwindow),GTK_WIDGET(webview));
 
-	ev_job_succeeded (job);
+				gtk_window_set_default_size (GTK_WINDOW(offscreenwindow),800,1080);
+
+				gtk_widget_show_all(offscreenwindow);
+			}
+
+		webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),(gchar*)rc->page->backend_page);
+#if !GTK_CHECK_VERSION (3, 0, 0) 
+        g_idle_add_full (G_PRIORITY_DEFAULT_IDLE,
+		        		 (GSourceFunc)web_thumbnail_get_screenshot_cb,
+				          g_object_ref (job_thumb),
+				         (GDestroyNotify)g_object_unref);
+#else
+		g_signal_connect(WEBKIT_WEB_VIEW(webview),"load-changed",
+						 G_CALLBACK(web_thumbnail_get_screenshot_cb),
+						 g_object_ref(job_thumb));
+
+#endif
+	}
+	else {
+		job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (job->document),
+										 rc, TRUE);
+		ev_document_doc_mutex_unlock ();
+
+		ev_job_succeeded (job);
+	}
+	g_object_unref (rc);
 	
 	return FALSE;
 }
@@ -1185,6 +1327,10 @@ ev_job_find_dispose (GObject *object)
 		g_free (job->pages);
 		job->pages = NULL;
 	}
+
+	if (job->results) {
+		g_free(job->results);
+	}
 	
 	(* G_OBJECT_CLASS (ev_job_find_parent_class)->dispose) (object);
 }
@@ -1196,7 +1342,6 @@ ev_job_find_run (EvJob *job)
 	EvDocumentFind *find = EV_DOCUMENT_FIND (job->document);
 	EvPage         *ev_page;
 	GList          *matches;
-
 	ev_debug_message (DEBUG_JOBS, NULL);
 	
 	/* Do not block the main loop */
@@ -1210,16 +1355,30 @@ ev_job_find_run (EvJob *job)
 #endif
 
 	ev_page = ev_document_get_page (job->document, job_find->current_page);
-	matches = ev_document_find_find_text (find, ev_page, job_find->text,
-					      job_find->case_sensitive);
+
+	if (job->document->iswebdocument) {
+		job_find->results[job_find->current_page] = ev_document_find_check_for_hits(find, ev_page, job_find->text,
+		                                                        job_find->case_sensitive);
+	}else {
+		matches = ev_document_find_find_text (find, ev_page, job_find->text,
+					      job_find->case_sensitive);	
+	}
+	
 	g_object_unref (ev_page);
 	
 	ev_document_doc_mutex_unlock ();
 
-	if (!job_find->has_results)
+	if (!job_find->has_results && !job->document->iswebdocument) {
 		job_find->has_results = (matches != NULL);
+	}
+	else if (!job_find->has_results && job->document->iswebdocument){
+		job_find->has_results = (job_find->results[job_find->current_page] > 0);
+	}
 
-	job_find->pages[job_find->current_page] = matches;
+	if (job->document->iswebdocument == FALSE) {
+		job_find->pages[job_find->current_page] = matches;
+	}
+
 	g_signal_emit (job_find, job_find_signals[FIND_UPDATED], 0, job_find->current_page);
 		       
 	job_find->current_page = (job_find->current_page + 1) % job_find->n_pages;
@@ -1269,7 +1428,13 @@ ev_job_find_new (EvDocument  *document,
 	job->start_page = start_page;
 	job->current_page = start_page;
 	job->n_pages = n_pages;
-	job->pages = g_new0 (GList *, n_pages);
+
+	if (document->iswebdocument) {
+		job->results = g_malloc0 (sizeof(guint) *n_pages);
+	}
+	else {
+		job->pages = g_new0 (GList *, n_pages);
+	}
 	job->text = g_strdup (text);
 	job->case_sensitive = case_sensitive;
 	job->has_results = FALSE;
@@ -1281,7 +1446,12 @@ gint
 ev_job_find_get_n_results (EvJobFind *job,
 			   gint       page)
 {
-	return g_list_length (job->pages[page]);
+	if (EV_JOB(job)->document->iswebdocument) {
+		return job->results[page];
+	}
+	else {
+		return g_list_length (job->pages[page]);
+	}
 }
 
 gdouble

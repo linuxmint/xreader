@@ -63,6 +63,19 @@ backends_dir (void)
 	return backendsdir;
 }
 
+gchar*
+ev_backends_manager_get_backends_dir(void)
+{
+	gchar *retval;
+	if (!backendsdir) {
+		retval = backends_dir();
+	}
+	else {
+		retval = backendsdir;
+	}
+	return retval;
+}
+
 static void
 ev_backend_info_free (EvBackendInfo *info)
 {

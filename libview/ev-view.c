@@ -6568,3 +6568,41 @@ ev_view_previous_page (EvView *view)
 	}
 }
 		
+/**
+ * ev_view_disconnect_handlers
+ * @view: #EvView instance
+ * 
+ * Disconnect all signal handlers from the model, to ensure error free operation of the webview,
+ * we have an equivalent function for the webview.
+ */
+void
+ev_view_disconnect_handlers(EvView *view)
+{
+	g_signal_handlers_disconnect_by_func(view->model,
+					     G_CALLBACK (ev_view_rotation_changed_cb),
+					     view);
+	g_signal_handlers_disconnect_by_func(view->model,
+					     G_CALLBACK (ev_view_inverted_colors_changed_cb),
+					     view);
+	g_signal_handlers_disconnect_by_func(view->model,
+					     G_CALLBACK (ev_view_sizing_mode_changed_cb),
+					     view);
+	g_signal_handlers_disconnect_by_func(view->model,
+					     G_CALLBACK (ev_view_scale_changed_cb),
+					     view);
+	g_signal_handlers_disconnect_by_func(view->model,
+					     G_CALLBACK (ev_view_continuous_changed_cb),
+					     view);
+	g_signal_handlers_disconnect_by_func(view->model,
+					     G_CALLBACK (ev_view_dual_page_changed_cb),
+					     view);
+	g_signal_handlers_disconnect_by_func(view->model,
+					     G_CALLBACK (ev_view_fullscreen_changed_cb),
+					     view);
+	g_signal_handlers_disconnect_by_func(view->model,
+					     G_CALLBACK (ev_view_page_changed_cb),
+					     view);
+	g_signal_handlers_disconnect_by_func(view->model,
+					     G_CALLBACK (ev_view_document_changed_cb),
+					     view);
+}

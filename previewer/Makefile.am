@@ -21,7 +21,8 @@ atril_previewer_CFLAGS = \
 	$(PREVIEWER_CFLAGS)			\
         $(WARN_CFLAGS)                          \
         $(DISABLE_DEPRECATED)			\
-	$(AM_CFLAGS)
+	$(AM_CFLAGS)    \
+    $(WEBKIT_CFLAGS)
 
 atril_previewer_LDFLAGS = $(AM_LDFLAGS)
 
@@ -33,7 +34,8 @@ atril_previewer_LDADD = \
 	$(top_builddir)/libdocument/libatrildocument.la	\
 	$(top_builddir)/libview/libatrilview.la		\
 	$(top_builddir)/libmisc/libevmisc.la		\
-	$(PREVIEWER_LIBS)
+	$(PREVIEWER_LIBS)                           \
+    $(WEBKIT_LIBS)
 
 EXTRA_DIST = $(man_MANS)
 

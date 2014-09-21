@@ -110,12 +110,14 @@ GTKDOC_CFLAGS = \
 	$(AM_CFLAGS)					\
 	$(LIBVIEW_CFLAGS)				\
 	$(WARN_CFLAGS)					\
+	$(WEBKIT_CFLAGS)				\
 	$(DISABLE_DEPRECATED)
 
 GTKDOC_LIBS = \
 	$(top_builddir)/libdocument/libatrildocument.la \
 	$(top_builddir)/libview/libatrilview.la \
-	$(LIBDOCUMENT_LIBS)
+	$(LIBDOCUMENT_LIBS)						\
+	$(WEBKIT_LIBS)
 
 # This includes the standard gtk-doc make rules, copied by gtkdocize.
 include $(top_srcdir)/gtk-doc.make

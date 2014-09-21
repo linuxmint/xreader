@@ -26,7 +26,7 @@
 #define EV_DOCUMENT_THUMBNAILS_H
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
-
+#include <gtk/gtk.h>
 #include "ev-render-context.h"
 
 G_BEGIN_DECLS
@@ -52,6 +52,7 @@ struct _EvDocumentThumbnailsInterface {
                                          EvRenderContext      *rc,
                                          gint                 *width,
                                          gint                 *height);
+	
 };
 
 GType      ev_document_thumbnails_get_type       (void) G_GNUC_CONST;
@@ -63,7 +64,6 @@ void       ev_document_thumbnails_get_dimensions (EvDocumentThumbnails *document
                                                   EvRenderContext      *rc,
                                                   gint                 *width,
                                                   gint                 *height);
-
 G_END_DECLS
 
 #endif /* EV_DOCUMENT_THUMBNAILS_H */
