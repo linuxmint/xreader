@@ -41,7 +41,7 @@
 #include "ev-debug.h"
 
 #include <gtk/gtk.h>
-#ifdef ENABLE_EPUB
+#if ENABLE_EPUB
 #if GTK_CHECK_VERSION(3, 0, 0)
 #include <webkit2/webkit2.h>
 #else
@@ -790,6 +790,7 @@ ev_job_thumbnail_dispose (GObject *object)
 	(* G_OBJECT_CLASS (ev_job_thumbnail_parent_class)->dispose) (object);
 }
 
+#if ENABLE_EPUB
 #if !GTK_CHECK_VERSION(3, 0, 0)
 static gboolean
 web_thumbnail_get_screenshot_cb(EvJobThumbnail *job_thumb)
@@ -860,7 +861,7 @@ web_thumbnail_get_screenshot_cb (WebKitWebView  *webview,
 	                              g_object_ref(job_thumb));
 }
 #endif
-
+#endif
 static gboolean
 ev_job_thumbnail_run (EvJob *job)
 {
@@ -888,6 +889,7 @@ ev_job_thumbnail_run (EvJob *job)
 	}
 	g_object_unref (page);
 
+#if ENABLE_EPUB
 	if (job->document->iswebdocument == TRUE) {
 		if (!webview) {
 				webview = webkit_web_view_new();
@@ -916,7 +918,9 @@ ev_job_thumbnail_run (EvJob *job)
 
 #endif
 	}
-	else {
+	else 
+#endif
+	{
 		job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (job->document),
 										 rc, TRUE);
 		ev_document_doc_mutex_unlock ();

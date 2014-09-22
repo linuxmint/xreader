@@ -22,6 +22,8 @@
 #error "Only <atril-web_view.h> can be included directly."
 #endif
 
+#include "config.h"
+#if ENABLE_EPUB
 #ifndef __EV_WEB_VIEW_H__
 #define __EV_WEB_VIEW_H__
 
@@ -87,3 +89,4 @@ void       ev_web_view_disconnect_handlers    (EvWebView  *webview);
 G_END_DECLS
 
 #endif /* __EV_WEB_VIEW_H__ */
+#endif /* ENABLE_EPUB */

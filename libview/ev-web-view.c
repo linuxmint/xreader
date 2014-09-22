@@ -17,7 +17,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-
+#if ENABLE_EPUB
 #include "config.h"
 
 #include <glib/gi18n-lib.h>
@@ -871,3 +871,4 @@ ev_web_view_disconnect_handlers(EvWebView *webview)
 	                                     ev_web_view_page_changed_cb,
 	                                     webview);
 }
+#endif

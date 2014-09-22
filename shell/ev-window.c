@@ -143,7 +143,7 @@ struct _EvWindowPrivate {
 	GtkWidget *sidebar_attachments;
 	GtkWidget *sidebar_layers;
 	GtkWidget *sidebar_annots;
-#ifdef ENABLE_EPUB
+#if ENABLE_EPUB
 	GtkWidget *webview;
 #endif
 	/* Settings */
@@ -477,7 +477,9 @@ ev_window_setup_action_sensitivity (EvWindow *ev_window)
 static void
 ev_window_update_actions (EvWindow *ev_window)
 {
+#if ENABLE_EPUB
 	EvWebView *webview = NULL;
+#endif
 	EvView *view = NULL;
 	
 	int n_pages = 0, page = -1;
@@ -491,10 +493,12 @@ ev_window_update_actions (EvWindow *ev_window)
 		n_pages = ev_document_get_n_pages (ev_window->priv->document);
 		has_pages = n_pages > 0;
 	}
-
+#if ENABLE_EPUB
 	if (ev_window->priv->document && ev_window->priv->document->iswebdocument == TRUE ) {
 		webview = EV_WEB_VIEW(ev_window->priv->webview);
-	} else {
+	} else
+#endif
+	{
 		view = EV_VIEW (ev_window->priv->view);
 	}
 	
@@ -505,6 +509,7 @@ ev_window_update_actions (EvWindow *ev_window)
 						has_pages &&
 				ev_view_get_has_selection (view));
 	}
+#if ENABLE_EPUB
 #if GTK_CHECK_VERSION (3, 0, 0)
 	else if (webview) {
 		/*
@@ -521,6 +526,7 @@ ev_window_update_actions (EvWindow *ev_window)
 						has_pages &&
 				ev_web_view_get_has_selection (webview));
 	}
+#endif
 #endif
 	ev_window_set_action_sensitive (ev_window, "EditFindNext",
 					has_pages && can_find_in_page);
@@ -941,6 +947,7 @@ view_selection_changed_cb (EvView   *view,
 	ev_window_set_action_sensitive (window, "EditCopy",
 					ev_view_get_has_selection (view));
 }
+#if ENABLE_EPUB
 #if !GTK_CHECK_VERSION (3, 0, 0)
 static void
 web_view_selection_changed_cb(EvWebView *webview,
@@ -949,6 +956,7 @@ web_view_selection_changed_cb(EvWebView *webview,
 	ev_window_set_action_sensitive (window,"EditCopy",
 					ev_web_view_get_has_selection(webview));
 }
+#endif
 #endif
 
 static void
@@ -1470,8 +1478,11 @@ ev_window_setup_document (EvWindow *ev_window)
 	else {
 		if ( document->iswebdocument == FALSE )
 			gtk_widget_grab_focus (ev_window->priv->view);
+		#if ENABLE_EPUB
 		else
 			gtk_widget_grab_focus (ev_window->priv->webview);
+		#endif
+
 	}
 	return FALSE;
 }
@@ -1497,7 +1508,7 @@ ev_window_set_document (EvWindow *ev_window, EvDocument *document)
 		ev_window_warning_message (ev_window, "%s",
 					   _("The document contains only empty pages"));
 	}
-#ifdef ENABLE_EPUB
+#if ENABLE_EPUB
 	GtkWidget *parent= gtk_widget_get_parent(ev_window->priv->webview);
 	if (document->iswebdocument == TRUE && 
 	          parent == NULL )
@@ -3768,9 +3779,12 @@ ev_window_cmd_edit_select_all (GtkAction *action, EvWindow *ev_window)
 		egg_find_bar_grab_focus(ev_window->priv->find_bar);
 	} else if (ev_window->priv->document->iswebdocument == FALSE ) {
 		ev_view_select_all (EV_VIEW (ev_window->priv->view));
-	} else {
+	}
+#if ENABLE_EPUB
+	else {
 		ev_web_view_select_all(EV_WEB_VIEW(ev_window->priv->webview));
 	}
+#endif
 }
 
 static void
@@ -3798,9 +3812,12 @@ ev_window_cmd_edit_find_next (GtkAction *action, EvWindow *ev_window)
 	gtk_widget_grab_focus (ev_window->priv->find_bar);
 	if (ev_window->priv->document->iswebdocument == FALSE) {
 		ev_view_find_next (EV_VIEW (ev_window->priv->view));
-	} else {
+	}
+#if ENABLE_EPUB
+	else {
 		ev_web_view_find_next(EV_WEB_VIEW(ev_window->priv->webview));
 	}
+#endif
 }
 
 static void
@@ -3813,19 +3830,24 @@ ev_window_cmd_edit_find_previous (GtkAction *action, EvWindow *ev_window)
 	gtk_widget_grab_focus (ev_window->priv->find_bar);
 	if (ev_window->priv->document->iswebdocument == FALSE) {
 		ev_view_find_previous (EV_VIEW (ev_window->priv->view));
-	} else {
+	} 
+#if ENABLE_EPUB
+	else {
 		ev_web_view_find_previous(EV_WEB_VIEW(ev_window->priv->webview));
 	}
+#endif
 }
 
 static void
 ev_window_cmd_edit_copy (GtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
-	
+#if ENABLE_EPUB	
 	if (ev_window->priv->document->iswebdocument) {
 		ev_web_view_copy(EV_WEB_VIEW(ev_window->priv->webview));
-	} else {
+	} else 
+#endif
+	{
 		ev_view_copy (EV_VIEW (ev_window->priv->view));
 	}
 }
@@ -3942,9 +3964,11 @@ ev_window_run_fullscreen (EvWindow *window)
 	if (window->priv->view) {
 		gtk_widget_grab_focus (window->priv->view);
 	}
+#if ENABLE_EPUB
 	else  {
 		gtk_widget_grab_focus(window->priv->webview);
 	}
+#endif
 	if (window->priv->metadata && !ev_window_is_empty (window))
 		ev_metadata_set_boolean (window->priv->metadata, "fullscreen", TRUE);
 }
@@ -4079,10 +4103,12 @@ ev_window_stop_presentation (EvWindow *window,
 	
 	if (window->priv->view) {
 		gtk_widget_grab_focus (window->priv->view);
-	} else {
+	} 
+#if ENABLE_EPUB
+	else {
 		gtk_widget_grab_focus (window->priv->webview);
 	}
-	
+#endif
 	ev_application_screensaver_enable (EV_APP);
 
 	if (window->priv->metadata && !ev_window_is_empty (window))
@@ -4221,9 +4247,11 @@ ev_window_set_page_mode (EvWindow         *window,
 			if ( window->priv->document && window->priv->document->iswebdocument == FALSE ) {
 				child = window->priv->view;
 			}
+#if ENABLE_EPUB
 			else {
 				child=window->priv->webview;
 			}
+#endif
 			break;
 	        case PAGE_MODE_PASSWORD:
 			child = window->priv->password_view;
@@ -4365,10 +4393,13 @@ ev_window_cmd_view_zoom_in (GtkAction *action, EvWindow *ev_window)
         g_return_if_fail (EV_IS_WINDOW (ev_window));
 
 	ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FREE);
+#if ENABLE_EPUB
 	if (ev_window->priv->document->iswebdocument) {
 		ev_web_view_zoom_in(EV_WEB_VIEW(ev_window->priv->webview));
 	}
-	else {
+	else
+#endif
+	{
 		ev_view_zoom_in (EV_VIEW (ev_window->priv->view));
 	}
 }
@@ -4379,11 +4410,13 @@ ev_window_cmd_view_zoom_out (GtkAction *action, EvWindow *ev_window)
         g_return_if_fail (EV_IS_WINDOW (ev_window));
 
 	ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FREE);
-
+#if ENABLE_EPUB
 	if ( ev_window->priv->document->iswebdocument)  {
 		ev_web_view_zoom_out(EV_WEB_VIEW(ev_window->priv->webview));
 	}
-	else {
+	else
+#endif
+	{
 		ev_view_zoom_out (EV_VIEW (ev_window->priv->view));
 	}
 }
@@ -4392,9 +4425,13 @@ static void
 ev_window_cmd_go_previous_page (GtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
+#if ENABLE_EPUB
 	if ( ev_window->priv->document->iswebdocument == TRUE ) {
 		ev_web_view_previous_page(EV_WEB_VIEW(ev_window->priv->webview));
-	} else {
+	}
+	else
+#endif
+	{
 		ev_view_previous_page (EV_VIEW (ev_window->priv->view));
 	}
 }
@@ -4403,10 +4440,12 @@ static void
 ev_window_cmd_go_next_page (GtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
-
+#if ENABLE_EPUB
 	if ( ev_window->priv->document->iswebdocument == TRUE ) {
 		ev_web_view_next_page(EV_WEB_VIEW(ev_window->priv->webview));
-	} else {
+	} else 
+#endif
+	{
 		ev_view_next_page (EV_VIEW (ev_window->priv->view));
 	}
 }
@@ -4527,8 +4566,10 @@ ev_window_cmd_escape (GtkAction *action, EvWindow *window)
 
 		if (window->priv->view)
 			gtk_widget_grab_focus (window->priv->view);
+#if ENABLE_EPUB
 		else
 			gtk_widget_grab_focus (window->priv->webview);
+#endif
 	} else {
 		gboolean fullscreen;
 
@@ -4542,8 +4583,10 @@ ev_window_cmd_escape (GtkAction *action, EvWindow *window)
 		} else {
 			if (window->priv->view)
 				gtk_widget_grab_focus (window->priv->view);
+#if ENABLE_EPUB
 			else
 				gtk_widget_grab_focus (window->priv->webview);
+#endif
 		}
 
 		if (fullscreen && EV_WINDOW_IS_PRESENTATION (window))
@@ -5093,11 +5136,14 @@ ev_window_find_job_updated_cb (EvJobFind *job,
 			       EvWindow  *ev_window)
 {
 	ev_window_update_actions (ev_window);
+#if ENABLE_EPUB
 	if (ev_window->priv->document->iswebdocument == TRUE ) {
 		ev_web_view_find_changed(EV_WEB_VIEW(ev_window->priv->webview),
 								 job->results,job->text, job->case_sensitive);
 	}
-	else {
+	else 
+#endif
+	{
 		ev_view_find_changed (EV_VIEW (ev_window->priv->view),
 				      ev_job_find_get_results (job),
 				      page);
@@ -5127,9 +5173,12 @@ static void
 find_bar_previous_cb (EggFindBar *find_bar,
 		      EvWindow   *ev_window)
 {
+#if ENABLE_EPUB
 	if (ev_window->priv->document->iswebdocument == TRUE ) {
 		ev_web_view_find_previous(EV_WEB_VIEW(ev_window->priv->webview));
-	}else {
+	}else 
+#endif
+	{
 		ev_view_find_previous (EV_VIEW (ev_window->priv->view));
 	}
 }
@@ -5138,9 +5187,12 @@ static void
 find_bar_next_cb (EggFindBar *find_bar,
 		  EvWindow   *ev_window)
 {
+#if ENABLE_EPUB
 	if (ev_window->priv->document->iswebdocument == TRUE ) {
 		ev_web_view_find_next(EV_WEB_VIEW(ev_window->priv->webview));
-	} else {
+	} else 
+#endif
+	{
 		ev_view_find_next (EV_VIEW (ev_window->priv->view));
 	}
 }
@@ -5149,10 +5201,13 @@ static void
 find_bar_close_cb (EggFindBar *find_bar,
 		   EvWindow   *ev_window)
 {
+#if ENABLE_EPUB
 	if (ev_window->priv->document->iswebdocument == TRUE ) {		
 		ev_web_view_find_cancel(EV_WEB_VIEW(ev_window->priv->webview));
 	}
-	else {
+	else 
+#endif
+	{
 			ev_view_find_cancel (EV_VIEW (ev_window->priv->view));
 	}
 	ev_window_clear_find_job (ev_window);
@@ -5174,10 +5229,12 @@ find_bar_search_changed_cb (EggFindBar *find_bar,
 	/* Either the string or case sensitivity could have changed. */
 	case_sensitive = egg_find_bar_get_case_sensitive (find_bar);
 	search_string = egg_find_bar_get_search_string (find_bar);
-
+#if ENABLE_EPUB
 	if (ev_window->priv->document->iswebdocument) {
 		ev_web_view_find_search_changed(EV_WEB_VIEW(ev_window->priv->webview));
-	} else {
+	} else 
+#endif
+	{
 		ev_view_find_search_changed (EV_VIEW (ev_window->priv->view));
 	}
 	ev_window_clear_find_job (ev_window);
@@ -5221,6 +5278,7 @@ find_bar_visibility_changed_cb (EggFindBar *find_bar,
 			ev_view_find_set_highlight_search (EV_VIEW (ev_window->priv->view), visible);
 			ev_view_find_search_changed (EV_VIEW (ev_window->priv->view));
 		}
+#if ENABLE_EPUB
 		else {
 #if !GTK_CHECK_VERSION(3, 0, 0)
 			ev_web_view_find_set_highlight_search(EV_WEB_VIEW(ev_window->priv->webview),visible);
@@ -5228,7 +5286,7 @@ find_bar_visibility_changed_cb (EggFindBar *find_bar,
 			ev_web_view_find_search_changed(EV_WEB_VIEW(ev_window->priv->webview));
 			ev_web_view_set_handler(EV_WEB_VIEW(ev_window->priv->webview),visible);
 		}
-
+#endif
 		ev_window_update_actions (ev_window);
 
 		if (visible)
@@ -5886,9 +5944,11 @@ sidebar_links_link_activated_cb (EvSidebarLinks *sidebar_links, EvLink *link, Ev
 	if (window->priv->document->iswebdocument == FALSE ) {
 		ev_view_handle_link (EV_VIEW (window->priv->view), link);
 	}
+#if ENABLE_EPUB
 	else {
 		ev_web_view_handle_link(EV_WEB_VIEW(window->priv->webview), link);
 	}
+#endif
 }
 
 static void
@@ -5898,21 +5958,24 @@ activate_link_cb (EvPageAction *page_action, EvLink *link, EvWindow *window)
 		ev_view_handle_link (EV_VIEW (window->priv->view), link);
 		gtk_widget_grab_focus (window->priv->view);
 	}
+#if ENABLE_EPUB
 	else {
 		ev_web_view_handle_link (EV_WEB_VIEW (window->priv->webview), link);
 		gtk_widget_grab_focus (window->priv->webview);
 	}
+#endif
 }
 
 static void
 navigation_action_activate_link_cb (EvNavigationAction *action, EvLink *link, EvWindow *window)
 {
+#if ENABLE_EPUB
 	if (window->priv->document->iswebdocument == TRUE )  {
 		ev_web_view_handle_link(EV_WEB_VIEW(window->priv->webview),link);
 		gtk_widget_grab_focus (window->priv->webview);
 		return;
 	}
-	
+#endif	
 	ev_view_handle_link (EV_VIEW (window->priv->view), link);
 	gtk_widget_grab_focus (window->priv->view);
 }
@@ -5924,10 +5987,12 @@ sidebar_layers_visibility_changed (EvSidebarLayers *layers,
 	if (window->priv->document->iswebdocument == FALSE ) {
 		ev_view_reload (EV_VIEW (window->priv->view));
 	}
+#if ENABLE_EPUB
 	else
 	{
 		ev_web_view_reload(EV_WEB_VIEW(window->priv->webview));
 	}
+#endif
 }
 
 static void
@@ -7249,7 +7314,7 @@ ev_window_init (EvWindow *ev_window)
 
 	ev_window->priv->view = ev_view_new ();
 
-#ifdef ENABLE_EPUB /*The webview, we won't add it now but it will replace the atril-view if a web(epub) document is encountered.*/
+#if ENABLE_EPUB /*The webview, we won't add it now but it will replace the atril-view if a web(epub) document is encountered.*/
 	ev_window->priv->webview = ev_web_view_new();
 	ev_web_view_set_model(EV_WEB_VIEW(ev_window->priv->webview),ev_window->priv->model);
 #if !GTK_CHECK_VERSION (3, 0, 0)
