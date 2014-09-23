@@ -17,9 +17,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#if ENABLE_EPUB
+
 #include "config.h"
 
+#if ENABLE_EPUB
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
 #include <stdlib.h>
