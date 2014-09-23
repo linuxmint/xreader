@@ -19,7 +19,7 @@
  */
 
 #if !defined (__EV_ATRIL_VIEW_H_INSIDE__) && !defined (ATRIL_COMPILATION)
-#error "Only <atril-web_view.h> can be included directly."
+#error "Only <atril-view.h> can be included directly."
 #endif
 
 #include "config.h"
