@@ -96,8 +96,10 @@ enum {
 	FIND_LAST_SIGNAL
 };
 
+#if ENABLE_EPUB
 static GtkWidget* webview;
 static GtkWidget* offscreenwindow;
+#endif
 
 static guint job_signals[LAST_SIGNAL] = { 0 };
 static guint job_fonts_signals[FONTS_LAST_SIGNAL] = { 0 };
