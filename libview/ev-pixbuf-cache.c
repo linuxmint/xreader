@@ -88,7 +88,7 @@ static gboolean      new_selection_surface_needed(EvPixbufCache      *pixbuf_cac
 #define VISIBLE_NEXT_LEN(pixbuf_cache) \
 	(MIN(pixbuf_cache->preload_cache_size, ev_document_get_n_pages (pixbuf_cache->document) - (1 + pixbuf_cache->end_page)))
 #define PAGE_CACHE_LEN(pixbuf_cache) \
-	((pixbuf_cache->end_page - pixbuf_cache->start_page) + 1)
+	(pixbuf_cache->start_page>=0?((pixbuf_cache->end_page - pixbuf_cache->start_page) + 1):0)
 
 #define MAX_PRELOADED_PAGES 3
 
