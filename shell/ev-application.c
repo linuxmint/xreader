@@ -903,7 +903,7 @@ static void ev_application_accel_map_load(EvApplication* application)
 	}
 	else
 	{
-		accel_map_file = g_build_filename(g_get_user_config_dir(), "accels", "atril", NULL);
+		accel_map_file = g_build_filename(g_get_user_config_dir(), "atril", "accels", NULL);
 	}
 
 	gtk_accel_map_load(accel_map_file);
