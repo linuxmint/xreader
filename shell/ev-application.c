@@ -861,7 +861,7 @@ static void ev_application_accel_map_save(EvApplication* application)
 
 	if (userdir)
 	{
-		accel_map_file = g_build_filename(userdir, "accels", "atril", NULL);
+		accel_map_file = g_build_filename(userdir, "atril", "accels", NULL);
 	}
 	else
 	{
