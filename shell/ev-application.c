@@ -903,11 +903,7 @@ static void ev_application_accel_map_load(EvApplication* application)
 	}
 	else
 	{
-		#if GLIB_CHECK_VERSION(2, 6, 0)
-			accel_map_file = g_build_filename(g_get_user_config_dir(), "accels", "atril", NULL);
-		#else // glib version < 2.6.0
-			accel_map_file = g_build_filename(g_get_home_dir(), ".config", "accels", "atril", NULL);
-		#endif
+		accel_map_file = g_build_filename(g_get_user_config_dir(), "accels", "atril", NULL);
 	}
 
 	gtk_accel_map_load(accel_map_file);
