@@ -282,12 +282,13 @@ ev_spawn (const char     *uri,
 		break;
 	}
 
-	g_string_append_printf (cmd, " %s", uri);
-
 	cmdline = g_string_free (cmd, FALSE);
 	app = g_app_info_create_from_commandline (cmdline, NULL, 0, &error);
 
 	if (app != NULL) {
+		GList uri_list;
+		GList *uris = NULL;
+
 #if GTK_CHECK_VERSION (3, 0, 0)
 		ctx = gdk_display_get_app_launch_context (gdk_screen_get_display (screen));
 #else
@@ -297,7 +298,12 @@ ev_spawn (const char     *uri,
 		gdk_app_launch_context_set_screen (ctx, screen);
 		gdk_app_launch_context_set_timestamp (ctx, timestamp);
 
-		g_app_info_launch (app, NULL, G_APP_LAUNCH_CONTEXT (ctx), &error);
+		if (uri) {
+			uri_list.data = (gchar *)uri;
+			uri_list.prev = uri_list.next = NULL;
+			uris = &uri_list;
+		}
+		g_app_info_launch_uris (app, uris, G_APP_LAUNCH_CONTEXT (ctx), &error);
 
 		g_object_unref (app);
 		g_object_unref (ctx);
