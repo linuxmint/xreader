@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-09 18:05+0100\n"
-"PO-Revision-Date: 2014-04-19 01:37+0000\n"
+"PO-Revision-Date: 2014-07-06 03:30+0000\n"
 "Last-Translator: samson <sambelet@yahoo.com>\n"
 "Language-Team: Amharic (http://www.transifex.com/projects/p/MATE/language/am/)\n"
 "MIME-Version: 1.0\n"
@@ -85,7 +85,7 @@ msgstr "የ DjVu ሰነድ የተሳሳተ አቀራረብ ነው ያለው "
 msgid ""
 "The document is composed of several files. One or more of these files cannot"
 " be accessed."
-msgstr ""
+msgstr "ይህ ሰነድ የተቀናበረው ከ በርካታ ፋይሎች ነው፡ አንድ ወይንም ከዚያ በላይ ፋይሎች ጋር መድረስ አይቻልም"
 
 #: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
@@ -101,7 +101,7 @@ msgstr "የ DVI ሰነዶች"
 
 #: ../backend/pdf/ev-poppler.cc:526
 msgid "This work is in the Public Domain"
-msgstr ""
+msgstr "ይህ ስራ በ ሕዝብ ግዛት ውስጥ ነው"
 
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:779 ../properties/ev-properties-view.c:364
@@ -177,7 +177,7 @@ msgstr "ሰነዱን ማስቀመጥ አልተቻለም “%s”"
 
 #: ../backend/ps/psdocument.atril-backend.in.h:1
 msgid "PostScript Documents"
-msgstr ""
+msgstr "PostScript Documents"
 
 #: ../backend/tiff/tiff-document.c:113
 msgid "Invalid document"
@@ -328,7 +328,7 @@ msgstr "መለያያ "
 #. translators: this is the label for toolbar button
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:5814
 msgid "Best Fit"
-msgstr ""
+msgstr "በ ጥሩ ልክ"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:50
 msgid "Fit Page Width"
@@ -473,7 +473,7 @@ msgstr "ይህን ሰነድ ማተሚያ "
 
 #: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:5631
 msgid "_Best Fit"
-msgstr ""
+msgstr "በ _ጥሩ ልክ"
 
 #: ../previewer/ev-previewer-window.c:343 ../shell/ev-window.c:5632
 msgid "Make the current document fill the window"
@@ -837,7 +837,7 @@ msgstr "ያልታወቀ "
 
 #: ../shell/ev-annotation-properties-dialog.c:139
 msgid "Annotation Properties"
-msgstr ""
+msgstr "የማብራሪያ ባህሪዎች"
 
 #: ../shell/ev-annotation-properties-dialog.c:175
 msgid "Color:"
@@ -1220,7 +1220,7 @@ msgstr "Atril"
 msgid ""
 "© 1996–2009 The Evince authors\n"
 "© 2012–2014 The MATE developers"
-msgstr ""
+msgstr "© 1996–2009 The Evince authors\n© 2012–2014 The MATE developers"
 
 #: ../shell/ev-window.c:4631
 msgid "translator-credits"
@@ -1411,7 +1411,7 @@ msgstr "ጠቅላላ ሰነዱን ማሳያ "
 
 #: ../shell/ev-window.c:5622
 msgid "_Dual"
-msgstr ""
+msgstr "_ጥንድ"
 
 #: ../shell/ev-window.c:5623
 msgid "Show two pages at once"
@@ -1603,7 +1603,7 @@ msgstr ""
 
 #: ../shell/main.c:82
 msgid "STRING"
-msgstr ""
+msgstr "ሐረግ "
 
 #: ../shell/main.c:86
 msgid "[FILE…]"

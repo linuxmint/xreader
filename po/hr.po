@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Ivica  Kolić <ikoli@yahoo.com>, 2013-2014
+# Tomislav Krznar <tomislav.krznar@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-09 18:05+0100\n"
-"PO-Revision-Date: 2014-02-09 17:07+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2014-09-17 17:13+0000\n"
+"Last-Translator: Tomislav Krznar <tomislav.krznar@gmail.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/MATE/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,12 +23,12 @@ msgstr ""
 #, c-format
 msgid ""
 "Error launching the command “%s” in order to decompress the comic book: %s"
-msgstr ""
+msgstr "Greška pri pokretanju naredbe \"%s\" radi dekomprimiranja stripa: %s"
 
 #: ../backend/comics/comics-document.c:231
 #, c-format
 msgid "The command “%s” failed at decompressing the comic book."
-msgstr ""
+msgstr "Naredba \"%s\" nije uspjela dekomprimirati strip."
 
 #: ../backend/comics/comics-document.c:240
 #, c-format
@@ -79,13 +80,13 @@ msgstr "Stripovi"
 
 #: ../backend/djvu/djvu-document.c:173
 msgid "DjVu document has incorrect format"
-msgstr ""
+msgstr "DjVu dokument ima neispravan format"
 
 #: ../backend/djvu/djvu-document.c:250
 msgid ""
 "The document is composed of several files. One or more of these files cannot"
 " be accessed."
-msgstr ""
+msgstr "Dokument je sastavljen od nekoliko datoteka. Jednoj ili više njih nije moguće pristupiti."
 
 #: ../backend/djvu/djvudocument.atril-backend.in.h:1
 msgid "DjVu Documents"
@@ -93,7 +94,7 @@ msgstr "DjVu dokumenti"
 
 #: ../backend/dvi/dvi-document.c:113
 msgid "DVI document has incorrect format"
-msgstr ""
+msgstr "DVI dokument ima neispravan format"
 
 #: ../backend/dvi/dvidocument.atril-backend.in.h:1
 msgid "DVI Documents"
@@ -127,7 +128,7 @@ msgstr "Vrsta 3"
 
 #: ../backend/pdf/ev-poppler.cc:916
 msgid "TrueType"
-msgstr ""
+msgstr "TrueType"
 
 #: ../backend/pdf/ev-poppler.cc:918
 msgid "Type 1 (CID)"
@@ -139,7 +140,7 @@ msgstr "Vrsta 1C (CID)"
 
 #: ../backend/pdf/ev-poppler.cc:922
 msgid "TrueType (CID)"
-msgstr ""
+msgstr "TrueType (CID)"
 
 #: ../backend/pdf/ev-poppler.cc:924
 msgid "Unknown font type"
@@ -151,15 +152,15 @@ msgstr "Bez imena"
 
 #: ../backend/pdf/ev-poppler.cc:958
 msgid "Embedded subset"
-msgstr ""
+msgstr "Ugrađeni podskup"
 
 #: ../backend/pdf/ev-poppler.cc:960
 msgid "Embedded"
-msgstr ""
+msgstr "Ugrađeni"
 
 #: ../backend/pdf/ev-poppler.cc:962
 msgid "Not embedded"
-msgstr ""
+msgstr "Nije ugrađen"
 
 #: ../backend/pdf/pdfdocument.atril-backend.in.h:1
 msgid "PDF Documents"
@@ -224,7 +225,7 @@ msgstr "Nesuspjelo kreiranje privremenog direktorija: %s"
 #: ../cut-n-paste/smclient/eggdesktopfile.c:165
 #, c-format
 msgid "File is not a valid .desktop file"
-msgstr ""
+msgstr "Datoteka nije valjna .desktop datoteka"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:188
 #, c-format
@@ -234,12 +235,12 @@ msgstr ""
 #: ../cut-n-paste/smclient/eggdesktopfile.c:958
 #, c-format
 msgid "Starting %s"
-msgstr ""
+msgstr "Pokrećem %s"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1100
 #, c-format
 msgid "Application does not accept documents on command line"
-msgstr ""
+msgstr "Aplikacija ne prihvaća dokumente iz naredbenog retka"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1168
 #, c-format
@@ -254,15 +255,15 @@ msgstr ""
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1392
 #, c-format
 msgid "Not a launchable item"
-msgstr ""
+msgstr "Nije izvršna stavka"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:225
 msgid "Disable connection to session manager"
-msgstr ""
+msgstr "Isključi vezu prema upravitelju sesija"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:228
 msgid "Specify file containing saved configuration"
-msgstr ""
+msgstr "Navedi datoteku koja sadrži pohranjene postavke"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:228 ../previewer/ev-previewer.c:45
 #: ../previewer/ev-previewer.c:46
@@ -271,11 +272,11 @@ msgstr "DATOTEKA"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:231
 msgid "Specify session management ID"
-msgstr ""
+msgstr "Odredite ID upravljanja sesijama"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:231
 msgid "ID"
-msgstr ""
+msgstr "Identifikacija"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:252
 msgid "Session management options:"
@@ -411,11 +412,11 @@ msgstr "Pogledaj višestranične dokumente"
 
 #: ../data/org.mate.Atril.gschema.xml.in.h:1
 msgid "Override document restrictions"
-msgstr ""
+msgstr "Zaobiđi ograničenja dokumenta"
 
 #: ../data/org.mate.Atril.gschema.xml.in.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
-msgstr ""
+msgstr "Zaobiđi ograničenja dokumenta, poput zabrane kopiranja ili ispisa."
 
 #: ../previewer/ev-previewer.c:44
 msgid "Delete the temporary file"
@@ -423,7 +424,7 @@ msgstr "Izbriši privremenu datoteku"
 
 #: ../previewer/ev-previewer.c:45
 msgid "Print settings file"
-msgstr ""
+msgstr "Ispiši datoteku postavki"
 
 #: ../previewer/ev-previewer.c:146 ../previewer/ev-previewer.c:180
 msgid "MATE Document Previewer"
@@ -481,11 +482,11 @@ msgstr "Neka trenutni dokument ispuni prozor"
 
 #: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:5634
 msgid "Fit Page _Width"
-msgstr ""
+msgstr "Pristajanje dužine _stranice"
 
 #: ../previewer/ev-previewer-window.c:346 ../shell/ev-window.c:5635
 msgid "Make the current document fill the window width"
-msgstr ""
+msgstr "Neka trenutni dokument ispuni dužinu prozora"
 
 #: ../previewer/ev-previewer-window.c:558 ../shell/ev-window.c:5736
 msgid "Page"
@@ -509,7 +510,7 @@ msgstr "Lokacija:"
 
 #: ../properties/ev-properties-view.c:62
 msgid "Subject:"
-msgstr ""
+msgstr "Predmet:"
 
 #: ../properties/ev-properties-view.c:63
 #: ../shell/ev-annotation-properties-dialog.c:162
@@ -526,7 +527,7 @@ msgstr ""
 
 #: ../properties/ev-properties-view.c:66
 msgid "Creator:"
-msgstr ""
+msgstr "Tvorac:"
 
 #: ../properties/ev-properties-view.c:67
 msgid "Created:"
@@ -637,7 +638,7 @@ msgstr "Upozorenje"
 
 #: ../libview/ev-print-operation.c:1235
 msgid "Your print range selection does not include any pages"
-msgstr ""
+msgstr "Vaš raspon za ispis ne sadrži niti jednu stranicu"
 
 #: ../libview/ev-print-operation.c:1866
 msgid "Page Scaling:"
@@ -645,7 +646,7 @@ msgstr ""
 
 #: ../libview/ev-print-operation.c:1872
 msgid "Shrink to Printable Area"
-msgstr ""
+msgstr "Smanji na ispisivo područje"
 
 #: ../libview/ev-print-operation.c:1873
 msgid "Fit to Printable Area"
@@ -664,7 +665,7 @@ msgstr ""
 
 #: ../libview/ev-print-operation.c:1888
 msgid "Auto Rotate and Center"
-msgstr ""
+msgstr "Automatski rotiraj i centriraj"
 
 #: ../libview/ev-print-operation.c:1891
 msgid ""
@@ -674,22 +675,22 @@ msgstr ""
 
 #: ../libview/ev-print-operation.c:1896
 msgid "Select page size using document page size"
-msgstr ""
+msgstr "Izaberi veličinu stranice koristeći veličinu stranice dokumenta"
 
 #: ../libview/ev-print-operation.c:1898
 msgid ""
 "When enabled, each page will be printed on the same size paper as the "
 "document page."
-msgstr ""
+msgstr "Kad je omogućeno, svaka stranica će se ispisati na istoj veličini papira kao stranice dokumenta."
 
 #: ../libview/ev-print-operation.c:1980
 msgid "Page Handling"
-msgstr ""
+msgstr "Upravljanje stranicama"
 
 #: ../libview/ev-jobs.c:1529
 #, c-format
 msgid "Failed to print page %d: %s"
-msgstr ""
+msgstr "Neuspjeli ispis stranice %d: %s"
 
 #: ../libview/ev-view-accessible.c:46
 msgid "Scroll Up"
@@ -773,7 +774,7 @@ msgstr "Nađi pre_thodno"
 
 #: ../shell/eggfindbar.c:336
 msgid "Find previous occurrence of the search string"
-msgstr ""
+msgstr "Pronađi prethodnu pojavu niza koji se pretražuje"
 
 #: ../shell/eggfindbar.c:340 ../shell/ev-window.c:5497
 msgid "Find Ne_xt"
@@ -781,7 +782,7 @@ msgstr "Nađi slije_deće"
 
 #: ../shell/eggfindbar.c:344
 msgid "Find next occurrence of the search string"
-msgstr ""
+msgstr "Pronađi sljedeću pojavu niza koji se pretražuje"
 
 #: ../shell/eggfindbar.c:351
 msgid "Case Sensitive"
@@ -797,7 +798,7 @@ msgstr "Sličica:"
 
 #: ../shell/ev-annotation-properties-dialog.c:104
 msgid "Note"
-msgstr ""
+msgstr "Bilješka"
 
 #: ../shell/ev-annotation-properties-dialog.c:105
 msgid "Comment"
@@ -869,7 +870,7 @@ msgstr "Zatvori"
 
 #: ../shell/ev-application.c:1040
 msgid "Running in presentation mode"
-msgstr ""
+msgstr "Izvodi se kao prezentacija"
 
 #: ../shell/ev-keyring.c:86
 #, c-format
@@ -879,22 +880,22 @@ msgstr "Lozinka za dokument %s"
 #: ../shell/ev-convert-metadata.c:88
 #, c-format
 msgid "Converting %s"
-msgstr ""
+msgstr "Pretvaram %s"
 
 #: ../shell/ev-convert-metadata.c:92
 #, c-format
 msgid "%d of %d documents converted"
-msgstr ""
+msgstr "%d od %d dokumenata pretvoreno"
 
 #: ../shell/ev-convert-metadata.c:165 ../shell/ev-convert-metadata.c:185
 msgid "Converting metadata"
-msgstr ""
+msgstr "Pretvaram metapodatke"
 
 #: ../shell/ev-convert-metadata.c:191
 msgid ""
 "The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
-msgstr ""
+msgstr "Oblik metapodataka koji koristi Atril se promijenio i zbog toga se mora migrirati. Ako se migracija prekine, spremanje metapodataka neće raditi."
 
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
@@ -904,7 +905,7 @@ msgstr "Otvori nedavno korišteni dokument"
 msgid ""
 "This document is locked and can only be read by entering the correct "
 "password."
-msgstr ""
+msgstr "Dokument je zaključan i može se čitati samo unošenjem ispravne lozinke."
 
 #: ../shell/ev-password-view.c:153 ../shell/ev-password-view.c:274
 msgid "_Unlock Document"
@@ -922,7 +923,7 @@ msgstr "Potrebna je lozinka"
 #, c-format
 msgid ""
 "The document “%s” is locked and requires a password before it can be opened."
-msgstr ""
+msgstr "Dokument \"%s\" je zaključan i zahtijeva lozinku za otvaranje."
 
 #: ../shell/ev-password-view.c:337
 msgid "_Password:"
@@ -963,7 +964,7 @@ msgstr "Font"
 #: ../shell/ev-properties-fonts.c:162
 #, c-format
 msgid "Gathering font information… %3d%%"
-msgstr ""
+msgstr "Prikupljam informacije o pismima... %3d%%"
 
 #: ../shell/ev-properties-license.c:137
 msgid "Usage terms"
@@ -1125,7 +1126,7 @@ msgstr[2] ""
 #: ../shell/ev-window.c:3232
 #, c-format
 msgid "Printing job “%s”"
-msgstr ""
+msgstr "Ispisujem zadatak \"%s\""
 
 #: ../shell/ev-window.c:3406
 msgid ""
@@ -1155,7 +1156,7 @@ msgstr "Spremi _kopiju"
 #: ../shell/ev-window.c:3514
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
-msgstr ""
+msgstr "Pričekati dok ispis zadatka \"%s\" završi prije zatvaranja?"
 
 #: ../shell/ev-window.c:3517
 #, c-format
@@ -1181,7 +1182,7 @@ msgstr "Uređivač alatne trake"
 
 #: ../shell/ev-window.c:4343
 msgid "There was an error displaying help"
-msgstr ""
+msgstr "Došlo je do greške pri prikazivanju pomoći"
 
 #: ../shell/ev-window.c:4555
 #, c-format
@@ -1221,7 +1222,7 @@ msgstr "Atril"
 msgid ""
 "© 1996–2009 The Evince authors\n"
 "© 2012–2014 The MATE developers"
-msgstr ""
+msgstr "© 1996–2009 Evince autori\n© 2012–2014 MATE razvijatelji"
 
 #: ../shell/ev-window.c:4631
 msgid "translator-credits"
@@ -1376,7 +1377,7 @@ msgstr "Napusti cijeli zaslon"
 
 #: ../shell/ev-window.c:5551
 msgid "Leave fullscreen mode"
-msgstr ""
+msgstr "Napusti cijeli zaslon"
 
 #: ../shell/ev-window.c:5553
 msgid "Start Presentation"
@@ -1397,11 +1398,11 @@ msgstr "Pokaži ili sakrij alatnu traku"
 
 #: ../shell/ev-window.c:5616
 msgid "Side _Pane"
-msgstr ""
+msgstr "Bočni _prozor"
 
 #: ../shell/ev-window.c:5617
 msgid "Show or hide the side pane"
-msgstr ""
+msgstr "Prikaži ili sakrij bočni prozor"
 
 #: ../shell/ev-window.c:5619
 msgid "_Continuous"
@@ -1486,7 +1487,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:5752
 msgid "Adjust the zoom level"
-msgstr ""
+msgstr "Podesi razinu uvećanja"
 
 #: ../shell/ev-window.c:5762
 msgid "Navigation"
@@ -1561,11 +1562,11 @@ msgstr "Spremi privitak"
 #: ../shell/ev-window-title.c:162
 #, c-format
 msgid "%s — Password Required"
-msgstr ""
+msgstr "%s — Potrebna je lozinka"
 
 #: ../shell/ev-utils.c:326
 msgid "By extension"
-msgstr ""
+msgstr "Prema ekstenziji"
 
 #: ../shell/main.c:69 ../shell/main.c:276
 msgid "MATE Document Viewer"

@@ -4,16 +4,20 @@
 # 
 # Translators:
 # Hideki Yamane <henrich@debian.or.jp>, 2009
+# Hideki Yamane <henrich@debian.or.jp>, 2009
+# Mika Kobayashi, 2014
+# Mika Kobayashi, 2014
+# Satoru SATOH <ss@gnome.gr.jp>, 2005-2006
 # Satoru SATOH <ss@mate.gr.jp>, 2005, 2006
 # Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2009
-# Shirayuki/しらゆき Shira <shirayuking@gmail.com>, 2014
+# Yuki Shira <shirayuking@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-09 18:05+0100\n"
-"PO-Revision-Date: 2014-02-09 17:07+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2014-09-21 01:06+0000\n"
+"Last-Translator: AWASHIRO Ikuya <ikunya@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/MATE/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -339,7 +343,7 @@ msgstr "幅に合わせる"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:5522
 msgid "Expand Window to Fit"
-msgstr ""
+msgstr "ウィンドウをページに合わせる"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:53
 msgid "50%"
@@ -788,7 +792,7 @@ msgstr "ドキュメントの最後に向かって検索します"
 
 #: ../shell/eggfindbar.c:351
 msgid "Case Sensitive"
-msgstr ""
+msgstr "大文字と小文字の区別がある"
 
 #: ../shell/eggfindbar.c:354
 msgid "Toggle case sensitive search"
@@ -1226,7 +1230,7 @@ msgstr "© 1996–2009 The Evince authors\n© 2012–2014 The MATE developers"
 
 #: ../shell/ev-window.c:4631
 msgid "translator-credits"
-msgstr "相花 毅 <takeshi.aihana@gmail.com>\n佐藤 暁 <ss@mate.gr.jp>\n草野 貴之 <AE5T-KSN@asahi-net.or.jp>\nShushi Kurose <md81bird@hitaki.net>\nやまねひでき <henrich@debian.or.jp>\n日本MATEユーザー会 <http://www.mate.gr.jp/>"
+msgstr "相花 毅 <takeshi.aihana@gmail.com>\n佐藤 暁 <ss@gnome.gr.jp>\n草野 貴之 <AE5T-KSN@asahi-net.or.jp>\nShushi Kurose <md81bird@hitaki.net>\nやまねひでき <henrich@debian.or.jp>\n日本GNOMEユーザー会 <http://www.gnome.gr.jp/>"
 
 #. TRANS: Sometimes this could be better translated as
 #. "%d hit(s) on this page".  Therefore this string
@@ -1337,7 +1341,7 @@ msgstr "ドキュメントを再度読み込みます"
 
 #: ../shell/ev-window.c:5521
 msgid "_Expand Window to Fit"
-msgstr ""
+msgstr "ウィンドウをページに合わせる (_E)"
 
 #: ../shell/ev-window.c:5525
 msgid "Auto_scroll"
