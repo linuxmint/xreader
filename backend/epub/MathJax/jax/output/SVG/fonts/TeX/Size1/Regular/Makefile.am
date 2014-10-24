@@ -2,4 +2,6 @@ MathJaxSVGTexRegularSize1FontsOutputJaxdir= $(backenddir)/epub/MathJax/jax/outpu
 
 MathJaxSVGTexRegularSize1FontsOutputJax_DATA= Main.js
 
+EXTRA_DIST = $(MathJaxSVGTexRegularSize1FontsOutputJax_DATA)
+
 -include $(top_srcdir)/git.mk

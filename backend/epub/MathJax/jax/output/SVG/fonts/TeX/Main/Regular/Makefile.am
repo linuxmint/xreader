@@ -13,5 +13,7 @@ MathJaxSVGRegularMainTexFontsOutputJax_DATA= 	BasicLatin.js \
 												SpacingModLetters.js \
 												SuppMathOperators.js
 
+EXTRA_DIST = $(MathJaxSVGRegularMainTexFontsOutputJax_DATA)
+
 -include $(top_srcdir)/git.mk
 

@@ -20,5 +20,7 @@ MathJaxSVGBoldMainTexFontsOutputJax_DATA= 	Arrows.js \
 											SupplementalArrowsA.js \
 											SuppMathOperators.js
 
+EXTRA_DIST = $(MathJaxSVGBoldMainTexFontsOutputJax_DATA)
+
 -include $(top_srcdir)/git.mk
 

@@ -8,6 +8,10 @@ libminizip_la_SOURCES = \
 	unzip.c		\
 	ioapi.c
 
+libminizip_la_SOURCES = \
+	unzip.h		\
+	ioapi.h
+
 libminizip_la_LIBADD =  \
 	$(ZLIB_LIBS)
 

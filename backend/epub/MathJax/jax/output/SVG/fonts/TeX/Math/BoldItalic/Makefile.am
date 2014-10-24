@@ -2,4 +2,6 @@ MathJaxSVGBoldItalicMathTexFontsOutputJaxdir= $(backenddir)/epub/MathJax/jax/out
 
 MathJaxSVGBoldItalicMathTexFontsOutputJax_DATA=Main.js
 
+EXTRA_DIST = $(MathJaxSVGBoldItalicMathTexFontsOutputJax_DATA)
+
 -include $(top_srcdir)/git.mk

@@ -10,4 +10,6 @@ MathJaxSVGItalicMainTexFontsOutputJax_DATA= BasicLatin.js \
 											Main.js \
 											MathOperators.js
 
+EXTRA_DIST = $(MathJaxSVGItalicMainTexFontsOutputJax_DATA)
+
 -include $(top_srcdir)/git.mk

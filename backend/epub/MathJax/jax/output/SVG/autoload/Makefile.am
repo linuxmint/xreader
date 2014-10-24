@@ -9,4 +9,6 @@ MathJaxSVGautoOutputJax_DATA=	annotation-xml.js \
 								mtable.js \
 								multiline.js
 
+EXTRA_DIST = $(MathJaxSVGautoOutputJax_DATA)
+
 -include $(top_srcdir)/git.mk

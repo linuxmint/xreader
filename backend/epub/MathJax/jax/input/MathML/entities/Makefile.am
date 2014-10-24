@@ -30,4 +30,6 @@ MathJaxMLInputJaxEntities_DATA= a.js \
 								y.js \
 								z.js
 
+EXTRA_DIST = $(MathJaxMLInputJaxEntities_DATA)
+
 -include $(top_srcdir)/git.mk

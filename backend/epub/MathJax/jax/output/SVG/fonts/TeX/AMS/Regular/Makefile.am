@@ -20,5 +20,7 @@ MathJaxSVGTexRegularAMSFontsOutputJax_DATA= Arrows.js \
 											SpacingModLetters.js \
 											SuppMathOperators.js
 
+EXTRA_DIST = $(MathJaxSVGTexRegularAMSFontsOutputJax_DATA)
+
 -include $(top_srcdir)/git.mk
 

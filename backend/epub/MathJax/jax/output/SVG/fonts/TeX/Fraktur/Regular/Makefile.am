@@ -2,4 +2,6 @@ MathJaxSVGRegularFrakturTexFontsOutputJaxdir= $(backenddir)/epub/MathJax/jax/out
 
 MathJaxSVGRegularFrakturTexFontsOutputJax_DATA= BasicLatin.js Main.js Other.js PUA.js
 
+EXTRA_DIST = $(MathJaxSVGRegularFrakturTexFontsOutputJax_DATA)
+
 -include $(top_srcdir)/git.mk

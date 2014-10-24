@@ -2,4 +2,6 @@ MathJaxSVGRegularCaliTexFontsOutputJaxdir= $(backenddir)/epub/MathJax/jax/output
 
 MathJaxSVGRegularCaliTexFontsOutputJax_DATA= Main.js
 
+EXTRA_DIST = $(MathJaxSVGRegularCaliTexFontsOutputJax_DATA)
+
 -include $(top_srcdir)/git.mk

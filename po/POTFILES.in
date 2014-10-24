@@ -7,6 +7,8 @@ backend/djvu/djvu-document.c
 [type: gettext/ini] backend/djvu/djvudocument.atril-backend.in
 backend/dvi/dvi-document.c
 [type: gettext/ini] backend/dvi/dvidocument.atril-backend.in
+backend/epub/epub-document.c
+[type: gettext/ini] backend/epub/epubdocument.atril-backend.in
 backend/pdf/ev-poppler.cc
 [type: gettext/ini] backend/pdf/pdfdocument.atril-backend.in
 backend/ps/ev-spectre.c
