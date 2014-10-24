@@ -751,7 +751,7 @@ if test "x$enable_xps" = "xyes"; then
     ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/oxps;application/vnd.ms-xpsdocument;"
 fi
 if test "x$enable_epub" = "xyes"; then
-	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/epub+zip"
+	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/epub+zip;"
 fi
 
 AC_SUBST(ATRIL_MIME_TYPES)
