@@ -65,7 +65,7 @@ libatrilview_la_CFLAGS = \
 	$(LIBVIEW_CFLAGS)	\
 	$(WARN_CFLAGS)		\
 	$(DISABLE_DEPRECATED)	\
-	$(WEBKIT_CFLAGS)		\
+	$(EPUB_CFLAGS)		\
 	$(AM_CFLAGS)
 
 libatrilview_la_LDFLAGS = \
@@ -77,7 +77,7 @@ libatrilview_la_LDFLAGS = \
 libatrilview_la_LIBADD = \
 	$(top_builddir)/libdocument/libatrildocument.la \
 	$(LIBVIEW_LIBS)								 \
-	$(WEBKIT_LIBS)
+	$(EPUB_LIBS)
 
 BUILT_SOURCES = 			\
 	ev-view-marshal.h		\
