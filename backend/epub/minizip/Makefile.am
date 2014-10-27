@@ -6,9 +6,7 @@ noinst_LTLIBRARIES = libminizip.la
 
 libminizip_la_SOURCES = \
 	unzip.c		\
-	ioapi.c
-
-libminizip_la_SOURCES = \
+	ioapi.c		\
 	unzip.h		\
 	ioapi.h
 
