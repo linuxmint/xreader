@@ -38,7 +38,7 @@ enum
 	LAST_SIGNAL
 };
 
-static gint signals[LAST_SIGNAL];
+static guint signals[LAST_SIGNAL] = { 0 };
 
 static void
 ev_navigation_action_widget_init (EvNavigationActionWidget *action_widget)

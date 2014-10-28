@@ -78,7 +78,7 @@ static gboolean ev_sidebar_links_support_document	(EvSidebarPage  *sidebar_page,
 						         EvDocument     *document);
 static const gchar* ev_sidebar_links_get_label 		(EvSidebarPage *sidebar_page);
 
-static guint signals[N_SIGNALS];
+static guint signals[N_SIGNALS] = { 0 };
 
 G_DEFINE_TYPE_EXTENDED (EvSidebarLinks, 
                         ev_sidebar_links, 

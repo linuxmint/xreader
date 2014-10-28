@@ -54,7 +54,7 @@ struct _EvMediaPlayerKeysClass
 			      const gchar       *key);
 };
 
-static guint signals[LAST_SIGNAL];
+static guint signals[LAST_SIGNAL] = { 0 };
 
 G_DEFINE_TYPE (EvMediaPlayerKeys, ev_media_player_keys, G_TYPE_OBJECT)
 

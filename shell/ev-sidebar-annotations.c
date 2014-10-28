@@ -63,7 +63,7 @@ struct _EvSidebarAnnotationsPrivate {
 static void ev_sidebar_annotations_page_iface_init (EvSidebarPageInterface *iface);
 static void ev_sidebar_annotations_load            (EvSidebarAnnotations   *sidebar_annots);
 
-static guint signals[N_SIGNALS];
+static guint signals[N_SIGNALS] = { 0 };
 
 G_DEFINE_TYPE_EXTENDED (EvSidebarAnnotations,
                         ev_sidebar_annotations,

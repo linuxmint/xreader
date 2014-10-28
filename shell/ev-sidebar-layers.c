@@ -51,7 +51,7 @@ static void ev_sidebar_layers_page_iface_init (EvSidebarPageInterface *iface);
 static void job_finished_callback             (EvJobLayers            *job,
 					       EvSidebarLayers        *sidebar_layers);
 
-static guint signals[N_SIGNALS];
+static guint signals[N_SIGNALS] = { 0 };
 
 G_DEFINE_TYPE_EXTENDED (EvSidebarLayers,
                         ev_sidebar_layers,

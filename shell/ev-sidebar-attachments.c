@@ -56,7 +56,7 @@ enum {
 	N_SIGNALS
 };
 
-static guint signals[N_SIGNALS];
+static guint signals[N_SIGNALS] = { 0 };
 
 struct _EvSidebarAttachmentsPrivate {
 	GtkWidget      *icon_view;

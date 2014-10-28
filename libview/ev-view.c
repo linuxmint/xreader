@@ -78,7 +78,7 @@ enum {
 };
 #endif
 
-static guint signals[N_SIGNALS];
+static guint signals[N_SIGNALS] = { 0 };
 
 typedef enum {
 	EV_VIEW_FIND_NEXT,

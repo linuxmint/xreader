@@ -49,7 +49,7 @@ static void ev_file_monitor_changed_cb    (GFileMonitor     *monitor,
 
 G_DEFINE_TYPE (EvFileMonitor, ev_file_monitor, G_TYPE_OBJECT)
 
-static guint signals[N_SIGNALS];
+static guint signals[N_SIGNALS] = { 0 };
 
 static void
 ev_file_monitor_init (EvFileMonitor *ev_monitor)

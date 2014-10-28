@@ -71,7 +71,7 @@ struct _EvAnnotationWindowClass {
 			 gint                y);
 };
 
-static guint signals[N_SIGNALS];
+static guint signals[N_SIGNALS] = { 0 };
 
 G_DEFINE_TYPE (EvAnnotationWindow, ev_annotation_window, GTK_TYPE_WINDOW)
 

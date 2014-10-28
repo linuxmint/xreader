@@ -33,7 +33,7 @@ enum {
 static void ev_open_recent_action_init       (EvOpenRecentAction      *action);
 static void ev_open_recent_action_class_init (EvOpenRecentActionClass *class);
 
-static guint action_signals[N_SIGNALS];
+static guint action_signals[N_SIGNALS] = { 0 };
 
 G_DEFINE_TYPE (EvOpenRecentAction, ev_open_recent_action, GTK_TYPE_ACTION)
 

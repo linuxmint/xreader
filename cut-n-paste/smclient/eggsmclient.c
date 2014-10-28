@@ -42,7 +42,7 @@ enum {
   LAST_SIGNAL
 };
 
-static guint signals[LAST_SIGNAL];
+static guint signals[LAST_SIGNAL] = { 0 };
 
 struct _EggSMClientPrivate {
   GKeyFile *state_file;
