@@ -914,6 +914,7 @@ libview/Makefile
 Makefile
 po/Makefile.in
 previewer/Makefile
+properties/libatril-properties-page.caja-extension.in
 properties/Makefile
 shell/Makefile
 test/Makefile
