@@ -957,7 +957,11 @@ extract_argv (EvDocument *document, gint page)
 					comics_document->extract_command,
 					quoted_archive,
 					quoted_filename);
+	g_free (quoted_archive);
+	g_free (quoted_filename);
+
 	g_shell_parse_argv (command_line, NULL, &argv, &err);
+	g_free (command_line);
 
 	if (err) {
 		g_warning (_("Error %s"), err->message);
@@ -965,8 +969,5 @@ extract_argv (EvDocument *document, gint page)
 		return NULL;
 	}
 
-	g_free (command_line);
-	g_free (quoted_archive);
-	g_free (quoted_filename);
 	return argv;
 }
