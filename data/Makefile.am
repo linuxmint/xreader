@@ -48,6 +48,14 @@ $(service_DATA): $(service_in_files) Makefile
 endif
 
 #
+# App data file
+#
+@INTLTOOL_XML_RULE@
+appdatadir = $(datadir)/appdata
+appdata_in_files = atril.appdata.xml.in
+appdata_DATA = $(appdata_in_files:.xml.in=.xml)
+
+#
 # GSettings schema
 #
 gsettingsschema_in_files = org.mate.Atril.gschema.xml.in
@@ -56,13 +64,13 @@ gsettings_SCHEMAS = $(gsettingsschema_in_files:.xml.in=.xml)
 
 .PRECIOUS: $(gsettings_SCHEMAS)
 
-@INTLTOOL_XML_NOMERGE_RULE@
-
 # include the appropriate makefile rules for schema handling
 @GSETTINGS_RULES@
 
 gsettingsconvertdir = $(datadir)/MateConf/gsettings
 gsettingsconvert_DATA = atril.convert
+
+
 
 #
 # GTK icon cache
@@ -90,6 +98,7 @@ update-icon-cache:
 EXTRA_DIST =					\
 	$(ui_DATA)				\
 	$(DESKTOP_IN_FILES)			\
+	$(appdata_in_files)			\
 	$(gsettingsschema_in_files)		\
 	org.mate.atril.Daemon.service.in	\
 	$(man_MANS)				\
@@ -100,6 +109,9 @@ EXTRA_DIST =					\
 #
 # Clean up properly
 #
+
+CLEANFILES = \
+	atril.appdata.xml
 
 DISTCLEANFILES = \
 	$(DESKTOP_FILES)	\
