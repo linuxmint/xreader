@@ -94,7 +94,7 @@ typedef enum {
     EV_ANNOTATION_TYPE_UNKNOWN,
     EV_ANNOTATION_TYPE_TEXT,
 	EV_ANNOTATION_TYPE_ATTACHMENT,
-	EV_ANNOTATION_TYPE_HIGHLIGHT
+	EV_ANNOTATION_TYPE_TEXT_MARKUP
 } EvAnnotationType;
 
 typedef enum {
@@ -109,6 +109,10 @@ typedef enum {
     EV_ANNOTATION_TEXT_ICON_CIRCLE,
     EV_ANNOTATION_TEXT_ICON_UNKNOWN
 } EvAnnotationTextIcon;
+
+typedef enum {
+        EV_ANNOTATION_TEXT_MARKUP_HIGHLIGHT
+} EvAnnotationTextMarkupType;
 
 /* EvAnnotation */
 GType                ev_annotation_get_type                  (void) G_GNUC_CONST;
