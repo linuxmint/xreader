@@ -204,7 +204,7 @@ epub_document_links_has_document_links(EvDocumentLinks *document_links)
 {
     EpubDocument *epub_document = EPUB_DOCUMENT(document_links);
 
-    g_return_if_fail(EPUB_IS_DOCUMENT(epub_document));
+    g_return_val_if_fail(EPUB_IS_DOCUMENT(epub_document), FALSE);
 
     if (!epub_document->index)
         return FALSE;
