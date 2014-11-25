@@ -1542,7 +1542,6 @@ epub_document_toggle_night_mode(EvDocument *document,gboolean night)
 static gchar*
 epub_document_set_document_title(gchar *containeruri)
 {
-	gchar *contentfilename = g_filename_from_uri(containeruri, NULL, NULL);
 	open_xml_document(containeruri);
 	gchar *doctitle;
 	set_xml_root_node(NULL);
