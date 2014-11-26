@@ -140,6 +140,7 @@ AtrilView-$(EV_API_VERSION).gir: libatrilview.la Makefile $(INST_H_FILES) $(filt
 	--output $@ \
 	--pkg atril-document-$(EV_API_VERSION) \
 	--pkg atril-view-$(EV_API_VERSION) \
+	-L$(top_builddir)/libdocument/ \
 	-I$(top_srcdir) \
 	-I$(top_builddir) \
 	-DATRIL_COMPILATION \
