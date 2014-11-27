@@ -1250,6 +1250,12 @@ setup_document_index(EpubDocument *epub_document,gchar *containeruri)
             g_string_append_printf(pagelink,"/%s",newnode->pagelink);
             xmlFree(newnode->pagelink);
 
+			gchar *escaped = g_strdup(pagelink->str);
+
+			//unescaping any special characters
+			pagelink->str = g_uri_unescape_string (escaped,NULL);
+			g_free(escaped);
+
             if ((end = g_strrstr(pagelink->str,"#")) != NULL) {
             	fragment = g_strdup(g_strrstr(pagelink->str,"#"));
             	*end = '\0';
