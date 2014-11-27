@@ -1579,6 +1579,9 @@ page_set_function(linknode *Link, GList *contentList)
 static void
 epub_document_set_index_pages(GList *index,GList *contentList)
 {
+	g_return_if_fail (index != NULL);
+	g_return_if_fail (contentList != NULL);
+
 	g_list_foreach(index,(GFunc)page_set_function,contentList);
 }
 
@@ -1706,7 +1709,7 @@ epub_document_load (EvDocument* document,
 		
 	epub_document->contentList = setup_document_content_list (contentOpfUri,&err,epub_document->documentdir);
 
-    if (epub_document->index != NULL)
+    if (epub_document->index != NULL && epub_document->contentList != NULL)
 	    epub_document_set_index_pages(epub_document->index, epub_document->contentList);
 
     epub_document_add_mathJax(contentOpfUri,epub_document->documentdir);
