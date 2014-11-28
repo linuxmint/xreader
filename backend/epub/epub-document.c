@@ -1200,6 +1200,15 @@ setup_document_index(EpubDocument *epub_document,gchar *containeruri)
 
     if (tocfilename == NULL) {
         tocfilename = epub_document_get_nav_file(containeruri);
+
+        //Apparently, sometimes authors don't even care to add a TOC!! Guess standards are just guidelines.
+
+        if (tocfilename == NULL)
+        {
+            //We didn't even find a nav file.The document has no TOC.
+            return NULL;
+        }
+
         g_string_append_printf (tocpath,"/%s",tocfilename);
         index = setup_index_from_navfile(tocpath->str);
         g_string_free(tocpath,TRUE);
@@ -1697,8 +1706,10 @@ epub_document_load (EvDocument* document,
 		
 	epub_document->contentList = setup_document_content_list (contentOpfUri,&err,epub_document->documentdir);
 
-	epub_document_set_index_pages(epub_document->index, epub_document->contentList);
-	epub_document_add_mathJax(contentOpfUri,epub_document->documentdir);
+    if (epub_document->index != NULL)
+	    epub_document_set_index_pages(epub_document->index, epub_document->contentList);
+
+    epub_document_add_mathJax(contentOpfUri,epub_document->documentdir);
 	if ( epub_document->contentList == NULL )
 	{
 		g_propagate_error(error,err);
@@ -1718,6 +1729,7 @@ epub_document_init (EpubDocument *epub_document)
 	epub_document->index = NULL;
 	epub_document->docTitle = NULL;
 }
+
 
 static void
 epub_document_finalize (GObject *object)
@@ -1759,6 +1771,7 @@ epub_document_finalize (GObject *object)
 	}
 	G_OBJECT_CLASS (epub_document_parent_class)->finalize (object);
 }
+
 
 static void
 epub_document_class_init (EpubDocumentClass *klass)
