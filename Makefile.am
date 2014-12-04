@@ -84,14 +84,12 @@ MAINTAINERCLEANFILES =       \
 
 DISTCHECK_CONFIGURE_FLAGS =   \
     --disable-schemas-compile \
-    --disable-scrollkeeper    \
     --enable-gtk-doc          \
     --disable-caja            \
     --disable-tests           \
     --disable-silent-rules
 
-# Ignore scrollkeeper issues for now.  @#*$& scrollkeeper
-distuninstallcheck_listfiles = find . -type f -print | grep -v scrollkeeper | grep -v /share/mate/help/ | grep -v \.omf
+distuninstallcheck_listfiles = find . -type f -print | grep -v /share/mate/help/ | grep -v \.omf
 
 dist-hook:
 		@if test -d "$(srcdir)/.git"; \
