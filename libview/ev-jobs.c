@@ -811,7 +811,7 @@ web_thumbnail_get_screenshot_cb(EvJobThumbnail *job_thumb)
 	ev_render_context_set_page(rc,screenshotpage);
 
 	job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (EV_JOB(job_thumb)->document),
-							     rc, TRUE);	
+	                                                             rc, TRUE);
 	g_object_unref(screenshotpage);
 	g_object_unref(rc);
 
@@ -820,7 +820,6 @@ web_thumbnail_get_screenshot_cb(EvJobThumbnail *job_thumb)
 	return FALSE;
 }
 #else
-
 static void
 snapshot_callback(WebKitWebView *webview,
                   GAsyncResult  *results,
@@ -834,11 +833,11 @@ snapshot_callback(WebKitWebView *webview,
 	EvPage *screenshotpage;
 	screenshotpage = ev_page_new(job_thumb->page);
 	screenshotpage->backend_page = (EvBackendPage)job_thumb->surface;
-	screenshotpage->backend_destroy_func = (EvBackendPageDestroyFunc)cairo_surface_destroy ;
+	screenshotpage->backend_destroy_func = (EvBackendPageDestroyFunc)cairo_surface_destroy;
 	ev_render_context_set_page(rc,screenshotpage);
 
 	job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (EV_JOB(job_thumb)->document),
-							     rc, TRUE);	
+	                                                             rc, TRUE);
 	g_object_unref(screenshotpage);
 	g_object_unref(rc);
 
@@ -862,8 +861,9 @@ web_thumbnail_get_screenshot_cb (WebKitWebView  *webview,
 	                              (GAsyncReadyCallback)snapshot_callback,
 	                              g_object_ref(job_thumb));
 }
-#endif
-#endif
+#endif  /* GTK_CHECK_VERSION */
+#endif  /* ENABLE_EPUB */
+
 static gboolean
 ev_job_thumbnail_run (EvJob *job)
 {
@@ -877,16 +877,14 @@ ev_job_thumbnail_run (EvJob *job)
 		/* Do not block the main loop */
 		if (!ev_document_doc_mutex_trylock ())
 			return TRUE;
-	}
-	else {
+	} else {
 		ev_document_doc_mutex_lock ();
 	}
 
 	page = ev_document_get_page (job->document, job_thumb->page);
 	if (job->document->iswebdocument == TRUE ) {
 		rc = ev_render_context_new (page, 0, job_thumb->scale);
-	}
-	else {		
+	} else {
 		rc = ev_render_context_new (page, job_thumb->rotation, job_thumb->scale);
 	}
 	g_object_unref (page);
@@ -894,34 +892,30 @@ ev_job_thumbnail_run (EvJob *job)
 #if ENABLE_EPUB
 	if (job->document->iswebdocument == TRUE) {
 		if (!webview) {
-				webview = webkit_web_view_new();
-			}
+			webview = webkit_web_view_new();
+		}
 			
-			if (!offscreenwindow) {
-				offscreenwindow = gtk_offscreen_window_new();
-				
-				gtk_container_add(GTK_CONTAINER(offscreenwindow),GTK_WIDGET(webview));
-
-				gtk_window_set_default_size (GTK_WINDOW(offscreenwindow),800,1080);
-
-				gtk_widget_show_all(offscreenwindow);
-			}
+		if (!offscreenwindow) {
+			offscreenwindow = gtk_offscreen_window_new();
+			gtk_container_add(GTK_CONTAINER(offscreenwindow),GTK_WIDGET(webview));
+			gtk_window_set_default_size (GTK_WINDOW(offscreenwindow),800,1080);
+			gtk_widget_show_all(offscreenwindow);
+		}
 
 		webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),(gchar*)rc->page->backend_page);
 #if !GTK_CHECK_VERSION (3, 0, 0) 
-        g_idle_add_full (G_PRIORITY_DEFAULT_IDLE,
-		        		 (GSourceFunc)web_thumbnail_get_screenshot_cb,
-				          g_object_ref (job_thumb),
-				         (GDestroyNotify)g_object_unref);
+		g_idle_add_full (G_PRIORITY_DEFAULT_IDLE,
+		                 (GSourceFunc)web_thumbnail_get_screenshot_cb,
+		                  g_object_ref (job_thumb),
+		                 (GDestroyNotify)g_object_unref);
 #else
 		g_signal_connect(WEBKIT_WEB_VIEW(webview),"load-changed",
-						 G_CALLBACK(web_thumbnail_get_screenshot_cb),
-						 g_object_ref(job_thumb));
-
-#endif
+		                 G_CALLBACK(web_thumbnail_get_screenshot_cb),
+		                 g_object_ref(job_thumb));
+#endif  /* GTK_CHECK_VERSION */
 	}
 	else 
-#endif
+#endif  /* ENABLE_EPUB */
 	{
 		job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (job->document),
 										 rc, TRUE);
