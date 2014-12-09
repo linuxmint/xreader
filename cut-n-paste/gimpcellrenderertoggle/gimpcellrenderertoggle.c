@@ -28,6 +28,12 @@
 
 #define DEFAULT_ICON_SIZE  GTK_ICON_SIZE_BUTTON
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define GTK_STATE_INSENSITIVE GTK_STATE_FLAG_INSENSITIVE
+#define GTK_STATE_SELECTED GTK_STATE_FLAG_SELECTED
+#define GTK_STATE_ACTIVE GTK_STATE_FLAG_ACTIVE
+#define GTK_STATE_NORMAL 0
+#endif
 
 enum
 {
@@ -225,7 +231,12 @@ gimp_cell_renderer_toggle_get_size (GtkCellRenderer *cell,
                                     gint            *height)
 {
   GimpCellRendererToggle *toggle = GIMP_CELL_RENDERER_TOGGLE (cell);
+#if GTK_CHECK_VERSION (3, 0, 0)
+  GtkStyleContext        *context  = gtk_widget_get_style_context (widget);
+  GtkBorder               border;
+#else
   GtkStyle               *style  = gtk_widget_get_style (widget);
+#endif
   gint                    calc_width;
   gint                    calc_height;
   gint                    pixbuf_width;
@@ -248,16 +259,25 @@ gimp_cell_renderer_toggle_get_size (GtkCellRenderer *cell,
   gtk_cell_renderer_get_alignment (cell, &xalign, &yalign);
   gtk_cell_renderer_get_padding (cell, &xpad, &ypad);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+  gtk_style_context_get_border (context, 0, &border);
+#endif
+
   if (! toggle->pixbuf)
     gimp_cell_renderer_toggle_create_pixbuf (toggle, widget);
 
   pixbuf_width  = gdk_pixbuf_get_width  (toggle->pixbuf);
   pixbuf_height = gdk_pixbuf_get_height (toggle->pixbuf);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+  calc_width  = (pixbuf_width + (gint) xpad * 2 + (border.left + border.right));
+  calc_height = (pixbuf_height + (gint) ypad * 2 + (border.top + border.bottom));
+#else
   calc_width  = (pixbuf_width +
                  (gint) xpad * 2 + style->xthickness * 2);
   calc_height = (pixbuf_height +
                  (gint) ypad * 2 + style->ythickness * 2);
+#endif
 
   if (width)
     *width  = calc_width;
@@ -306,13 +326,16 @@ gimp_cell_renderer_toggle_render (GtkCellRenderer      *cell,
                                   GtkCellRendererState  flags)
 {
   GimpCellRendererToggle *toggle = GIMP_CELL_RENDERER_TOGGLE (cell);
-  GtkStyle               *style  = gtk_widget_get_style (widget);
   GdkRectangle            toggle_rect;
   GdkRectangle            draw_rect;
 #if GTK_CHECK_VERSION (3, 0, 0)
+  GtkStyleContext        *context = gtk_widget_get_style_context (widget);
   GdkRectangle            clip_rect;
-#endif
+  GtkStateFlags           state;
+#else
+  GtkStyle               *style  = gtk_widget_get_style (widget);
   GtkStateType            state;
+#endif
   gboolean                active;
   gint                    xpad;
   gint                    ypad;
@@ -380,10 +403,11 @@ gimp_cell_renderer_toggle_render (GtkCellRenderer      *cell,
       cairo_save (cr);
       gdk_cairo_rectangle (cr, &draw_rect);
       cairo_clip (cr);
-      gtk_render_frame (gtk_widget_get_style_context (widget),
+      gtk_render_frame (context, //gtk_widget_get_style_context (widget),
                         cr,
                         toggle_rect.x, toggle_rect.y,
                         toggle_rect.width, toggle_rect.height);
+      gtk_style_context_restore (context);
       cairo_restore (cr);
     }
 #else
@@ -403,13 +427,32 @@ gimp_cell_renderer_toggle_render (GtkCellRenderer      *cell,
     {
       GdkPixbuf *insensitive = NULL;
       GdkPixbuf *pixbuf = toggle->pixbuf;
-      
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+      GtkBorder  border = { 1, 1, 1, 1 };
+
+#if 0
+      /* FIXME: for some reason calling gtk_style_context_get_border
+       * makes the icon only visible on hover, so use border = 1
+       * for now as a workaround
+       */
+      gtk_style_context_get_border (context, state, &border);
+#endif
+
+      toggle_rect.x      += border.left;
+      toggle_rect.y      += border.top;
+      toggle_rect.width  -= (border.left + border.right);
+      toggle_rect.height -= (border.top + border.bottom);
+
+      if (state & GTK_STATE_FLAG_INSENSITIVE)
+#else
       toggle_rect.x      += style->xthickness;
       toggle_rect.y      += style->ythickness;
       toggle_rect.width  -= style->xthickness * 2;
       toggle_rect.height -= style->ythickness * 2;
 
       if (state == GTK_STATE_INSENSITIVE)
+#endif
         {
 	  GtkIconSource *source;
 
@@ -422,6 +465,12 @@ gimp_cell_renderer_toggle_render (GtkCellRenderer      *cell,
 	  gtk_icon_source_set_size (source, GTK_ICON_SIZE_SMALL_TOOLBAR);
 	  gtk_icon_source_set_size_wildcarded (source, FALSE);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+          gtk_style_context_save (context);
+          gtk_style_context_set_state (context, GTK_STATE_FLAG_INSENSITIVE);
+          insensitive = gtk_render_icon_pixbuf (context, source, (GtkIconSize)-1);
+          gtk_style_context_restore (context);
+#else
 	  insensitive = gtk_style_render_icon (gtk_widget_get_style (widget),
 					       source,
 					       gtk_widget_get_direction (widget),
@@ -430,6 +479,7 @@ gimp_cell_renderer_toggle_render (GtkCellRenderer      *cell,
 					       (GtkIconSize)-1,
 					       widget,
 					       "gimpcellrenderertoggle");
+#endif
 
 	  gtk_icon_source_free (source);
 
