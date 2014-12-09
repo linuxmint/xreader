@@ -45,6 +45,10 @@
 #include "ev-view-private.h"
 #include "ev-view-type-builtins.h"
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define gdk_cursor_unref g_object_unref
+#endif
+
 #define EV_VIEW_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), EV_TYPE_VIEW, EvViewClass))
 #define EV_IS_VIEW_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), EV_TYPE_VIEW))
 #define EV_VIEW_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), EV_TYPE_VIEW, EvViewClass))

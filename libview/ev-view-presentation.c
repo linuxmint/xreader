@@ -32,6 +32,10 @@
 #include "ev-view-cursor.h"
 #include "ev-page-cache.h"
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define gdk_cursor_unref g_object_unref
+#endif
+
 enum {
 	PROP_0,
 	PROP_DOCUMENT,
