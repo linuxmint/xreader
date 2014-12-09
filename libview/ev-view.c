@@ -191,8 +191,12 @@ static gboolean   ev_view_enter_notify_event                 (GtkWidget         
 							      GdkEventCrossing   *event);
 static gboolean   ev_view_leave_notify_event                 (GtkWidget          *widget,
 							      GdkEventCrossing   *event);
+#if GTK_CHECK_VERSION (3, 0, 0)
+static void       ev_view_style_updated                      (GtkWidget          *widget);
+#else
 static void       ev_view_style_set                          (GtkWidget          *widget,
 							      GtkStyle           *old_style);
+#endif
 static void       ev_view_remove_all                         (EvView             *view);
 
 static AtkObject *ev_view_get_accessible                     (GtkWidget *widget);
@@ -4329,13 +4333,21 @@ ev_view_enter_notify_event (GtkWidget *widget, GdkEventCrossing   *event)
 }
 
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+ev_view_style_updated (GtkWidget *widget)
+#else
 ev_view_style_set (GtkWidget *widget,
 		   GtkStyle  *old_style)
+#endif
 {
 	if (EV_VIEW (widget)->pixbuf_cache)
 		ev_pixbuf_cache_style_changed (EV_VIEW (widget)->pixbuf_cache);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	GTK_WIDGET_CLASS (ev_view_parent_class)->style_updated (widget);
+#else
 	GTK_WIDGET_CLASS (ev_view_parent_class)->style_set (widget, old_style);
+#endif
 }
 
 /*** Drawing ***/
@@ -4346,6 +4358,13 @@ draw_rubberband (EvView             *view,
 		 const GdkRectangle *rect,
 		 gdouble             alpha)
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+	GtkStyleContext *context;
+	GdkRGBA          color;
+
+	context = gtk_widget_get_style_context (GTK_WIDGET (view));
+	gtk_style_context_get_background_color (context, GTK_STATE_FLAG_SELECTED, &color);
+#else
 	GtkStyle *style;
 	GdkColor *fill_color_gdk;
 	gdouble   r, g, b;
@@ -4355,10 +4374,15 @@ draw_rubberband (EvView             *view,
 	r = fill_color_gdk->red / 65535.;
 	g = fill_color_gdk->green / 65535.;
 	b = fill_color_gdk->blue / 65535.;
+#endif
 
 	cairo_save (cr);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	cairo_set_source_rgba (cr, color.red, color.green, color.blue, alpha);
+#else
 	cairo_set_source_rgba (cr, r, g, b, alpha);
+#endif
 	cairo_rectangle (cr,
 			 rect->x - view->scroll_x,
 			 rect->y - view->scroll_y,
@@ -4366,12 +4390,18 @@ draw_rubberband (EvView             *view,
 	cairo_fill_preserve (cr);
 
 	cairo_set_line_width (cr, 0.5);
+#if GTK_CHECK_VERSION (3, 0, 0)
+	cairo_set_source_rgb (cr, color.red, color.green, color.blue);
+#else
 	cairo_set_source_rgb (cr, r, g, b);
+#endif
 	cairo_stroke (cr);
 
 	cairo_restore (cr);
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
 	gdk_color_free (fill_color_gdk);
+#endif
 }
 
 
@@ -4436,13 +4466,11 @@ focus_annotation (EvView       *view,
 
 	doc_rect_to_view_rect (view, page, &mapping->area, &rect);
 #if GTK_CHECK_VERSION (3, 0, 0)
-	gtk_paint_focus (gtk_widget_get_style (widget),
-			 cr,
-			 gtk_widget_get_state (widget),
-			 widget, NULL,
-			 rect.x - view->scroll_x,
-			 rect.y - view->scroll_y,
-			 rect.width + 1, rect.height + 1);
+	gtk_render_focus (gtk_widget_get_style_context (widget),
+			  cr,
+			  rect.x - view->scroll_x,
+			  rect.y - view->scroll_y,
+			  rect.width + 1, rect.height + 1);
 #else
 	gtk_paint_focus (gtk_widget_get_style (widget),
 			 gtk_layout_get_bin_window (GTK_LAYOUT (view)),
@@ -4879,7 +4907,11 @@ ev_view_class_init (EvViewClass *class)
 	widget_class->scroll_event = ev_view_scroll_event;
 	widget_class->enter_notify_event = ev_view_enter_notify_event;
 	widget_class->leave_notify_event = ev_view_leave_notify_event;
+#if GTK_CHECK_VERSION (3, 0, 0)
+	widget_class->style_updated = ev_view_style_updated;
+#else
 	widget_class->style_set = ev_view_style_set;
+#endif
 	widget_class->drag_data_get = ev_view_drag_data_get;
 	widget_class->drag_motion = ev_view_drag_motion;
 	widget_class->popup_menu = ev_view_popup_menu;
