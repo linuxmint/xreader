@@ -162,6 +162,7 @@ egg_find_bar_class_init (EggFindBarClass *klass)
                                                          FALSE,
                                                          G_PARAM_READWRITE));
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
   /* Style properties */
   gtk_widget_class_install_style_property (widget_class,
                                            g_param_spec_boxed ("all_matches_color",
@@ -176,6 +177,7 @@ egg_find_bar_class_init (EggFindBarClass *klass)
                                                                "Color of highlight for the current match",
                                                                GDK_TYPE_COLOR,
                                                                G_PARAM_READABLE));
+#endif
 
   g_type_class_add_private (object_class, sizeof (EggFindBarPrivate));
 
@@ -660,6 +662,7 @@ egg_find_bar_get_case_sensitive (EggFindBar *find_bar)
   return priv->case_sensitive;
 }
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
 static void
 get_style_color (EggFindBar *find_bar,
                  const char *style_prop_name,
@@ -714,6 +717,7 @@ egg_find_bar_get_current_match_color (EggFindBar *find_bar,
 
   *color = found_color;
 }
+#endif
 
 /**
  * egg_find_bar_set_status_text:
