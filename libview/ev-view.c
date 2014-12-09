@@ -3208,6 +3208,7 @@ ev_view_size_request (GtkWidget      *widget,
 	*requisition = view->requisition;
 }
 
+#if GTK_CHECK_VERSION (3, 0, 0)
 static void
 ev_view_get_preferred_width (GtkWidget *widget,
 			     gint *minimum,
@@ -3231,6 +3232,7 @@ ev_view_get_preferred_height (GtkWidget *widget,
 
 	*minimum = *natural = requisition.height;
 }
+#endif
 
 static void
 ev_view_size_allocate (GtkWidget      *widget,
