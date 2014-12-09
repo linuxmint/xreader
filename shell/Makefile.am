@@ -34,6 +34,8 @@ atril_SOURCES=				\
 	eggfindbar.h			\
 	ev-annotation-properties-dialog.h \
 	ev-annotation-properties-dialog.c \
+	ev-bookmarks.h			\
+	ev-bookmarks.c			\
 	ev-application.c		\
 	ev-application.h		\
 	ev-file-monitor.h		\
