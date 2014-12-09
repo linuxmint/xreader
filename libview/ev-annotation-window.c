@@ -134,16 +134,41 @@ static void
 ev_annotation_window_set_color (EvAnnotationWindow *window,
 				GdkColor           *color)
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        GtkStyleProperties *properties;
+        GtkStyleProvider   *provider;
+	GdkRGBA             rgba;
+
+        rgba.red = color->red / 65535.;
+        rgba.green = color->green / 65535.;
+        rgba.blue = color->blue / 65535.;
+        rgba.alpha = 1;
+
+        properties = gtk_style_properties_new ();
+        gtk_style_properties_set (properties, 0,
+                                  "color", &rgba,
+                                  "background-color", &rgba,
+                                  NULL);
+
+        provider = GTK_STYLE_PROVIDER (properties);
+        gtk_style_context_add_provider (gtk_widget_get_style_context (GTK_WIDGET (window)),
+                                        provider, GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+        gtk_style_context_add_provider (gtk_widget_get_style_context (window->close_button),
+                                        provider, GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+        gtk_style_context_add_provider (gtk_widget_get_style_context (window->resize_se),
+                                        provider, GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+        gtk_style_context_add_provider (gtk_widget_get_style_context (window->resize_sw),
+                                        provider, GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+        g_object_unref (properties);
+#else
 	GtkRcStyle *rc_style;
 	GdkColor    gcolor;
 
 	gcolor = *color;
 
-#if !GTK_CHECK_VERSION (3, 0, 0)
 	/* Allocate these colors */
 	gdk_colormap_alloc_color (gtk_widget_get_colormap (GTK_WIDGET (window)),
 				  &gcolor, FALSE, TRUE);
-#endif
 
 	/* Apply colors to style */
 	rc_style = gtk_widget_get_modifier_style (GTK_WIDGET (window));
@@ -162,6 +187,7 @@ ev_annotation_window_set_color (EvAnnotationWindow *window,
 	gtk_widget_modify_style (window->resize_se, rc_style);
 	gtk_widget_modify_style (window->resize_sw, rc_style);
 	g_object_unref (rc_style);
+#endif
 }
 
 static void
