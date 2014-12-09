@@ -33,6 +33,7 @@
 #define GTK_STATE_SELECTED GTK_STATE_FLAG_SELECTED
 #define GTK_STATE_ACTIVE GTK_STATE_FLAG_ACTIVE
 #define GTK_STATE_NORMAL 0
+#define gtk_widget_render_icon(A,B,C,D) gtk_widget_render_icon_pixbuf(A,B,C)
 #endif
 
 enum

@@ -37,6 +37,7 @@ static GdkPixbuf * new_separator_pixbuf         (void);
 
 #if GTK_CHECK_VERSION (3, 0, 0)
 #define gdk_cursor_unref g_object_unref
+#define gtk_widget_render_icon(A,B,C,D) gtk_widget_render_icon_pixbuf(A,B,C)
 #endif
 
 static const GtkTargetEntry dest_drag_types[] = {
