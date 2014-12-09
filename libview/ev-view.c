@@ -2287,25 +2287,14 @@ ev_view_form_field_choice_changed (GtkWidget   *widget,
 			field->changed = TRUE;
 		}
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 		if (gtk_combo_box_get_has_entry (GTK_COMBO_BOX (widget))) {
 			const gchar *text;
 
 			text = gtk_entry_get_text (GTK_ENTRY (gtk_bin_get_child (GTK_BIN (widget))));
-#else
-		if (GTK_IS_COMBO_BOX_ENTRY (widget)) {
-			gchar *text;
-			
-			text = gtk_combo_box_get_active_text (GTK_COMBO_BOX (widget));
-#endif
 			if (!field_choice->text ||
 			    (field_choice->text && g_ascii_strcasecmp (field_choice->text, text) != 0)) {
 				g_free (field_choice->text);
-#if GTK_CHECK_VERSION (3, 0, 0)
 				field_choice->text = g_strdup(text);
-#else
-				field_choice->text = text;
-#endif
 				field->changed = TRUE;
 			}
 		}
@@ -2413,12 +2402,8 @@ ev_view_form_field_choice_create_widget (EvView      *view,
 	} else if (field_choice->is_editable) { /* ComboBoxEntry */
 		gchar *text;
 		
-#if GTK_CHECK_VERSION (3, 0, 0)
 		choice = gtk_combo_box_new_with_model_and_entry (model);
 		gtk_combo_box_set_entry_text_column (GTK_COMBO_BOX (choice), 0);
-#else
-		choice = gtk_combo_box_entry_new_with_model (model, 0);
-#endif
 		text = ev_document_forms_form_field_choice_get_text (EV_DOCUMENT_FORMS (view->document), field);
 		if (text) {
 			gtk_entry_set_text (GTK_ENTRY (gtk_bin_get_child (GTK_BIN (choice))), text);
