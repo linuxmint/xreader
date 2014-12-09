@@ -36,6 +36,8 @@ atril_SOURCES=				\
 	ev-annotation-properties-dialog.c \
 	ev-bookmarks.h			\
 	ev-bookmarks.c			\
+	ev-bookmark-action.h		\
+	ev-bookmark-action.c		\
 	ev-application.c		\
 	ev-application.h		\
 	ev-file-monitor.h		\
