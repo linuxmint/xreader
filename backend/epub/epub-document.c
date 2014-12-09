@@ -1216,9 +1216,9 @@ setup_document_index(EpubDocument *epub_document,gchar *containeruri)
 
         //Apparently, sometimes authors don't even care to add a TOC!! Guess standards are just guidelines.
 
-        if (tocfilename == NULL)
-        {
+        if (tocfilename == NULL) {
             //We didn't even find a nav file.The document has no TOC.
+            g_string_free(tocpath,TRUE);
             return NULL;
         }
 
