@@ -730,7 +730,7 @@ dnl ================== End of EPUB checks ======================================
 dnl =================== Mime types list ====================================================
 
 if test "x$enable_pdf" = "xyes" ; then
-    ATRIL_MIME_TYPES="application/pdf;application/x-bzpdf;application/x-gzpdf;"
+    ATRIL_MIME_TYPES="application/pdf;application/x-bzpdf;application/x-gzpdf;application/x-xzpdf;"
 fi
 if test "x$enable_ps" = "xyes" ; then
     ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/postscript;application/x-bzpostscript;application/x-gzpostscript;image/x-eps;image/x-bzeps;image/x-gzeps;"
