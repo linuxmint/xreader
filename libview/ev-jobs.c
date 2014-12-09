@@ -1729,6 +1729,9 @@ ev_job_print_run (EvJob *job)
 
 	ev_document_doc_mutex_unlock ();
 
+        if (g_cancellable_is_cancelled (job->cancellable))
+                return FALSE;
+
 	cr_status = cairo_status (job_print->cr);
 	if (cr_status == CAIRO_STATUS_SUCCESS) {
 		ev_job_succeeded (job);
