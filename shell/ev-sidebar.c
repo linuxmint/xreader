@@ -28,9 +28,6 @@
 
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
-#if GTK_CHECK_VERSION (3, 0, 0)
-#include <gdk/gdkkeysyms-compat.h>
-#endif
 
 #include "ev-sidebar.h"
 #include "ev-sidebar-page.h"
@@ -281,10 +278,10 @@ ev_sidebar_select_button_key_press_cb (GtkWidget   *widget,
 {
 	EvSidebar *ev_sidebar = EV_SIDEBAR (user_data);
 	   
-	if (event->keyval == GDK_space ||
-	    event->keyval == GDK_KP_Space ||
-	    event->keyval == GDK_Return ||
-	    event->keyval == GDK_KP_Enter) {
+	if (event->keyval == GDK_KEY_space ||
+	    event->keyval == GDK_KEY_KP_Space ||
+	    event->keyval == GDK_KEY_Return ||
+	    event->keyval == GDK_KEY_KP_Enter) {
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
 		gtk_menu_popup (GTK_MENU (ev_sidebar->priv->menu),
 			        NULL, NULL, ev_sidebar_menu_position_under, widget,
