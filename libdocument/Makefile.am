@@ -163,7 +163,7 @@ AtrilDocument-$(EV_API_VERSION).gir: libatrildocument.la Makefile $(INST_H_FILES
 	--include=GdkPixbuf-2.0 \
 	--include=Gtk-$(GTK_API_VERSION) \
 	--library=atrildocument \
-	--libtool="$(SAVED_LIBTOOL)" \
+	--libtool="$(LIBTOOL)" \
 	--output $@ \
 	--pkg atril-document-$(EV_API_VERSION) \
 	-I$(top_srcdir) \
