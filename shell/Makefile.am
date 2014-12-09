@@ -80,6 +80,8 @@ atril_SOURCES=				\
 	ev-sidebar-annotations.h	\
 	ev-sidebar-attachments.c	\
 	ev-sidebar-attachments.h	\
+	ev-sidebar-bookmarks.h		\
+	ev-sidebar-bookmarks.c		\
 	ev-sidebar-layers.c		\
 	ev-sidebar-layers.h		\
 	ev-sidebar-links.c		\
