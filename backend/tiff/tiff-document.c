@@ -297,7 +297,7 @@ tiff_document_render (EvDocument      *document,
 	TIFFReadRGBAImageOriented (tiff_document->tiff,
 				   width, height,
 				   (uint32 *)pixels,
-				   orientation, 1);
+				   orientation, 0);
 	pop_handlers ();
 
 	/* Convert the format returned by libtiff to
@@ -382,7 +382,7 @@ tiff_document_render_pixbuf (EvDocument      *document,
 	TIFFReadRGBAImageOriented (tiff_document->tiff,
 				   width, height,
 				   (uint32 *)pixels,
-				   ORIENTATION_TOPLEFT, 1);
+				   ORIENTATION_TOPLEFT, 0);
 	pop_handlers ();
 
 	scaled_pixbuf = gdk_pixbuf_scale_simple (pixbuf,
