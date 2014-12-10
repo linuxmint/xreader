@@ -634,9 +634,7 @@ pdf_document_get_info (EvDocument *document)
 	PopplerPermissions permissions;
 	EvPage *page;
 	char *metadata;
-#ifdef HAVE_POPPLER_DOCUMENT_IS_LINEARIZED
 	gboolean linearized;
-#endif
 
 	info = g_new0 (EvDocumentInfo, 1);
 
@@ -673,11 +671,7 @@ pdf_document_get_info (EvDocument *document)
 		      "producer", &(info->producer),
 		      "creation-date", &(info->creation_date),
 		      "mod-date", &(info->modified_date),
-#ifdef HAVE_POPPLER_DOCUMENT_IS_LINEARIZED
 		      "linearized", &linearized,
-#else
-		      "linearized", &(info->linearized),
-#endif
 		      "metadata", &metadata,
 		      NULL);
 
@@ -783,9 +777,7 @@ pdf_document_get_info (EvDocument *document)
 		info->security = g_strdup (_("No"));
 	}
 
-#ifdef HAVE_POPPLER_DOCUMENT_IS_LINEARIZED
 	info->linearized = linearized ? g_strdup (_("Yes")) : g_strdup (_("No"));
-#endif
 
 	return info;
 }
@@ -1130,7 +1122,6 @@ ev_link_from_action (PdfDocument   *pdf_document,
 	        case POPPLER_ACTION_MOVIE:
 			unimplemented_action = "POPPLER_ACTION_MOVIE";
 			break;
-#if POPPLER_CHECK_VERSION (0, 13, 2)
 	        case POPPLER_ACTION_RENDITION:
 			unimplemented_action = "POPPLER_ACTION_RENDITION";
 			break;
@@ -1176,7 +1167,6 @@ ev_link_from_action (PdfDocument   *pdf_document,
 
 		}
 			break;
-#endif
 	        case POPPLER_ACTION_UNKNOWN:
 			unimplemented_action = "POPPLER_ACTION_UNKNOWN";
 	}
@@ -1427,18 +1417,6 @@ make_thumbnail_for_page (PopplerPage     *poppler_page,
 			 gint             height)
 {
 	GdkPixbuf *pixbuf;
-
-#ifdef POPPLER_WITH_GDK
-	pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, FALSE, 8,
-				 width, height);
-	gdk_pixbuf_fill (pixbuf, 0xffffffff);
-
-	ev_document_fc_mutex_lock ();
-	poppler_page_render_to_pixbuf (poppler_page, 0, 0,
-				       width, height,
-				       rc->scale, rc->rotation, pixbuf);
-	ev_document_fc_mutex_unlock ();
-#else
 	cairo_surface_t *surface;
 
 	ev_document_fc_mutex_lock ();
@@ -1447,7 +1425,6 @@ make_thumbnail_for_page (PopplerPage     *poppler_page,
 	
 	pixbuf = ev_document_misc_pixbuf_from_surface (surface);
 	cairo_surface_destroy (surface);
-#endif /* POPPLER_WITH_GDK */
 
 	return pixbuf;
 }
@@ -1459,6 +1436,7 @@ pdf_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document_thumbnails
 {
 	PdfDocument *pdf_document = PDF_DOCUMENT (document_thumbnails);
 	PopplerPage *poppler_page;
+	cairo_surface_t *surface;
 	GdkPixbuf *pixbuf = NULL;
 	GdkPixbuf *border_pixbuf;
 	gint width, height;
@@ -1468,17 +1446,11 @@ pdf_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document_thumbnails
 	pdf_document_thumbnails_get_dimensions (EV_DOCUMENT_THUMBNAILS (pdf_document),
 						rc, &width, &height);
 	
-#ifdef POPPLER_WITH_GDK
-	pixbuf = poppler_page_get_thumbnail_pixbuf (poppler_page);
-#else
-	cairo_surface_t *surface;
-	
 	surface = poppler_page_get_thumbnail (poppler_page);
 	if (surface) {
 		pixbuf = ev_document_misc_pixbuf_from_surface (surface);
 		cairo_surface_destroy (surface);
 	}
-#endif /* POPPLER_WITH_GDK */
 
 	if (pixbuf != NULL) {
 		int thumb_width = (rc->rotation == 90 || rc->rotation == 270) ?
@@ -1950,31 +1922,11 @@ pdf_selection_get_selected_text (EvSelection     *selection,
 				 EvSelectionStyle style,
 				 EvRectangle     *points)
 {
-	PopplerPage *poppler_page;
-	char *retval;
+	g_return_val_if_fail (POPPLER_IS_PAGE (page->backend_page), NULL);
 
-	poppler_page = POPPLER_PAGE (page->backend_page);
-
-#ifdef HAVE_POPPLER_PAGE_GET_SELECTED_TEXT
-	retval = poppler_page_get_selected_text (poppler_page,
-						 (PopplerSelectionStyle)style,
-						 (PopplerRectangle *)points);
-#else
-	PopplerRectangle r;
-	double height;
-
-	poppler_page_get_size (poppler_page, NULL, &height);
-	r.x1 = points->x1;
-	r.y1 = height - points->y2;
-	r.x2 = points->x2;
-	r.y2 = height - points->y1;
-
-	retval = poppler_page_get_text (poppler_page,
-					(PopplerSelectionStyle)style,
-					&r);
-#endif /* HAVE_POPPLER_PAGE_GET_SELECTED_TEXT */
-
-	return retval;
+	return poppler_page_get_selected_text (POPPLER_PAGE (page->backend_page),
+					       (PopplerSelectionStyle)style,
+					       (PopplerRectangle *)points);
 }
 
 static cairo_region_t *
@@ -2060,66 +2012,33 @@ pdf_document_text_get_text_mapping (EvDocumentText *document_text,
 	return retval;
 }
 
-#ifdef HAVE_POPPLER_PAGE_GET_SELECTED_TEXT
 static gchar *
 pdf_document_text_get_text (EvDocumentText  *selection,
 			    EvPage          *page)
 {
-	PopplerPage *poppler_page;
-
-	g_return_val_if_fail (POPPLER_IS_PAGE (page->backend_page), FALSE);
-
-	poppler_page = POPPLER_PAGE (page->backend_page);
-
-	return poppler_page_get_text (poppler_page);
-}
-#else
-static gchar *
-pdf_document_text_get_text (EvDocumentText  *selection,
-			    EvPage          *page)
-{
-	PopplerPage *poppler_page;
-	PopplerRectangle r;
-
 	g_return_val_if_fail (POPPLER_IS_PAGE (page->backend_page), NULL);
 
-	poppler_page = POPPLER_PAGE (page->backend_page);
-
-	r.x1 = 0;
-	r.y1 = 0;
-	poppler_page_get_size (poppler_page, &(r.x2), &(r.y2));
-
-	return poppler_page_get_text (poppler_page,
-				      POPPLER_SELECTION_WORD,
-				      &r);
+	return poppler_page_get_text (POPPLER_PAGE (page->backend_page));
 }
-#endif /* HAVE_POPPLER_PAGE_GET_SELECTED_TEXT */
 
-#ifdef HAVE_POPPLER_PAGE_GET_TEXT_LAYOUT
 static gboolean
 pdf_document_text_get_text_layout (EvDocumentText  *selection,
 				   EvPage          *page,
 				   EvRectangle    **areas,
 				   guint           *n_areas)
 {
-	PopplerPage *poppler_page;
-
 	g_return_val_if_fail (POPPLER_IS_PAGE (page->backend_page), FALSE);
 
-	poppler_page = POPPLER_PAGE (page->backend_page);
-
-	return poppler_page_get_text_layout (poppler_page, (PopplerRectangle **)areas, n_areas);
+	return poppler_page_get_text_layout (POPPLER_PAGE (page->backend_page),
+					     (PopplerRectangle **)areas, n_areas);
 }
-#endif
 
 static void
 pdf_document_text_iface_init (EvDocumentTextInterface *iface)
 {
         iface->get_text_mapping = pdf_document_text_get_text_mapping;
         iface->get_text = pdf_document_text_get_text;
-#ifdef HAVE_POPPLER_PAGE_GET_TEXT_LAYOUT
         iface->get_text_layout = pdf_document_text_get_text_layout;
-#endif
 }
 
 /* Page Transitions */
@@ -2593,7 +2512,6 @@ poppler_annot_color_to_gdk_color (PopplerAnnot *poppler_annot,
 static EvAnnotationTextIcon
 get_annot_text_icon (PopplerAnnotText *poppler_annot)
 {
-#ifdef HAVE_POPPLER_PAGE_ADD_ANNOT
 	gchar *icon = poppler_annot_text_get_icon (poppler_annot);
 	EvAnnotationTextIcon retval;
 
@@ -2624,15 +2542,11 @@ get_annot_text_icon (PopplerAnnotText *poppler_annot)
 	g_free (icon);
 
 	return retval;
-#else
-	return EV_ANNOTATION_TEXT_ICON_UNKNOWN;
-#endif
 }
 
 static const gchar *
 get_poppler_annot_text_icon (EvAnnotationTextIcon icon)
 {
-#ifdef HAVE_POPPLER_PAGE_ADD_ANNOT
 	switch (icon) {
 	case EV_ANNOTATION_TEXT_ICON_NOTE:
 		return POPPLER_ANNOT_TEXT_ICON_NOTE;
@@ -2656,9 +2570,6 @@ get_poppler_annot_text_icon (EvAnnotationTextIcon icon)
 	default:
 		return POPPLER_ANNOT_TEXT_ICON_NOTE;
 	}
-#else
-	return "Note";
-#endif
 }
 
 static EvAnnotation *
@@ -2900,7 +2811,6 @@ pdf_document_annotations_document_is_modified (EvDocumentAnnotations *document_a
 	return PDF_DOCUMENT (document_annotations)->annots_modified;
 }
 
-#ifdef HAVE_POPPLER_PAGE_ADD_ANNOT
 static void
 pdf_document_annotations_add_annotation (EvDocumentAnnotations *document_annotations,
 					 EvAnnotation          *annot,
@@ -3003,7 +2913,6 @@ pdf_document_annotations_add_annotation (EvDocumentAnnotations *document_annotat
 
 	pdf_document->annots_modified = TRUE;
 }
-#endif /* HAVE_POPPLER_PAGE_ADD_ANNOT */
 
 static void
 pdf_document_annotations_save_annotation (EvDocumentAnnotations *document_annotations,
@@ -3020,7 +2929,6 @@ pdf_document_annotations_save_annotation (EvDocumentAnnotations *document_annota
 		poppler_annot_set_contents (poppler_annot,
 					    ev_annotation_get_contents (annot));
 
-#ifdef HAVE_POPPLER_PAGE_ADD_ANNOT
 	if (mask & EV_ANNOTATIONS_SAVE_COLOR) {
 		PopplerColor color;
 		GdkColor     ev_color;
@@ -3059,7 +2967,7 @@ pdf_document_annotations_save_annotation (EvDocumentAnnotations *document_annota
 			poppler_annot_text_set_icon (text, get_poppler_annot_text_icon (icon));
 		}
 	}
-#endif /* HAVE_POPPLER_PAGE_ADD_ANNOT */
+
 	PDF_DOCUMENT (document_annotations)->annots_modified = TRUE;
 }
 
@@ -3068,9 +2976,7 @@ pdf_document_document_annotations_iface_init (EvDocumentAnnotationsInterface *if
 {
 	iface->get_annotations = pdf_document_annotations_get_annotations;
 	iface->document_is_modified = pdf_document_annotations_document_is_modified;
-#ifdef HAVE_POPPLER_PAGE_ADD_ANNOT
 	iface->add_annotation = pdf_document_annotations_add_annotation;
-#endif
 	iface->save_annotation = pdf_document_annotations_save_annotation;
 }
 
