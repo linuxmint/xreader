@@ -50,7 +50,7 @@ endif
 #
 # App data file
 #
-@INTLTOOL_XML_RULE@
+@INTLTOOL_XML_NOMERGE_RULE@
 appdatadir = $(datadir)/appdata
 appdata_in_files = atril.appdata.xml.in
 appdata_DATA = $(appdata_in_files:.xml.in=.xml)
