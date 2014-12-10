@@ -2184,6 +2184,16 @@ ev_view_form_field_text_changed (GtkWidget   *widget,
 	}
 }
 
+static gboolean
+ev_view_form_field_text_focus_out (GtkWidget     *widget,
+				   GdkEventFocus *event,
+				   EvView        *view)
+{
+	ev_view_form_field_text_save (view, widget);
+
+	return FALSE;
+}
+
 static GtkWidget *
 ev_view_form_field_text_create_widget (EvView      *view,
 				       EvFormField *field)
@@ -2209,6 +2219,9 @@ ev_view_form_field_text_create_widget (EvView      *view,
 				g_free (txt);
 			}
 
+			g_signal_connect (text, "focus-out-event",
+					  G_CALLBACK (ev_view_form_field_text_focus_out),
+					  view);
 			g_signal_connect (text, "changed",
 					  G_CALLBACK (ev_view_form_field_text_changed),
 					  field);
@@ -2226,7 +2239,10 @@ ev_view_form_field_text_create_widget (EvView      *view,
 				gtk_text_buffer_set_text (buffer, txt, -1);
 				g_free (txt);
 			}
-			
+
+			g_signal_connect( buffer, "focus-out-event",
+					  G_CALLBACK (ev_view_form_field_text_focus_out),
+					  view);
 			g_signal_connect (buffer, "changed",
 					  G_CALLBACK (ev_view_form_field_text_changed),
 					  field);
