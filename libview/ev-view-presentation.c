@@ -62,6 +62,8 @@ struct _EvViewPresentation
 {
 	GtkWidget base;
 
+        guint                  is_constructing : 1;
+
 	guint                  current_page;
 	cairo_surface_t       *current_surface;
 	EvDocument            *document;
@@ -408,6 +410,25 @@ ev_view_presentation_delete_job (EvViewPresentation *pview,
 	g_signal_handlers_disconnect_by_func (job, job_finished_cb, pview);
 	ev_job_cancel (job);
 	g_object_unref (job);
+}
+
+static void
+ev_view_presentation_reset_jobs (EvViewPresentation *pview)
+{
+        if (pview->curr_job) {
+                ev_view_presentation_delete_job (pview, pview->curr_job);
+                pview->curr_job = NULL;
+        }
+
+        if (pview->prev_job) {
+                ev_view_presentation_delete_job (pview, pview->prev_job);
+                pview->prev_job = NULL;
+        }
+
+        if (pview->next_job) {
+                ev_view_presentation_delete_job (pview, pview->next_job);
+                pview->next_job = NULL;
+        }
 }
 
 static void
@@ -962,21 +983,7 @@ ev_view_presentation_destroy (GtkObject *object)
 	ev_view_presentation_animation_cancel (pview);
 	ev_view_presentation_transition_stop (pview);
 	ev_view_presentation_hide_cursor_timeout_stop (pview);
-
-	if (pview->curr_job) {
-		ev_view_presentation_delete_job (pview, pview->curr_job);
-		pview->curr_job = NULL;
-	}
-
-	if (pview->prev_job) {
-		ev_view_presentation_delete_job (pview, pview->prev_job);
-		pview->prev_job = NULL;
-	}
-
-	if (pview->next_job) {
-		ev_view_presentation_delete_job (pview, pview->next_job);
-		pview->next_job = NULL;
-	}
+        ev_view_presentation_reset_jobs (pview);
 
 	if (pview->current_surface) {
 		cairo_surface_destroy (pview->current_surface);
@@ -1448,7 +1455,7 @@ ev_view_presentation_set_property (GObject      *object,
 		pview->current_page = g_value_get_uint (value);
 		break;
 	case PROP_ROTATION:
-		pview->rotation = g_value_get_uint (value);
+                ev_view_presentation_set_rotation (pview, g_value_get_uint (value));
 		break;
 	case PROP_INVERTED_COLORS:
 		pview->inverted_colors = g_value_get_boolean (value);
@@ -1456,6 +1463,23 @@ ev_view_presentation_set_property (GObject      *object,
 	default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
 	}
+}
+
+static void
+ev_view_presentation_get_property (GObject    *object,
+                                   guint       prop_id,
+                                   GValue     *value,
+                                   GParamSpec *pspec)
+{
+        EvViewPresentation *pview = EV_VIEW_PRESENTATION (object);
+
+        switch (prop_id) {
+        case PROP_ROTATION:
+                g_value_set_uint (value, ev_view_presentation_get_rotation (pview));
+                break;
+        default:
+                G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+        }
 }
 
 static GObject *
@@ -1470,6 +1494,7 @@ ev_view_presentation_constructor (GType                  type,
 										  n_construct_properties,
 										  construct_params);
 	pview = EV_VIEW_PRESENTATION (object);
+        pview->is_constructing = FALSE;
 
 	if (EV_IS_DOCUMENT_LINKS (pview->document)) {
 		pview->page_cache = ev_page_cache_new (pview->document);
@@ -1520,6 +1545,7 @@ ev_view_presentation_class_init (EvViewPresentationClass *klass)
 
 	gobject_class->constructor = ev_view_presentation_constructor;
 	gobject_class->set_property = ev_view_presentation_set_property;
+        gobject_class->get_property = ev_view_presentation_get_property;
 
 	g_object_class_install_property (gobject_class,
 					 PROP_DOCUMENT,
@@ -1543,8 +1569,8 @@ ev_view_presentation_class_init (EvViewPresentationClass *klass)
 							    "Rotation",
 							    "Current rotation angle",
 							    0, 360, 0,
-							    G_PARAM_WRITABLE |
-							    G_PARAM_CONSTRUCT_ONLY));
+							    G_PARAM_READWRITE |
+							    G_PARAM_CONSTRUCT));
 	g_object_class_install_property (gobject_class,
 					 PROP_INVERTED_COLORS,
 					 g_param_spec_boolean ("inverted_colors",
@@ -1629,6 +1655,7 @@ static void
 ev_view_presentation_init (EvViewPresentation *pview)
 {
 	gtk_widget_set_can_focus (GTK_WIDGET (pview), TRUE);
+        pview->is_constructing = TRUE;
 }
 
 GtkWidget *
@@ -1652,4 +1679,32 @@ guint
 ev_view_presentation_get_current_page (EvViewPresentation *pview)
 {
 	return pview->current_page;
+}
+
+void
+ev_view_presentation_set_rotation (EvViewPresentation *pview,
+                                   gint                rotation)
+{
+        if (rotation >= 360)
+                rotation -= 360;
+        else if (rotation < 0)
+                rotation += 360;
+
+        if (pview->rotation == rotation)
+                return;
+
+        pview->rotation = rotation;
+        g_object_notify (G_OBJECT (pview), "rotation");
+        if (pview->is_constructing)
+                return;
+
+        pview->scale = 0;
+        ev_view_presentation_reset_jobs (pview);
+        ev_view_presentation_update_current_page (pview, pview->current_page);
+}
+
+guint
+ev_view_presentation_get_rotation (EvViewPresentation *pview)
+{
+        return pview->rotation;
 }
