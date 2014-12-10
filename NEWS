@@ -3,6 +3,40 @@
 
  * Add epub support (part of GSoC 2014).
  * Use MateAboutDialog from libmate-desktop.
+ * Add ini file for caja extension
+ * Add appdata file
+ * Many fixed memory leaks from monsta
+ * sidebar-thumbnails: connect to job finished signal before scheduling the job
+ * zero-init all signals arrays
+ * Add support for external links to EvViewPresentation
+ * Save zoom factor in default settings when sizing mode is free
+ * [pdf] Add support for OCG State actions
+ * [pdf] Update to poppler api changes
+ * [pdf] Do not resolve named destinations in the backend
+ * [pdf] Bump poppler requirements to 0.16.0
+ * [pdf] Implement document_links_find_link_page()
+ * [djvu] Implement document_links_find_link_page()
+ * [libdocument] Use find_link_page() instead of find_link_dest() in get_dest_page()
+ * GDK_KEY_* keys are Gtk+2 as well.
+ * [shell] Add timestamp parameter to SyncView
+ * [shell] Use new methods to get page and page label from a link
+ * [libview] The updated GtkComboBox api is in Gtk+2.24
+ * [dvi] Fix drawing glyphs with transparency
+ * [shell] Send the URI of the input file instead of the filename in SyncSource
+ * [libdocument] Add xz compression support
+ * [pdf] Support .pdf.xz files
+ * [shell] Add EvBookmarks to handle internal document bookmarks
+ * [backends] Fix several security issues in the dvi-backend
+ * Small a11y fixes
+ * Remember the current page when document is reloaded in presentation mode
+ * presentation: Allow to change rotation in presentation mode
+ * Rotate with CTRL+Left/Right in presentation mode too
+ * Add .png extension when saving images using DnD
+ * Gtk3: Use gtk_paned_new() instead gtk_[h|v]paned_new()
+ * Gtk3: Add GtkStyleContect support
+ * Gtk3: Don't use gdk_cursor_unref()
+ * Gtk3: Use gtk_widget_render_icon_pixbuf()
+ * Gtk3: presentation: Make sure background window is black by default in presentation mode
 
 1.8.0
 -----
