@@ -4120,6 +4120,22 @@ ev_window_view_presentation_finished (EvWindow *window)
 	ev_window_stop_presentation (window, TRUE);
 }
 
+static gboolean
+ev_window_view_presentation_focus_in (EvWindow *window)
+{
+	ev_application_screensaver_disable (EV_APP);
+
+	return FALSE;
+}
+
+static gboolean
+ev_window_view_presentation_focus_out (EvWindow *window)
+{
+	ev_application_screensaver_enable (EV_APP);
+
+	return FALSE;
+}
+
 static void
 ev_window_run_presentation (EvWindow *window)
 {
@@ -4153,6 +4169,12 @@ ev_window_run_presentation (EvWindow *window)
 
 	g_signal_connect_swapped (window->priv->presentation_view, "external-link",
 				  G_CALLBACK (view_external_link_cb),
+				  window);
+	g_signal_connect_swapped (window->priv->presentation_view, "focus-in-event",
+				  G_CALLBACK (ev_window_view_presentation_focus_in),
+				  window);
+	g_signal_connect_swapped (window->priv->presentation_view, "focus-out-event",
+				  G_CALLBACK (ev_window_view_presentation_focus_out),
 				  window);
 
 	gtk_box_pack_start (GTK_BOX (window->priv->main_box),
