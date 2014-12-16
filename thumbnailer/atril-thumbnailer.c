@@ -293,6 +293,10 @@ main (int argc, char *argv[])
 	input = file_arguments[0];
 	output = file_arguments[1];
 
+#if !GLIB_CHECK_VERSION (2, 36, 0)
+        g_type_init ();
+#endif
+
         if (!ev_init ())
                 return -1;
 
