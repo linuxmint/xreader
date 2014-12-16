@@ -521,11 +521,6 @@ main (gint argc, gchar **argv)
 
         g_set_prgname ("atril-daemon");
 
-#if !GLIB_CHECK_VERSION (2, 36, 0)
-        g_type_init ();
-#endif
-
-
 	loop = g_main_loop_new (NULL, FALSE);
 
 	pending_invocations = g_hash_table_new_full (g_str_hash,
