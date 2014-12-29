@@ -855,7 +855,7 @@ get_uri_to_content(const gchar* uri,GError ** error,EpubDocument *epub_document)
         g_set_error_literal(error,
                             EV_DOCUMENT_ERROR,
                             EV_DOCUMENT_ERROR_INVALID,
-                            _("epub file is invalid or corrput"));
+                            _("epub file is invalid or corrupt"));
         return NULL ;
     }
     
@@ -865,7 +865,7 @@ get_uri_to_content(const gchar* uri,GError ** error,EpubDocument *epub_document)
         g_set_error_literal(error,
                             EV_DOCUMENT_ERROR,
                             EV_DOCUMENT_ERROR_INVALID,
-                            _("epub file is corrupt,no container"));
+                            _("epub file is corrupt, no container"));
         return NULL ;
     }
 
