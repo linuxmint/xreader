@@ -123,13 +123,9 @@ ev_history_add_link (EvHistory *history, EvLink *link)
 EvLink *
 ev_history_get_link_nth	(EvHistory *history, int index)
 {
-	GList *l;
-
 	g_return_val_if_fail (EV_IS_HISTORY (history), NULL);
 
-	l = g_list_nth (history->priv->links, index);
-
-	return EV_LINK (l->data);
+	return EV_LINK (g_list_nth_data (history->priv->links, index));
 }
 
 int
