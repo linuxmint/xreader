@@ -368,6 +368,12 @@ comics_check_decompress_command	(gchar          *mime_type,
 			comics_document->command_usage = GNAUNRAR;
 			return TRUE;
 		}
+		comics_document->selected_command =
+				g_find_program_in_path ("bsdtar");
+		if (comics_document->selected_command) {
+			comics_document->command_usage = TAR;
+			return TRUE;
+		}
 
 	} else if (!strcmp (mime_type, "application/x-cbz") ||
 		   !strcmp (mime_type, "application/zip")) {
@@ -379,6 +385,12 @@ comics_check_decompress_command	(gchar          *mime_type,
 		if (comics_document->selected_command &&
 		    comics_document->alternative_command) {
 			comics_document->command_usage = UNZIP;
+			return TRUE;
+		}
+		comics_document->selected_command =
+				g_find_program_in_path ("bsdtar");
+		if (comics_document->selected_command) {
+			comics_document->command_usage = TAR;
 			return TRUE;
 		}
 
@@ -404,11 +416,23 @@ comics_check_decompress_command	(gchar          *mime_type,
 				comics_document->command_usage = P7ZIP;
 				return TRUE;
 			}
+			comics_document->selected_command =
+					g_find_program_in_path ("bsdtar");
+			if (comics_document->selected_command) {
+				comics_document->command_usage = TAR;
+				return TRUE;
+			}
 	} else if (!strcmp (mime_type, "application/x-cbt") ||
 		   !strcmp (mime_type, "application/x-tar")) {
 		/* tar utility (Tape ARchive) */
 		comics_document->selected_command =
 				g_find_program_in_path ("tar");
+		if (comics_document->selected_command) {
+			comics_document->command_usage = TAR;
+			return TRUE;
+		}
+		comics_document->selected_command =
+				g_find_program_in_path ("bsdtar");
 		if (comics_document->selected_command) {
 			comics_document->command_usage = TAR;
 			return TRUE;
