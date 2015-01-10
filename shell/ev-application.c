@@ -989,11 +989,7 @@ static void ev_application_init(EvApplication* ev_application)
 	}
 	else
 	{
-		#if GLIB_CHECK_VERSION(2, 6, 0)
-			ev_application->dot_dir = g_build_filename(g_get_user_config_dir(), "atril", NULL);
-		#else // glib version < 2.6.0
-			ev_application->dot_dir = g_build_filename(g_get_home_dir(), ".config", "atril", NULL);
-		#endif
+		ev_application->dot_dir = g_build_filename(g_get_user_config_dir(), "atril", NULL);
 	}
 
 #ifdef G_OS_WIN32

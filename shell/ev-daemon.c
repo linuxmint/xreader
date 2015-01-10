@@ -178,11 +178,7 @@ ev_migrate_metadata (void)
 	if (userdir) {
 		dot_dir = g_build_filename (userdir, "atril", NULL);
 	} else {
-		#if GLIB_CHECK_VERSION(2, 6, 0)
-			dot_dir = g_build_filename(g_get_user_config_dir(), "atril", NULL);
-		#else // glib version < 2.6.0
-			dot_dir = g_build_filename(g_get_home_dir(), ".config", "atril", NULL);
-		#endif
+		dot_dir = g_build_filename(g_get_user_config_dir(), "atril", NULL);
 	}
 
 	updated = g_build_filename (dot_dir, "migrated-to-gvfs", NULL);
