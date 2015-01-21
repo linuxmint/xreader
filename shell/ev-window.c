@@ -3778,8 +3778,9 @@ ev_window_cmd_focus_page_selector (GtkAction *act, EvWindow *window)
 static void
 ev_window_cmd_scroll_forward (GtkAction *action, EvWindow *window)
 {
-	/*If the webview is occupying the window*/
-	if ( window->priv->document->iswebdocument == TRUE) return ;
+	/* If the webview is occupying the window */
+	if (window->priv->document && window->priv->document->iswebdocument == TRUE)
+		return;
 	
 	ev_view_scroll (EV_VIEW (window->priv->view), GTK_SCROLL_PAGE_FORWARD, FALSE);
 }
@@ -3787,8 +3788,9 @@ ev_window_cmd_scroll_forward (GtkAction *action, EvWindow *window)
 static void
 ev_window_cmd_scroll_backward (GtkAction *action, EvWindow *window)
 {
-	/*If the webview is occupying the window*/
-	if ( window->priv->document->iswebdocument == TRUE ) return ;
+	/* If the webview is occupying the window */
+	if (window->priv->document && window->priv->document->iswebdocument == TRUE)
+		return;
 	
 	ev_view_scroll (EV_VIEW (window->priv->view), GTK_SCROLL_PAGE_BACKWARD, FALSE);
 }
