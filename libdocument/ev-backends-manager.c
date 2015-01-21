@@ -63,17 +63,10 @@ backends_dir (void)
 	return backendsdir;
 }
 
-gchar*
+const gchar *
 ev_backends_manager_get_backends_dir(void)
 {
-	gchar *retval;
-	if (!backendsdir) {
-		retval = backends_dir();
-	}
-	else {
-		retval = backendsdir;
-	}
-	return retval;
+	return backends_dir();
 }
 
 static void

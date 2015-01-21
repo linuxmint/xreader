@@ -42,7 +42,7 @@ EvDocument  *ev_backends_manager_get_document             (const gchar *mime_typ
 const gchar *ev_backends_manager_get_document_module_name (EvDocument  *document);
 EvTypeInfo  *ev_backends_manager_get_document_type_info   (EvDocument  *document);
 GList       *ev_backends_manager_get_all_types_info       (void);
-gchar       *ev_backends_manager_get_backends_dir         (void);
+const gchar *ev_backends_manager_get_backends_dir         (void);
 G_END_DECLS
 
 #endif /* EV_BACKENDS_MANAGER */

@@ -1641,7 +1641,7 @@ static void
 epub_document_add_mathJax(gchar* containeruri,gchar* documentdir)
 {
 	gchar *containerfilename= g_filename_from_uri(containeruri,NULL,NULL);
-	gchar *backenddir = ev_backends_manager_get_backends_dir();
+	const gchar *backenddir = ev_backends_manager_get_backends_dir();
 	GString *mathjaxdir = g_string_new(backenddir);
 	g_string_append_printf(mathjaxdir,"/epub/MathJax");
 
@@ -1675,7 +1675,6 @@ epub_document_add_mathJax(gchar* containeruri,gchar* documentdir)
 		item = item->next;
 	}
 	xml_free_doc();
-	g_free(backenddir);
 	g_free(mathjaxref);
 	g_free(containerfilename);
 	g_free(nodedata);
