@@ -915,7 +915,7 @@ web_thumbnail_get_screenshot_cb (WebKitWebView  *webview,
                                  WebKitLoadEvent event,
                                  EvJobThumbnail *job_thumb)
 {
-	if (event != WEBKIT_LOAD_FINISHED) {
+	if (event != WEBKIT_LOAD_FINISHED || ev_job_is_failed (EV_JOB(job_thumb))) {
 		return;
 	}
 
@@ -924,7 +924,7 @@ web_thumbnail_get_screenshot_cb (WebKitWebView  *webview,
 	                              WEBKIT_SNAPSHOT_OPTIONS_NONE,
 	                              NULL,
 	                              (GAsyncReadyCallback)snapshot_callback,
-	                              g_object_ref(job_thumb));
+	                              g_object_ref (job_thumb));
 }
 
 static gboolean
@@ -932,10 +932,11 @@ webview_load_failed_cb (WebKitWebView  *webview,
                         WebKitLoadEvent event,
                         gchar          *failing_uri,
                         gpointer        error,
-                        gpointer        user_data)
+                        EvJobThumbnail *job_thumb)
 {
 	GError *e = (GError *) error;
 	g_warning ("Error loading data from %s: %s", failing_uri, e->message);
+	ev_job_failed_from_error (EV_JOB(job_thumb), e);
 	return TRUE;
 }
 #endif  /* GTK_CHECK_VERSION */
@@ -975,18 +976,18 @@ ev_job_thumbnail_run (EvJob *job)
 #if !GTK_CHECK_VERSION (3, 0, 0)
 			g_object_connect(WEBKIT_WEB_VIEW(webview),"signal::notify::load-status",
 			                 G_CALLBACK(web_thumbnail_get_screenshot_cb),
-			                 g_object_ref(job_thumb),
+			                 g_object_ref (job_thumb),
 			                 NULL);
 			g_signal_connect(WEBKIT_WEB_VIEW(webview),"load-error",
 			                 G_CALLBACK(webview_load_error_cb),
-			                 g_object_ref(job_thumb));
+			                 g_object_ref (job_thumb));
 #else
 			g_signal_connect(WEBKIT_WEB_VIEW(webview),"load-changed",
 			                 G_CALLBACK(web_thumbnail_get_screenshot_cb),
-			                 g_object_ref(job_thumb));
+			                 g_object_ref (job_thumb));
 			g_signal_connect(WEBKIT_WEB_VIEW(webview),"load-failed",
 			                 G_CALLBACK(webview_load_failed_cb),
-			                 NULL);
+			                 g_object_ref (job_thumb));
 #endif  /* GTK_CHECK_VERSION */
 		}
 
