@@ -832,15 +832,21 @@ ev_job_thumbnail_dispose (GObject *object)
 
 #if ENABLE_EPUB
 #if !GTK_CHECK_VERSION(3, 0, 0)
-static gboolean
-web_thumbnail_get_screenshot_cb(EvJobThumbnail *job_thumb)
+static void
+web_thumbnail_get_screenshot_cb(GObject        *object,
+                                GParamSpec     *pspec,
+                                EvJobThumbnail *job_thumb)
 {
-	if (webkit_web_view_get_load_status (WEBKIT_WEB_VIEW(webview)) != WEBKIT_LOAD_FINISHED) {
-		return TRUE;
+	WebKitWebView *webview = WEBKIT_WEB_VIEW(object);
+	WebKitLoadStatus status = webkit_web_view_get_load_status (webview);
+	if (status != WEBKIT_LOAD_FINISHED) {
+		return;
 	}
 
+	ev_document_doc_mutex_lock ();
+
 	EvPage *page = ev_document_get_page (EV_JOB(job_thumb)->document, job_thumb->page);
-	job_thumb->surface = webkit_web_view_get_snapshot (WEBKIT_WEB_VIEW(webview));
+	job_thumb->surface = webkit_web_view_get_snapshot (webview);
 	EvRenderContext *rc = ev_render_context_new (page, job_thumb->rotation, job_thumb->scale);
 	EvPage *screenshotpage;
 	screenshotpage = ev_page_new(job_thumb->page);
@@ -853,9 +859,21 @@ web_thumbnail_get_screenshot_cb(EvJobThumbnail *job_thumb)
 	g_object_unref(screenshotpage);
 	g_object_unref(rc);
 
-	ev_document_doc_mutex_unlock();
-	ev_job_succeeded(EV_JOB(job_thumb));
-	return FALSE;
+	ev_document_doc_mutex_unlock ();
+	ev_job_succeeded (EV_JOB(job_thumb));
+	return;
+}
+
+static gboolean
+webview_load_error_cb (WebKitWebView  *webview,
+                       WebKitWebFrame *web_frame,
+                       gchar          *uri,
+                       GError         *web_error,
+                       EvJobThumbnail *job_thumb)
+{
+	g_warning ("Error loading data from %s: %s", uri, web_error->message);
+	ev_job_failed_from_error (EV_JOB(job_thumb), web_error);
+	return TRUE;
 }
 #else
 static void
@@ -864,6 +882,9 @@ snapshot_callback(WebKitWebView *webview,
                   EvJobThumbnail *job_thumb)
 {
 	GError *error = NULL;
+
+	ev_document_doc_mutex_lock ();
+
 	EvPage *page = ev_document_get_page (EV_JOB(job_thumb)->document, job_thumb->page);
 	job_thumb->surface = webkit_web_view_get_snapshot_finish (webview,
 	                                                          results,
@@ -885,8 +906,8 @@ snapshot_callback(WebKitWebView *webview,
 	g_object_unref(screenshotpage);
 	g_object_unref(rc);
 
-	ev_document_doc_mutex_unlock();
-	ev_job_succeeded(EV_JOB(job_thumb));
+	ev_document_doc_mutex_unlock ();
+	ev_job_succeeded (EV_JOB(job_thumb));
 }
 
 static void
@@ -938,6 +959,8 @@ ev_job_thumbnail_run (EvJob *job)
 	}
 
 	page = ev_document_get_page (job->document, job_thumb->page);
+	ev_document_doc_mutex_unlock ();
+
 	if (job->document->iswebdocument == TRUE ) {
 		rc = ev_render_context_new (page, 0, job_thumb->scale);
 	} else {
@@ -950,10 +973,13 @@ ev_job_thumbnail_run (EvJob *job)
 		if (!webview) {
 			webview = webkit_web_view_new();
 #if !GTK_CHECK_VERSION (3, 0, 0)
-			g_idle_add_full (G_PRIORITY_DEFAULT_IDLE,
-			                 (GSourceFunc)web_thumbnail_get_screenshot_cb,
-			                  g_object_ref (job_thumb),
-			                 (GDestroyNotify)g_object_unref);
+			g_object_connect(WEBKIT_WEB_VIEW(webview),"signal::notify::load-status",
+			                 G_CALLBACK(web_thumbnail_get_screenshot_cb),
+			                 g_object_ref(job_thumb),
+			                 NULL);
+			g_signal_connect(WEBKIT_WEB_VIEW(webview),"load-error",
+			                 G_CALLBACK(webview_load_error_cb),
+			                 g_object_ref(job_thumb));
 #else
 			g_signal_connect(WEBKIT_WEB_VIEW(webview),"load-changed",
 			                 G_CALLBACK(web_thumbnail_get_screenshot_cb),
@@ -976,10 +1002,10 @@ ev_job_thumbnail_run (EvJob *job)
 	else 
 #endif  /* ENABLE_EPUB */
 	{
+		ev_document_doc_mutex_lock ();
 		job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (job->document),
-										 rc, TRUE);
+		                                                             rc, TRUE);
 		ev_document_doc_mutex_unlock ();
-
 		ev_job_succeeded (job);
 	}
 	g_object_unref (rc);
