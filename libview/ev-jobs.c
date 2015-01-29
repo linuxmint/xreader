@@ -863,10 +863,16 @@ snapshot_callback(WebKitWebView *webview,
                   GAsyncResult  *results,
                   EvJobThumbnail *job_thumb)
 {
+	GError *error = NULL;
 	EvPage *page = ev_document_get_page (EV_JOB(job_thumb)->document, job_thumb->page);
 	job_thumb->surface = webkit_web_view_get_snapshot_finish (webview,
 	                                                          results,
-	                                                          NULL);
+	                                                          &error);
+
+	if (error) {
+		g_warning ("Error retrieving a snapshot: %s", error->message);
+	}
+
 	EvRenderContext *rc = ev_render_context_new (page, job_thumb->rotation, job_thumb->scale);
 	EvPage *screenshotpage;
 	screenshotpage = ev_page_new(job_thumb->page);
@@ -898,6 +904,18 @@ web_thumbnail_get_screenshot_cb (WebKitWebView  *webview,
 	                              NULL,
 	                              (GAsyncReadyCallback)snapshot_callback,
 	                              g_object_ref(job_thumb));
+}
+
+static gboolean
+webview_load_failed_cb (WebKitWebView  *webview,
+                        WebKitLoadEvent event,
+                        gchar          *failing_uri,
+                        gpointer        error,
+                        gpointer        user_data)
+{
+	GError *e = (GError *) error;
+	g_warning ("Error loading data from %s: %s", failing_uri, e->message);
+	return TRUE;
 }
 #endif  /* GTK_CHECK_VERSION */
 #endif  /* ENABLE_EPUB */
@@ -931,8 +949,21 @@ ev_job_thumbnail_run (EvJob *job)
 	if (job->document->iswebdocument == TRUE) {
 		if (!webview) {
 			webview = webkit_web_view_new();
+#if !GTK_CHECK_VERSION (3, 0, 0)
+			g_idle_add_full (G_PRIORITY_DEFAULT_IDLE,
+			                 (GSourceFunc)web_thumbnail_get_screenshot_cb,
+			                  g_object_ref (job_thumb),
+			                 (GDestroyNotify)g_object_unref);
+#else
+			g_signal_connect(WEBKIT_WEB_VIEW(webview),"load-changed",
+			                 G_CALLBACK(web_thumbnail_get_screenshot_cb),
+			                 g_object_ref(job_thumb));
+			g_signal_connect(WEBKIT_WEB_VIEW(webview),"load-failed",
+			                 G_CALLBACK(webview_load_failed_cb),
+			                 NULL);
+#endif  /* GTK_CHECK_VERSION */
 		}
-			
+
 		if (!offscreenwindow) {
 			offscreenwindow = gtk_offscreen_window_new();
 			gtk_container_add(GTK_CONTAINER(offscreenwindow),GTK_WIDGET(webview));
@@ -941,16 +972,6 @@ ev_job_thumbnail_run (EvJob *job)
 		}
 
 		webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),(gchar*)rc->page->backend_page);
-#if !GTK_CHECK_VERSION (3, 0, 0) 
-		g_idle_add_full (G_PRIORITY_DEFAULT_IDLE,
-		                 (GSourceFunc)web_thumbnail_get_screenshot_cb,
-		                  g_object_ref (job_thumb),
-		                 (GDestroyNotify)g_object_unref);
-#else
-		g_signal_connect(WEBKIT_WEB_VIEW(webview),"load-changed",
-		                 G_CALLBACK(web_thumbnail_get_screenshot_cb),
-		                 g_object_ref(job_thumb));
-#endif  /* GTK_CHECK_VERSION */
 	}
 	else 
 #endif  /* ENABLE_EPUB */
