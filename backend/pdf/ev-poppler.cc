@@ -1071,8 +1071,8 @@ ev_link_dest_from_dest (PdfDocument *pdf_document,
 
 	if (unimplemented_dest) {
 		g_warning ("Unimplemented destination: %s, please post a "
-		           "bug report in Atril bugzilla "
-		           "(http://bugzilla.mate.org) with a testcase.",
+		           "bug report on Atril bug tracker "
+		           "(https://github.com/mate-desktop/atril/issues) with a testcase.",
 			   unimplemented_dest);
 	}
 
@@ -1173,7 +1173,7 @@ ev_link_from_action (PdfDocument   *pdf_document,
 	
 	if (unimplemented_action) {
 		g_warning ("Unimplemented action: %s, please post a bug report "
-			   "in Atril bugzilla (http://bugzilla.mate.org) "
+			   "on Atril bug tracker (https://github.com/mate-desktop/atril/issues) "
 			   "with a testcase.", unimplemented_action);
 	}
 	
@@ -2640,8 +2640,8 @@ ev_annot_from_poppler_annot (PopplerAnnot *poppler_annot,
 
 	if (unimplemented_annot) {
 		g_warning ("Unimplemented annotation: %s, please post a "
-		           "bug report in Atril bugzilla "
-		           "(http://bugzilla.mate.org) with a testcase.",
+		           "bug report on Atril bug tracker "
+		           "(https://github.com/mate-desktop/atril/issues) with a testcase.",
 			   unimplemented_annot);
 	}
 

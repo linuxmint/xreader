@@ -6644,8 +6644,8 @@ do_action_named (EvWindow *window, EvLinkAction *action)
 		ev_window_cmd_file_print (NULL, window);
 	} else {
 		g_warning ("Unimplemented named action: %s, please post a "
-		           "bug report in Atril bugzilla "
-		           "(http://bugzilla.mate.org) with a testcase.",
+		           "bug report on Atril bug tracker "
+		           "(https://github.com/mate-desktop/atril/issues) with a testcase.",
 			   name);
 	}
 }
