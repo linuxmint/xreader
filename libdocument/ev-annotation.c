@@ -1,5 +1,5 @@
 /* ev-annotation.c
- *  this file is part of xreader, a mate document viewer
+ *  this file is part of xreader, a generic document viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos <carlosgc@gnome.org>
  * Copyright (C) 2007 Iñigo Martinez <inigomartinez@gmail.com>
@@ -97,6 +97,7 @@ enum {
 	PROP_MARKUP_0,
 	PROP_MARKUP_LABEL,
 	PROP_MARKUP_OPACITY,
+	PROP_MARKUP_CAN_HAVE_POPUP,
 	PROP_MARKUP_HAS_POPUP,
 	PROP_MARKUP_RECTANGLE,
 	PROP_MARKUP_POPUP_IS_OPEN
@@ -251,28 +252,32 @@ ev_annotation_class_init (EvAnnotationClass *klass)
 							      "Page",
 							      "The page wehere the annotation is",
 							      EV_TYPE_PAGE,
-							      G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY));
+							      G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY |
+                                  G_PARAM_STATIC_STRINGS));
 	g_object_class_install_property (g_object_class,
 					 PROP_ANNOT_CONTENTS,
 					 g_param_spec_string ("contents",
 							      "Contents",
 							      "The annotation contents",
 							      NULL,
-							      G_PARAM_READWRITE));
+							      G_PARAM_READWRITE |
+                                  G_PARAM_STATIC_STRINGS));
 	g_object_class_install_property (g_object_class,
 					 PROP_ANNOT_NAME,
 					 g_param_spec_string ("name",
 							      "Name",
 							      "The annotation unique name",
 							      NULL,
-							      G_PARAM_READWRITE));
+							      G_PARAM_READWRITE |
+                                  G_PARAM_STATIC_STRINGS));
 	g_object_class_install_property (g_object_class,
 					 PROP_ANNOT_MODIFIED,
 					 g_param_spec_string ("modified",
 							      "Modified",
 							      "Last modified date as string",
 							      NULL,
-							      G_PARAM_READWRITE));
+							      G_PARAM_READWRITE |
+                                  G_PARAM_STATIC_STRINGS));
     /**
      * EvAnnotation:color:
      *
@@ -285,7 +290,8 @@ ev_annotation_class_init (EvAnnotationClass *klass)
 					 g_param_spec_pointer ("color",
 							       "Color",
 							       "The annotation color",
-							       G_PARAM_READWRITE));
+							       G_PARAM_READWRITE |
+                                  G_PARAM_STATIC_STRINGS));
 
     /**
      * EvAnnotation:rgba:
@@ -643,6 +649,7 @@ ev_annotation_set_rgba (EvAnnotation  *annot,
 
     annot->rgba = *rgba;
     g_object_notify (G_OBJECT (annot), "rgba");
+	g_object_notify (G_OBJECT (annot), "color");
 
     return TRUE;
 }
@@ -651,6 +658,7 @@ ev_annotation_set_rgba (EvAnnotation  *annot,
 typedef struct {
 	gchar   *label;
 	gdouble  opacity;
+	gboolean can_have_popup;
 	gboolean has_popup;
 	gboolean popup_is_open;
 	EvRectangle rectangle;
@@ -667,7 +675,8 @@ ev_annotation_markup_default_init (EvAnnotationMarkupInterface *iface)
 									  "Label",
 									  "Label of the markup annotation",
 									  NULL,
-									  G_PARAM_READWRITE));
+									  G_PARAM_READWRITE |
+                                      G_PARAM_STATIC_STRINGS));
 		g_object_interface_install_property (iface,
 						     g_param_spec_double ("opacity",
 									  "Opacity",
@@ -675,28 +684,40 @@ ev_annotation_markup_default_init (EvAnnotationMarkupInterface *iface)
 									  0,
 									  G_MAXDOUBLE,
 									  1.,
-									  G_PARAM_READWRITE));
+									  G_PARAM_READWRITE |
+                                      G_PARAM_STATIC_STRINGS));
 		g_object_interface_install_property (iface,
-						     g_param_spec_boolean ("has_popup",
+						     g_param_spec_boolean ("can-have-popup",
+									   "Can have popup",
+									   "Whether it is allowed to have a popup "
+									   "window for this type of markup annotation",
+									   FALSE,
+									   G_PARAM_READWRITE |
+                                                                           G_PARAM_STATIC_STRINGS));
+		g_object_interface_install_property (iface,
+						     g_param_spec_boolean ("has-popup",
 									   "Has popup",
 									   "Whether the markup annotation has "
 									   "a popup window associated",
 									   TRUE,
-									   G_PARAM_READWRITE));
+									   G_PARAM_READWRITE |
+                                       G_PARAM_STATIC_STRINGS));
 		g_object_interface_install_property (iface,
 						     g_param_spec_boxed ("rectangle",
 									 "Rectangle",
 									 "The Rectangle of the popup associated "
 									 "to the markup annotation",
 									 EV_TYPE_RECTANGLE,
-									 G_PARAM_READWRITE));
+									 G_PARAM_READWRITE |
+                                     G_PARAM_STATIC_STRINGS));
 		g_object_interface_install_property (iface,
-						     g_param_spec_boolean ("popup_is_open",
+						     g_param_spec_boolean ("popup-is-open",
 									   "PopupIsOpen",
 									   "Whether the popup associated to "
 									   "the markup annotation is open",
 									   FALSE,
-									   G_PARAM_READWRITE));
+									   G_PARAM_READWRITE |
+                                       G_PARAM_STATIC_STRINGS));
 		initialized = TRUE;
 	}
 }
@@ -743,6 +764,13 @@ ev_annotation_markup_set_property (GObject      *object,
 	case PROP_MARKUP_OPACITY:
 		ev_annotation_markup_set_opacity (markup, g_value_get_double (value));
 		break;
+	case PROP_MARKUP_CAN_HAVE_POPUP: {
+                EvAnnotationMarkupProps *props;
+
+                props = ev_annotation_markup_get_properties (markup);
+                props->can_have_popup = g_value_get_boolean (value);
+		break;
+        }
 	case PROP_MARKUP_HAS_POPUP:
 		ev_annotation_markup_set_has_popup (markup, g_value_get_boolean (value));
 		break;
@@ -774,6 +802,9 @@ ev_annotation_markup_get_property (GObject    *object,
 	case PROP_MARKUP_OPACITY:
 		g_value_set_double (value, props->opacity);
 		break;
+	case PROP_MARKUP_CAN_HAVE_POPUP:
+		g_value_set_boolean (value, props->can_have_popup);
+		break;
 	case PROP_MARKUP_HAS_POPUP:
 		g_value_set_boolean (value, props->has_popup);
 		break;
@@ -796,9 +827,10 @@ ev_annotation_markup_class_install_properties (GObjectClass *klass)
 
 	g_object_class_override_property (klass, PROP_MARKUP_LABEL, "label");
 	g_object_class_override_property (klass, PROP_MARKUP_OPACITY, "opacity");
-	g_object_class_override_property (klass, PROP_MARKUP_HAS_POPUP, "has_popup");
+	g_object_class_override_property (klass, PROP_MARKUP_CAN_HAVE_POPUP, "can-have-popup");
+	g_object_class_override_property (klass, PROP_MARKUP_HAS_POPUP, "has-popup");
 	g_object_class_override_property (klass, PROP_MARKUP_RECTANGLE, "rectangle");
-	g_object_class_override_property (klass, PROP_MARKUP_POPUP_IS_OPEN, "popup_is_open");
+	g_object_class_override_property (klass, PROP_MARKUP_POPUP_IS_OPEN, "popup-is-open");
 }
 
 const gchar *
@@ -862,6 +894,17 @@ ev_annotation_markup_set_opacity (EvAnnotationMarkup *markup,
 	g_object_notify (G_OBJECT (markup), "opacity");
 
 	return TRUE;
+}
+
+gboolean
+ev_annotation_markup_can_have_popup (EvAnnotationMarkup *markup)
+{
+	EvAnnotationMarkupProps *props;
+
+	g_return_val_if_fail (EV_IS_ANNOTATION_MARKUP (markup), FALSE);
+
+	props = ev_annotation_markup_get_properties (markup);
+	return props->can_have_popup;
 }
 
 gboolean
@@ -1034,14 +1077,16 @@ ev_annotation_text_class_init (EvAnnotationTextClass *klass)
 							    "The icon fo the text annotation",
 							    EV_TYPE_ANNOTATION_TEXT_ICON,
 							    EV_ANNOTATION_TEXT_ICON_NOTE,
-							    G_PARAM_READWRITE));
+							    G_PARAM_READWRITE |
+         						G_PARAM_STATIC_STRINGS));
 	g_object_class_install_property (g_object_class,
 					 PROP_TEXT_IS_OPEN,
-					 g_param_spec_boolean ("is_open",
+					 g_param_spec_boolean ("is-open",
 							       "IsOpen",
 							       "Whether text annot is initially open",
 							       FALSE,
-							       G_PARAM_READWRITE));
+							       G_PARAM_READWRITE |
+                                   G_PARAM_STATIC_STRINGS));
 }
 
 static void
@@ -1187,7 +1232,8 @@ ev_annotation_attachment_class_init (EvAnnotationAttachmentClass *klass)
 							      "The attachment of the annotation",
 							      EV_TYPE_ATTACHMENT,
 							      G_PARAM_CONSTRUCT |
-							      G_PARAM_READWRITE));
+							      G_PARAM_READWRITE |
+                                  G_PARAM_STATIC_STRINGS));
 }
 
 static void

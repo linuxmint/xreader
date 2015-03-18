@@ -134,8 +134,10 @@ gboolean             ev_annotation_set_modified              (EvAnnotation      
                                                               const gchar            *modified);
 gboolean             ev_annotation_set_modified_from_time    (EvAnnotation           *annot,
                                                               GTime                   utime);
+EV_DEPRECATED_FOR(ev_annotaion_get_rgba)
 void                 ev_annotation_get_color                 (EvAnnotation           *annot,
                                                               GdkColor               *color);
+EV_DEPRECATED_FOR(ev_annotaion_set_rgba)
 gboolean             ev_annotation_set_color                 (EvAnnotation           *annot,
                                                               const GdkColor         *color);
 void                 ev_annotation_get_rgba                  (EvAnnotation           *annot,
@@ -151,6 +153,7 @@ gboolean             ev_annotation_markup_set_label          (EvAnnotationMarkup
 gdouble              ev_annotation_markup_get_opacity        (EvAnnotationMarkup     *markup);
 gboolean             ev_annotation_markup_set_opacity        (EvAnnotationMarkup     *markup,
                                                               gdouble                 opacity);
+gboolean             ev_annotation_markup_can_have_popup     (EvAnnotationMarkup     *markup);
 gboolean             ev_annotation_markup_has_popup          (EvAnnotationMarkup     *markup);
 gboolean             ev_annotation_markup_set_has_popup      (EvAnnotationMarkup     *markup,
                                                               gboolean                has_popup);
