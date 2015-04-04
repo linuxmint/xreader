@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Asier Iturralde Sarasola <asier.iturralde@gmail.com>, 2015
 # Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2005, 2006, 2007, 2008, 2009, 2010
 # Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2007
 # Mikel Olasagasti <hey_neken@mundurat.net>, 2005
@@ -10,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 15:24+0100\n"
-"PO-Revision-Date: 2014-12-10 14:26+0000\n"
-"Last-Translator: infirit <infirit@gmail.com>\n"
+"POT-Creation-Date: 2014-12-29 13:39+0100\n"
+"PO-Revision-Date: 2015-03-24 21:38+0000\n"
+"Last-Translator: Asier Iturralde Sarasola <asier.iturralde@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/MATE/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -104,63 +105,63 @@ msgstr "DVI dokumentuak"
 
 #: ../backend/epub/epub-document.c:633
 msgid "Not an ePub document"
-msgstr ""
+msgstr "Ez da ePub dokumentua"
 
 #: ../backend/epub/epub-document.c:734
 msgid "could not retrieve filename"
-msgstr ""
+msgstr "ezin izan da fitxategi-izena berreskuratu"
 
 #: ../backend/epub/epub-document.c:762
 msgid "could not open archive"
-msgstr ""
+msgstr "ezin izan da artxiboa ireki"
 
 #: ../backend/epub/epub-document.c:778 ../backend/epub/epub-document.c:794
 msgid "could not extract archive"
-msgstr ""
+msgstr "ezin izan da artxiboa erauzi"
 
 #: ../backend/epub/epub-document.c:826 ../backend/epub/epub-document.c:909
 msgid "could not retrieve container file"
-msgstr ""
+msgstr "ezin izan da edukiontzi-fitxategia berreskuratu"
 
 #: ../backend/epub/epub-document.c:838
 msgid "could not open container file"
-msgstr ""
+msgstr "ezin izan da edukiontzi-fitxategia ireki"
 
 #: ../backend/epub/epub-document.c:848
 msgid "container file is corrupt"
-msgstr ""
+msgstr "edukiontzi-fitxategia hondatuta"
 
 #: ../backend/epub/epub-document.c:858
-msgid "epub file is invalid or corrput"
-msgstr ""
+msgid "epub file is invalid or corrupt"
+msgstr "epub fitxategi baliogabea edo hondatuta"
 
 #: ../backend/epub/epub-document.c:868
-msgid "epub file is corrupt,no container"
-msgstr ""
+msgid "epub file is corrupt, no container"
+msgstr "epub fitxategia hondatuta dago, edukiontzirik ez"
 
 #: ../backend/epub/epub-document.c:953
 msgid "could not parse content manifest"
-msgstr ""
+msgstr "ezin izan da edukiaren manifestua analizatu"
 
 #: ../backend/epub/epub-document.c:962
 msgid "content file is invalid"
-msgstr ""
+msgstr "eduki-fitxategi baliogabea"
 
 #: ../backend/epub/epub-document.c:971
 msgid "epub file has no spine"
-msgstr ""
+msgstr "epub fitxategiak ez dauka bizkarrik"
 
 #: ../backend/epub/epub-document.c:980
 msgid "epub file has no manifest"
-msgstr ""
+msgstr "epub fitxategiak ez dauka manifesturik"
 
 #: ../backend/epub/epub-document.c:1066
 msgid "Could not set up document tree for loading, some files missing"
-msgstr ""
+msgstr "Ezin izan da dokumentu-zuhaitza konfiguratu kargatzeko, fitxategiak falta dira"
 
 #: ../backend/epub/epubdocument.atril-backend.in.h:1
 msgid "epub Documents"
-msgstr ""
+msgstr "epub dokumentuak"
 
 #: ../backend/pdf/ev-poppler.cc:520
 msgid "This work is in the Public Domain"
@@ -461,7 +462,7 @@ msgstr "%6400"
 
 #: ../data/atril.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
-msgstr ""
+msgstr "MATE mahaigain ingurunerako dokumentu ikustailea"
 
 #: ../data/atril.appdata.xml.in.h:2
 msgid ""
@@ -477,7 +478,7 @@ msgstr ""
 
 #: ../data/atril.desktop.in.in.h:1
 msgid "Atril Document Viewer"
-msgstr ""
+msgstr "Atril dokumentu ikustailea"
 
 #. Manually set name and icon
 #: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:4992
@@ -489,14 +490,6 @@ msgstr "Dokumentu ikustailea"
 #: ../data/atril.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr "Ikusi orrialde anitzeko dokumentuak"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:1
-msgid "Override document restrictions"
-msgstr "Jaramonik ez egin dokumentuaren murriztapenei"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:2
-msgid "Override document restrictions, like restriction to copy or to print."
-msgstr "Jaramonik ez egin dokumentuaren kopiatzeko edo inprimatzeko bezalako murriztapenei"
 
 #: ../previewer/ev-previewer.c:44
 msgid "Delete the temporary file"
@@ -676,11 +669,11 @@ msgstr "%s, horizontala (%s)"
 
 #: ../properties/libatril-properties-page.caja-extension.in.h:1
 msgid "Atril properties"
-msgstr ""
+msgstr "Atril propietateak"
 
 #: ../properties/libatril-properties-page.caja-extension.in.h:2
 msgid "Shows details for Atril documents"
-msgstr ""
+msgstr "Erakutsi Atril dokumentuen xehetasunak"
 
 #: ../libmisc/ev-page-action-widget.c:68
 #, c-format
@@ -874,7 +867,7 @@ msgstr "Hitzaren hurrengo agerraldia bilatzen du"
 
 #: ../shell/eggfindbar.c:350
 msgid "Case Sensitive"
-msgstr ""
+msgstr "M_aiuskulak/minuskulak"
 
 #: ../shell/eggfindbar.c:353
 msgid "Toggle case sensitive search"
@@ -1101,15 +1094,15 @@ msgstr "Eranskinak"
 
 #: ../shell/ev-sidebar-bookmarks.c:152
 msgid "_Open Bookmark"
-msgstr ""
+msgstr "_Ireki laster-marka"
 
 #: ../shell/ev-sidebar-bookmarks.c:154
 msgid "_Rename Bookmark"
-msgstr ""
+msgstr "_Berrizendatu laster-marka"
 
 #: ../shell/ev-sidebar-bookmarks.c:156
 msgid "_Remove Bookmark"
-msgstr ""
+msgstr "_Kendu laster-marka"
 
 #: ../shell/ev-sidebar-bookmarks.c:311 ../shell/ev-window.c:951
 #: ../shell/ev-window.c:4719
@@ -1119,7 +1112,7 @@ msgstr "%s orrialdea"
 
 #: ../shell/ev-sidebar-bookmarks.c:609
 msgid "Bookmarks"
-msgstr ""
+msgstr "Laster-markak"
 
 #: ../shell/ev-sidebar-layers.c:444
 msgid "Layers"
@@ -1383,7 +1376,7 @@ msgstr "J_oan"
 
 #: ../shell/ev-window.c:5980
 msgid "_Bookmarks"
-msgstr ""
+msgstr "_Laster-markak"
 
 #: ../shell/ev-window.c:5981
 msgid "_Help"
@@ -1485,11 +1478,11 @@ msgstr "Joan azkeneko orrialdera"
 #. Bookmarks menu
 #: ../shell/ev-window.c:6055
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "_Gehitu laster-marka"
 
 #: ../shell/ev-window.c:6056
 msgid "Add a bookmark for the current page"
-msgstr ""
+msgstr "Gehitu laster-marka uneko orriari"
 
 #. Help menu
 #: ../shell/ev-window.c:6060

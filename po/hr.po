@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Ivica  Kolić <ikoli@yahoo.com>, 2013-2014
+# Ivica  Kolić <ikoli@yahoo.com>, 2013-2015
 # Tomislav Krznar <tomislav.krznar@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 15:24+0100\n"
-"PO-Revision-Date: 2014-12-10 14:26+0000\n"
-"Last-Translator: infirit <infirit@gmail.com>\n"
+"POT-Creation-Date: 2014-12-29 13:39+0100\n"
+"PO-Revision-Date: 2015-03-25 17:42+0000\n"
+"Last-Translator: Ivica  Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/MATE/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,7 +103,7 @@ msgstr "DVI dokumenti"
 
 #: ../backend/epub/epub-document.c:633
 msgid "Not an ePub document"
-msgstr ""
+msgstr "NIje  ePub dokument"
 
 #: ../backend/epub/epub-document.c:734
 msgid "could not retrieve filename"
@@ -130,11 +130,11 @@ msgid "container file is corrupt"
 msgstr ""
 
 #: ../backend/epub/epub-document.c:858
-msgid "epub file is invalid or corrput"
+msgid "epub file is invalid or corrupt"
 msgstr "epub datoteka je neispravna ili oštećena"
 
 #: ../backend/epub/epub-document.c:868
-msgid "epub file is corrupt,no container"
+msgid "epub file is corrupt, no container"
 msgstr ""
 
 #: ../backend/epub/epub-document.c:953
@@ -489,14 +489,6 @@ msgstr "Preglednik dokumenata"
 msgid "View multi-page documents"
 msgstr "Pogledaj višestranične dokumente"
 
-#: ../data/org.mate.Atril.gschema.xml.in.h:1
-msgid "Override document restrictions"
-msgstr "Zaobiđi ograničenja dokumenta"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:2
-msgid "Override document restrictions, like restriction to copy or to print."
-msgstr "Zaobiđi ograničenja dokumenta, poput zabrane kopiranja ili ispisa."
-
 #: ../previewer/ev-previewer.c:44
 msgid "Delete the temporary file"
 msgstr "Izbriši privremenu datoteku"
@@ -797,7 +789,7 @@ msgstr ""
 
 #: ../libview/ev-view-accessible.c:883
 msgid "Document View"
-msgstr ""
+msgstr "Pogled dokumenta"
 
 #: ../libview/ev-view-presentation.c:722
 msgid "Jump to page:"
@@ -873,7 +865,7 @@ msgstr "Pronađi sljedeću pojavu niza koji se pretražuje"
 
 #: ../shell/eggfindbar.c:350
 msgid "Case Sensitive"
-msgstr ""
+msgstr "Osjetljivo na velika i mala slova"
 
 #: ../shell/eggfindbar.c:353
 msgid "Toggle case sensitive search"
@@ -1100,15 +1092,15 @@ msgstr "Privici"
 
 #: ../shell/ev-sidebar-bookmarks.c:152
 msgid "_Open Bookmark"
-msgstr ""
+msgstr "_Otvori zabilješku"
 
 #: ../shell/ev-sidebar-bookmarks.c:154
 msgid "_Rename Bookmark"
-msgstr ""
+msgstr "_Preimenuj zabilješku"
 
 #: ../shell/ev-sidebar-bookmarks.c:156
 msgid "_Remove Bookmark"
-msgstr ""
+msgstr "_Ukloni zabilješku"
 
 #: ../shell/ev-sidebar-bookmarks.c:311 ../shell/ev-window.c:951
 #: ../shell/ev-window.c:4719
@@ -1118,7 +1110,7 @@ msgstr "Stranica %s"
 
 #: ../shell/ev-sidebar-bookmarks.c:609
 msgid "Bookmarks"
-msgstr ""
+msgstr "Zabilješke"
 
 #: ../shell/ev-sidebar-layers.c:444
 msgid "Layers"
@@ -1384,7 +1376,7 @@ msgstr "_Idi"
 
 #: ../shell/ev-window.c:5980
 msgid "_Bookmarks"
-msgstr ""
+msgstr "_Zabilješke"
 
 #: ../shell/ev-window.c:5981
 msgid "_Help"
@@ -1486,11 +1478,11 @@ msgstr "Idi na zadnju stranicu"
 #. Bookmarks menu
 #: ../shell/ev-window.c:6055
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "_Dodaj zabilješku"
 
 #: ../shell/ev-window.c:6056
 msgid "Add a bookmark for the current page"
-msgstr ""
+msgstr "Dodaj zabilješku za trenutnu stranicu"
 
 #. Help menu
 #: ../shell/ev-window.c:6060
@@ -1569,11 +1561,11 @@ msgstr "Pokreni dokument kao prezentaciju"
 
 #: ../shell/ev-window.c:6154
 msgid "_Inverted Colors"
-msgstr ""
+msgstr "_Obrnute boje"
 
 #: ../shell/ev-window.c:6155
 msgid "Show page contents with the colors inverted"
-msgstr ""
+msgstr "Prikaži sadržaj stranice sa obrnutim bojama"
 
 #. Links
 #: ../shell/ev-window.c:6163
@@ -1668,7 +1660,7 @@ msgstr "Nije moguće otvoriti vanjsku poveznicu"
 
 #: ../shell/ev-window.c:6784
 msgid "Couldn't find appropriate format to save image"
-msgstr ""
+msgstr "Nisam mogao naći prikladni format za spremanje slike"
 
 #: ../shell/ev-window.c:6816
 msgid "The image could not be saved."

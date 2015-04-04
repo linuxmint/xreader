@@ -3,17 +3,18 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Carlos Moreira <crolidge@gmail.com>, 2014
+# Carlos Moreira <crolidge@gmail.com>, 2014-2015
 # Duarte Loreto <happyguy_pt@hotmail.com>, 2005, 2006, 2007, 2008, 2009, 2010
 # Gonçalo Silva <de2a9293@opayq.com>, 2013
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2015
 # Sérgio Marques <smarquespt@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 15:24+0100\n"
-"PO-Revision-Date: 2014-12-10 14:26+0000\n"
-"Last-Translator: infirit <infirit@gmail.com>\n"
+"POT-Creation-Date: 2014-12-29 13:39+0100\n"
+"PO-Revision-Date: 2015-03-17 02:48+0000\n"
+"Last-Translator: Carlos Moreira <crolidge@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/MATE/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -132,12 +133,12 @@ msgid "container file is corrupt"
 msgstr "ficheiro do contentor está corrupto"
 
 #: ../backend/epub/epub-document.c:858
-msgid "epub file is invalid or corrput"
-msgstr "ficheiro epub está inválido ou corrupto"
+msgid "epub file is invalid or corrupt"
+msgstr "ficheiro epub está inválido ou corrompido"
 
 #: ../backend/epub/epub-document.c:868
-msgid "epub file is corrupt,no container"
-msgstr "ficheiro epub está corrupto, sem contentor"
+msgid "epub file is corrupt, no container"
+msgstr "ficheiro epub está corrompido, sem delimitador abstrato"
 
 #: ../backend/epub/epub-document.c:953
 msgid "could not parse content manifest"
@@ -490,14 +491,6 @@ msgstr "Visualizador de Documentos"
 #: ../data/atril.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr "Visualizar documentos com várias páginas"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:1
-msgid "Override document restrictions"
-msgstr "Ignorar restrições do documento"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:2
-msgid "Override document restrictions, like restriction to copy or to print."
-msgstr "Ignorar restrições do documento, tais como restrições de cópia ou impressão."
 
 #: ../previewer/ev-previewer.c:44
 msgid "Delete the temporary file"
@@ -1102,15 +1095,15 @@ msgstr "Anexos"
 
 #: ../shell/ev-sidebar-bookmarks.c:152
 msgid "_Open Bookmark"
-msgstr ""
+msgstr "_Abrir Marcador"
 
 #: ../shell/ev-sidebar-bookmarks.c:154
 msgid "_Rename Bookmark"
-msgstr ""
+msgstr "_Renomear Marcador"
 
 #: ../shell/ev-sidebar-bookmarks.c:156
 msgid "_Remove Bookmark"
-msgstr ""
+msgstr "_Remover Marcador"
 
 #: ../shell/ev-sidebar-bookmarks.c:311 ../shell/ev-window.c:951
 #: ../shell/ev-window.c:4719
@@ -1120,7 +1113,7 @@ msgstr "Página %s"
 
 #: ../shell/ev-sidebar-bookmarks.c:609
 msgid "Bookmarks"
-msgstr ""
+msgstr "Marcadores"
 
 #: ../shell/ev-sidebar-layers.c:444
 msgid "Layers"
@@ -1277,11 +1270,11 @@ msgstr "Aguardar até que o trabalho de impressão “%s” termine antes de fec
 #, c-format
 msgid ""
 "There are %d print jobs active. Wait until print finishes before closing?"
-msgstr "Existem %d trabalhos de impressão ativos. Aguardar até que a impressão termine antes de fechar?"
+msgstr "Há%d trabalhos de impressão ativos. Aguardar até que a impressão termine antes de fechar?"
 
 #: ../shell/ev-window.c:3710
 msgid "If you close the window, pending print jobs will not be printed."
-msgstr "Se fechar a janela, os trabalhos de impressão pendentes não serão impressos"
+msgstr "Se fechar a janela, os trabalhos de impressão pendentes não serão impressos."
 
 #: ../shell/ev-window.c:3714
 msgid "Cancel _print and Close"
@@ -1316,7 +1309,7 @@ msgid ""
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
-msgstr "O Atril é um programa livre; pode redistribuí-lo e/ou alterá-lo nos termos da GNU General Public License tal como publicada pela Free Software Foundation; ou a versão 2 da licença ou (por opção) qualquer versão posterior.\n"
+msgstr "O Atril é um programa livre; pode redistribuí-lo e/ou alterá-lo nos termos da Licença Pública Genérica GNU, tal como publicada pela Free Software Foundation; ou a versão 2 da licença ou (por opção) qualquer versão posterior.\n"
 
 #: ../shell/ev-window.c:5027
 msgid ""
@@ -1324,14 +1317,14 @@ msgid ""
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
-msgstr "O Atril é distribuído na expetativa de que possa ser útil, mas SEM QUALQUER GARANTIA; nem mesmo a garantia implícita de COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM DETERMINADO FIM.  Consulte a GNU General Public License para mais detalhes.\n"
+msgstr "O Atril é distribuído na expetativa de que possa ser útil, mas SEM QUALQUER GARANTIA; nem mesmo a garantia implícita de COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM DETERMINADO FIM. Consulte a Licença Pública Genérica GNU para mais detalhes.\n"
 
 #: ../shell/ev-window.c:5031
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
-msgstr "Deverá ter recebido uma cópia da GNU General Public License juntamente com o Atril; caso contrário, escreva para a Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA (em inglês)\n"
+msgstr "Deverá ter recebido uma cópia da Liçença Pública GNU juntamente com o Atril; caso contrário, escreva para a Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA (em inglês)\n"
 
 #: ../shell/ev-window.c:5056
 msgid "Atril"
@@ -1384,7 +1377,7 @@ msgstr "_Ir"
 
 #: ../shell/ev-window.c:5980
 msgid "_Bookmarks"
-msgstr ""
+msgstr "_Marcadores"
 
 #: ../shell/ev-window.c:5981
 msgid "_Help"
@@ -1486,11 +1479,11 @@ msgstr "Ir para a última página"
 #. Bookmarks menu
 #: ../shell/ev-window.c:6055
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "_Adicionar Marcador"
 
 #: ../shell/ev-window.c:6056
 msgid "Add a bookmark for the current page"
-msgstr ""
+msgstr "Adicionar um marcador à página atual"
 
 #. Help menu
 #: ../shell/ev-window.c:6060
@@ -1586,7 +1579,7 @@ msgstr "_Ir para"
 
 #: ../shell/ev-window.c:6167
 msgid "Open in New _Window"
-msgstr "Abrir numa mova _janela"
+msgstr "Abrir numa nova _janela"
 
 #: ../shell/ev-window.c:6169
 msgid "_Copy Link Address"
@@ -1660,7 +1653,7 @@ msgstr "Ajustar à largura"
 
 #: ../shell/ev-window.c:6519 ../shell/ev-window.c:6536
 msgid "Unable to launch external application."
-msgstr "Incapaz de iniciar a aplicação externa"
+msgstr "Incapaz de iniciar a aplicação externa."
 
 #: ../shell/ev-window.c:6593
 msgid "Unable to open external link"
@@ -1672,7 +1665,7 @@ msgstr "Incapaz de encontrar o formato apropriado para gravar a imagem"
 
 #: ../shell/ev-window.c:6816
 msgid "The image could not be saved."
-msgstr "Incapaz de gravar a imagem"
+msgstr "Incapaz de gravar a imagem."
 
 #: ../shell/ev-window.c:6848
 msgid "Save Image"
@@ -1684,7 +1677,7 @@ msgstr "Incapaz de abrir anexo"
 
 #: ../shell/ev-window.c:7031
 msgid "The attachment could not be saved."
-msgstr "Incapaz de gravar anexo"
+msgstr "Incapaz de gravar o anexo."
 
 #: ../shell/ev-window.c:7076
 msgid "Save Attachment"
@@ -1701,11 +1694,11 @@ msgstr "Por extensão"
 
 #: ../shell/main.c:69 ../shell/main.c:270
 msgid "MATE Document Viewer"
-msgstr "Visualizador de documentos do MATE"
+msgstr "Visualizador de Documentos MATE"
 
 #: ../shell/main.c:77
 msgid "The page label of the document to display."
-msgstr "A etiqueta de página do documento a mostrar"
+msgstr "A etiqueta label do documento a mostrar."
 
 #: ../shell/main.c:77
 msgid "PAGE"
@@ -1713,7 +1706,7 @@ msgstr "PÁGINA"
 
 #: ../shell/main.c:78
 msgid "The page number of the document to display."
-msgstr "O número da página do documento a mostrar"
+msgstr "O número da página do documento a mostrar."
 
 #: ../shell/main.c:78
 msgid "NUMBER"

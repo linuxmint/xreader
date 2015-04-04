@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Falu.Me, 2015
 # Gabor Kelemen <kelemeng at mate dot hu>, 2005, 2006, 2007, 2008, 2009, 2010
-# Rezső Páder <rezso@rezso.net>, 2013-2014
+# Rezső Páder <rezso@rezso.net>, 2013-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 15:24+0100\n"
-"PO-Revision-Date: 2014-12-10 14:26+0000\n"
-"Last-Translator: infirit <infirit@gmail.com>\n"
+"POT-Creation-Date: 2014-12-29 13:39+0100\n"
+"PO-Revision-Date: 2015-03-22 20:01+0000\n"
+"Last-Translator: Falu.Me\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/MATE/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -123,19 +124,19 @@ msgstr ""
 
 #: ../backend/epub/epub-document.c:838
 msgid "could not open container file"
-msgstr ""
+msgstr "a konténer fájl nem nyitható meg"
 
 #: ../backend/epub/epub-document.c:848
 msgid "container file is corrupt"
-msgstr ""
+msgstr "hibás konténer fájl"
 
 #: ../backend/epub/epub-document.c:858
-msgid "epub file is invalid or corrput"
-msgstr ""
+msgid "epub file is invalid or corrupt"
+msgstr "epub fáj érvénytelen vagy hibás"
 
 #: ../backend/epub/epub-document.c:868
-msgid "epub file is corrupt,no container"
-msgstr ""
+msgid "epub file is corrupt, no container"
+msgstr "epub fájl hibás, nem tartalmaz konténert"
 
 #: ../backend/epub/epub-document.c:953
 msgid "could not parse content manifest"
@@ -143,7 +144,7 @@ msgstr ""
 
 #: ../backend/epub/epub-document.c:962
 msgid "content file is invalid"
-msgstr ""
+msgstr "tartalomjegyzék fájl érvénytelen"
 
 #: ../backend/epub/epub-document.c:971
 msgid "epub file has no spine"
@@ -159,7 +160,7 @@ msgstr ""
 
 #: ../backend/epub/epubdocument.atril-backend.in.h:1
 msgid "epub Documents"
-msgstr ""
+msgstr "epub dokumentumok"
 
 #: ../backend/pdf/ev-poppler.cc:520
 msgid "This work is in the Public Domain"
@@ -460,7 +461,7 @@ msgstr "6400%"
 
 #: ../data/atril.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
-msgstr ""
+msgstr "Dokumentum megjelenítő a MATE asztali környezethez"
 
 #: ../data/atril.appdata.xml.in.h:2
 msgid ""
@@ -472,7 +473,7 @@ msgid ""
 " <p> Atril is a fork of Evince and part of the MATE Desktop Environment. If "
 "you would like to know more about MATE and Atril, please visit the project's"
 " home page. </p>"
-msgstr ""
+msgstr "<p>Az Atril egy egyszerű több-oldalas dokumentum megjelenítő. Meg tud jeleníteni és ki tud nyomtatni PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS és Portable Document Format (PDF) fájlokat, valamint képregény archívum fájlokat. Ha a dokumentum támogatja,lehetőség van szöveg keresésére, vágólap másolásra, hypertext navigációra és tartalomjegyzék könyvjelzőkre. </p> <p>Az Atril az Evince forkja, és a MATE asztali környezet része. További információk a MATE-ról és az Atril-ról a project honlapján találhatóak. </p>"
 
 #: ../data/atril.desktop.in.in.h:1
 msgid "Atril Document Viewer"
@@ -488,14 +489,6 @@ msgstr "Dokumentummegjelenítő"
 #: ../data/atril.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr "Többoldalas dokumentumok megjelenítése"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:1
-msgid "Override document restrictions"
-msgstr "A dokumentum korlátozásainak felülbírálása"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:2
-msgid "Override document restrictions, like restriction to copy or to print."
-msgstr "Dokumentum (például a másolásra vagy nyomtatásra vonatkozó) korlátozásainak felülbírálása."
 
 #: ../previewer/ev-previewer.c:44
 msgid "Delete the temporary file"
@@ -1100,15 +1093,15 @@ msgstr "Mellékletek"
 
 #: ../shell/ev-sidebar-bookmarks.c:152
 msgid "_Open Bookmark"
-msgstr ""
+msgstr "Könyvjelző _megnyitása"
 
 #: ../shell/ev-sidebar-bookmarks.c:154
 msgid "_Rename Bookmark"
-msgstr ""
+msgstr "Könyvjelző át_nevezése"
 
 #: ../shell/ev-sidebar-bookmarks.c:156
 msgid "_Remove Bookmark"
-msgstr ""
+msgstr "Könyvjelző _eltávolítása"
 
 #: ../shell/ev-sidebar-bookmarks.c:311 ../shell/ev-window.c:951
 #: ../shell/ev-window.c:4719
@@ -1118,7 +1111,7 @@ msgstr "Oldal: %s"
 
 #: ../shell/ev-sidebar-bookmarks.c:609
 msgid "Bookmarks"
-msgstr ""
+msgstr "Könyvjelzők"
 
 #: ../shell/ev-sidebar-layers.c:444
 msgid "Layers"
@@ -1157,7 +1150,7 @@ msgstr "A dokumentum csak üres oldalakat tartalmaz"
 
 #: ../shell/ev-window.c:1601
 msgid "Presentation mode is not supported for ePub documents."
-msgstr ""
+msgstr "A prezentáció mód nem érhető el az ePub dokumentumok számára."
 
 #: ../shell/ev-window.c:1802 ../shell/ev-window.c:1970
 msgid "Unable to open document"
@@ -1291,7 +1284,7 @@ msgstr "Bezárás nyomtatás _után"
 
 #: ../shell/ev-window.c:4151
 msgid "Presentation mode is not supported for ePub documents"
-msgstr ""
+msgstr "A prezentáció mód nem érhető el az ePub dokumentumok számára."
 
 #: ../shell/ev-window.c:4463
 msgid "Toolbar Editor"
@@ -1382,7 +1375,7 @@ msgstr "_Ugrás"
 
 #: ../shell/ev-window.c:5980
 msgid "_Bookmarks"
-msgstr ""
+msgstr "_Könyvjelzők"
 
 #: ../shell/ev-window.c:5981
 msgid "_Help"
@@ -1484,11 +1477,11 @@ msgstr "Ugrás az utolsó oldalra"
 #. Bookmarks menu
 #: ../shell/ev-window.c:6055
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "Könyvjelző hozzá_adása"
 
 #: ../shell/ev-window.c:6056
 msgid "Add a bookmark for the current page"
-msgstr ""
+msgstr "Könyvjelző hozzáadása a jelenlegi oldalhoz"
 
 #. Help menu
 #: ../shell/ev-window.c:6060
