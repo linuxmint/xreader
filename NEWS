@@ -1,12 +1,8 @@
-1.9.2
+1.9.90
 -----
 
  * Fix some crashes
  * comics backend: add support for bsdtar
-
-1.9.1
------
-
  * Add ini file for caja extension
  * Add appdata file
  * Many fixed memory leaks from monsta
@@ -41,10 +37,6 @@
  * Gtk3: Don't use gdk_cursor_unref()
  * Gtk3: Use gtk_widget_render_icon_pixbuf()
  * Gtk3: presentation: Make sure background window is black by default in presentation mode
-
-1.9.0
------
-
  * Add epub support (part of GSoC 2014).
  * Use MateAboutDialog from libmate-desktop.
 
