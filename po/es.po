@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Adolfo Jayme Barrientos <fito@libreoffice.org>, 2014
-# Adolfo Jayme Barrientos <fito@libreoffice.org>, 2014
+# Adolfo Jayme Barrientos, 2014
+# Adolfo Jayme Barrientos, 2014
 # Andres Sanchez <blackatze93@gmail.com>, 2014
 # Antonio Ognio <gnrfan@gnrfan.org, 2004, 2005
 # Daniel Fernandez <dfdez@ya.com>, 2005
 # difusion, 2014
+# Emiliano Fascetti, 2014-2015
 # Francisco Javier F. Serrador <serrador@cvs.mate.org>, 2005, 2006
 # Jorge González <jorgegonz@svn.mate.org>, 2007, 2008, 2010
 # Juanje Ojeda Croissier <jojeda@emergya.es>, 2008, 2009
@@ -17,9 +18,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 15:24+0100\n"
-"PO-Revision-Date: 2014-12-10 14:26+0000\n"
-"Last-Translator: infirit <infirit@gmail.com>\n"
+"POT-Creation-Date: 2014-12-29 13:39+0100\n"
+"PO-Revision-Date: 2015-01-31 20:18+0000\n"
+"Last-Translator: Emiliano Fascetti\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/MATE/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,17 +32,17 @@ msgstr ""
 #, c-format
 msgid ""
 "Error launching the command “%s” in order to decompress the comic book: %s"
-msgstr "Error al ejecutar la orden «%s» para descomprimir el cómic en la carpeta temporal: %s"
+msgstr "Error al lanzar el comando «%s» para descomprimir el cómic: %s"
 
 #: ../backend/comics/comics-document.c:231
 #, c-format
 msgid "The command “%s” failed at decompressing the comic book."
-msgstr "La orden «%s» falló al descomprimir el cómic en la carpeta temporal."
+msgstr "El comando «%s» falló al descomprimir el cómic."
 
 #: ../backend/comics/comics-document.c:240
 #, c-format
 msgid "The command “%s” did not end normally."
-msgstr "La orden «%s» no finalizó de forma normal."
+msgstr "El comando «%s» no finalizó de forma normal."
 
 #: ../backend/comics/comics-document.c:420
 #, c-format
@@ -51,7 +52,7 @@ msgstr "No es un tipo MIME de cómic: %s"
 #: ../backend/comics/comics-document.c:427
 msgid ""
 "Can't find an appropriate command to decompress this type of comic book"
-msgstr "No se puede encontrar una orden apropiada para descomprimir este tipo de archivo de cómic"
+msgstr "No se puede encontrar un comando apropiado para descomprimir este tipo de cómic"
 
 #: ../backend/comics/comics-document.c:501 ../backend/epub/epub-document.c:616
 #: ../libdocument/ev-document-factory.c:145
@@ -76,7 +77,7 @@ msgstr "No se encontraron imágenes en el archivador %s"
 #: ../backend/epub/epub-document.c:1768
 #, c-format
 msgid "There was an error deleting “%s”."
-msgstr "Hubo un error al borrar «%s»."
+msgstr "Hubo un error al eliminar «%s»."
 
 #: ../backend/comics/comics-document.c:967
 #, c-format
@@ -115,51 +116,51 @@ msgstr "No es un documento ePub"
 
 #: ../backend/epub/epub-document.c:734
 msgid "could not retrieve filename"
-msgstr "no se pudo recuperar el nombre del archivo"
+msgstr "No se pudo obtener el nombre del archivo"
 
 #: ../backend/epub/epub-document.c:762
 msgid "could not open archive"
-msgstr "no se pudo abrir el archivador"
+msgstr "No se pudo abrir el archivador"
 
 #: ../backend/epub/epub-document.c:778 ../backend/epub/epub-document.c:794
 msgid "could not extract archive"
-msgstr "no se pudo extraer el archivador"
+msgstr "No se pudo extraer el archivador"
 
 #: ../backend/epub/epub-document.c:826 ../backend/epub/epub-document.c:909
 msgid "could not retrieve container file"
-msgstr "no se pudo recuperar el archivo contenedor"
+msgstr "No se pudo recuperar el archivo contenedor"
 
 #: ../backend/epub/epub-document.c:838
 msgid "could not open container file"
-msgstr "no se pudo abrir el archivo contenedor"
+msgstr "No se pudo abrir el archivo contenedor"
 
 #: ../backend/epub/epub-document.c:848
 msgid "container file is corrupt"
-msgstr "el archivo contenedor está dañado"
+msgstr "El archivo contenedor está dañado"
 
 #: ../backend/epub/epub-document.c:858
-msgid "epub file is invalid or corrput"
-msgstr "el archivo epub no es válido o está dañado"
+msgid "epub file is invalid or corrupt"
+msgstr "El archivo ePub no es válido o está dañado"
 
 #: ../backend/epub/epub-document.c:868
-msgid "epub file is corrupt,no container"
-msgstr "el archivo epub está dañado: no hay contenedor"
+msgid "epub file is corrupt, no container"
+msgstr "El archivo ePub está dañado, ningún contenedor"
 
 #: ../backend/epub/epub-document.c:953
 msgid "could not parse content manifest"
-msgstr "no se pudo analizar el «manifest» del contenido"
+msgstr "No se pudo analizar el «manifest» del contenido"
 
 #: ../backend/epub/epub-document.c:962
 msgid "content file is invalid"
-msgstr "Contenido del archivo inválido"
+msgstr "El archivo de contenido no es válido"
 
 #: ../backend/epub/epub-document.c:971
 msgid "epub file has no spine"
-msgstr "al archivo epub no contiene «spine»"
+msgstr "El archivo ePub no tiene «spine»"
 
 #: ../backend/epub/epub-document.c:980
 msgid "epub file has no manifest"
-msgstr "el archivo epub no tiene «manifest»"
+msgstr "El archivo ePub no tiene «manifest»"
 
 #: ../backend/epub/epub-document.c:1066
 msgid "Could not set up document tree for loading, some files missing"
@@ -187,15 +188,15 @@ msgstr "No"
 
 #: ../backend/pdf/ev-poppler.cc:907
 msgid "Type 1"
-msgstr "Type 1"
+msgstr "Tipo 1"
 
 #: ../backend/pdf/ev-poppler.cc:909
 msgid "Type 1C"
-msgstr "Type 1C"
+msgstr "Tipo 1C"
 
 #: ../backend/pdf/ev-poppler.cc:911
 msgid "Type 3"
-msgstr "Type 3"
+msgstr "Tipo 3"
 
 #: ../backend/pdf/ev-poppler.cc:913
 msgid "TrueType"
@@ -203,11 +204,11 @@ msgstr "TrueType"
 
 #: ../backend/pdf/ev-poppler.cc:915
 msgid "Type 1 (CID)"
-msgstr "Type 1 (CID)"
+msgstr "Tipo 1 (CID)"
 
 #: ../backend/pdf/ev-poppler.cc:917
 msgid "Type 1C (CID)"
-msgstr "Type 1C (CID)"
+msgstr "Tipo 1C (CID)"
 
 #: ../backend/pdf/ev-poppler.cc:919
 msgid "TrueType (CID)"
@@ -215,7 +216,7 @@ msgstr "TrueType (CID)"
 
 #: ../backend/pdf/ev-poppler.cc:921
 msgid "Unknown font type"
-msgstr "Formato de tipo de letra desconocido"
+msgstr "Tipo de tipografía desconocida"
 
 #: ../backend/pdf/ev-poppler.cc:947
 msgid "No name"
@@ -311,7 +312,7 @@ msgstr "Iniciando %s"
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1098
 #, c-format
 msgid "Application does not accept documents on command line"
-msgstr "La aplicación no acepta documentos en la línea de órdenes"
+msgstr "La aplicación no acepta documentos en la línea de comandos"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1166
 #, c-format
@@ -321,7 +322,7 @@ msgstr "Opción de lanzamiento no reconocida: %d"
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1365
 #, c-format
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
-msgstr "No se pueden pasar URI de documentos a un aentrada .desktop «Type=Link»"
+msgstr "No se pueden pasar URI de documentos a una entrada .desktop «Type=Link»"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1384
 #, c-format
@@ -383,7 +384,7 @@ msgstr "_Quitar de la barra de herramientas"
 
 #: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1446
 msgid "Remove the selected item from the toolbar"
-msgstr "Quita el elemento seleccionado de la barra de herramientas"
+msgstr "Quitar el elemento seleccionado de la barra de herramientas"
 
 #: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1447
 msgid "_Delete Toolbar"
@@ -412,59 +413,59 @@ msgstr "Expandir la ventana hasta ajustar"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:53
 msgid "50%"
-msgstr "50 %"
+msgstr "50%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:54
 msgid "70%"
-msgstr "70 %"
+msgstr "70%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:55
 msgid "85%"
-msgstr "85 %"
+msgstr "85%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:56
 msgid "100%"
-msgstr "100 %"
+msgstr "100%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:57
 msgid "125%"
-msgstr "125 %"
+msgstr "125%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:58
 msgid "150%"
-msgstr "150 %"
+msgstr "150%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:59
 msgid "175%"
-msgstr "175 %"
+msgstr "175%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:60
 msgid "200%"
-msgstr "200 %"
+msgstr "200%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:61
 msgid "300%"
-msgstr "300 %"
+msgstr "300%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:62
 msgid "400%"
-msgstr "400 %"
+msgstr "400%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:63
 msgid "800%"
-msgstr "800 %"
+msgstr "800%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:64
 msgid "1600%"
-msgstr "1600 %"
+msgstr "1600%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:65
 msgid "3200%"
-msgstr "3200 %"
+msgstr "3200%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:66
 msgid "6400%"
-msgstr "6400 %"
+msgstr "6400%"
 
 #: ../data/atril.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
@@ -495,15 +496,7 @@ msgstr "Visor de documentos"
 
 #: ../data/atril.desktop.in.in.h:3
 msgid "View multi-page documents"
-msgstr "Vea documentos multipágina"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:1
-msgid "Override document restrictions"
-msgstr "Saltarse las restricciones del documento"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:2
-msgid "Override document restrictions, like restriction to copy or to print."
-msgstr "Saltarse las restricciones del documento, como restricción para copiar o imprimir."
+msgstr "Vea documentos de varias páginas"
 
 #: ../previewer/ev-previewer.c:44
 msgid "Delete the temporary file"
@@ -515,7 +508,7 @@ msgstr "Archivo de ajustes de impresión"
 
 #: ../previewer/ev-previewer.c:140 ../previewer/ev-previewer.c:174
 msgid "MATE Document Previewer"
-msgstr "Visor de documentos de Mate"
+msgstr "Visor de documentos de MATE"
 
 #: ../previewer/ev-previewer-window.c:91 ../shell/ev-window.c:3353
 msgid "Failed to print document"
@@ -618,15 +611,15 @@ msgstr "Creador:"
 
 #: ../properties/ev-properties-view.c:67
 msgid "Created:"
-msgstr "Creado el:"
+msgstr "Creado:"
 
 #: ../properties/ev-properties-view.c:68
 msgid "Modified:"
-msgstr "Modificado el:"
+msgstr "Modificado:"
 
 #: ../properties/ev-properties-view.c:69
 msgid "Number of Pages:"
-msgstr "Cantidad de páginas:"
+msgstr "Número de páginas:"
 
 #: ../properties/ev-properties-view.c:70
 msgid "Optimized:"
@@ -665,7 +658,7 @@ msgstr "%.0f × %.0f mm"
 #: ../properties/ev-properties-view.c:265
 #, c-format
 msgid "%.2f × %.2f inch"
-msgstr "%.2f × %.2f in"
+msgstr "%.2f × %.2f pulg"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
@@ -729,7 +722,7 @@ msgstr "Selección de páginas no válida"
 
 #: ../libview/ev-print-operation.c:1233
 msgid "Warning"
-msgstr "Aviso"
+msgstr "Advertencia"
 
 #: ../libview/ev-print-operation.c:1235
 msgid "Your print range selection does not include any pages"
@@ -760,7 +753,7 @@ msgstr "Escalar las páginas del documento para ajustarlas a la página de impre
 
 #: ../libview/ev-print-operation.c:1914
 msgid "Auto Rotate and Center"
-msgstr "Autorotar y centrar"
+msgstr "Rotar automáticamente y centrar"
 
 #: ../libview/ev-print-operation.c:1917
 msgid ""
@@ -797,11 +790,11 @@ msgstr "Desplazar abajo"
 
 #: ../libview/ev-view-accessible.c:53
 msgid "Scroll View Up"
-msgstr "Desplaza la vista arriba"
+msgstr "Desplazar la vista hacia arriba"
 
 #: ../libview/ev-view-accessible.c:54
 msgid "Scroll View Down"
-msgstr "Desplaza la vista abajo"
+msgstr "Desplazar la vista hacia abajo"
 
 #: ../libview/ev-view-accessible.c:883
 msgid "Document View"
@@ -965,7 +958,7 @@ msgstr "Cerrada"
 
 #: ../shell/ev-application.c:1042
 msgid "Running in presentation mode"
-msgstr "Ejecutar en modo presentación"
+msgstr "Ejecutándose en modo presentación"
 
 #: ../shell/ev-keyring.c:86
 #, c-format
@@ -994,7 +987,7 @@ msgstr "El formato de metadatos usado por Atril ha cambiado y por ello necesita 
 
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
-msgstr "Abrir un documento recientemente usado"
+msgstr "Abrir un documento usado recientemente"
 
 #: ../shell/ev-password-view.c:144
 msgid ""
@@ -1046,7 +1039,7 @@ msgstr "General"
 
 #: ../shell/ev-properties-dialog.c:104
 msgid "Fonts"
-msgstr "Tipos de letra"
+msgstr "Tipografías"
 
 #: ../shell/ev-properties-dialog.c:117
 msgid "Document License"
@@ -1054,12 +1047,12 @@ msgstr "Licencia del documento"
 
 #: ../shell/ev-properties-fonts.c:135
 msgid "Font"
-msgstr "Tipo de letra"
+msgstr "Tipografía"
 
 #: ../shell/ev-properties-fonts.c:162
 #, c-format
 msgid "Gathering font information… %3d%%"
-msgstr "Obteniendo información de tipos de letra… %3d %%"
+msgstr "Obteniendo información tipográfica… %3d%%"
 
 #: ../shell/ev-properties-license.c:137
 msgid "Usage terms"
@@ -1108,15 +1101,15 @@ msgstr "Adjuntos"
 
 #: ../shell/ev-sidebar-bookmarks.c:152
 msgid "_Open Bookmark"
-msgstr ""
+msgstr "_Abrir marcador"
 
 #: ../shell/ev-sidebar-bookmarks.c:154
 msgid "_Rename Bookmark"
-msgstr ""
+msgstr "_Renombrar marcador"
 
 #: ../shell/ev-sidebar-bookmarks.c:156
 msgid "_Remove Bookmark"
-msgstr ""
+msgstr "_Quitar marcador"
 
 #: ../shell/ev-sidebar-bookmarks.c:311 ../shell/ev-window.c:951
 #: ../shell/ev-window.c:4719
@@ -1126,7 +1119,7 @@ msgstr "Página %s"
 
 #: ../shell/ev-sidebar-bookmarks.c:609
 msgid "Bookmarks"
-msgstr ""
+msgstr "Marcadores"
 
 #: ../shell/ev-sidebar-layers.c:444
 msgid "Layers"
@@ -1161,7 +1154,7 @@ msgstr "El documento no contiene ninguna página"
 
 #: ../shell/ev-window.c:1563
 msgid "The document contains only empty pages"
-msgstr "El documento solo contiene páginas vacías"
+msgstr "El documento sólo contiene páginas vacías"
 
 #: ../shell/ev-window.c:1601
 msgid "Presentation mode is not supported for ePub documents."
@@ -1179,7 +1172,7 @@ msgstr "Cargando documento desde «%s»"
 #: ../shell/ev-window.c:2083 ../shell/ev-window.c:2373
 #, c-format
 msgid "Downloading document (%d%%)"
-msgstr "Descargando el documento (%d %%)"
+msgstr "Descargando documento (%d%%)"
 
 #: ../shell/ev-window.c:2116
 msgid "Failed to load remote file."
@@ -1351,7 +1344,7 @@ msgstr "© 1996–2009 Los autores de Evince\n© 2012–2014 Los desarrolladores
 
 #: ../shell/ev-window.c:5065
 msgid "translator-credits"
-msgstr "Jorge González <jorgegonz@svn.mate.org>, 2007-2010\nFrancisco Javier F. Serrador <serrador@gnome.org>, 2005-2006\nDaniel Fernández <dfdez@ya.com>, 2005\nAntonio Ognio <gnrfan@gnrfan.org>, 2004-2005"
+msgstr "Jorge González <jorgegonz@svn.gnome.org>, 2007-2010\nFrancisco Javier F. Serrador <serrador@gnome.org>, 2005-2006\nDaniel Fernández <dfdez@ya.com>, 2005\nAntonio Ognio <gnrfan@gnrfan.org>, 2004-2005"
 
 #. TRANS: Sometimes this could be better translated as
 #. "%d hit(s) on this page".  Therefore this string
@@ -1370,7 +1363,7 @@ msgstr "No encontrado"
 #: ../shell/ev-window.c:5347
 #, c-format
 msgid "%3d%% remaining to search"
-msgstr "Queda un %3d %% por buscar"
+msgstr "%3d%% restante para buscar"
 
 #: ../shell/ev-window.c:5976
 msgid "_File"
@@ -1390,7 +1383,7 @@ msgstr "_Ir"
 
 #: ../shell/ev-window.c:5980
 msgid "_Bookmarks"
-msgstr ""
+msgstr "_Marcadores"
 
 #: ../shell/ev-window.c:5981
 msgid "_Help"
@@ -1447,11 +1440,11 @@ msgstr "Barra de _herramientas"
 
 #: ../shell/ev-window.c:6015
 msgid "Rotate _Left"
-msgstr "Girar a la _izquierda"
+msgstr "Rotar a la _izquierda"
 
 #: ../shell/ev-window.c:6017
 msgid "Rotate _Right"
-msgstr "Girar a la _derecha"
+msgstr "Rotar a la _derecha"
 
 #: ../shell/ev-window.c:6019
 msgid "Save Current Settings as _Default"
@@ -1492,11 +1485,11 @@ msgstr "Ir a la última página"
 #. Bookmarks menu
 #: ../shell/ev-window.c:6055
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "_Añadir marcador"
 
 #: ../shell/ev-window.c:6056
 msgid "Add a bookmark for the current page"
-msgstr ""
+msgstr "Añadir un marcador para la página actual"
 
 #. Help menu
 #: ../shell/ev-window.c:6060
@@ -1620,7 +1613,7 @@ msgstr "_Guardar adjunto como…"
 
 #: ../shell/ev-window.c:6306
 msgid "Zoom"
-msgstr "Escala"
+msgstr "Ampliación"
 
 #: ../shell/ev-window.c:6308
 msgid "Adjust the zoom level"
@@ -1707,7 +1700,7 @@ msgstr "Por extensión"
 
 #: ../shell/main.c:69 ../shell/main.c:270
 msgid "MATE Document Viewer"
-msgstr "Visor de documentos de Mate"
+msgstr "Visor de documentos de MATE"
 
 #: ../shell/main.c:77
 msgid "The page label of the document to display."

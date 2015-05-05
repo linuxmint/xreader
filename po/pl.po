@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Marcin Kralka <marcink96@gmail.com>, 2013-2014
+# Paweł Bandura <gawelx@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 15:24+0100\n"
-"PO-Revision-Date: 2014-12-10 14:26+0000\n"
-"Last-Translator: infirit <infirit@gmail.com>\n"
+"POT-Creation-Date: 2014-12-29 13:39+0100\n"
+"PO-Revision-Date: 2015-04-09 17:28+0000\n"
+"Last-Translator: Paweł Bandura <gawelx@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/MATE/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -129,11 +130,11 @@ msgid "container file is corrupt"
 msgstr "plik kontenera jest uszkodzony"
 
 #: ../backend/epub/epub-document.c:858
-msgid "epub file is invalid or corrput"
+msgid "epub file is invalid or corrupt"
 msgstr "plik epub jest nieprawidłowy lub uszkodzony"
 
 #: ../backend/epub/epub-document.c:868
-msgid "epub file is corrupt,no container"
+msgid "epub file is corrupt, no container"
 msgstr "plik epub jest uszkodzony, brak kontenera"
 
 #: ../backend/epub/epub-document.c:953
@@ -487,14 +488,6 @@ msgstr "Przeglądarka dokumentów"
 #: ../data/atril.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr "Wyświetlanie wielostronicowych dokumentów"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:1
-msgid "Override document restrictions"
-msgstr "Bez uwzględniania ograniczeń dokumentu"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:2
-msgid "Override document restrictions, like restriction to copy or to print."
-msgstr "Bez uwzględniania ograniczeń dokumentu, takich jak ograniczenie kopiowania lub drukowania."
 
 #: ../previewer/ev-previewer.c:44
 msgid "Delete the temporary file"
@@ -1099,15 +1092,15 @@ msgstr "Załączniki"
 
 #: ../shell/ev-sidebar-bookmarks.c:152
 msgid "_Open Bookmark"
-msgstr ""
+msgstr "_Otwórz zakładkę"
 
 #: ../shell/ev-sidebar-bookmarks.c:154
 msgid "_Rename Bookmark"
-msgstr ""
+msgstr "_Zmień nazwę zakładki"
 
 #: ../shell/ev-sidebar-bookmarks.c:156
 msgid "_Remove Bookmark"
-msgstr ""
+msgstr "_Usuń zakładkę"
 
 #: ../shell/ev-sidebar-bookmarks.c:311 ../shell/ev-window.c:951
 #: ../shell/ev-window.c:4719
@@ -1117,7 +1110,7 @@ msgstr "Strona %s"
 
 #: ../shell/ev-sidebar-bookmarks.c:609
 msgid "Bookmarks"
-msgstr ""
+msgstr "Zakładki"
 
 #: ../shell/ev-sidebar-layers.c:444
 msgid "Layers"
@@ -1383,7 +1376,7 @@ msgstr "Przej_dź"
 
 #: ../shell/ev-window.c:5980
 msgid "_Bookmarks"
-msgstr ""
+msgstr "_Zakładki"
 
 #: ../shell/ev-window.c:5981
 msgid "_Help"
@@ -1485,11 +1478,11 @@ msgstr "Przechodzi do ostatniej strony"
 #. Bookmarks menu
 #: ../shell/ev-window.c:6055
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "_Dodaj zakładkę"
 
 #: ../shell/ev-window.c:6056
 msgid "Add a bookmark for the current page"
-msgstr ""
+msgstr "Dodaj zakładkę do bieżącej strony"
 
 #. Help menu
 #: ../shell/ev-window.c:6060

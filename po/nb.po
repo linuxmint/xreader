@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Alexander Mackinnon Jansen <bornxlo@gmail.com>, 2015
 # Terance Edward Sola <terance@lyse.net>, 2005
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 15:24+0100\n"
-"PO-Revision-Date: 2014-12-10 14:26+0000\n"
-"Last-Translator: infirit <infirit@gmail.com>\n"
+"POT-Creation-Date: 2014-12-29 13:39+0100\n"
+"PO-Revision-Date: 2015-02-08 16:40+0000\n"
+"Last-Translator: Alexander Mackinnon Jansen <bornxlo@gmail.com>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/projects/p/MATE/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -102,19 +103,19 @@ msgstr "DVI-dokumenter"
 
 #: ../backend/epub/epub-document.c:633
 msgid "Not an ePub document"
-msgstr ""
+msgstr "Ikke et ePub-dokument"
 
 #: ../backend/epub/epub-document.c:734
 msgid "could not retrieve filename"
-msgstr ""
+msgstr "kunne ikke hente filnavn"
 
 #: ../backend/epub/epub-document.c:762
 msgid "could not open archive"
-msgstr ""
+msgstr "kunne ikke åpne arkivet"
 
 #: ../backend/epub/epub-document.c:778 ../backend/epub/epub-document.c:794
 msgid "could not extract archive"
-msgstr ""
+msgstr "kunne ikke pakke ut arkivet"
 
 #: ../backend/epub/epub-document.c:826 ../backend/epub/epub-document.c:909
 msgid "could not retrieve container file"
@@ -129,11 +130,11 @@ msgid "container file is corrupt"
 msgstr ""
 
 #: ../backend/epub/epub-document.c:858
-msgid "epub file is invalid or corrput"
-msgstr ""
+msgid "epub file is invalid or corrupt"
+msgstr "epub-filen er ugyldig eller korrupt"
 
 #: ../backend/epub/epub-document.c:868
-msgid "epub file is corrupt,no container"
+msgid "epub file is corrupt, no container"
 msgstr ""
 
 #: ../backend/epub/epub-document.c:953
@@ -158,7 +159,7 @@ msgstr ""
 
 #: ../backend/epub/epubdocument.atril-backend.in.h:1
 msgid "epub Documents"
-msgstr ""
+msgstr "epub-dokumenter"
 
 #: ../backend/pdf/ev-poppler.cc:520
 msgid "This work is in the Public Domain"
@@ -399,7 +400,7 @@ msgstr "Tilpass til sidebredde"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:6034
 msgid "Expand Window to Fit"
-msgstr ""
+msgstr "Utvid vinduet til å passe"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:53
 msgid "50%"
@@ -459,7 +460,7 @@ msgstr "6400%"
 
 #: ../data/atril.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
-msgstr ""
+msgstr "En dokumentfremviser for skrivebordsmiljøet MATE"
 
 #: ../data/atril.appdata.xml.in.h:2
 msgid ""
@@ -471,11 +472,11 @@ msgid ""
 " <p> Atril is a fork of Evince and part of the MATE Desktop Environment. If "
 "you would like to know more about MATE and Atril, please visit the project's"
 " home page. </p>"
-msgstr ""
+msgstr "<p> Atril er en enkel dokumentfremviser med støtte for flere sider. Den kan vise og skrive ut filer i PostScript (PS), innebygd PostScript (EPS), DJVU, DVI, XPS og bærbart dokumentformat (PDF); i tillegg til tegneseriearkiv. Når dokumentet støtter det kan den også søke etter tekst, kopiere til utklippstavlen, navigere etter hypertekst og lagre bokmerker i innholdsregisteret. </p>\n<p> Atril er en forgrenet versjon av Evince og del av skrivebordsmiljøet MATE. Hvis du vil vite mer om MATE og Atril kan du besøke hjemmesiden til prosjektet. </p>"
 
 #: ../data/atril.desktop.in.in.h:1
 msgid "Atril Document Viewer"
-msgstr ""
+msgstr "Dokumentfremviseren Atril"
 
 #. Manually set name and icon
 #: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:4992
@@ -487,14 +488,6 @@ msgstr "Dokumentvisning"
 #: ../data/atril.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr "Vis dokumenter med mange sider"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:1
-msgid "Override document restrictions"
-msgstr "Overstyr begrensninger satt i dokumentet"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:2
-msgid "Override document restrictions, like restriction to copy or to print."
-msgstr "Overstyr dokumentbegrensninger som f.eks mulighet til å kopiere eller skrive ut."
 
 #: ../previewer/ev-previewer.c:44
 msgid "Delete the temporary file"
@@ -674,11 +667,11 @@ msgstr "%s, landskap (%s)"
 
 #: ../properties/libatril-properties-page.caja-extension.in.h:1
 msgid "Atril properties"
-msgstr ""
+msgstr "Egenskaper for Atril"
 
 #: ../properties/libatril-properties-page.caja-extension.in.h:2
 msgid "Shows details for Atril documents"
-msgstr ""
+msgstr "Viser detaljer for Atril-dokumenter"
 
 #: ../libmisc/ev-page-action-widget.c:68
 #, c-format
@@ -872,7 +865,7 @@ msgstr "Finn neste oppøring av søkestrengen"
 
 #: ../shell/eggfindbar.c:350
 msgid "Case Sensitive"
-msgstr ""
+msgstr "Skill mellom små og store bokstaver"
 
 #: ../shell/eggfindbar.c:353
 msgid "Toggle case sensitive search"
@@ -1099,15 +1092,15 @@ msgstr "Vedlegg"
 
 #: ../shell/ev-sidebar-bookmarks.c:152
 msgid "_Open Bookmark"
-msgstr ""
+msgstr "_Åpne bokmerke"
 
 #: ../shell/ev-sidebar-bookmarks.c:154
 msgid "_Rename Bookmark"
-msgstr ""
+msgstr "_Gi nytt navn til bokmerket"
 
 #: ../shell/ev-sidebar-bookmarks.c:156
 msgid "_Remove Bookmark"
-msgstr ""
+msgstr "_Fjern bokmerket"
 
 #: ../shell/ev-sidebar-bookmarks.c:311 ../shell/ev-window.c:951
 #: ../shell/ev-window.c:4719
@@ -1117,7 +1110,7 @@ msgstr "Side %s"
 
 #: ../shell/ev-sidebar-bookmarks.c:609
 msgid "Bookmarks"
-msgstr ""
+msgstr "Bokmerker"
 
 #: ../shell/ev-sidebar-layers.c:444
 msgid "Layers"
@@ -1144,7 +1137,7 @@ msgstr "Side %s - %s"
 msgid ""
 "Cannot enter presentation mode with ePub documents use fullscreen mode "
 "instead."
-msgstr ""
+msgstr "Kan ikke åpne presentasjonmodus med ePub-dokumenter. Bruk heller fullskjermmodus"
 
 #: ../shell/ev-window.c:1560
 msgid "The document contains no pages"
@@ -1156,7 +1149,7 @@ msgstr "Dokumentet inneholder kun tomme sider"
 
 #: ../shell/ev-window.c:1601
 msgid "Presentation mode is not supported for ePub documents."
-msgstr ""
+msgstr "Presentasjonmodus støttes ikke for ePub-dokumenter"
 
 #: ../shell/ev-window.c:1802 ../shell/ev-window.c:1970
 msgid "Unable to open document"
@@ -1290,7 +1283,7 @@ msgstr "Lukk etter ut_skrift"
 
 #: ../shell/ev-window.c:4151
 msgid "Presentation mode is not supported for ePub documents"
-msgstr ""
+msgstr "Presentasjonmodus støttes ikke for ePub-dokumenter"
 
 #: ../shell/ev-window.c:4463
 msgid "Toolbar Editor"
@@ -1338,7 +1331,7 @@ msgstr "Atril"
 msgid ""
 "© 1996–2009 The Evince authors\n"
 "© 2012–2014 The MATE developers"
-msgstr ""
+msgstr "© 1996–2009 Evince-forfatterne\n© 2012–2014 MATE-utviklerne"
 
 #: ../shell/ev-window.c:5065
 msgid "translator-credits"
@@ -1381,7 +1374,7 @@ msgstr "_Gå til"
 
 #: ../shell/ev-window.c:5980
 msgid "_Bookmarks"
-msgstr ""
+msgstr "_Bokmerker"
 
 #: ../shell/ev-window.c:5981
 msgid "_Help"
@@ -1458,7 +1451,7 @@ msgstr "Les dokumentet på nytt"
 
 #: ../shell/ev-window.c:6033
 msgid "_Expand Window to Fit"
-msgstr ""
+msgstr "_Utvid vinduet til å passe"
 
 #: ../shell/ev-window.c:6037
 msgid "Auto_scroll"
@@ -1483,11 +1476,11 @@ msgstr "Gå til den siste siden"
 #. Bookmarks menu
 #: ../shell/ev-window.c:6055
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "_Legg til bokmerke"
 
 #: ../shell/ev-window.c:6056
 msgid "Add a bookmark for the current page"
-msgstr ""
+msgstr "Legg til bokmerke for den aktive siden"
 
 #. Help menu
 #: ../shell/ev-window.c:6060

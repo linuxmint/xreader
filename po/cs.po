@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Adrian Guniš <andygun@seznam.cz>, 2008, 2009
+# huskyviking <husky.viking@seznam.cz>, 2015
 # Jakub Friedl <jfriedl@suse.cz>, 2006, 2007
 # Jan Drábek <repli2dev@gmail.com>, 2009
 # Kamil Páral <ripper42@gmail.com>, 2008
@@ -12,6 +13,7 @@
 # Marek Černocký <marek@manet.cz>, 2009
 # Martin Picek <picek.martin@mate-cesko.cz>, 2009
 # Michal <sinope@seznam.cz>, 2013-2014
+# Milan Milzou <vonfsro@gmail.com>, 2015
 # Miloslav Trmač <mitr@volny.cz>, 2005, 2006
 # Ondřej Kolín <ondrej.kolin@gmail.com>, 2012
 # Petr Kovar <pmkovar@gmail.com>, 2008, 2009
@@ -19,9 +21,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 15:24+0100\n"
-"PO-Revision-Date: 2014-12-10 14:26+0000\n"
-"Last-Translator: infirit <infirit@gmail.com>\n"
+"POT-Creation-Date: 2014-12-29 13:39+0100\n"
+"PO-Revision-Date: 2015-04-15 07:16+0000\n"
+"Last-Translator: Milan Milzou <vonfsro@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/MATE/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -113,63 +115,63 @@ msgstr "Dokumenty DVI"
 
 #: ../backend/epub/epub-document.c:633
 msgid "Not an ePub document"
-msgstr ""
+msgstr "Toto není dokument ePub"
 
 #: ../backend/epub/epub-document.c:734
 msgid "could not retrieve filename"
-msgstr ""
+msgstr "Nelze načíst název souboru"
 
 #: ../backend/epub/epub-document.c:762
 msgid "could not open archive"
-msgstr ""
+msgstr "nelze otevřít archiv"
 
 #: ../backend/epub/epub-document.c:778 ../backend/epub/epub-document.c:794
 msgid "could not extract archive"
-msgstr ""
+msgstr "nelze rozbalit archiv"
 
 #: ../backend/epub/epub-document.c:826 ../backend/epub/epub-document.c:909
 msgid "could not retrieve container file"
-msgstr ""
+msgstr "nelze načíst zásobník souboru"
 
 #: ../backend/epub/epub-document.c:838
 msgid "could not open container file"
-msgstr ""
+msgstr "nelze otevřít zásobník souboru"
 
 #: ../backend/epub/epub-document.c:848
 msgid "container file is corrupt"
-msgstr ""
+msgstr "zásobník souboru je porušen"
 
 #: ../backend/epub/epub-document.c:858
-msgid "epub file is invalid or corrput"
-msgstr ""
+msgid "epub file is invalid or corrupt"
+msgstr "soubor epub je neplatný nebo porušen"
 
 #: ../backend/epub/epub-document.c:868
-msgid "epub file is corrupt,no container"
-msgstr ""
+msgid "epub file is corrupt, no container"
+msgstr "je porušen soubor epub, nikoliv zásobník"
 
 #: ../backend/epub/epub-document.c:953
 msgid "could not parse content manifest"
-msgstr ""
+msgstr "nelze analyzovat obsah prohlášení"
 
 #: ../backend/epub/epub-document.c:962
 msgid "content file is invalid"
-msgstr ""
+msgstr "obsah souboru je neplatný"
 
 #: ../backend/epub/epub-document.c:971
 msgid "epub file has no spine"
-msgstr ""
+msgstr "soubor epub nemá podporu"
 
 #: ../backend/epub/epub-document.c:980
 msgid "epub file has no manifest"
-msgstr ""
+msgstr "soubor epub nemá prohlášení"
 
 #: ../backend/epub/epub-document.c:1066
 msgid "Could not set up document tree for loading, some files missing"
-msgstr ""
+msgstr "Nelze sestavit strom dokumentů pro nahrání, některé soubory byly ztraceny"
 
 #: ../backend/epub/epubdocument.atril-backend.in.h:1
 msgid "epub Documents"
-msgstr ""
+msgstr "dokumenty epub"
 
 #: ../backend/pdf/ev-poppler.cc:520
 msgid "This work is in the Public Domain"
@@ -470,7 +472,7 @@ msgstr "6400%"
 
 #: ../data/atril.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
-msgstr ""
+msgstr "Prohlížeč dokumentů pro prostředí MATE"
 
 #: ../data/atril.appdata.xml.in.h:2
 msgid ""
@@ -482,7 +484,7 @@ msgid ""
 " <p> Atril is a fork of Evince and part of the MATE Desktop Environment. If "
 "you would like to know more about MATE and Atril, please visit the project's"
 " home page. </p>"
-msgstr ""
+msgstr "<p> Atril je jednoduchý několikastránkový prohlížeč dokumentů. Může zobrazit a vytisknout  jak PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS a Portable Document Format (PDF) soubory, tak i komixové archivy. Jestli je to souborem podporováno, dokáže hledat v textu a kopírovat text do schránky, má podporu hypertextové navigace a má tabulku obsahu. <p> <p> Atril je napodobenina Evince a je součástí prostředí MATE. Pokud chcete vědět více o MATE a Atril, navštivte prosím domovskou stránku projektu. <p>"
 
 #: ../data/atril.desktop.in.in.h:1
 msgid "Atril Document Viewer"
@@ -498,14 +500,6 @@ msgstr "Prohlížeč dokumentů"
 #: ../data/atril.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr "Zobrazovat dokumenty po více stránkách"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:1
-msgid "Override document restrictions"
-msgstr "Ignorovat omezení dokumentu"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:2
-msgid "Override document restrictions, like restriction to copy or to print."
-msgstr "Ignorovat omezení dokumentu, například zákaz kopírování nebo tisku."
 
 #: ../previewer/ev-previewer.c:44
 msgid "Delete the temporary file"
@@ -685,11 +679,11 @@ msgstr "%s, na šířku (%s)"
 
 #: ../properties/libatril-properties-page.caja-extension.in.h:1
 msgid "Atril properties"
-msgstr ""
+msgstr "Vlastnosti Atrilu"
 
 #: ../properties/libatril-properties-page.caja-extension.in.h:2
 msgid "Shows details for Atril documents"
-msgstr ""
+msgstr "Zobrazuje údaje o dokumentech Atril"
 
 #: ../libmisc/ev-page-action-widget.c:68
 #, c-format
@@ -1110,15 +1104,15 @@ msgstr "Přílohy"
 
 #: ../shell/ev-sidebar-bookmarks.c:152
 msgid "_Open Bookmark"
-msgstr ""
+msgstr "_Otevřít záložku"
 
 #: ../shell/ev-sidebar-bookmarks.c:154
 msgid "_Rename Bookmark"
-msgstr ""
+msgstr "_Přejmenovat záložku"
 
 #: ../shell/ev-sidebar-bookmarks.c:156
 msgid "_Remove Bookmark"
-msgstr ""
+msgstr "_Přesunout záložku"
 
 #: ../shell/ev-sidebar-bookmarks.c:311 ../shell/ev-window.c:951
 #: ../shell/ev-window.c:4719
@@ -1128,7 +1122,7 @@ msgstr "Stránka %s"
 
 #: ../shell/ev-sidebar-bookmarks.c:609
 msgid "Bookmarks"
-msgstr ""
+msgstr "Záložky"
 
 #: ../shell/ev-sidebar-layers.c:444
 msgid "Layers"
@@ -1155,7 +1149,7 @@ msgstr "Stránka %s — %s"
 msgid ""
 "Cannot enter presentation mode with ePub documents use fullscreen mode "
 "instead."
-msgstr ""
+msgstr "Nelze zahájit režim prezentace ePub dokumentú, použijte režimu celé obrazovky."
 
 #: ../shell/ev-window.c:1560
 msgid "The document contains no pages"
@@ -1167,7 +1161,7 @@ msgstr "Dokument obsahuje pouze prázdné stránky"
 
 #: ../shell/ev-window.c:1601
 msgid "Presentation mode is not supported for ePub documents."
-msgstr ""
+msgstr "Režim prezentace není pro ePub dokumenty podporován."
 
 #: ../shell/ev-window.c:1802 ../shell/ev-window.c:1970
 msgid "Unable to open document"
@@ -1302,7 +1296,7 @@ msgstr "Zavřít _po vytištění"
 
 #: ../shell/ev-window.c:4151
 msgid "Presentation mode is not supported for ePub documents"
-msgstr ""
+msgstr "Režim prezentace není pro ePub dokumenty podporován"
 
 #: ../shell/ev-window.c:4463
 msgid "Toolbar Editor"
@@ -1394,7 +1388,7 @@ msgstr "Pře_jít"
 
 #: ../shell/ev-window.c:5980
 msgid "_Bookmarks"
-msgstr ""
+msgstr "_Záložky"
 
 #: ../shell/ev-window.c:5981
 msgid "_Help"
@@ -1496,11 +1490,11 @@ msgstr "Přejít na poslední stránku"
 #. Bookmarks menu
 #: ../shell/ev-window.c:6055
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "_Přidat záložku"
 
 #: ../shell/ev-window.c:6056
 msgid "Add a bookmark for the current page"
-msgstr ""
+msgstr "Přidat záložku pro tuto stránku"
 
 #. Help menu
 #: ../shell/ev-window.c:6060

@@ -6,7 +6,7 @@
 # Hideki Yamane <henrich@debian.or.jp>, 2009
 # Hideki Yamane <henrich@debian.or.jp>, 2009
 # Mika Kobayashi, 2014
-# Mika Kobayashi, 2014
+# Mika Kobayashi, 2014-2015
 # Satoru SATOH <ss@gnome.gr.jp>, 2005-2006
 # Satoru SATOH <ss@mate.gr.jp>, 2005-2006
 # Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2009
@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 15:24+0100\n"
-"PO-Revision-Date: 2014-12-10 14:26+0000\n"
-"Last-Translator: infirit <infirit@gmail.com>\n"
+"POT-Creation-Date: 2014-12-29 13:39+0100\n"
+"PO-Revision-Date: 2015-02-23 22:40+0000\n"
+"Last-Translator: Mika Kobayashi\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/MATE/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -136,11 +136,11 @@ msgid "container file is corrupt"
 msgstr "container ファイルが破損しています"
 
 #: ../backend/epub/epub-document.c:858
-msgid "epub file is invalid or corrput"
+msgid "epub file is invalid or corrupt"
 msgstr "epub ファイルが無効か破損しています"
 
 #: ../backend/epub/epub-document.c:868
-msgid "epub file is corrupt,no container"
+msgid "epub file is corrupt, no container"
 msgstr "epub ファイルが破損しており、container が含まれていません"
 
 #: ../backend/epub/epub-document.c:953
@@ -494,14 +494,6 @@ msgstr "ドキュメントビューアー"
 #: ../data/atril.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr "複数ページのドキュメントを表示します"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:1
-msgid "Override document restrictions"
-msgstr "ドキュメントの制限を上書きします"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:2
-msgid "Override document restrictions, like restriction to copy or to print."
-msgstr "コピーや印刷を制限するようなドキュメントの制限を上書きします"
 
 #: ../previewer/ev-previewer.c:44
 msgid "Delete the temporary file"
@@ -1106,15 +1098,15 @@ msgstr "添付ファイル"
 
 #: ../shell/ev-sidebar-bookmarks.c:152
 msgid "_Open Bookmark"
-msgstr ""
+msgstr "ブックマークを開く(_O)"
 
 #: ../shell/ev-sidebar-bookmarks.c:154
 msgid "_Rename Bookmark"
-msgstr ""
+msgstr "ブックマークの名前を変更(_R)"
 
 #: ../shell/ev-sidebar-bookmarks.c:156
 msgid "_Remove Bookmark"
-msgstr ""
+msgstr "ブックマークを削除(_R)"
 
 #: ../shell/ev-sidebar-bookmarks.c:311 ../shell/ev-window.c:951
 #: ../shell/ev-window.c:4719
@@ -1124,7 +1116,7 @@ msgstr "%s ページ"
 
 #: ../shell/ev-sidebar-bookmarks.c:609
 msgid "Bookmarks"
-msgstr ""
+msgstr "ブックマーク"
 
 #: ../shell/ev-sidebar-layers.c:444
 msgid "Layers"
@@ -1386,7 +1378,7 @@ msgstr "移動(_G)"
 
 #: ../shell/ev-window.c:5980
 msgid "_Bookmarks"
-msgstr ""
+msgstr "ブックマーク(_B)"
 
 #: ../shell/ev-window.c:5981
 msgid "_Help"
@@ -1488,11 +1480,11 @@ msgstr "最後のページに移動します"
 #. Bookmarks menu
 #: ../shell/ev-window.c:6055
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "ブックマークに追加(_A)"
 
 #: ../shell/ev-window.c:6056
 msgid "Add a bookmark for the current page"
-msgstr ""
+msgstr "現在のページをブックマークに追加"
 
 #. Help menu
 #: ../shell/ev-window.c:6060

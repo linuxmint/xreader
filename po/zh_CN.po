@@ -6,6 +6,7 @@
 # Aron Xu <happyaron.xu@gmail.com>, 2009
 # Deng Xiyue <manphiz@gmail.com>, 2009
 # Funda Wang <fundawang@linux.net.cn>, 2004, 2005
+# 白铭骢 <jeffbaichina@members.fsf.org>, 2014
 # liushuyu011 <liushuyu_011@163.com>, 2014
 # Tao Wang <dancefire@gmail.com>, 2010
 # Wylmer Wang <wantinghard@gmail.com>, 2013-2014
@@ -14,13 +15,14 @@
 # 杨章 <zyangmath@gmail.com>, 2010
 # 樊栖江(Fan Qijiang) <fqj1994@gmail.com>, 2009
 # 甘 露 <rhythm.gan@gmail.com>, 2009
+# 白铭骢 <jeffbaichina@members.fsf.org>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 15:24+0100\n"
-"PO-Revision-Date: 2014-12-10 14:26+0000\n"
-"Last-Translator: infirit <infirit@gmail.com>\n"
+"POT-Creation-Date: 2014-12-29 13:39+0100\n"
+"PO-Revision-Date: 2015-02-21 17:40+0000\n"
+"Last-Translator: 白铭骢 <jeffbaichina@members.fsf.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/MATE/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -139,11 +141,11 @@ msgid "container file is corrupt"
 msgstr "容器文件已损坏"
 
 #: ../backend/epub/epub-document.c:858
-msgid "epub file is invalid or corrput"
+msgid "epub file is invalid or corrupt"
 msgstr "epub 文件无效或损坏"
 
 #: ../backend/epub/epub-document.c:868
-msgid "epub file is corrupt,no container"
+msgid "epub file is corrupt, no container"
 msgstr "epub 文件损坏，没有容器"
 
 #: ../backend/epub/epub-document.c:953
@@ -481,7 +483,7 @@ msgid ""
 " <p> Atril is a fork of Evince and part of the MATE Desktop Environment. If "
 "you would like to know more about MATE and Atril, please visit the project's"
 " home page. </p>"
-msgstr ""
+msgstr "<p> Atril 是一个简易的多页文档阅读器。它可以显示并打印 PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS 以及移动文档格式 (PDF) 文件，以及漫画归档文件。如果文档支持，它亦可以进行文本搜索，复制文本到剪贴板，超文本浏览以及基于内容目录的书签标记。</p></p> Atril 是 Evince 的 fork，也是 MATE 桌面环境的一部分。欲知更多关于 MATE 和 Atril 的详情，请访问项目主页。</p>"
 
 #: ../data/atril.desktop.in.in.h:1
 msgid "Atril Document Viewer"
@@ -497,14 +499,6 @@ msgstr "文档查看器"
 #: ../data/atril.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr "查看多页文档"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:1
-msgid "Override document restrictions"
-msgstr "忽略文档限制"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:2
-msgid "Override document restrictions, like restriction to copy or to print."
-msgstr "忽略文档限制，比如限制复制或打印。"
 
 #: ../previewer/ev-previewer.c:44
 msgid "Delete the temporary file"
@@ -1109,15 +1103,15 @@ msgstr "附件"
 
 #: ../shell/ev-sidebar-bookmarks.c:152
 msgid "_Open Bookmark"
-msgstr ""
+msgstr "打开书签 (_O)"
 
 #: ../shell/ev-sidebar-bookmarks.c:154
 msgid "_Rename Bookmark"
-msgstr ""
+msgstr "重命名书签 (_R)"
 
 #: ../shell/ev-sidebar-bookmarks.c:156
 msgid "_Remove Bookmark"
-msgstr ""
+msgstr "移除书签 (_R)"
 
 #: ../shell/ev-sidebar-bookmarks.c:311 ../shell/ev-window.c:951
 #: ../shell/ev-window.c:4719
@@ -1127,7 +1121,7 @@ msgstr "第 %s 页"
 
 #: ../shell/ev-sidebar-bookmarks.c:609
 msgid "Bookmarks"
-msgstr ""
+msgstr "书签"
 
 #: ../shell/ev-sidebar-layers.c:444
 msgid "Layers"
@@ -1389,7 +1383,7 @@ msgstr "转到(_G)"
 
 #: ../shell/ev-window.c:5980
 msgid "_Bookmarks"
-msgstr ""
+msgstr "书签 (_B)"
 
 #: ../shell/ev-window.c:5981
 msgid "_Help"
@@ -1491,11 +1485,11 @@ msgstr "转到最后一页"
 #. Bookmarks menu
 #: ../shell/ev-window.c:6055
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "添加书签 (_A)"
 
 #: ../shell/ev-window.c:6056
 msgid "Add a bookmark for the current page"
-msgstr ""
+msgstr "添加书签到当前页"
 
 #. Help menu
 #: ../shell/ev-window.c:6060

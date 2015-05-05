@@ -3,17 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# dragnadh <dragnadh@gmail.com>, 2015
 # infirit <infirit@gmail.com>, 2014
 # Michael Steenbeek <m.o.steenbeek@gmail.com>, 2013-2014
+# Nathan Follens, 2015
 # Reinout van Schouwen <reinout@cs.vu.nl>, 2005, 2009
 # Tino Meinen <a.t.meinen@chello.nl>, 2005, 2006
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 15:24+0100\n"
-"PO-Revision-Date: 2014-12-10 14:26+0000\n"
-"Last-Translator: infirit <infirit@gmail.com>\n"
+"POT-Creation-Date: 2014-12-29 13:39+0100\n"
+"PO-Revision-Date: 2015-03-13 09:28+0000\n"
+"Last-Translator: Nathan Follens\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/MATE/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -105,63 +107,63 @@ msgstr "DVI-documenten"
 
 #: ../backend/epub/epub-document.c:633
 msgid "Not an ePub document"
-msgstr ""
+msgstr "Niet een ePub-document"
 
 #: ../backend/epub/epub-document.c:734
 msgid "could not retrieve filename"
-msgstr ""
+msgstr "Kon bestandsnaam niet terugvinden"
 
 #: ../backend/epub/epub-document.c:762
 msgid "could not open archive"
-msgstr ""
+msgstr "Kon archief niet openen"
 
 #: ../backend/epub/epub-document.c:778 ../backend/epub/epub-document.c:794
 msgid "could not extract archive"
-msgstr ""
+msgstr "Kon archief niet uitpakken"
 
 #: ../backend/epub/epub-document.c:826 ../backend/epub/epub-document.c:909
 msgid "could not retrieve container file"
-msgstr ""
+msgstr "Kon containerbestand niet terugvinden"
 
 #: ../backend/epub/epub-document.c:838
 msgid "could not open container file"
-msgstr ""
+msgstr "Kon containerbestand niet openen"
 
 #: ../backend/epub/epub-document.c:848
 msgid "container file is corrupt"
-msgstr ""
+msgstr "Containerbestand is corrupt"
 
 #: ../backend/epub/epub-document.c:858
-msgid "epub file is invalid or corrput"
-msgstr ""
+msgid "epub file is invalid or corrupt"
+msgstr "epub bestand is ongeldig of corrupt"
 
 #: ../backend/epub/epub-document.c:868
-msgid "epub file is corrupt,no container"
-msgstr ""
+msgid "epub file is corrupt, no container"
+msgstr "epub is corrupt, geen container"
 
 #: ../backend/epub/epub-document.c:953
 msgid "could not parse content manifest"
-msgstr ""
+msgstr "Kon inhoud manifest niet analyseren"
 
 #: ../backend/epub/epub-document.c:962
 msgid "content file is invalid"
-msgstr ""
+msgstr "inhoud van bestand is ongeldig"
 
 #: ../backend/epub/epub-document.c:971
 msgid "epub file has no spine"
-msgstr ""
+msgstr "epub-bestand heeft geen ruggengraat"
 
 #: ../backend/epub/epub-document.c:980
 msgid "epub file has no manifest"
-msgstr ""
+msgstr "epub bestand heeft geen manifest"
 
 #: ../backend/epub/epub-document.c:1066
 msgid "Could not set up document tree for loading, some files missing"
-msgstr ""
+msgstr "Kon documentstructuur niet opzetten tijdens het laden, sommige bestanden missen."
 
 #: ../backend/epub/epubdocument.atril-backend.in.h:1
 msgid "epub Documents"
-msgstr ""
+msgstr "epub Documenten"
 
 #: ../backend/pdf/ev-poppler.cc:520
 msgid "This work is in the Public Domain"
@@ -462,7 +464,7 @@ msgstr "6400%"
 
 #: ../data/atril.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
-msgstr ""
+msgstr "Een document viewer voor de MATE bureaublad omgeving"
 
 #: ../data/atril.appdata.xml.in.h:2
 msgid ""
@@ -474,7 +476,7 @@ msgid ""
 " <p> Atril is a fork of Evince and part of the MATE Desktop Environment. If "
 "you would like to know more about MATE and Atril, please visit the project's"
 " home page. </p>"
-msgstr ""
+msgstr "<p> Atril is een eenvoudige multi-pagina documentlezer. Het kan PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS en Portable Document Format (PDF)-bestanden weergeven en afdrukken, evenals strip-archiefbestanden. Indien ondersteund door het document laat Atril ook zoeken naar tekst, tekst kopiëren naar het klembord, hypertekst-navigate en inhoudsopgave-bladwijzers toe. </p> <p> Atril is een afsplitsing van Evince en onderdeel van de MATE desktopomgeving. Als u meer wil weten over MATE en Atril, gelieve dan de hoofdpagina van het project te bezoeken. </p>"
 
 #: ../data/atril.desktop.in.in.h:1
 msgid "Atril Document Viewer"
@@ -490,14 +492,6 @@ msgstr "Documentenviewer"
 #: ../data/atril.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr "Documenten weergeven"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:1
-msgid "Override document restrictions"
-msgstr "Documentrestricties negeren"
-
-#: ../data/org.mate.Atril.gschema.xml.in.h:2
-msgid "Override document restrictions, like restriction to copy or to print."
-msgstr "Documentrestricties, zoals een beperking op kopiëren of afdrukken, negeren."
 
 #: ../previewer/ev-previewer.c:44
 msgid "Delete the temporary file"
@@ -677,11 +671,11 @@ msgstr "%s, liggend (%s)"
 
 #: ../properties/libatril-properties-page.caja-extension.in.h:1
 msgid "Atril properties"
-msgstr ""
+msgstr "Atril eigenschappen"
 
 #: ../properties/libatril-properties-page.caja-extension.in.h:2
 msgid "Shows details for Atril documents"
-msgstr ""
+msgstr "details voor Atril documenten tonen"
 
 #: ../libmisc/ev-page-action-widget.c:68
 #, c-format
@@ -1102,15 +1096,15 @@ msgstr "Bijlagen"
 
 #: ../shell/ev-sidebar-bookmarks.c:152
 msgid "_Open Bookmark"
-msgstr ""
+msgstr "Bladwijzer _openen"
 
 #: ../shell/ev-sidebar-bookmarks.c:154
 msgid "_Rename Bookmark"
-msgstr ""
+msgstr "Bladwijzer _hernoemen"
 
 #: ../shell/ev-sidebar-bookmarks.c:156
 msgid "_Remove Bookmark"
-msgstr ""
+msgstr "Bladwijzer _verwijderen"
 
 #: ../shell/ev-sidebar-bookmarks.c:311 ../shell/ev-window.c:951
 #: ../shell/ev-window.c:4719
@@ -1120,7 +1114,7 @@ msgstr "Pagina %s"
 
 #: ../shell/ev-sidebar-bookmarks.c:609
 msgid "Bookmarks"
-msgstr ""
+msgstr "Bladwijzers"
 
 #: ../shell/ev-sidebar-layers.c:444
 msgid "Layers"
@@ -1147,7 +1141,7 @@ msgstr "Page %s — %s"
 msgid ""
 "Cannot enter presentation mode with ePub documents use fullscreen mode "
 "instead."
-msgstr ""
+msgstr "Kan presentatie modus niet openen met ePub documenten, in plaats daarvan gebruik volledig scherm modus. "
 
 #: ../shell/ev-window.c:1560
 msgid "The document contains no pages"
@@ -1159,7 +1153,7 @@ msgstr "Het document bevat slechts lege pagina's"
 
 #: ../shell/ev-window.c:1601
 msgid "Presentation mode is not supported for ePub documents."
-msgstr ""
+msgstr "Presentatie modus is niet ondersteund voor ePub documenten."
 
 #: ../shell/ev-window.c:1802 ../shell/ev-window.c:1970
 msgid "Unable to open document"
@@ -1293,7 +1287,7 @@ msgstr "Sluiten na _afdrukken"
 
 #: ../shell/ev-window.c:4151
 msgid "Presentation mode is not supported for ePub documents"
-msgstr ""
+msgstr "Presentatie modus is niet ondersteund voor ePub documenten"
 
 #: ../shell/ev-window.c:4463
 msgid "Toolbar Editor"
@@ -1384,7 +1378,7 @@ msgstr "_Ga naar"
 
 #: ../shell/ev-window.c:5980
 msgid "_Bookmarks"
-msgstr ""
+msgstr "_Bladwijzers"
 
 #: ../shell/ev-window.c:5981
 msgid "_Help"
@@ -1486,11 +1480,11 @@ msgstr "Ga naar de laatste pagina"
 #. Bookmarks menu
 #: ../shell/ev-window.c:6055
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "Bl_adwijzer toevoegen"
 
 #: ../shell/ev-window.c:6056
 msgid "Add a bookmark for the current page"
-msgstr ""
+msgstr "Bladwijzer op huidige pagina toevoegen"
 
 #. Help menu
 #: ../shell/ev-window.c:6060
