@@ -2802,6 +2802,24 @@ ev_annot_from_poppler_annot (PopplerAnnot *poppler_annot,
 	return ev_annot;
 }
 
+static void
+annot_set_unique_name (EvAnnotation *annot)
+{
+	gchar *name;
+
+	name = g_strdup_printf ("annot-%" G_GUINT64_FORMAT, g_get_real_time ());
+	ev_annotation_set_name (annot, name);
+	g_free (name);
+}
+
+static void
+annot_area_changed_cb (EvAnnotation *annot,
+		       GParamSpec   *spec,
+		       EvMapping    *mapping)
+{
+	ev_annotation_get_area (annot, &mapping->area);
+}
+
 static EvMappingList *
 pdf_document_annotations_get_annotations (EvDocumentAnnotations *document_annotations,
 					  EvPage                *page)
@@ -2842,12 +2860,8 @@ pdf_document_annotations_get_annotations (EvDocumentAnnotations *document_annota
 		i++;
 
 		/* Make sure annot has a unique name */
-		if (!ev_annotation_get_name (ev_annot)) {
-			gchar *name = g_strdup_printf ("annot-%d-%d", page->index, i);
-
-			ev_annotation_set_name (ev_annot, name);
-			g_free (name);
-		}
+		if (!ev_annotation_get_name (ev_annot))
+			annot_set_unique_name (ev_annot);
 
 		annot_mapping = g_new (EvMapping, 1);
 		if (EV_IS_ANNOTATION_TEXT (ev_annot)) {
@@ -2863,6 +2877,10 @@ pdf_document_annotations_get_annotations (EvDocumentAnnotations *document_annota
 			annot_mapping->area.y2 = height - mapping->area.y1;
 		}
 		annot_mapping->data = ev_annot;
+		ev_annotation_set_area (ev_annot, &annot_mapping->area);
+		g_signal_connect (ev_annot, "notify::area",
+				  G_CALLBACK (annot_area_changed_cb),
+				  annot_mapping);
 
 		g_object_set_data_full (G_OBJECT (ev_annot),
 					"poppler-annot",
@@ -2933,7 +2951,7 @@ pdf_document_annotations_remove_annotation (EvDocumentAnnotations *document_anno
 static void
 pdf_document_annotations_add_annotation (EvDocumentAnnotations *document_annotations,
 					 EvAnnotation          *annot,
-					 EvRectangle           *rect)
+					 EvRectangle           *rect_deprecated)
 {
 	PopplerAnnot    *poppler_annot;
 	PdfDocument     *pdf_document;
@@ -2946,18 +2964,35 @@ pdf_document_annotations_add_annotation (EvDocumentAnnotations *document_annotat
 	gdouble          height;
 	PopplerColor     poppler_color;
 	GdkColor         color;
-	gchar           *name;
+	EvRectangle      rect;
 
 	pdf_document = PDF_DOCUMENT (document_annotations);
 	page = ev_annotation_get_page (annot);
 	poppler_page = POPPLER_PAGE (page->backend_page);
 
+	ev_annotation_get_area (annot, &rect);
+
 	poppler_page_get_size (poppler_page, NULL, &height);
-	poppler_rect.x1 = rect->x1;
-	poppler_rect.x2 = rect->x2;
-	poppler_rect.y1 = height - rect->y2;
-	poppler_rect.y2 = height - rect->y1;
+	poppler_rect.x1 = rect.x1;
+	poppler_rect.x2 = rect.x2;
+	poppler_rect.y1 = height - rect.y2;
+	poppler_rect.y2 = height - rect.y1;
+
+	switch (ev_annotation_get_annotation_type (annot)) {
+		case EV_ANNOTATION_TYPE_TEXT: {
+			EvAnnotationText    *text = EV_ANNOTATION_TEXT (annot);
+			EvAnnotationTextIcon icon;
+
 	poppler_annot = poppler_annot_text_new (pdf_document->document, &poppler_rect);
+
+			icon = ev_annotation_text_get_icon (text);
+			poppler_annot_text_set_icon (POPPLER_ANNOT_TEXT (poppler_annot),
+						     get_poppler_annot_text_icon (icon));
+			}
+			break;
+		default:
+			g_assert_not_reached ();
+	}
 
 	ev_annotation_get_color (annot, &color);
 	poppler_color.red = color.red;
@@ -2998,8 +3033,11 @@ pdf_document_annotations_add_annotation (EvDocumentAnnotations *document_annotat
 	poppler_page_add_annot (poppler_page, poppler_annot);
 
 	annot_mapping = g_new (EvMapping, 1);
-	annot_mapping->area = *rect;
+	annot_mapping->area = rect;
 	annot_mapping->data = annot;
+	g_signal_connect (annot, "notify::area",
+			  G_CALLBACK (annot_area_changed_cb),
+			  annot_mapping);
 	g_object_set_data_full (G_OBJECT (annot),
 				"poppler-annot",
 				poppler_annot,
@@ -3018,14 +3056,8 @@ pdf_document_annotations_add_annotation (EvDocumentAnnotations *document_annotat
 
 	if (mapping_list) {
 		list = ev_mapping_list_get_list (mapping_list);
-		name = g_strdup_printf ("annot-%d-%d", page->index, g_list_length (list) + 1);
-		ev_annotation_set_name (annot, name);
-		g_free (name);
 		list = g_list_append (list, annot_mapping);
 	} else {
-		name = g_strdup_printf ("annot-%d-0", page->index);
-		ev_annotation_set_name (annot, name);
-		g_free (name);
 		list = g_list_append (list, annot_mapping);
 		mapping_list = ev_mapping_list_new (page->index, list, (GDestroyNotify)g_object_unref);
 		g_hash_table_insert (pdf_document->annots,
