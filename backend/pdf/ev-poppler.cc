@@ -2668,6 +2668,9 @@ ev_annot_from_poppler_annot (PopplerAnnot *poppler_annot,
 	        case POPPLER_ANNOT_UNDERLINE:
 			ev_annot = ev_annotation_text_markup_underline_new (page);
 			break;
+	        case POPPLER_ANNOT_SQUIGGLY:
+			ev_annot = ev_annotation_text_markup_squiggly_new (page);
+			break;
 	        case POPPLER_ANNOT_LINK:
 	        case POPPLER_ANNOT_WIDGET:
 			/* Ignore link and widgets annots since they are already handled */
@@ -2677,12 +2680,12 @@ ev_annot_from_poppler_annot (PopplerAnnot *poppler_annot,
 			case POPPLER_ANNOT_FREE_TEXT:
 			case POPPLER_ANNOT_LINE:
 			case POPPLER_ANNOT_SCREEN:
+			case POPPLER_ANNOT_MOVIE:
 			case POPPLER_ANNOT_SOUND:
 			case POPPLER_ANNOT_INK:
 			case POPPLER_ANNOT_POLYGON:
 			case POPPLER_ANNOT_CIRCLE:
 			case POPPLER_ANNOT_SQUARE:
-			case POPPLER_ANNOT_SQUIGGLY:
 			case POPPLER_ANNOT_STAMP: {
 				/* FIXME: These annotations are unimplemented, but they were already
 				 * reported with test case.  We add a special
@@ -3180,6 +3183,9 @@ pdf_document_annotations_save_annotation (EvDocumentAnnotations *document_annota
 				break;
 			case EV_ANNOTATION_TEXT_MARKUP_UNDERLINE:
 				new_annot = poppler_annot_text_markup_new_underline (pdf_document->document, &rect, quads);
+				break;
+			case EV_ANNOTATION_TEXT_MARKUP_SQUIGGLY:
+				new_annot = poppler_annot_text_markup_new_squiggly (pdf_document->document, &rect, quads);
 				break;
 			}
 
