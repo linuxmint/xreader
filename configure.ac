@@ -144,7 +144,7 @@ case "$with_gtk" in
        WEBKIT_REQUIRED=2.4.3
        ;;
   3.0) GTK_API_VERSION=3.0
-       WEBKIT_API_VERSION=3.0
+       WEBKIT_API_VERSION=4.0
        GAIL_API_VERSION=-3.0
        GTK_REQUIRED=3.0.0
        WEBKIT_REQUIRED=2.4.3
@@ -699,29 +699,30 @@ if test "x$enable_epub" = "xyes"; then
     case "$with_gtk" in
         2.0)
         PKG_CHECK_MODULES(EPUB, webkit-$WEBKIT_API_VERSION >= $WEBKIT_REQUIRED \
-	    libxml-2.0 >= $LIBXML_REQUIRED zlib,enable_epub=yes,enable_epub=no)
+	    libxml-2.0 >= $LIBXML_REQUIRED zlib,have_webkit=yes,have_webkit=no)
 	;;
         3.0)
         PKG_CHECK_MODULES(EPUB, webkit2gtk-$WEBKIT_API_VERSION >= $WEBKIT_REQUIRED \
-	    libxml-2.0 >= $LIBXML_REQUIRED zlib,enable_epub=yes,enable_epub=no)
-        if test "x$enable_epub" = "xno"; then
-           WEBKIT_API_VERSION=4.0
+	    libxml-2.0 >= $LIBXML_REQUIRED zlib,have_webkit=yes,have_webkit=no)
+        if test "x$have_webkit" = "xno"; then
+	   AC_MSG_NOTICE([Webkit2 4.0 not found, trying 3.0])
+           WEBKIT_API_VERSION=3.0
            PKG_CHECK_MODULES(EPUB, webkit2gtk-$WEBKIT_API_VERSION >= $WEBKIT_REQUIRED \
-	       libxml-2.0 >= $LIBXML_REQUIRED zlib,enable_epub=yes,enable_epub=no)
+	       libxml-2.0 >= $LIBXML_REQUIRED zlib,have_webkit=yes,have_webkit=no)
         fi
 	;;
 esac
 
 
-   if test "x$enable_epub" = "xyes"; then
+   if test "x$have_webkit" = "xyes"; then
       AC_DEFINE([ENABLE_EPUB], [1], [Enable support for ePub documents.])
    else
-      enable_epub="no"
+      have_webkit="no"
       AC_MSG_WARN(["ePub support is disabled."])
    fi
 fi
 
-AM_CONDITIONAL(ENABLE_EPUB, test x$enable_epub = xyes)
+AM_CONDITIONAL(ENABLE_EPUB, test x$have_webkit = xyes)
 
 dnl ================== End of EPUB checks ===================================================
 
@@ -751,7 +752,7 @@ fi
 if test "x$enable_xps" = "xyes"; then
     ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/oxps;application/vnd.ms-xpsdocument;"
 fi
-if test "x$enable_epub" = "xyes"; then
+if test "x$have_webkit" = "xyes"; then
 	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/epub+zip;"
 fi
 
@@ -950,5 +951,5 @@ Configure summary:
     Pixbuf Backend.....:    $enable_pixbuf
     Comics Backend.....:    $enable_comics
     XPS Backend........:    $enable_xps
-    ePub Backend.......:    $enable_epub
+    ePub Backend.......:    $have_webkit
 "
