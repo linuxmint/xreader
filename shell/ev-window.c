@@ -4785,7 +4785,7 @@ ev_window_cmd_escape (GtkAction *action, EvWindow *window)
 {
 	GtkWidget *widget;
 
-	if (!window->priv->document->iswebdocument && window->priv->view)
+	if (window->priv->document && !window->priv->document->iswebdocument && window->priv->view)
 		ev_view_autoscroll_stop (EV_VIEW (window->priv->view));
 	
 	widget = gtk_window_get_focus (GTK_WINDOW (window));
