@@ -704,6 +704,11 @@ if test "x$enable_epub" = "xyes"; then
         3.0)
         PKG_CHECK_MODULES(EPUB, webkit2gtk-$WEBKIT_API_VERSION >= $WEBKIT_REQUIRED \
 	    libxml-2.0 >= $LIBXML_REQUIRED zlib,enable_epub=yes,enable_epub=no)
+        if test "x$enable_epub" = "xno"; then
+           WEBKIT_API_VERSION=4.0
+           PKG_CHECK_MODULES(EPUB, webkit2gtk-$WEBKIT_API_VERSION >= $WEBKIT_REQUIRED \
+	       libxml-2.0 >= $LIBXML_REQUIRED zlib,enable_epub=yes,enable_epub=no)
+        fi
 	;;
 esac
 
