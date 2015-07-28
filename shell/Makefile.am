@@ -19,6 +19,7 @@ AM_CPPFLAGS=							\
 	-DLIBEXECDIR=\""$(libexecdir)"\"			\
 	-DATRIL_COMPILATION					\
 	$(SHELL_CFLAGS)						\
+	$(MATE_DESKTOP_CFLAGS)					\
 	$(WARN_CFLAGS)						\
 	$(DISABLE_DEPRECATED)
 
@@ -115,7 +116,8 @@ atril_LDADD=										\
 	$(top_builddir)/libdocument/libatrildocument.la					\
 	$(top_builddir)/libview/libatrilview.la						\
 	$(top_builddir)/libmisc/libevmisc.la						\
-	$(SHELL_LIBS)
+	$(SHELL_LIBS)									\
+	$(MATE_DESKTOP_LIBS)
 
 if PLATFORM_WIN32
 atril_LDADD += atril-icon.o
