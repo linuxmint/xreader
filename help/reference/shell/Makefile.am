@@ -107,7 +107,8 @@ GTKDOC_CFLAGS = \
 	$(SHELL_CFLAGS)					\
 	$(WARN_CFLAGS)					\
 	$(DISABLE_DEPRECATED)				\
-	$(GTK_PRINT_CFLAGS)
+	$(GTK_PRINT_CFLAGS)				\
+	$(MATE_DESKTOP_CFLAGS)
 
 FILTER_OUT = \
 	$(top_builddir)/shell/main.o			\
@@ -126,6 +127,7 @@ GTKDOC_LIBS = \
 	$(top_builddir)/libmisc/libevmisc.la				\
 	$(SHELL_LIBS)							\
 	$(GTK_PRINT_LIBS)						\
+	$(MATE_DESKTOP_LIBS)						\
 	$(filter-out $(FILTER_OUT),$(wildcard $(top_builddir)/shell/*.o))
 
 # This includes the standard gtk-doc make rules, copied by gtkdocize.
