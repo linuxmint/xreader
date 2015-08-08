@@ -245,11 +245,7 @@ static void       on_adjustment_value_changed                (GtkAdjustment     
 
 /*** GObject ***/
 static void       ev_view_finalize                           (GObject            *object);
-#if GTK_CHECK_VERSION (3, 0, 0)
 static void       ev_view_dispose                            (GObject          *object);
-#else
-static void       ev_view_destroy                            (GtkObject          *object);
-#endif
 static void       ev_view_class_init                         (EvViewClass        *class);
 static void       ev_view_init                               (EvView             *view);
 
@@ -4302,11 +4298,7 @@ ev_view_key_press_event (GtkWidget   *widget,
 		return FALSE;
 	}
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	return gtk_bindings_activate_event (G_OBJECT (widget), event);
-#else
-	return gtk_bindings_activate_event (GTK_OBJECT (widget), event);
-#endif
 }
 
 static gint
@@ -4718,11 +4710,7 @@ ev_view_finalize (GObject *object)
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 ev_view_dispose (GObject *object)
-#else
-ev_view_destroy (GtkObject *object)
-#endif
 {
 	EvView *view = EV_VIEW (object);
 
@@ -4781,12 +4769,7 @@ ev_view_destroy (GtkObject *object)
 #if !GTK_CHECK_VERSION (3, 0, 0)
 	ev_view_set_scroll_adjustments (GTK_LAYOUT (view), NULL, NULL);
 #endif
-
-#if GTK_CHECK_VERSION (3, 0, 0)
 	G_OBJECT_CLASS (ev_view_parent_class)->dispose (object);
-#else
-	GTK_OBJECT_CLASS (ev_view_parent_class)->destroy (object);
-#endif
 }
 
 #if GTK_CHECK_VERSION (3, 0, 0)
@@ -4900,9 +4883,6 @@ static void
 ev_view_class_init (EvViewClass *class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (class);
-#if !GTK_CHECK_VERSION (3, 0, 0)
-	GtkObjectClass *gtk_object_class = GTK_OBJECT_CLASS (class);
-#endif
 	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (class);
 #if !GTK_CHECK_VERSION (3, 0, 0)
 	GtkLayoutClass *layout_class = GTK_LAYOUT_CLASS (class);
@@ -4913,7 +4893,6 @@ ev_view_class_init (EvViewClass *class)
 	object_class->get_property = ev_view_get_property;
 	object_class->set_property = ev_view_set_property;
 #endif
-
 	object_class->finalize = ev_view_finalize;
 
 #if GTK_CHECK_VERSION (3, 0, 0)
@@ -4951,11 +4930,7 @@ ev_view_class_init (EvViewClass *class)
 	widget_class->popup_menu = ev_view_popup_menu;
 	widget_class->query_tooltip = ev_view_query_tooltip;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	object_class->dispose = ev_view_dispose;
-#else
-	gtk_object_class->destroy = ev_view_destroy;
-#endif
 
 #if !GTK_CHECK_VERSION (3, 0, 0)
 	layout_class->set_scroll_adjustments = ev_view_set_scroll_adjustments;
@@ -5055,7 +5030,6 @@ ev_view_class_init (EvViewClass *class)
 				      GTK_SCROLL_STEP_BACKWARD, G_TYPE_BOOLEAN, FALSE);
 	gtk_binding_entry_add_signal (binding_set, GDK_KEY_L, 0, "binding_activated", 2, GTK_TYPE_SCROLL_TYPE,
 				      GTK_SCROLL_STEP_FORWARD, G_TYPE_BOOLEAN, TRUE);
-	
 }
 
 static void

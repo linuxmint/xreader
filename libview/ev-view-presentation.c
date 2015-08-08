@@ -967,11 +967,7 @@ ev_view_presentation_update_current_surface (EvViewPresentation *pview,
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 ev_view_presentation_dispose (GObject *object)
-#else
-ev_view_presentation_destroy (GtkObject *object)
-#endif
 {
 	EvViewPresentation *pview = EV_VIEW_PRESENTATION (object);
 
@@ -1001,11 +997,7 @@ ev_view_presentation_destroy (GtkObject *object)
 		pview->goto_entry = NULL;
 	}
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	G_OBJECT_CLASS (ev_view_presentation_parent_class)->dispose (object);
-#else
-	GTK_OBJECT_CLASS (ev_view_presentation_parent_class)->destroy (object);
-#endif
 }
 
 #if GTK_CHECK_VERSION (3, 0, 0)
@@ -1178,11 +1170,7 @@ ev_view_presentation_key_press_event (GtkWidget   *widget,
 	EvViewPresentation *pview = EV_VIEW_PRESENTATION (widget);
 
 	if (pview->state == EV_PRESENTATION_END)
-#if GTK_CHECK_VERSION (3, 0, 0)
 		return gtk_bindings_activate_event (G_OBJECT (widget), event);
-#else
-		return gtk_bindings_activate_event (GTK_OBJECT (widget), event);
-#endif
 
 	switch (event->keyval) {
 	case GDK_KEY_b:
@@ -1238,11 +1226,7 @@ ev_view_presentation_key_press_event (GtkWidget   *widget,
 		return TRUE;
 	}
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	return gtk_bindings_activate_event (G_OBJECT (widget), event);
-#else
-	return gtk_bindings_activate_event (GTK_OBJECT (widget), event);
-#endif
 }
 
 static gboolean
@@ -1509,9 +1493,6 @@ ev_view_presentation_class_init (EvViewPresentationClass *klass)
 {
 	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 	GObjectClass   *gobject_class = G_OBJECT_CLASS (klass);
-#if !GTK_CHECK_VERSION (3, 0, 0)
-	GtkObjectClass *gtk_object_class = GTK_OBJECT_CLASS (klass);
-#endif
 	GtkBindingSet  *binding_set;
 #if GTK_CHECK_VERSION (3, 0, 0)
 	GtkCssProvider *provider;
@@ -1537,15 +1518,11 @@ ev_view_presentation_class_init (EvViewPresentationClass *klass)
 	widget_class->motion_notify_event = ev_view_presentation_motion_notify_event;
 	widget_class->scroll_event = ev_view_presentation_scroll_event;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	gobject_class->dispose = ev_view_presentation_dispose;
-#else
-	gtk_object_class->destroy = ev_view_presentation_destroy;
-#endif
 
 	gobject_class->constructor = ev_view_presentation_constructor;
 	gobject_class->set_property = ev_view_presentation_set_property;
-        gobject_class->get_property = ev_view_presentation_get_property;
+	gobject_class->get_property = ev_view_presentation_get_property;
 
 	g_object_class_install_property (gobject_class,
 					 PROP_DOCUMENT,

@@ -472,11 +472,7 @@ ev_sidebar_attachments_get_property (GObject    *object,
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 ev_sidebar_attachments_dispose (GObject *object)
-#else
-ev_sidebar_attachments_destroy (GtkObject *object)
-#endif
 {
 	EvSidebarAttachments *ev_attachbar = EV_SIDEBAR_ATTACHMENTS (object);
 
@@ -487,7 +483,7 @@ ev_sidebar_attachments_destroy (GtkObject *object)
 			ev_attachbar);
 		ev_attachbar->priv->icon_theme = NULL;
 	}
-	
+
 	if (ev_attachbar->priv->model) {
 		g_object_unref (ev_attachbar->priv->model);
 		ev_attachbar->priv->model = NULL;
@@ -498,34 +494,20 @@ ev_sidebar_attachments_destroy (GtkObject *object)
 		ev_attachbar->priv->icon_cache = NULL;
 	}
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	(* G_OBJECT_CLASS (ev_sidebar_attachments_parent_class)->dispose) (object);
-#else
-	(* GTK_OBJECT_CLASS (ev_sidebar_attachments_parent_class)->destroy) (object);
-#endif
 }
 
 static void
 ev_sidebar_attachments_class_init (EvSidebarAttachmentsClass *ev_attachbar_class)
 {
 	GObjectClass   *g_object_class;
-#if !GTK_CHECK_VERSION (3, 0, 0)
-	GtkObjectClass *gtk_object_class;
-#endif
 	GtkWidgetClass *gtk_widget_class;
 
 	g_object_class = G_OBJECT_CLASS (ev_attachbar_class);
-#if !GTK_CHECK_VERSION (3, 0, 0)
-	gtk_object_class = GTK_OBJECT_CLASS (ev_attachbar_class);
-#endif
 	gtk_widget_class = GTK_WIDGET_CLASS (ev_attachbar_class);
 
 	g_object_class->get_property = ev_sidebar_attachments_get_property;
-#if GTK_CHECK_VERSION (3, 0, 0)
 	g_object_class->dispose = ev_sidebar_attachments_dispose;
-#else
-	gtk_object_class->destroy = ev_sidebar_attachments_destroy;
-#endif
 	gtk_widget_class->popup_menu = ev_sidebar_attachments_popup_menu;
 	gtk_widget_class->screen_changed = ev_sidebar_attachments_screen_changed;
 
