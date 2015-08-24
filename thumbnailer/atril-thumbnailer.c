@@ -25,15 +25,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#ifdef G_OS_WIN32
-#include <io.h>
-#include <conio.h>
-#if !(_WIN32_WINNT >= 0x0500)
-#error "_WIN32_WINNT must be defined >= 0x0500"
-#endif
-#include <windows.h>
-#endif
-
 #define THUMBNAIL_SIZE 128
 #define DEFAULT_SLEEP_TIME (15 * G_USEC_PER_SEC) /* 15 seconds */
 
@@ -188,13 +179,7 @@ atril_thumbnail_pngenc_get (EvDocument *document, const char *thumbnail, int siz
 		if (overlaid_icon_name) {
 			GdkPixbuf *overlaid_pixbuf;
 
-#ifdef G_OS_WIN32
-			gchar *dir = g_win32_get_package_installation_directory_of_module (NULL);
-			gchar *overlaid_icon_path = g_build_filename (dir, "share", "atril", overlaid_icon_name, NULL);
-			g_free (dir);
-#else
 			gchar *overlaid_icon_path = g_strdup_printf ("%s/%s", ATRILDATADIR, overlaid_icon_name);
-#endif
 			overlaid_pixbuf = gdk_pixbuf_new_from_file (overlaid_icon_path, NULL);
 			g_free (overlaid_icon_path);
 			if (overlaid_pixbuf != NULL) {

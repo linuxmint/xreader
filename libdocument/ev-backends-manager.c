@@ -47,17 +47,7 @@ static const gchar *
 backends_dir (void)
 {
 	if (!backendsdir) {
-#ifdef G_OS_WIN32
-		gchar *dir;
-
-		dir = g_win32_get_package_installation_directory_of_module (NULL);
-		backendsdir = g_build_filename (dir, "lib", "atril",
-						EV_BACKENDSBINARYVERSION,
-						"backends", NULL);
-		g_free (dir);
-#else
 		backendsdir = g_strdup (EV_BACKENDSDIR);
-#endif
 	}
 
 	return backendsdir;

@@ -30,16 +30,11 @@
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
 #include <gtk/gtk.h>
-#ifdef GDK_WINDOWING_X11
 #include <gdk/gdkx.h>
-#endif
-#include <unistd.h>
 
 #include "totem-scrsaver.h"
 
-#ifdef WITH_SMCLIENT
 #include "eggsmclient.h"
-#endif
 
 #include "ev-application.h"
 #include "ev-file-helpers.h"
@@ -66,9 +61,7 @@ struct _EvApplication {
 
 	TotemScrsaver *scr_saver;
 
-#ifdef WITH_SMCLIENT
 	EggSMClient *smclient;
-#endif
 
 	gchar *filechooser_open_uri;
 	gchar *filechooser_save_uri;
@@ -133,13 +126,11 @@ ev_application_load_session (EvApplication *application)
 	GKeyFile *state_file;
 	gchar    *uri;
 
-#ifdef WITH_SMCLIENT
 	if (egg_sm_client_is_resumed (application->smclient)) {
 		state_file = egg_sm_client_get_state_file (application->smclient);
 		if (!state_file)
 			return FALSE;
 	} else
-#endif /* WITH_SMCLIENT */
 		return FALSE;
 
 	uri = g_key_file_get_string (state_file, "Atril", "uri", NULL);
@@ -155,8 +146,6 @@ ev_application_load_session (EvApplication *application)
 
 	return TRUE;
 }
-
-#ifdef WITH_SMCLIENT
 
 static void
 smclient_save_state_cb (EggSMClient   *client,
@@ -175,12 +164,10 @@ smclient_quit_cb (EggSMClient   *client,
 {
 	ev_application_shutdown (application);
 }
-#endif /* WITH_SMCLIENT */
 
 static void
 ev_application_init_session (EvApplication *application)
 {
-#ifdef WITH_SMCLIENT
 	application->smclient = egg_sm_client_get ();
 	g_signal_connect (application->smclient, "save_state",
 			  G_CALLBACK (smclient_save_state_cb),
@@ -188,7 +175,6 @@ ev_application_init_session (EvApplication *application)
 	g_signal_connect (application->smclient, "quit",
 			  G_CALLBACK (smclient_quit_cb),
 			  application);
-#endif
 }
 
 /**
@@ -238,19 +224,7 @@ ev_spawn (const char     *uri,
 	GError  *error = NULL;
 
 	cmd = g_string_new (NULL);
-
-#ifdef G_OS_WIN32
-{
-	gchar *dir;
-
-	dir = g_win32_get_package_installation_directory_of_module (NULL);
-	path = g_build_filename (dir, "bin", "atril", NULL);
-	g_free (dir);
-}
-#else
 	path = g_build_filename (BINDIR, "atril", NULL);
-#endif
-
 	g_string_append_printf (cmd, " %s", path);
 	g_free (path);
 
@@ -614,9 +588,7 @@ ev_application_open_uri_in_window (EvApplication  *application,
 				   const gchar    *search_string,
 				   guint           timestamp)
 {
-#ifdef GDK_WINDOWING_X11
 	GdkWindow *gdk_window;
-#endif
 
 	if (screen) {
 		ev_stock_icons_set_screen (screen);
@@ -630,7 +602,6 @@ ev_application_open_uri_in_window (EvApplication  *application,
 	if (!gtk_widget_get_realized (GTK_WIDGET (ev_window)))
 		gtk_widget_realize (GTK_WIDGET (ev_window));
 
-#ifdef GDK_WINDOWING_X11
 	gdk_window = gtk_widget_get_window (GTK_WIDGET (ev_window));
 
 	if (timestamp <= 0)
@@ -638,9 +609,6 @@ ev_application_open_uri_in_window (EvApplication  *application,
 	gdk_x11_window_set_user_time (gdk_window, timestamp);
 
 	gtk_window_present (GTK_WINDOW (ev_window));
-#else
-	gtk_window_present_with_time (GTK_WINDOW (ev_window), timestamp);
-#endif /* GDK_WINDOWING_X11 */
 }
 
 static void
@@ -715,9 +683,7 @@ ev_application_open_window (EvApplication *application,
 			    guint32        timestamp)
 {
 	GtkWidget *new_window = ev_window_new ();
-#ifdef GDK_WINDOWING_X11
 	GdkWindow *gdk_window;
-#endif
 
 	if (screen) {
 		ev_stock_icons_set_screen (screen);
@@ -727,7 +693,6 @@ ev_application_open_window (EvApplication *application,
 	if (!gtk_widget_get_realized (new_window))
 		gtk_widget_realize (new_window);
 
-#ifdef GDK_WINDOWING_X11
 	gdk_window = gtk_widget_get_window (GTK_WIDGET (new_window));
 
 	if (timestamp <= 0)
@@ -735,9 +700,6 @@ ev_application_open_window (EvApplication *application,
 	gdk_x11_window_set_user_time (gdk_window, timestamp);
 
 	gtk_window_present (GTK_WINDOW (new_window));
-#else
-	gtk_window_present_with_time (GTK_WINDOW (new_window), timestamp);
-#endif /* GDK_WINDOWING_X11 */
 }
 
 #ifdef ENABLE_DBUS
@@ -895,7 +857,6 @@ static void ev_application_accel_map_save(EvApplication* application)
 
 	if (g_rename(tmp_filename, accel_map_file) == -1)
 	{
-		/* FIXME: win32? */
 		g_unlink(tmp_filename);
 	}
 
@@ -992,17 +953,7 @@ static void ev_application_init(EvApplication* ev_application)
 		ev_application->dot_dir = g_build_filename(g_get_user_config_dir(), "atril", NULL);
 	}
 
-#ifdef G_OS_WIN32
-{
-	gchar *dir;
-
-	dir = g_win32_get_package_installation_directory_of_module (NULL);
-	ev_application->data_dir = g_build_filename (dir, "share", "atril", NULL);
-	g_free (dir);
-}
-#else
 	ev_application->data_dir = g_strdup (ATRILDATADIR);
-#endif
 
 	ev_application_init_session (ev_application);
 

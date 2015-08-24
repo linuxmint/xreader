@@ -479,18 +479,7 @@ ev_previewer_window_dispose (GObject *object)
 static gchar*
 data_dir (void)
 {
-	gchar *datadir;
-#ifdef G_OS_WIN32
-	gchar *dir;
-
-	dir = g_win32_get_package_installation_directory_of_module (NULL);
-	datadir = g_build_filename (dir, "share", "atril", NULL);
-	g_free (dir);
-#else
-	datadir = g_strdup (ATRILDATADIR);
-#endif
-
-       return datadir;
+	return g_strdup (ATRILDATADIR);
 }
 
 static void

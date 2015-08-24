@@ -86,40 +86,6 @@ AC_SUBST([EV_INTLTOOL_ATRIL_BACKEND_RULE])
 
 GLIB_GSETTINGS
 
-# Check which platform to use
-
-AC_MSG_CHECKING([for which platform to build])
-AC_ARG_WITH([platform],
-  [AS_HELP_STRING([--with-platform=mate|win32|hildon],
-                  [Setting platform (default: mate)])],
-  [case "$withval" in
-    mate|win32|hildon) ;;
-    *) AC_MSG_ERROR([invalid argument "$withval" for --with-platform]) ;;
-   esac],
-  [case "$host" in
-     *-*-mingw*|*-*-cygwin*) with_platform="win32" ;;
-     *) with_platform=mate ;;
-   esac])
-
-AC_MSG_RESULT([$with_platform])
-
-if test "$with_platform" = "win32"; then
-  AC_CHECK_TOOL([WINDRES],[windres])
-  AC_MSG_CHECKING([for native Win32])
-  case "$host" in
-    *-*-mingw*)
-      os_win32=yes
-      ;;
-    *)
-      os_win32=no
-      ;;
-  esac
-  AC_MSG_RESULT([$os_win32])
-fi
-
-AM_CONDITIONAL([PLATFORM_HILDON], [test "$with_platform" = "hildon"])
-AM_CONDITIONAL([PLATFORM_WIN32], [test "$with_platform" = "win32"])
-
 AC_MSG_CHECKING([which gtk+ version to compile against])
 AC_ARG_WITH([gtk],
   [AS_HELP_STRING([--with-gtk=2.0|3.0], [which gtk+ version to compile against (default: 2.0)])],
@@ -175,31 +141,7 @@ PKG_CHECK_MODULES(BACKEND, cairo >= $CAIRO_REQUIRED gtk+-$GTK_API_VERSION >= $GT
 PKG_CHECK_MODULES(FRONTEND_CORE, gtk+-$GTK_API_VERSION >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED)
 PKG_CHECK_MODULES(GMODULE, gmodule-2.0 >= $GLIB_REQUIRED)
 
-SHELL_PLATFORM_PKGS=
-case "$with_platform" in
-  hildon) AC_DEFINE([PLATFORM_HILDON],[1],[Define if building for the hildon platform])
-          SHELL_PLATFORM_PKGS="hildon-1 hildon-fm-2 libosso"
-          ;;
-  mate)
-        # Atril has a rather soft run-time dependency on hicolor-icon-theme.
-        # If the hicolor theme is not available, Atril fails to display some
-        # icons. Because we cannot check for it at run-time, we instead
-        # would like to require the icon theme at compile-time. But, because
-        # the hicolor-icon-theme does not have a pkgconfig file, on mate we
-        # require the mate icon theme instead.
-        SHELL_PLATFORM_PKGS="mate-icon-theme >= $MATE_ICON_THEME_REQUIRED"
-        # The totem-screensaver and egg_smclient code use x11 directly.
-        SHELL_PLATFORM_PKGS="$SHELL_PLATFORM_PKGS x11"
-        ;;
-  *)
-        # On all other platforms we issue a warning about the runtime
-        # dependency.
-        AC_MSG_WARN([Atril has a soft run-time dependency on hicolor-icon-theme. You are advised to have this theme installed when running Atril.]);
-        SHELL_PLATFORM_PKGS=""
-        ;;
-esac
-
-PKG_CHECK_MODULES([SHELL_CORE],[libxml-2.0 >= $LIBXML_REQUIRED gtk+-$GTK_API_VERSION >= $GTK_REQUIRED gio-2.0 >= $GLIB_REQUIRED gthread-2.0 $SHELL_PLATFORM_PKGS])
+PKG_CHECK_MODULES([SHELL_CORE],[libxml-2.0 >= $LIBXML_REQUIRED gtk+-$GTK_API_VERSION >= $GTK_REQUIRED gio-2.0 >= $GLIB_REQUIRED gthread-2.0 mate-icon-theme >= $MATE_ICON_THEME_REQUIRED x11])
 
 dnl
 dnl zlib support
@@ -215,45 +157,13 @@ AS_IF([test "x$found_zlib" = "xno"], [
   AC_SUBST(ZLIB_LIBS)
 ])
 
-# *********
-# SM client
-# *********
+dnl
+dnl SM client
+dnl
 
-GDK_TARGET="$($PKG_CONFIG --variable target gdk-$GTK_API_VERSION)"
-
-AC_MSG_CHECKING([which smclient backend to use])
-AC_ARG_WITH([smclient],
-  [AS_HELP_STRING([--with-smclient-backend=no|xsmp|win32|quartz],
-                  [Setting smclient backend (default:auto)])],
-  [],
-  [case "$GDK_TARGET" in
-    x11) case "$with_platform" in
-           mate) with_smclient=xsmp ;;
-           *) with_smclient=no ;;
-         esac ;;
-    win32|quartz) with_smclient=$GDK_TARGET ;;
-    *) with_smclient=no ;;
-   esac])
-
-AC_MSG_RESULT([$with_smclient])
-
-if test "$with_smclient" != "no"; then
-  AC_DEFINE([WITH_SMCLIENT],[1],[Define if smclient is enabled])
-
-  case "$with_smclient" in
-    xsmp) SMCLIENT_PKGS="sm >= 1.0.0" ;;
-    *) SMCLIENT_PKGS="" ;;
-  esac
-
-  PKG_CHECK_MODULES([SMCLIENT],[gtk+-$GTK_API_VERSION gthread-2.0 $SMCLIENT_PKGS])
-  AC_SUBST([SMCLIENT_CFLAGS])
-  AC_SUBST([SMCLIENT_LIBS])
-fi
-
-AM_CONDITIONAL([WITH_SMCLIENT],[test "$with_smclient" != "no"])
-AM_CONDITIONAL([WITH_SMCLIENT_XSMP],[test "$with_smclient" = "xsmp"])
-AM_CONDITIONAL([WITH_SMCLIENT_WIN32],[test "$with_smclient" = "win32"])
-AM_CONDITIONAL([WITH_SMCLIENT_QUARTZ],[test "$with_smclient" = "quartz"])
+PKG_CHECK_MODULES([SMCLIENT],[gtk+-$GTK_API_VERSION gthread-2.0 sm >= 1.0.0])
+AC_SUBST([SMCLIENT_CFLAGS])
+AC_SUBST([SMCLIENT_LIBS])
 
 # ***
 
@@ -274,10 +184,7 @@ AC_MSG_CHECKING([whether gtk+-unix-print support is requested])
 AC_ARG_WITH([gtk-unix-print],
   [AS_HELP_STRING([--without-gtk-unix-print],
                   [Disable the use of gtk-unix-print])],
-  [],[case "$os_win32" in
-        yes) with_gtk_unix_print=no ;;
-        *) with_gtk_unix_print=yes ;;
-      esac])
+  [],[with_gtk_unix_print=yes])
 
 AC_MSG_RESULT([$with_gtk_unix_print])
 
@@ -294,10 +201,7 @@ AC_ARG_WITH(keyring,
         [AS_HELP_STRING([--without-keyring],
                         [Disable the use of libsecret and keyring])],
         [],
-        [case "$with_platform" in
-           mate) with_keyring=yes ;;
-           hildon|win32) with_keyring=no ;;
-         esac])
+        [with_keyring=yes])
 
 AM_CONDITIONAL([WITH_KEYRING],[test "$with_keyring" = "yes"])
 
@@ -313,10 +217,7 @@ fi
 AC_ARG_ENABLE([dbus],
   [AS_HELP_STRING([--disable-dbus], [Disable support for dbus])],
   [],
-  [case "$with_platform" in
-      mate) enable_dbus=yes ;;
-      hildon) enable_dbus=no ;;
-    esac])
+  [enable_dbus=yes])
 
 if test "$enable_dbus" = "yes"; then
   AC_DEFINE([ENABLE_DBUS],[1],[Define if DBUS support is enabled])
@@ -379,10 +280,7 @@ AC_ARG_ENABLE([caja],
   [AS_HELP_STRING([--disable-caja],
                   [Disable build of caja extensions])],
   [],
-  [case "$with_platform" in
-     mate) enable_caja=yes ;;
-     *) enable_caja=no ;;
-    esac])
+  [enable_caja=yes])
 
 if test "$enable_caja" = "yes" ; then
   PKG_CHECK_MODULES([CAJA],[gtk+-x11-$GTK_API_VERSION $MM gthread-2.0 libcaja-extension],
@@ -403,10 +301,7 @@ AC_ARG_ENABLE([thumbnailer],
   [AS_HELP_STRING([--disable-thumbnailer],
                   [Disable MATE thumbnailer])],
   [],
-  [case "$with_platform" in
-     hildon) enable_thumbnailer=no ;;
-     *) enable_thumbnailer=yes ;;
-    esac])
+  [enable_thumbnailer=yes])
 
 AM_CONDITIONAL([ENABLE_THUMBNAILER],[test "$enable_thumbnailer" = "yes"])
 
@@ -418,10 +313,7 @@ AC_ARG_ENABLE([previewer],
   [AS_HELP_STRING([--disable-previewer],
                   [Disable the MATE Document Previewer])],
   [],
-  [case "$with_platform" in
-      hildon) enable_previewer=no ;;
-      *) enable_previewer=yes ;;
-    esac])
+  [enable_previewer=yes])
 
 if test x$enable_previewer = "xyes" ; then
   PKG_CHECK_MODULES([PREVIEWER],[gtk+-$GTK_API_VERSION >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED])
@@ -949,13 +841,11 @@ AC_OUTPUT
 echo "
 Configure summary:
 
-    Platform............:    $with_platform
     GTK+ version........:    $with_gtk
     GTK+ Unix Print.....:    $with_gtk_unix_print
     MATE desktop Support:    $with_matedesktop
     Keyring Support.....:    $with_keyring
     DBUS Support........:    $enable_dbus
-    SM client support...:    $with_smclient
     Caja Plugin.........:    $enable_caja
     Thumbnailer.........:    $enable_thumbnailer
     Previewer...........:    $enable_previewer

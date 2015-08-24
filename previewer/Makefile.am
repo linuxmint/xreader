@@ -26,10 +26,6 @@ atril_previewer_CFLAGS = \
 
 atril_previewer_LDFLAGS = $(AM_LDFLAGS)
 
-if PLATFORM_WIN32
-atril_previewer_LDFLAGS += -mwindows
-endif
-
 atril_previewer_LDADD = \
 	$(top_builddir)/libdocument/libatrildocument.la	\
 	$(top_builddir)/libview/libatrilview.la		\

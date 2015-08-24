@@ -33,21 +33,9 @@
 #include "ev-stock-icons.h"
 #include "ev-metadata.h"
 
-#ifdef WITH_SMCLIENT
 #include "eggsmclient.h"
-#ifdef GDK_WINDOWING_X11
 #include "eggdesktopfile.h"
-#endif
-#endif /* WITH_SMCLIENT */
 
-#ifdef G_OS_WIN32
-#include <io.h>
-#include <conio.h>
-#if !(_WIN32_WINNT >= 0x0500)
-#error "_WIN32_WINNT must be defined >= 0x0500"
-#endif
-#include <windows.h>
-#endif
 
 static gchar   *ev_page_label;
 static gchar   *ev_find_string;
@@ -235,31 +223,6 @@ main (int argc, char *argv[])
 	GOptionContext *context;
 	GError         *error = NULL;
 
-#ifdef G_OS_WIN32
-
-    if (fileno (stdout) != -1 &&
- 	  _get_osfhandle (fileno (stdout)) != -1)
-	{
-	  /* stdout is fine, presumably redirected to a file or pipe */
-	}
-    else
-    {
-	  typedef BOOL (* WINAPI AttachConsole_t) (DWORD);
-
-	  AttachConsole_t p_AttachConsole =
-	    (AttachConsole_t) GetProcAddress (GetModuleHandle ("kernel32.dll"), "AttachConsole");
-
-	  if (p_AttachConsole != NULL && p_AttachConsole (ATTACH_PARENT_PROCESS))
-      {
-	      freopen ("CONOUT$", "w", stdout);
-	      dup2 (fileno (stdout), 1);
-	      freopen ("CONOUT$", "w", stderr);
-	      dup2 (fileno (stderr), 2);
-
-      }
-	}
-#endif
-
 #ifdef ENABLE_NLS
 	/* Initialize the i18n stuff */
 	bindtextdomain (GETTEXT_PACKAGE, ev_get_locale_dir());
@@ -270,11 +233,7 @@ main (int argc, char *argv[])
 	context = g_option_context_new (N_("MATE Document Viewer"));
 	g_option_context_set_translation_domain(context, GETTEXT_PACKAGE);
 	g_option_context_add_main_entries (context, goption_options, GETTEXT_PACKAGE);
-
-#ifdef WITH_SMCLIENT
 	g_option_context_add_group (context, egg_sm_client_get_option_group ());
-#endif
-
 	g_option_context_add_group (context, gtk_get_option_group (TRUE));
 
 	if (!g_option_context_parse (context, &argc, &argv, &error)) {
@@ -299,13 +258,7 @@ main (int argc, char *argv[])
 
 	ev_stock_icons_init ();
 
-#if defined(WITH_SMCLIENT) && defined(GDK_WINDOWING_X11)
 	egg_set_desktop_file (MATEDATADIR "/applications/atril.desktop");
-#else
-	/* Manually set name and icon */
-	g_set_application_name (_("Document Viewer"));
-	gtk_window_set_default_icon_name ("atril");
-#endif /* WITH_SMCLIENT && GDK_WINDOWING_X11 */
 
 	ev_application_load_session (EV_APP);
 	load_files (file_arguments);

@@ -21,10 +21,6 @@ atril_thumbnailer_CFLAGS = \
 
 atril_thumbnailer_LDFLAGS = $(AM_LDFLAGS)
 
-if PLATFORM_WIN32
-atril_thumbnailer_LDFLAGS += -mwindows
-endif
-
 atril_thumbnailer_LDADD = \
 	$(top_builddir)/libdocument/libatrildocument.la	\
 	$(FRONTEND_LIBS)

@@ -27,15 +27,6 @@
 
 #include "ev-previewer-window.h"
 
-#ifdef G_OS_WIN32
-#include <io.h>
-#include <conio.h>
-#if !(_WIN32_WINNT >= 0x0500)
-#error "_WIN32_WINNT must be defined >= 0x0500"
-#endif
-#include <windows.h>
-#endif
-
 static gboolean      unlink_temp_file = FALSE;
 static const gchar  *print_settings;
 static const gchar **filenames;
@@ -105,30 +96,6 @@ main (gint argc, gchar **argv)
 	const gchar     *filename;
 	EvDocumentModel *model;
 	GError          *error = NULL;
-
-#ifdef G_OS_WIN32
-    if (fileno (stdout) != -1 &&
- 	  _get_osfhandle (fileno (stdout)) != -1)
-	{
-	  /* stdout is fine, presumably redirected to a file or pipe */
-	}
-    else
-    {
-	  typedef BOOL (* WINAPI AttachConsole_t) (DWORD);
-
-	  AttachConsole_t p_AttachConsole =
-	    (AttachConsole_t) GetProcAddress (GetModuleHandle ("kernel32.dll"), "AttachConsole");
-
-	  if (p_AttachConsole != NULL && p_AttachConsole (ATTACH_PARENT_PROCESS))
-      {
-	      freopen ("CONOUT$", "w", stdout);
-	      dup2 (fileno (stdout), 1);
-	      freopen ("CONOUT$", "w", stderr);
-	      dup2 (fileno (stderr), 2);
-
-      }
-	}
-#endif
 
 #ifdef ENABLE_NLS
 	/* Initialize the i18n stuff */

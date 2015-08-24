@@ -102,10 +102,6 @@ endif
 
 atril_LDFLAGS = $(AM_LDFLAGS)
 
-if PLATFORM_WIN32
-atril_LDFLAGS += -mwindows
-endif
-
 atril_LDADD=										\
 	$(top_builddir)/cut-n-paste/zoom-control/libephyzoom.la				\
 	$(top_builddir)/cut-n-paste/toolbar-editor/libtoolbareditor.la			\
@@ -118,13 +114,6 @@ atril_LDADD=										\
 	$(top_builddir)/libmisc/libevmisc.la						\
 	$(SHELL_LIBS)									\
 	$(MATE_DESKTOP_LIBS)
-
-if PLATFORM_WIN32
-atril_LDADD += atril-icon.o
-
-atril-icon.o: $(srcdir)/atril-icon.rc $(top_srcdir)/data/atril.ico
-	$(WINDRES) $(srcdir)/atril-icon.rc -I $(top_srcdir)/data atril-icon.o
-endif
 
 BUILT_SOURCES = ev-marshal.h ev-marshal.c
 
