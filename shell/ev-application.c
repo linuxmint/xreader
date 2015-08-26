@@ -228,15 +228,20 @@ ev_spawn (const char     *uri,
 	g_string_append_printf (cmd, " %s", path);
 	g_free (path);
 
-	/* Page label */
+	/* Page label or index */
 	if (dest) {
-		const gchar *page_label;
-
-		page_label = ev_link_dest_get_page_label (dest);
-		if (page_label)
-			g_string_append_printf (cmd, " --page-label=%s", page_label);
-		else
-			g_string_append_printf (cmd, " --page-label=%d", ev_link_dest_get_page (dest));
+		switch (ev_link_dest_get_dest_type (dest)) {
+		case EV_LINK_DEST_TYPE_PAGE_LABEL:
+			g_string_append_printf (cmd, " --page-label=%s",
+			                        ev_link_dest_get_page_label (dest));
+			break;
+		case EV_LINK_DEST_TYPE_PAGE:
+			g_string_append_printf (cmd, " --page-index=%d",
+			                        ev_link_dest_get_page (dest) + 1);
+			break;
+		default:
+			break;
+		}
 	}
 
 	/* Find string */
@@ -414,10 +419,10 @@ on_register_uri_cb (GObject      *source_object,
 	g_variant_get (value, "(&s)", &owner);
 
 	/* This means that the document wasn't already registered; go
-         * ahead with opening it.
-         */
+	 * ahead with opening it.
+	 */
 	if (owner[0] == '\0') {
-                g_variant_unref (value);
+		g_variant_unref (value);
 
 		application->doc_registered = TRUE;
 
@@ -430,38 +435,47 @@ on_register_uri_cb (GObject      *source_object,
 						  data->timestamp);
 		ev_register_doc_data_free (data);
 
-                return;
-        }
+		return;
+	}
 
 	/* Already registered */
 	g_variant_builder_init (&builder, G_VARIANT_TYPE ("(a{sv}u)"));
-        g_variant_builder_open (&builder, G_VARIANT_TYPE ("a{sv}"));
-        g_variant_builder_add (&builder, "{sv}",
-                               "display",
-                               g_variant_new_string (gdk_display_get_name (gdk_screen_get_display (data->screen))));
-        g_variant_builder_add (&builder, "{sv}",
-                               "screen",
-                               g_variant_new_int32 (gdk_screen_get_number (data->screen)));
+	g_variant_builder_open (&builder, G_VARIANT_TYPE ("a{sv}"));
+	g_variant_builder_add (&builder, "{sv}",
+	                       "display",
+	                       g_variant_new_string (gdk_display_get_name (gdk_screen_get_display (data->screen))));
+	g_variant_builder_add (&builder, "{sv}",
+	                       "screen",
+	                       g_variant_new_int32 (gdk_screen_get_number (data->screen)));
 	if (data->dest) {
-                g_variant_builder_add (&builder, "{sv}",
-                                       "page-label",
-                                       g_variant_new_string (ev_link_dest_get_page_label (data->dest)));
+		switch (ev_link_dest_get_dest_type (data->dest)) {
+		case EV_LINK_DEST_TYPE_PAGE_LABEL:
+			g_variant_builder_add (&builder, "{sv}", "page-label",
+			                       g_variant_new_string (ev_link_dest_get_page_label (data->dest)));
+			break;
+		case EV_LINK_DEST_TYPE_PAGE:
+			g_variant_builder_add (&builder, "{sv}", "page-index",
+			                       g_variant_new_uint32 (ev_link_dest_get_page (data->dest)));
+			break;
+		default:
+			break;
+		}
 	}
 	if (data->search_string) {
-                g_variant_builder_add (&builder, "{sv}",
-                                       "find-string",
-                                       g_variant_new_string (data->search_string));
+		g_variant_builder_add (&builder, "{sv}",
+		                       "find-string",
+		                       g_variant_new_string (data->search_string));
 	}
 	if (data->mode != EV_WINDOW_MODE_NORMAL) {
-                g_variant_builder_add (&builder, "{sv}",
-                                       "mode",
-                                       g_variant_new_uint32 (data->mode));
+		g_variant_builder_add (&builder, "{sv}",
+		                       "mode",
+		                       g_variant_new_uint32 (data->mode));
 	}
-        g_variant_builder_close (&builder);
+	g_variant_builder_close (&builder);
 
-        g_variant_builder_add (&builder, "u", data->timestamp);
+	g_variant_builder_add (&builder, "u", data->timestamp);
 
-        g_dbus_connection_call (connection,
+	g_dbus_connection_call (connection,
 				owner,
 				APPLICATION_DBUS_OBJECT_PATH,
 				APPLICATION_DBUS_INTERFACE,
@@ -738,6 +752,8 @@ method_call_cb (GDBusConnection       *connection,
 			mode = g_variant_get_uint32 (value);
 			} else if (strcmp (key, "page-label") == 0 && g_variant_classify (value) == G_VARIANT_CLASS_STRING) {
 				dest = ev_link_dest_new_page_label (g_variant_get_string (value, NULL));
+			} else if (strcmp (key, "page-index") == 0 && g_variant_classify (value) == G_VARIANT_CLASS_UINT32) {
+				dest = ev_link_dest_new_page (g_variant_get_uint32 (value));
 			} else if (strcmp (key, "find-string") == 0 && g_variant_classify (value) == G_VARIANT_CLASS_STRING) {
 				search_string = g_variant_get_string (value, NULL);
 			}
