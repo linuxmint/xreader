@@ -1749,7 +1749,8 @@ ev_window_load_job_cb (EvJob *job,
 				break;
 		}
 
-		if (ev_window->priv->search_string && EV_IS_DOCUMENT_FIND (document)) {
+		if (ev_window->priv->search_string && EV_IS_DOCUMENT_FIND (document) &&
+		    ev_window->priv->window_mode != EV_WINDOW_MODE_PRESENTATION) {
 			ev_window_cmd_edit_find (NULL, ev_window);
 			egg_find_bar_set_search_string (EGG_FIND_BAR (ev_window->priv->find_bar),
 							ev_window->priv->search_string);
@@ -2285,7 +2286,8 @@ ev_window_open_document (EvWindow       *ev_window,
 		break;
 	}
 
-	if (search_string && EV_IS_DOCUMENT_FIND (document)) {
+	if (search_string && EV_IS_DOCUMENT_FIND (document) &&
+	    mode != EV_WINDOW_MODE_PRESENTATION) {
 		ev_window_cmd_edit_find (NULL, ev_window);
 		egg_find_bar_set_search_string (EGG_FIND_BAR (ev_window->priv->find_bar),
 						search_string);
@@ -3873,12 +3875,13 @@ ev_window_cmd_edit_select_all (GtkAction *action, EvWindow *ev_window)
 static void
 ev_window_cmd_edit_find (GtkAction *action, EvWindow *ev_window)
 {
-        g_return_if_fail (EV_IS_WINDOW (ev_window));
-
 	if (ev_window->priv->document == NULL || !EV_IS_DOCUMENT_FIND (ev_window->priv->document)) {
 		g_error ("Find action should be insensitive since document doesn't support find");
 		return;
-	} 
+	}
+
+	if (EV_WINDOW_IS_PRESENTATION (ev_window))
+		return;
 
 	update_chrome_flag (ev_window, EV_CHROME_FINDBAR, TRUE);
 	update_chrome_visibility (ev_window);
@@ -3888,7 +3891,8 @@ ev_window_cmd_edit_find (GtkAction *action, EvWindow *ev_window)
 static void
 ev_window_cmd_edit_find_next (GtkAction *action, EvWindow *ev_window)
 {
-        g_return_if_fail (EV_IS_WINDOW (ev_window));
+	if (EV_WINDOW_IS_PRESENTATION (ev_window))
+		return;
 
 	update_chrome_flag (ev_window, EV_CHROME_FINDBAR, TRUE);
 	update_chrome_visibility (ev_window);
@@ -3906,7 +3910,8 @@ ev_window_cmd_edit_find_next (GtkAction *action, EvWindow *ev_window)
 static void
 ev_window_cmd_edit_find_previous (GtkAction *action, EvWindow *ev_window)
 {
-        g_return_if_fail (EV_IS_WINDOW (ev_window));
+	if (EV_WINDOW_IS_PRESENTATION (ev_window))
+		return;
 
 	update_chrome_flag (ev_window, EV_CHROME_FINDBAR, TRUE);
 	update_chrome_visibility (ev_window);
