@@ -1532,10 +1532,21 @@ ev_window_setup_document (EvWindow *ev_window)
 	
 	info = ev_document_get_info (document);
 	update_document_mode (ev_window, info->mode);
+
+	if (EV_IS_DOCUMENT_FIND (document)) {
+		if (ev_window->priv->search_string &&
+		    !EV_WINDOW_IS_PRESENTATION (ev_window)) {
+			ev_window_cmd_edit_find (NULL, ev_window);
+			egg_find_bar_set_search_string (EGG_FIND_BAR (ev_window->priv->find_bar), ev_window->priv->search_string);
+		}
+
+		g_clear_pointer (&ev_window->priv->search_string, g_free);
+	}
+
 	/*FIXME*/
 	if (EV_WINDOW_IS_PRESENTATION (ev_window) && document->iswebdocument == FALSE)
 		gtk_widget_grab_focus (ev_window->priv->presentation_view);
-	else {
+	else if (!gtk_widget_get_visible (ev_window->priv->find_bar)) {
 		if ( document->iswebdocument == FALSE )
 			gtk_widget_grab_focus (ev_window->priv->view);
 		#if ENABLE_EPUB
@@ -1748,16 +1759,6 @@ ev_window_load_job_cb (EvJob *job,
 		        default:
 				break;
 		}
-
-		if (ev_window->priv->search_string && EV_IS_DOCUMENT_FIND (document) &&
-		    ev_window->priv->window_mode != EV_WINDOW_MODE_PRESENTATION) {
-			ev_window_cmd_edit_find (NULL, ev_window);
-			egg_find_bar_set_search_string (EGG_FIND_BAR (ev_window->priv->find_bar),
-							ev_window->priv->search_string);
-		}
-
-		g_free (ev_window->priv->search_string);
-		ev_window->priv->search_string = NULL;
 
 		/* Create a monitor for the document */
 		ev_window->priv->monitor = ev_file_monitor_new (ev_window->priv->uri);
