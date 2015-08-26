@@ -5457,27 +5457,16 @@ find_bar_close_cb (EggFindBar *find_bar,
 }
 
 static void
-find_bar_search_changed_cb (EggFindBar *find_bar,
-			    GParamSpec *param,
-			    EvWindow   *ev_window)
+ev_window_search_start (EvWindow *ev_window)
 {
-	gboolean case_sensitive;
+	EggFindBar *find_bar = EGG_FIND_BAR (ev_window->priv->find_bar);
 	const char *search_string;
 
 	if (!ev_window->priv->document || !EV_IS_DOCUMENT_FIND (ev_window->priv->document))
 		return;
 	
-	/* Either the string or case sensitivity could have changed. */
-	case_sensitive = egg_find_bar_get_case_sensitive (find_bar);
 	search_string = egg_find_bar_get_search_string (find_bar);
-#if ENABLE_EPUB
-	if (ev_window->priv->document->iswebdocument) {
-		ev_web_view_find_search_changed(EV_WEB_VIEW(ev_window->priv->webview));
-	} else 
-#endif
-	{
-		ev_view_find_search_changed (EV_VIEW (ev_window->priv->view));
-	}
+
 	ev_window_clear_find_job (ev_window);
 
 	if (search_string && search_string[0]) {
@@ -5485,7 +5474,7 @@ find_bar_search_changed_cb (EggFindBar *find_bar,
 							     ev_document_model_get_page (ev_window->priv->model),
 							     ev_document_get_n_pages (ev_window->priv->document),
 							     search_string,
-							     case_sensitive);
+							     egg_find_bar_get_case_sensitive (find_bar));
 		
 		g_signal_connect (ev_window->priv->find_job, "finished",
 				  G_CALLBACK (ev_window_find_job_finished_cb),
@@ -5496,12 +5485,29 @@ find_bar_search_changed_cb (EggFindBar *find_bar,
 		ev_job_scheduler_push_job (ev_window->priv->find_job, EV_JOB_PRIORITY_NONE);
 	} else {
 		ev_window_update_actions (ev_window);
-		egg_find_bar_set_status_text (EGG_FIND_BAR (ev_window->priv->find_bar),
-					      NULL);
+		egg_find_bar_set_status_text (find_bar, NULL);
 		if (ev_window->priv->document->iswebdocument == FALSE) {
 			gtk_widget_queue_draw (GTK_WIDGET (ev_window->priv->view));
 		}
 	}
+}
+
+static void
+find_bar_search_changed_cb (EggFindBar *find_bar,
+			    GParamSpec *param,
+			    EvWindow *ev_window)
+{
+	/* Either the string or case sensitivity could have changed. */
+#if ENABLE_EPUB
+	if (ev_window->priv->document->iswebdocument) {
+		ev_web_view_find_search_changed(EV_WEB_VIEW (ev_window->priv->webview));
+	} else
+#endif
+	{
+		ev_view_find_search_changed (EV_VIEW (ev_window->priv->view));
+	}
+
+	ev_window_search_start (ev_window);
 }
 
 static void
@@ -5517,7 +5523,6 @@ find_bar_visibility_changed_cb (EggFindBar *find_bar,
 
 		if (!ev_window->priv->document->iswebdocument) {
 			ev_view_find_set_highlight_search (EV_VIEW (ev_window->priv->view), visible);
-			ev_view_find_search_changed (EV_VIEW (ev_window->priv->view));
 		}
 #if ENABLE_EPUB
 		else {
@@ -5531,7 +5536,7 @@ find_bar_visibility_changed_cb (EggFindBar *find_bar,
 		ev_window_update_actions (ev_window);
 
 		if (visible)
-			find_bar_search_changed_cb (find_bar, NULL, ev_window);
+			ev_window_search_start (ev_window);
 		else
 			egg_find_bar_set_status_text (EGG_FIND_BAR (ev_window->priv->find_bar), NULL);
 	}
