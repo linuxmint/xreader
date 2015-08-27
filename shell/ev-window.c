@@ -1683,7 +1683,7 @@ static void
 ev_window_handle_link (EvWindow *ev_window,
 		       EvLinkDest *dest)
 {
-	if (ev_window->priv->document->iswebdocument == FALSE ) {
+	if (ev_window->priv->document->iswebdocument == TRUE ) {
 		return;
 	}
 	if (dest) {
