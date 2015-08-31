@@ -587,6 +587,7 @@ AC_ARG_ENABLE(epub,
 	[enable_epub=$enableval],
 	[enable_epub=yes])
 
+have_webkit="no"
 if test "x$enable_epub" = "xyes"; then
     case "$with_gtk" in
         2.0)
@@ -609,7 +610,6 @@ esac
    if test "x$have_webkit" = "xyes"; then
       AC_DEFINE([ENABLE_EPUB], [1], [Enable support for ePub documents.])
    else
-      have_webkit="no"
       AC_MSG_WARN(["ePub support is disabled."])
    fi
 fi
