@@ -58,9 +58,7 @@ appdata_DATA = $(appdata_in_files:.xml.in=.xml)
 #
 # GSettings schema
 #
-gsettingsschema_in_files = org.mate.Atril.gschema.xml.in
-# gsettings_SCHEMAS is a list of all the schemas you want to install
-gsettings_SCHEMAS = $(gsettingsschema_in_files:.xml.in=.xml)
+gsettings_SCHEMAS = org.mate.Atril.gschema.xml
 
 .PRECIOUS: $(gsettings_SCHEMAS)
 
@@ -99,7 +97,7 @@ EXTRA_DIST =					\
 	$(ui_DATA)				\
 	$(DESKTOP_IN_FILES)			\
 	$(appdata_in_files)			\
-	$(gsettingsschema_in_files)		\
+	$(gsettings_SCHEMAS)			\
 	org.mate.atril.Daemon.service.in	\
 	$(man_MANS)				\
 	atril.ico				\
@@ -115,7 +113,6 @@ CLEANFILES = \
 
 DISTCLEANFILES = \
 	$(DESKTOP_FILES)	\
-	$(gsettings_SCHEMAS)	\
 	$(service_DATA)
 
 -include $(top_srcdir)/git.mk

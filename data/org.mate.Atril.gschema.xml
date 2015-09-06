@@ -9,8 +9,8 @@
   <schema id="org.mate.Atril" path="/org/mate/atril/" gettext-domain="atril">
     <key name="override-restrictions" type="b">
       <default>true</default>
-      <_summary>Override document restrictions</_summary>
-      <_description>Override document restrictions, like restriction to copy or to print.</_description>
+      <summary>Override document restrictions</summary>
+      <description>Override document restrictions, like restriction to copy or to print.</description>
     </key>
     <child name="default" schema="org.mate.Atril.Default"/>
   </schema>
