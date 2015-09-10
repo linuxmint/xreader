@@ -1642,8 +1642,7 @@ epub_document_add_mathJax(gchar* containeruri,gchar* documentdir)
 {
 	gchar *containerfilename= g_filename_from_uri(containeruri,NULL,NULL);
 	const gchar *backenddir = ev_backends_manager_get_backends_dir();
-	GString *mathjaxdir = g_string_new(backenddir);
-	g_string_append_printf(mathjaxdir,"/epub/MathJax");
+	GString *mathjaxdir = g_string_new("/usr/share/javascript/mathjax");
 
 	gchar *mathjaxref = g_filename_to_uri(mathjaxdir->str,NULL,NULL);
 	gchar *nodedata = g_strdup_printf("%s/MathJax.js?config=TeX-AMS-MML_SVG",mathjaxref);
