@@ -1,3 +1,20 @@
+1.11.0
+------
+
+ * Drop support for win32/osx/hildon
+ * Make smclient mandatory
+ * [epub] drop embedded MathJax in favor of using distro-packaged one
+ * Retrieve strings directly from gschema (requires intltool 0.50.1)
+ * Several code cleanups
+
+1.10.2
+------
+
+ * Fix several command line options
+ * Fix several findbar issues
+ * Make libmatedesktop optional
+ * [pdf] Fix saving annotations added to different pages
+
 1.10.1
 ------
 
