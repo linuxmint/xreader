@@ -1,12 +1,12 @@
-1.11.0
+1.12.0
 ------
 
  * Drop support for win32/osx/hildon
+ * Drop useless mate-icon-theme dependency
  * Make smclient mandatory
  * [epub] drop embedded MathJax in favor of using distro-packaged one
  * Retrieve strings directly from gschema (requires intltool 0.50.1)
  * Several code cleanups
- * Drop mate-icon-theme dependency
 
 1.10.2
 ------
