@@ -3,14 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Eslam Ali <talvikahvi@gmail.com>, 2015
+# Lasse Liehu <larso@gmx.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 15:24+0100\n"
-"PO-Revision-Date: 2014-12-10 14:26+0000\n"
-"Last-Translator: infirit <infirit@gmail.com>\n"
-"Language-Team: Finnish (http://www.transifex.com/projects/p/MATE/language/fi/)\n"
+"POT-Creation-Date: 2015-09-06 13:44+0200\n"
+"PO-Revision-Date: 2015-09-06 11:43+0000\n"
+"Last-Translator: infirit <inactive+infirit@transifex.com>\n"
+"Language-Team: Finnish (http://www.transifex.com/mate/MATE/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,42 +35,42 @@ msgstr "Komento ”%s” epäonnistui avaamaan sarjakuvakirjan."
 msgid "The command “%s” did not end normally."
 msgstr "Komento ”%s” ei päättynyt normaalisti."
 
-#: ../backend/comics/comics-document.c:420
+#: ../backend/comics/comics-document.c:444
 #, c-format
 msgid "Not a comic book MIME type: %s"
 msgstr "Ei ole sarjakuvakirjan MIME-tyyppi: %s"
 
-#: ../backend/comics/comics-document.c:427
+#: ../backend/comics/comics-document.c:451
 msgid ""
 "Can't find an appropriate command to decompress this type of comic book"
 msgstr "Ei löytynyt sopivaa komentoa, jolla avata tämän tyyppiset sarjakuvakirjat"
 
-#: ../backend/comics/comics-document.c:501 ../backend/epub/epub-document.c:616
+#: ../backend/comics/comics-document.c:525 ../backend/epub/epub-document.c:616
 #: ../libdocument/ev-document-factory.c:145
 #: ../libdocument/ev-document-factory.c:288
 msgid "Unknown MIME Type"
 msgstr "Tuntematon MIME-tyyppi"
 
-#: ../backend/comics/comics-document.c:528
+#: ../backend/comics/comics-document.c:552
 msgid "File corrupted"
 msgstr "Tiedosto on viallinen"
 
-#: ../backend/comics/comics-document.c:541
+#: ../backend/comics/comics-document.c:565
 msgid "No files in archive"
 msgstr "Arkistossa ei ole tiedostoja"
 
-#: ../backend/comics/comics-document.c:580
+#: ../backend/comics/comics-document.c:604
 #, c-format
 msgid "No images found in archive %s"
 msgstr "Arkistosta ”%s” ei löytynyt kuvia"
 
-#: ../backend/comics/comics-document.c:824
-#: ../backend/epub/epub-document.c:1768
+#: ../backend/comics/comics-document.c:848
+#: ../backend/epub/epub-document.c:1767
 #, c-format
 msgid "There was an error deleting “%s”."
 msgstr "Tapahtui virhe poistaessa ”%s”."
 
-#: ../backend/comics/comics-document.c:967
+#: ../backend/comics/comics-document.c:991
 #, c-format
 msgid "Error %s"
 msgstr "Virhe %s"
@@ -101,19 +103,19 @@ msgstr "DVI-asiakirjat"
 
 #: ../backend/epub/epub-document.c:633
 msgid "Not an ePub document"
-msgstr ""
+msgstr "Tiedosto ei ole ePub-asiakirja"
 
 #: ../backend/epub/epub-document.c:734
 msgid "could not retrieve filename"
-msgstr ""
+msgstr "Tiedostonimen hakeminen epäonnistui"
 
 #: ../backend/epub/epub-document.c:762
 msgid "could not open archive"
-msgstr ""
+msgstr "Arkiston avaaminen epäonnistui"
 
 #: ../backend/epub/epub-document.c:778 ../backend/epub/epub-document.c:794
 msgid "could not extract archive"
-msgstr ""
+msgstr "Arkiston purkaminen epäonnistui"
 
 #: ../backend/epub/epub-document.c:826 ../backend/epub/epub-document.c:909
 msgid "could not retrieve container file"
@@ -128,11 +130,11 @@ msgid "container file is corrupt"
 msgstr ""
 
 #: ../backend/epub/epub-document.c:858
-msgid "epub file is invalid or corrput"
-msgstr ""
+msgid "epub file is invalid or corrupt"
+msgstr "ePub-tiedosto on viallinen tai korruptoitunut"
 
 #: ../backend/epub/epub-document.c:868
-msgid "epub file is corrupt,no container"
+msgid "epub file is corrupt, no container"
 msgstr ""
 
 #: ../backend/epub/epub-document.c:953
@@ -157,7 +159,7 @@ msgstr ""
 
 #: ../backend/epub/epubdocument.atril-backend.in.h:1
 msgid "epub Documents"
-msgstr ""
+msgstr "ePub-asiakirjat"
 
 #: ../backend/pdf/ev-poppler.cc:520
 msgid "This work is in the Public Domain"
@@ -205,7 +207,7 @@ msgstr "TrueType (CID)"
 
 #: ../backend/pdf/ev-poppler.cc:921
 msgid "Unknown font type"
-msgstr "Tuntematon kirjasintyyppi"
+msgstr "Tuntematon fonttityyppi"
 
 #: ../backend/pdf/ev-poppler.cc:947
 msgid "No name"
@@ -388,7 +390,7 @@ msgid "Separator"
 msgstr "Erotin"
 
 #. translators: this is the label for toolbar button
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6370
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6393
 msgid "Best Fit"
 msgstr "Paras sovitus"
 
@@ -396,7 +398,7 @@ msgstr "Paras sovitus"
 msgid "Fit Page Width"
 msgstr "Sovita sivun leveys"
 
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:6034
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:6057
 msgid "Expand Window to Fit"
 msgstr ""
 
@@ -442,23 +444,23 @@ msgstr "400 %"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:63
 msgid "800%"
-msgstr ""
+msgstr "800%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:64
 msgid "1600%"
-msgstr ""
+msgstr "1600%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:65
 msgid "3200%"
-msgstr ""
+msgstr "3200%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:66
 msgid "6400%"
-msgstr ""
+msgstr "6400%"
 
 #: ../data/atril.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
-msgstr ""
+msgstr "Asiakirjakatselin MATE-työpöydälle"
 
 #: ../data/atril.appdata.xml.in.h:2
 msgid ""
@@ -474,10 +476,10 @@ msgstr ""
 
 #: ../data/atril.desktop.in.in.h:1
 msgid "Atril Document Viewer"
-msgstr ""
+msgstr "Atril-asiakirjakatselin"
 
 #. Manually set name and icon
-#: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:4992
+#: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:5006
 #: ../shell/ev-window-title.c:157 ../shell/main.c:306
 #, c-format
 msgid "Document Viewer"
@@ -487,13 +489,13 @@ msgstr "Asiakirjakatselin"
 msgid "View multi-page documents"
 msgstr "Katsele monisivuisia asiakirjoja"
 
-#: ../data/org.mate.Atril.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.h:1
 msgid "Override document restrictions"
-msgstr "Ohita asiakirjan rajoitukset"
+msgstr ""
 
-#: ../data/org.mate.Atril.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
-msgstr "Ohita asiakirjan rajoitukset, kuten kopioinnin tai tulostuksen rajoitus."
+msgstr ""
 
 #: ../previewer/ev-previewer.c:44
 msgid "Delete the temporary file"
@@ -507,7 +509,7 @@ msgstr "Tulosta asetustiedosto"
 msgid "MATE Document Previewer"
 msgstr "Maten asiakirjojen esikatselu"
 
-#: ../previewer/ev-previewer-window.c:91 ../shell/ev-window.c:3353
+#: ../previewer/ev-previewer-window.c:91 ../shell/ev-window.c:3362
 msgid "Failed to print document"
 msgstr "Asiakirjaa ei voitu tulostaa"
 
@@ -517,27 +519,27 @@ msgid "The selected printer '%s' could not be found"
 msgstr "Valittua tulostinta ”%s” ei löytynyt"
 
 #. Go menu
-#: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:6041
+#: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:6064
 msgid "_Previous Page"
 msgstr "E_dellinen sivu"
 
-#: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:6042
+#: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:6065
 msgid "Go to the previous page"
 msgstr "Siirry edelliselle sivulle"
 
-#: ../previewer/ev-previewer-window.c:287 ../shell/ev-window.c:6044
+#: ../previewer/ev-previewer-window.c:287 ../shell/ev-window.c:6067
 msgid "_Next Page"
 msgstr "_Seuraava sivu"
 
-#: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:6045
+#: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:6068
 msgid "Go to the next page"
 msgstr "Siirry seuraavalle sivulle"
 
-#: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:6025
+#: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:6048
 msgid "Enlarge the document"
 msgstr "Suurenna asiakirjaa"
 
-#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:6028
+#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:6051
 msgid "Shrink the document"
 msgstr "Kutista asiakirjaa"
 
@@ -545,31 +547,31 @@ msgstr "Kutista asiakirjaa"
 msgid "Print"
 msgstr "Tulosta"
 
-#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:5994
+#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:6017
 msgid "Print this document"
 msgstr "Tulosta tämä asiakirja"
 
-#: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:6148
+#: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:6171
 msgid "_Best Fit"
 msgstr "_Paras sovitus"
 
-#: ../previewer/ev-previewer-window.c:343 ../shell/ev-window.c:6149
+#: ../previewer/ev-previewer-window.c:343 ../shell/ev-window.c:6172
 msgid "Make the current document fill the window"
 msgstr "Sovita nykyinen asiakirja ikkunan kokoiseksi"
 
-#: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:6151
+#: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:6174
 msgid "Fit Page _Width"
 msgstr "So_vita sivun leveys"
 
-#: ../previewer/ev-previewer-window.c:346 ../shell/ev-window.c:6152
+#: ../previewer/ev-previewer-window.c:346 ../shell/ev-window.c:6175
 msgid "Make the current document fill the window width"
 msgstr "Sovita nykyinen asiakirja täyttämään ikkunan leveys"
 
-#: ../previewer/ev-previewer-window.c:558 ../shell/ev-window.c:6292
+#: ../previewer/ev-previewer-window.c:558 ../shell/ev-window.c:6315
 msgid "Page"
 msgstr "Sivu"
 
-#: ../previewer/ev-previewer-window.c:559 ../shell/ev-window.c:6293
+#: ../previewer/ev-previewer-window.c:559 ../shell/ev-window.c:6316
 msgid "Select Page"
 msgstr "Valitse sivu"
 
@@ -673,7 +675,7 @@ msgstr "%s, vaaka (%s)"
 
 #: ../properties/libatril-properties-page.caja-extension.in.h:1
 msgid "Atril properties"
-msgstr ""
+msgstr "Atrilin ominaisuudet"
 
 #: ../properties/libatril-properties-page.caja-extension.in.h:2
 msgid "Shows details for Atril documents"
@@ -772,7 +774,7 @@ msgstr "Jos valittuna, jokainen sivu tulostetaan samaan paperikokoon kuin asiaki
 msgid "Page Handling"
 msgstr "Sivunkäsittely"
 
-#: ../libview/ev-jobs.c:1742
+#: ../libview/ev-jobs.c:1790
 #, c-format
 msgid "Failed to print page %d: %s"
 msgstr "Sivun %d tulostus epäonnistui: %s"
@@ -853,7 +855,7 @@ msgstr "Käynnistä %s"
 msgid "Find:"
 msgstr "Etsi:"
 
-#: ../shell/eggfindbar.c:331 ../shell/ev-window.c:6011
+#: ../shell/eggfindbar.c:331 ../shell/ev-window.c:6034
 msgid "Find Pre_vious"
 msgstr "Etsi edellinen"
 
@@ -861,7 +863,7 @@ msgstr "Etsi edellinen"
 msgid "Find previous occurrence of the search string"
 msgstr "Etsi haettavan merkkijonon edellinen osuma"
 
-#: ../shell/eggfindbar.c:339 ../shell/ev-window.c:6009
+#: ../shell/eggfindbar.c:339 ../shell/ev-window.c:6032
 msgid "Find Ne_xt"
 msgstr "Etsi _seuraava"
 
@@ -871,7 +873,7 @@ msgstr "Etsi haettavan merkkijonon seuraava osuma"
 
 #: ../shell/eggfindbar.c:350
 msgid "Case Sensitive"
-msgstr ""
+msgstr "Merkkikokoriippuvainen"
 
 #: ../shell/eggfindbar.c:353
 msgid "Toggle case sensitive search"
@@ -879,31 +881,31 @@ msgstr "Huomioidaanko kirjainkoko hauissa"
 
 #: ../shell/ev-annotation-properties-dialog.c:97
 msgid "Icon:"
-msgstr ""
+msgstr "Kuvake:"
 
 #: ../shell/ev-annotation-properties-dialog.c:104
 msgid "Note"
-msgstr ""
+msgstr "Huomautus"
 
 #: ../shell/ev-annotation-properties-dialog.c:105
 msgid "Comment"
-msgstr ""
+msgstr "Kommentti"
 
 #: ../shell/ev-annotation-properties-dialog.c:106
 msgid "Key"
-msgstr ""
+msgstr "Avain"
 
 #: ../shell/ev-annotation-properties-dialog.c:107
 msgid "Help"
-msgstr ""
+msgstr "Ohje"
 
 #: ../shell/ev-annotation-properties-dialog.c:108
 msgid "New Paragraph"
-msgstr ""
+msgstr "Uusi kappale"
 
 #: ../shell/ev-annotation-properties-dialog.c:109
 msgid "Paragraph"
-msgstr ""
+msgstr "Kappale"
 
 #: ../shell/ev-annotation-properties-dialog.c:110
 msgid "Insert"
@@ -911,35 +913,35 @@ msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:111
 msgid "Cross"
-msgstr ""
+msgstr "Risti"
 
 #: ../shell/ev-annotation-properties-dialog.c:112
 msgid "Circle"
-msgstr ""
+msgstr "Ympyrä"
 
 #: ../shell/ev-annotation-properties-dialog.c:113
 msgid "Unknown"
-msgstr ""
+msgstr "Tuntematon"
 
 #: ../shell/ev-annotation-properties-dialog.c:139
 msgid "Annotation Properties"
-msgstr ""
+msgstr "Merkinnän ominaisuudet"
 
 #: ../shell/ev-annotation-properties-dialog.c:172
 msgid "Color:"
-msgstr ""
+msgstr "Väri:"
 
 #: ../shell/ev-annotation-properties-dialog.c:184
 msgid "Style:"
-msgstr ""
+msgstr "Tyyli:"
 
 #: ../shell/ev-annotation-properties-dialog.c:200
 msgid "Transparent"
-msgstr ""
+msgstr "Läpinäkyvä"
 
 #: ../shell/ev-annotation-properties-dialog.c:207
 msgid "Opaque"
-msgstr ""
+msgstr "Läpinäkymätön"
 
 #: ../shell/ev-annotation-properties-dialog.c:218
 msgid "Initial window state:"
@@ -947,13 +949,13 @@ msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:225
 msgid "Open"
-msgstr ""
+msgstr "Avaa"
 
 #: ../shell/ev-annotation-properties-dialog.c:226
 msgid "Close"
-msgstr ""
+msgstr "Sulje"
 
-#: ../shell/ev-application.c:1042
+#: ../shell/ev-application.c:1054
 msgid "Running in presentation mode"
 msgstr "Suoritus esitystilassa"
 
@@ -980,7 +982,7 @@ msgstr "Muunnetaan metatietoja"
 msgid ""
 "The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
-msgstr "Atriln käyttämä metatietomuoto on muuttunut ja se pitää muuntaa. Mikäli muunnos keskeytetään, metatietojen tallennus ei toimi."
+msgstr "Atrilin käyttämä metatietomuoto on muuttunut ja se pitää muuntaa. Mikäli muunnos keskeytetään, metatietojen tallennus ei toimi."
 
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
@@ -1036,7 +1038,7 @@ msgstr "Yleinen"
 
 #: ../shell/ev-properties-dialog.c:104
 msgid "Fonts"
-msgstr "Kirjasimet"
+msgstr "Fontit"
 
 #: ../shell/ev-properties-dialog.c:117
 msgid "Document License"
@@ -1044,12 +1046,12 @@ msgstr "Asiakirjan lisenssi"
 
 #: ../shell/ev-properties-fonts.c:135
 msgid "Font"
-msgstr "Kirjasin"
+msgstr "Fontti"
 
 #: ../shell/ev-properties-fonts.c:162
 #, c-format
 msgid "Gathering font information… %3d%%"
-msgstr "Kerätään kirjasintietoa… %3d %%"
+msgstr "Kerätään fonttitietoa… %3d %%"
 
 #: ../shell/ev-properties-license.c:137
 msgid "Usage terms"
@@ -1065,32 +1067,32 @@ msgstr "Lisätietoa"
 
 #: ../shell/ev-sidebar-annotations.c:161
 msgid "List"
-msgstr ""
+msgstr "Lista"
 
 #: ../shell/ev-sidebar-annotations.c:203 ../shell/ev-sidebar-annotations.c:533
 msgid "Annotations"
-msgstr ""
+msgstr "Merkinnät"
 
 #: ../shell/ev-sidebar-annotations.c:209
 msgid "Text"
-msgstr ""
+msgstr "Teksti"
 
 #: ../shell/ev-sidebar-annotations.c:210
 msgid "Add text annotation"
-msgstr ""
+msgstr "Lisää tekstimerkintä"
 
 #: ../shell/ev-sidebar-annotations.c:221
 msgid "Add"
-msgstr ""
+msgstr "Lisää"
 
 #: ../shell/ev-sidebar-annotations.c:364
 msgid "Document contains no annotations"
-msgstr ""
+msgstr "Asiakirja ei sisällä merkintöjä"
 
 #: ../shell/ev-sidebar-annotations.c:396
 #, c-format
 msgid "Page %d"
-msgstr ""
+msgstr "Sivu %d"
 
 #: ../shell/ev-sidebar-attachments.c:713
 msgid "Attachments"
@@ -1098,25 +1100,25 @@ msgstr "Liitteet"
 
 #: ../shell/ev-sidebar-bookmarks.c:152
 msgid "_Open Bookmark"
-msgstr ""
+msgstr "_Avaa kirjanmerkki"
 
 #: ../shell/ev-sidebar-bookmarks.c:154
 msgid "_Rename Bookmark"
-msgstr ""
+msgstr "_Nimeä kirjanmerkki uudelleen"
 
 #: ../shell/ev-sidebar-bookmarks.c:156
 msgid "_Remove Bookmark"
-msgstr ""
+msgstr "_Poista kirjanmerkki"
 
-#: ../shell/ev-sidebar-bookmarks.c:311 ../shell/ev-window.c:951
-#: ../shell/ev-window.c:4719
+#: ../shell/ev-sidebar-bookmarks.c:311 ../shell/ev-window.c:952
+#: ../shell/ev-window.c:4733
 #, c-format
 msgid "Page %s"
 msgstr "Sivu %s"
 
 #: ../shell/ev-sidebar-bookmarks.c:609
 msgid "Bookmarks"
-msgstr ""
+msgstr "Kirjanmerkit"
 
 #: ../shell/ev-sidebar-layers.c:444
 msgid "Layers"
@@ -1134,179 +1136,179 @@ msgstr "Hakemisto"
 msgid "Thumbnails"
 msgstr "Pienoiskuvat"
 
-#: ../shell/ev-window.c:948
+#: ../shell/ev-window.c:949
 #, c-format
 msgid "Page %s — %s"
 msgstr "Sivu %s — %s"
 
-#: ../shell/ev-window.c:1088
+#: ../shell/ev-window.c:1089
 msgid ""
 "Cannot enter presentation mode with ePub documents use fullscreen mode "
 "instead."
 msgstr ""
 
-#: ../shell/ev-window.c:1560
+#: ../shell/ev-window.c:1577
 msgid "The document contains no pages"
 msgstr "Asiakirja ei sisällä yhtään sivua"
 
-#: ../shell/ev-window.c:1563
+#: ../shell/ev-window.c:1580
 msgid "The document contains only empty pages"
 msgstr "Asiakirja sisältää vain tyhjiä sivuja"
 
-#: ../shell/ev-window.c:1601
+#: ../shell/ev-window.c:1618
 msgid "Presentation mode is not supported for ePub documents."
 msgstr ""
 
-#: ../shell/ev-window.c:1802 ../shell/ev-window.c:1970
+#: ../shell/ev-window.c:1810 ../shell/ev-window.c:1978
 msgid "Unable to open document"
 msgstr "Asiakirjaa ei voitu avata"
 
-#: ../shell/ev-window.c:1939
+#: ../shell/ev-window.c:1947
 #, c-format
 msgid "Loading document from “%s”"
 msgstr "Ladataan asiakirjaa lähteestä ”%s”"
 
-#: ../shell/ev-window.c:2083 ../shell/ev-window.c:2373
+#: ../shell/ev-window.c:2091 ../shell/ev-window.c:2382
 #, c-format
 msgid "Downloading document (%d%%)"
 msgstr "Noudetaan asiakirjaa (%d %%)"
 
-#: ../shell/ev-window.c:2116
+#: ../shell/ev-window.c:2124
 msgid "Failed to load remote file."
 msgstr "Etätiedostoa ei voitu ladata."
 
-#: ../shell/ev-window.c:2317
+#: ../shell/ev-window.c:2326
 #, c-format
 msgid "Reloading document from %s"
 msgstr "Ladataan asiakirja uudestaan lähteestä %s"
 
-#: ../shell/ev-window.c:2349
+#: ../shell/ev-window.c:2358
 msgid "Failed to reload document."
 msgstr "Asiakirjaa ei voitu ladata uudestaan."
 
-#: ../shell/ev-window.c:2501
+#: ../shell/ev-window.c:2510
 msgid "Open Document"
 msgstr "Avaa asiakirja"
 
-#: ../shell/ev-window.c:2799
+#: ../shell/ev-window.c:2808
 #, c-format
 msgid "Saving document to %s"
 msgstr "Tallennetaan asiakirjaa kohteeseen %s"
 
-#: ../shell/ev-window.c:2802
+#: ../shell/ev-window.c:2811
 #, c-format
 msgid "Saving attachment to %s"
 msgstr "Tallennetaan liitettä kohteeseen %s"
 
-#: ../shell/ev-window.c:2805
+#: ../shell/ev-window.c:2814
 #, c-format
 msgid "Saving image to %s"
 msgstr "Tallennetaan kuvaa kohteeseen %s"
 
-#: ../shell/ev-window.c:2849 ../shell/ev-window.c:2949
+#: ../shell/ev-window.c:2858 ../shell/ev-window.c:2958
 #, c-format
 msgid "The file could not be saved as “%s”."
 msgstr "Tiedostoa ei voitu tallentaa nimellä ”%s”."
 
-#: ../shell/ev-window.c:2880
+#: ../shell/ev-window.c:2889
 #, c-format
 msgid "Uploading document (%d%%)"
 msgstr "Viedään asiakirjaa (%d %%)"
 
-#: ../shell/ev-window.c:2884
+#: ../shell/ev-window.c:2893
 #, c-format
 msgid "Uploading attachment (%d%%)"
 msgstr "Viedään liitettä (%d %%)"
 
-#: ../shell/ev-window.c:2888
+#: ../shell/ev-window.c:2897
 #, c-format
 msgid "Uploading image (%d%%)"
 msgstr "Viedään kuvaa (%d %%)"
 
-#: ../shell/ev-window.c:3012
+#: ../shell/ev-window.c:3021
 msgid "Save a Copy"
 msgstr "Tallenna kopio"
 
-#: ../shell/ev-window.c:3297
+#: ../shell/ev-window.c:3306
 #, c-format
 msgid "%d pending job in queue"
 msgid_plural "%d pending jobs in queue"
 msgstr[0] "%d odottava työ jonossa"
 msgstr[1] "%d odottavaa työtä jonossa"
 
-#: ../shell/ev-window.c:3410
+#: ../shell/ev-window.c:3419
 #, c-format
 msgid "Printing job “%s”"
 msgstr "Tulostetaan työtä ”%s”"
 
-#: ../shell/ev-window.c:3587
+#: ../shell/ev-window.c:3596
 msgid ""
 "Document contains form fields that have been filled out. If you don't save a"
 " copy, changes will be permanently lost."
 msgstr ""
 
-#: ../shell/ev-window.c:3591
+#: ../shell/ev-window.c:3600
 msgid ""
 "Document contains new or modified annotations. If you don't save a copy, "
 "changes will be permanently lost."
 msgstr ""
 
-#: ../shell/ev-window.c:3598
+#: ../shell/ev-window.c:3607
 #, c-format
 msgid "Save a copy of document “%s” before closing?"
-msgstr ""
+msgstr "Tallennetaanko kopio asiakirjasta ”%s” ennen sulkemista?"
 
-#: ../shell/ev-window.c:3617
+#: ../shell/ev-window.c:3626
 msgid "Close _without Saving"
-msgstr ""
+msgstr "Sulje _ilman tallennusta"
 
-#: ../shell/ev-window.c:3621
+#: ../shell/ev-window.c:3630
 msgid "Save a _Copy"
-msgstr ""
+msgstr "Tallenna _kopio"
 
-#: ../shell/ev-window.c:3695
+#: ../shell/ev-window.c:3704
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
 msgstr "Odotetaanko ennen sulkemista kunnes tulostustyö ”%s” on valmis?"
 
-#: ../shell/ev-window.c:3698
+#: ../shell/ev-window.c:3707
 #, c-format
 msgid ""
 "There are %d print jobs active. Wait until print finishes before closing?"
 msgstr "%d tulostustyötä on kesken. Haluatko odottaa ennen sulkemista niiden valmistumista?"
 
-#: ../shell/ev-window.c:3710
+#: ../shell/ev-window.c:3719
 msgid "If you close the window, pending print jobs will not be printed."
 msgstr "Jos suljet ikkunat, odottavia tulostustöitä ei tulosteta."
 
-#: ../shell/ev-window.c:3714
+#: ../shell/ev-window.c:3723
 msgid "Cancel _print and Close"
 msgstr "Peru _tulostus ja sulje"
 
-#: ../shell/ev-window.c:3718
+#: ../shell/ev-window.c:3727
 msgid "Close _after Printing"
 msgstr "Sulje tulostuksen _jälkeen"
 
-#: ../shell/ev-window.c:4151
+#: ../shell/ev-window.c:4165
 msgid "Presentation mode is not supported for ePub documents"
 msgstr ""
 
-#: ../shell/ev-window.c:4463
+#: ../shell/ev-window.c:4477
 msgid "Toolbar Editor"
 msgstr "Työkalupalkin muokkain"
 
-#: ../shell/ev-window.c:4764
+#: ../shell/ev-window.c:4778
 msgid "There was an error displaying help"
 msgstr "Tapahtui virhe näytettäessä ohjetta"
 
-#: ../shell/ev-window.c:4988
+#: ../shell/ev-window.c:5002
 #, c-format
 msgid ""
 "Document Viewer\n"
 "Using %s (%s)"
 msgstr "Asiakirjakatselin\nKäyttää kirjastoa %s (%s)"
 
-#: ../shell/ev-window.c:5023
+#: ../shell/ev-window.c:5037
 msgid ""
 "Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -1314,375 +1316,375 @@ msgid ""
 "version.\n"
 msgstr "Atril on vapaa ohjelma; voit levittää sitä edelleen ja/tai muokata sitä GNU:n GPL-lisenssin sallimilla tavoilla siten kuin Free Software Foundation on sen määritellyt; voit halutessasi käyttää lisenssin versiota 2 taikka mitä tahansa tämän jälkeen ilmestynyttä versiota.\n"
 
-#: ../shell/ev-window.c:5027
+#: ../shell/ev-window.c:5041
 msgid ""
 "Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
-msgstr "Atrilä levitetään siinä toivossa, että siitä on hyötyä, mutta ILMAN MITÄÄN TAKUUTA; jopa ilman konkludenttista takuuta MYYNTIKELPOISUUDESTA TAI SOVELTUMISESTA TIETTYYN ERITYISEEN TARKOITUKSEEN. Yksityiskohtien osalta katso GNU:n GPL-lisenssiä.\n"
+msgstr "Atriliä levitetään siinä toivossa, että siitä on hyötyä, mutta ILMAN MITÄÄN TAKUUTA; jopa ilman konkludenttista takuuta MYYNTIKELPOISUUDESTA TAI SOVELTUMISESTA TIETTYYN ERITYISEEN TARKOITUKSEEN. Yksityiskohtien osalta katso GNU:n GPL-lisenssiä.\n"
 
-#: ../shell/ev-window.c:5031
+#: ../shell/ev-window.c:5045
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
 
-#: ../shell/ev-window.c:5056
+#: ../shell/ev-window.c:5074
 msgid "Atril"
 msgstr "Atril"
 
-#: ../shell/ev-window.c:5059
+#: ../shell/ev-window.c:5077
 msgid ""
 "© 1996–2009 The Evince authors\n"
 "© 2012–2014 The MATE developers"
-msgstr ""
+msgstr "© 1996–2009 Evincen tekijät\n© 2012–2014 MATEn kehittäjät"
 
-#: ../shell/ev-window.c:5065
+#: ../shell/ev-window.c:5083
 msgid "translator-credits"
-msgstr "Ilkka Tuohela, 2005-2008\nTommi Vainikainen, 2005, 2009\n\nhttp://mate.fi/"
+msgstr "Ilkka Tuohela, 2005-2008\nTommi Vainikainen, 2005, 2009"
 
 #. TRANS: Sometimes this could be better translated as
 #. "%d hit(s) on this page".  Therefore this string
 #. contains plural cases.
-#: ../shell/ev-window.c:5336
+#: ../shell/ev-window.c:5354
 #, c-format
 msgid "%d found on this page"
 msgid_plural "%d found on this page"
 msgstr[0] "%d osuma tällä sivulla"
 msgstr[1] "%d osumaa tällä sivulla"
 
-#: ../shell/ev-window.c:5341
+#: ../shell/ev-window.c:5359
 msgid "Not found"
-msgstr ""
+msgstr "Ei löydy"
 
-#: ../shell/ev-window.c:5347
+#: ../shell/ev-window.c:5365
 #, c-format
 msgid "%3d%% remaining to search"
 msgstr "%3d %% haettavasta jäljellä"
 
-#: ../shell/ev-window.c:5976
+#: ../shell/ev-window.c:5999
 msgid "_File"
 msgstr "_Tiedosto"
 
-#: ../shell/ev-window.c:5977
+#: ../shell/ev-window.c:6000
 msgid "_Edit"
 msgstr "_Muokkaa"
 
-#: ../shell/ev-window.c:5978
+#: ../shell/ev-window.c:6001
 msgid "_View"
 msgstr "_Näytä"
 
-#: ../shell/ev-window.c:5979
+#: ../shell/ev-window.c:6002
 msgid "_Go"
 msgstr "_Siirry"
 
-#: ../shell/ev-window.c:5980
+#: ../shell/ev-window.c:6003
 msgid "_Bookmarks"
-msgstr ""
+msgstr "_Kirjanmerkit"
 
-#: ../shell/ev-window.c:5981
+#: ../shell/ev-window.c:6004
 msgid "_Help"
 msgstr "O_hje"
 
 #. File menu
-#: ../shell/ev-window.c:5984 ../shell/ev-window.c:6332
+#: ../shell/ev-window.c:6007 ../shell/ev-window.c:6355
 msgid "_Open…"
 msgstr "_Avaa…"
 
-#: ../shell/ev-window.c:5985 ../shell/ev-window.c:6333
+#: ../shell/ev-window.c:6008 ../shell/ev-window.c:6356
 msgid "Open an existing document"
 msgstr "Avaa olemassaoleva asiakirja"
 
-#: ../shell/ev-window.c:5987
+#: ../shell/ev-window.c:6010
 msgid "Op_en a Copy"
 msgstr "Avaa _kopio"
 
-#: ../shell/ev-window.c:5988
+#: ../shell/ev-window.c:6011
 msgid "Open a copy of the current document in a new window"
 msgstr "Avaa kopio nykyisestä asiakirjasta uudessa ikkunassa"
 
-#: ../shell/ev-window.c:5990
+#: ../shell/ev-window.c:6013
 msgid "_Save a Copy…"
 msgstr "_Tallenna kopio…"
 
-#: ../shell/ev-window.c:5991
+#: ../shell/ev-window.c:6014
 msgid "Save a copy of the current document"
 msgstr "Tallenna kopio tämänhetkisestä asiakirjasta"
 
-#: ../shell/ev-window.c:5993
+#: ../shell/ev-window.c:6016
 msgid "_Print…"
 msgstr "_Tulosta…"
 
-#: ../shell/ev-window.c:5996
+#: ../shell/ev-window.c:6019
 msgid "P_roperties"
 msgstr "O_minaisuudet"
 
-#: ../shell/ev-window.c:6004
+#: ../shell/ev-window.c:6027
 msgid "Select _All"
 msgstr "Valitse k_aikki"
 
-#: ../shell/ev-window.c:6006
+#: ../shell/ev-window.c:6029
 msgid "_Find…"
 msgstr "_Etsi…"
 
-#: ../shell/ev-window.c:6007
+#: ../shell/ev-window.c:6030
 msgid "Find a word or phrase in the document"
 msgstr "Etsi sanaa tai lausetta asiakirjasta"
 
-#: ../shell/ev-window.c:6013
+#: ../shell/ev-window.c:6036
 msgid "T_oolbar"
 msgstr "_Työkalupalkki"
 
-#: ../shell/ev-window.c:6015
+#: ../shell/ev-window.c:6038
 msgid "Rotate _Left"
 msgstr "Kierrä _vasemmalle"
 
-#: ../shell/ev-window.c:6017
+#: ../shell/ev-window.c:6040
 msgid "Rotate _Right"
 msgstr "Kierrä _oikealle"
 
-#: ../shell/ev-window.c:6019
+#: ../shell/ev-window.c:6042
 msgid "Save Current Settings as _Default"
-msgstr ""
+msgstr "Tallenna nykyiset asetukset _oletusarvoiksi"
 
-#: ../shell/ev-window.c:6030
+#: ../shell/ev-window.c:6053
 msgid "_Reload"
 msgstr "_Lataa uudestaan"
 
-#: ../shell/ev-window.c:6031
+#: ../shell/ev-window.c:6054
 msgid "Reload the document"
 msgstr "Lataa asiakirja uudestaan"
 
-#: ../shell/ev-window.c:6033
+#: ../shell/ev-window.c:6056
 msgid "_Expand Window to Fit"
 msgstr ""
 
-#: ../shell/ev-window.c:6037
+#: ../shell/ev-window.c:6060
 msgid "Auto_scroll"
 msgstr "Vieritä _automaattisesti"
 
-#: ../shell/ev-window.c:6047
+#: ../shell/ev-window.c:6070
 msgid "_First Page"
 msgstr "_Ensimmäinen sivu"
 
-#: ../shell/ev-window.c:6048
+#: ../shell/ev-window.c:6071
 msgid "Go to the first page"
 msgstr "Siirry ensimmäiselle sivulle"
 
-#: ../shell/ev-window.c:6050
+#: ../shell/ev-window.c:6073
 msgid "_Last Page"
 msgstr "_Viimeinen sivu"
 
-#: ../shell/ev-window.c:6051
+#: ../shell/ev-window.c:6074
 msgid "Go to the last page"
 msgstr "Siirry viimeiselle sivulle"
 
 #. Bookmarks menu
-#: ../shell/ev-window.c:6055
+#: ../shell/ev-window.c:6078
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "_Lisää kirjanmerkki"
 
-#: ../shell/ev-window.c:6056
+#: ../shell/ev-window.c:6079
 msgid "Add a bookmark for the current page"
-msgstr ""
+msgstr "Lisää nykyisen sivun kirjanmerkki"
 
 #. Help menu
-#: ../shell/ev-window.c:6060
+#: ../shell/ev-window.c:6083
 msgid "_Contents"
 msgstr "_Sisältö"
 
-#: ../shell/ev-window.c:6063
+#: ../shell/ev-window.c:6086
 msgid "_About"
 msgstr "_Tietoja"
 
 #. Toolbar-only
-#: ../shell/ev-window.c:6067
+#: ../shell/ev-window.c:6090
 msgid "Leave Fullscreen"
 msgstr "Lopeta kokoruutu"
 
-#: ../shell/ev-window.c:6068
+#: ../shell/ev-window.c:6091
 msgid "Leave fullscreen mode"
 msgstr "Lopeta kokoruututila"
 
-#: ../shell/ev-window.c:6070
+#: ../shell/ev-window.c:6093
 msgid "Start Presentation"
 msgstr "Käynnistä esitys"
 
-#: ../shell/ev-window.c:6071
+#: ../shell/ev-window.c:6094
 msgid "Start a presentation"
 msgstr "Käynnistä asiakirjan esitys"
 
 #. View Menu
-#: ../shell/ev-window.c:6130
+#: ../shell/ev-window.c:6153
 msgid "_Toolbar"
 msgstr "_Työkalupalkki"
 
-#: ../shell/ev-window.c:6131
+#: ../shell/ev-window.c:6154
 msgid "Show or hide the toolbar"
 msgstr "Näytä tai piilota työkalupalkki"
 
-#: ../shell/ev-window.c:6133
+#: ../shell/ev-window.c:6156
 msgid "Side _Pane"
 msgstr "_Sivupaneeli"
 
-#: ../shell/ev-window.c:6134
+#: ../shell/ev-window.c:6157
 msgid "Show or hide the side pane"
 msgstr "Näytä tai piilota sivupaneeli"
 
-#: ../shell/ev-window.c:6136
+#: ../shell/ev-window.c:6159
 msgid "_Continuous"
 msgstr "_Jatkuva"
 
-#: ../shell/ev-window.c:6137
+#: ../shell/ev-window.c:6160
 msgid "Show the entire document"
 msgstr "Näytä koko asiakirja"
 
-#: ../shell/ev-window.c:6139
+#: ../shell/ev-window.c:6162
 msgid "_Dual"
 msgstr "K_aksi"
 
-#: ../shell/ev-window.c:6140
+#: ../shell/ev-window.c:6163
 msgid "Show two pages at once"
 msgstr "Näytä kaksi sivua kerrallaan"
 
-#: ../shell/ev-window.c:6142
+#: ../shell/ev-window.c:6165
 msgid "_Fullscreen"
 msgstr "_Kokoruutu"
 
-#: ../shell/ev-window.c:6143
+#: ../shell/ev-window.c:6166
 msgid "Expand the window to fill the screen"
 msgstr "Laajenna ikkuna täyttämään näyttö"
 
-#: ../shell/ev-window.c:6145
+#: ../shell/ev-window.c:6168
 msgid "Pre_sentation"
 msgstr "E_sitys"
 
-#: ../shell/ev-window.c:6146
+#: ../shell/ev-window.c:6169
 msgid "Run document as a presentation"
 msgstr "Näytä asiakirja esityksenä"
 
-#: ../shell/ev-window.c:6154
+#: ../shell/ev-window.c:6177
 msgid "_Inverted Colors"
 msgstr "_Käänteiset värit"
 
-#: ../shell/ev-window.c:6155
+#: ../shell/ev-window.c:6178
 msgid "Show page contents with the colors inverted"
 msgstr "Näytä sivun sisältö käänteisillä väreillä"
 
 #. Links
-#: ../shell/ev-window.c:6163
+#: ../shell/ev-window.c:6186
 msgid "_Open Link"
 msgstr "_Avaa linkki"
 
-#: ../shell/ev-window.c:6165
+#: ../shell/ev-window.c:6188
 msgid "_Go To"
 msgstr "_Siirry"
 
-#: ../shell/ev-window.c:6167
+#: ../shell/ev-window.c:6190
 msgid "Open in New _Window"
 msgstr "Avaa uudessa _ikkunassa"
 
-#: ../shell/ev-window.c:6169
+#: ../shell/ev-window.c:6192
 msgid "_Copy Link Address"
 msgstr "_Kopioi linkin osoite"
 
-#: ../shell/ev-window.c:6171
+#: ../shell/ev-window.c:6194
 msgid "_Save Image As…"
 msgstr "_Tallenna kuva nimellä…"
 
-#: ../shell/ev-window.c:6173
+#: ../shell/ev-window.c:6196
 msgid "Copy _Image"
 msgstr "Kopioi _kuva"
 
-#: ../shell/ev-window.c:6175
+#: ../shell/ev-window.c:6198
 msgid "Annotation Properties…"
-msgstr ""
+msgstr "Merkinnän ominaisuudet…"
 
-#: ../shell/ev-window.c:6180
+#: ../shell/ev-window.c:6203
 msgid "_Open Attachment"
 msgstr "_Avaa liite"
 
-#: ../shell/ev-window.c:6182
+#: ../shell/ev-window.c:6205
 msgid "_Save Attachment As…"
 msgstr "_Tallenna liite nimellä…"
 
-#: ../shell/ev-window.c:6306
+#: ../shell/ev-window.c:6329
 msgid "Zoom"
 msgstr "Kuvasuhde"
 
-#: ../shell/ev-window.c:6308
+#: ../shell/ev-window.c:6331
 msgid "Adjust the zoom level"
 msgstr "Muuta kuvasuhdetta"
 
-#: ../shell/ev-window.c:6318
+#: ../shell/ev-window.c:6341
 msgid "Navigation"
 msgstr "Navigointi"
 
-#: ../shell/ev-window.c:6320
+#: ../shell/ev-window.c:6343
 msgid "Back"
 msgstr "Takaisin"
 
 #. translators: this is the history action
-#: ../shell/ev-window.c:6323
+#: ../shell/ev-window.c:6346
 msgid "Move across visited pages"
 msgstr "Siirry luettujen sivujen välillä"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6353
+#: ../shell/ev-window.c:6376
 msgid "Previous"
 msgstr "Edellinen"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6358
+#: ../shell/ev-window.c:6381
 msgid "Next"
 msgstr "Seuraava"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6362
+#: ../shell/ev-window.c:6385
 msgid "Zoom In"
 msgstr "Lähennä"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6366
+#: ../shell/ev-window.c:6389
 msgid "Zoom Out"
 msgstr "Loitonna"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6374
+#: ../shell/ev-window.c:6397
 msgid "Fit Width"
 msgstr "Sovita leveyteen"
 
-#: ../shell/ev-window.c:6519 ../shell/ev-window.c:6536
+#: ../shell/ev-window.c:6542 ../shell/ev-window.c:6559
 msgid "Unable to launch external application."
 msgstr "Ulkoista ohjelmaa ei voitu käynnistää."
 
-#: ../shell/ev-window.c:6593
+#: ../shell/ev-window.c:6616
 msgid "Unable to open external link"
 msgstr "Ulkoista linkkiä ei voi avata"
 
-#: ../shell/ev-window.c:6784
+#: ../shell/ev-window.c:6807
 msgid "Couldn't find appropriate format to save image"
 msgstr "Sopivaa tallennusmuotoa kuvalle ei löytynyt"
 
-#: ../shell/ev-window.c:6816
+#: ../shell/ev-window.c:6839
 msgid "The image could not be saved."
 msgstr "Kuvaa ei voi tallentaa."
 
-#: ../shell/ev-window.c:6848
+#: ../shell/ev-window.c:6871
 msgid "Save Image"
 msgstr "Tallenna kuva"
 
-#: ../shell/ev-window.c:6978
+#: ../shell/ev-window.c:7001
 msgid "Unable to open attachment"
 msgstr "Liitettä ei voi avata"
 
-#: ../shell/ev-window.c:7031
+#: ../shell/ev-window.c:7054
 msgid "The attachment could not be saved."
 msgstr "Liitettä ei voi tallentaa."
 
-#: ../shell/ev-window.c:7076
+#: ../shell/ev-window.c:7099
 msgid "Save Attachment"
 msgstr "Tallenna liite"
 
@@ -1713,7 +1715,7 @@ msgstr ""
 
 #: ../shell/main.c:78
 msgid "NUMBER"
-msgstr ""
+msgstr "NUMERO"
 
 #: ../shell/main.c:79
 msgid "Run atril in fullscreen mode"

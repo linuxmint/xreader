@@ -4,19 +4,19 @@
 # 
 # Translators:
 # Changwoo Ryu <cwryu@debian.org>, 2006-2010
-# 박정규(Jung Kyu Park) <bagjunggyu@gmail.com>, 2014
+# 박정규(Jung Kyu Park) <bagjunggyu@gmail.com>, 2014-2015
 # Alan Lee <bkrhlim@aol.com>, 2013
 # lego37yoon <lego37yoon@outlook.com>, 2014
-# Seong-ho Cho <darkcircle.0426@gmail.com>, 2014
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2014-2015
 # Young-Ho Cha <ganadist at mizi dot com>, 2005
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 15:24+0100\n"
-"PO-Revision-Date: 2014-12-10 14:26+0000\n"
-"Last-Translator: infirit <infirit@gmail.com>\n"
-"Language-Team: Korean (http://www.transifex.com/projects/p/MATE/language/ko/)\n"
+"POT-Creation-Date: 2015-09-06 13:44+0200\n"
+"PO-Revision-Date: 2015-10-30 18:45+0000\n"
+"Last-Translator: 박정규(Jung Kyu Park) <bagjunggyu@gmail.com>\n"
+"Language-Team: Korean (http://www.transifex.com/mate/MATE/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -39,42 +39,42 @@ msgstr "“%s” 명령이 만화책 압축을 푸는데 실패했습니다."
 msgid "The command “%s” did not end normally."
 msgstr "“%s” 명령이 정상적으로 끝나지 않았습니다."
 
-#: ../backend/comics/comics-document.c:420
+#: ../backend/comics/comics-document.c:444
 #, c-format
 msgid "Not a comic book MIME type: %s"
 msgstr "만화책 MIME 형식이 아닙니다: %s"
 
-#: ../backend/comics/comics-document.c:427
+#: ../backend/comics/comics-document.c:451
 msgid ""
 "Can't find an appropriate command to decompress this type of comic book"
 msgstr "이 종류의 만화책의 압축을 풀 명령을 찾지 못했습니다."
 
-#: ../backend/comics/comics-document.c:501 ../backend/epub/epub-document.c:616
+#: ../backend/comics/comics-document.c:525 ../backend/epub/epub-document.c:616
 #: ../libdocument/ev-document-factory.c:145
 #: ../libdocument/ev-document-factory.c:288
 msgid "Unknown MIME Type"
 msgstr "알 수 없는 MIME 형식"
 
-#: ../backend/comics/comics-document.c:528
+#: ../backend/comics/comics-document.c:552
 msgid "File corrupted"
 msgstr "파일이 손상되었습니다"
 
-#: ../backend/comics/comics-document.c:541
+#: ../backend/comics/comics-document.c:565
 msgid "No files in archive"
 msgstr "아카이브에 파일이 없습니다"
 
-#: ../backend/comics/comics-document.c:580
+#: ../backend/comics/comics-document.c:604
 #, c-format
 msgid "No images found in archive %s"
 msgstr "%s에 그림 파일이 없습니다"
 
-#: ../backend/comics/comics-document.c:824
-#: ../backend/epub/epub-document.c:1768
+#: ../backend/comics/comics-document.c:848
+#: ../backend/epub/epub-document.c:1767
 #, c-format
 msgid "There was an error deleting “%s”."
 msgstr " “%s” 삭제에 오류가 발생했습니다."
 
-#: ../backend/comics/comics-document.c:967
+#: ../backend/comics/comics-document.c:991
 #, c-format
 msgid "Error %s"
 msgstr "오류 %s"
@@ -134,12 +134,12 @@ msgid "container file is corrupt"
 msgstr "컨테이너 파일이 손상되었습니다"
 
 #: ../backend/epub/epub-document.c:858
-msgid "epub file is invalid or corrput"
-msgstr "epub 파일이 아니거나 손상된 것입니다"
+msgid "epub file is invalid or corrupt"
+msgstr "epub 파일이 잘못되었거나 깨졌습니다."
 
 #: ../backend/epub/epub-document.c:868
-msgid "epub file is corrupt,no container"
-msgstr "epub 파일이 손상되었거나, 컨테이너가 없는 것입니다"
+msgid "epub file is corrupt, no container"
+msgstr "epub 파일이 깨져서 내용이 없습니다"
 
 #: ../backend/epub/epub-document.c:953
 msgid "could not parse content manifest"
@@ -394,7 +394,7 @@ msgid "Separator"
 msgstr "구분선"
 
 #. translators: this is the label for toolbar button
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6370
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6393
 msgid "Best Fit"
 msgstr "알맞게 맞추기"
 
@@ -402,7 +402,7 @@ msgstr "알맞게 맞추기"
 msgid "Fit Page Width"
 msgstr "페이지 너비에 맞추기"
 
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:6034
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:6057
 msgid "Expand Window to Fit"
 msgstr "화면 공간에 맞게 창을 확장합니다"
 
@@ -464,7 +464,7 @@ msgstr "6400%"
 
 #: ../data/atril.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
-msgstr ""
+msgstr "마테 데스크톱 환경용 문서 보기 프로그램"
 
 #: ../data/atril.appdata.xml.in.h:2
 msgid ""
@@ -476,14 +476,14 @@ msgid ""
 " <p> Atril is a fork of Evince and part of the MATE Desktop Environment. If "
 "you would like to know more about MATE and Atril, please visit the project's"
 " home page. </p>"
-msgstr ""
+msgstr "<p> 애트릴은 간단한 다중 페이지 문서 보기 프로그램입니다. 포스트스크립트(PS), 캡슐화 포스트스크립트(EPS), DJVU, DVI, XPS, 휴대 문서 형식(PDF) 파일, 만화책 압축 파일 형식을 볼 수 있습니다. 문서에서 지원할 경우, 내용을 검색하고 클립보드에 글을 복사하며, 하이퍼텍스트 탐색 및, 목차형 책갈피 기능을 사용할 수 있습니다. </p> <p>아트릴은 에빈스에서 갈라져 나왔으며 마테 데스크톱 환경의 일부입니다. 마테와 애트릴에 대해 알아보시려면 프로젝트 홈페이지를 방문하세요. </p>"
 
 #: ../data/atril.desktop.in.in.h:1
 msgid "Atril Document Viewer"
 msgstr "아트릴 문서 보기"
 
 #. Manually set name and icon
-#: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:4992
+#: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:5006
 #: ../shell/ev-window-title.c:157 ../shell/main.c:306
 #, c-format
 msgid "Document Viewer"
@@ -493,13 +493,13 @@ msgstr "문서 보기"
 msgid "View multi-page documents"
 msgstr "다중 페이지 문서를 봅니다"
 
-#: ../data/org.mate.Atril.gschema.xml.in.h:1
+#: ../data/org.mate.Atril.gschema.xml.h:1
 msgid "Override document restrictions"
 msgstr "문서 제한 무시하기"
 
-#: ../data/org.mate.Atril.gschema.xml.in.h:2
+#: ../data/org.mate.Atril.gschema.xml.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
-msgstr "복사하기나 인쇄 같은 문서제한을 무시합니다."
+msgstr "복사 제한이나 인쇄 제한 같은, 문서 제한을 무시합니다."
 
 #: ../previewer/ev-previewer.c:44
 msgid "Delete the temporary file"
@@ -513,7 +513,7 @@ msgstr "설정 파일을 인쇄합니다"
 msgid "MATE Document Previewer"
 msgstr "마테 문서 미리 보기"
 
-#: ../previewer/ev-previewer-window.c:91 ../shell/ev-window.c:3353
+#: ../previewer/ev-previewer-window.c:91 ../shell/ev-window.c:3362
 msgid "Failed to print document"
 msgstr "문서를 인쇄하는데 실패했습니다"
 
@@ -523,27 +523,27 @@ msgid "The selected printer '%s' could not be found"
 msgstr "선택한 '%s' 프린터가 없습니다"
 
 #. Go menu
-#: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:6041
+#: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:6064
 msgid "_Previous Page"
 msgstr "이전 페이지(_P)"
 
-#: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:6042
+#: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:6065
 msgid "Go to the previous page"
 msgstr "이전 페이지로 갑니다"
 
-#: ../previewer/ev-previewer-window.c:287 ../shell/ev-window.c:6044
+#: ../previewer/ev-previewer-window.c:287 ../shell/ev-window.c:6067
 msgid "_Next Page"
 msgstr "다음 페이지(_N)"
 
-#: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:6045
+#: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:6068
 msgid "Go to the next page"
 msgstr "다음 페이지로 갑니다"
 
-#: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:6025
+#: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:6048
 msgid "Enlarge the document"
 msgstr "문서를 늘여서 봅니다"
 
-#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:6028
+#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:6051
 msgid "Shrink the document"
 msgstr "문서를 줄여서 봅니다"
 
@@ -551,31 +551,31 @@ msgstr "문서를 줄여서 봅니다"
 msgid "Print"
 msgstr "인쇄"
 
-#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:5994
+#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:6017
 msgid "Print this document"
 msgstr "이 문서를 인쇄합니다"
 
-#: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:6148
+#: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:6171
 msgid "_Best Fit"
 msgstr "알맞게 맞추기(_B)"
 
-#: ../previewer/ev-previewer-window.c:343 ../shell/ev-window.c:6149
+#: ../previewer/ev-previewer-window.c:343 ../shell/ev-window.c:6172
 msgid "Make the current document fill the window"
 msgstr "현재 문서를 창에 맞게 채웁니다"
 
-#: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:6151
+#: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:6174
 msgid "Fit Page _Width"
 msgstr "페이지 너비에 맞추기(_W)"
 
-#: ../previewer/ev-previewer-window.c:346 ../shell/ev-window.c:6152
+#: ../previewer/ev-previewer-window.c:346 ../shell/ev-window.c:6175
 msgid "Make the current document fill the window width"
 msgstr "현재 문서를 창 너비에 맞게 채웁니다"
 
-#: ../previewer/ev-previewer-window.c:558 ../shell/ev-window.c:6292
+#: ../previewer/ev-previewer-window.c:558 ../shell/ev-window.c:6315
 msgid "Page"
 msgstr "페이지"
 
-#: ../previewer/ev-previewer-window.c:559 ../shell/ev-window.c:6293
+#: ../previewer/ev-previewer-window.c:559 ../shell/ev-window.c:6316
 msgid "Select Page"
 msgstr "선택한 페이지"
 
@@ -778,7 +778,7 @@ msgstr "페이지를 문서 페이지와 같은 크기의 종이에 인쇄합니
 msgid "Page Handling"
 msgstr "페이지 처리"
 
-#: ../libview/ev-jobs.c:1742
+#: ../libview/ev-jobs.c:1790
 #, c-format
 msgid "Failed to print page %d: %s"
 msgstr "%d 페이지를 인쇄하는데 실패했습니다: %s"
@@ -859,7 +859,7 @@ msgstr "%s 실행"
 msgid "Find:"
 msgstr "찾기:"
 
-#: ../shell/eggfindbar.c:331 ../shell/ev-window.c:6011
+#: ../shell/eggfindbar.c:331 ../shell/ev-window.c:6034
 msgid "Find Pre_vious"
 msgstr "이전 찾기(_V)"
 
@@ -867,7 +867,7 @@ msgstr "이전 찾기(_V)"
 msgid "Find previous occurrence of the search string"
 msgstr "이전에 나오는 검색 문자열을 찾습니다"
 
-#: ../shell/eggfindbar.c:339 ../shell/ev-window.c:6009
+#: ../shell/eggfindbar.c:339 ../shell/ev-window.c:6032
 msgid "Find Ne_xt"
 msgstr "다음 찾기(_X)"
 
@@ -959,7 +959,7 @@ msgstr "열기"
 msgid "Close"
 msgstr "닫기"
 
-#: ../shell/ev-application.c:1042
+#: ../shell/ev-application.c:1054
 msgid "Running in presentation mode"
 msgstr "프리젠테이션 모드로 실행 중입니다"
 
@@ -1104,25 +1104,25 @@ msgstr "첨부"
 
 #: ../shell/ev-sidebar-bookmarks.c:152
 msgid "_Open Bookmark"
-msgstr ""
+msgstr "책갈피 열기(_O)"
 
 #: ../shell/ev-sidebar-bookmarks.c:154
 msgid "_Rename Bookmark"
-msgstr ""
+msgstr "책갈피 이름 바꾸기(_R)"
 
 #: ../shell/ev-sidebar-bookmarks.c:156
 msgid "_Remove Bookmark"
-msgstr ""
+msgstr "책갈피 제거(_R)"
 
-#: ../shell/ev-sidebar-bookmarks.c:311 ../shell/ev-window.c:951
-#: ../shell/ev-window.c:4719
+#: ../shell/ev-sidebar-bookmarks.c:311 ../shell/ev-window.c:952
+#: ../shell/ev-window.c:4733
 #, c-format
 msgid "Page %s"
 msgstr "페이지 %s"
 
 #: ../shell/ev-sidebar-bookmarks.c:609
 msgid "Bookmarks"
-msgstr ""
+msgstr "책갈피"
 
 #: ../shell/ev-sidebar-layers.c:444
 msgid "Layers"
@@ -1140,178 +1140,178 @@ msgstr "차례"
 msgid "Thumbnails"
 msgstr "미리 보기"
 
-#: ../shell/ev-window.c:948
+#: ../shell/ev-window.c:949
 #, c-format
 msgid "Page %s — %s"
 msgstr "페이지 %s — %s"
 
-#: ../shell/ev-window.c:1088
+#: ../shell/ev-window.c:1089
 msgid ""
 "Cannot enter presentation mode with ePub documents use fullscreen mode "
 "instead."
 msgstr "ePub 문서를 프레젠테이션 모드로 열 수 없어 전체 화면 보기로 대신합니다."
 
-#: ../shell/ev-window.c:1560
+#: ../shell/ev-window.c:1577
 msgid "The document contains no pages"
 msgstr "문서에 페이지가 없습니다"
 
-#: ../shell/ev-window.c:1563
+#: ../shell/ev-window.c:1580
 msgid "The document contains only empty pages"
 msgstr "문서에 빈 페이지만 들어 있습니다"
 
-#: ../shell/ev-window.c:1601
+#: ../shell/ev-window.c:1618
 msgid "Presentation mode is not supported for ePub documents."
 msgstr "프레젠테이션 모드는 ePub 문서를 지원하지 않습니다."
 
-#: ../shell/ev-window.c:1802 ../shell/ev-window.c:1970
+#: ../shell/ev-window.c:1810 ../shell/ev-window.c:1978
 msgid "Unable to open document"
 msgstr "문서를 열 수 없음"
 
-#: ../shell/ev-window.c:1939
+#: ../shell/ev-window.c:1947
 #, c-format
 msgid "Loading document from “%s”"
 msgstr "“%s”에서 문서를 읽어들이는 중입니다"
 
-#: ../shell/ev-window.c:2083 ../shell/ev-window.c:2373
+#: ../shell/ev-window.c:2091 ../shell/ev-window.c:2382
 #, c-format
 msgid "Downloading document (%d%%)"
 msgstr "문서를 다운로드하는 중입니다 (%d%%)"
 
-#: ../shell/ev-window.c:2116
+#: ../shell/ev-window.c:2124
 msgid "Failed to load remote file."
 msgstr "원격 파일을 읽어들이는데 실패했습니다."
 
-#: ../shell/ev-window.c:2317
+#: ../shell/ev-window.c:2326
 #, c-format
 msgid "Reloading document from %s"
 msgstr "문서를 %s에서 다시 읽는 중입니다"
 
-#: ../shell/ev-window.c:2349
+#: ../shell/ev-window.c:2358
 msgid "Failed to reload document."
 msgstr "문서를 다시 읽는데 실패했습니다."
 
-#: ../shell/ev-window.c:2501
+#: ../shell/ev-window.c:2510
 msgid "Open Document"
 msgstr "문서 열기"
 
-#: ../shell/ev-window.c:2799
+#: ../shell/ev-window.c:2808
 #, c-format
 msgid "Saving document to %s"
 msgstr "문서를 %s에 저장하는 중입니다"
 
-#: ../shell/ev-window.c:2802
+#: ../shell/ev-window.c:2811
 #, c-format
 msgid "Saving attachment to %s"
 msgstr "첨부를 %s에 저장하는 중입니다"
 
-#: ../shell/ev-window.c:2805
+#: ../shell/ev-window.c:2814
 #, c-format
 msgid "Saving image to %s"
 msgstr "그림을 %s에 저장하는 중입니다"
 
-#: ../shell/ev-window.c:2849 ../shell/ev-window.c:2949
+#: ../shell/ev-window.c:2858 ../shell/ev-window.c:2958
 #, c-format
 msgid "The file could not be saved as “%s”."
 msgstr "파일을 “%s”(으)로 저장할 수 없습니다."
 
-#: ../shell/ev-window.c:2880
+#: ../shell/ev-window.c:2889
 #, c-format
 msgid "Uploading document (%d%%)"
 msgstr "문서를 업로드하는 중입니다 (%d%%)"
 
-#: ../shell/ev-window.c:2884
+#: ../shell/ev-window.c:2893
 #, c-format
 msgid "Uploading attachment (%d%%)"
 msgstr "첨부를 업로드하는 중입니다 (%d%%)"
 
-#: ../shell/ev-window.c:2888
+#: ../shell/ev-window.c:2897
 #, c-format
 msgid "Uploading image (%d%%)"
 msgstr "그림을 업로드하는 중입니다 (%d%%)"
 
-#: ../shell/ev-window.c:3012
+#: ../shell/ev-window.c:3021
 msgid "Save a Copy"
 msgstr "다른 이름으로 저장"
 
-#: ../shell/ev-window.c:3297
+#: ../shell/ev-window.c:3306
 #, c-format
 msgid "%d pending job in queue"
 msgid_plural "%d pending jobs in queue"
 msgstr[0] "큐에 밀린 인쇄 작업이 %d개 있습니다"
 
-#: ../shell/ev-window.c:3410
+#: ../shell/ev-window.c:3419
 #, c-format
 msgid "Printing job “%s”"
 msgstr "인쇄 작업 “%s”"
 
-#: ../shell/ev-window.c:3587
+#: ../shell/ev-window.c:3596
 msgid ""
 "Document contains form fields that have been filled out. If you don't save a"
 " copy, changes will be permanently lost."
 msgstr "문서에 채워 넣은 필드가 있습니다. 복사물을 저장하지 않으면 바뀐 사항을 잃어버릴 수 있습니다."
 
-#: ../shell/ev-window.c:3591
+#: ../shell/ev-window.c:3600
 msgid ""
 "Document contains new or modified annotations. If you don't save a copy, "
 "changes will be permanently lost."
 msgstr "문서에 새로 추가하거나 수정한 추가 정보가 있습니다. 복사물을 저장하지 않으면 바뀐 사항을 잃어버릴 수 있습니다."
 
-#: ../shell/ev-window.c:3598
+#: ../shell/ev-window.c:3607
 #, c-format
 msgid "Save a copy of document “%s” before closing?"
 msgstr "닫기 전에 “%s” 문서의 복사본을 저장하시겠습니까?"
 
-#: ../shell/ev-window.c:3617
+#: ../shell/ev-window.c:3626
 msgid "Close _without Saving"
 msgstr "저장하지 않고 닫기(_W)"
 
-#: ../shell/ev-window.c:3621
+#: ../shell/ev-window.c:3630
 msgid "Save a _Copy"
 msgstr "복사물 저장(_C)"
 
-#: ../shell/ev-window.c:3695
+#: ../shell/ev-window.c:3704
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
 msgstr "닫기 전에 “%s” 인쇄 작업을 마칠 때까지 기다리시겠습니까?"
 
-#: ../shell/ev-window.c:3698
+#: ../shell/ev-window.c:3707
 #, c-format
 msgid ""
 "There are %d print jobs active. Wait until print finishes before closing?"
 msgstr "진행 중인 인쇄 작업이 %d개 있습니다. 닫기 전에 인쇄를 마칠 때까지 기다리시겠습니까?"
 
-#: ../shell/ev-window.c:3710
+#: ../shell/ev-window.c:3719
 msgid "If you close the window, pending print jobs will not be printed."
 msgstr "창을 닫으면, 밀린 인쇄 작업은 인쇄하지 않습니다."
 
-#: ../shell/ev-window.c:3714
+#: ../shell/ev-window.c:3723
 msgid "Cancel _print and Close"
 msgstr "인쇄 취소 및 닫기(_P)"
 
-#: ../shell/ev-window.c:3718
+#: ../shell/ev-window.c:3727
 msgid "Close _after Printing"
 msgstr "인쇄 후 닫기(_A)"
 
-#: ../shell/ev-window.c:4151
+#: ../shell/ev-window.c:4165
 msgid "Presentation mode is not supported for ePub documents"
 msgstr "프레젠테이션 모드는 ePub 문서를 지원하지 않습니다"
 
-#: ../shell/ev-window.c:4463
+#: ../shell/ev-window.c:4477
 msgid "Toolbar Editor"
 msgstr "도구 모음 편집기"
 
-#: ../shell/ev-window.c:4764
+#: ../shell/ev-window.c:4778
 msgid "There was an error displaying help"
 msgstr "도움말을 표시하는데 오류가 발생했습니다"
 
-#: ../shell/ev-window.c:4988
+#: ../shell/ev-window.c:5002
 #, c-format
 msgid ""
 "Document Viewer\n"
 "Using %s (%s)"
 msgstr "문서 보기 프로그램.\n%s (%s) 사용"
 
-#: ../shell/ev-window.c:5023
+#: ../shell/ev-window.c:5037
 msgid ""
 "Atril is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -1319,7 +1319,7 @@ msgid ""
 "version.\n"
 msgstr "Atril is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
 
-#: ../shell/ev-window.c:5027
+#: ../shell/ev-window.c:5041
 msgid ""
 "Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -1327,366 +1327,366 @@ msgid ""
 "details.\n"
 msgstr "Atril is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
 
-#: ../shell/ev-window.c:5031
+#: ../shell/ev-window.c:5045
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr "You should have received a copy of the GNU General Public License along with Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 
-#: ../shell/ev-window.c:5056
+#: ../shell/ev-window.c:5074
 msgid "Atril"
 msgstr "에빈스"
 
-#: ../shell/ev-window.c:5059
+#: ../shell/ev-window.c:5077
 msgid ""
 "© 1996–2009 The Evince authors\n"
 "© 2012–2014 The MATE developers"
 msgstr "© 1996–2009 The Evince authors\n© 2012–2014 The MATE developers"
 
-#: ../shell/ev-window.c:5065
+#: ../shell/ev-window.c:5083
 msgid "translator-credits"
 msgstr "차영호 <ganadist at mizi dot com>, 2005\n류창우 <cwryu@debian.org>, 2006, 2007, 2008"
 
 #. TRANS: Sometimes this could be better translated as
 #. "%d hit(s) on this page".  Therefore this string
 #. contains plural cases.
-#: ../shell/ev-window.c:5336
+#: ../shell/ev-window.c:5354
 #, c-format
 msgid "%d found on this page"
 msgid_plural "%d found on this page"
 msgstr[0] "이 페이지에서 %d개 찾음"
 
-#: ../shell/ev-window.c:5341
+#: ../shell/ev-window.c:5359
 msgid "Not found"
 msgstr "없음"
 
-#: ../shell/ev-window.c:5347
+#: ../shell/ev-window.c:5365
 #, c-format
 msgid "%3d%% remaining to search"
 msgstr "찾는데 %3d%% 남음"
 
-#: ../shell/ev-window.c:5976
+#: ../shell/ev-window.c:5999
 msgid "_File"
 msgstr "파일(_F)"
 
-#: ../shell/ev-window.c:5977
+#: ../shell/ev-window.c:6000
 msgid "_Edit"
 msgstr "편집(_E)"
 
-#: ../shell/ev-window.c:5978
+#: ../shell/ev-window.c:6001
 msgid "_View"
 msgstr "보기(_V)"
 
-#: ../shell/ev-window.c:5979
+#: ../shell/ev-window.c:6002
 msgid "_Go"
 msgstr "이동(_G)"
 
-#: ../shell/ev-window.c:5980
+#: ../shell/ev-window.c:6003
 msgid "_Bookmarks"
-msgstr ""
+msgstr "책갈피(_B)"
 
-#: ../shell/ev-window.c:5981
+#: ../shell/ev-window.c:6004
 msgid "_Help"
 msgstr "도움말(_H)"
 
 #. File menu
-#: ../shell/ev-window.c:5984 ../shell/ev-window.c:6332
+#: ../shell/ev-window.c:6007 ../shell/ev-window.c:6355
 msgid "_Open…"
 msgstr "열기(_O)…"
 
-#: ../shell/ev-window.c:5985 ../shell/ev-window.c:6333
+#: ../shell/ev-window.c:6008 ../shell/ev-window.c:6356
 msgid "Open an existing document"
 msgstr "문서를 엽니다"
 
-#: ../shell/ev-window.c:5987
+#: ../shell/ev-window.c:6010
 msgid "Op_en a Copy"
 msgstr "복사본 열기(_E)"
 
-#: ../shell/ev-window.c:5988
+#: ../shell/ev-window.c:6011
 msgid "Open a copy of the current document in a new window"
 msgstr "현재 문서의 복사본을 새 창에서 엽니다"
 
-#: ../shell/ev-window.c:5990
+#: ../shell/ev-window.c:6013
 msgid "_Save a Copy…"
 msgstr "복사물 저장(_S)…"
 
-#: ../shell/ev-window.c:5991
+#: ../shell/ev-window.c:6014
 msgid "Save a copy of the current document"
 msgstr "현재 문서의 사본을 저장합니다"
 
-#: ../shell/ev-window.c:5993
+#: ../shell/ev-window.c:6016
 msgid "_Print…"
 msgstr "인쇄(_P)…"
 
-#: ../shell/ev-window.c:5996
+#: ../shell/ev-window.c:6019
 msgid "P_roperties"
 msgstr "속성(_R)"
 
-#: ../shell/ev-window.c:6004
+#: ../shell/ev-window.c:6027
 msgid "Select _All"
 msgstr "모두 선택(_A)"
 
-#: ../shell/ev-window.c:6006
+#: ../shell/ev-window.c:6029
 msgid "_Find…"
 msgstr "찾기(_F)…"
 
-#: ../shell/ev-window.c:6007
+#: ../shell/ev-window.c:6030
 msgid "Find a word or phrase in the document"
 msgstr "문서에서 단어나 문장을 찾습니다"
 
-#: ../shell/ev-window.c:6013
+#: ../shell/ev-window.c:6036
 msgid "T_oolbar"
 msgstr "도구 모음(_O)"
 
-#: ../shell/ev-window.c:6015
+#: ../shell/ev-window.c:6038
 msgid "Rotate _Left"
 msgstr "왼쪽으로 회전(_L)"
 
-#: ../shell/ev-window.c:6017
+#: ../shell/ev-window.c:6040
 msgid "Rotate _Right"
 msgstr "오른쪽으로 회전(_R)"
 
-#: ../shell/ev-window.c:6019
+#: ../shell/ev-window.c:6042
 msgid "Save Current Settings as _Default"
 msgstr "현재 설정을 기본값으로 저장(_D)"
 
-#: ../shell/ev-window.c:6030
+#: ../shell/ev-window.c:6053
 msgid "_Reload"
 msgstr "다시 읽기(_R)"
 
-#: ../shell/ev-window.c:6031
+#: ../shell/ev-window.c:6054
 msgid "Reload the document"
 msgstr "문서를 다시 읽습니다"
 
-#: ../shell/ev-window.c:6033
+#: ../shell/ev-window.c:6056
 msgid "_Expand Window to Fit"
 msgstr "맞추어 창 확장(_E)"
 
-#: ../shell/ev-window.c:6037
+#: ../shell/ev-window.c:6060
 msgid "Auto_scroll"
 msgstr "자동 스크롤(_S)"
 
-#: ../shell/ev-window.c:6047
+#: ../shell/ev-window.c:6070
 msgid "_First Page"
 msgstr "첫 페이지(_F)"
 
-#: ../shell/ev-window.c:6048
+#: ../shell/ev-window.c:6071
 msgid "Go to the first page"
 msgstr "첫 페이지로 갑니다"
 
-#: ../shell/ev-window.c:6050
+#: ../shell/ev-window.c:6073
 msgid "_Last Page"
 msgstr "마지막 페이지(_L)"
 
-#: ../shell/ev-window.c:6051
+#: ../shell/ev-window.c:6074
 msgid "Go to the last page"
 msgstr "마지막 페이지로 갑니다"
 
 #. Bookmarks menu
-#: ../shell/ev-window.c:6055
+#: ../shell/ev-window.c:6078
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "책갈피 추가(_A)"
 
-#: ../shell/ev-window.c:6056
+#: ../shell/ev-window.c:6079
 msgid "Add a bookmark for the current page"
-msgstr ""
+msgstr "현재 페이지에 책갈피를 추가합니다"
 
 #. Help menu
-#: ../shell/ev-window.c:6060
+#: ../shell/ev-window.c:6083
 msgid "_Contents"
 msgstr "차례(_C)"
 
-#: ../shell/ev-window.c:6063
+#: ../shell/ev-window.c:6086
 msgid "_About"
 msgstr "정보(_A)"
 
 #. Toolbar-only
-#: ../shell/ev-window.c:6067
+#: ../shell/ev-window.c:6090
 msgid "Leave Fullscreen"
 msgstr "전체 화면 나가기"
 
-#: ../shell/ev-window.c:6068
+#: ../shell/ev-window.c:6091
 msgid "Leave fullscreen mode"
 msgstr "전체 화면에서 나갑니다"
 
-#: ../shell/ev-window.c:6070
+#: ../shell/ev-window.c:6093
 msgid "Start Presentation"
 msgstr "프리젠테이션 시작"
 
-#: ../shell/ev-window.c:6071
+#: ../shell/ev-window.c:6094
 msgid "Start a presentation"
 msgstr "프리젠테이션을 시작합니다"
 
 #. View Menu
-#: ../shell/ev-window.c:6130
+#: ../shell/ev-window.c:6153
 msgid "_Toolbar"
 msgstr "도구 모음(_T)"
 
-#: ../shell/ev-window.c:6131
+#: ../shell/ev-window.c:6154
 msgid "Show or hide the toolbar"
 msgstr "도구 모음을 보이거나 숨깁니다"
 
-#: ../shell/ev-window.c:6133
+#: ../shell/ev-window.c:6156
 msgid "Side _Pane"
 msgstr "가장자리 창(_P)"
 
-#: ../shell/ev-window.c:6134
+#: ../shell/ev-window.c:6157
 msgid "Show or hide the side pane"
 msgstr "가장자리 창을 보이거나 숨깁니다"
 
-#: ../shell/ev-window.c:6136
+#: ../shell/ev-window.c:6159
 msgid "_Continuous"
 msgstr "연속(_C)"
 
-#: ../shell/ev-window.c:6137
+#: ../shell/ev-window.c:6160
 msgid "Show the entire document"
 msgstr "문서를 연속해서 봅니다"
 
-#: ../shell/ev-window.c:6139
+#: ../shell/ev-window.c:6162
 msgid "_Dual"
 msgstr "두 페이지씩(_D)"
 
-#: ../shell/ev-window.c:6140
+#: ../shell/ev-window.c:6163
 msgid "Show two pages at once"
 msgstr "한번에 두 페이지씩 봅니다"
 
-#: ../shell/ev-window.c:6142
+#: ../shell/ev-window.c:6165
 msgid "_Fullscreen"
 msgstr "전체 화면(_F)"
 
-#: ../shell/ev-window.c:6143
+#: ../shell/ev-window.c:6166
 msgid "Expand the window to fill the screen"
 msgstr "화면에 꽉 차도록 창을 키웁니다"
 
-#: ../shell/ev-window.c:6145
+#: ../shell/ev-window.c:6168
 msgid "Pre_sentation"
 msgstr "프리젠테이션(_S)"
 
-#: ../shell/ev-window.c:6146
+#: ../shell/ev-window.c:6169
 msgid "Run document as a presentation"
 msgstr "프리젠테이션으로 문서를 보여줍니다"
 
-#: ../shell/ev-window.c:6154
+#: ../shell/ev-window.c:6177
 msgid "_Inverted Colors"
 msgstr "색 반전(_I)"
 
-#: ../shell/ev-window.c:6155
+#: ../shell/ev-window.c:6178
 msgid "Show page contents with the colors inverted"
 msgstr "페이지 내용을 색을 반전시켜 표시합니다"
 
 #. Links
-#: ../shell/ev-window.c:6163
+#: ../shell/ev-window.c:6186
 msgid "_Open Link"
 msgstr "링크 열기(_O)"
 
-#: ../shell/ev-window.c:6165
+#: ../shell/ev-window.c:6188
 msgid "_Go To"
 msgstr "이동(_G)"
 
-#: ../shell/ev-window.c:6167
+#: ../shell/ev-window.c:6190
 msgid "Open in New _Window"
 msgstr "새 창에서 열기(_W)"
 
-#: ../shell/ev-window.c:6169
+#: ../shell/ev-window.c:6192
 msgid "_Copy Link Address"
 msgstr "링크 주소 복사(_C)"
 
-#: ../shell/ev-window.c:6171
+#: ../shell/ev-window.c:6194
 msgid "_Save Image As…"
 msgstr "다른 이름으로 그림 저장(_S)…"
 
-#: ../shell/ev-window.c:6173
+#: ../shell/ev-window.c:6196
 msgid "Copy _Image"
 msgstr "그림 복사(_I)"
 
-#: ../shell/ev-window.c:6175
+#: ../shell/ev-window.c:6198
 msgid "Annotation Properties…"
 msgstr "추가 정보 속성…"
 
-#: ../shell/ev-window.c:6180
+#: ../shell/ev-window.c:6203
 msgid "_Open Attachment"
 msgstr "첨부 열기(_O)"
 
-#: ../shell/ev-window.c:6182
+#: ../shell/ev-window.c:6205
 msgid "_Save Attachment As…"
 msgstr "다른 이름으로 첨부 저장(_S)…"
 
-#: ../shell/ev-window.c:6306
+#: ../shell/ev-window.c:6329
 msgid "Zoom"
 msgstr "확대/축소"
 
-#: ../shell/ev-window.c:6308
+#: ../shell/ev-window.c:6331
 msgid "Adjust the zoom level"
 msgstr "확대/축소 수준 조절"
 
-#: ../shell/ev-window.c:6318
+#: ../shell/ev-window.c:6341
 msgid "Navigation"
 msgstr "둘러보기"
 
-#: ../shell/ev-window.c:6320
+#: ../shell/ev-window.c:6343
 msgid "Back"
 msgstr "뒤로"
 
 #. translators: this is the history action
-#: ../shell/ev-window.c:6323
+#: ../shell/ev-window.c:6346
 msgid "Move across visited pages"
 msgstr "열었던 페이지로 이동합니다"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6353
+#: ../shell/ev-window.c:6376
 msgid "Previous"
 msgstr "이전"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6358
+#: ../shell/ev-window.c:6381
 msgid "Next"
 msgstr "다음"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6362
+#: ../shell/ev-window.c:6385
 msgid "Zoom In"
 msgstr "확대"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6366
+#: ../shell/ev-window.c:6389
 msgid "Zoom Out"
 msgstr "축소"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6374
+#: ../shell/ev-window.c:6397
 msgid "Fit Width"
 msgstr "너비 맞춤"
 
-#: ../shell/ev-window.c:6519 ../shell/ev-window.c:6536
+#: ../shell/ev-window.c:6542 ../shell/ev-window.c:6559
 msgid "Unable to launch external application."
 msgstr "외부 프로그램을 실행할 수 없습니다."
 
-#: ../shell/ev-window.c:6593
+#: ../shell/ev-window.c:6616
 msgid "Unable to open external link"
 msgstr "외부 링크를 열 수 없습니다"
 
-#: ../shell/ev-window.c:6784
+#: ../shell/ev-window.c:6807
 msgid "Couldn't find appropriate format to save image"
 msgstr "그림을 저장할 적당한 형식을 찾을 수 없습니다"
 
-#: ../shell/ev-window.c:6816
+#: ../shell/ev-window.c:6839
 msgid "The image could not be saved."
 msgstr "그림을 저장할 수 없습니다."
 
-#: ../shell/ev-window.c:6848
+#: ../shell/ev-window.c:6871
 msgid "Save Image"
 msgstr "그림 저장"
 
-#: ../shell/ev-window.c:6978
+#: ../shell/ev-window.c:7001
 msgid "Unable to open attachment"
 msgstr "첨부를 열 수 없습니다"
 
-#: ../shell/ev-window.c:7031
+#: ../shell/ev-window.c:7054
 msgid "The attachment could not be saved."
 msgstr "첨부를 저장할 수 없습니다."
 
-#: ../shell/ev-window.c:7076
+#: ../shell/ev-window.c:7099
 msgid "Save Attachment"
 msgstr "첨부 저장"
 
