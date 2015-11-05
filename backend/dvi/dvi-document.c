@@ -177,7 +177,7 @@ dvi_document_render (EvDocument      *document,
 	 */
 	g_mutex_lock (&dvi_context_mutex);
 	
-	mdvi_setpage (&dvi_document->context, rc->page->index);
+	mdvi_setpage (dvi_document->context, rc->page->index);
 	
 	mdvi_set_shrink (dvi_document->context, 
 			 (int)((dvi_document->params->hshrink - 1) / rc->scale) + 1,
