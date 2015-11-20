@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010,2013-2014
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010,2013-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-06 13:44+0200\n"
-"PO-Revision-Date: 2015-09-06 11:43+0000\n"
-"Last-Translator: infirit <inactive+infirit@transifex.com>\n"
+"PO-Revision-Date: 2015-11-06 08:52+0000\n"
+"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh (http://www.transifex.com/mate/MATE/language/kk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -102,19 +102,19 @@ msgstr "DVI құжаттары"
 
 #: ../backend/epub/epub-document.c:633
 msgid "Not an ePub document"
-msgstr ""
+msgstr "ePub құжаты емес"
 
 #: ../backend/epub/epub-document.c:734
 msgid "could not retrieve filename"
-msgstr ""
+msgstr "файл атын алу мүмкін емес"
 
 #: ../backend/epub/epub-document.c:762
 msgid "could not open archive"
-msgstr ""
+msgstr "архивті ашу мүмкін емес"
 
 #: ../backend/epub/epub-document.c:778 ../backend/epub/epub-document.c:794
 msgid "could not extract archive"
-msgstr ""
+msgstr "архивті тарқату мүмкін емес"
 
 #: ../backend/epub/epub-document.c:826 ../backend/epub/epub-document.c:909
 msgid "could not retrieve container file"
@@ -130,7 +130,7 @@ msgstr ""
 
 #: ../backend/epub/epub-document.c:858
 msgid "epub file is invalid or corrupt"
-msgstr ""
+msgstr "epub файлы жарамсыз немесе зақымдалған"
 
 #: ../backend/epub/epub-document.c:868
 msgid "epub file is corrupt, no container"
@@ -150,7 +150,7 @@ msgstr ""
 
 #: ../backend/epub/epub-document.c:980
 msgid "epub file has no manifest"
-msgstr ""
+msgstr "epub файлының манифесті жоқ"
 
 #: ../backend/epub/epub-document.c:1066
 msgid "Could not set up document tree for loading, some files missing"
@@ -158,7 +158,7 @@ msgstr ""
 
 #: ../backend/epub/epubdocument.atril-backend.in.h:1
 msgid "epub Documents"
-msgstr ""
+msgstr "epub құжаттары"
 
 #: ../backend/pdf/ev-poppler.cc:520
 msgid "This work is in the Public Domain"
@@ -490,11 +490,11 @@ msgstr "Көппарақты құжаттарды қарау"
 
 #: ../data/org.mate.Atril.gschema.xml.h:1
 msgid "Override document restrictions"
-msgstr ""
+msgstr "Құжат рұқсаттарын елемеу"
 
 #: ../data/org.mate.Atril.gschema.xml.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
-msgstr ""
+msgstr "Құжат рұқсаттарын елемеу, көшірме жасау не баспаға шығару рұқсаттары сияқты."
 
 #: ../previewer/ev-previewer.c:44
 msgid "Delete the temporary file"
@@ -674,11 +674,11 @@ msgstr "%s, Жатық (%s)"
 
 #: ../properties/libatril-properties-page.caja-extension.in.h:1
 msgid "Atril properties"
-msgstr ""
+msgstr "Atril қасиеттері"
 
 #: ../properties/libatril-properties-page.caja-extension.in.h:2
 msgid "Shows details for Atril documents"
-msgstr ""
+msgstr "Atril құжаттары үшін қасиеттерді көрсетеді"
 
 #: ../libmisc/ev-page-action-widget.c:68
 #, c-format
@@ -1099,15 +1099,15 @@ msgstr "Салынымдар"
 
 #: ../shell/ev-sidebar-bookmarks.c:152
 msgid "_Open Bookmark"
-msgstr ""
+msgstr "Бетбелгіні _ашу"
 
 #: ../shell/ev-sidebar-bookmarks.c:154
 msgid "_Rename Bookmark"
-msgstr ""
+msgstr "Бетбелгі атын ауысты_ру"
 
 #: ../shell/ev-sidebar-bookmarks.c:156
 msgid "_Remove Bookmark"
-msgstr ""
+msgstr "Бетбелгіні ө_шіру"
 
 #: ../shell/ev-sidebar-bookmarks.c:311 ../shell/ev-window.c:952
 #: ../shell/ev-window.c:4733
@@ -1117,7 +1117,7 @@ msgstr "Парақ %s"
 
 #: ../shell/ev-sidebar-bookmarks.c:609
 msgid "Bookmarks"
-msgstr ""
+msgstr "Бетбелгілер"
 
 #: ../shell/ev-sidebar-layers.c:444
 msgid "Layers"
@@ -1379,7 +1379,7 @@ msgstr "Ө_ту"
 
 #: ../shell/ev-window.c:6003
 msgid "_Bookmarks"
-msgstr ""
+msgstr "_Бетбелгілер"
 
 #: ../shell/ev-window.c:6004
 msgid "_Help"
@@ -1481,11 +1481,11 @@ msgstr "Соңғы параққа өту"
 #. Bookmarks menu
 #: ../shell/ev-window.c:6078
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "Бе_тбелгіні қосу"
 
 #: ../shell/ev-window.c:6079
 msgid "Add a bookmark for the current page"
-msgstr ""
+msgstr "Ағымдағы бет үшін бетбелгіні қосу"
 
 #. Help menu
 #: ../shell/ev-window.c:6083

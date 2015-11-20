@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-06 13:44+0200\n"
-"PO-Revision-Date: 2015-10-06 17:39+0000\n"
+"PO-Revision-Date: 2015-11-10 13:56+0000\n"
 "Last-Translator: Siranush <ss.m.95@mail.ru>\n"
 "Language-Team: Armenian (http://www.transifex.com/mate/MATE/language/hy/)\n"
 "MIME-Version: 1.0\n"
@@ -751,7 +751,7 @@ msgstr ""
 
 #: ../libview/ev-print-operation.c:1914
 msgid "Auto Rotate and Center"
-msgstr ""
+msgstr "Ավտո Պտտում  և Կենտրոնավորում"
 
 #: ../libview/ev-print-operation.c:1917
 msgid ""
@@ -872,11 +872,11 @@ msgstr "Գտնել տողի որոնման հաջորդ դեպքը"
 
 #: ../shell/eggfindbar.c:350
 msgid "Case Sensitive"
-msgstr ""
+msgstr "Տառաշարազգայուն"
 
 #: ../shell/eggfindbar.c:353
 msgid "Toggle case sensitive search"
-msgstr ""
+msgstr "Փոխանջատել տառաշարազգայուն որոնումը"
 
 #: ../shell/ev-annotation-properties-dialog.c:97
 msgid "Icon:"
@@ -1232,8 +1232,8 @@ msgstr "Պահպանել պատճենը"
 #, c-format
 msgid "%d pending job in queue"
 msgid_plural "%d pending jobs in queue"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d սպասող աշխատանք հերթում"
+msgstr[1] "%d սպասող աշխատանքներ հերթում"
 
 #: ../shell/ev-window.c:3419
 #, c-format
@@ -1268,17 +1268,17 @@ msgstr "Պահպանել _ պատճենը"
 #: ../shell/ev-window.c:3704
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
-msgstr ""
+msgstr "Փակելուց առաջ սպասե՞ք մինչև ավարտվի “%s” աշխատանքի ատպագրությունը։"
 
 #: ../shell/ev-window.c:3707
 #, c-format
 msgid ""
 "There are %d print jobs active. Wait until print finishes before closing?"
-msgstr ""
+msgstr "Այստեղ %d տպվելու ակտիվ առաջադրանքներ կան։ Փակելուց առաջ սպասե՞ք մինչև ավարտվի տպագրությունը։"
 
 #: ../shell/ev-window.c:3719
 msgid "If you close the window, pending print jobs will not be printed."
-msgstr ""
+msgstr "եթե դու փակեես պատուհանը, ապա տպատառ առաջադրանքները չեն տպվելու։"
 
 #: ../shell/ev-window.c:3723
 msgid "Cancel _print and Close"
@@ -1290,7 +1290,7 @@ msgstr "Փակել տպելուց _հետո"
 
 #: ../shell/ev-window.c:4165
 msgid "Presentation mode is not supported for ePub documents"
-msgstr ""
+msgstr "Ներկայացման ռեժիմը չի ապահովվում ePub փաստաթղթի համար"
 
 #: ../shell/ev-window.c:4477
 msgid "Toolbar Editor"
@@ -1305,7 +1305,7 @@ msgstr "Ձեռնարկի ցուցադրման ժամանակ սխալ է կատ�
 msgid ""
 "Document Viewer\n"
 "Using %s (%s)"
-msgstr ""
+msgstr "Փաստաթուղթ Դիտող\nՕգտագործում %s (%s)"
 
 #: ../shell/ev-window.c:5037
 msgid ""

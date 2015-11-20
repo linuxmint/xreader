@@ -5,14 +5,15 @@
 # Translators:
 # Anita Reitere <nitalynx@gmail.com>, 2010
 # Imants Liepiņš <imzzinator@gmail.com>, 2012
+# Madars Križus <extaspace@gmail.com>, 2015
 # Raivis Dejus <orvils@gmail.com>, 2006
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-06 13:44+0200\n"
-"PO-Revision-Date: 2015-09-06 11:43+0000\n"
-"Last-Translator: infirit <inactive+infirit@transifex.com>\n"
+"PO-Revision-Date: 2015-11-01 16:56+0000\n"
+"Last-Translator: Madars Križus <extaspace@gmail.com>\n"
 "Language-Team: Latvian (http://www.transifex.com/mate/MATE/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -104,15 +105,15 @@ msgstr "DVI dokumenti"
 
 #: ../backend/epub/epub-document.c:633
 msgid "Not an ePub document"
-msgstr ""
+msgstr "Šis nav ePub dokuments"
 
 #: ../backend/epub/epub-document.c:734
 msgid "could not retrieve filename"
-msgstr ""
+msgstr "nespēja saņemt faila nosaukumu"
 
 #: ../backend/epub/epub-document.c:762
 msgid "could not open archive"
-msgstr ""
+msgstr "nespēja atvērt arhīvu"
 
 #: ../backend/epub/epub-document.c:778 ../backend/epub/epub-document.c:794
 msgid "could not extract archive"
@@ -132,7 +133,7 @@ msgstr ""
 
 #: ../backend/epub/epub-document.c:858
 msgid "epub file is invalid or corrupt"
-msgstr ""
+msgstr "epub fails ir nepareizs vai bojāts"
 
 #: ../backend/epub/epub-document.c:868
 msgid "epub file is corrupt, no container"
@@ -160,7 +161,7 @@ msgstr ""
 
 #: ../backend/epub/epubdocument.atril-backend.in.h:1
 msgid "epub Documents"
-msgstr ""
+msgstr "epub Dokumenti"
 
 #: ../backend/pdf/ev-poppler.cc:520
 msgid "This work is in the Public Domain"

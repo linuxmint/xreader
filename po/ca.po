@@ -6,13 +6,14 @@
 # Francesc <kiski97@gmail.com>, 2015
 # Gil Forcada <gilforcada@guifi.net>, 2005-2010
 # Pere Orga <gotrunks@gmail.com>, 2013
+# Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-06 13:44+0200\n"
-"PO-Revision-Date: 2015-09-06 11:43+0000\n"
-"Last-Translator: infirit <inactive+infirit@transifex.com>\n"
+"PO-Revision-Date: 2015-11-20 12:06+0000\n"
+"Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/mate/MATE/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -208,7 +209,7 @@ msgstr "TrueType (CID)"
 
 #: ../backend/pdf/ev-poppler.cc:921
 msgid "Unknown font type"
-msgstr "Tipus de lletra desconegut"
+msgstr "Lletra desconeguda"
 
 #: ../backend/pdf/ev-poppler.cc:947
 msgid "No name"
@@ -445,19 +446,19 @@ msgstr "400%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:63
 msgid "800%"
-msgstr ""
+msgstr "800%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:64
 msgid "1600%"
-msgstr ""
+msgstr "1600%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:65
 msgid "3200%"
-msgstr ""
+msgstr "3200%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:66
 msgid "6400%"
-msgstr ""
+msgstr "6400%"
 
 #: ../data/atril.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
@@ -488,7 +489,7 @@ msgstr "Visualitzador de documents"
 
 #: ../data/atril.desktop.in.in.h:3
 msgid "View multi-page documents"
-msgstr "Visualitzeu documents multi-pàgina"
+msgstr "Visualitzeu documents multipàgina"
 
 #: ../data/org.mate.Atril.gschema.xml.h:1
 msgid "Override document restrictions"
@@ -508,7 +509,7 @@ msgstr "Imprimeix el fitxer de configuració"
 
 #: ../previewer/ev-previewer.c:140 ../previewer/ev-previewer.c:174
 msgid "MATE Document Previewer"
-msgstr "Visualitzador de documents del MATE"
+msgstr "Visualitzador de documents de MATE"
 
 #: ../previewer/ev-previewer-window.c:91 ../shell/ev-window.c:3362
 msgid "Failed to print document"
@@ -726,7 +727,7 @@ msgstr "Avís"
 
 #: ../libview/ev-print-operation.c:1235
 msgid "Your print range selection does not include any pages"
-msgstr "No hi ha cap pàgina en el rang d'impressió"
+msgstr "L'interval d'impressió que heu seleccionat no inclou cap pàgina"
 
 #: ../libview/ev-print-operation.c:1892
 msgid "Page Scaling:"
@@ -759,7 +760,7 @@ msgstr "Gira automàticament i centra"
 msgid ""
 "Rotate printer page orientation of each page to match orientation of each "
 "document page. Document pages will be centered within the printer page."
-msgstr "Gira l'orientació de la pàgina d'impressió de cada pàgina perquè coincideixi amb cada pàgina del document. Es centraran les pàgines respecte la pàgina d'impressió."
+msgstr "Gira l'orientació de la pàgina d'impressió de cada pàgina perquè coincideixi amb cada pàgina del document. Se centraran les pàgines respecte la pàgina d'impressió."
 
 #: ../libview/ev-print-operation.c:1922
 msgid "Select page size using document page size"
@@ -882,11 +883,11 @@ msgstr "Commuta a una cerca que distingeixi entre majúscules i minúscules"
 
 #: ../shell/ev-annotation-properties-dialog.c:97
 msgid "Icon:"
-msgstr ""
+msgstr "Icona:"
 
 #: ../shell/ev-annotation-properties-dialog.c:104
 msgid "Note"
-msgstr ""
+msgstr "Nota"
 
 #: ../shell/ev-annotation-properties-dialog.c:105
 msgid "Comment"
@@ -898,7 +899,7 @@ msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:107
 msgid "Help"
-msgstr ""
+msgstr "Ajuda"
 
 #: ../shell/ev-annotation-properties-dialog.c:108
 msgid "New Paragraph"
@@ -922,7 +923,7 @@ msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:113
 msgid "Unknown"
-msgstr ""
+msgstr "Desconegut"
 
 #: ../shell/ev-annotation-properties-dialog.c:139
 msgid "Annotation Properties"
@@ -950,11 +951,11 @@ msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:225
 msgid "Open"
-msgstr ""
+msgstr "Obre"
 
 #: ../shell/ev-annotation-properties-dialog.c:226
 msgid "Close"
-msgstr ""
+msgstr "Tanca"
 
 #: ../shell/ev-application.c:1054
 msgid "Running in presentation mode"
@@ -983,7 +984,7 @@ msgstr "S'estan convertint les metadades"
 msgid ""
 "The metadata format used by Atril has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
-msgstr "L'Atril ha canviat el format de les metadades que utilitzava i s'han de migrar. Si cancel·leu la migració el magatzem de metadades no funcionarà."
+msgstr "L'Atril ha canviat el format de les metadades que utilitzava i s'han de migrar. Si cancel·leu la migració, el magatzem de metadades no funcionarà."
 
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
@@ -997,7 +998,7 @@ msgstr "Aquest document està protegit i només es pot llegir si s'introdueix la
 
 #: ../shell/ev-password-view.c:153 ../shell/ev-password-view.c:271
 msgid "_Unlock Document"
-msgstr "_Desbloca el document"
+msgstr "_Desbloqueja el document"
 
 #: ../shell/ev-password-view.c:263
 msgid "Enter password"
@@ -1039,7 +1040,7 @@ msgstr "General"
 
 #: ../shell/ev-properties-dialog.c:104
 msgid "Fonts"
-msgstr "Tipus de lletra"
+msgstr "Lletres"
 
 #: ../shell/ev-properties-dialog.c:117
 msgid "Document License"
@@ -1047,12 +1048,12 @@ msgstr "Llicència del document"
 
 #: ../shell/ev-properties-fonts.c:135
 msgid "Font"
-msgstr "Tipus de lletra"
+msgstr "Lletra"
 
 #: ../shell/ev-properties-fonts.c:162
 #, c-format
 msgid "Gathering font information… %3d%%"
-msgstr "S'està recollint informació del tipus de lletra… %3d%%"
+msgstr "S'està recollint informació de la lletra… %3d%%"
 
 #: ../shell/ev-properties-license.c:137
 msgid "Usage terms"
@@ -1084,7 +1085,7 @@ msgstr ""
 
 #: ../shell/ev-sidebar-annotations.c:221
 msgid "Add"
-msgstr ""
+msgstr "Afegeix"
 
 #: ../shell/ev-sidebar-annotations.c:364
 msgid "Document contains no annotations"
@@ -1101,15 +1102,15 @@ msgstr "Adjuncions"
 
 #: ../shell/ev-sidebar-bookmarks.c:152
 msgid "_Open Bookmark"
-msgstr ""
+msgstr "_Obre el marcador"
 
 #: ../shell/ev-sidebar-bookmarks.c:154
 msgid "_Rename Bookmark"
-msgstr ""
+msgstr "_Reanomena el marcador"
 
 #: ../shell/ev-sidebar-bookmarks.c:156
 msgid "_Remove Bookmark"
-msgstr ""
+msgstr "Sup_imeix el marcador"
 
 #: ../shell/ev-sidebar-bookmarks.c:311 ../shell/ev-window.c:952
 #: ../shell/ev-window.c:4733
@@ -1119,7 +1120,7 @@ msgstr "Pàgina %s"
 
 #: ../shell/ev-sidebar-bookmarks.c:609
 msgid "Bookmarks"
-msgstr ""
+msgstr "Marcadors"
 
 #: ../shell/ev-sidebar-layers.c:444
 msgid "Layers"
@@ -1344,7 +1345,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:5083
 msgid "translator-credits"
-msgstr "Gil Forcada <gilforcada@guifi.net>\nPere Orga <pere@orga.cat>"
+msgstr "Gil Forcada <gilforcada@guifi.net>\nPere Orga <pere@orga.cat>\nRobert Antoni Buj Gelonch <rbuj@fedoraproject.org>"
 
 #. TRANS: Sometimes this could be better translated as
 #. "%d hit(s) on this page".  Therefore this string
@@ -1383,7 +1384,7 @@ msgstr "Vé_s"
 
 #: ../shell/ev-window.c:6003
 msgid "_Bookmarks"
-msgstr ""
+msgstr "M_arcadors"
 
 #: ../shell/ev-window.c:6004
 msgid "_Help"
@@ -1485,7 +1486,7 @@ msgstr "Vés a l'última pàgina"
 #. Bookmarks menu
 #: ../shell/ev-window.c:6078
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "_Afegeix marcador"
 
 #: ../shell/ev-window.c:6079
 msgid "Add a bookmark for the current page"
@@ -1700,7 +1701,7 @@ msgstr "Per extensió"
 
 #: ../shell/main.c:69 ../shell/main.c:270
 msgid "MATE Document Viewer"
-msgstr "Visualitzador de documents del MATE"
+msgstr "Visualitzador de documents de MATE"
 
 #: ../shell/main.c:77
 msgid "The page label of the document to display."
