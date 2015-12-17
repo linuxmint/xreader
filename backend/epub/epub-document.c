@@ -313,6 +313,16 @@ epub_document_links_get_links_model(EvDocumentLinks *document_links)
     return model;
 }
 
+static EvMappingList *
+epub_document_links_get_links (EvDocumentLinks *document_links,
+			       EvPage	       *page)
+{
+	/* TODO
+	 * ev_mapping_list_new()
+	 */
+	return NULL;
+}
+
 static void
 epub_document_document_thumbnails_iface_init (EvDocumentThumbnailsInterface *iface)
 {
@@ -331,6 +341,7 @@ epub_document_document_links_iface_init(EvDocumentLinksInterface *iface)
 {
     iface->has_document_links = epub_document_links_has_document_links;
     iface->get_links_model = epub_document_links_get_links_model;  
+    iface->get_links = epub_document_links_get_links;
 }
 
 static gboolean
