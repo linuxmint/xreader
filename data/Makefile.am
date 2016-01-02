@@ -65,10 +65,6 @@ gsettings_SCHEMAS = org.mate.Atril.gschema.xml
 # include the appropriate makefile rules for schema handling
 @GSETTINGS_RULES@
 
-gsettingsconvertdir = $(datadir)/MateConf/gsettings
-gsettingsconvert_DATA = atril.convert
-
-
 
 #
 # GTK icon cache
@@ -101,7 +97,6 @@ EXTRA_DIST =					\
 	org.mate.atril.Daemon.service.in	\
 	$(man_MANS)				\
 	atril.ico				\
-	atril.convert				\
 	$(NULL)
 
 #
