@@ -366,7 +366,7 @@ ev_link_dest_class_init (EvLinkDestClass *ev_link_dest_class)
 					 PROP_CHANGE,
 					 g_param_spec_uint ("change",
 							    "Change",
-							    "Wether top, left, and zoom should be changed",
+							    "Whether top, left, and zoom should be changed",
 							    0,
 							    G_MAXUINT,
 							    0,
