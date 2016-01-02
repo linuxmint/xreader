@@ -96,7 +96,6 @@ EXTRA_DIST =					\
 	$(gsettings_SCHEMAS)			\
 	org.mate.atril.Daemon.service.in	\
 	$(man_MANS)				\
-	atril.ico				\
 	$(NULL)
 
 #

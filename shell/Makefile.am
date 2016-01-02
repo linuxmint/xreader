@@ -142,8 +142,7 @@ atrild_LDADD=				\
 	$(EV_DAEMON_LIBS)
 endif
 
-EXTRA_DIST = ev-marshal.list		\
-	atril-icon.rc
+EXTRA_DIST = ev-marshal.list
 
 ev-marshal.h: $(srcdir)/ev-marshal.list
 	$(AM_V_GEN)$(GLIB_GENMARSHAL) --prefix=ev_marshal $(srcdir)/ev-marshal.list --header > ev-marshal.h
