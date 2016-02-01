@@ -631,7 +631,7 @@ egg_find_bar_set_case_sensitive (EggFindBar *find_bar,
     {
       priv->case_sensitive = case_sensitive;
 
-      gtk_toggle_tool_button_set_active (priv->case_button,
+      gtk_toggle_tool_button_set_active (GTK_TOGGLE_TOOL_BUTTON (priv->case_button),
                                          priv->case_sensitive);
 
       g_object_notify (G_OBJECT (find_bar),
