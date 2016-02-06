@@ -7442,6 +7442,13 @@ ev_window_init (EvWindow *ev_window)
 	ev_window->priv->chrome = EV_CHROME_NORMAL;
 	ev_window->priv->title = ev_window_title_new (ev_window);
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+	GtkStyleContext *context;
+
+	context = gtk_widget_get_style_context (GTK_WIDGET (ev_window));
+	gtk_style_context_add_class (context, "atril-window");
+#endif
+
 	ev_window->priv->main_box = gtk_vbox_new (FALSE, 0);
 	gtk_container_add (GTK_CONTAINER (ev_window), ev_window->priv->main_box);
 	gtk_widget_show (ev_window->priv->main_box);
