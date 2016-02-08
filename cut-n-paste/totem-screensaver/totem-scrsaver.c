@@ -188,7 +188,7 @@ screensaver_inhibit_dbus (TotemScrsaver *scr,
 				   scr);
 	} else {
                 g_dbus_proxy_call (priv->gs_proxy,
-				   "UnInhibit",
+				   "Uninhibit",
 				   g_variant_new ("(u)", priv->cookie),
 				   G_DBUS_CALL_FLAGS_NO_AUTO_START,
 				   -1,
