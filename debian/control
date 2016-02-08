@@ -73,7 +73,6 @@ Description: Document viewer (debugging symbols)
 Package: xreader-common
 Architecture: all
 Depends: ${misc:Depends},
-Breaks: xreader (<= 1.0.3-3),
 Description: Document viewer (common files)
  Xreader is a simple multi-page document viewer.  It can display
  and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
@@ -87,7 +86,6 @@ Architecture: any
 Depends: libxreaderdocument3 (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends},
-Replaces: libxreader (<< 1.9.0),
 Description: Document viewing library
  Xreader is a simple multi-page document viewer.  It can display
  and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
@@ -101,7 +99,6 @@ Architecture: any
 Depends: libxreaderview3 (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends},
-Breaks: libxreader-dev (<< 1.9.0),
 Description: Document viewing library (development files)
  Xreader is a simple multi-page document viewer.  It can display
  and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
@@ -116,7 +113,6 @@ Priority: extra
 Architecture: any
 Depends: libxreaderview3 (= ${binary:Version}),
          ${misc:Depends},
-Breaks: xreader-dbg (<< 1.9.0),
 Description: Document viewing library (debugging symbols)
  Xreader is a simple multi-page document viewer.  It can display
  and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
@@ -134,8 +130,6 @@ Architecture: any
 Depends: libjs-mathjax,
          ${misc:Depends},
          ${shlibs:Depends},
-Breaks: libxreader (<< 1.9.0),
-Replaces: libxreader (<< 1.9.0),
 Description: Document rendering library
  Xreader is a simple multi-page document viewer.  It can display
  and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
@@ -149,8 +143,6 @@ Architecture: any
 Depends: libxreaderdocument3 (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends},
-Breaks: libxreader-dev (<< 1.9.0),
-Replaces: libxreader-dev (<< 1.9.0),
 Description: Document rendering library (development files)
  Xreader is a simple multi-page document viewer.  It can display
  and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
@@ -165,7 +157,6 @@ Priority: extra
 Architecture: any
 Depends: libxreaderdocument3 (= ${binary:Version}),
          ${misc:Depends},
-Breaks: xreader-dbg (<< 1.9.0),
 Description: Document rendering library (debugging symbols)
  Xreader is a simple multi-page document viewer.  It can display
  and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
