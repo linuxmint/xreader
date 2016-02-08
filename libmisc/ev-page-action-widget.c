@@ -56,6 +56,23 @@ static guint widget_signals[WIDGET_N_SIGNALS] = {0, };
 
 G_DEFINE_TYPE (EvPageActionWidget, ev_page_action_widget, GTK_TYPE_TOOL_ITEM)
 
+static gboolean
+show_page_number_in_pages_label (EvPageActionWidget *action_widget,
+                                 gint                page)
+{
+        gchar   *page_label;
+        gboolean retval;
+
+        if (!ev_document_has_text_page_labels (action_widget->document))
+                return FALSE;
+
+        page_label = g_strdup_printf ("%d", page + 1);
+        retval = g_strcmp0 (page_label, gtk_entry_get_text (GTK_ENTRY (action_widget->entry))) != 0;
+        g_free (page_label);
+
+        return retval;
+}
+
 static void
 update_pages_label (EvPageActionWidget *action_widget,
 		    gint                page)
@@ -64,11 +81,10 @@ update_pages_label (EvPageActionWidget *action_widget,
 	gint n_pages;
 
 	n_pages = ev_document_get_n_pages (action_widget->document);
-	if (ev_document_has_text_page_labels (action_widget->document)) {
+	if (show_page_number_in_pages_label (action_widget, page))
 		label_text = g_strdup_printf (_("(%d of %d)"), page + 1, n_pages);
-	} else {
+	else
 		label_text = g_strdup_printf (_("of %d"), n_pages);
-	}
 	gtk_entry_set_text (GTK_ENTRY (action_widget->label), label_text);
 	g_free (label_text);
 }
