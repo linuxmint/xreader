@@ -648,26 +648,6 @@ AC_SUBST(ATRIL_MIME_TYPES)
 
 AC_CHECK_FUNC(localtime_r, AC_DEFINE(HAVE_LOCALTIME_R, 1, [Defines if localtime_r is available on your system]))
 
-# *********************
-# Mate-desktop support
-# *********************
-
-AC_ARG_WITH(matedesktop,
-        [AS_HELP_STRING([--without-matedesktop],
-                        [Disable the use of matedesktop])],
-        [],
-        [with_matedesktop=yes])
-
-AM_CONDITIONAL([WITH_MATEDESKTOP],[test "$with_matedesktop" = "yes"])
-
-if test "$with_matedesktop" = "yes"; then
-        PKG_CHECK_MODULES([MATE_DESKTOP], mate-desktop-2.0 >= $MATEDESKTOP_REQUIRED)
-        AC_DEFINE([WITH_MATEDESKTOP],[1],[Define if mate-desktop support is enabled])
-fi
-
-AC_SUBST([MATE_DESKTOP_CFLAGS])
-AC_SUBST([MATE_DESKTOP_LIBS])
-
 # *****************
 # Help files
 # *****************
@@ -787,7 +767,6 @@ Configure summary:
 
     GTK+ version........:    $with_gtk
     GTK+ Unix Print.....:    $with_gtk_unix_print
-    MATE desktop Support:    $with_matedesktop
     Keyring Support.....:    $with_keyring
     DBUS Support........:    $enable_dbus
     Caja Plugin.........:    $enable_caja
