@@ -251,7 +251,7 @@ dvi_document_class_init (DviDocumentClass *klass)
 	gobject_class->finalize = dvi_document_finalize;
 
 	texmfcnf = get_texmfcnf();
-	mdvi_init_kpathsea ("atril", MDVI_MFMODE, MDVI_FALLBACK_FONT, MDVI_DPI, texmfcnf);
+	mdvi_init_kpathsea ("xreader", MDVI_MFMODE, MDVI_FALLBACK_FONT, MDVI_DPI, texmfcnf);
 	g_free(texmfcnf);
 
 	mdvi_register_special ("Color", "color", NULL, dvi_document_do_color_special, 1);

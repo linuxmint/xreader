@@ -8,12 +8,12 @@ srcdir = os.environ['srcdir']
 
 from dogtail.procedural import *
 
-run('atril', arguments=' '+srcdir+'/test-page-labels.pdf')
+run('xreader', arguments=' '+srcdir+'/test-page-labels.pdf')
 
 #!/usr/bin/python
 from dogtail.procedural import *
 
-focus.application('atril')
+focus.application('xreader')
 focus.frame('test-page-labels.pdf')
 click('File', roleName='menu')
 click('Print...', roleName='menu item')
@@ -28,6 +28,6 @@ click('Print Preview', roleName='push button')
 keyCombo('Return')
 click('Cancel')
 
-# Close atril
+# Close xreader
 click('File', roleName='menu')
 click('Close', roleName='menu item')

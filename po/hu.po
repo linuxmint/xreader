@@ -76,7 +76,7 @@ msgstr "Hiba történt a(z) „%s” törlése közben."
 msgid "Error %s"
 msgstr "%s hiba"
 
-#: ../backend/comics/comicsdocument.atril-backend.in.h:1
+#: ../backend/comics/comicsdocument.xreader-backend.in.h:1
 msgid "Comic Books"
 msgstr "Képregények"
 
@@ -90,7 +90,7 @@ msgid ""
 " be accessed."
 msgstr "A dokumentum több fájlból áll. Legalább az egyik fájl nem érhető el."
 
-#: ../backend/djvu/djvudocument.atril-backend.in.h:1
+#: ../backend/djvu/djvudocument.xreader-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "DjVu dokumentumok"
 
@@ -98,7 +98,7 @@ msgstr "DjVu dokumentumok"
 msgid "DVI document has incorrect format"
 msgstr "A DVI dokumentum formátuma hibás"
 
-#: ../backend/dvi/dvidocument.atril-backend.in.h:1
+#: ../backend/dvi/dvidocument.xreader-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI dokumentumok"
 
@@ -158,7 +158,7 @@ msgstr "az epub fájlnak nincs tartalomjegyzéke"
 msgid "Could not set up document tree for loading, some files missing"
 msgstr ""
 
-#: ../backend/epub/epubdocument.atril-backend.in.h:1
+#: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
 msgstr "epub dokumentumok"
 
@@ -226,7 +226,7 @@ msgstr "Beágyazott"
 msgid "Not embedded"
 msgstr "Be nem ágyazott"
 
-#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
+#: ../backend/pdf/pdfdocument.xreader-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF-dokumentumok"
 
@@ -240,7 +240,7 @@ msgstr "A dokumentum („%s”) betöltése meghiúsult"
 msgid "Failed to save document “%s”"
 msgstr "A dokumentum („%s”) mentése meghiúsult"
 
-#: ../backend/ps/psdocument.atril-backend.in.h:1
+#: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript-dokumentumok"
 
@@ -459,42 +459,42 @@ msgstr "3200%"
 msgid "6400%"
 msgstr "6400%"
 
-#: ../data/atril.appdata.xml.in.h:1
+#: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
 msgstr "Dokumentum megjelenítő a MATE asztali környezethez"
 
-#: ../data/atril.appdata.xml.in.h:2
+#: ../data/xreader.appdata.xml.in.h:2
 msgid ""
-"<p> Atril is a simple multi-page document viewer. It can display and print "
+"<p> Xreader is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
 "Document Format (PDF) files, as well as comic book archive files. When "
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
-" <p> Atril is a fork of Evince and part of the MATE Desktop Environment. If "
-"you would like to know more about MATE and Atril, please visit the project's"
+" <p> Xreader is a fork of Evince and part of the MATE Desktop Environment. If "
+"you would like to know more about MATE and Xreader, please visit the project's"
 " home page. </p>"
-msgstr "<p>Az Atril egy egyszerű több-oldalas dokumentum megjelenítő. Meg tud jeleníteni és ki tud nyomtatni PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS és Portable Document Format (PDF) fájlokat, valamint képregény archívum fájlokat. Ha a dokumentum támogatja,lehetőség van szöveg keresésére, vágólap másolásra, hypertext navigációra és tartalomjegyzék könyvjelzőkre. </p> <p>Az Atril az Evince forkja, és a MATE asztali környezet része. További információk a MATE-ról és az Atril-ról a project honlapján találhatóak. </p>"
+msgstr "<p>Az Xreader egy egyszerű több-oldalas dokumentum megjelenítő. Meg tud jeleníteni és ki tud nyomtatni PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS és Portable Document Format (PDF) fájlokat, valamint képregény archívum fájlokat. Ha a dokumentum támogatja,lehetőség van szöveg keresésére, vágólap másolásra, hypertext navigációra és tartalomjegyzék könyvjelzőkre. </p> <p>Az Xreader az Evince forkja, és a MATE asztali környezet része. További információk a MATE-ról és az Xreader-ról a project honlapján találhatóak. </p>"
 
-#: ../data/atril.desktop.in.in.h:1
-msgid "Atril Document Viewer"
-msgstr "Atril dokumentummegjelenítő"
+#: ../data/xreader.desktop.in.in.h:1
+msgid "Xreader Document Viewer"
+msgstr "Xreader dokumentummegjelenítő"
 
 #. Manually set name and icon
-#: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:5006
+#: ../data/xreader.desktop.in.in.h:2 ../shell/ev-window.c:5006
 #: ../shell/ev-window-title.c:157 ../shell/main.c:306
 #, c-format
 msgid "Document Viewer"
 msgstr "Dokumentummegjelenítő"
 
-#: ../data/atril.desktop.in.in.h:3
+#: ../data/xreader.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr "Többoldalas dokumentumok megjelenítése"
 
-#: ../data/org.mate.Atril.gschema.xml.h:1
+#: ../data/org.x.reader.gschema.xml.h:1
 msgid "Override document restrictions"
 msgstr ""
 
-#: ../data/org.mate.Atril.gschema.xml.h:2
+#: ../data/org.x.reader.gschema.xml.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 
@@ -674,13 +674,13 @@ msgstr "%s, álló (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, fekvő (%s)"
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:1
-msgid "Atril properties"
-msgstr "Atril tulajdonságai"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:1
+msgid "Xreader properties"
+msgstr "Xreader tulajdonságai"
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:2
-msgid "Shows details for Atril documents"
-msgstr "Atril dokumentumok részleteit jeleníti meg"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:2
+msgid "Shows details for Xreader documents"
+msgstr "Xreader dokumentumok részleteit jeleníti meg"
 
 #: ../libmisc/ev-page-action-widget.c:68
 #, c-format
@@ -981,9 +981,9 @@ msgstr "Metaadatok átalakítása"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Atril has changed, and hence it needs to be "
+"The metadata format used by Xreader has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
-msgstr "Az Atril által használt metaadat-formátum megváltozott, emiatt át kell állítani. Ha az átállítás megszakad, a metaadat-tároló nem fog működni."
+msgstr "Az Xreader által használt metaadat-formátum megváltozott, emiatt át kell állítani. Ha az átállítás megszakad, a metaadat-tároló nem fog működni."
 
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
@@ -1311,30 +1311,30 @@ msgstr "Dokumentummegjelenítő\n%s (%s) használatával"
 
 #: ../shell/ev-window.c:5037
 msgid ""
-"Atril is free software; you can redistribute it and/or modify it under the "
+"Xreader is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
-msgstr "Az Atril szabad szoftver, terjesztheti és/vagy módosíthatja a Free Software Foundation által kiadott GNU General Public License második (vagy bármely későbbi) változatában foglaltak alapján.\n"
+msgstr "Az Xreader szabad szoftver, terjesztheti és/vagy módosíthatja a Free Software Foundation által kiadott GNU General Public License második (vagy bármely későbbi) változatában foglaltak alapján.\n"
 
 #: ../shell/ev-window.c:5041
 msgid ""
-"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
-msgstr "Az Atril programot abban a reményben terjesztjük, hogy hasznos lesz, de nem vállalunk SEMMIFÉLE GARANCIÁT, még olyan értelemben sem, hogy a program alkalmas-e a KÖZREADÁSRA vagy EGY BIZONYOS FELADAT ELVÉGZÉSÉRE. További részletekért tanulmányozza a GNU GPL licencet.\n"
+msgstr "Az Xreader programot abban a reményben terjesztjük, hogy hasznos lesz, de nem vállalunk SEMMIFÉLE GARANCIÁT, még olyan értelemben sem, hogy a program alkalmas-e a KÖZREADÁSRA vagy EGY BIZONYOS FELADAT ELVÉGZÉSÉRE. További részletekért tanulmányozza a GNU GPL licencet.\n"
 
 #: ../shell/ev-window.c:5045
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+" Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
-msgstr "Az Atril programhoz a GNU General Public License egy példánya is jár, ha nem kapta meg, írjon a Free Software Foundation Inc.-nek. Levélcímük: 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.\n"
+msgstr "Az Xreader programhoz a GNU General Public License egy példánya is jár, ha nem kapta meg, írjon a Free Software Foundation Inc.-nek. Levélcímük: 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.\n"
 
 #: ../shell/ev-window.c:5074
-msgid "Atril"
-msgstr "Atril"
+msgid "Xreader"
+msgstr "Xreader"
 
 #: ../shell/ev-window.c:5077
 msgid ""
@@ -1719,15 +1719,15 @@ msgid "NUMBER"
 msgstr "SZÁM"
 
 #: ../shell/main.c:79
-msgid "Run atril in fullscreen mode"
+msgid "Run xreader in fullscreen mode"
 msgstr "Teljes képernyős mód"
 
 #: ../shell/main.c:80
-msgid "Run atril in presentation mode"
-msgstr "Az Atril futtatása bemutató módban"
+msgid "Run xreader in presentation mode"
+msgstr "Az Xreader futtatása bemutató módban"
 
 #: ../shell/main.c:81
-msgid "Run atril as a previewer"
+msgid "Run xreader as a previewer"
 msgstr "Előnézet mód"
 
 #: ../shell/main.c:82

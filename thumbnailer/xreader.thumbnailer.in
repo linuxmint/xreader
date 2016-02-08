@@ -1,6 +1,6 @@
 [Thumbnailer Entry]
-TryExec=atril-thumbnailer
-Exec=atril-thumbnailer -s %s %u %o
-MimeType=@ATRIL_MIME_TYPES@
+TryExec=xreader-thumbnailer
+Exec=xreader-thumbnailer -s %s %u %o
+MimeType=@XREADER_MIME_TYPES@
 
 

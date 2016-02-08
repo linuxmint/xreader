@@ -2,7 +2,7 @@ AM_CPPFLAGS =					\
 	-I$(top_srcdir)				\
 	-I$(top_srcdir)/libdocument		\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
-	-DATRIL_COMPILATION			\
+	-DXREADER_COMPILATION			\
 	$(BACKEND_CFLAGS)			\
 	$(WARN_CFLAGS)				\
 	$(DISABLE_DEPRECATED)
@@ -15,16 +15,16 @@ libpixbufdocument_la_SOURCES =		\
 
 libpixbufdocument_la_LDFLAGS = $(BACKEND_LIBTOOL_FLAGS)
 libpixbufdocument_la_LIBADD =				\
-	$(top_builddir)/libdocument/libatrildocument.la	\
+	$(top_builddir)/libdocument/libxreaderdocument.la	\
 	$(BACKEND_LIBS)
 
-backend_in_files = pixbufdocument.atril-backend.in
-backend_DATA = $(backend_in_files:.atril-backend.in=.atril-backend)
+backend_in_files = pixbufdocument.xreader-backend.in
+backend_DATA = $(backend_in_files:.xreader-backend.in=.xreader-backend)
 
 EXTRA_DIST = $(backend_in_files)
 
 CLEANFILES = $(backend_DATA)
 
-@EV_INTLTOOL_ATRIL_BACKEND_RULE@
+@EV_INTLTOOL_XREADER_BACKEND_RULE@
 
 -include $(top_srcdir)/git.mk

@@ -1,14 +1,14 @@
 /* ev-previewer.c: 
- *  this file is part of atril, a mate document viewer
+ *  this file is part of xreader, a mate document viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos <carlosgc@gnome.org>
  *
- * Atril is free software; you can redistribute it and/or modify it
+ * Xreader is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Atril is distributed in the hope that it will be useful, but
+ * Xreader is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
@@ -22,8 +22,8 @@
 
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
-#include <atril-document.h>
-#include <atril-view.h>
+#include <xreader-document.h>
+#include <xreader-view.h>
 
 #include "ev-previewer-window.h"
 
@@ -139,7 +139,7 @@ main (gint argc, gchar **argv)
 	ev_stock_icons_init ();
 
 	g_set_application_name (_("MATE Document Previewer"));
-	gtk_window_set_default_icon_name ("atril");
+	gtk_window_set_default_icon_name ("xreader");
 
 	model = ev_document_model_new ();
 	window = ev_previewer_window_new (model);

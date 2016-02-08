@@ -1,13 +1,13 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of xreader, a mate document viewer
  *
  *  Copyright (C) 2005 Red Hat, Inc
  *
- * Atril is free software; you can redistribute it and/or modify it
+ * Xreader is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Atril is distributed in the hope that it will be useful, but
+ * Xreader is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
@@ -21,8 +21,8 @@
  * ev-view.c from exploding.
  */
 
-#if !defined (__EV_ATRIL_VIEW_H_INSIDE__) && !defined (ATRIL_COMPILATION)
-#error "Only <atril-view.h> can be included directly."
+#if !defined (__EV_XREADER_VIEW_H_INSIDE__) && !defined (XREADER_COMPILATION)
+#error "Only <xreader-view.h> can be included directly."
 #endif
 
 #ifndef __EV_PIXBUF_CACHE_H__
@@ -30,8 +30,8 @@
 
 #include <gtk/gtk.h>
 
-#include <atril-document.h>
-#include <atril-view.h>
+#include <xreader-document.h>
+#include <xreader-view.h>
 
 G_BEGIN_DECLS
 

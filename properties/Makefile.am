@@ -1,5 +1,5 @@
 AM_CPPFLAGS=					\
-	-DATRILDATADIR=\"$(pkgdatadir)\"	\
+	-DXREADERDATADIR=\"$(pkgdatadir)\"	\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
 	-I$(top_srcdir)				\
 	-I$(top_builddir)			\
@@ -16,22 +16,22 @@ libevproperties_la_SOURCES=			\
 
 if ENABLE_CAJA
 
-cajaextension_LTLIBRARIES = libatril-properties-page.la
+cajaextension_LTLIBRARIES = libxreader-properties-page.la
 
-libatril_properties_page_la_CFLAGS = -I$(top_srcdir)
-libatril_properties_page_la_SOURCES = 	\
+libxreader_properties_page_la_CFLAGS = -I$(top_srcdir)
+libxreader_properties_page_la_SOURCES = 	\
 	ev-properties-main.c
 
-libatril_properties_page_la_LIBADD = 		\
+libxreader_properties_page_la_LIBADD = 		\
 	libevproperties.la			\
-	$(top_builddir)/libdocument/libatrildocument.la	\
+	$(top_builddir)/libdocument/libxreaderdocument.la	\
 	$(FRONTEND_LIBS)			\
 	$(CAJA_LIBS)
 
-libatril_properties_page_la_LDFLAGS = -module -avoid-version -no-undefined
+libxreader_properties_page_la_LDFLAGS = -module -avoid-version -no-undefined
 
 extensiondir = $(datadir)/caja/extensions
-extension_in_files = libatril-properties-page.caja-extension.in
+extension_in_files = libxreader-properties-page.caja-extension.in
 extension_DATA = $(extension_in_files:.caja-extension.in=.caja-extension)
 %.caja-extension: %.caja-extension.in $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(AM_V_GEN) LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
 

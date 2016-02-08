@@ -76,7 +76,7 @@ msgstr "Eraro okazis dum forigado de \"%s\"."
 msgid "Error %s"
 msgstr "Eraro %s"
 
-#: ../backend/comics/comicsdocument.atril-backend.in.h:1
+#: ../backend/comics/comicsdocument.xreader-backend.in.h:1
 msgid "Comic Books"
 msgstr "Bildstriaj libroj"
 
@@ -90,7 +90,7 @@ msgid ""
 " be accessed."
 msgstr "Ĉi tiu dokumento konsistas el pluraj dosieroj. Almenaŭ unu el ili ne atingeblas."
 
-#: ../backend/djvu/djvudocument.atril-backend.in.h:1
+#: ../backend/djvu/djvudocument.xreader-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "DjVu-dokumentoj"
 
@@ -98,7 +98,7 @@ msgstr "DjVu-dokumentoj"
 msgid "DVI document has incorrect format"
 msgstr "DVI-dokumento havas malĝustan strukturon"
 
-#: ../backend/dvi/dvidocument.atril-backend.in.h:1
+#: ../backend/dvi/dvidocument.xreader-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI-dokumentoj"
 
@@ -158,7 +158,7 @@ msgstr ""
 msgid "Could not set up document tree for loading, some files missing"
 msgstr ""
 
-#: ../backend/epub/epubdocument.atril-backend.in.h:1
+#: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
 msgstr ""
 
@@ -226,7 +226,7 @@ msgstr "Enkorpigita"
 msgid "Not embedded"
 msgstr "Ne enkorpigita"
 
-#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
+#: ../backend/pdf/pdfdocument.xreader-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF-dokumentoj"
 
@@ -240,7 +240,7 @@ msgstr "Ŝargado de dokumento \"%s\" fiaskis."
 msgid "Failed to save document “%s”"
 msgstr "Konservado de dokumento \"%s\" fiaskis."
 
-#: ../backend/ps/psdocument.atril-backend.in.h:1
+#: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript-dokumentoj"
 
@@ -459,42 +459,42 @@ msgstr "3200%"
 msgid "6400%"
 msgstr "6400%"
 
-#: ../data/atril.appdata.xml.in.h:1
+#: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
 msgstr ""
 
-#: ../data/atril.appdata.xml.in.h:2
+#: ../data/xreader.appdata.xml.in.h:2
 msgid ""
-"<p> Atril is a simple multi-page document viewer. It can display and print "
+"<p> Xreader is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
 "Document Format (PDF) files, as well as comic book archive files. When "
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
-" <p> Atril is a fork of Evince and part of the MATE Desktop Environment. If "
-"you would like to know more about MATE and Atril, please visit the project's"
+" <p> Xreader is a fork of Evince and part of the MATE Desktop Environment. If "
+"you would like to know more about MATE and Xreader, please visit the project's"
 " home page. </p>"
 msgstr ""
 
-#: ../data/atril.desktop.in.in.h:1
-msgid "Atril Document Viewer"
+#: ../data/xreader.desktop.in.in.h:1
+msgid "Xreader Document Viewer"
 msgstr ""
 
 #. Manually set name and icon
-#: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:5006
+#: ../data/xreader.desktop.in.in.h:2 ../shell/ev-window.c:5006
 #: ../shell/ev-window-title.c:157 ../shell/main.c:306
 #, c-format
 msgid "Document Viewer"
 msgstr "Dokumentrigardilo"
 
-#: ../data/atril.desktop.in.in.h:3
+#: ../data/xreader.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr ""
 
-#: ../data/org.mate.Atril.gschema.xml.h:1
+#: ../data/org.x.reader.gschema.xml.h:1
 msgid "Override document restrictions"
 msgstr ""
 
-#: ../data/org.mate.Atril.gschema.xml.h:2
+#: ../data/org.x.reader.gschema.xml.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 
@@ -674,12 +674,12 @@ msgstr "%s, Portreto (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, Pejzaĝo (%s)"
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:1
-msgid "Atril properties"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:1
+msgid "Xreader properties"
 msgstr ""
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:2
-msgid "Shows details for Atril documents"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:2
+msgid "Shows details for Xreader documents"
 msgstr ""
 
 #: ../libmisc/ev-page-action-widget.c:68
@@ -981,7 +981,7 @@ msgstr ""
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Atril has changed, and hence it needs to be "
+"The metadata format used by Xreader has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
 
@@ -1311,30 +1311,30 @@ msgstr ""
 
 #: ../shell/ev-window.c:5037
 msgid ""
-"Atril is free software; you can redistribute it and/or modify it under the "
+"Xreader is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
-msgstr "Atril estas libera programo; vi povas pludisdoni kopiojn kaj modifi ĝin sub la kondiĉoj de la Ĝenerala Publika Rajtigilo de GNU, kiel tio estas eldonita de Free Software Foundation; aŭ versio 2 de la rajtigilo, aŭ (laŭ via elekto) iu sekva versio.\n"
+msgstr "Xreader estas libera programo; vi povas pludisdoni kopiojn kaj modifi ĝin sub la kondiĉoj de la Ĝenerala Publika Rajtigilo de GNU, kiel tio estas eldonita de Free Software Foundation; aŭ versio 2 de la rajtigilo, aŭ (laŭ via elekto) iu sekva versio.\n"
 
 #: ../shell/ev-window.c:5041
 msgid ""
-"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
-msgstr "Atril estas disdonita kun la espero, ke ĝi estos utila, sed SEN IA AJN GARANTIO; eĉ sen la implicita garantio de KOMERCA KVALITO aŭ ADEKVATECO POR DIFINITA CELO. Vidu la Ĝeneralan Publikan Rajtigilon de GNU por pli da detaloj.\n"
+msgstr "Xreader estas disdonita kun la espero, ke ĝi estos utila, sed SEN IA AJN GARANTIO; eĉ sen la implicita garantio de KOMERCA KVALITO aŭ ADEKVATECO POR DIFINITA CELO. Vidu la Ĝeneralan Publikan Rajtigilon de GNU por pli da detaloj.\n"
 
 #: ../shell/ev-window.c:5045
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+" Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
-msgstr "Vi devus esti ricevinta kopion de la Ĝenerala Publika Permesilo de GNU kun Atril; se ne, skribu al Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
+msgstr "Vi devus esti ricevinta kopion de la Ĝenerala Publika Permesilo de GNU kun Xreader; se ne, skribu al Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 
 #: ../shell/ev-window.c:5074
-msgid "Atril"
-msgstr "Atrilo"
+msgid "Xreader"
+msgstr "Xreadero"
 
 #: ../shell/ev-window.c:5077
 msgid ""
@@ -1719,16 +1719,16 @@ msgid "NUMBER"
 msgstr "NUMERO"
 
 #: ../shell/main.c:79
-msgid "Run atril in fullscreen mode"
+msgid "Run xreader in fullscreen mode"
 msgstr "Ruli Envince tutekrane"
 
 #: ../shell/main.c:80
-msgid "Run atril in presentation mode"
+msgid "Run xreader in presentation mode"
 msgstr "Ruli Envince prezentaĵe"
 
 #: ../shell/main.c:81
-msgid "Run atril as a previewer"
-msgstr "Lanĉi Atril kiel antaŭvidilo"
+msgid "Run xreader as a previewer"
+msgstr "Lanĉi Xreader kiel antaŭvidilo"
 
 #: ../shell/main.c:82
 msgid "The word or phrase to find in the document"

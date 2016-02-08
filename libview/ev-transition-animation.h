@@ -1,5 +1,5 @@
 /* ev-transition-animation.h
- *  this file is part of atril, a mate document viewer
+ *  this file is part of xreader, a mate document viewer
  *
  * Copyright (C) 2007 Carlos Garnacho <carlos@imendio.com>
  *
@@ -19,14 +19,14 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#if !defined (ATRIL_COMPILATION)
+#if !defined (XREADER_COMPILATION)
 #error "This is a private header."
 #endif
 
 #ifndef __EV_TRANSITION_ANIMATION_H__
 #define __EV_TRANSITION_ANIMATION_H__
 
-#include <atril-document.h>
+#include <xreader-document.h>
 #include "ev-timeline.h"
 #include "ev-transition-effect.h"
 

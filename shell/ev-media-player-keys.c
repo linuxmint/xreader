@@ -106,7 +106,7 @@ ev_media_player_keys_grab_keys (EvMediaPlayerKeys *keys)
 	 */
         g_dbus_proxy_call (keys->proxy,
 			   "GrabMediaPlayerKeys",
-			   g_variant_new ("(su)", "Atril", 1),
+			   g_variant_new ("(su)", "Xreader", 1),
 			   G_DBUS_CALL_FLAGS_NO_AUTO_START,
 			   -1,
 			   NULL, NULL, NULL);
@@ -120,7 +120,7 @@ ev_media_player_keys_release_keys (EvMediaPlayerKeys *keys)
 
         g_dbus_proxy_call (keys->proxy,
 			   "ReleaseMediaPlayerKeys",
-			   g_variant_new ("(s)", "Atril"),
+			   g_variant_new ("(s)", "Xreader"),
 			   G_DBUS_CALL_FLAGS_NO_AUTO_START,
 			   -1,
 			   NULL, NULL, NULL);
@@ -146,7 +146,7 @@ media_player_key_pressed_cb (GDBusProxy *proxy,
 
         g_variant_get (parameters, "(&s&s)", &application, &key);
 
-        if (strcmp ("Atril", application) == 0) {
+        if (strcmp ("Xreader", application) == 0) {
                 g_signal_emit (user_data, signals[KEY_PRESSED], 0, key);
         }
 }

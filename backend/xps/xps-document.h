@@ -1,14 +1,14 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of xreader, a mate document viewer
  *
  * Copyright (C) 2010 Carlos Garcia Campos <carlosgc@gnome.org>
  *               2012 Leandro Vital <leandro.vital@yahoo.com.br>
  *
- * Atril is free software; you can redistribute it and/or modify it
+ * Xreader is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Atril is distributed in the hope that it will be useful, but
+ * Xreader is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
@@ -38,7 +38,7 @@ typedef struct _XPSDocumentClass XPSDocumentClass;
 
 GType                 xps_document_get_type   (void) G_GNUC_CONST;
 
-G_MODULE_EXPORT GType register_atril_backend (GTypeModule *module);
+G_MODULE_EXPORT GType register_xreader_backend (GTypeModule *module);
 
 G_END_DECLS
 

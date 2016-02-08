@@ -1,4 +1,4 @@
-% Atril
+% Xreader
 % Oz Nahum (2012); Nickolay V. Shmyrev; Niels Giesen; Claude Paroz (2004)
 % 18 September 2012
 
@@ -6,32 +6,32 @@
 Introduction
 ============
 
-Atril enables you to view documents of various formats
-like Portable Document Format (PDF) files and PostScript files. Atril 
+Xreader enables you to view documents of various formats
+like Portable Document Format (PDF) files and PostScript files. Xreader 
 follows Freedesktop.org and MATE standards to provide integration with
 Desktop Environment.
 
 Getting Started
 ===============
 
-To Start atril
+To Start xreader
 ----------------
 
-atril starts when you open a document such as a PDF or PostScript file.
+xreader starts when you open a document such as a PDF or PostScript file.
 
-Alternatively, you can start atril from the command line, with the
-command: `atril`.
+Alternatively, you can start xreader from the command line, with the
+command: `xreader`.
 
-When You Start atril
+When You Start xreader
 ----------------------
 
-When you start atril, the following window is displayed.
+When you start xreader, the following window is displayed.
 
-![ Shows atril main window. Contains titlebar, menubar, toolbar and
+![ Shows xreader main window. Contains titlebar, menubar, toolbar and
 display area. Menubar contains File, Edit, View, Go and Help menus.
-](figures/atril_start_window.png)
+](figures/xreader_start_window.png)
 
-Atril window contains the following elements:
+Xreader window contains the following elements:
 
 Menubar
 :   The menus on the menubar contain all of the commands that you need
@@ -44,7 +44,7 @@ Toolbar
 Display area
 :   The display area displays the document.
 
-In atril, you can perform the same action in several ways. For example,
+In xreader, you can perform the same action in several ways. For example,
 you can open a document in the following ways:
 
   -------------------------------------------------------------------------
@@ -78,13 +78,13 @@ To open a document, perform the following steps:
 
 2.  In the Open Document dialog, select the file you want to open.
 
-3.  Click Open. atril displays the name of the document in the titlebar of
+3.  Click Open. xreader displays the name of the document in the titlebar of
     the window.
 
-To open another document, choose FileOpen again. atril opens each file in
+To open another document, choose FileOpen again. xreader opens each file in
 a new window.
 
-If you try to open a document with format that atril does not recognize,
+If you try to open a document with format that xreader does not recognize,
 the application displays an error message.
 
 To Navigate Through a Document
@@ -120,21 +120,21 @@ display area, use the following methods:
 To Change the Page Size
 -----------------------
 
-You can use the following methods to resize a page in the atril display
+You can use the following methods to resize a page in the xreader display
 area:
 
 -   To increase the page size, choose View Zoom In.
 
 -   To decrease the page size, choose View Zoom Out.
 
--   To resize a page to have the same width as the atril display area,
+-   To resize a page to have the same width as the xreader display area,
     choose View Fit page width.
 
--   To resize a page to fit within the atril display area, choose View
+-   To resize a page to fit within the xreader display area, choose View
     Best Fit.
 
--   To resize the atril window to have the same width and height as the
-    screen, choose View Full Screen. To resize the atril window to the
+-   To resize the xreader window to have the same width and height as the
+    screen, choose View Full Screen. To resize the xreader window to the
     original size, click on the Exit Full Screen button.
 
 To View Pages or Document Structure
@@ -241,13 +241,13 @@ Location
         command-line arguments.
 
 State
-:   This functionality is not supported in this version of atril.
+:   This functionality is not supported in this version of xreader.
 
 Type
-:   This functionality is not supported in this version of atril.
+:   This functionality is not supported in this version of xreader.
 
 Comment
-:   This functionality is not supported in this version of atril.
+:   This functionality is not supported in this version of xreader.
 
 ### Paper
 
@@ -301,7 +301,7 @@ An author can use the following password levels to protect a document:
 -   Master password that allows others to perform additional actions,
     such as print the document.
 
-When you try to open a password-protected document, atril displays a
+When you try to open a password-protected document, xreader displays a
 security dialog. Type either the user password or the master password in
 the Enter document password text box, then click Open Document.
 
@@ -310,12 +310,12 @@ To Close a Document
 
 To close a document, choose File Close.
 
-If the window is the last atril window open, the application exits.
+If the window is the last xreader window open, the application exits.
 
 List of Keyboard Shortcuts
 ==========================
 
-Below is a table of all shortcuts present in atril:
+Below is a table of all shortcuts present in xreader:
 
 
 +-----------------------+---------------------------+

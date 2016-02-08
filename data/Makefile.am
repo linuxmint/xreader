@@ -7,7 +7,7 @@ install-data-local: update-icon-cache
 # man file
 #
 
-man_MANS=atril.1
+man_MANS=xreader.1
 
 #
 # UI descriptions
@@ -15,12 +15,12 @@ man_MANS=atril.1
 
 uidir = $(pkgdatadir)
 ui_DATA =				\
-	atril-ui.xml			\
-	atril-toolbar.xml		\
+	xreader-ui.xml			\
+	xreader-toolbar.xml		\
 	hand-open.png
 
 if ENABLE_PREVIEWER
-ui_DATA += atril-previewer-ui.xml
+ui_DATA += xreader-previewer-ui.xml
 endif
 
 #
@@ -29,7 +29,7 @@ endif
 
 @INTLTOOL_DESKTOP_RULE@
 
-DESKTOP_IN_FILES= atril.desktop.in.in
+DESKTOP_IN_FILES= xreader.desktop.in.in
 DESKTOP_FILES= $(DESKTOP_IN_FILES:.desktop.in.in=.desktop)
 
 desktopdir = $(datadir)/applications
@@ -40,7 +40,7 @@ desktop_DATA = $(DESKTOP_FILES)
 #
 if ENABLE_DBUS
 servicedir = $(datadir)/dbus-1/services
-service_in_files = org.mate.atril.Daemon.service.in
+service_in_files = org.x.reader.Daemon.service.in
 service_DATA = $(service_in_files:.service.in=.service)
 
 $(service_DATA): $(service_in_files) Makefile
@@ -52,13 +52,13 @@ endif
 #
 @INTLTOOL_XML_NOMERGE_RULE@
 appdatadir = $(datadir)/appdata
-appdata_in_files = atril.appdata.xml.in
+appdata_in_files = xreader.appdata.xml.in
 appdata_DATA = $(appdata_in_files:.xml.in=.xml)
 
 #
 # GSettings schema
 #
-gsettings_SCHEMAS = org.mate.Atril.gschema.xml
+gsettings_SCHEMAS = org.x.reader.gschema.xml
 
 .PRECIOUS: $(gsettings_SCHEMAS)
 
@@ -94,7 +94,7 @@ EXTRA_DIST =					\
 	$(DESKTOP_IN_FILES)			\
 	$(appdata_in_files)			\
 	$(gsettings_SCHEMAS)			\
-	org.mate.atril.Daemon.service.in	\
+	org.x.reader.Daemon.service.in	\
 	$(man_MANS)				\
 	$(NULL)
 
@@ -103,7 +103,7 @@ EXTRA_DIST =					\
 #
 
 CLEANFILES = \
-	atril.appdata.xml
+	xreader.appdata.xml
 
 DISTCLEANFILES = \
 	$(DESKTOP_FILES)	\

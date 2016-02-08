@@ -79,7 +79,7 @@ msgstr "“%s” ஐ நீக்குவதில் பிழை."
 msgid "Error %s"
 msgstr "பிழை %s"
 
-#: ../backend/comics/comicsdocument.atril-backend.in.h:1
+#: ../backend/comics/comicsdocument.xreader-backend.in.h:1
 msgid "Comic Books"
 msgstr "காமிக் புத்தகங்கள்"
 
@@ -93,7 +93,7 @@ msgid ""
 " be accessed."
 msgstr "இந்த ஆவணம் பல கோப்புக்களால் உருவானது. அதில் ஒன்றோ பலவோ கோப்புகளை அணுக இயலவில்லை."
 
-#: ../backend/djvu/djvudocument.atril-backend.in.h:1
+#: ../backend/djvu/djvudocument.xreader-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "Djvu ஆவணங்கள்"
 
@@ -101,7 +101,7 @@ msgstr "Djvu ஆவணங்கள்"
 msgid "DVI document has incorrect format"
 msgstr "DVI ஆவணம் தவறான முறையை கொண்டுள்ளது"
 
-#: ../backend/dvi/dvidocument.atril-backend.in.h:1
+#: ../backend/dvi/dvidocument.xreader-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI ஆவணங்கள்"
 
@@ -161,7 +161,7 @@ msgstr ""
 msgid "Could not set up document tree for loading, some files missing"
 msgstr ""
 
-#: ../backend/epub/epubdocument.atril-backend.in.h:1
+#: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
 msgstr ""
 
@@ -229,7 +229,7 @@ msgstr "உட்பொதியப்பட்டது"
 msgid "Not embedded"
 msgstr "உட்பொதியப்படவில்லை"
 
-#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
+#: ../backend/pdf/pdfdocument.xreader-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF ஆவணங்கள்"
 
@@ -243,7 +243,7 @@ msgstr "ஆவணத்தை ஏற்ற முடியவில்லை “
 msgid "Failed to save document “%s”"
 msgstr "ஆவணத்தை சேமிக்க முடியவில்லை “%s”"
 
-#: ../backend/ps/psdocument.atril-backend.in.h:1
+#: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "பின்னுரை ஆவணங்கள்"
 
@@ -462,42 +462,42 @@ msgstr "3200%"
 msgid "6400%"
 msgstr "6400%"
 
-#: ../data/atril.appdata.xml.in.h:1
+#: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
 msgstr ""
 
-#: ../data/atril.appdata.xml.in.h:2
+#: ../data/xreader.appdata.xml.in.h:2
 msgid ""
-"<p> Atril is a simple multi-page document viewer. It can display and print "
+"<p> Xreader is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
 "Document Format (PDF) files, as well as comic book archive files. When "
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
-" <p> Atril is a fork of Evince and part of the MATE Desktop Environment. If "
-"you would like to know more about MATE and Atril, please visit the project's"
+" <p> Xreader is a fork of Evince and part of the MATE Desktop Environment. If "
+"you would like to know more about MATE and Xreader, please visit the project's"
 " home page. </p>"
 msgstr ""
 
-#: ../data/atril.desktop.in.in.h:1
-msgid "Atril Document Viewer"
+#: ../data/xreader.desktop.in.in.h:1
+msgid "Xreader Document Viewer"
 msgstr ""
 
 #. Manually set name and icon
-#: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:5006
+#: ../data/xreader.desktop.in.in.h:2 ../shell/ev-window.c:5006
 #: ../shell/ev-window-title.c:157 ../shell/main.c:306
 #, c-format
 msgid "Document Viewer"
 msgstr "ஆவண காட்டி"
 
-#: ../data/atril.desktop.in.in.h:3
+#: ../data/xreader.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr "பல பக்க ஆவணங்களை பார்வையிடு"
 
-#: ../data/org.mate.Atril.gschema.xml.h:1
+#: ../data/org.x.reader.gschema.xml.h:1
 msgid "Override document restrictions"
 msgstr ""
 
-#: ../data/org.mate.Atril.gschema.xml.h:2
+#: ../data/org.x.reader.gschema.xml.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 
@@ -677,12 +677,12 @@ msgstr "%s, நீளவாக்கு (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, அகலவாக்கு (%s)"
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:1
-msgid "Atril properties"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:1
+msgid "Xreader properties"
 msgstr ""
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:2
-msgid "Shows details for Atril documents"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:2
+msgid "Shows details for Xreader documents"
 msgstr ""
 
 #: ../libmisc/ev-page-action-widget.c:68
@@ -984,7 +984,7 @@ msgstr "மெடாதரவை ஐ மாற்றுகிறது"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Atril has changed, and hence it needs to be "
+"The metadata format used by Xreader has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr "எவின்ஸ் பயன்படுத்தும் மெடா தரவு ஒழுங்கு மாறிவிட்டது. ஆகவே அதை வேறிடம் கொண்டு செல்ல வேண்டும். இதை மறுத்தால் மெடாதரவு சேமிப்பு நடவாது."
 
@@ -1314,7 +1314,7 @@ msgstr "ஆவண காட்டி.\n %s ஐ பயன்படுத்து
 
 #: ../shell/ev-window.c:5037
 msgid ""
-"Atril is free software; you can redistribute it and/or modify it under the "
+"Xreader is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
@@ -1322,7 +1322,7 @@ msgstr "இவின்ஸ் ஒரு இலவச மென்பொருள
 
 #: ../shell/ev-window.c:5041
 msgid ""
-"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -1331,12 +1331,12 @@ msgstr "இவின்ஸ், பயனுள்ளதாக இருக்க
 #: ../shell/ev-window.c:5045
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+" Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr "நீங்கள் GNU General Public Licenseன் ஒரு நகலை இவின்ஸுடன் பெற்றிருக்க வேண்டும். அவ்வாறு பெறாவிட்டால், Free Software Foundation, Inc.,51 Franklin Street, Fifth Floor, Boston, MA  02111-1301  USA என்பதற்கு எழுதவும்\n"
 
 #: ../shell/ev-window.c:5074
-msgid "Atril"
+msgid "Xreader"
 msgstr "இவின்ஸ்"
 
 #: ../shell/ev-window.c:5077
@@ -1722,15 +1722,15 @@ msgid "NUMBER"
 msgstr "NUMBER"
 
 #: ../shell/main.c:79
-msgid "Run atril in fullscreen mode"
+msgid "Run xreader in fullscreen mode"
 msgstr "எவின்ஸ் ஐ முழுத்திரை முறையில் இயக்கவும்"
 
 #: ../shell/main.c:80
-msgid "Run atril in presentation mode"
+msgid "Run xreader in presentation mode"
 msgstr "எவின்ஸ் ஐ முழுத்திரை முன் வைப்பு முறையில் இயக்கவும்"
 
 #: ../shell/main.c:81
-msgid "Run atril as a previewer"
+msgid "Run xreader as a previewer"
 msgstr "எவின்ஸ் ஐ முன்காட்டியாக இயக்கவும்."
 
 #: ../shell/main.c:82

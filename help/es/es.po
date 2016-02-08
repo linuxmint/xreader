@@ -1,12 +1,12 @@
-# translation of atril.help.HEAD.po to Español
+# translation of xreader.help.HEAD.po to Español
 # Francisco Javier F. Serrador <serrador@gnome.org>, 2005.
 # Jorge González <jorge.gonzalez.gonzalez@hispalinux.es>, 2006, 2007.
-# traducción al español del manual de atril
-# spanish transtation for atril
+# traducción al español del manual de xreader
+# spanish transtation for xreader
 # Jorge González <jorgegonz@svn.mate.org>, 200, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: atril.help.HEAD\n"
+"Project-Id-Version: xreader.help.HEAD\n"
 "POT-Creation-Date: 2009-04-30 12:12+0000\n"
 "PO-Revision-Date: 2009-05-02 18:47+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.mate.org>\n"
@@ -19,49 +19,49 @@ msgstr ""
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/atril.xml:155(None)
+#: C/xreader.xml:155(None)
 msgid ""
-"@@image: 'figures/atril_start_window.png'; "
+"@@image: 'figures/xreader_start_window.png'; "
 "md5=7f4da5e33bcac35738a268d93d497d47"
 msgstr ""
-"@@image: 'figures/atril_start_window.png'; "
+"@@image: 'figures/xreader_start_window.png'; "
 "md5=844626d1125e2f50b295b139d6a406d0"
 
-#: C/atril.xml:25(title)
-msgid "Atril Document Viewer Manual"
-msgstr "Manual del visor de documentos Atril"
+#: C/xreader.xml:25(title)
+msgid "Xreader Document Viewer Manual"
+msgstr "Manual del visor de documentos Xreader"
 
-#: C/atril.xml:27(para)
+#: C/xreader.xml:27(para)
 msgid ""
-"The Atril Document Viewer application enables you to view documents of "
+"The Xreader Document Viewer application enables you to view documents of "
 "various formats like Portable Document Format (PDF) files and PostScript "
 "files"
 msgstr ""
-"La aplicación Visor de Documentos Atril le permite ver documentos en varios "
+"La aplicación Visor de Documentos Xreader le permite ver documentos en varios "
 "formatos como Portable Document Format (PDF) y archivos PostScript."
 
-#: C/atril.xml:33(year)
+#: C/xreader.xml:33(year)
 msgid "2005"
 msgstr "2005"
 
-#: C/atril.xml:34(holder) C/atril.xml:100(para)
+#: C/xreader.xml:34(holder) C/xreader.xml:100(para)
 msgid "Nickolay V. Shmyrev"
 msgstr "Nickolay V. Shmyrev"
 
-#: C/atril.xml:37(year)
+#: C/xreader.xml:37(year)
 msgid "2004"
 msgstr "2004"
 
-#: C/atril.xml:38(holder) C/atril.xml:61(orgname)
+#: C/xreader.xml:38(holder) C/xreader.xml:61(orgname)
 msgid "Sun Microsystems"
 msgstr "Sun Microsystems"
 
-#: C/atril.xml:49(publishername) C/atril.xml:67(orgname)
-#: C/atril.xml:93(para) C/atril.xml:101(para)
+#: C/xreader.xml:49(publishername) C/xreader.xml:67(orgname)
+#: C/xreader.xml:93(para) C/xreader.xml:101(para)
 msgid "MATE Documentation Project"
 msgstr "Proyecto de Documentación de Mate"
 
-#: C/atril.xml:2(para)
+#: C/xreader.xml:2(para)
 msgid ""
 "Permission is granted to copy, distribute and/or modify this document under "
 "the terms of the GNU Free Documentation License (GFDL), Version 1.1 or any "
@@ -77,7 +77,7 @@ msgstr ""
 "Encontrará una copia de la GFDL en este <ulink type=\"help\" url=\"help:fdl"
 "\">enlace</ulink> o en el archivo COPYING-DOCS distribuido con este manual."
 
-#: C/atril.xml:12(para)
+#: C/xreader.xml:12(para)
 msgid ""
 "This manual is part of a collection of MATE manuals distributed under the "
 "GFDL. If you want to distribute this manual separately from the collection, "
@@ -89,7 +89,7 @@ msgstr ""
 "colección, puede hacerlo agregando una copia de la licencia al documento, "
 "según se describe en la sección 6 de la misma."
 
-#: C/atril.xml:19(para)
+#: C/xreader.xml:19(para)
 msgid ""
 "Many of the names used by companies to distinguish their products and "
 "services are claimed as trademarks. Where those names appear in any MATE "
@@ -104,7 +104,7 @@ msgstr ""
 "comerciales, los nombres aparecerán en mayúsculas o con las iniciales en "
 "mayúsculas."
 
-#: C/atril.xml:35(para)
+#: C/xreader.xml:35(para)
 msgid ""
 "DOCUMENT IS PROVIDED ON AN \"AS IS\" BASIS, WITHOUT WARRANTY OF ANY KIND, "
 "EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES THAT "
@@ -131,7 +131,7 @@ msgstr ""
 "SE AUTORIZA EL USO DE NINGÚN DOCUMENTO NI VERSIÓN MODIFICADA DE ÉSTE POR EL "
 "PRESENTE, SALVO DENTRO DEL CUMPLIMIENTO DE LA EXENCIÓN DE RESPONSABILIDAD;Y"
 
-#: C/atril.xml:55(para)
+#: C/xreader.xml:55(para)
 msgid ""
 "UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER IN TORT (INCLUDING "
 "NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL THE AUTHOR, INITIAL WRITER, ANY "
@@ -156,7 +156,7 @@ msgstr ""
 "AUNQUE DICHA PARTE HAYA SIDO INFORMADA DE LA POSIBILIDAD DE QUE SE "
 "PRODUJESEN ESOS DAÑOS."
 
-#: C/atril.xml:28(para)
+#: C/xreader.xml:28(para)
 msgid ""
 "DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED UNDER THE TERMS "
 "OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER UNDERSTANDING THAT: "
@@ -166,174 +166,174 @@ msgstr ""
 "CONDICIONES ESTABLECIDAS EN LA LICENCIA DE DOCUMENTACIÓN LIBRE DE GNU (GFDL) "
 "Y TENIENDO EN CUENTA QUE: <placeholder-1/>"
 
-#: C/atril.xml:59(firstname)
+#: C/xreader.xml:59(firstname)
 msgid "Sun"
 msgstr "Sun"
 
-#: C/atril.xml:60(surname)
+#: C/xreader.xml:60(surname)
 msgid "MATE Documentation Team"
 msgstr "Equipo de documentación de Mate"
 
-#: C/atril.xml:64(firstname)
+#: C/xreader.xml:64(firstname)
 msgid "Nickolay V."
 msgstr "Nickolay V."
 
-#: C/atril.xml:65(surname)
+#: C/xreader.xml:65(surname)
 msgid "Shmyrev"
 msgstr "Shmyrev"
 
-#: C/atril.xml:68(email)
+#: C/xreader.xml:68(email)
 msgid "nshmyrev@yandex.ru"
 msgstr "nshmyrev@yandex.ru"
 
-#: C/atril.xml:88(revnumber)
-msgid "Atril Document Viewer Manual V1.1"
-msgstr "Manual del visor de documentos Atril V1.1"
+#: C/xreader.xml:88(revnumber)
+msgid "Xreader Document Viewer Manual V1.1"
+msgstr "Manual del visor de documentos Xreader V1.1"
 
-#: C/atril.xml:89(date)
+#: C/xreader.xml:89(date)
 msgid "2008-04-05"
 msgstr "2008-04-05"
 
-#: C/atril.xml:91(para)
+#: C/xreader.xml:91(para)
 msgid "Niels Giesen"
 msgstr "Niels Giesen"
 
-#: C/atril.xml:92(para)
+#: C/xreader.xml:92(para)
 msgid "Claude Paroz"
 msgstr "Claude Paroz"
 
-#: C/atril.xml:97(revnumber)
-msgid "Atril Document Viewer Manual V1.0"
-msgstr "Manual del visor de documentos Atril V1.0"
+#: C/xreader.xml:97(revnumber)
+msgid "Xreader Document Viewer Manual V1.0"
+msgstr "Manual del visor de documentos Xreader V1.0"
 
-#: C/atril.xml:98(date)
+#: C/xreader.xml:98(date)
 msgid "2005-04-06"
 msgstr "06-04-2005"
 
-#: C/atril.xml:106(releaseinfo)
-msgid "This manual describes version 0.2 of Atril Document Viewer"
-msgstr "Este manual describe la versión 0.2 del Visor de documentos Atril"
+#: C/xreader.xml:106(releaseinfo)
+msgid "This manual describes version 0.2 of Xreader Document Viewer"
+msgstr "Este manual describe la versión 0.2 del Visor de documentos Xreader"
 
-#: C/atril.xml:109(title)
+#: C/xreader.xml:109(title)
 msgid "Feedback"
 msgstr "Comentarios"
 
-#: C/atril.xml:110(para)
+#: C/xreader.xml:110(para)
 msgid ""
-"To report a bug or make a suggestion regarding the Atril Document Viewer "
+"To report a bug or make a suggestion regarding the Xreader Document Viewer "
 "application or this manual, follow the directions in the <ulink url=\"help:"
 "mate-feedback\" type=\"help\">MATE Feedback Page</ulink>."
 msgstr ""
 "Para informar de un fallo, o hacer alguna sugerencia concerniente al visor "
-"de documentos Atril\n"
+"de documentos Xreader\n"
 "o este manual, siga las indicaciones en la <ulink url=\"help:mate-feedback"
 "\" type=\"help\">Página de \n"
 "retroalimentación de Mate</ulink>."
 
-#: C/atril.xml:117(primary)
-msgid "Atril Document Viewer"
-msgstr "Visor de documentos Atril"
+#: C/xreader.xml:117(primary)
+msgid "Xreader Document Viewer"
+msgstr "Visor de documentos Xreader"
 
-#: C/atril.xml:120(primary)
-msgid "atril"
-msgstr "atril"
+#: C/xreader.xml:120(primary)
+msgid "xreader"
+msgstr "xreader"
 
-#: C/atril.xml:128(title)
+#: C/xreader.xml:128(title)
 msgid "Introduction"
 msgstr "Introducción"
 
-#: C/atril.xml:129(para)
+#: C/xreader.xml:129(para)
 msgid ""
-"The <application>Atril Document Viewer</application> application enables "
+"The <application>Xreader Document Viewer</application> application enables "
 "you to view documents of various formats like Portable Document Format (PDF) "
-"files and PostScript files. <application>Atril Document Viewer</"
+"files and PostScript files. <application>Xreader Document Viewer</"
 "application> follows Freedesktop.org and MATE standards to provide "
 "integration with Desktop Environment."
 msgstr ""
-"La aplicación <application>Visor de Documentos Atril</application> le "
+"La aplicación <application>Visor de Documentos Xreader</application> le "
 "permite ver documentos en varios formatos como Portable Document Format "
-"(PDF) y archivos PostScript. El <application>Visor de documentos Atril</"
+"(PDF) y archivos PostScript. El <application>Visor de documentos Xreader</"
 "application> sigue los estándares Freedesktop.org y Mate para proporcionar "
 "integración con el entorno de escritorio."
 
-#: C/atril.xml:136(title)
+#: C/xreader.xml:136(title)
 msgid "Getting Started"
 msgstr "Inicio"
 
-#: C/atril.xml:139(title)
-msgid "To Start Atril Document Viewer"
-msgstr "Para iniciar el visor de documentos Atril"
+#: C/xreader.xml:139(title)
+msgid "To Start Xreader Document Viewer"
+msgstr "Para iniciar el visor de documentos Xreader"
 
-#: C/atril.xml:140(para)
+#: C/xreader.xml:140(para)
 msgid ""
-"<application>Atril Document Viewer</application> starts when you open a "
+"<application>Xreader Document Viewer</application> starts when you open a "
 "document such as a PDF or PostScript file."
 msgstr ""
-"El <application>Visor de documentos Atril</application> se inicia cuando "
+"El <application>Visor de documentos Xreader</application> se inicia cuando "
 "abre un documento tal como un PDF o un archivo PostScript."
 
-#: C/atril.xml:141(para)
+#: C/xreader.xml:141(para)
 msgid ""
-"Alternatively, you can start <application>Atril Document Viewer</"
-"application> from the command line, with the command: <command>atril</"
+"Alternatively, you can start <application>Xreader Document Viewer</"
+"application> from the command line, with the command: <command>xreader</"
 "command>."
 msgstr ""
-"Alternativamente, puede iniciar el <application>Visor de documentos Atril</"
-"application> desde la línea de comandos, con el comando: <command>atril</"
+"Alternativamente, puede iniciar el <application>Visor de documentos Xreader</"
+"application> desde la línea de comandos, con el comando: <command>xreader</"
 "command>."
 
-#: C/atril.xml:146(title)
-msgid "When You Start Atril Document Viewer"
-msgstr "Al iniciar el visor de documentos Atril"
+#: C/xreader.xml:146(title)
+msgid "When You Start Xreader Document Viewer"
+msgstr "Al iniciar el visor de documentos Xreader"
 
-#: C/atril.xml:147(para)
+#: C/xreader.xml:147(para)
 msgid ""
-"When you start <application>Atril Document Viewer</application>, the "
+"When you start <application>Xreader Document Viewer</application>, the "
 "following window is displayed."
 msgstr ""
-"Cuando inicie el <application>Visor de documentos Atril</application>, la "
+"Cuando inicie el <application>Visor de documentos Xreader</application>, la "
 "siguiente ventana se mostrará."
 
-#: C/atril.xml:151(title)
-msgid "Atril Document Viewer Window"
-msgstr "Ventana del visor de documentos Atril"
+#: C/xreader.xml:151(title)
+msgid "Xreader Document Viewer Window"
+msgstr "Ventana del visor de documentos Xreader"
 
-#: C/atril.xml:158(phrase)
+#: C/xreader.xml:158(phrase)
 msgid ""
-"Shows Atril Document Viewer main window. Contains titlebar, menubar, "
+"Shows Xreader Document Viewer main window. Contains titlebar, menubar, "
 "toolbar and display area. Menubar contains File, Edit, View, Go and Help "
 "menus."
 msgstr ""
-"Muestra la ventana principal del visor de documentos Atril. Contiene la "
+"Muestra la ventana principal del visor de documentos Xreader. Contiene la "
 "barra de título, la de menús, la de herramientas y el área de visualización. "
 "La barra de menú contiene los menús Archivar, Editar, Ver, Ir y Ayuda."
 
-#: C/atril.xml:164(para)
+#: C/xreader.xml:164(para)
 msgid ""
-"The <application>Atril Document Viewer</application> window contains the "
+"The <application>Xreader Document Viewer</application> window contains the "
 "following elements:"
 msgstr ""
-"La ventana del <application>Visor de Documentos Atril</application> "
+"La ventana del <application>Visor de Documentos Xreader</application> "
 "contiene los siguientes elementos:"
 
-#: C/atril.xml:168(term) C/atril.xml:216(para)
+#: C/xreader.xml:168(term) C/xreader.xml:216(para)
 msgid "Menubar"
 msgstr "Barra de menú"
 
-#: C/atril.xml:170(para)
+#: C/xreader.xml:170(para)
 msgid ""
 "The menus on the menubar contain all of the commands that you need to work "
-"with documents in <application>Atril Document Viewer</application>."
+"with documents in <application>Xreader Document Viewer</application>."
 msgstr ""
 "Los menús en la barra de menú contienen todos los comandos que necesita para "
 "trabajar con documentos en el \n"
-"<application>Visor de documentos Atril</application>."
+"<application>Visor de documentos Xreader</application>."
 
-#: C/atril.xml:174(term)
+#: C/xreader.xml:174(term)
 msgid "Toolbar"
 msgstr "Barra de herramientas"
 
-#: C/atril.xml:176(para)
+#: C/xreader.xml:176(para)
 msgid ""
 "The toolbar contains a subset of the commands that you can access from the "
 "menubar."
@@ -341,39 +341,39 @@ msgstr ""
 "La barra de herramientas contiene un subconjunto de comandos con los que "
 "puede acceder desde la barra de menú."
 
-#: C/atril.xml:180(term)
+#: C/xreader.xml:180(term)
 msgid "Display area"
 msgstr "Área de visualización"
 
-#: C/atril.xml:182(para)
+#: C/xreader.xml:182(para)
 msgid "The display area displays the document."
 msgstr "El área de visualización muestra el documento."
 
-#: C/atril.xml:196(para)
+#: C/xreader.xml:196(para)
 msgid "UI Component"
 msgstr "Componente IU"
 
-#: C/atril.xml:198(para) C/atril.xml:646(para)
+#: C/xreader.xml:198(para) C/xreader.xml:646(para)
 msgid "Action"
 msgstr "Acción"
 
-#: C/atril.xml:203(para)
+#: C/xreader.xml:203(para)
 msgid "Window"
 msgstr "Ventana"
 
-#: C/atril.xml:207(para)
+#: C/xreader.xml:207(para)
 msgid ""
-"Drag a file into the <application>Atril Document Viewer</application> "
+"Drag a file into the <application>Xreader Document Viewer</application> "
 "window from another application such as a file manager."
 msgstr ""
 "Arrastre un archivo en la ventana del <application>Visor de Documentos "
-"Atril</application> desde otra aplicación como un administrador de archivos."
+"Xreader</application> desde otra aplicación como un administrador de archivos."
 
-#: C/atril.xml:210(para)
+#: C/xreader.xml:210(para)
 msgid "Double-click on the file name in the file manager"
 msgstr "Doble pulsación en el nombre del archivo en el gestor de archivos"
 
-#: C/atril.xml:217(para) C/atril.xml:244(para)
+#: C/xreader.xml:217(para) C/xreader.xml:244(para)
 msgid ""
 "Choose <menuchoice><guimenu>File</guimenu><guimenuitem>Open</guimenuitem></"
 "menuchoice>."
@@ -381,47 +381,47 @@ msgstr ""
 "Elija <menuchoice><guimenu>Archivar</guimenu><guimenuitem>Abrir</"
 "guimenuitem></menuchoice>."
 
-#: C/atril.xml:221(para)
+#: C/xreader.xml:221(para)
 msgid "Shortcut keys"
 msgstr "Combinaciones de teclas"
 
-#: C/atril.xml:222(para)
+#: C/xreader.xml:222(para)
 msgid "Press <keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo>."
 msgstr "Pulse <keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo>."
 
-#: C/atril.xml:187(para)
+#: C/xreader.xml:187(para)
 msgid ""
-"In <application>Atril Document Viewer</application>, you can perform the "
+"In <application>Xreader Document Viewer</application>, you can perform the "
 "same action in several ways. For example, you can open a document in the "
 "following ways: <informaltable frame=\"all\"><tgroup cols=\"2\" colsep=\"1\" "
 "rowsep=\"1\"><colspec colname=\"COLSPEC0\" colwidth=\"50*\"/><colspec "
 "colname=\"COLSPEC1\" colwidth=\"50*\"/><placeholder-1/><placeholder-2/></"
 "tgroup></informaltable>"
 msgstr ""
-"En el <application>Visor de documentos Atril</application>, puede realizar "
+"En el <application>Visor de documentos Xreader</application>, puede realizar "
 "la misma acción de varias formas. Por ejemplo, puede abrir un documento de "
 "las siguientes formas:<informaltable frame=\"all\"><tgroup cols=\"2\" colsep="
 "\"1\" rowsep=\"1\"><colspec colname=\"COLSPEC0\" colwidth=\"50*\"/><colspec "
 "colname=\"COLSPEC1\" colwidth=\"50*\"/><placeholder-1/><placeholder-2/></"
 "tgroup></informaltable>"
 
-#: C/atril.xml:228(para)
+#: C/xreader.xml:228(para)
 msgid "This manual documents functionality from the menubar."
 msgstr "Este manual documenta la funcionalidad de la barra de menús."
 
-#: C/atril.xml:236(title)
+#: C/xreader.xml:236(title)
 msgid "Usage"
 msgstr "Uso"
 
-#: C/atril.xml:240(title)
+#: C/xreader.xml:240(title)
 msgid "To Open A Document"
 msgstr "Para abrir un documento"
 
-#: C/atril.xml:241(para)
+#: C/xreader.xml:241(para)
 msgid "To open a document, perform the following steps:"
 msgstr "Para abrir un documento, realice los siguientes pasos:"
 
-#: C/atril.xml:248(para)
+#: C/xreader.xml:248(para)
 msgid ""
 "In the <guilabel>Open Document</guilabel> dialog, select the file you want "
 "to open."
@@ -429,46 +429,46 @@ msgstr ""
 "En el diálogo <guilabel>Abrir documento</guilabel>, seleccione el archivo "
 "que quiere abrir."
 
-#: C/atril.xml:253(para)
+#: C/xreader.xml:253(para)
 msgid ""
-"Click <guibutton>Open</guibutton>. <application>Atril Document Viewer</"
+"Click <guibutton>Open</guibutton>. <application>Xreader Document Viewer</"
 "application> displays the name of the document in the titlebar of the window."
 msgstr ""
 "Pulse en el botón <guibutton>Abrir</guibutton>. La aplicación "
-"<application>Visor de documentos Atril</application> muestra el nombre del "
+"<application>Visor de documentos Xreader</application> muestra el nombre del "
 "documento en la barra de título de la ventana."
 
-#: C/atril.xml:258(para)
+#: C/xreader.xml:258(para)
 msgid ""
 "To open another document, choose <menuchoice><guimenu>File</"
 "guimenu><guimenuitem>Open</guimenuitem></menuchoice> again. "
-"<application>Atril Document Viewer</application> opens each file in a new "
+"<application>Xreader Document Viewer</application> opens each file in a new "
 "window."
 msgstr ""
 "Para abrir otro documento, elija <menuchoice><guimenu>Archivar</"
 "guimenu><guimenuitem>Abrir</guimenuitem></menuchoice> otra vez. El "
-"<application>Visor de documentos Atril</application> abre cada archivo en "
+"<application>Visor de documentos Xreader</application> abre cada archivo en "
 "una ventana nueva."
 
-#: C/atril.xml:261(para)
+#: C/xreader.xml:261(para)
 msgid ""
-"If you try to open a document with format that <application>Atril Document "
+"If you try to open a document with format that <application>Xreader Document "
 "Viewer</application> does not recognize, the application displays an error "
 "message."
 msgstr ""
 "Si intenta abrir un documento con un formato que el <application>Visor de "
-"documentos Atril</application> no reconozca, la aplicación muestra un "
+"documentos Xreader</application> no reconozca, la aplicación muestra un "
 "mensaje de error."
 
-#: C/atril.xml:267(title)
+#: C/xreader.xml:267(title)
 msgid "To Navigate Through a Document"
 msgstr "Para navegar a través de un documento"
 
-#: C/atril.xml:268(para)
+#: C/xreader.xml:268(para)
 msgid "You can navigate through a file as follows:"
 msgstr "Puede navegar a través de un documento así:"
 
-#: C/atril.xml:271(para)
+#: C/xreader.xml:271(para)
 msgid ""
 "To view the next page, choose <menuchoice><guimenu>Go</"
 "guimenu><guimenuitem>Next Page</guimenuitem></menuchoice>."
@@ -476,7 +476,7 @@ msgstr ""
 "Para ver la página siguiente, elija <menuchoice><guimenu>Ir</"
 "guimenu><guimenuitem>Página siguiente</guimenuitem></menuchoice>."
 
-#: C/atril.xml:275(para)
+#: C/xreader.xml:275(para)
 msgid ""
 "To view the previous page, choose <menuchoice><guimenu>Go</"
 "guimenu><guimenuitem>Previous Page</guimenuitem></menuchoice>."
@@ -484,7 +484,7 @@ msgstr ""
 "Para ver la página anterior, elija <menuchoice><guimenu>Ir</"
 "guimenu><guimenuitem>Página anterior</guimenuitem></menuchoice>."
 
-#: C/atril.xml:279(para)
+#: C/xreader.xml:279(para)
 msgid ""
 "To view the first page in the document, choose <menuchoice><guimenu>Go</"
 "guimenu><guimenuitem>First Page</guimenuitem></menuchoice>."
@@ -492,7 +492,7 @@ msgstr ""
 "Para ver la primera página del documento, elija <menuchoice><guimenu>Ir</"
 "guimenu><guimenuitem>Primera página</guimenuitem></menuchoice>."
 
-#: C/atril.xml:283(para)
+#: C/xreader.xml:283(para)
 msgid ""
 "To view the last page in the document, choose <menuchoice><guimenu>Go</"
 "guimenu><guimenuitem>Last Page</guimenuitem></menuchoice>."
@@ -500,7 +500,7 @@ msgstr ""
 "Para ver la última página del documento, elija <menuchoice><guimenu>Ir</"
 "guimenu><guimenuitem>Última página</guimenuitem></menuchoice>."
 
-#: C/atril.xml:287(para)
+#: C/xreader.xml:287(para)
 msgid ""
 "To view a particular page, enter the page number or page label in the text "
 "box on the toolbar, then press <keycap>Return</keycap>."
@@ -509,11 +509,11 @@ msgstr ""
 "en la caja de texto de la barra de herramientas, después pulse "
 "<keycap>Retorno</keycap>."
 
-#: C/atril.xml:294(title)
+#: C/xreader.xml:294(title)
 msgid "To Scroll a Page"
 msgstr "Para desplazar una página"
 
-#: C/atril.xml:295(para)
+#: C/xreader.xml:295(para)
 msgid ""
 "To display the page contents that are not currently displayed in the display "
 "area, use the following methods:"
@@ -521,11 +521,11 @@ msgstr ""
 "Para mostrar el contenido de la página que actualmente no se muestra en el "
 "área de visualización, use los métodos siguientes:"
 
-#: C/atril.xml:298(para)
+#: C/xreader.xml:298(para)
 msgid "Use the arrow keys or space key on the keyboard."
 msgstr "Use las teclas de flechas o la barra espaciadora del teclado."
 
-#: C/atril.xml:301(para)
+#: C/xreader.xml:301(para)
 msgid ""
 "Drag the display area by clicking with the middle mouse button somewhere in "
 "the document and then moving the mouse. For example, to scroll down the "
@@ -536,23 +536,23 @@ msgstr ""
 "Por ejemplo, para desplazar la página hacia abajo, arrastre el área de "
 "visualización hacia la parte superior de la ventana."
 
-#: C/atril.xml:304(para)
+#: C/xreader.xml:304(para)
 msgid "Use the scrollbars on the window."
 msgstr "Use las barras de desplazamiento en la ventana."
 
-#: C/atril.xml:311(title)
+#: C/xreader.xml:311(title)
 msgid "To Change the Page Size"
 msgstr "Para cambiar el tamaño de la página"
 
-#: C/atril.xml:312(para)
+#: C/xreader.xml:312(para)
 msgid ""
 "You can use the following methods to resize a page in the "
-"<application>Atril Document Viewer</application> display area:"
+"<application>Xreader Document Viewer</application> display area:"
 msgstr ""
 "Puede usar los siguientes métodos para redimensionar una página en el área "
-"de visualización del <application>Visor de documentos Atril</application>:"
+"de visualización del <application>Visor de documentos Xreader</application>:"
 
-#: C/atril.xml:317(para)
+#: C/xreader.xml:317(para)
 msgid ""
 "To increase the page size, choose <menuchoice><guimenu>View</"
 "guimenu><guimenuitem>Zoom In</guimenuitem></menuchoice>."
@@ -560,7 +560,7 @@ msgstr ""
 "Para incrementar el tamaño de página, elija <menuchoice><guimenu>Ver</"
 "guimenu><guimenuitem>Ampliar</guimenuitem></menuchoice>."
 
-#: C/atril.xml:322(para)
+#: C/xreader.xml:322(para)
 msgid ""
 "To decrease the page size, choose <menuchoice><guimenu>View</"
 "guimenu><guimenuitem>Zoom Out</guimenuitem></menuchoice>."
@@ -568,53 +568,53 @@ msgstr ""
 "Para reducir el tamaño de la página, elija <menuchoice><guimenu>Ver</"
 "guimenu><guimenuitem>Reducir</guimenuitem></menuchoice>."
 
-#: C/atril.xml:327(para)
+#: C/xreader.xml:327(para)
 msgid ""
-"To resize a page to have the same width as the <application>Atril Document "
+"To resize a page to have the same width as the <application>Xreader Document "
 "Viewer</application> display area, choose <menuchoice><guimenu>View</"
 "guimenu><guimenuitem>Fit page width</guimenuitem></menuchoice>."
 msgstr ""
 "Para redimensionar una página para que tenga la misma anchura que el área de "
-"visualización del <application>Visor de documentos Atril</application>, "
+"visualización del <application>Visor de documentos Xreader</application>, "
 "elija <menuchoice><guimenu>Ver</guimenu><guimenuitem>Ajustar al ancho de "
 "página</guimenuitem></menuchoice>."
 
-#: C/atril.xml:332(para)
+#: C/xreader.xml:332(para)
 msgid ""
-"To resize a page to fit within the <application>Atril Document Viewer</"
+"To resize a page to fit within the <application>Xreader Document Viewer</"
 "application> display area, choose <menuchoice><guimenu>View</"
 "guimenu><guimenuitem>Best Fit</guimenuitem></menuchoice>."
 msgstr ""
 "Para redimensionar una página para que quepa en el área de visualización del "
-"<application>Visor de documentos de Atril</application>, elija "
+"<application>Visor de documentos de Xreader</application>, elija "
 "<menuchoice><guimenu>Ver</guimenu><guimenuitem>Ajuste óptimo</guimenuitem></"
 "menuchoice>."
 
-#: C/atril.xml:337(para)
+#: C/xreader.xml:337(para)
 msgid ""
-"To resize the <application>Atril Document Viewer</application> window to "
+"To resize the <application>Xreader Document Viewer</application> window to "
 "have the same width and height as the screen, choose "
 "<menuchoice><guimenu>View</guimenu><guimenuitem>Full Screen</guimenuitem></"
-"menuchoice>. To resize the <application>Atril Document Viewer</application> "
+"menuchoice>. To resize the <application>Xreader Document Viewer</application> "
 "window to the original size, click on the <guibutton>Exit Full Screen</"
 "guibutton> button."
 msgstr ""
-"Para redimensionar la ventana del <application>Visor de documentos Atril</"
+"Para redimensionar la ventana del <application>Visor de documentos Xreader</"
 "application> para que tenga la misma altura y anchura que la pantalla , "
 "elija <menuchoice><guimenu>Ver</guimenu><guimenuitem>Pantalla completa</"
 "guimenuitem></menuchoice>. Para redimensionar la ventana del  "
-"<application>Visor de documentos Atril</application> a su tamaño original, "
+"<application>Visor de documentos Xreader</application> a su tamaño original, "
 "pulse en el botón <guibutton>Salir de pantalla completa</guibutton>."
 
-#: C/atril.xml:345(title)
+#: C/xreader.xml:345(title)
 msgid "To View Pages or Document Structure"
 msgstr "Para ver páginas o la estructura del documento"
 
-#: C/atril.xml:346(para)
+#: C/xreader.xml:346(para)
 msgid "To view bookmarks or pages, perform the following steps:"
 msgstr "Para ver marcadores o páginas, realice los pasos siguientes:"
 
-#: C/atril.xml:350(para)
+#: C/xreader.xml:350(para)
 msgid ""
 "Choose <menuchoice><guimenu>View</guimenu><guimenuitem>Sidebar</"
 "guimenuitem></menuchoice> or press <keycap>F9</keycap>."
@@ -622,7 +622,7 @@ msgstr ""
 "Elija <menuchoice><guimenu>Ver</guimenu><guimenuitem>Barra lateral</"
 "guimenuitem></menuchoice> o pulse <keycap>F9</keycap> ."
 
-#: C/atril.xml:355(para)
+#: C/xreader.xml:355(para)
 msgid ""
 "Use the drop-down list in the side-pane header to select whether to display "
 "document structure or pages in the side pane."
@@ -631,7 +631,7 @@ msgstr ""
 "si de debe mostrar la estructura del documento o las páginas en el panel "
 "lateral."
 
-#: C/atril.xml:360(para)
+#: C/xreader.xml:360(para)
 msgid ""
 "Use the side-pane scrollbars to display the required item or page in the "
 "side pane."
@@ -639,7 +639,7 @@ msgstr ""
 "Use las barras de desplazamiento laterales para mostrar el elemento "
 "requerido o la página en el panel lateral."
 
-#: C/atril.xml:365(para)
+#: C/xreader.xml:365(para)
 msgid ""
 "Click on an entry to navigate to that location in the document. Click on a "
 "page to navigate to that page in the document."
@@ -647,11 +647,11 @@ msgstr ""
 "Pulse en una entrada para navegar a esa posición en el documento. Pulse en "
 "una página para navegar a esa página en el documento."
 
-#: C/atril.xml:371(title)
+#: C/xreader.xml:371(title)
 msgid "To View the Properties of a Document"
 msgstr "Para ver las propiedades de un documento"
 
-#: C/atril.xml:372(para)
+#: C/xreader.xml:372(para)
 msgid ""
 "To view the properties of a document, choose <menuchoice><guimenu>File</"
 "guimenu><guimenuitem>Properties</guimenuitem></menuchoice>."
@@ -660,18 +660,18 @@ msgstr ""
 "<menuchoice><guimenu>Archivar</guimenu><guimenuitem>Propiedades</"
 "guimenuitem></menuchoice>."
 
-#: C/atril.xml:378(para)
+#: C/xreader.xml:378(para)
 msgid ""
 "The <guilabel>Properties</guilabel> dialog displays all information available"
 msgstr ""
 "El diálogo <guilabel>Propiedades</guilabel> muestra toda la información "
 "disponible"
 
-#: C/atril.xml:384(title)
+#: C/xreader.xml:384(title)
 msgid "To Print a Document"
 msgstr "Para imprimir un documento"
 
-#: C/atril.xml:385(para)
+#: C/xreader.xml:385(para)
 msgid ""
 "To print a Document, choose <menuchoice><guimenu>File</"
 "guimenu><guimenuitem>Print</guimenuitem></menuchoice>."
@@ -679,64 +679,64 @@ msgstr ""
 "Para imprimir un documento, elija <menuchoice><guimenu>Archivar</"
 "guimenu><guimenuitem>Imprimir</guimenuitem></menuchoice>."
 
-#: C/atril.xml:389(para)
+#: C/xreader.xml:389(para)
 msgid ""
 "If you cannot choose the <guimenuitem>Print</guimenuitem> menu item, the "
 "author of the document has disabled the print option for this document. To "
 "enable the print option, you must enter the master password when you open "
-"the document. See <xref linkend=\"atril-password\"/> for more information "
+"the document. See <xref linkend=\"xreader-password\"/> for more information "
 "about password-protected files."
 msgstr ""
 "Si no puede elegir el elemento del menú <guimenuitem>Imprimir</guimenuitem>, "
 "entonces el autor del documento ha desactivado la opción de impresión para "
 "este documento. Para activar la opción de impresión debe introducir la "
-"contraseña maestra al abrir el documento. Vea el <xref linkend=\"atril-"
+"contraseña maestra al abrir el documento. Vea el <xref linkend=\"xreader-"
 "password\"/> para más información acerca de los archivos protegidos por "
 "clave."
 
-#: C/atril.xml:393(para)
+#: C/xreader.xml:393(para)
 msgid ""
 "The <guilabel>Print</guilabel> dialog has the following tabbed sections:"
 msgstr ""
 "El diálogo <guilabel>Imprimir</guilabel> tiene las siguientes secciones en "
 "solapas:"
 
-#: C/atril.xml:399(link) C/atril.xml:415(title)
+#: C/xreader.xml:399(link) C/xreader.xml:415(title)
 msgid "Job"
 msgstr "Tarea"
 
-#: C/atril.xml:404(link) C/atril.xml:437(title) C/atril.xml:439(guilabel)
+#: C/xreader.xml:404(link) C/xreader.xml:437(title) C/xreader.xml:439(guilabel)
 msgid "Printer"
 msgstr "Impresora"
 
-#: C/atril.xml:409(link) C/atril.xml:531(title)
+#: C/xreader.xml:409(link) C/xreader.xml:531(title)
 msgid "Paper"
 msgstr "Papel"
 
-#: C/atril.xml:417(guilabel)
+#: C/xreader.xml:417(guilabel)
 msgid "Print range"
 msgstr "Rango de impresión"
 
-#: C/atril.xml:419(para)
+#: C/xreader.xml:419(para)
 msgid ""
 "Select one of the following options to determine how many pages to print:"
 msgstr ""
 "Seleccione una de las siguientes opciones para determinar cuántas páginas "
 "imprimir:"
 
-#: C/atril.xml:422(guilabel)
+#: C/xreader.xml:422(guilabel)
 msgid "All"
 msgstr "Todo"
 
-#: C/atril.xml:423(para)
+#: C/xreader.xml:423(para)
 msgid "Select this option to print all of the pages in the document."
 msgstr "Seleccione esta opción para imprimir todas las páginas del documento."
 
-#: C/atril.xml:426(guilabel)
+#: C/xreader.xml:426(guilabel)
 msgid "Pages From"
 msgstr "Páginas desde"
 
-#: C/atril.xml:427(para)
+#: C/xreader.xml:427(para)
 msgid ""
 "Select this option to print the selected range of pages in the document. Use "
 "the spin boxes to specify the first page and last page of the range."
@@ -745,7 +745,7 @@ msgstr ""
 "documento. Use las cajas de números para especificar la primera página y la "
 "última página del rango."
 
-#: C/atril.xml:441(para)
+#: C/xreader.xml:441(para)
 msgid ""
 "Use this drop-down list to select the printer to which you want to print the "
 "document."
@@ -753,23 +753,23 @@ msgstr ""
 "Use esta lista desplegable para seleccionar la impresora en la cual quiere "
 "imprimir el documento."
 
-#: C/atril.xml:443(para)
+#: C/xreader.xml:443(para)
 msgid ""
 "The <guilabel>Create a PDF document</guilabel> option is not supported in "
-"this version of <application>Atril Document Viewer</application>."
+"this version of <application>Xreader Document Viewer</application>."
 msgstr ""
 "La opción <guilabel>Crear un documento PDF</guilabel> no está soportada en "
-"esta versión del <application>Visor de documentos Atril</application>."
+"esta versión del <application>Visor de documentos Xreader</application>."
 
-#: C/atril.xml:449(guilabel)
+#: C/xreader.xml:449(guilabel)
 msgid "Settings"
 msgstr "Configuración"
 
-#: C/atril.xml:451(para)
+#: C/xreader.xml:451(para)
 msgid "Use this drop-down list to select the printer settings."
 msgstr "Use esta lista desplegable para seleccionar las opciones de impresión."
 
-#: C/atril.xml:453(para)
+#: C/xreader.xml:453(para)
 msgid ""
 "To configure the printer, click <guibutton>Configure</guibutton>. For "
 "example, you can enable or disable duplex printing, or schedule delayed "
@@ -779,26 +779,26 @@ msgstr ""
 "guibutton>. Por ejemplo, puede activar o desactivar la impresión dúplex, o "
 "programar una impresión diferida, si su impresora tiene esta funcionalidad."
 
-#: C/atril.xml:457(guilabel)
+#: C/xreader.xml:457(guilabel)
 msgid "Location"
 msgstr "Lugar"
 
-#: C/atril.xml:459(para)
+#: C/xreader.xml:459(para)
 msgid ""
 "Use this drop-down list to select one of the following print destinations:"
 msgstr ""
 "Use esta lista desplegable para seleccionar uno de los siguientes destinos "
 "de impresión:"
 
-#: C/atril.xml:464(guilabel)
+#: C/xreader.xml:464(guilabel)
 msgid "CUPS"
 msgstr "CUPS"
 
-#: C/atril.xml:466(para)
+#: C/xreader.xml:466(para)
 msgid "Print the document to a CUPS printer."
 msgstr "Imprimir el documento en una impresora CUPS."
 
-#: C/atril.xml:470(para)
+#: C/xreader.xml:470(para)
 msgid ""
 "If the selected printer is a CUPS printer, <guilabel>CUPS</guilabel> is the "
 "only entry in this drop-down list."
@@ -806,23 +806,23 @@ msgstr ""
 "Si la impresora seleccionada es una impresora CUPS, <guilabel>CUPS</"
 "guilabel> es la única entrada en la lista desplegable."
 
-#: C/atril.xml:477(guilabel)
+#: C/xreader.xml:477(guilabel)
 msgid "lpr"
 msgstr "lpr"
 
-#: C/atril.xml:479(para)
+#: C/xreader.xml:479(para)
 msgid "Print the document to a printer."
 msgstr "Imprimir el documento en una impresora."
 
-#: C/atril.xml:485(guilabel)
+#: C/xreader.xml:485(guilabel)
 msgid "File"
 msgstr "Archivo"
 
-#: C/atril.xml:487(para)
+#: C/xreader.xml:487(para)
 msgid "Print the document to a PostScript file."
 msgstr "Imprimir el documento a un archivo PostScript."
 
-#: C/atril.xml:490(para)
+#: C/xreader.xml:490(para)
 msgid ""
 "Click <guibutton>Save As</guibutton> to display a dialog where you specify "
 "the name and location of the PostScript file."
@@ -830,15 +830,15 @@ msgstr ""
 "Pulse en <guibutton>Guardar como</guibutton> para mostrar un diálogo donde "
 "especifique el nombre y ubicación del archivo PostScript."
 
-#: C/atril.xml:496(guilabel)
+#: C/xreader.xml:496(guilabel)
 msgid "Custom"
 msgstr "Personalizado"
 
-#: C/atril.xml:498(para)
+#: C/xreader.xml:498(para)
 msgid "Use the specified command to print the document."
 msgstr "use el comando especificado para imprimir el documento."
 
-#: C/atril.xml:501(para)
+#: C/xreader.xml:501(para)
 msgid ""
 "Type the name of the command in the text box. Include all command-line "
 "arguments."
@@ -846,31 +846,31 @@ msgstr ""
 "Teclee el nombre del comando en la caja de texto. Incluya todos los "
 "argumentos de la línea de comandos."
 
-#: C/atril.xml:509(guilabel)
+#: C/xreader.xml:509(guilabel)
 msgid "State"
 msgstr "Estado"
 
-#: C/atril.xml:511(para) C/atril.xml:517(para) C/atril.xml:523(para)
+#: C/xreader.xml:511(para) C/xreader.xml:517(para) C/xreader.xml:523(para)
 msgid ""
-"This functionality is not supported in this version of <application>Atril "
+"This functionality is not supported in this version of <application>Xreader "
 "Document Viewer</application>."
 msgstr ""
 "Esta función no está soportada en esta versión del <application>Visor de "
-"documentos Atril</application>."
+"documentos Xreader</application>."
 
-#: C/atril.xml:515(guilabel)
+#: C/xreader.xml:515(guilabel)
 msgid "Type"
 msgstr "Tipo"
 
-#: C/atril.xml:521(guilabel)
+#: C/xreader.xml:521(guilabel)
 msgid "Comment"
 msgstr "Comentario"
 
-#: C/atril.xml:533(guilabel)
+#: C/xreader.xml:533(guilabel)
 msgid "Paper size"
 msgstr "Tamaño del papel"
 
-#: C/atril.xml:535(para)
+#: C/xreader.xml:535(para)
 msgid ""
 "Use this drop-down list to select the size of the paper to which you want to "
 "print the document."
@@ -878,11 +878,11 @@ msgstr ""
 "Use esta lista desplegable para seleccionar el tamaño del papel para el cual "
 "quiere imprimir el documento."
 
-#: C/atril.xml:538(guilabel)
+#: C/xreader.xml:538(guilabel)
 msgid "Width"
 msgstr "Anchura"
 
-#: C/atril.xml:540(para)
+#: C/xreader.xml:540(para)
 msgid ""
 "Use this spin box to specify the width of the paper. Use the adjacent drop-"
 "down list to change the measurement unit."
@@ -890,19 +890,19 @@ msgstr ""
 "Use esta caja rotatoria para especificar el ancho del papel. Use la lista "
 "desplegable adyacente para cambiar la unidad de medida."
 
-#: C/atril.xml:543(guilabel)
+#: C/xreader.xml:543(guilabel)
 msgid "Height"
 msgstr "Altura"
 
-#: C/atril.xml:545(para)
+#: C/xreader.xml:545(para)
 msgid "Use this spin box to specify the height of the paper."
 msgstr "Use esta caja rotatoria para especificar la altura del papel."
 
-#: C/atril.xml:548(guilabel)
+#: C/xreader.xml:548(guilabel)
 msgid "Feed orientation"
 msgstr "Orientación del alimentador"
 
-#: C/atril.xml:550(para)
+#: C/xreader.xml:550(para)
 msgid ""
 "Use this drop-down list to select the orientation of the paper in the "
 "printer."
@@ -910,20 +910,20 @@ msgstr ""
 "Use esta lista desplegable para seleccionar la orientación del papel en la "
 "impresora."
 
-#: C/atril.xml:553(guilabel)
+#: C/xreader.xml:553(guilabel)
 msgid "Page orientation"
 msgstr "Orientación de la página"
 
-#: C/atril.xml:555(para)
+#: C/xreader.xml:555(para)
 msgid "Use this drop-down list to select the page orientation."
 msgstr ""
 "Use esta lista desplegable para seleccionar la orientación de la página."
 
-#: C/atril.xml:558(guilabel)
+#: C/xreader.xml:558(guilabel)
 msgid "Layout"
 msgstr "Distribución"
 
-#: C/atril.xml:560(para)
+#: C/xreader.xml:560(para)
 msgid ""
 "Use this drop-down list to select the page layout. A preview of each layout "
 "that you select is displayed in the <guilabel>Preview</guilabel> area."
@@ -932,23 +932,23 @@ msgstr ""
 "mostrará una vista previa de cada distribución que seleccione en el área de "
 "<guilabel>Vista previa</guilabel>."
 
-#: C/atril.xml:563(guilabel)
+#: C/xreader.xml:563(guilabel)
 msgid "Paper Tray"
 msgstr "Bandeja del papel"
 
-#: C/atril.xml:565(para)
+#: C/xreader.xml:565(para)
 msgid "Use this drop-down list to select the paper tray."
 msgstr "Use esta lista desplegable para seleccionar la bandeja del papel."
 
-#: C/atril.xml:575(title)
+#: C/xreader.xml:575(title)
 msgid "To Copy a Document"
 msgstr "Para copiar un documento"
 
-#: C/atril.xml:576(para)
+#: C/xreader.xml:576(para)
 msgid "To copy a file, perform the following steps:"
 msgstr "Para copiar un archivo, realice los siguientes pasos:"
 
-#: C/atril.xml:580(para)
+#: C/xreader.xml:580(para)
 msgid ""
 "Choose <menuchoice><guimenu>File</guimenu><guimenuitem>Save a Copy</"
 "guimenuitem></menuchoice>."
@@ -956,7 +956,7 @@ msgstr ""
 "Elija <menuchoice><guimenu>Archivar</guimenu><guimenuitem>Guardar una copia</"
 "guimenuitem></menuchoice>."
 
-#: C/atril.xml:585(para)
+#: C/xreader.xml:585(para)
 msgid ""
 "Type the new filename in the <guilabel>Filename</guilabel> text box in the "
 "<guilabel>Save a Copy</guilabel> dialog."
@@ -964,7 +964,7 @@ msgstr ""
 "Teclee el nombre de archivo nuevo en la caja de texto <guilabel>Nombre de "
 "archivo</guilabel> del diálogo <guilabel>Guardar una copia</guilabel>."
 
-#: C/atril.xml:588(para)
+#: C/xreader.xml:588(para)
 msgid ""
 "If necessary, specify the location of the copied document. By default, "
 "copies are saved in your home directory."
@@ -972,25 +972,25 @@ msgstr ""
 "Si fuese necesario, especifique la ubicación del documento copiado. Por "
 "omisión las copias se guardan en su directorio personal."
 
-#: C/atril.xml:593(para)
+#: C/xreader.xml:593(para)
 msgid "Click <guibutton>Save</guibutton>."
 msgstr "Pulse en el botón <guibutton>Guardar</guibutton>."
 
-#: C/atril.xml:602(title)
+#: C/xreader.xml:602(title)
 msgid "To Work With Password-Protected Documents"
 msgstr "Para trabajar con documentos protegidos por contraseña"
 
-#: C/atril.xml:603(para)
+#: C/xreader.xml:603(para)
 msgid "An author can use the following password levels to protect a document:"
 msgstr ""
 "Un auto puede usar los siguientes niveles de contraseñas para proteger un "
 "documento:"
 
-#: C/atril.xml:608(para)
+#: C/xreader.xml:608(para)
 msgid "User password that allows others only to read the document."
 msgstr "Contraseña que permite a otros leer el documento."
 
-#: C/atril.xml:612(para)
+#: C/xreader.xml:612(para)
 msgid ""
 "Master password that allows others to perform additional actions, such as "
 "print the document."
@@ -998,25 +998,25 @@ msgstr ""
 "Contraseña maestra que permite a otros hacer acciones adicionales, como "
 "imprimir el documento."
 
-#: C/atril.xml:616(para)
+#: C/xreader.xml:616(para)
 msgid ""
-"When you try to open a password-protected document, <application>Atril "
+"When you try to open a password-protected document, <application>Xreader "
 "Document Viewer</application> displays a security dialog. Type either the "
 "user password or the master password in the <guilabel>Enter document "
 "password</guilabel> text box, then click <guibutton>Open Document</"
 "guibutton>."
 msgstr ""
 "Cuando intente abrir un documento protegido por contraseña, el "
-"<application>Visor de documentos Atril</application> mostrará un diálogo de "
+"<application>Visor de documentos Xreader</application> mostrará un diálogo de "
 "seguridad. Teclee o la contraseña de usuario o la contraseña maestra en la "
 "caja de texto <guilabel>Introduzca la contraseña del documento</guilabel>, "
 "después pulse en el botón <guibutton>Abrir documento</guibutton>."
 
-#: C/atril.xml:623(title)
+#: C/xreader.xml:623(title)
 msgid "To Close a Document"
 msgstr "Para cerrar un documento"
 
-#: C/atril.xml:624(para)
+#: C/xreader.xml:624(para)
 msgid ""
 "To close a document, choose <menuchoice><guimenu>File</"
 "guimenu><guimenuitem>Close</guimenuitem></menuchoice>."
@@ -1024,257 +1024,257 @@ msgstr ""
 "Para cerrar un documento, elija <menuchoice><guimenu>Archivar</"
 "guimenu><guimenuitem>Cerrar</guimenuitem></menuchoice>."
 
-#: C/atril.xml:626(para)
+#: C/xreader.xml:626(para)
 msgid ""
-"If the window is the last <application>Atril Document Viewer</application> "
+"If the window is the last <application>Xreader Document Viewer</application> "
 "window open, the application exits."
 msgstr ""
 "Si la ventana es la última abierta de <application>Visor de documentos "
-"Atril</application>, la aplicación terminará."
+"Xreader</application>, la aplicación terminará."
 
-#: C/atril.xml:635(title)
+#: C/xreader.xml:635(title)
 msgid "Shortcuts"
 msgstr "Combinaciones de teclas"
 
-#: C/atril.xml:636(para)
+#: C/xreader.xml:636(para)
 msgid ""
-"Below is a list of all shortcuts present in <application>Atril Document "
+"Below is a list of all shortcuts present in <application>Xreader Document "
 "Viewer</application>:"
 msgstr ""
 "Debajo se muestra una lista de todas las combinaciones de teclas presentes "
-"en el <application>Visor de documentos Atril</application>."
+"en el <application>Visor de documentos Xreader</application>."
 
-#: C/atril.xml:644(para)
+#: C/xreader.xml:644(para)
 msgid "Shortcut"
 msgstr "Combinación de teclas"
 
-#: C/atril.xml:651(keycap) C/atril.xml:655(keycap) C/atril.xml:659(keycap)
-#: C/atril.xml:663(keycap) C/atril.xml:667(keycap) C/atril.xml:671(keycap)
-#: C/atril.xml:676(keycap) C/atril.xml:683(keycap) C/atril.xml:704(keycap)
-#: C/atril.xml:750(keycap)
+#: C/xreader.xml:651(keycap) C/xreader.xml:655(keycap) C/xreader.xml:659(keycap)
+#: C/xreader.xml:663(keycap) C/xreader.xml:667(keycap) C/xreader.xml:671(keycap)
+#: C/xreader.xml:676(keycap) C/xreader.xml:683(keycap) C/xreader.xml:704(keycap)
+#: C/xreader.xml:750(keycap)
 msgid "Ctrl"
 msgstr "Ctrl"
 
-#: C/atril.xml:651(keycap)
+#: C/xreader.xml:651(keycap)
 msgid "O"
 msgstr "O"
 
-#: C/atril.xml:652(para)
+#: C/xreader.xml:652(para)
 msgid "Open an existing document"
 msgstr "Abrir un documento existente"
 
-#: C/atril.xml:655(keycap)
+#: C/xreader.xml:655(keycap)
 msgid "S"
 msgstr "S"
 
-#: C/atril.xml:656(para)
+#: C/xreader.xml:656(para)
 msgid "Save a copy of the current document"
 msgstr "Guardar una copia del documento actual"
 
-#: C/atril.xml:659(keycap)
+#: C/xreader.xml:659(keycap)
 msgid "P"
 msgstr "P"
 
-#: C/atril.xml:660(para)
+#: C/xreader.xml:660(para)
 msgid "Print document"
 msgstr "Imprimir el documento"
 
-#: C/atril.xml:663(keycap)
+#: C/xreader.xml:663(keycap)
 msgid "W"
 msgstr "W"
 
-#: C/atril.xml:664(para)
+#: C/xreader.xml:664(para)
 msgid "Close window"
 msgstr "Cerrar la ventana"
 
-#: C/atril.xml:667(keycap)
+#: C/xreader.xml:667(keycap)
 msgid "C"
 msgstr "C"
 
-#: C/atril.xml:668(para)
+#: C/xreader.xml:668(para)
 msgid "Copy selection"
 msgstr "Copiar la selección"
 
-#: C/atril.xml:671(keycap)
+#: C/xreader.xml:671(keycap)
 msgid "A"
 msgstr "A"
 
-#: C/atril.xml:672(para)
+#: C/xreader.xml:672(para)
 msgid "Select All"
 msgstr "Seleccionar todo"
 
-#: C/atril.xml:676(keycap)
+#: C/xreader.xml:676(keycap)
 msgid "F"
 msgstr "F"
 
-#: C/atril.xml:677(para)
+#: C/xreader.xml:677(para)
 msgid "<keycap>/</keycap> (slash)"
 msgstr "<keycap>/</keycap> (barra)"
 
-#: C/atril.xml:679(para)
+#: C/xreader.xml:679(para)
 msgid "Find a word or phrase in the document"
 msgstr "Buscar una palabra o frase en el documento"
 
-#: C/atril.xml:683(keycap)
+#: C/xreader.xml:683(keycap)
 msgid "G"
 msgstr "G"
 
-#: C/atril.xml:684(keycap)
+#: C/xreader.xml:684(keycap)
 #| msgid "F"
 msgid "F3"
 msgstr "F3"
 
-#: C/atril.xml:686(para)
+#: C/xreader.xml:686(para)
 msgid "Find next"
 msgstr "Buscar siguiente"
 
-#: C/atril.xml:690(para)
+#: C/xreader.xml:690(para)
 msgid ""
 "<keycombo><keycap>Ctrl</keycap><keycap>+</keycap></keycombo> (plus sign)"
 msgstr ""
 "<keycombo><keycap>Ctrl</keycap><keycap>+</keycap></keycombo> (signo más)"
 
-#: C/atril.xml:691(keycap)
+#: C/xreader.xml:691(keycap)
 msgid "+"
 msgstr "+"
 
-#: C/atril.xml:692(keycap)
+#: C/xreader.xml:692(keycap)
 msgid "="
 msgstr "="
 
-#: C/atril.xml:694(para)
+#: C/xreader.xml:694(para)
 msgid "Zoom in"
 msgstr "Ampliar"
 
-#: C/atril.xml:698(para)
+#: C/xreader.xml:698(para)
 msgid ""
 "<keycombo><keycap>Ctrl</keycap><keycap>-</keycap></keycombo> (minus sign)"
 msgstr ""
 "<keycombo><keycap>Ctrl</keycap><keycap>-</keycap></keycombo> (signo menos)"
 
-#: C/atril.xml:699(keycap)
+#: C/xreader.xml:699(keycap)
 msgid "-"
 msgstr "-"
 
-#: C/atril.xml:701(para)
+#: C/xreader.xml:701(para)
 msgid "Zoom out"
 msgstr "Reducir"
 
-#: C/atril.xml:704(keycap)
+#: C/xreader.xml:704(keycap)
 msgid "R"
 msgstr "R"
 
-#: C/atril.xml:705(para)
+#: C/xreader.xml:705(para)
 msgid "Reload the document"
 msgstr "Recargar el documento"
 
-#: C/atril.xml:709(keycap) C/atril.xml:734(keycap)
+#: C/xreader.xml:709(keycap) C/xreader.xml:734(keycap)
 msgid "Page Up"
 msgstr "Re. Pág."
 
-#: C/atril.xml:710(para)
+#: C/xreader.xml:710(para)
 msgid "Go to the previous page"
 msgstr "Ir a la página anterior"
 
-#: C/atril.xml:713(keycap) C/atril.xml:738(keycap)
+#: C/xreader.xml:713(keycap) C/xreader.xml:738(keycap)
 msgid "Page Down"
 msgstr "Av. Pág."
 
-#: C/atril.xml:714(para)
+#: C/xreader.xml:714(para)
 msgid "Go to the next page"
 msgstr "Ir a la siguiente página"
 
-#: C/atril.xml:718(keycap) C/atril.xml:726(keycap)
+#: C/xreader.xml:718(keycap) C/xreader.xml:726(keycap)
 msgid "Space"
 msgstr "Espacio"
 
-#: C/atril.xml:719(keycap) C/atril.xml:726(keycap) C/atril.xml:728(keycap)
-#: C/atril.xml:734(keycap) C/atril.xml:738(keycap)
+#: C/xreader.xml:719(keycap) C/xreader.xml:726(keycap) C/xreader.xml:728(keycap)
+#: C/xreader.xml:734(keycap) C/xreader.xml:738(keycap)
 msgid "Shift"
 msgstr "Mayús."
 
-#: C/atril.xml:719(keycap) C/atril.xml:727(keycap)
+#: C/xreader.xml:719(keycap) C/xreader.xml:727(keycap)
 msgid "Backspace"
 msgstr "Retroceso"
 
-#: C/atril.xml:720(keycap) C/atril.xml:728(keycap)
+#: C/xreader.xml:720(keycap) C/xreader.xml:728(keycap)
 msgid "Return"
 msgstr "Intro"
 
-#: C/atril.xml:722(para)
+#: C/xreader.xml:722(para)
 msgid "Scroll forward"
 msgstr "Desplazamiento arriba"
 
-#: C/atril.xml:730(para)
+#: C/xreader.xml:730(para)
 msgid "Scroll backward"
 msgstr "Desplazamiento atrás"
 
-#: C/atril.xml:735(para)
+#: C/xreader.xml:735(para)
 msgid "Go a bunch of pages up"
 msgstr "Ir unas cuantas páginas arriba"
 
-#: C/atril.xml:739(para)
+#: C/xreader.xml:739(para)
 msgid "Go a bunch of pages down"
 msgstr "Ir unas cuantas páginas abajo"
 
-#: C/atril.xml:742(keycap)
+#: C/xreader.xml:742(keycap)
 msgid "Home"
 msgstr "Inicio"
 
-#: C/atril.xml:743(para)
+#: C/xreader.xml:743(para)
 msgid "Go to the first page"
 msgstr "Ir a la primera página"
 
-#: C/atril.xml:746(keycap)
+#: C/xreader.xml:746(keycap)
 msgid "End"
 msgstr "Fin"
 
-#: C/atril.xml:747(para)
+#: C/xreader.xml:747(para)
 msgid "Go to the last page"
 msgstr "Ir a la última página"
 
-#: C/atril.xml:750(keycap)
+#: C/xreader.xml:750(keycap)
 msgid "L"
 msgstr "L"
 
-#: C/atril.xml:751(para)
+#: C/xreader.xml:751(para)
 msgid "Go to page by number or label"
 msgstr "Ir a una página por número o etiqueta"
 
-#: C/atril.xml:754(keycap)
+#: C/xreader.xml:754(keycap)
 msgid "F1"
 msgstr "F1"
 
-#: C/atril.xml:755(para)
+#: C/xreader.xml:755(para)
 msgid "Help"
 msgstr "Ayuda"
 
-#: C/atril.xml:758(keycap)
+#: C/xreader.xml:758(keycap)
 msgid "F5"
 msgstr "F5"
 
-#: C/atril.xml:759(para)
+#: C/xreader.xml:759(para)
 msgid "Run document as presentation"
 msgstr "Ejecutar el documento como una presentación"
 
-#: C/atril.xml:762(keycap)
+#: C/xreader.xml:762(keycap)
 msgid "F9"
 msgstr "F9"
 
-#: C/atril.xml:763(para)
+#: C/xreader.xml:763(para)
 msgid "Show or hide the side pane"
 msgstr "Mostrar u ocultar el panel lateral"
 
-#: C/atril.xml:766(keycap)
+#: C/xreader.xml:766(keycap)
 msgid "F11"
 msgstr "F11"
 
-#: C/atril.xml:767(para)
+#: C/xreader.xml:767(para)
 msgid "Toggle fullscreen mode"
 msgstr "Conmutar el modo a pantalla completa"
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
-#: C/atril.xml:0(None)
+#: C/xreader.xml:0(None)
 msgid "translator-credits"
 msgstr ""
 "Jorge González <jorge.gonzalez.gonzalez@hispalinux.es>, 2006-2008.\n"

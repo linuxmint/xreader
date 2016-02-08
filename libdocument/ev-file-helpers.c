@@ -119,7 +119,7 @@ _ev_file_helpers_shutdown (void)
  * @file_name: a location to store the filename of the temp file
  * @error: a location to store a #GError
  *
- * Creates a temp file in the atril temp directory.
+ * Creates a temp file in the xreader temp directory.
  *
  * Returns: a file descriptor to the newly created temp file name, or %-1
  *   on error with @error filled in
@@ -169,7 +169,7 @@ close_fd_cb (gpointer fdptr)
  * @template: a template string; must contain 'XXXXXX', but not necessarily as a suffix
  * @error: a location to store a #GError
  *
- * Creates a temp #GFile in the atril temp directory. See ev_mkstemp() for more information.
+ * Creates a temp #GFile in the xreader temp directory. See ev_mkstemp() for more information.
  *
  * Returns: a newly allocated #GFile for the newly created temp file name, or %NULL
  *   on error with @error filled in
@@ -201,7 +201,7 @@ ev_mkstemp_file (const char        *template,
  * and renamed from g_mkdtemp to _ev_g_mkdtemp.
  *
  * If/when this function gets added to glib, it can be removed from
- * atril' sources.
+ * xreader' sources.
  *
  *
  * g_mkdtemp:
@@ -285,7 +285,7 @@ _ev_g_mkdtemp (gchar *tmpl)
  * @template: a template string; must end in 'XXXXXX'
  * @error: a location to store a #GError
  *
- * Creates a temp directory in the atril temp directory.
+ * Creates a temp directory in the xreader temp directory.
  *
  * Returns: a newly allocated string with the temp directory name, or %NULL
  *   on error with @error filled in
@@ -315,7 +315,7 @@ ev_mkdtemp (const char        *template,
         return name;
 }
 
-/* Remove a local temp file created by atril */
+/* Remove a local temp file created by xreader */
 void
 ev_tmp_filename_unlink (const gchar *filename)
 {

@@ -8,7 +8,7 @@ srcdir = os.environ['srcdir']
 
 from dogtail.procedural import *
 
-run('atril', arguments=' '+srcdir+'/test-encrypt.pdf')
+run('xreader', arguments=' '+srcdir+'/test-encrypt.pdf')
 
 # Try an incorrect password first
 focus.dialog('Enter password')
@@ -23,6 +23,6 @@ focus.widget('Password Entry', roleName='password text')
 type('Foo')
 click('Unlock Document', roleName='push button')
 
-# Close atril
+# Close xreader
 click('File', roleName='menu')
 click('Close', roleName='menu item')

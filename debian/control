@@ -1,12 +1,7 @@
-Source: atril
+Source: xreader
 Section: x11
 Priority: optional
-Maintainer: Stefano Karapetsas <stefano@karapetsas.com>
-Uploaders: Mike Gabriel <sunweaver@debian.org>,
-           John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-           Stefano Karapetsas <stefano@karapetsas.com>,
-           Vangelis Mouhtsis <vangelis@gnugr.org>,
-           Martin Wimpress <code@flexion.org>,
+Maintainer: Linux Mint <root@linuxmint.com>
 Build-Depends: debhelper (>= 9),
                gobject-introspection,
                intltool,
@@ -32,15 +27,13 @@ Build-Depends: debhelper (>= 9),
                yelp-tools,
                zlib1g-dev,
 Standards-Version: 3.9.6
-Homepage: http://www.mate-desktop.org/
-Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-mate/atril.git;a=summary
-Vcs-Git: git://anonscm.debian.org/pkg-mate/atril.git
+Homepage: http://github.com/linuxmint/xreader/
 
-Package: atril
+Package: xreader
 Architecture: any
-Depends: atril-common (>= ${source:Version}),
-         libatrildocument3 (= ${binary:Version}),
-         libatrilview3 (= ${binary:Version}),
+Depends: xreader-common (>= ${source:Version}),
+         libxreaderdocument3 (= ${binary:Version}),
+         libxreaderview3 (= ${binary:Version}),
          shared-mime-info,
          ${misc:Depends},
          ${shlibs:Depends},
@@ -52,8 +45,8 @@ Provides: djvu-viewer,
 Suggests: caja,
           poppler-data,
           unrar,
-Description: MATE document viewer
- Atril is a simple multi-page document viewer.  It can display
+Description: Document viewer
+ Xreader is a simple multi-page document viewer.  It can display
  and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
  Portable Document Format (PDF) files.
  .
@@ -61,140 +54,140 @@ Description: MATE document viewer
  copying text to the clipboard, hypertext navigation, and
  table-of-contents bookmarks.
 
-Package: atril-dbg
+Package: xreader-dbg
 Section: debug
 Priority: extra
 Architecture: any
-Depends: atril (= ${binary:Version}),
+Depends: xreader (= ${binary:Version}),
          ${misc:Depends},
-Description: MATE document viewer (debugging symbols)
- Atril is a simple multi-page document viewer.  It can display
+Description: Document viewer (debugging symbols)
+ Xreader is a simple multi-page document viewer.  It can display
  and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
  Portable Document Format (PDF) files.
  .
- This package contains debugging symbols for Atril.
+ This package contains debugging symbols for Xreader.
  .
  The debugging symbols are installed in /usr/lib/debug and will
  automatically be used by gdb.
 
-Package: atril-common
+Package: xreader-common
 Architecture: all
 Depends: ${misc:Depends},
-Breaks: atril (<= 1.0.3-3),
-Description: MATE document viewer (common files)
- Atril is a simple multi-page document viewer.  It can display
+Breaks: xreader (<= 1.0.3-3),
+Description: Document viewer (common files)
+ Xreader is a simple multi-page document viewer.  It can display
  and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
  Portable Document Format (PDF) files.
  .
  This package contains the architecture independent files.
 
-Package: libatrilview3
+Package: libxreaderview3
 Section: libs
 Architecture: any
-Depends: libatrildocument3 (= ${binary:Version}),
+Depends: libxreaderdocument3 (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends},
-Replaces: libatril (<< 1.9.0),
-Description: MATE document viewing library
- Atril is a simple multi-page document viewer.  It can display
+Replaces: libxreader (<< 1.9.0),
+Description: Document viewing library
+ Xreader is a simple multi-page document viewer.  It can display
  and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
  Portable Document Format (PDF) files.
  .
- This package contains the document viewing library used by Atril.
+ This package contains the document viewing library used by Xreader.
 
-Package: libatrilview-dev
+Package: libxreaderview-dev
 Section: libdevel
 Architecture: any
-Depends: libatrilview3 (= ${binary:Version}),
+Depends: libxreaderview3 (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends},
-Breaks: libatril-dev (<< 1.9.0),
-Description: MATE document viewing library (development files)
- Atril is a simple multi-page document viewer.  It can display
+Breaks: libxreader-dev (<< 1.9.0),
+Description: Document viewing library (development files)
+ Xreader is a simple multi-page document viewer.  It can display
  and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
  Portable Document Format (PDF) files.
  .
- This package contains the development files for the libatrilview
+ This package contains the development files for the libxreaderview
  library.
 
-Package: libatrilview3-dbg
+Package: libxreaderview3-dbg
 Section: debug
 Priority: extra
 Architecture: any
-Depends: libatrilview3 (= ${binary:Version}),
+Depends: libxreaderview3 (= ${binary:Version}),
          ${misc:Depends},
-Breaks: atril-dbg (<< 1.9.0),
-Description: MATE document viewing library (debugging symbols)
- Atril is a simple multi-page document viewer.  It can display
+Breaks: xreader-dbg (<< 1.9.0),
+Description: Document viewing library (debugging symbols)
+ Xreader is a simple multi-page document viewer.  It can display
  and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
  Portable Document Format (PDF) files.
  .
- This package contains debugging symbols for the libatrilview
+ This package contains debugging symbols for the libxreaderview
  library.
  .
  The debugging symbols are installed in /usr/lib/debug and will
  automatically be used by gdb.
 
-Package: libatrildocument3
+Package: libxreaderdocument3
 Section: libs
 Architecture: any
 Depends: libjs-mathjax,
          ${misc:Depends},
          ${shlibs:Depends},
-Breaks: libatril (<< 1.9.0),
-Replaces: libatril (<< 1.9.0),
-Description: MATE document rendering library
- Atril is a simple multi-page document viewer.  It can display
+Breaks: libxreader (<< 1.9.0),
+Replaces: libxreader (<< 1.9.0),
+Description: Document rendering library
+ Xreader is a simple multi-page document viewer.  It can display
  and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
  Portable Document Format (PDF) files.
  .
- This package contains the document rendering library used by Atril.
+ This package contains the document rendering library used by Xreader.
 
-Package: libatrildocument-dev
+Package: libxreaderdocument-dev
 Section: libdevel
 Architecture: any
-Depends: libatrildocument3 (= ${binary:Version}),
+Depends: libxreaderdocument3 (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends},
-Breaks: libatril-dev (<< 1.9.0),
-Replaces: libatril-dev (<< 1.9.0),
-Description: MATE document rendering library (development files)
- Atril is a simple multi-page document viewer.  It can display
+Breaks: libxreader-dev (<< 1.9.0),
+Replaces: libxreader-dev (<< 1.9.0),
+Description: Document rendering library (development files)
+ Xreader is a simple multi-page document viewer.  It can display
  and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
  Portable Document Format (PDF) files.
  .
- This package contains the development files for the libatrildocument
+ This package contains the development files for the libxreaderdocument
  library.
 
-Package: libatrildocument3-dbg
+Package: libxreaderdocument3-dbg
 Section: debug
 Priority: extra
 Architecture: any
-Depends: libatrildocument3 (= ${binary:Version}),
+Depends: libxreaderdocument3 (= ${binary:Version}),
          ${misc:Depends},
-Breaks: atril-dbg (<< 1.9.0),
-Description: MATE document rendering library (debugging symbols)
- Atril is a simple multi-page document viewer.  It can display
+Breaks: xreader-dbg (<< 1.9.0),
+Description: Document rendering library (debugging symbols)
+ Xreader is a simple multi-page document viewer.  It can display
  and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
  Portable Document Format (PDF) files.
  .
- This package contains debugging symbols for the libatrildocument
+ This package contains debugging symbols for the libxreaderdocument
  library.
  .
  The debugging symbols are installed in /usr/lib/debug and will
  automatically be used by gdb.
 
-Package: gir1.2-atril
+Package: gir1.2-xreader
 Architecture: any
 Depends: ${gir:Depends},
          ${misc:Depends},
          ${shlibs:Depends},
-Description: GObject introspection data for Atril
- Atril is a simple multi-page document viewer.  It can display
+Description: GObject introspection data for Xreader
+ Xreader is a simple multi-page document viewer.  It can display
  and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
  Portable Document Format (PDF) files.
  .
- This package contains introspection data for Atril.
+ This package contains introspection data for Xreader.
  .
  It can be used by packages using the GIRepository format to generate
  dynamic bindings.

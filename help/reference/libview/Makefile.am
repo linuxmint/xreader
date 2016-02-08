@@ -7,7 +7,7 @@ AUTOMAKE_OPTIONS = 1.10
 # of using the various options.
 
 # The name of the module, e.g. 'glib'.
-DOC_MODULE = libatrilview
+DOC_MODULE = libxreaderview
 
 # Uncomment for versioned docs and specify the version of the module, e.g. '2'.
 DOC_MODULE_VERSION = $(EV_API_VERSION)
@@ -101,12 +101,12 @@ GTKDOC_CFLAGS = \
 	-I$(top_srcdir)/libview 			\
 	-I$(top_srcdir)/libdocument                     \
 	-I$(top_builddir)/libdocument                   \
-	-DATRILDATADIR=\"$(pkgdatadir)\"		\
+	-DXREADERDATADIR=\"$(pkgdatadir)\"		\
 	-DMATEDATADIR=\"$(datadir)\"			\
-	-DATRIL_UIDIR=\"$(pkgdatadir)\" 		\
+	-DXREADER_UIDIR=\"$(pkgdatadir)\" 		\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"		\
 	-DEV_BACKENDSDIR=\"$(backenddir)\"		\
-	-DATRIL_COMPILATION				\
+	-DXREADER_COMPILATION				\
 	$(AM_CFLAGS)					\
 	$(LIBVIEW_CFLAGS)				\
 	$(WARN_CFLAGS)					\
@@ -114,8 +114,8 @@ GTKDOC_CFLAGS = \
 	$(DISABLE_DEPRECATED)
 
 GTKDOC_LIBS = \
-	$(top_builddir)/libdocument/libatrildocument.la \
-	$(top_builddir)/libview/libatrilview.la \
+	$(top_builddir)/libdocument/libxreaderdocument.la \
+	$(top_builddir)/libview/libxreaderview.la \
 	$(LIBDOCUMENT_LIBS)						\
 	$(WEBKIT_LIBS)
 

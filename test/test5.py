@@ -8,7 +8,7 @@ srcdir = os.environ['srcdir']
 
 from dogtail.procedural import *
 
-run('atril', arguments=' '+srcdir+'/test-page-labels.pdf')
+run('xreader', arguments=' '+srcdir+'/test-page-labels.pdf')
 
 focus.widget('page-label-entry')
 focus.widget.text = "iii"
@@ -19,6 +19,6 @@ if focus.widget.text != "III":
 	click('Close', roleName='menu item')
 	exit (1)
 
-# Close atril
+# Close xreader
 click('File', roleName='menu')
 click('Close', roleName='menu item')

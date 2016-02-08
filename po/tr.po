@@ -82,7 +82,7 @@ msgstr "“%s” silerken hata oldu."
 msgid "Error %s"
 msgstr "Hata %s"
 
-#: ../backend/comics/comicsdocument.atril-backend.in.h:1
+#: ../backend/comics/comicsdocument.xreader-backend.in.h:1
 msgid "Comic Books"
 msgstr "Çizgi Romanlar"
 
@@ -96,7 +96,7 @@ msgid ""
 " be accessed."
 msgstr "Bu belge birkaç dosyadan oluşmuş. Bu dosyalardan bir ya da daha fazlasına erişilemiyor."
 
-#: ../backend/djvu/djvudocument.atril-backend.in.h:1
+#: ../backend/djvu/djvudocument.xreader-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "DjVu Belgeleri"
 
@@ -104,7 +104,7 @@ msgstr "DjVu Belgeleri"
 msgid "DVI document has incorrect format"
 msgstr "DVI belgesi geçersiz biçime sahip"
 
-#: ../backend/dvi/dvidocument.atril-backend.in.h:1
+#: ../backend/dvi/dvidocument.xreader-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI Belgeleri"
 
@@ -164,7 +164,7 @@ msgstr "epub dosyasının manifestosu yok"
 msgid "Could not set up document tree for loading, some files missing"
 msgstr "Yükleme için belge ağacı kurulamadı, bazı dosyalar eksik"
 
-#: ../backend/epub/epubdocument.atril-backend.in.h:1
+#: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
 msgstr "epub Belgeleri"
 
@@ -232,7 +232,7 @@ msgstr "Gömülü"
 msgid "Not embedded"
 msgstr "Gömülü değil"
 
-#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
+#: ../backend/pdf/pdfdocument.xreader-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF Belgeleri"
 
@@ -246,7 +246,7 @@ msgstr "\"%s\" belgesi yüklenirken başarısız olundu"
 msgid "Failed to save document “%s”"
 msgstr "\"%s\" belgesi yüklenirken başarısız olundu"
 
-#: ../backend/ps/psdocument.atril-backend.in.h:1
+#: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript Belgeleri"
 
@@ -465,42 +465,42 @@ msgstr "%3200"
 msgid "6400%"
 msgstr "%6400"
 
-#: ../data/atril.appdata.xml.in.h:1
+#: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
 msgstr "MATE masaüstü ortamı için Belge Görüntüleyicisi"
 
-#: ../data/atril.appdata.xml.in.h:2
+#: ../data/xreader.appdata.xml.in.h:2
 msgid ""
-"<p> Atril is a simple multi-page document viewer. It can display and print "
+"<p> Xreader is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
 "Document Format (PDF) files, as well as comic book archive files. When "
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
-" <p> Atril is a fork of Evince and part of the MATE Desktop Environment. If "
-"you would like to know more about MATE and Atril, please visit the project's"
+" <p> Xreader is a fork of Evince and part of the MATE Desktop Environment. If "
+"you would like to know more about MATE and Xreader, please visit the project's"
 " home page. </p>"
-msgstr "<p> Atril sade bir çok sayfalı belge görüntüleyicisidir. PostScript (PS), Encapsulated Postcript (EPS), DJVU, DVİ, XPS ve Taşınabilir Belge Biçimi (Portable Document Format, PDF) dosyaları ile çizgi roman arşiv dosyalarını görüntüleyebilir ve yazdırabilir. Belge tarafından desteklendiğinde metin aramaya, panoya metin kopyalamaya, hipermetin taramaya ve içindekiler favorilerini yönetmeye imkân sağlar.</p> <p> Atril, Evince çatallamasıdır ve MATE masaüstü ortamının bir parçasıdır. MATE ve Atril hakkında daha fazla bilgi için projenin ağ sayfasını ziyaret ediniz.</p>"
+msgstr "<p> Xreader sade bir çok sayfalı belge görüntüleyicisidir. PostScript (PS), Encapsulated Postcript (EPS), DJVU, DVİ, XPS ve Taşınabilir Belge Biçimi (Portable Document Format, PDF) dosyaları ile çizgi roman arşiv dosyalarını görüntüleyebilir ve yazdırabilir. Belge tarafından desteklendiğinde metin aramaya, panoya metin kopyalamaya, hipermetin taramaya ve içindekiler favorilerini yönetmeye imkân sağlar.</p> <p> Xreader, Evince çatallamasıdır ve MATE masaüstü ortamının bir parçasıdır. MATE ve Xreader hakkında daha fazla bilgi için projenin ağ sayfasını ziyaret ediniz.</p>"
 
-#: ../data/atril.desktop.in.in.h:1
-msgid "Atril Document Viewer"
-msgstr "Atril Belge Görüntüleyicisi"
+#: ../data/xreader.desktop.in.in.h:1
+msgid "Xreader Document Viewer"
+msgstr "Xreader Belge Görüntüleyicisi"
 
 #. Manually set name and icon
-#: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:5006
+#: ../data/xreader.desktop.in.in.h:2 ../shell/ev-window.c:5006
 #: ../shell/ev-window-title.c:157 ../shell/main.c:306
 #, c-format
 msgid "Document Viewer"
 msgstr "Belge Görüntüleyici"
 
-#: ../data/atril.desktop.in.in.h:3
+#: ../data/xreader.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr "Çok sayfalı belgeleri göster"
 
-#: ../data/org.mate.Atril.gschema.xml.h:1
+#: ../data/org.x.reader.gschema.xml.h:1
 msgid "Override document restrictions"
 msgstr "Belge sınırlamalarini hükümsüz kil."
 
-#: ../data/org.mate.Atril.gschema.xml.h:2
+#: ../data/org.x.reader.gschema.xml.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "Belge sinirlamalarini,kopyalama veya yazdirma sınırlamalar gibi hükümsüz kıl."
 
@@ -680,13 +680,13 @@ msgstr "%s, Düşey (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, Yatay (%s)"
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:1
-msgid "Atril properties"
-msgstr "Atril özellikleri"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:1
+msgid "Xreader properties"
+msgstr "Xreader özellikleri"
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:2
-msgid "Shows details for Atril documents"
-msgstr "Atril belgeleri için ayrıntıları gösterir"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:2
+msgid "Shows details for Xreader documents"
+msgstr "Xreader belgeleri için ayrıntıları gösterir"
 
 #: ../libmisc/ev-page-action-widget.c:68
 #, c-format
@@ -987,9 +987,9 @@ msgstr "Metaveriler dönüştürülüyor"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Atril has changed, and hence it needs to be "
+"The metadata format used by Xreader has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
-msgstr "Atril tarafından kullanılan metaveri biçimi değişmiştir, dolayısıyla yeni biçime geçiş gereklidir. Geçiş iptal edilirse metaveri depolaması çalışmayacaktır."
+msgstr "Xreader tarafından kullanılan metaveri biçimi değişmiştir, dolayısıyla yeni biçime geçiş gereklidir. Geçiş iptal edilirse metaveri depolaması çalışmayacaktır."
 
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
@@ -1317,30 +1317,30 @@ msgstr "Belge Görüntüleyici.\n%s (%s) kullanılıyor"
 
 #: ../shell/ev-window.c:5037
 msgid ""
-"Atril is free software; you can redistribute it and/or modify it under the "
+"Xreader is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
-msgstr "Atril özgür yazılımdır; onu Özgür Yazılım Vakfı tarafından yayınlanan GNU Genel Kamul Lisansı 2. sürümü ya da (tercihen) daha sonraki sürümleri koşullarında yeniden dağıtabilir ya da değiştirebilirsiniz.\n"
+msgstr "Xreader özgür yazılımdır; onu Özgür Yazılım Vakfı tarafından yayınlanan GNU Genel Kamul Lisansı 2. sürümü ya da (tercihen) daha sonraki sürümleri koşullarında yeniden dağıtabilir ya da değiştirebilirsiniz.\n"
 
 #: ../shell/ev-window.c:5041
 msgid ""
-"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
-msgstr "Atril kullanışlı olması umuduyla dağıtılmaktadır,ama herhangi bir GARANTİ içermez, SATILABİLİRLİKya da HERHANGİ BİR AMACA UYGUNLUK için GARANTİ ima etmez.Ayrıntılı bilgi için GNU Genel Kamu Lisansını inceleyin.\n"
+msgstr "Xreader kullanışlı olması umuduyla dağıtılmaktadır,ama herhangi bir GARANTİ içermez, SATILABİLİRLİKya da HERHANGİ BİR AMACA UYGUNLUK için GARANTİ ima etmez.Ayrıntılı bilgi için GNU Genel Kamu Lisansını inceleyin.\n"
 
 #: ../shell/ev-window.c:5045
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+" Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
-msgstr "Atril ile birlikte GNU Genel Kamu Lisansının bir kopyasını almış olmalısınız. Aksi halde bu adrese yazılı olarak bildirin: Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
+msgstr "Xreader ile birlikte GNU Genel Kamu Lisansının bir kopyasını almış olmalısınız. Aksi halde bu adrese yazılı olarak bildirin: Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 
 #: ../shell/ev-window.c:5074
-msgid "Atril"
-msgstr "Atril"
+msgid "Xreader"
+msgstr "Xreader"
 
 #: ../shell/ev-window.c:5077
 msgid ""
@@ -1725,16 +1725,16 @@ msgid "NUMBER"
 msgstr "NUMARA"
 
 #: ../shell/main.c:79
-msgid "Run atril in fullscreen mode"
-msgstr "Atril'i tam ekran kipinde çalıştır"
+msgid "Run xreader in fullscreen mode"
+msgstr "Xreader'i tam ekran kipinde çalıştır"
 
 #: ../shell/main.c:80
-msgid "Run atril in presentation mode"
-msgstr "Atril'i sunum kipinde çalıştır"
+msgid "Run xreader in presentation mode"
+msgstr "Xreader'i sunum kipinde çalıştır"
 
 #: ../shell/main.c:81
-msgid "Run atril as a previewer"
-msgstr "Atril'i ön izleyici olarak çalıştır"
+msgid "Run xreader as a previewer"
+msgstr "Xreader'i ön izleyici olarak çalıştır"
 
 #: ../shell/main.c:82
 msgid "The word or phrase to find in the document"

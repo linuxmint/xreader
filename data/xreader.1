@@ -1,22 +1,22 @@
-.\" Man page for Atril
-.TH ATRIL 1 "30 January 2014" "MATE Desktop Environment"
+.\" Man page for Xreader
+.TH XREADER 1 "30 January 2014" "MATE Desktop Environment"
 .\" Please adjust this date when revising the manpage.
 .\"
 .SH "NAME"
-Atril \- The MATE Document Viewer
+Xreader \- The MATE Document Viewer
 .SH "SYNTAX"
-.B atril [OPTIONS...] [FILES...]
+.B xreader [OPTIONS...] [FILES...]
 .SH "DESCRIPTION"
-Atril is the official Document Viewer of the MATE Desktop Environment, it is a simple multi-page document viewer. It can display and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable Document Format (PDF) files.
+Xreader is the official Document Viewer of the MATE Desktop Environment, it is a simple multi-page document viewer. It can display and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable Document Format (PDF) files.
 .TP
 When supported by the document, it also allows searching for text, copying text to the clipboard, hypertext navigation, and table-of-contents bookmarks.
 .TP
-This manual page briefly documents the \fBatril\fR command.
+This manual page briefly documents the \fBxreader\fR command.
 
 .SH "OPTIONS"
 .TP
 \fBfilename(s)...\fR
-Specifies the file to open when \fBatril\fR starts. If this is not specified, \fBatril\fR will start with a blank window and you may open a file from the menu or by using the shortcut CTRL+O. Multiple files can be loaded if they are separated by spaces. \fBatril\fR also supports handling of remote files.
+Specifies the file to open when \fBxreader\fR starts. If this is not specified, \fBxreader\fR will start with a blank window and you may open a file from the menu or by using the shortcut CTRL+O. Multiple files can be loaded if they are separated by spaces. \fBxreader\fR also supports handling of remote files.
 .TP
 \fB\-p, \-\-page\-label=PAGE\fR
 Here you can specify a page label, this page will be selected in the document if it exists.
@@ -25,13 +25,13 @@ Here you can specify a page label, this page will be selected in the document if
 Here you can specify a page number, this page will be selected in the document if it exists.
 .TP
 \fB\-f, \-\-fullscreen\fR
-Start \fBatril\fR in fullscreen mode. You must specify a document to start in fullscreen mode.
+Start \fBxreader\fR in fullscreen mode. You must specify a document to start in fullscreen mode.
 .TP
 \fB\-s, \-\-presentation\fR
-Start \fBatril\fR in presentation mode. You must specify a document to start in presentation mode.
+Start \fBxreader\fR in presentation mode. You must specify a document to start in presentation mode.
 .TP
 \fB\-w, \-\-preview\fR
-Start \fBatril\fR in preview mode. You must specify a document to start in preview mode.
+Start \fBxreader\fR in preview mode. You must specify a document to start in preview mode.
 .TP
 \fB\-\-display=DISPLAY\fR
 X display to use.
@@ -48,22 +48,21 @@ Print all command line options.
 This program also accepts the standard GTK options.
 
 .SH "EXAMPLES"
-\fBatril \-\-preview ~/Desktop/stuff.ps\fR
+\fBxreader \-\-preview ~/Desktop/stuff.ps\fR
 .RS 4
 Open stuff.ps from the current users desktop, in preview mode.
 .RE
 .PP
-\fBatril \-i 2 \-s ./document.pdf\fR
+\fBxreader \-i 2 \-s ./document.pdf\fR
 .RS 4
 Open document.pdf from the current working directory, on page 2 in presentation mode.
 
 .SH "BUGS"
 .SS Should you encounter any bugs, they may be reported at: 
-http://github.com/mate-desktop/atril/issues
+http://github.com/linuxmint/xreader/issues
 .SH "AUTHORS"
 .SS This Man Page has been written for the MATE Desktop Environment by:
 Adam Erdman <hekel@archlinux.info> (2014)
 .SH "SEE ALSO"
 .SS
-Atril documentation can be found from the "Help" menu, or by pressing the F1 key. 
-Further information may also be available at: http://wiki.mate-desktop.org/docs
+Xreader documentation can be found from the "Help" menu, or by pressing the F1 key.

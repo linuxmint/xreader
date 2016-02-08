@@ -341,7 +341,7 @@ file_filter_add_mime_types (EvTypeInfo *info, GtkFileFilter *filter)
  * 
  * If @document is not %NULL, adds a #GtkFileFilter for @document's MIME type.
  *
- * If @document is %NULL, adds a #GtkFileFilter for each document type that atril
+ * If @document is %NULL, adds a #GtkFileFilter for each document type that xreader
  * can handle.
  */
 void

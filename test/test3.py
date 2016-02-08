@@ -8,8 +8,8 @@ srcdir = os.environ['srcdir']
 
 from dogtail.procedural import *
 
-run('atril', arguments=' '+srcdir+'/test-mime.bin')
+run('xreader', arguments=' '+srcdir+'/test-mime.bin')
 
-# Close atril
+# Close xreader
 click('File', roleName='menu')
 click('Close', roleName='menu item')

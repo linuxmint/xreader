@@ -28,14 +28,14 @@ NULL =
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = \
-    atril-document-$(EV_API_VERSION).pc \
-    atril-view-$(EV_API_VERSION).pc \
+    xreader-document-$(EV_API_VERSION).pc \
+    xreader-view-$(EV_API_VERSION).pc \
     $(NULL)
 
-headerdir = $(includedir)/atril/$(EV_API_VERSION)
+headerdir = $(includedir)/xreader/$(EV_API_VERSION)
 header_DATA = \
-    atril-document.h \
-    atril-view.h \
+    xreader-document.h \
+    xreader-view.h \
     $(NULL)
 
 # Applications 

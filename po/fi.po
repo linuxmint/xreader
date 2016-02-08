@@ -75,7 +75,7 @@ msgstr "Tapahtui virhe poistaessa ”%s”."
 msgid "Error %s"
 msgstr "Virhe %s"
 
-#: ../backend/comics/comicsdocument.atril-backend.in.h:1
+#: ../backend/comics/comicsdocument.xreader-backend.in.h:1
 msgid "Comic Books"
 msgstr "Sarjakuvakirjat"
 
@@ -89,7 +89,7 @@ msgid ""
 " be accessed."
 msgstr "Asiakirja koostuu useista tiedostoista, mutta yhtä tai useampia näistä tiedostoista ei voitu avata."
 
-#: ../backend/djvu/djvudocument.atril-backend.in.h:1
+#: ../backend/djvu/djvudocument.xreader-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "DjVu-asiakirjat"
 
@@ -97,7 +97,7 @@ msgstr "DjVu-asiakirjat"
 msgid "DVI document has incorrect format"
 msgstr "DVI-asiakirjassa on virheellisiä muotoiluja"
 
-#: ../backend/dvi/dvidocument.atril-backend.in.h:1
+#: ../backend/dvi/dvidocument.xreader-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI-asiakirjat"
 
@@ -157,7 +157,7 @@ msgstr ""
 msgid "Could not set up document tree for loading, some files missing"
 msgstr ""
 
-#: ../backend/epub/epubdocument.atril-backend.in.h:1
+#: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
 msgstr "ePub-asiakirjat"
 
@@ -225,7 +225,7 @@ msgstr "Upotettu"
 msgid "Not embedded"
 msgstr "Ei upotettu"
 
-#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
+#: ../backend/pdf/pdfdocument.xreader-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF-asiakirjat"
 
@@ -239,7 +239,7 @@ msgstr "Asiakirjan ”%s” lataaminen epäonnistui"
 msgid "Failed to save document “%s”"
 msgstr "Asiakirjan ”%s” tallennus epäonnistui"
 
-#: ../backend/ps/psdocument.atril-backend.in.h:1
+#: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript-asiakirjat"
 
@@ -458,42 +458,42 @@ msgstr "3200%"
 msgid "6400%"
 msgstr "6400%"
 
-#: ../data/atril.appdata.xml.in.h:1
+#: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
 msgstr "Asiakirjakatselin MATE-työpöydälle"
 
-#: ../data/atril.appdata.xml.in.h:2
+#: ../data/xreader.appdata.xml.in.h:2
 msgid ""
-"<p> Atril is a simple multi-page document viewer. It can display and print "
+"<p> Xreader is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
 "Document Format (PDF) files, as well as comic book archive files. When "
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
-" <p> Atril is a fork of Evince and part of the MATE Desktop Environment. If "
-"you would like to know more about MATE and Atril, please visit the project's"
+" <p> Xreader is a fork of Evince and part of the MATE Desktop Environment. If "
+"you would like to know more about MATE and Xreader, please visit the project's"
 " home page. </p>"
 msgstr ""
 
-#: ../data/atril.desktop.in.in.h:1
-msgid "Atril Document Viewer"
-msgstr "Atril-asiakirjakatselin"
+#: ../data/xreader.desktop.in.in.h:1
+msgid "Xreader Document Viewer"
+msgstr "Xreader-asiakirjakatselin"
 
 #. Manually set name and icon
-#: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:5006
+#: ../data/xreader.desktop.in.in.h:2 ../shell/ev-window.c:5006
 #: ../shell/ev-window-title.c:157 ../shell/main.c:306
 #, c-format
 msgid "Document Viewer"
 msgstr "Asiakirjakatselin"
 
-#: ../data/atril.desktop.in.in.h:3
+#: ../data/xreader.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr "Katsele monisivuisia asiakirjoja"
 
-#: ../data/org.mate.Atril.gschema.xml.h:1
+#: ../data/org.x.reader.gschema.xml.h:1
 msgid "Override document restrictions"
 msgstr ""
 
-#: ../data/org.mate.Atril.gschema.xml.h:2
+#: ../data/org.x.reader.gschema.xml.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 
@@ -673,12 +673,12 @@ msgstr "%s, pysty (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, vaaka (%s)"
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:1
-msgid "Atril properties"
-msgstr "Atrilin ominaisuudet"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:1
+msgid "Xreader properties"
+msgstr "Xreaderin ominaisuudet"
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:2
-msgid "Shows details for Atril documents"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:2
+msgid "Shows details for Xreader documents"
 msgstr ""
 
 #: ../libmisc/ev-page-action-widget.c:68
@@ -980,9 +980,9 @@ msgstr "Muunnetaan metatietoja"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Atril has changed, and hence it needs to be "
+"The metadata format used by Xreader has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
-msgstr "Atrilin käyttämä metatietomuoto on muuttunut ja se pitää muuntaa. Mikäli muunnos keskeytetään, metatietojen tallennus ei toimi."
+msgstr "Xreaderin käyttämä metatietomuoto on muuttunut ja se pitää muuntaa. Mikäli muunnos keskeytetään, metatietojen tallennus ei toimi."
 
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
@@ -1310,30 +1310,30 @@ msgstr "Asiakirjakatselin\nKäyttää kirjastoa %s (%s)"
 
 #: ../shell/ev-window.c:5037
 msgid ""
-"Atril is free software; you can redistribute it and/or modify it under the "
+"Xreader is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
-msgstr "Atril on vapaa ohjelma; voit levittää sitä edelleen ja/tai muokata sitä GNU:n GPL-lisenssin sallimilla tavoilla siten kuin Free Software Foundation on sen määritellyt; voit halutessasi käyttää lisenssin versiota 2 taikka mitä tahansa tämän jälkeen ilmestynyttä versiota.\n"
+msgstr "Xreader on vapaa ohjelma; voit levittää sitä edelleen ja/tai muokata sitä GNU:n GPL-lisenssin sallimilla tavoilla siten kuin Free Software Foundation on sen määritellyt; voit halutessasi käyttää lisenssin versiota 2 taikka mitä tahansa tämän jälkeen ilmestynyttä versiota.\n"
 
 #: ../shell/ev-window.c:5041
 msgid ""
-"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
-msgstr "Atriliä levitetään siinä toivossa, että siitä on hyötyä, mutta ILMAN MITÄÄN TAKUUTA; jopa ilman konkludenttista takuuta MYYNTIKELPOISUUDESTA TAI SOVELTUMISESTA TIETTYYN ERITYISEEN TARKOITUKSEEN. Yksityiskohtien osalta katso GNU:n GPL-lisenssiä.\n"
+msgstr "Xreaderiä levitetään siinä toivossa, että siitä on hyötyä, mutta ILMAN MITÄÄN TAKUUTA; jopa ilman konkludenttista takuuta MYYNTIKELPOISUUDESTA TAI SOVELTUMISESTA TIETTYYN ERITYISEEN TARKOITUKSEEN. Yksityiskohtien osalta katso GNU:n GPL-lisenssiä.\n"
 
 #: ../shell/ev-window.c:5045
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+" Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
 
 #: ../shell/ev-window.c:5074
-msgid "Atril"
-msgstr "Atril"
+msgid "Xreader"
+msgstr "Xreader"
 
 #: ../shell/ev-window.c:5077
 msgid ""
@@ -1718,16 +1718,16 @@ msgid "NUMBER"
 msgstr "NUMERO"
 
 #: ../shell/main.c:79
-msgid "Run atril in fullscreen mode"
-msgstr "Suorita atril kokoruututilassa"
+msgid "Run xreader in fullscreen mode"
+msgstr "Suorita xreader kokoruututilassa"
 
 #: ../shell/main.c:80
-msgid "Run atril in presentation mode"
-msgstr "Suorita atril esitystilassa"
+msgid "Run xreader in presentation mode"
+msgstr "Suorita xreader esitystilassa"
 
 #: ../shell/main.c:81
-msgid "Run atril as a previewer"
-msgstr "Suorita atril esikatselimena"
+msgid "Run xreader as a previewer"
+msgstr "Suorita xreader esikatselimena"
 
 #: ../shell/main.c:82
 msgid "The word or phrase to find in the document"

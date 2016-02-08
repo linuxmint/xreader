@@ -1,17 +1,17 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
-/* Stock icons for Atril
+/* Stock icons for Xreader
  *
  * Copyright (C) 2003 Martin Kretzschmar
  *
  * Author:
  *   Martin Kretzschmar <Martin.Kretzschmar@inf.tu-dresden.de>
  *
- * Atril is free software; you can redistribute it and/or modify it
+ * Xreader is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Atril is distributed in the hope that it will be useful, but WITHOUT
+ * Xreader is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public
  * License for more details.
@@ -32,7 +32,7 @@ typedef struct {
 	char *icon;
 } EvStockIcon;
 
-/* Atril stock icons */
+/* Xreader stock icons */
 static const EvStockIcon stock_icons [] = {
 	{ EV_STOCK_ZOOM,	     "zoom" },
 	{ EV_STOCK_ZOOM_PAGE,        "zoom-fit-height" },
@@ -65,7 +65,7 @@ ev_stock_icons_add_icons_path_for_screen (GdkScreen *screen)
 		gint    n_paths;
 		gint    i;
 
-		/* GtkIconTheme will then look in Atril custom hicolor dir
+		/* GtkIconTheme will then look in Xreader custom hicolor dir
 		 * for icons as well as the standard search paths
 		 */
 		gtk_icon_theme_get_search_path (icon_theme, &path, &n_paths);
@@ -94,7 +94,7 @@ ev_stock_icons_init (void)
 	GtkIconSource *source;
 	gint i;
 
-	ev_icons_path = g_build_filename (ATRILDATADIR, "icons", NULL);
+	ev_icons_path = g_build_filename (XREADERDATADIR, "icons", NULL);
 
         factory = gtk_icon_factory_new ();
         gtk_icon_factory_add_default (factory);

@@ -1,4 +1,4 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of xreader, a mate document viewer
  *
  *  Copyright (C) 2004 Martin Kretzschmar
  *  Copyright © 2010 Christian Persch
@@ -6,12 +6,12 @@
  *  Author:
  *    Martin Kretzschmar <martink@gnome.org>
  *
- * Atril is free software; you can redistribute it and/or modify it
+ * Xreader is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Atril is distributed in the hope that it will be useful, but
+ * Xreader is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
@@ -76,12 +76,12 @@ static EvApplication *instance;
 G_DEFINE_TYPE (EvApplication, ev_application, G_TYPE_OBJECT);
 
 #ifdef ENABLE_DBUS
-#define APPLICATION_DBUS_OBJECT_PATH "/org/mate/atril/Atril"
-#define APPLICATION_DBUS_INTERFACE   "org.mate.atril.Application"
+#define APPLICATION_DBUS_OBJECT_PATH "/org/x/reader/Xreader"
+#define APPLICATION_DBUS_INTERFACE   "org.x.reader.Application"
 
-#define ATRIL_DAEMON_SERVICE        "org.mate.atril.Daemon"
-#define ATRIL_DAEMON_OBJECT_PATH    "/org/mate/atril/Daemon"
-#define ATRIL_DAEMON_INTERFACE      "org.mate.atril.Daemon"
+#define XREADER_DAEMON_SERVICE        "org.x.reader.Daemon"
+#define XREADER_DAEMON_OBJECT_PATH    "/org/x/reader/Daemon"
+#define XREADER_DAEMON_INTERFACE      "org.x.reader.Daemon"
 #endif
 
 static const gchar *userdir = NULL;
@@ -133,7 +133,7 @@ ev_application_load_session (EvApplication *application)
 	} else
 		return FALSE;
 
-	uri = g_key_file_get_string (state_file, "Atril", "uri", NULL);
+	uri = g_key_file_get_string (state_file, "Xreader", "uri", NULL);
 	if (!uri)
 		return FALSE;
 
@@ -155,7 +155,7 @@ smclient_save_state_cb (EggSMClient   *client,
 	if (!application->uri)
 		return;
 
-	g_key_file_set_string (state_file, "Atril", "uri", application->uri);
+	g_key_file_set_string (state_file, "Xreader", "uri", application->uri);
 }
 
 static void
@@ -224,7 +224,7 @@ ev_spawn (const char     *uri,
 	GError  *error = NULL;
 
 	cmd = g_string_new (NULL);
-	path = g_build_filename (BINDIR, "atril", NULL);
+	path = g_build_filename (BINDIR, "xreader", NULL);
 	g_string_append_printf (cmd, " %s", path);
 	g_free (path);
 
@@ -288,7 +288,7 @@ ev_spawn (const char     *uri,
 		g_object_unref (ctx);
 	}
 	if (error != NULL) {
-		g_warning ("Error launching atril %s: %s\n", uri, error->message);
+		g_warning ("Error launching xreader %s: %s\n", uri, error->message);
 		g_error_free (error);
 	}
 
@@ -501,7 +501,7 @@ on_register_uri_cb (GObject      *source_object,
  * @search_string:
  * @timestamp:
  *
- * Registers @uri with atril-daemon.
+ * Registers @uri with xreader-daemon.
  *
  */
 static void
@@ -545,9 +545,9 @@ ev_application_register_uri (EvApplication  *application,
 	data->timestamp = timestamp;
 
         g_dbus_connection_call (application->connection,
-				ATRIL_DAEMON_SERVICE,
-				ATRIL_DAEMON_OBJECT_PATH,
-				ATRIL_DAEMON_INTERFACE,
+				XREADER_DAEMON_SERVICE,
+				XREADER_DAEMON_OBJECT_PATH,
+				XREADER_DAEMON_INTERFACE,
 				"RegisterDocument",
 				g_variant_new ("(s)", uri),
 				G_VARIANT_TYPE ("(s)"),
@@ -573,9 +573,9 @@ ev_application_unregister_uri (EvApplication *application,
 	 */
         value = g_dbus_connection_call_sync (
 		application->connection,
-		ATRIL_DAEMON_SERVICE,
-		ATRIL_DAEMON_OBJECT_PATH,
-		ATRIL_DAEMON_INTERFACE,
+		XREADER_DAEMON_SERVICE,
+		XREADER_DAEMON_OBJECT_PATH,
+		XREADER_DAEMON_INTERFACE,
 		"UnregisterDocument",
 		g_variant_new ("(s)", uri),
 		NULL,
@@ -667,7 +667,7 @@ ev_application_open_uri_at_dest (EvApplication  *application,
 	g_return_if_fail (uri != NULL);
 
 	if (application->uri && strcmp (application->uri, uri) != 0) {
-		/* spawn a new atril process */
+		/* spawn a new xreader process */
 		ev_spawn (uri, screen, dest, mode, search_string, timestamp);
 		return;
 	} else if (!application->uri) {
@@ -806,7 +806,7 @@ method_call_cb (GDBusConnection       *connection,
 
 static const char introspection_xml[] =
         "<node>"
-          "<interface name='org.mate.atril.Application'>"
+          "<interface name='org.x.reader.Application'>"
             "<method name='Reload'>"
               "<arg type='a{sv}' name='args' direction='in'/>"
               "<arg type='u' name='timestamp' direction='in'/>"
@@ -849,11 +849,11 @@ static void ev_application_accel_map_save(EvApplication* application)
 
 	if (userdir)
 	{
-		accel_map_file = g_build_filename(userdir, "atril", "accels", NULL);
+		accel_map_file = g_build_filename(userdir, "xreader", "accels", NULL);
 	}
 	else
 	{
-		accel_map_file = g_build_filename(g_get_user_config_dir(), "accels", "atril", NULL);
+		accel_map_file = g_build_filename(g_get_user_config_dir(), "accels", "xreader", NULL);
 	}
 
 	tmp_filename = g_strdup_printf("%s.XXXXXX", accel_map_file);
@@ -886,11 +886,11 @@ static void ev_application_accel_map_load(EvApplication* application)
 
 	if (userdir)
 	{
-		accel_map_file = g_build_filename(userdir, "accels", "atril", NULL);
+		accel_map_file = g_build_filename(userdir, "accels", "xreader", NULL);
 	}
 	else
 	{
-		accel_map_file = g_build_filename(g_get_user_config_dir(), "atril", "accels", NULL);
+		accel_map_file = g_build_filename(g_get_user_config_dir(), "xreader", "accels", NULL);
 	}
 
 	gtk_accel_map_load(accel_map_file);
@@ -962,14 +962,14 @@ static void ev_application_init(EvApplication* ev_application)
 
 	if (userdir)
 	{
-		ev_application->dot_dir = g_build_filename(userdir, "atril", NULL);
+		ev_application->dot_dir = g_build_filename(userdir, "xreader", NULL);
 	}
 	else
 	{
-		ev_application->dot_dir = g_build_filename(g_get_user_config_dir(), "atril", NULL);
+		ev_application->dot_dir = g_build_filename(g_get_user_config_dir(), "xreader", NULL);
 	}
 
-	ev_application->data_dir = g_strdup (ATRILDATADIR);
+	ev_application->data_dir = g_strdup (XREADERDATADIR);
 
 	ev_application_init_session (ev_application);
 

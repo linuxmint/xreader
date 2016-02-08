@@ -5,8 +5,8 @@
   <!ENTITY appversion "1.10.1">
   <!ENTITY manrevision "1.2">
   <!ENTITY date "July 2015">
-  <!ENTITY app "<application>Atril Document Viewer</application>">
-  <!ENTITY appname "Atril Document Viewer">
+  <!ENTITY app "<application>Xreader Document Viewer</application>">
+  <!ENTITY appname "Xreader Document Viewer">
 ]>
 
 <!-- 
@@ -25,7 +25,7 @@
     <title>&appname; Manual </title>       
     <abstract role="description">
       <para> 
-         The Atril Document Viewer application enables you to view documents of various formats like Portable 
+         The Xreader Document Viewer application enables you to view documents of various formats like Portable 
          Document Format (PDF) files and PostScript files
       </para>
     </abstract>
@@ -137,14 +137,14 @@
     <primary>&appname;</primary> 
   </indexterm> 
   <indexterm zone="index"> 
-    <primary>atril</primary> 
+    <primary>xreader</primary> 
   </indexterm>
 
 <!-- ============= Document Body ============================= -->
 <!-- ============= Introduction ============================== -->
 <!-- Use the Introduction section to give a brief overview of what
      the application is and what it does. -->
-  <sect1 id="atril-introduction"> 
+  <sect1 id="xreader-introduction"> 
     <title>Introduction</title> 
     <para>The &app; application enables you to view documents of various formats like Portable Document Format (PDF) files and PostScript files.  &app; follows Freedesktop.org and MATE standards to provide integration with Desktop Environment.
     </para>
@@ -152,17 +152,17 @@
 
 <!-- =========== Getting Started ============================== -->
 
-  <sect1 id="atril-getting-started"> 
+  <sect1 id="xreader-getting-started"> 
     <title>Getting Started</title> 
 
-    <sect2 id="atril-start">
+    <sect2 id="xreader-start">
     <title>To Start &appname;</title>
     <para>&app; starts when you open a document such as a PDF or PostScript file.</para>
-    <para>Alternatively, you can start &app; from the command line, with the command: <command>atril</command>.</para>
+    <para>Alternatively, you can start &app; from the command line, with the command: <command>xreader</command>.</para>
     
     </sect2>
 
-    <sect2 id="atril-when-start">
+    <sect2 id="xreader-when-start">
     <title>When You Start &appname;</title>
     <para>When you start &app;, the following window is displayed.</para>
 
@@ -172,7 +172,7 @@
 	<screenshot> 
 	  <mediaobject> 
 	    <imageobject><imagedata
-		fileref="figures/atril_start_window.png" format="PNG"/> 
+		fileref="figures/xreader_start_window.png" format="PNG"/> 
 	    </imageobject>
 	    <textobject> 
 	      <phrase>Shows &appname; main window. Contains titlebar, menubar, toolbar and display area. Menubar contains File, Edit, View, Go and Help menus. </phrase> 
@@ -252,11 +252,11 @@
   </sect1>
 
 <!-- ================ Usage ================================ -->
-  <sect1 id="atril-usage"> 
+  <sect1 id="xreader-usage"> 
     <title>Usage</title> 
 
     <!-- ================ Usage Subsection ================================ -->
-    <sect2 id="atril-open-file"> 
+    <sect2 id="xreader-open-file"> 
       <title>To Open A Document</title> 
       <para>To open a document, perform the following steps:</para>
       <orderedlist>
@@ -283,7 +283,7 @@
       </para>
     </sect2>
 
-    <sect2 id="atril-navigate-file">
+    <sect2 id="xreader-navigate-file">
     <title>To Navigate Through a Document</title>
       <para>You can navigate through a file as follows:</para>
       <itemizedlist>
@@ -310,7 +310,7 @@
     </sect2>
 
     <!-- ================ Usage Subsection ================================ -->
-    <sect2 id="atril-scroll-page"> 
+    <sect2 id="xreader-scroll-page"> 
       <title>To Scroll a Page</title> 
       <para>To display the page contents that are not currently displayed in the display area, use the following methods:</para> 
         <itemizedlist> 
@@ -327,7 +327,7 @@
     </sect2>
 
     <!-- ================ Usage Subsection ================================ -->
-	 <sect2 id="atril-manipulate-zoom-factor"> 
+	 <sect2 id="xreader-manipulate-zoom-factor"> 
       <title>To Change the Page Size</title> 
       <para>
         You can use the following methods to resize a page in the &app; display area:
@@ -361,7 +361,7 @@
       </itemizedlist> 
     </sect2> 
 
-    <sect2 id="atril-view-pages">
+    <sect2 id="xreader-view-pages">
       <title>To View Pages or Document Structure</title>
       <para>To view bookmarks or pages, perform the following steps:
       </para>
@@ -387,7 +387,7 @@
       </orderedlist>
     </sect2> 
 
-    <sect2 id="atril-view-properties">
+    <sect2 id="xreader-view-properties">
       <title>To View the Properties of a Document</title>
       <para>To view the properties of a document, choose 
         <menuchoice>
@@ -400,14 +400,14 @@
       </para>
     </sect2>
 
-    <sect2 id="atril-print-file">
+    <sect2 id="xreader-print-file">
       <title>To Print a Document</title>
       <para>
         To print a Document, choose <menuchoice> <guimenu>File</guimenu> <guimenuitem>Print</guimenuitem> </menuchoice>.
       </para>
       <note>
         <para>
-          If you cannot choose the <guimenuitem>Print</guimenuitem> menu item, the author of the document has disabled the print option for this document. To enable the print option, you must enter the master password when you open the document. See <xref linkend="atril-password"/> for more information about password-protected files.
+          If you cannot choose the <guimenuitem>Print</guimenuitem> menu item, the author of the document has disabled the print option for this document. To enable the print option, you must enter the master password when you open the document. See <xref linkend="xreader-password"/> for more information about password-protected files.
         </para>
       </note>
       <para>
@@ -591,7 +591,7 @@
     </sect2>
 
     <!-- ================ Usage Subsection ================================ -->
-    <sect2 id="atril-copy-file"> 
+    <sect2 id="xreader-copy-file"> 
       <title>To Copy a Document</title> 
       <para>To copy a file, perform the following steps:
       </para>
@@ -617,8 +617,8 @@
       </orderedlist>
     </sect2>
 
-    <!-- this id must be kept in sync with atril-persist-file.cc/atril-persist-stream.cc -->
-    <sect2 id="atril-password">
+    <!-- this id must be kept in sync with xreader-persist-file.cc/xreader-persist-stream.cc -->
+    <sect2 id="xreader-password">
       <title>To Work With Password-Protected Documents</title>
       <para>
         An author can use the following password levels to protect a document:
@@ -639,7 +639,7 @@
     </sect2>
 
     <!-- ================ Usage Subsection ================================ -->
-    <sect2 id="atril-close-file"> 
+    <sect2 id="xreader-close-file"> 
       <title>To Close a Document</title> 
       <para>To close a document, choose <menuchoice> <guimenu>File</guimenu> <guimenuitem>Close</guimenuitem> </menuchoice>. 
       </para> 
@@ -651,7 +651,7 @@
   </sect1>
 
   <!-- ================ Shortcuts ================================ -->
-  <sect1 id="atril-shortcuts"> 
+  <sect1 id="xreader-shortcuts"> 
     <title>Shortcuts</title> 
     <para>Below is a list of all shortcuts present in &app;:</para>
     <informaltable frame="all">

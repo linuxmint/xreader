@@ -7,7 +7,7 @@ AUTOMAKE_OPTIONS = 1.10
 # of using the various options.
 
 # The name of the module, e.g. 'glib'.
-DOC_MODULE = libatrildocument
+DOC_MODULE = libxreaderdocument
 
 # Uncomment for versioned docs and specify the version of the module, e.g. '2'.
 DOC_MODULE_VERSION = $(EV_API_VERSION)
@@ -95,19 +95,19 @@ GTKDOC_CFLAGS = \
 	-I$(top_srcdir)					\
 	-I$(top_builddir)				\
 	-I$(top_srcdir)/libdocument 			\
-	-DATRILDATADIR=\"$(pkgdatadir)\"		\
+	-DXREADERDATADIR=\"$(pkgdatadir)\"		\
 	-DMATEDATADIR=\"$(datadir)\"			\
-	-DATRIL_UIDIR=\"$(pkgdatadir)\" 		\
+	-DXREADER_UIDIR=\"$(pkgdatadir)\" 		\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"		\
 	-DEV_BACKENDSDIR=\"$(backenddir)\"		\
-	-DATRIL_COMPILATION				\
+	-DXREADER_COMPILATION				\
 	$(AM_CFLAGS)					\
 	$(LIBDOCUMENT_CFLAGS)				\
 	$(WARN_CFLAGS)					\
 	$(DISABLE_DEPRECATED)
 
 GTKDOC_LIBS = \
-	$(top_builddir)/libdocument/libatrildocument.la	\
+	$(top_builddir)/libdocument/libxreaderdocument.la	\
 	$(LIBDOCUMENT_LIBS)
 
 # This includes the standard gtk-doc make rules, copied by gtkdocize.

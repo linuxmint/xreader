@@ -1,15 +1,15 @@
 
-bin_PROGRAMS = atril-previewer
+bin_PROGRAMS = xreader-previewer
 
-man_MANS = atril-previewer.1
+man_MANS = xreader-previewer.1
 
-atril_previewer_SOURCES = \
+xreader_previewer_SOURCES = \
 	ev-previewer.c		\
 	ev-previewer-window.h	\
 	ev-previewer-window.c
 
-atril_previewer_CPPFLAGS = \
-	-DATRILDATADIR=\"$(pkgdatadir)\"	\
+xreader_previewer_CPPFLAGS = \
+	-DXREADERDATADIR=\"$(pkgdatadir)\"	\
 	-I$(top_srcdir)                         \
 	-I$(top_builddir) 			\
         -I$(top_srcdir)/libdocument             \
@@ -17,18 +17,18 @@ atril_previewer_CPPFLAGS = \
 	-I$(top_srcdir)/libmisc			\
 	$(AM_CPPFLAGS)
 
-atril_previewer_CFLAGS = \
+xreader_previewer_CFLAGS = \
 	$(PREVIEWER_CFLAGS)			\
         $(WARN_CFLAGS)                          \
         $(DISABLE_DEPRECATED)			\
 	$(AM_CFLAGS)    \
     $(WEBKIT_CFLAGS)
 
-atril_previewer_LDFLAGS = $(AM_LDFLAGS)
+xreader_previewer_LDFLAGS = $(AM_LDFLAGS)
 
-atril_previewer_LDADD = \
-	$(top_builddir)/libdocument/libatrildocument.la	\
-	$(top_builddir)/libview/libatrilview.la		\
+xreader_previewer_LDADD = \
+	$(top_builddir)/libdocument/libxreaderdocument.la	\
+	$(top_builddir)/libview/libxreaderview.la		\
 	$(top_builddir)/libmisc/libevmisc.la		\
 	$(PREVIEWER_LIBS)                           \
     $(WEBKIT_LIBS)

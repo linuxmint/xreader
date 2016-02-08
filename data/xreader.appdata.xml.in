@@ -1,44 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2014 MATE team <mate-dev@ml.mate-desktop.org> -->
 <component type="desktop">
- <id>atril.desktop</id>
+ <id>xreader.desktop</id>
  <metadata_license>CC0-1.0</metadata_license>
  <project_license>GPL-2.0+</project_license>
- <name>Atril Document Viewer</name>
- <_summary>A Document Viewer for the MATE desktop environment</_summary>
+ <name>Xreader Document Viewer</name>
+ <_summary>A Document Viewer</_summary>
  <_description>
   <p>
-   Atril is a simple multi-page document viewer. It can display and
+   Xreader is a simple multi-page document viewer. It can display and
    print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI,
    XPS and Portable Document Format (PDF) files, as well as comic book
    archive files. When supported by the document, it also allows
    searching for text, copying text to the clipboard, hypertext navigation
    and table-of-contents bookmarks.
   </p>
-  <p>
-   Atril is a fork of Evince and part of the MATE Desktop Environment.
-   If you would like to know more about MATE and Atril, please visit the
-   project's home page.
-  </p>
  </_description>
- <screenshots>
-  <screenshot type="default">
-   <image width="960" height="540">
-    https://alexpl.fedorapeople.org/AppData/atril/screens/atril_01.png
-   </image>
-  </screenshot>
-  <screenshot>
-   <image width="960" height="540">
-    https://alexpl.fedorapeople.org/AppData/atril/screens/atril_02.png
-   </image>
-  </screenshot>
-  <screenshot>
-   <image width="960" height="540">
-    https://alexpl.fedorapeople.org/AppData/atril/screens/atril_03.png
-   </image>
-  </screenshot>
- </screenshots>
- <url type="homepage">http://www.mate-desktop.org</url>
- <updatecontact>mate-dev@ml.mate-desktop.org</updatecontact>
- <project_group>MATE</project_group>
+ <url type="homepage">http://github.com/linuxmint/xreader</url>
+ <project_group>Linux Mint</project_group>
 </component>

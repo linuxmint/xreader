@@ -1,5 +1,5 @@
 AM_CPPFLAGS=							\
-	-DATRILDATADIR=\"$(pkgdatadir)\"				\
+	-DXREADERDATADIR=\"$(pkgdatadir)\"				\
 	-DMATEDATADIR=\"$(datadir)\"				\
 	-I$(top_srcdir)						\
 	-I$(top_builddir)					\
@@ -17,20 +17,20 @@ AM_CPPFLAGS=							\
 	-DMATEICONDIR=\""$(datadir)/pixmaps"\" 		\
 	-DBINDIR=\""$(bindir)"\"				\
 	-DLIBEXECDIR=\""$(libexecdir)"\"			\
-	-DATRIL_COMPILATION					\
+	-DXREADER_COMPILATION					\
 	$(SHELL_CFLAGS)						\
 	$(MATE_DESKTOP_CFLAGS)					\
 	$(WARN_CFLAGS)						\
 	$(DISABLE_DEPRECATED)
 
-bin_PROGRAMS=atril
+bin_PROGRAMS=xreader
 
-libexec_PROGRAMS=atril-convert-metadata
+libexec_PROGRAMS=xreader-convert-metadata
 if ENABLE_DBUS
-libexec_PROGRAMS += atrild
+libexec_PROGRAMS += xreaderd
 endif
 
-atril_SOURCES=				\
+xreader_SOURCES=				\
 	eggfindbar.c			\
 	eggfindbar.h			\
 	ev-annotation-properties-dialog.h \
@@ -94,51 +94,51 @@ atril_SOURCES=				\
 	main.c
 
 if ENABLE_DBUS
-atril_SOURCES += \
+xreader_SOURCES += \
 	ev-media-player-keys.c \
 	ev-media-player-keys.h
 endif
 
 
-atril_LDFLAGS = $(AM_LDFLAGS)
+xreader_LDFLAGS = $(AM_LDFLAGS)
 
-atril_LDADD=										\
+xreader_LDADD=										\
 	$(top_builddir)/cut-n-paste/zoom-control/libephyzoom.la				\
 	$(top_builddir)/cut-n-paste/toolbar-editor/libtoolbareditor.la			\
 	$(top_builddir)/cut-n-paste/totem-screensaver/libtotemscrsaver.la		\
 	$(top_builddir)/cut-n-paste/gimpcellrenderertoggle/libgimpcellrenderertoggle.la	\
 	$(top_builddir)/cut-n-paste/smclient/libsmclient.la				\
 	$(top_builddir)/properties/libevproperties.la					\
-	$(top_builddir)/libdocument/libatrildocument.la					\
-	$(top_builddir)/libview/libatrilview.la						\
+	$(top_builddir)/libdocument/libxreaderdocument.la					\
+	$(top_builddir)/libview/libxreaderview.la						\
 	$(top_builddir)/libmisc/libevmisc.la						\
 	$(SHELL_LIBS)									\
 	$(MATE_DESKTOP_LIBS)
 
 BUILT_SOURCES = ev-marshal.h ev-marshal.c
 
-atril_convert_metadata_SOURCES=	\
+xreader_convert_metadata_SOURCES=	\
 	ev-convert-metadata.c
 
-atril_convert_metadata_LDADD=		\
+xreader_convert_metadata_LDADD=		\
 	$(SHELL_LIBS)
 
 if ENABLE_DBUS
-atrild_SOURCES=			\
+xreaderd_SOURCES=			\
 	ev-daemon.c
 
-atrild_CFLAGS=				\
-	-DATRILDATADIR=\"$(pkgdatadir)\"			\
+xreaderd_CFLAGS=				\
+	-DXREADERDATADIR=\"$(pkgdatadir)\"			\
 	-DMATEDATADIR=\"$(datadir)\"				\
 	-I$(top_srcdir)						\
 	-I$(top_builddir)					\
 	-DLIBEXECDIR=\""$(libexecdir)"\"			\
-	-DATRIL_COMPILATION					\
+	-DXREADER_COMPILATION					\
 	$(EV_DAEMON_CFLAGS)					\
 	$(WARN_CFLAGS)						\
 	$(DISABLE_DEPRECATED)
 
-atrild_LDADD=				\
+xreaderd_LDADD=				\
 	$(EV_DAEMON_LIBS)
 endif
 

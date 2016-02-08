@@ -1,4 +1,4 @@
-lib_LTLIBRARIES = libatrildocument.la
+lib_LTLIBRARIES = libxreaderdocument.la
 
 NOINST_H_FILES =				\
 	ev-debug.h				\
@@ -46,10 +46,10 @@ INST_H_FILES = 					\
 	$(INST_H_SRC_FILES)			\
 	ev-document-type-builtins.h
 
-headerdir = $(includedir)/atril/$(EV_API_VERSION)/libdocument
+headerdir = $(includedir)/xreader/$(EV_API_VERSION)/libdocument
 header_DATA = $(INST_H_FILES)
 
-libatrildocument_la_SOURCES=			\
+libxreaderdocument_la_SOURCES=			\
 	ev-annotation.c				\
 	ev-async-renderer.c			\
 	ev-attachment.c				\
@@ -90,29 +90,29 @@ libatrildocument_la_SOURCES=			\
 	$(NOINST_H_FILES)			\
 	$(INST_H_FILES)
 
-libatrildocument_la_CPPFLAGS = \
-	-DG_LOG_DOMAIN=\"AtrilDocument\"		\
-	-DATRIL_UIDIR=\"$(pkgdatadir)\"		\
+libxreaderdocument_la_CPPFLAGS = \
+	-DG_LOG_DOMAIN=\"XreaderDocument\"		\
+	-DXREADER_UIDIR=\"$(pkgdatadir)\"		\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"		\
 	-DEV_BACKENDSDIR=\"$(backenddir)\"		\
 	-DEV_BACKENDSBINARYVERSION=\"$(backend_binary_version)\"	\
-	-DATRIL_COMPILATION				\
+	-DXREADER_COMPILATION				\
 	$(AM_CPPFLAGS)
 
-libatrildocument_la_CFLAGS = \
+libxreaderdocument_la_CFLAGS = \
 	$(LIBDOCUMENT_CFLAGS)			\
 	-I$(top_srcdir)/cut-n-paste/synctex	\
 	$(WARN_CFLAGS)				\
 	$(DISABLE_DEPRECATED)			\
 	$(AM_CFLAGS)
 
-libatrildocument_la_LDFLAGS = \
+libxreaderdocument_la_LDFLAGS = \
 	-version-info $(EV_DOCUMENT_LT_VERSION_INFO)	\
 	-no-undefined	\
 	-export-symbols-regex "^ev_*"	\
 	$(AM_LDFLAGS)
 
-libatrildocument_la_LIBADD = \
+libxreaderdocument_la_LIBADD = \
 	$(LIBDOCUMENT_LIBS)	\
 	$(GMODULE_LIBS)		\
 	$(top_builddir)/cut-n-paste/synctex/libsynctex.la \
@@ -152,9 +152,9 @@ EXTRA_DIST = \
 
 if ENABLE_INTROSPECTION
 
-AtrilDocument-$(EV_API_VERSION).gir: libatrildocument.la Makefile $(INST_H_FILES) $(filter %.c,$(libatrildocument_la_SOURCES))
+XreaderDocument-$(EV_API_VERSION).gir: libxreaderdocument.la Makefile $(INST_H_FILES) $(filter %.c,$(libxreaderdocument_la_SOURCES))
 	$(AM_V_GEN) PKG_CONFIG_PATH=$(top_builddir):$$PKG_CONFIG_PATH \
-	$(G_IR_SCANNER) -v --namespace AtrilDocument \
+	$(G_IR_SCANNER) -v --namespace XreaderDocument \
 	--strip-prefix=Ev \
 	--nsversion=$(EV_API_VERSION) \
 	--include=GLib-2.0 \
@@ -162,23 +162,23 @@ AtrilDocument-$(EV_API_VERSION).gir: libatrildocument.la Makefile $(INST_H_FILES
 	--include=Gdk-$(GTK_API_VERSION) \
 	--include=GdkPixbuf-2.0 \
 	--include=Gtk-$(GTK_API_VERSION) \
-	--library=atrildocument \
+	--library=xreaderdocument \
 	--libtool="$(LIBTOOL)" \
 	--output $@ \
-	--pkg atril-document-$(EV_API_VERSION) \
+	--pkg xreader-document-$(EV_API_VERSION) \
 	-I$(top_srcdir) \
 	-I$(top_builddir) \
 	-I$(srcdir) \
 	-I$(builddir) \
-	-DATRIL_COMPILATION \
+	-DXREADER_COMPILATION \
 	$(filter %.h,$^) \
 	$(filter %.c,$^)
 
 girdir = $(GIRDIR)
-gir_DATA = AtrilDocument-$(EV_API_VERSION).gir
+gir_DATA = XreaderDocument-$(EV_API_VERSION).gir
 
 typelibsdir = $(GIRTYPELIBDIR)
-typelibs_DATA = AtrilDocument-$(EV_API_VERSION).typelib
+typelibs_DATA = XreaderDocument-$(EV_API_VERSION).typelib
 
 EXTRA_DIST += $(gir_DATA)
 CLEANFILES += $(gir_DATA) $(typelibs_DATA)

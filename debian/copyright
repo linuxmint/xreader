@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: atril
-Upstream-Contact: Stefano Karapetsas <stefano@karapetsas.com>
-Source: http://git.mate-desktop.org/atril/
+Upstream-Name: xreader
+Upstream-Contact: Linux Mint <root@linuxmint.com>
+Source: http://github.com/linuxmint/xreader/
 
 Files: backend/dvi/cairo-device.c
        backend/dvi/cairo-device.h
@@ -223,8 +223,8 @@ Files: cut-n-paste/smclient/eggdesktopfile.h
 Copyright: 2007, Novell, Inc.
 License: LGPL-2+
 
-Files: atril-document.h
-       atril-view.h
+Files: xreader-document.h
+       xreader-view.h
        libdocument/ev-init.c
        libdocument/ev-init.h
 Copyright: 2009, Christian Persch
@@ -412,7 +412,7 @@ Copyright: 2004, Martin Kretzschmar
            2010, Christian Persch
 License: GPL-2+
 
-Files: thumbnailer/atril-thumbnailer.c
+Files: thumbnailer/xreader-thumbnailer.c
 Copyright: 2005, Fernando Herrera <fherrera@onirica.com>
 License: GPL-2+
 
@@ -485,7 +485,7 @@ License: GPL-2+
 Comment:
  Using license from COPYING file.
 
-Files: properties/libatril-properties-page.caja-extension.in.in
+Files: properties/libxreader-properties-page.caja-extension.in.in
 Copyright: 2000, 2001 Eazel Inc.
            2003 Andrew Sobala <aes@gnome.org>
            2005 Bastien Nocera <hadess@hadess.net>
@@ -496,7 +496,7 @@ Comment:
 
 Files: backend/epub/epub-document.c
        backend/epub/epub-document.h
-       backend/epub/epubdocument.atril-backend.in
+       backend/epub/epubdocument.xreader-backend.in
        backend/epub/minizip/Makefile.am
        backend/epub/minizip/ioapi.c
        backend/epub/minizip/ioapi.h
@@ -649,9 +649,9 @@ Files: .tx/config
        data/icons/Makefile.am
        data/Makefile.am
        data/*.xml
-       data/atril.1
-       data/atril.convert
-       data/atril.ico
+       data/xreader.1
+       data/xreader.convert
+       data/xreader.ico
        data/*.png
        data/*.in
        libdocument/Makefile.am
@@ -666,10 +666,10 @@ Files: .tx/config
        po/LINGUAS
        po/POTFILES.*
        previewer/Makefile.am
-       previewer/atril-previewer.1
+       previewer/xreader-previewer.1
        properties/Makefile.am
        shell/Makefile.am
-       shell/atril-icon.rc
+       shell/xreader-icon.rc
        shell/ev-marshal.list
        test/Makefile.am
        test/*.py
@@ -678,8 +678,8 @@ Files: .tx/config
        test/test-mime.bin
        test/test-page-labels.pdf
        thumbnailer/Makefile.am
-       thumbnailer/atril-thumbnailer.1
-       thumbnailer/atril.thumbnailer.in
+       thumbnailer/xreader-thumbnailer.1
+       thumbnailer/xreader.thumbnailer.in
        AUTHORS
        COPYING
        ChangeLog
@@ -689,8 +689,8 @@ Files: .tx/config
        README
        TODO
        autogen.sh
-       atril-document.*
-       atril-view.*
+       xreader-document.*
+       xreader-view.*
        configure.ac
 Copyright: *No copyright*
 License: GPL-2+

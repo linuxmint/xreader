@@ -1,13 +1,13 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of xreader, a mate document viewer
  *
  *  Copyright (C) 2008 Carlos Garcia Campos <carlosgc@gnome.org>
  *
- * Atril is free software; you can redistribute it and/or modify it
+ * Xreader is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Atril is distributed in the hope that it will be useful, but
+ * Xreader is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
@@ -863,7 +863,7 @@ export_print_done (EvPrintOperationExport *export)
 
 			quoted_filename = g_shell_quote (export->temp_file);
 			quoted_settings_filename = g_shell_quote (print_settings_file);
-			cmd = g_strdup_printf ("atril-previewer --unlink-tempfile --print-settings %s %s",
+			cmd = g_strdup_printf ("xreader-previewer --unlink-tempfile --print-settings %s %s",
 					       quoted_settings_filename, quoted_filename);
 
 			g_free (quoted_filename);
@@ -1172,7 +1172,7 @@ ev_print_operation_export_print_dialog_response_cb (GtkDialog              *dial
 
 	file_format = gtk_print_settings_get (print_settings, GTK_PRINT_SETTINGS_OUTPUT_FILE_FORMAT);
 	
-	filename = g_strdup_printf ("atril_print.%s.XXXXXX", file_format != NULL ? file_format : "");
+	filename = g_strdup_printf ("xreader_print.%s.XXXXXX", file_format != NULL ? file_format : "");
 	export->fd = g_file_open_tmp (filename, &export->temp_file, &error);
 	g_free (filename);
 	if (export->fd <= -1) {
@@ -1514,9 +1514,9 @@ typedef enum {
 	EV_SCALE_FIT_TO_PRINTABLE_AREA
 } EvPrintScale;
 
-#define EV_PRINT_SETTING_PAGE_SCALE "atril-print-setting-page-scale"
-#define EV_PRINT_SETTING_AUTOROTATE "atril-print-setting-page-autorotate"
-#define EV_PRINT_SETTING_PAGE_SIZE  "atril-print-setting-page-size"
+#define EV_PRINT_SETTING_PAGE_SCALE "xreader-print-setting-page-scale"
+#define EV_PRINT_SETTING_AUTOROTATE "xreader-print-setting-page-autorotate"
+#define EV_PRINT_SETTING_PAGE_SIZE  "xreader-print-setting-page-size"
 
 struct _EvPrintOperationPrint {
 	EvPrintOperation parent;

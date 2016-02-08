@@ -5,7 +5,7 @@ context = apps
 iconsdir = $(themedir)/$(size)/$(context)
 
 icons_DATA = \
-	atril.svg
+	xreader.svg
 
 noinst_DATA = 
 

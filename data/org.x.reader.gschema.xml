@@ -1,21 +1,21 @@
 <schemalist>
 
-  <enum id="org.mate.Atril.SizingMode">
+  <enum id="org.x.reader.SizingMode">
     <value nick="best-fit" value="0"/>
     <value nick="fit-width" value="1"/>
     <value nick="free" value="2"/>
   </enum>
 
-  <schema id="org.mate.Atril" path="/org/mate/atril/" gettext-domain="atril">
+  <schema id="org.x.reader" path="/org/x/reader/" gettext-domain="xreader">
     <key name="override-restrictions" type="b">
       <default>true</default>
       <summary>Override document restrictions</summary>
       <description>Override document restrictions, like restriction to copy or to print.</description>
     </key>
-    <child name="default" schema="org.mate.Atril.Default"/>
+    <child name="default" schema="org.x.reader.Default"/>
   </schema>
 
-  <schema id="org.mate.Atril.Default" path="/org/mate/atril/default/" gettext-domain="atril">
+  <schema id="org.x.reader.Default" path="/org/x/reader/default/" gettext-domain="xreader">
     <key name="show-toolbar" type="b">
       <default>true</default>
     </key>
@@ -25,7 +25,7 @@
     <key name="window-ratio" type="(dd)">
       <default>(0., 0.)</default>
     </key>
-    <key name="sizing-mode" enum="org.mate.Atril.SizingMode">
+    <key name="sizing-mode" enum="org.x.reader.SizingMode">
       <default>'fit-width'</default>
     </key>
     <key name="zoom" type="d">

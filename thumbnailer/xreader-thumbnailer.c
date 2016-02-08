@@ -18,7 +18,7 @@
 
 #include <config.h>
 
-#include <atril-document.h>
+#include <xreader-document.h>
 
 #include <gio/gio.h>
 
@@ -91,7 +91,7 @@ delete_temp_file (GFile *file)
 }
 
 static EvDocument *
-atril_thumbnailer_get_document (GFile *file)
+xreader_thumbnailer_get_document (GFile *file)
 {
 	EvDocument *document = NULL;
 	gchar      *uri;
@@ -156,7 +156,7 @@ atril_thumbnailer_get_document (GFile *file)
 }
 
 static gboolean
-atril_thumbnail_pngenc_get (EvDocument *document, const char *thumbnail, int size)
+xreader_thumbnail_pngenc_get (EvDocument *document, const char *thumbnail, int size)
 {
 	EvRenderContext *rc;
 	double width, height;
@@ -179,7 +179,7 @@ atril_thumbnail_pngenc_get (EvDocument *document, const char *thumbnail, int siz
 		if (overlaid_icon_name) {
 			GdkPixbuf *overlaid_pixbuf;
 
-			gchar *overlaid_icon_path = g_strdup_printf ("%s/%s", ATRILDATADIR, overlaid_icon_name);
+			gchar *overlaid_icon_path = g_strdup_printf ("%s/%s", XREADERDATADIR, overlaid_icon_name);
 			overlaid_pixbuf = gdk_pixbuf_new_from_file (overlaid_icon_path, NULL);
 			g_free (overlaid_icon_path);
 			if (overlaid_pixbuf != NULL) {
@@ -214,10 +214,10 @@ atril_thumbnail_pngenc_get (EvDocument *document, const char *thumbnail, int siz
 }
 
 static gpointer
-atril_thumbnail_pngenc_get_async (struct AsyncData *data)
+xreader_thumbnail_pngenc_get_async (struct AsyncData *data)
 {
 	ev_document_doc_mutex_lock ();
-	data->success = atril_thumbnail_pngenc_get (data->document,
+	data->success = xreader_thumbnail_pngenc_get (data->document,
 						     data->output,
 						     data->size);
 	ev_document_doc_mutex_unlock ();
@@ -282,7 +282,7 @@ main (int argc, char *argv[])
                 return -1;
 
 	file = g_file_new_for_commandline_arg (input);
-	document = atril_thumbnailer_get_document (file);
+	document = xreader_thumbnailer_get_document (file);
 	g_object_unref (file);
 
 	if (!document) {
@@ -309,7 +309,7 @@ main (int argc, char *argv[])
 		data.size = size;
 
 		g_thread_new ("EvThumbnailerAsyncRenderer",
-				(GThreadFunc) atril_thumbnail_pngenc_get_async,
+				(GThreadFunc) xreader_thumbnail_pngenc_get_async,
 				&data);
 		
 		gtk_main ();
@@ -320,7 +320,7 @@ main (int argc, char *argv[])
 		return data.success ? 0 : -2;
 	}
 
-	if (!atril_thumbnail_pngenc_get (document, output, size)) {
+	if (!xreader_thumbnail_pngenc_get (document, output, size)) {
 		g_object_unref (document);
 		ev_shutdown ();
 		return -2;

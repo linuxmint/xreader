@@ -80,7 +80,7 @@ msgstr "حدث خطأ أثناء حذف “%s”."
 msgid "Error %s"
 msgstr "خطأ %s"
 
-#: ../backend/comics/comicsdocument.atril-backend.in.h:1
+#: ../backend/comics/comicsdocument.xreader-backend.in.h:1
 msgid "Comic Books"
 msgstr "قصصٌ مصوّرة"
 
@@ -94,7 +94,7 @@ msgid ""
 " be accessed."
 msgstr "المستند مركب من ملفات عديدة. تعذّرت قراءة واحدٍ أو أكثر من هذه الملفات."
 
-#: ../backend/djvu/djvudocument.atril-backend.in.h:1
+#: ../backend/djvu/djvudocument.xreader-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "مستندات DjVu"
 
@@ -102,7 +102,7 @@ msgstr "مستندات DjVu"
 msgid "DVI document has incorrect format"
 msgstr "هيئة مستند DVI غير صحيحة"
 
-#: ../backend/dvi/dvidocument.atril-backend.in.h:1
+#: ../backend/dvi/dvidocument.xreader-backend.in.h:1
 msgid "DVI Documents"
 msgstr "مستندات DVI"
 
@@ -162,7 +162,7 @@ msgstr "ملف epub لا يملك بيانا وصفيا"
 msgid "Could not set up document tree for loading, some files missing"
 msgstr "لا يُمكن إعداد شجرة المستندات للتحميل، بعض الملفات مفقودة."
 
-#: ../backend/epub/epubdocument.atril-backend.in.h:1
+#: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
 msgstr "مستندات epub"
 
@@ -230,7 +230,7 @@ msgstr "مُدمج"
 msgid "Not embedded"
 msgstr "غير مُدمج"
 
-#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
+#: ../backend/pdf/pdfdocument.xreader-backend.in.h:1
 msgid "PDF Documents"
 msgstr "مستندات PDF"
 
@@ -244,7 +244,7 @@ msgstr "تعذر تحميل المستند \"%s\""
 msgid "Failed to save document “%s”"
 msgstr "تعذر حفظ المستند “%s”"
 
-#: ../backend/ps/psdocument.atril-backend.in.h:1
+#: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "مستندات PostScript"
 
@@ -463,42 +463,42 @@ msgstr "3200%"
 msgid "6400%"
 msgstr "6400%"
 
-#: ../data/atril.appdata.xml.in.h:1
+#: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
 msgstr "عارض مستندات لبيئة سطح مكتب متّة"
 
-#: ../data/atril.appdata.xml.in.h:2
+#: ../data/xreader.appdata.xml.in.h:2
 msgid ""
-"<p> Atril is a simple multi-page document viewer. It can display and print "
+"<p> Xreader is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
 "Document Format (PDF) files, as well as comic book archive files. When "
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
-" <p> Atril is a fork of Evince and part of the MATE Desktop Environment. If "
-"you would like to know more about MATE and Atril, please visit the project's"
+" <p> Xreader is a fork of Evince and part of the MATE Desktop Environment. If "
+"you would like to know more about MATE and Xreader, please visit the project's"
 " home page. </p>"
 msgstr "<p> منضدة هو عارض بسيك للوثائق متعددة الصفحات. يستطيع عرض و طباعة ملفات ps و eps و djvu و dvi و xps و pdf، بالإضافة إلى ملفات أرشيف الكتب الهزلية. كما يسمح بالبحث عن النصوص و نسخها إلى الحافظة و تضفح الروابط النصية و علامات جدول المحتويات. </p> <p> منضدة هو فرع عن إيفنس و جزء من بيئة سطح مكتب متّة. إن كنت تبحث عن معلومات أكثر عن متّة و منضدة ، رجاء زر صفحة موقع المشروع </p>"
 
-#: ../data/atril.desktop.in.in.h:1
-msgid "Atril Document Viewer"
+#: ../data/xreader.desktop.in.in.h:1
+msgid "Xreader Document Viewer"
 msgstr "عارض الوثائق منضدة"
 
 #. Manually set name and icon
-#: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:5006
+#: ../data/xreader.desktop.in.in.h:2 ../shell/ev-window.c:5006
 #: ../shell/ev-window-title.c:157 ../shell/main.c:306
 #, c-format
 msgid "Document Viewer"
 msgstr "عارض الوثائق"
 
-#: ../data/atril.desktop.in.in.h:3
+#: ../data/xreader.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr "اعرض المُستندات متعددة الصفحات"
 
-#: ../data/org.mate.Atril.gschema.xml.h:1
+#: ../data/org.x.reader.gschema.xml.h:1
 msgid "Override document restrictions"
 msgstr ""
 
-#: ../data/org.mate.Atril.gschema.xml.h:2
+#: ../data/org.x.reader.gschema.xml.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 
@@ -678,12 +678,12 @@ msgstr "%s، طولي (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s، عرضيّ (%s)"
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:1
-msgid "Atril properties"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:1
+msgid "Xreader properties"
 msgstr "خصائص منضدة"
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:2
-msgid "Shows details for Atril documents"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:2
+msgid "Shows details for Xreader documents"
 msgstr "عرض تفاصيل عن مستندات منضدة"
 
 #: ../libmisc/ev-page-action-widget.c:68
@@ -985,7 +985,7 @@ msgstr "يحول البيانات الفوقية"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Atril has changed, and hence it needs to be "
+"The metadata format used by Xreader has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr "لقد تغير نسق البيانات الفوقية الذي تستخدمه \"منضدة\"، ولذا تحتاج لنقله. إذا ألغي النقل فلن يعمل مخزن البيانات الفوقية."
 
@@ -1319,7 +1319,7 @@ msgstr "عارض المستندات\nباستخدام %s ‏(%s)"
 
 #: ../shell/ev-window.c:5037
 msgid ""
-"Atril is free software; you can redistribute it and/or modify it under the "
+"Xreader is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
@@ -1327,7 +1327,7 @@ msgstr "\"منضدة\" برنامج حر؛ بإمكانك إعادة توزيع�
 
 #: ../shell/ev-window.c:5041
 msgid ""
-"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -1336,12 +1336,12 @@ msgstr "توزّع \"منضدة\" على أمل أن تكون مفيدة لمن 
 #: ../shell/ev-window.c:5045
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+" Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr "لابد من أن تكون قد استلمت نسخة من رخصة غنّو العامة مع \"منضدة\"؛ في حال عدم استلامك لذلك، يمكنك مكاتبة:\nFree Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 
 #: ../shell/ev-window.c:5074
-msgid "Atril"
+msgid "Xreader"
 msgstr "منضدة"
 
 #: ../shell/ev-window.c:5077
@@ -1731,15 +1731,15 @@ msgid "NUMBER"
 msgstr "رقم"
 
 #: ../shell/main.c:79
-msgid "Run atril in fullscreen mode"
+msgid "Run xreader in fullscreen mode"
 msgstr "شُغّلت \"منضدة\" في نمط ملء الشاشة"
 
 #: ../shell/main.c:80
-msgid "Run atril in presentation mode"
+msgid "Run xreader in presentation mode"
 msgstr "شُغّلت \"منضدة\" في نمط العرض التقديمي"
 
 #: ../shell/main.c:81
-msgid "Run atril as a previewer"
+msgid "Run xreader as a previewer"
 msgstr "شُغّلت \"منضدة\" كعارض"
 
 #: ../shell/main.c:82

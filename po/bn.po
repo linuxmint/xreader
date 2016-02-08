@@ -77,7 +77,7 @@ msgstr "“%s” মুছে ফেলার সময় একটি ত্র�
 msgid "Error %s"
 msgstr "ত্রুটি %s"
 
-#: ../backend/comics/comicsdocument.atril-backend.in.h:1
+#: ../backend/comics/comicsdocument.xreader-backend.in.h:1
 msgid "Comic Books"
 msgstr "কমিক-এর বই"
 
@@ -91,7 +91,7 @@ msgid ""
 " be accessed."
 msgstr "এই নথিটি একাধিক ফাইল দিয়ে গঠিত। এগুলোর এক বা একাধিক ফাইলে প্রবেশ করা যাচ্ছেনা।"
 
-#: ../backend/djvu/djvudocument.atril-backend.in.h:1
+#: ../backend/djvu/djvudocument.xreader-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "Djvu নথি"
 
@@ -99,7 +99,7 @@ msgstr "Djvu নথি"
 msgid "DVI document has incorrect format"
 msgstr "ত্রুটিপূর্ণ DVI নথি"
 
-#: ../backend/dvi/dvidocument.atril-backend.in.h:1
+#: ../backend/dvi/dvidocument.xreader-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI নথি"
 
@@ -159,7 +159,7 @@ msgstr ""
 msgid "Could not set up document tree for loading, some files missing"
 msgstr ""
 
-#: ../backend/epub/epubdocument.atril-backend.in.h:1
+#: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
 msgstr ""
 
@@ -227,7 +227,7 @@ msgstr "সন্নিবেশিত"
 msgid "Not embedded"
 msgstr "সন্নিবেশিত নয়"
 
-#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
+#: ../backend/pdf/pdfdocument.xreader-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF নথি"
 
@@ -241,7 +241,7 @@ msgstr "“%s” নথি লোড করতে ব্যর্থ"
 msgid "Failed to save document “%s”"
 msgstr "“%s” নথি সংরক্ষণ করতে ব্যর্থ"
 
-#: ../backend/ps/psdocument.atril-backend.in.h:1
+#: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "PostScript নথি"
 
@@ -460,42 +460,42 @@ msgstr ""
 msgid "6400%"
 msgstr ""
 
-#: ../data/atril.appdata.xml.in.h:1
+#: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
 msgstr ""
 
-#: ../data/atril.appdata.xml.in.h:2
+#: ../data/xreader.appdata.xml.in.h:2
 msgid ""
-"<p> Atril is a simple multi-page document viewer. It can display and print "
+"<p> Xreader is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
 "Document Format (PDF) files, as well as comic book archive files. When "
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
-" <p> Atril is a fork of Evince and part of the MATE Desktop Environment. If "
-"you would like to know more about MATE and Atril, please visit the project's"
+" <p> Xreader is a fork of Evince and part of the MATE Desktop Environment. If "
+"you would like to know more about MATE and Xreader, please visit the project's"
 " home page. </p>"
 msgstr ""
 
-#: ../data/atril.desktop.in.in.h:1
-msgid "Atril Document Viewer"
+#: ../data/xreader.desktop.in.in.h:1
+msgid "Xreader Document Viewer"
 msgstr ""
 
 #. Manually set name and icon
-#: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:5006
+#: ../data/xreader.desktop.in.in.h:2 ../shell/ev-window.c:5006
 #: ../shell/ev-window-title.c:157 ../shell/main.c:306
 #, c-format
 msgid "Document Viewer"
 msgstr "নথি প্রদর্শক"
 
-#: ../data/atril.desktop.in.in.h:3
+#: ../data/xreader.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr "বহুপৃষ্ঠা সম্বলিত নথি প্রদর্শন"
 
-#: ../data/org.mate.Atril.gschema.xml.h:1
+#: ../data/org.x.reader.gschema.xml.h:1
 msgid "Override document restrictions"
 msgstr ""
 
-#: ../data/org.mate.Atril.gschema.xml.h:2
+#: ../data/org.x.reader.gschema.xml.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 
@@ -675,12 +675,12 @@ msgstr "%1$s, লম্বালম্বি (%2$s)"
 msgid "%s, Landscape (%s)"
 msgstr "%1$s, আড়াআড়ি (%2$s)"
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:1
-msgid "Atril properties"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:1
+msgid "Xreader properties"
 msgstr ""
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:2
-msgid "Shows details for Atril documents"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:2
+msgid "Shows details for Xreader documents"
 msgstr ""
 
 #: ../libmisc/ev-page-action-widget.c:68
@@ -982,7 +982,7 @@ msgstr "মেটাডাটা রূপান্তর করা হচ্ছ
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Atril has changed, and hence it needs to be "
+"The metadata format used by Xreader has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr "এভিন্সের ব্যবহৃত মেটাডাটা বিন্যাস পরিবর্তন করা হয়েছে, এজন্য এটার অভিবাসন প্রয়োজন। অভিবাসন প্রক্রিয়া বাতিল করা হলে মেটাডাটা সংগ্রহশালা কাজ করবে না।"
 
@@ -1312,7 +1312,7 @@ msgstr "নথি প্রদর্শক\n%1$s (%2$s) ব্যবহার �
 
 #: ../shell/ev-window.c:5037
 msgid ""
-"Atril is free software; you can redistribute it and/or modify it under the "
+"Xreader is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
@@ -1320,7 +1320,7 @@ msgstr "এভিন্স একটি মুক্ত সফটওয়্যা
 
 #: ../shell/ev-window.c:5041
 msgid ""
-"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -1329,12 +1329,12 @@ msgstr "এভিন্সকে এই আশায় বিতরণ করা �
 #: ../shell/ev-window.c:5045
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+" Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
 
 #: ../shell/ev-window.c:5074
-msgid "Atril"
+msgid "Xreader"
 msgstr "এভিন্স"
 
 #: ../shell/ev-window.c:5077
@@ -1720,16 +1720,16 @@ msgid "NUMBER"
 msgstr ""
 
 #: ../shell/main.c:79
-msgid "Run atril in fullscreen mode"
+msgid "Run xreader in fullscreen mode"
 msgstr "পূর্ণপর্দা মোডে এভিন্স চালান"
 
 #: ../shell/main.c:80
-msgid "Run atril in presentation mode"
+msgid "Run xreader in presentation mode"
 msgstr "প্রেজেন্টেশন মোডে এভিন্স চালান"
 
 #: ../shell/main.c:81
-msgid "Run atril as a previewer"
-msgstr "পূর্বরূপ প্রদর্শনের মোডে atril চালানো হবে"
+msgid "Run xreader as a previewer"
+msgstr "পূর্বরূপ প্রদর্শনের মোডে xreader চালানো হবে"
 
 #: ../shell/main.c:82
 msgid "The word or phrase to find in the document"

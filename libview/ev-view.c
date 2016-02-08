@@ -1,14 +1,14 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; c-indent-level: 8 -*- */
-/* this file is part of atril, a mate document viewer
+/* this file is part of xreader, a mate document viewer
  *
  *  Copyright (C) 2004 Red Hat, Inc
  *
- * Atril is free software; you can redistribute it and/or modify it
+ * Xreader is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Atril is distributed in the hope that it will be useful, but
+ * Xreader is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
@@ -4082,7 +4082,7 @@ ev_view_motion_notify_event (GtkWidget      *widget,
 	
 	switch (view->pressed_button) {
 	case 1:
-		/* For the Atril 0.4.x release, we limit selection to un-rotated
+		/* For the Xreader 0.4.x release, we limit selection to un-rotated
 		 * documents only.
 		 */
 		if (view->rotation != 0)

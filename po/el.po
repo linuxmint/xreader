@@ -83,7 +83,7 @@ msgstr "Παρουσιάστηκε σφάλμα κατά την διαγραφή
 msgid "Error %s"
 msgstr "Σφάλμα %s"
 
-#: ../backend/comics/comicsdocument.atril-backend.in.h:1
+#: ../backend/comics/comicsdocument.xreader-backend.in.h:1
 msgid "Comic Books"
 msgstr "Comic Books"
 
@@ -97,7 +97,7 @@ msgid ""
 " be accessed."
 msgstr "Το έγγραφο απαρτίζεται από διάφορα αρχεία. Δεν είναι δυνατή η πρόσβαση σε ένα ή περισσότερα από αυτά τα αρχεία."
 
-#: ../backend/djvu/djvudocument.atril-backend.in.h:1
+#: ../backend/djvu/djvudocument.xreader-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "Έγγραφα DjVu"
 
@@ -105,7 +105,7 @@ msgstr "Έγγραφα DjVu"
 msgid "DVI document has incorrect format"
 msgstr "Το έγγραφο DVI έχει εσφαλμένη μορφή"
 
-#: ../backend/dvi/dvidocument.atril-backend.in.h:1
+#: ../backend/dvi/dvidocument.xreader-backend.in.h:1
 msgid "DVI Documents"
 msgstr "Έγγραφα DVI"
 
@@ -165,7 +165,7 @@ msgstr "το δημόσιο ηλεκτρονικό αρχείο δεν εχει 
 msgid "Could not set up document tree for loading, some files missing"
 msgstr "δεν είναι δυνατή η συγκρότηση του δέντρου εγγράφων για φόρτωση, λείπουν κάποια αρχεία"
 
-#: ../backend/epub/epubdocument.atril-backend.in.h:1
+#: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
 msgstr "Δημόσια ηλεκτρονικά έγγραφα"
 
@@ -233,7 +233,7 @@ msgstr "Ενσωματωμένο"
 msgid "Not embedded"
 msgstr "Μη ενσωματωμένο"
 
-#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
+#: ../backend/pdf/pdfdocument.xreader-backend.in.h:1
 msgid "PDF Documents"
 msgstr "Έγγραφα PDF"
 
@@ -247,7 +247,7 @@ msgstr "Αδυναμία φόρτωσης εγγράφου “%s”"
 msgid "Failed to save document “%s”"
 msgstr "Αδυναμία αποθήκευσης εγγράφου “%s”"
 
-#: ../backend/ps/psdocument.atril-backend.in.h:1
+#: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "Έγγραφα PostScript"
 
@@ -466,42 +466,42 @@ msgstr "3200%"
 msgid "6400%"
 msgstr "6400%"
 
-#: ../data/atril.appdata.xml.in.h:1
+#: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
 msgstr "Προβολέας εγγράφων για το περιβάλλον εργασίας της MATE"
 
-#: ../data/atril.appdata.xml.in.h:2
+#: ../data/xreader.appdata.xml.in.h:2
 msgid ""
-"<p> Atril is a simple multi-page document viewer. It can display and print "
+"<p> Xreader is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
 "Document Format (PDF) files, as well as comic book archive files. When "
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
-" <p> Atril is a fork of Evince and part of the MATE Desktop Environment. If "
-"you would like to know more about MATE and Atril, please visit the project's"
+" <p> Xreader is a fork of Evince and part of the MATE Desktop Environment. If "
+"you would like to know more about MATE and Xreader, please visit the project's"
 " home page. </p>"
-msgstr "Η Atril είναι μία απλή εφαρμογή πολλαπλών σελίδων προβολής εγγράφων. Δινει τη δυνατότητα εμφάνισης και εκτύπωσης PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable Document Format (PDF) αρχείων, τόσο καλά όσο αρχεία απο βιβλία κόμικς.Οταν υποστηρίζεται το έγγραφο, επίσης επιτρέπει την αναζήτηση κειμένου, αντιγραφή κειμένου στο πρόχειρο, υπερκειμένου πλοήγησης και σειρά με το περιεχόμενο των σελιδοδεικτών. Η Atril αποτελεί διακλάδωση του Evince και μέρος από το περιβάλλον εργασίας του MATE.Εαν θέλετε να μάθετε περισσότερα για το MATE και την Atril,παρακαλώ επισκεφθείτε την αρχική σελίδα των προγραμμάτων."
+msgstr "Η Xreader είναι μία απλή εφαρμογή πολλαπλών σελίδων προβολής εγγράφων. Δινει τη δυνατότητα εμφάνισης και εκτύπωσης PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable Document Format (PDF) αρχείων, τόσο καλά όσο αρχεία απο βιβλία κόμικς.Οταν υποστηρίζεται το έγγραφο, επίσης επιτρέπει την αναζήτηση κειμένου, αντιγραφή κειμένου στο πρόχειρο, υπερκειμένου πλοήγησης και σειρά με το περιεχόμενο των σελιδοδεικτών. Η Xreader αποτελεί διακλάδωση του Evince και μέρος από το περιβάλλον εργασίας του MATE.Εαν θέλετε να μάθετε περισσότερα για το MATE και την Xreader,παρακαλώ επισκεφθείτε την αρχική σελίδα των προγραμμάτων."
 
-#: ../data/atril.desktop.in.in.h:1
-msgid "Atril Document Viewer"
-msgstr "Εφαρμογή προβολής εγγράφων Atril"
+#: ../data/xreader.desktop.in.in.h:1
+msgid "Xreader Document Viewer"
+msgstr "Εφαρμογή προβολής εγγράφων Xreader"
 
 #. Manually set name and icon
-#: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:5006
+#: ../data/xreader.desktop.in.in.h:2 ../shell/ev-window.c:5006
 #: ../shell/ev-window-title.c:157 ../shell/main.c:306
 #, c-format
 msgid "Document Viewer"
 msgstr "Εφαρμογή προβολής εγγράφων"
 
-#: ../data/atril.desktop.in.in.h:3
+#: ../data/xreader.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr "Προβολή εγγράφων πολλαπλών σελίδων"
 
-#: ../data/org.mate.Atril.gschema.xml.h:1
+#: ../data/org.x.reader.gschema.xml.h:1
 msgid "Override document restrictions"
 msgstr ""
 
-#: ../data/org.mate.Atril.gschema.xml.h:2
+#: ../data/org.x.reader.gschema.xml.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 
@@ -681,13 +681,13 @@ msgstr "%s, Πορτραίτο (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, Τοπίο (%s)"
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:1
-msgid "Atril properties"
-msgstr "Προτιμήσεις Atril"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:1
+msgid "Xreader properties"
+msgstr "Προτιμήσεις Xreader"
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:2
-msgid "Shows details for Atril documents"
-msgstr "Εμφάνιση λεπτομερειών για τα έγγραφα του Atril"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:2
+msgid "Shows details for Xreader documents"
+msgstr "Εμφάνιση λεπτομερειών για τα έγγραφα του Xreader"
 
 #: ../libmisc/ev-page-action-widget.c:68
 #, c-format
@@ -988,9 +988,9 @@ msgstr "Μετατροπή μεταδεδομένων"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Atril has changed, and hence it needs to be "
+"The metadata format used by Xreader has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
-msgstr "Η μορφή μεταδεδομένων που χρησιμοποιείται από το Atril έχει αλλάξει, και χρειάζεται να γίνει μετάβαση. Αν ακυρωθεί η μετάβαση δε θα λειτουργεί η αποθήκη μεταδεδομένων."
+msgstr "Η μορφή μεταδεδομένων που χρησιμοποιείται από το Xreader έχει αλλάξει, και χρειάζεται να γίνει μετάβαση. Αν ακυρωθεί η μετάβαση δε θα λειτουργεί η αποθήκη μεταδεδομένων."
 
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
@@ -1318,30 +1318,30 @@ msgstr "Προβολή Εγγράφων.\nΓίνεται χρήση του %s (%
 
 #: ../shell/ev-window.c:5037
 msgid ""
-"Atril is free software; you can redistribute it and/or modify it under the "
+"Xreader is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
-msgstr "Το Atril είναι ελεύθερο λογισμικό. Επιτρέπεται η αναδιανομή ή/και τροποποίησή του υπό τους όρους της Γενικής Άδειας Δημόσιας Χρήσης GNU (GNU General Public License) όπως αυτή δημοσιεύεται από το Ίδρυμα Ελεύθερου Λογισμικού (Free Software Foundation) - είτε της έκδοσης 2 της άδειας, είτε (κατ' επιλογήν) οποιασδήποτε μεταγενέστερης έκδοσης.\n"
+msgstr "Το Xreader είναι ελεύθερο λογισμικό. Επιτρέπεται η αναδιανομή ή/και τροποποίησή του υπό τους όρους της Γενικής Άδειας Δημόσιας Χρήσης GNU (GNU General Public License) όπως αυτή δημοσιεύεται από το Ίδρυμα Ελεύθερου Λογισμικού (Free Software Foundation) - είτε της έκδοσης 2 της άδειας, είτε (κατ' επιλογήν) οποιασδήποτε μεταγενέστερης έκδοσης.\n"
 
 #: ../shell/ev-window.c:5041
 msgid ""
-"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
-msgstr "Το Atril διανέμεται με την ελπίδα οτι θα είναι χρήσιμο, αλλά ΧΩΡΙΣ ΚΑΜΜΙΑ ΑΠΟΛΥΤΩΣ ΕΓΓΥΗΣΗ - χωρίς ακόμη και την έμμεση εγγύηση ΕΜΠΟΡΕΥΣΙΜΟΤΗΤΑΣ ήΚΑΤΑΛΛΗΛΟΤΗΤΑΣ ΓΙΑ ΣΥΓΚΕΚΡΙΜΕΝΟ ΣΚΟΠΟ. Δείτε για περισσότερες λεπτομέρειες την Γενική Άδεια Δημόσιας Χρήσης GNU (GNU General Public License).\n"
+msgstr "Το Xreader διανέμεται με την ελπίδα οτι θα είναι χρήσιμο, αλλά ΧΩΡΙΣ ΚΑΜΜΙΑ ΑΠΟΛΥΤΩΣ ΕΓΓΥΗΣΗ - χωρίς ακόμη και την έμμεση εγγύηση ΕΜΠΟΡΕΥΣΙΜΟΤΗΤΑΣ ήΚΑΤΑΛΛΗΛΟΤΗΤΑΣ ΓΙΑ ΣΥΓΚΕΚΡΙΜΕΝΟ ΣΚΟΠΟ. Δείτε για περισσότερες λεπτομέρειες την Γενική Άδεια Δημόσιας Χρήσης GNU (GNU General Public License).\n"
 
 #: ../shell/ev-window.c:5045
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+" Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
-msgstr "Θα πρέπει να έχετε λάβει ένα αντίγραφο της Γενικής Άδειας Δημόσιας Χρήσης GNU (GNU General Public License) μαζί με το Atril. Αν όχι, επικοινωνήστε γραπτώς με το Ίδρυμα Ελεύθερου Λογισμικού (Free Software Foundation, Inc.), 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA\n"
+msgstr "Θα πρέπει να έχετε λάβει ένα αντίγραφο της Γενικής Άδειας Δημόσιας Χρήσης GNU (GNU General Public License) μαζί με το Xreader. Αν όχι, επικοινωνήστε γραπτώς με το Ίδρυμα Ελεύθερου Λογισμικού (Free Software Foundation, Inc.), 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA\n"
 
 #: ../shell/ev-window.c:5074
-msgid "Atril"
-msgstr "Atril"
+msgid "Xreader"
+msgstr "Xreader"
 
 #: ../shell/ev-window.c:5077
 msgid ""
@@ -1726,16 +1726,16 @@ msgid "NUMBER"
 msgstr "NUMBER"
 
 #: ../shell/main.c:79
-msgid "Run atril in fullscreen mode"
-msgstr "Εκτέλεση atril σε λειτουργία πλήρους οθόνης"
+msgid "Run xreader in fullscreen mode"
+msgstr "Εκτέλεση xreader σε λειτουργία πλήρους οθόνης"
 
 #: ../shell/main.c:80
-msgid "Run atril in presentation mode"
-msgstr "Εκτέλεση atril σε λειτουργία παρουσίασης"
+msgid "Run xreader in presentation mode"
+msgstr "Εκτέλεση xreader σε λειτουργία παρουσίασης"
 
 #: ../shell/main.c:81
-msgid "Run atril as a previewer"
-msgstr "Εκτέλεση atril ως εφαρμογή προεπισκόπησης"
+msgid "Run xreader as a previewer"
+msgstr "Εκτέλεση xreader ως εφαρμογή προεπισκόπησης"
 
 #: ../shell/main.c:82
 msgid "The word or phrase to find in the document"

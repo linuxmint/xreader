@@ -2,17 +2,17 @@
 # Please keep this file sorted alphabetically.
 [encoding: UTF-8]
 backend/comics/comics-document.c
-[type: gettext/ini] backend/comics/comicsdocument.atril-backend.in
+[type: gettext/ini] backend/comics/comicsdocument.xreader-backend.in
 backend/djvu/djvu-document.c
-[type: gettext/ini] backend/djvu/djvudocument.atril-backend.in
+[type: gettext/ini] backend/djvu/djvudocument.xreader-backend.in
 backend/dvi/dvi-document.c
-[type: gettext/ini] backend/dvi/dvidocument.atril-backend.in
+[type: gettext/ini] backend/dvi/dvidocument.xreader-backend.in
 backend/epub/epub-document.c
-[type: gettext/ini] backend/epub/epubdocument.atril-backend.in
+[type: gettext/ini] backend/epub/epubdocument.xreader-backend.in
 backend/pdf/ev-poppler.cc
-[type: gettext/ini] backend/pdf/pdfdocument.atril-backend.in
+[type: gettext/ini] backend/pdf/pdfdocument.xreader-backend.in
 backend/ps/ev-spectre.c
-[type: gettext/ini] backend/ps/psdocument.atril-backend.in
+[type: gettext/ini] backend/ps/psdocument.xreader-backend.in
 backend/tiff/tiff-document.c
 libdocument/ev-attachment.c
 libdocument/ev-document-factory.c
@@ -22,14 +22,14 @@ cut-n-paste/smclient/eggsmclient.c
 cut-n-paste/toolbar-editor/egg-editable-toolbar.c
 cut-n-paste/toolbar-editor/egg-toolbar-editor.c
 cut-n-paste/zoom-control/ephy-zoom.h
-data/atril.appdata.xml.in
-data/atril.desktop.in.in
-[type: gettext/gsettings]data/org.mate.Atril.gschema.xml
+data/xreader.appdata.xml.in
+data/xreader.desktop.in.in
+[type: gettext/gsettings]data/org.x.reader.gschema.xml
 previewer/ev-previewer.c
 previewer/ev-previewer-window.c
 properties/ev-properties-main.c
 properties/ev-properties-view.c
-[type: gettext/ini]properties/libatril-properties-page.caja-extension.in
+[type: gettext/ini]properties/libxreader-properties-page.caja-extension.in
 libmisc/ev-page-action.c
 libmisc/ev-page-action-widget.c
 libview/ev-loading-window.c

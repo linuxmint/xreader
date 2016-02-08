@@ -1,14 +1,14 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of xreader, a mate document viewer
  *
  *  Copyright (C) 2014 Avishkar Gupta
- *  Based on ev-view.c, also a part of atril, a mate document viewer.
+ *  Based on ev-view.c, also a part of xreader, a mate document viewer.
  *
- * Atril is free software; you can redistribute it and/or modify it
+ * Xreader is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Atril is distributed in the hope that it will be useful, but
+ * Xreader is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
@@ -856,7 +856,7 @@ ev_web_view_zoom_out(EvWebView *webview)
  * ev_web_view_disconnect_handlers
  * @webview : #EvWebView instance
  * 
- * This function call will disconnect all model signal handlers from the webview, to ensure smooth operation of the Atril-view.
+ * This function call will disconnect all model signal handlers from the webview, to ensure smooth operation of the Xreader-view.
  * Equivalent to function  ev_view_disconnect_handlers in ev-view.c
  */
 void

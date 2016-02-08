@@ -1,14 +1,14 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of xreader, a mate document viewer
  *
  *  Copyright (C) 2014 Avishkar Gupta
- *  Based on ev-view.h, also a part of atril, a mate document viewer
+ *  Based on ev-view.h, also a part of xreader, a mate document viewer
  *
- * Atril is free software; you can redistribute it and/or modify it
+ * Xreader is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Atril is distributed in the hope that it will be useful, but
+ * Xreader is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
@@ -18,8 +18,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#if !defined (__EV_ATRIL_VIEW_H_INSIDE__) && !defined (ATRIL_COMPILATION)
-#error "Only <atril-view.h> can be included directly."
+#if !defined (__EV_XREADER_VIEW_H_INSIDE__) && !defined (XREADER_COMPILATION)
+#error "Only <xreader-view.h> can be included directly."
 #endif
 
 #include "config.h"
@@ -29,7 +29,7 @@
 
 #include <gtk/gtk.h>
 
-#include <atril-document.h>
+#include <xreader-document.h>
 #include "ev-jobs.h"
 #include "ev-document-model.h"
 #include <glib-object.h>

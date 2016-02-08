@@ -19,8 +19,8 @@
  *  $Id$
  */
 
-#if !defined (__EV_ATRIL_DOCUMENT_H_INSIDE__) && !defined (ATRIL_COMPILATION)
-#error "Only <atril-document.h> can be included directly."
+#if !defined (__EV_XREADER_DOCUMENT_H_INSIDE__) && !defined (XREADER_COMPILATION)
+#error "Only <xreader-document.h> can be included directly."
 #endif
 
 #ifndef EV_DOCUMENT_TEXT_H

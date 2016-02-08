@@ -80,7 +80,7 @@ msgstr "Galat sewaktu menghapus “%s”."
 msgid "Error %s"
 msgstr "Galat %s"
 
-#: ../backend/comics/comicsdocument.atril-backend.in.h:1
+#: ../backend/comics/comicsdocument.xreader-backend.in.h:1
 msgid "Comic Books"
 msgstr "Buku Komik"
 
@@ -94,7 +94,7 @@ msgid ""
 " be accessed."
 msgstr "Dokumen ini terdiri atas sejumlah berkas. Satu atau lebih berkas tersebu tidak dapat diakses."
 
-#: ../backend/djvu/djvudocument.atril-backend.in.h:1
+#: ../backend/djvu/djvudocument.xreader-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "Dokumen DjVu"
 
@@ -102,7 +102,7 @@ msgstr "Dokumen DjVu"
 msgid "DVI document has incorrect format"
 msgstr "Format dokumen DVI salah"
 
-#: ../backend/dvi/dvidocument.atril-backend.in.h:1
+#: ../backend/dvi/dvidocument.xreader-backend.in.h:1
 msgid "DVI Documents"
 msgstr "Dokumen DVI"
 
@@ -162,7 +162,7 @@ msgstr "berkas epub tidak memiliki manifest"
 msgid "Could not set up document tree for loading, some files missing"
 msgstr "Tidak bisa menentukan pohon dokumen untuk dimuat, beberapa berkas tidak tersedia"
 
-#: ../backend/epub/epubdocument.atril-backend.in.h:1
+#: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
 msgstr "Dokumen epub"
 
@@ -230,7 +230,7 @@ msgstr "Ditempelkan"
 msgid "Not embedded"
 msgstr "Tidak ditempelkan"
 
-#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
+#: ../backend/pdf/pdfdocument.xreader-backend.in.h:1
 msgid "PDF Documents"
 msgstr "Dokumen PDF"
 
@@ -244,7 +244,7 @@ msgstr "Gagal memuat dokumen “%s”"
 msgid "Failed to save document “%s”"
 msgstr "Gagal menyimpan dokumen \"%s\""
 
-#: ../backend/ps/psdocument.atril-backend.in.h:1
+#: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "Dokumen PostScript"
 
@@ -463,42 +463,42 @@ msgstr "3200%"
 msgid "6400%"
 msgstr "6400%"
 
-#: ../data/atril.appdata.xml.in.h:1
+#: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
 msgstr "Viewer citra untuk lingkungan desktop MATE."
 
-#: ../data/atril.appdata.xml.in.h:2
+#: ../data/xreader.appdata.xml.in.h:2
 msgid ""
-"<p> Atril is a simple multi-page document viewer. It can display and print "
+"<p> Xreader is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
 "Document Format (PDF) files, as well as comic book archive files. When "
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
-" <p> Atril is a fork of Evince and part of the MATE Desktop Environment. If "
-"you would like to know more about MATE and Atril, please visit the project's"
+" <p> Xreader is a fork of Evince and part of the MATE Desktop Environment. If "
+"you would like to know more about MATE and Xreader, please visit the project's"
 " home page. </p>"
-msgstr "<p> Atril adalah viewer dokumen. Atril dapat menampilkan dan mencetak file dengan tipe\n+PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS dan Portable\n+Document Format (PDF). Ketika didukung oleh dokumen, Atril juga dapat mencari, menyalin teks pada clipboard, navigasi hypertext, dan bookmark daftar isi. </p> <p> Atril adalah fork dari Evince dan bagian dari Lingkungan Desktop MATE. Jika Anda ingin mengetahui lebih lanjut tentang MATE dan Atril, silahkan kunjungi halaman home page proyek.</p>"
+msgstr "<p> Xreader adalah viewer dokumen. Xreader dapat menampilkan dan mencetak file dengan tipe\n+PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS dan Portable\n+Document Format (PDF). Ketika didukung oleh dokumen, Xreader juga dapat mencari, menyalin teks pada clipboard, navigasi hypertext, dan bookmark daftar isi. </p> <p> Xreader adalah fork dari Evince dan bagian dari Lingkungan Desktop MATE. Jika Anda ingin mengetahui lebih lanjut tentang MATE dan Xreader, silahkan kunjungi halaman home page proyek.</p>"
 
-#: ../data/atril.desktop.in.in.h:1
-msgid "Atril Document Viewer"
-msgstr "Atril Document Viewer"
+#: ../data/xreader.desktop.in.in.h:1
+msgid "Xreader Document Viewer"
+msgstr "Xreader Document Viewer"
 
 #. Manually set name and icon
-#: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:5006
+#: ../data/xreader.desktop.in.in.h:2 ../shell/ev-window.c:5006
 #: ../shell/ev-window-title.c:157 ../shell/main.c:306
 #, c-format
 msgid "Document Viewer"
 msgstr "Penampil Dokumen"
 
-#: ../data/atril.desktop.in.in.h:3
+#: ../data/xreader.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr "Melihat dokumen multihalaman"
 
-#: ../data/org.mate.Atril.gschema.xml.h:1
+#: ../data/org.x.reader.gschema.xml.h:1
 msgid "Override document restrictions"
 msgstr "Timpa batasan dokumen"
 
-#: ../data/org.mate.Atril.gschema.xml.h:2
+#: ../data/org.x.reader.gschema.xml.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "Timpa batasan dokumen, seperti batasan untuk menyalin atau mencetak."
 
@@ -678,13 +678,13 @@ msgstr "%s, Tegak (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, Tumbang (%s)"
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:1
-msgid "Atril properties"
-msgstr "Properti Atril"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:1
+msgid "Xreader properties"
+msgstr "Properti Xreader"
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:2
-msgid "Shows details for Atril documents"
-msgstr "Tampilkan detail untuk dokumen Atril"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:2
+msgid "Shows details for Xreader documents"
+msgstr "Tampilkan detail untuk dokumen Xreader"
 
 #: ../libmisc/ev-page-action-widget.c:68
 #, c-format
@@ -985,9 +985,9 @@ msgstr "Mengonversi metadata"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Atril has changed, and hence it needs to be "
+"The metadata format used by Xreader has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
-msgstr "Bentuk metadata yang dipakai oleh Atril telah berubah, sehingga perlu dimigrasikan. Bila migrasi dibatalkan maka penyimpanan metadata tak akan bekerja."
+msgstr "Bentuk metadata yang dipakai oleh Xreader telah berubah, sehingga perlu dimigrasikan. Bila migrasi dibatalkan maka penyimpanan metadata tak akan bekerja."
 
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
@@ -1314,30 +1314,30 @@ msgstr "Penampil Dokumen.\nMenggunakan %s (%s)"
 
 #: ../shell/ev-window.c:5037
 msgid ""
-"Atril is free software; you can redistribute it and/or modify it under the "
+"Xreader is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
-msgstr "Atril adalah perangkat lunak bebas; Anda dapat mendistribusikan ulang dan/atau mengubahnya di bawah ketentuan GNU General Public License sebagaimana dipublikasikan oleh Free Software Foundation; Lisensi versi 2, atau (sesuai pilihan Anda) menggunakan versi selanjutnya.\n"
+msgstr "Xreader adalah perangkat lunak bebas; Anda dapat mendistribusikan ulang dan/atau mengubahnya di bawah ketentuan GNU General Public License sebagaimana dipublikasikan oleh Free Software Foundation; Lisensi versi 2, atau (sesuai pilihan Anda) menggunakan versi selanjutnya.\n"
 
 #: ../shell/ev-window.c:5041
 msgid ""
-"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
-msgstr "Atril didistribusikan dengan harapan dapat berguna, tetapi TANPA ADANYA JAMINAN; termasuk tanpa jaminan DAYA JUAL atau KELAIKAN UNTUK TUJUAN TERTENTU. Lihat GNU General Public License untuk rincian lebih lanjut.\n"
+msgstr "Xreader didistribusikan dengan harapan dapat berguna, tetapi TANPA ADANYA JAMINAN; termasuk tanpa jaminan DAYA JUAL atau KELAIKAN UNTUK TUJUAN TERTENTU. Lihat GNU General Public License untuk rincian lebih lanjut.\n"
 
 #: ../shell/ev-window.c:5045
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+" Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
-msgstr "Anda seharusnya menerima salinan dari GNU General Public License bersama Atril; jika tidak, kirimkan surat Anda ke Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n"
+msgstr "Anda seharusnya menerima salinan dari GNU General Public License bersama Xreader; jika tidak, kirimkan surat Anda ke Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n"
 
 #: ../shell/ev-window.c:5074
-msgid "Atril"
-msgstr "Atril"
+msgid "Xreader"
+msgstr "Xreader"
 
 #: ../shell/ev-window.c:5077
 msgid ""
@@ -1721,16 +1721,16 @@ msgid "NUMBER"
 msgstr "NOMOR"
 
 #: ../shell/main.c:79
-msgid "Run atril in fullscreen mode"
-msgstr "Menjalankan atril dalam mode layar penuh"
+msgid "Run xreader in fullscreen mode"
+msgstr "Menjalankan xreader dalam mode layar penuh"
 
 #: ../shell/main.c:80
-msgid "Run atril in presentation mode"
-msgstr "Menjalankan atril dalam mode presentasi"
+msgid "Run xreader in presentation mode"
+msgstr "Menjalankan xreader dalam mode presentasi"
 
 #: ../shell/main.c:81
-msgid "Run atril as a previewer"
-msgstr "Menjalankan atril sebagai pemratinjau"
+msgid "Run xreader as a previewer"
+msgstr "Menjalankan xreader sebagai pemratinjau"
 
 #: ../shell/main.c:82
 msgid "The word or phrase to find in the document"

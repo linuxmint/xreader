@@ -3,10 +3,10 @@
 TYPELIBDIR=$(shell pkg-config gobject-introspection-1.0 --variable libdir | sed -e 's/.//')
 
 DHFLAGS=--parallel
-DEB_ATRIL_FLAGS=
+DEB_XREADER_FLAGS=
 ifeq ($(shell dpkg-vendor --is Debian && echo yes),yes)
 ifeq ($(shell lsb_release -cs),wheezy)
-	DEB_ATRIL_FLAGS=--without-keyring
+	DEB_XREADER_FLAGS=--without-keyring
 endif
 endif
 
@@ -16,9 +16,9 @@ endif
 override_dh_install:
 	rm -rfv debian/tmp/usr/lib/*/*.la
 	rm -rfv debian/tmp/usr/lib/*/caja/extensions-2.0/*.la
-	rm -rfv debian/tmp/usr/lib/*/atril/3/backends/*.la
-	rm -rfv debian/tmp/usr/share/MateConf/gsettings/atril.convert
-	sed 's@TYPELIBDIR@${TYPELIBDIR}@' debian/gir1.2-atril.install.in > debian/gir1.2-atril.install
+	rm -rfv debian/tmp/usr/lib/*/xreader/3/backends/*.la
+	rm -rfv debian/tmp/usr/share/MateConf/gsettings/xreader.convert
+	sed 's@TYPELIBDIR@${TYPELIBDIR}@' debian/gir1.2-xreader.install.in > debian/gir1.2-xreader.install
 	dh_install --fail-missing
 
 override_dh_auto_test:
@@ -36,12 +36,12 @@ override_dh_auto_configure:
 		--enable-introspection \
 		--disable-static \
 		--with-gtk=3.0 \
-		$(DEB_ATRIL_FLAGS)
+		$(DEB_XREADER_FLAGS)
 
 override_dh_strip:
-	dh_strip -patril --dbg-package=atril-dbg
-	dh_strip -plibatrildocument3 --dbg-package=libatrildocument3-dbg
-	dh_strip -plibatrilview3 --dbg-package=libatrilview3-dbg
+	dh_strip -pxreader --dbg-package=xreader-dbg
+	dh_strip -plibxreaderdocument3 --dbg-package=libxreaderdocument3-dbg
+	dh_strip -plibxreaderview3 --dbg-package=libxreaderview3-dbg
 
 override_dh_builddeb:
 	dh_builddeb -- -Zxz -z9

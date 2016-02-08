@@ -618,7 +618,7 @@ djvu_document_init (DjvuDocument *djvu_document)
 {
 	guint masks[4] = { 0xff0000, 0xff00, 0xff, 0xff000000 };
 	
-	djvu_document->d_context = ddjvu_context_create ("Atril");
+	djvu_document->d_context = ddjvu_context_create ("Xreader");
 	djvu_document->d_format = ddjvu_format_create (DDJVU_FORMAT_RGBMASK32, 4, masks);
 	ddjvu_format_set_row_order (djvu_document->d_format, 1);
 

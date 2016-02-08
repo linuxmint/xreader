@@ -1,17 +1,17 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
-/* Stock icons for Atril
+/* Stock icons for Xreader
  *
  * Copyright (C) 2003 Martin Kretzschmar
  *
  * Author:
  *   Martin Kretzschmar <Martin.Kretzschmar@inf.tu-dresden.de>
  *
- * Atril is free software; you can redistribute it and/or modify it
+ * Xreader is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Atril is distributed in the hope that it will be useful, but WITHOUT
+ * Xreader is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public
  * License for more details.
@@ -21,8 +21,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#if !defined (__EV_ATRIL_VIEW_H_INSIDE__) && !defined (ATRIL_COMPILATION)
-#error "Only <atril-view.h> can be included directly."
+#if !defined (__EV_XREADER_VIEW_H_INSIDE__) && !defined (XREADER_COMPILATION)
+#error "Only <xreader-view.h> can be included directly."
 #endif
 
 #ifndef __EV_STOCK_ICONS_H__
@@ -32,7 +32,7 @@
 
 G_BEGIN_DECLS
 
-/* Atril stock icons */
+/* Xreader stock icons */
 #define EV_STOCK_ZOOM	                "zoom"
 #define EV_STOCK_ZOOM_PAGE              "zoom-fit-height"
 #define EV_STOCK_ZOOM_WIDTH             "zoom-fit-width"

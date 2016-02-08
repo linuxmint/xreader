@@ -1,11 +1,11 @@
-# Shavian translation for atril.
+# Shavian translation for xreader.
 # Copyright (C) 2009-2010 The Mate Foundation.
 # Thomas Thurman <tthurman@gnome.org>, 2010.
-# Transliterate Atril as ·𐑦𐑝𐑦𐑯𐑕
+# Transliterate Xreader as ·𐑦𐑝𐑦𐑯𐑕
 msgid ""
 msgstr ""
-"Project-Id-Version: atril\n"
-"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=atril&component=general\n"
+"Project-Id-Version: xreader\n"
+"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=xreader&component=general\n"
 "POT-Creation-Date: 2010-05-12 22:43+0000\n"
 "PO-Revision-Date: 2010-05-16 16:05 -0400\n"
 "Last-Translator: Thomas Thurman <tthurman@gnome.org>\n"
@@ -73,7 +73,7 @@ msgstr "𐑞𐑺 𐑢𐑪𐑟 𐑩𐑯 𐑻𐑼 𐑛𐑦𐑤𐑰𐑑𐑦𐑙 “
 msgid "Error %s"
 msgstr "𐑻𐑼 %s"
 
-#: ../backend/comics/comicsdocument.atril-backend.in.h:1
+#: ../backend/comics/comicsdocument.xreader-backend.in.h:1
 msgid "Comic Books"
 msgstr "𐑒𐑪𐑥𐑦𐑒 𐑚𐑫𐑒𐑕"
 
@@ -89,7 +89,7 @@ msgid ""
 msgstr ""
 "𐑞 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 𐑦𐑟 𐑒𐑩𐑥𐑐𐑴𐑟𐑛 𐑝 𐑕𐑧𐑝𐑼𐑩𐑤 𐑓𐑲𐑤𐑟. 𐑢𐑳𐑯 𐑹 𐑥𐑹 𐑝 𐑞𐑰𐑟 𐑓𐑲𐑤𐑟 𐑒𐑨𐑯𐑪𐑑 𐑚𐑰 𐑨𐑒𐑕𐑧𐑕𐑑."
 
-#: ../backend/djvu/djvudocument.atril-backend.in.h:1
+#: ../backend/djvu/djvudocument.xreader-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "DjVu 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑𐑕"
 
@@ -97,7 +97,7 @@ msgstr "DjVu 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑𐑕"
 msgid "DVI document has incorrect format"
 msgstr "DVI 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 𐑣𐑨𐑟 𐑦𐑯𐑒𐑩𐑮𐑧𐑒𐑑 𐑓𐑹𐑥𐑨𐑑"
 
-#: ../backend/dvi/dvidocument.atril-backend.in.h:1
+#: ../backend/dvi/dvidocument.xreader-backend.in.h:1
 msgid "DVI Documents"
 msgstr "DVI 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑𐑕"
 
@@ -165,7 +165,7 @@ msgstr "𐑧𐑥𐑚𐑧𐑛𐑦𐑛"
 msgid "Not embedded"
 msgstr "𐑯𐑪𐑑 𐑧𐑥𐑚𐑧𐑛𐑦𐑛"
 
-#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
+#: ../backend/pdf/pdfdocument.xreader-backend.in.h:1
 msgid "PDF Documents"
 msgstr "PDF 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑𐑕"
 
@@ -177,7 +177,7 @@ msgstr "𐑦𐑯𐑝𐑨𐑤𐑦𐑛 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑"
 #.
 #. * vim: sw=2 ts=8 cindent noai bs=2
 #.
-#: ../backend/impress/impressdocument.atril-backend.in.h:1
+#: ../backend/impress/impressdocument.xreader-backend.in.h:1
 msgid "Impress Slides"
 msgstr "𐑦𐑥𐑐𐑮𐑧𐑕 𐑕𐑤𐑲𐑛𐑟"
 
@@ -227,7 +227,7 @@ msgstr "𐑓𐑱𐑤𐑛 𐑑 𐑤𐑴𐑛 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 “%
 msgid "Failed to save document “%s”"
 msgstr "𐑓𐑱𐑤𐑛 𐑑 𐑕𐑱𐑝 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 “%s”"
 
-#: ../backend/ps/psdocument.atril-backend.in.h:1
+#: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "𐑐𐑴𐑕𐑑𐑕𐑒𐑮𐑦𐑐𐑑 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑𐑕"
 
@@ -433,12 +433,12 @@ msgstr "400%"
 
 #. Manually set name and icon
 #, c-format
-#: ../data/atril.desktop.in.in.h:1 ../shell/ev-window.c:4232
+#: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window.c:4232
 #: ../shell/ev-window-title.c:149 ../shell/main.c:318
 msgid "Document Viewer"
 msgstr "𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 𐑝𐑿𐑼"
 
-#: ../data/atril.desktop.in.in.h:2
+#: ../data/xreader.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "𐑝𐑿 𐑥𐑩𐑤𐑑𐑰-𐑐𐑱𐑡 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑𐑕"
 
@@ -842,7 +842,7 @@ msgstr "𐑒𐑩𐑯𐑝𐑻𐑑𐑦𐑙 metadata"
 #, fuzzy
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Atril has changed, and hence it needs to be "
+"The metadata format used by Xreader has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
 "𐑞 metadata 𐑓𐑹𐑥𐑨𐑑 𐑿𐑕𐑑 𐑚𐑲 𐑦𐑝𐑦𐑯𐑕 𐑣𐑨𐑟 𐑗𐑱𐑯𐑡𐑛, 𐑯 𐑣𐑧𐑯𐑕 𐑦𐑑 𐑯𐑰𐑛𐑟 𐑑 𐑚𐑰 𐑥𐑲𐑜𐑮𐑱𐑑𐑦𐑛. 𐑦𐑓 𐑞 "
@@ -1093,7 +1093,7 @@ msgstr "𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 𐑝𐑿𐑼\n𐑿𐑟𐑦𐑙 %s (%s)"
 
 #: ../shell/ev-window.c:4259
 msgid ""
-"Atril is free software; you can redistribute it and/or modify it under the "
+"Xreader is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
@@ -1105,7 +1105,7 @@ msgstr ""
 #, fuzzy
 #: ../shell/ev-window.c:4263
 msgid ""
-"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR "
 "A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
 msgstr ""
@@ -1116,7 +1116,7 @@ msgstr ""
 #: ../shell/ev-window.c:4267
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
 "𐑿 𐑖𐑫𐑛 𐑣𐑨𐑝 𐑮𐑦𐑕𐑰𐑝𐑛 𐑩 𐑒𐑪𐑐𐑦 𐑝 𐑞 ·𐑜𐑯𐑿 𐑡𐑧𐑯𐑼𐑩𐑤 𐑐𐑳𐑚𐑤𐑦𐑒 𐑤𐑲𐑕𐑩𐑯𐑕 𐑩𐑤𐑪𐑙 𐑢𐑦𐑞 𐑦𐑝𐑦𐑯𐑕; 𐑦𐑓 𐑯𐑪𐑑, "
@@ -1124,11 +1124,11 @@ msgstr ""
 "02110-1301  USA\n"
 
 #: ../shell/ev-window.c:4292
-msgid "Atril"
+msgid "Xreader"
 msgstr "·𐑦𐑝𐑦𐑯𐑕"
 
 #: ../shell/ev-window.c:4295
-msgid "© 1996–2009 The Atril authors"
+msgid "© 1996–2009 The Xreader authors"
 msgstr "© 1996–2009 𐑞 ·𐑦𐑝𐑦𐑯𐑕 𐑷𐑔𐑼𐑟"
 
 #: ../shell/ev-window.c:4301
@@ -1484,16 +1484,16 @@ msgstr "𐑯𐑳𐑥𐑚𐑼"
 
 #, fuzzy
 #: ../shell/main.c:82
-msgid "Run atril in fullscreen mode"
+msgid "Run xreader in fullscreen mode"
 msgstr "𐑮𐑳𐑯 𐑦𐑝𐑦𐑯𐑕 𐑦𐑯 fullscreen 𐑥𐑴𐑛"
 
 #: ../shell/main.c:83
-msgid "Run atril in presentation mode"
+msgid "Run xreader in presentation mode"
 msgstr "𐑮𐑳𐑯 ·𐑦𐑝𐑦𐑯𐑕 𐑦𐑯 𐑐𐑮𐑧𐑟𐑩𐑯𐑑𐑱𐑖𐑩𐑯 𐑥𐑴𐑛"
 
 #, fuzzy
 #: ../shell/main.c:84
-msgid "Run atril as a previewer"
+msgid "Run xreader as a previewer"
 msgstr "𐑮𐑳𐑯 𐑦𐑝𐑦𐑯𐑕 𐑨𐑟 𐑩 previewer"
 
 #: ../shell/main.c:85
@@ -1509,7 +1509,7 @@ msgid "[FILE…]"
 msgstr "[𐑓𐑲𐑤…]"
 
 #, fuzzy
-#: ../thumbnailer/atril-thumbnailer.schemas.in.h:1
+#: ../thumbnailer/xreader-thumbnailer.schemas.in.h:1
 msgid ""
 "Boolean options available: true enables thumbnailing and false disables the "
 "creation of new thumbnails"
@@ -1518,16 +1518,16 @@ msgstr ""
 "𐑯𐑿 thumbnails"
 
 #, fuzzy
-#: ../thumbnailer/atril-thumbnailer.schemas.in.h:2
+#: ../thumbnailer/xreader-thumbnailer.schemas.in.h:2
 msgid "Enable thumbnailing of PDF Documents"
 msgstr "𐑦𐑯𐑱𐑚𐑩𐑤 thumbnailing 𐑝 PDF 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑𐑕"
 
-#: ../thumbnailer/atril-thumbnailer.schemas.in.h:3
+#: ../thumbnailer/xreader-thumbnailer.schemas.in.h:3
 msgid "Thumbnail command for PDF Documents"
 msgstr "𐑔𐑳𐑥𐑯𐑱𐑤 𐑒𐑩𐑥𐑭𐑯𐑛 𐑓𐑹 PDF 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑𐑕"
 
 #, fuzzy
-#: ../thumbnailer/atril-thumbnailer.schemas.in.h:4
+#: ../thumbnailer/xreader-thumbnailer.schemas.in.h:4
 msgid ""
 "Valid command plus arguments for the PDF Document thumbnailer. See Caja "
 "thumbnailer documentation for more information."

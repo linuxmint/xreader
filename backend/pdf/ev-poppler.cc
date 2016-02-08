@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; c-indent-level: 8 -*- */
-/* this file is part of atril, a mate document viewer
+/* this file is part of xreader, a mate document viewer
  *
  * Copyright (C) 2009, Juanjo Marín <juanj.marin@juntadeandalucia.es>
  * Copyright (C) 2004, Red Hat, Inc.
@@ -1069,8 +1069,8 @@ ev_link_dest_from_dest (PdfDocument *pdf_document,
 
 	if (unimplemented_dest) {
 		g_warning ("Unimplemented destination: %s, please post a "
-		           "bug report on Atril bug tracker "
-		           "(https://github.com/mate-desktop/atril/issues) with a testcase.",
+		           "bug report on Xreader bug tracker "
+		           "(https://github.com/linuxmint/xreader/issues) with a testcase.",
 			   unimplemented_dest);
 	}
 
@@ -1174,7 +1174,7 @@ ev_link_from_action (PdfDocument   *pdf_document,
 	
 	if (unimplemented_action) {
 		g_warning ("Unimplemented action: %s, please post a bug report "
-			   "on Atril bug tracker (https://github.com/mate-desktop/atril/issues) "
+			   "on Xreader bug tracker (https://github.com/linuxmint/xreader/issues) "
 			   "with a testcase.", unimplemented_action);
 	}
 	
@@ -2637,8 +2637,8 @@ ev_annot_from_poppler_annot (PopplerAnnot *poppler_annot,
 
 	if (unimplemented_annot) {
 		g_warning ("Unimplemented annotation: %s, please post a "
-		           "bug report on Atril bug tracker "
-		           "(https://github.com/mate-desktop/atril/issues) with a testcase.",
+		           "bug report on Xreader bug tracker "
+		           "(https://github.com/linuxmint/xreader/issues) with a testcase.",
 			   unimplemented_annot);
 	}
 

@@ -37,7 +37,7 @@
 #include <libcaja-extension/caja-extension-types.h>
 #include <libcaja-extension/caja-property-page-provider.h>
 
-#include <atril-document.h>
+#include <xreader-document.h>
 #include "ev-properties-view.h"
 
 static GType epp_type = 0;

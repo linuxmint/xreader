@@ -8,7 +8,7 @@ m4_define([ev_micro_version], [0])
 m4_define([ev_extra_version], [])
 m4_define([ev_version], [ev_major_version.ev_minor_version.ev_micro_version()ev_extra_version])
 
-# The atril API version
+# The xreader API version
 m4_define([ev_api_version], [1.5.0])
 
 # Libtool versioning. The backend and view libraries have separate versions.
@@ -40,7 +40,7 @@ m4_define([ev_binary_version], [ev_document_lt_current])
 # *****************************************************************************
 
 AC_PREREQ([2.57])
-AC_INIT([atril], [ev_version], [http://www.mate-desktop.org/], [atril])
+AC_INIT([xreader], [ev_version], [http://www.mate-desktop.org/], [xreader])
 AM_INIT_AUTOMAKE([1.10 foreign tar-ustar dist-xz no-dist-gzip check-news])
 
 AC_CONFIG_HEADERS([config.h])
@@ -72,14 +72,14 @@ AC_SUBST([DISABLE_DEPRECATED])
 
 IT_PROG_INTLTOOL([0.50.1])
 
-GETTEXT_PACKAGE=atril
+GETTEXT_PACKAGE=xreader
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["$GETTEXT_PACKAGE"], [Gettext package])
 AM_GLIB_GNU_GETTEXT
 
 m4_pattern_allow([AM_V_GEN])dnl Make autoconf not complain about the rule below
-EV_INTLTOOL_ATRIL_BACKEND_RULE='%.atril-backend:   %.atril-backend.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(AM_V_GEN) LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< [$]@'
-AC_SUBST([EV_INTLTOOL_ATRIL_BACKEND_RULE])
+EV_INTLTOOL_XREADER_BACKEND_RULE='%.xreader-backend:   %.xreader-backend.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(AM_V_GEN) LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< [$]@'
+AC_SUBST([EV_INTLTOOL_XREADER_BACKEND_RULE])
 
 GLIB_GSETTINGS
 
@@ -167,10 +167,10 @@ BACKEND_LIBTOOL_FLAGS="-module -avoid-version -no-undefined -export-symbols \$(t
 AC_SUBST(BACKEND_LIBTOOL_FLAGS)
 
 dnl ===== Check special functions
-atril_save_LIBS=$LIBS
+xreader_save_LIBS=$LIBS
 LIBS="$LIBS $BACKEND_LIBS"
 AC_CHECK_FUNCS(cairo_format_stride_for_width)
-LIBS=$atril_save_LIBS
+LIBS=$xreader_save_LIBS
 
 # ******************
 # GKT+ Unix Printing
@@ -227,7 +227,7 @@ dnl Debug mode
 
 AC_ARG_ENABLE([debug],
     AS_HELP_STRING([--enable-debug],
-                   [Turn on atril debug mode]),
+                   [Turn on xreader debug mode]),
     [enable_debug=$enableval],
     [enable_debug=no])
 
@@ -617,34 +617,34 @@ dnl ================== End of EPUB checks ======================================
 dnl =================== Mime types list ====================================================
 
 if test "x$enable_pdf" = "xyes" ; then
-    ATRIL_MIME_TYPES="application/pdf;application/x-bzpdf;application/x-gzpdf;application/x-xzpdf;"
+    XREADER_MIME_TYPES="application/pdf;application/x-bzpdf;application/x-gzpdf;application/x-xzpdf;"
 fi
 if test "x$enable_ps" = "xyes" ; then
-    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/postscript;application/x-bzpostscript;application/x-gzpostscript;image/x-eps;image/x-bzeps;image/x-gzeps;"
+    XREADER_MIME_TYPES="${XREADER_MIME_TYPES}application/postscript;application/x-bzpostscript;application/x-gzpostscript;image/x-eps;image/x-bzeps;image/x-gzeps;"
 fi
 if test "x$enable_dvi" = "xyes"; then
-    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/x-dvi;application/x-bzdvi;application/x-gzdvi;"
+    XREADER_MIME_TYPES="${XREADER_MIME_TYPES}application/x-dvi;application/x-bzdvi;application/x-gzdvi;"
 fi
 if test "x$enable_djvu" = "xyes"; then
-    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}image/vnd.djvu;"
+    XREADER_MIME_TYPES="${XREADER_MIME_TYPES}image/vnd.djvu;"
 fi
 if test "x$enable_tiff" = "xyes"; then
-    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}image/tiff;"
+    XREADER_MIME_TYPES="${XREADER_MIME_TYPES}image/tiff;"
 fi
 if test "x$enable_comics" = "xyes"; then
-    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/x-cbr;application/x-cbz;application/x-cb7;application/x-cbt;"
+    XREADER_MIME_TYPES="${XREADER_MIME_TYPES}application/x-cbr;application/x-cbz;application/x-cb7;application/x-cbt;"
 fi
 if test "x$enable_pixbuf" = "xyes"; then
-    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}image/*;"
+    XREADER_MIME_TYPES="${XREADER_MIME_TYPES}image/*;"
 fi
 if test "x$enable_xps" = "xyes"; then
-    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/oxps;application/vnd.ms-xpsdocument;"
+    XREADER_MIME_TYPES="${XREADER_MIME_TYPES}application/oxps;application/vnd.ms-xpsdocument;"
 fi
 if test "x$have_webkit" = "xyes"; then
-	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/epub+zip;"
+	XREADER_MIME_TYPES="${XREADER_MIME_TYPES}application/epub+zip;"
 fi
 
-AC_SUBST(ATRIL_MIME_TYPES)
+AC_SUBST(XREADER_MIME_TYPES)
 
 AC_CHECK_FUNC(localtime_r, AC_DEFINE(HAVE_LOCALTIME_R, 1, [Defines if localtime_r is available on your system]))
 
@@ -667,7 +667,7 @@ AC_SUBST([GTK_PREFIX], [$($PKG_CONFIG --variable=prefix gtk+-$GTK_API_VERSION)])
 # Backends directory
 # ******************
 
-AC_SUBST([backenddir],"\$(libdir)/atril/ev_binary_version/backends")
+AC_SUBST([backenddir],"\$(libdir)/xreader/ev_binary_version/backends")
 AC_SUBST([backend_binary_version], "ev_binary_version")
 
 # **********
@@ -710,7 +710,7 @@ cut-n-paste/toolbar-editor/Makefile
 cut-n-paste/zoom-control/Makefile
 cut-n-paste/totem-screensaver/Makefile
 cut-n-paste/synctex/Makefile
-data/atril.desktop.in
+data/xreader.desktop.in
 data/Makefile
 data/icons/Makefile
 data/icons/16x16/Makefile
@@ -750,15 +750,15 @@ libview/Makefile
 Makefile
 po/Makefile.in
 previewer/Makefile
-properties/libatril-properties-page.caja-extension.in
+properties/libxreader-properties-page.caja-extension.in
 properties/Makefile
 shell/Makefile
 test/Makefile
 thumbnailer/Makefile
 ])
 
-AC_CONFIG_FILES(atril-document-[]ev_api_version[].pc:atril-document.pc.in)
-AC_CONFIG_FILES(atril-view-[]ev_api_version[].pc:atril-view.pc.in)
+AC_CONFIG_FILES(xreader-document-[]ev_api_version[].pc:xreader-document.pc.in)
+AC_CONFIG_FILES(xreader-view-[]ev_api_version[].pc:xreader-view.pc.in)
 
 AC_OUTPUT
 

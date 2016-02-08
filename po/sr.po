@@ -76,7 +76,7 @@ msgstr "Дошло је до грешке брисања „%s“."
 msgid "Error %s"
 msgstr "Грешка „%s“"
 
-#: ../backend/comics/comicsdocument.atril-backend.in.h:1
+#: ../backend/comics/comicsdocument.xreader-backend.in.h:1
 msgid "Comic Books"
 msgstr "Стрипови"
 
@@ -90,7 +90,7 @@ msgid ""
 " be accessed."
 msgstr "Документ је састављен из неколико датотека. Не могу да приступим једној или неким од ових датотека."
 
-#: ../backend/djvu/djvudocument.atril-backend.in.h:1
+#: ../backend/djvu/djvudocument.xreader-backend.in.h:1
 msgid "DjVu Documents"
 msgstr "ДјВу документи"
 
@@ -98,7 +98,7 @@ msgstr "ДјВу документи"
 msgid "DVI document has incorrect format"
 msgstr "ДВИ документ има неисправан облик"
 
-#: ../backend/dvi/dvidocument.atril-backend.in.h:1
+#: ../backend/dvi/dvidocument.xreader-backend.in.h:1
 msgid "DVI Documents"
 msgstr "ДВИ документи"
 
@@ -158,7 +158,7 @@ msgstr "епуб датотека нема проглас"
 msgid "Could not set up document tree for loading, some files missing"
 msgstr "Не могу да подесим стабло документа за учитавање, неке датотеке недостају"
 
-#: ../backend/epub/epubdocument.atril-backend.in.h:1
+#: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
 msgstr "епуб документи"
 
@@ -226,7 +226,7 @@ msgstr "Угнежден"
 msgid "Not embedded"
 msgstr "Није угнежден"
 
-#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
+#: ../backend/pdf/pdfdocument.xreader-backend.in.h:1
 msgid "PDF Documents"
 msgstr "ПДФ документи"
 
@@ -240,7 +240,7 @@ msgstr "Не могу да отворим документ „%s“"
 msgid "Failed to save document “%s”"
 msgstr "Не могу да сачувам документ „%s“"
 
-#: ../backend/ps/psdocument.atril-backend.in.h:1
+#: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
 msgstr "Постскрипт документи"
 
@@ -459,42 +459,42 @@ msgstr "3200%"
 msgid "6400%"
 msgstr "6400%"
 
-#: ../data/atril.appdata.xml.in.h:1
+#: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
 msgstr "Прегледач докумената за Мејтову радну површ"
 
-#: ../data/atril.appdata.xml.in.h:2
+#: ../data/xreader.appdata.xml.in.h:2
 msgid ""
-"<p> Atril is a simple multi-page document viewer. It can display and print "
+"<p> Xreader is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
 "Document Format (PDF) files, as well as comic book archive files. When "
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
-" <p> Atril is a fork of Evince and part of the MATE Desktop Environment. If "
-"you would like to know more about MATE and Atril, please visit the project's"
+" <p> Xreader is a fork of Evince and part of the MATE Desktop Environment. If "
+"you would like to know more about MATE and Xreader, please visit the project's"
 " home page. </p>"
 msgstr "<p> Атрил је једноставан вишестранични прегледач докумената. Може да прикаже и да штампа датотеке Постскрипта (ПС), Угнежденог Постскрипта (ЕПС), ДЈВУ-а, ДВИ-а, ХПС-а и Записа преносног документа (ПДФ), као и датотеке архиве стрипа, такође омогућава тражење текста, умножавање текста у оставу, кретање хипертекстом и обележавање табеле садржаја. </p> <p> Атрил је исцепак Евинса и део Мејтове радне површи. Ако желите да сазнате више о Мејту и Атрилу, посетите матичну страницу пројекта. </p>"
 
-#: ../data/atril.desktop.in.in.h:1
-msgid "Atril Document Viewer"
+#: ../data/xreader.desktop.in.in.h:1
+msgid "Xreader Document Viewer"
 msgstr "Прегледач докумената Атрил"
 
 #. Manually set name and icon
-#: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:5006
+#: ../data/xreader.desktop.in.in.h:2 ../shell/ev-window.c:5006
 #: ../shell/ev-window-title.c:157 ../shell/main.c:306
 #, c-format
 msgid "Document Viewer"
 msgstr "Прегледач докумената"
 
-#: ../data/atril.desktop.in.in.h:3
+#: ../data/xreader.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr "Прегледајте вишестраничне документе"
 
-#: ../data/org.mate.Atril.gschema.xml.h:1
+#: ../data/org.x.reader.gschema.xml.h:1
 msgid "Override document restrictions"
 msgstr "Превазилази ограничења документа"
 
-#: ../data/org.mate.Atril.gschema.xml.h:2
+#: ../data/org.x.reader.gschema.xml.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "Превазилази ограничења документа, као што је ограничење за умножавање или штампање."
 
@@ -674,12 +674,12 @@ msgstr "%s, усправно (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, положено (%s)"
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:1
-msgid "Atril properties"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:1
+msgid "Xreader properties"
 msgstr "Својства Атрила"
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:2
-msgid "Shows details for Atril documents"
+#: ../properties/libxreader-properties-page.caja-extension.in.h:2
+msgid "Shows details for Xreader documents"
 msgstr "Прикажите појединости Атрилових докумената"
 
 #: ../libmisc/ev-page-action-widget.c:68
@@ -981,7 +981,7 @@ msgstr "Преводим метаподатке"
 
 #: ../shell/ev-convert-metadata.c:187
 msgid ""
-"The metadata format used by Atril has changed, and hence it needs to be "
+"The metadata format used by Xreader has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr "Формат метаподатака које користи Прегледач докумената је промењен. Морате да сачекате на превођење података у нови формат или они неће бити сачувани."
 
@@ -1312,7 +1312,7 @@ msgstr "Прегледач докумената.\nКористи %s (%s)"
 
 #: ../shell/ev-window.c:5037
 msgid ""
-"Atril is free software; you can redistribute it and/or modify it under the "
+"Xreader is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
@@ -1320,7 +1320,7 @@ msgstr "Атрил је слободан софтвер; можете га ра�
 
 #: ../shell/ev-window.c:5041
 msgid ""
-"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -1329,12 +1329,12 @@ msgstr "Атрил се расподељује у нади да ће бити к
 #: ../shell/ev-window.c:5045
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+" Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr "Требали сте да примите примерак Гнуове Опште јавне лиценце\nуз овај програм. Ако нисте, пишите Задужбини слободног\nсофтвера на адресу: „Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA“\n"
 
 #: ../shell/ev-window.c:5074
-msgid "Atril"
+msgid "Xreader"
 msgstr "Атрил"
 
 #: ../shell/ev-window.c:5077
@@ -1721,15 +1721,15 @@ msgid "NUMBER"
 msgstr "БРОЈ"
 
 #: ../shell/main.c:79
-msgid "Run atril in fullscreen mode"
+msgid "Run xreader in fullscreen mode"
 msgstr "Покреће атрила преко целог екрана"
 
 #: ../shell/main.c:80
-msgid "Run atril in presentation mode"
+msgid "Run xreader in presentation mode"
 msgstr "Покреће атрила у режиму представљања"
 
 #: ../shell/main.c:81
-msgid "Run atril as a previewer"
+msgid "Run xreader as a previewer"
 msgstr "Покреће атрила као претпрегледача"
 
 #: ../shell/main.c:82

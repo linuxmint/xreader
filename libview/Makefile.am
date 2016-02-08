@@ -1,4 +1,4 @@
-lib_LTLIBRARIES = libatrilview.la
+lib_LTLIBRARIES = libxreaderview.la
 
 NOINST_H_FILES =			\
 	ev-annotation-window.h		\
@@ -26,10 +26,10 @@ INST_H_FILES = 				\
 	$(INST_H_SRC_FILES)		\
 	ev-view-type-builtins.h
 
-headerdir = $(includedir)/atril/$(EV_API_VERSION)/libview
+headerdir = $(includedir)/xreader/$(EV_API_VERSION)/libview
 header_DATA = $(INST_H_FILES)
 
-libatrilview_la_SOURCES = 			\
+libxreaderview_la_SOURCES = 			\
 	ev-annotation-window.c		\
 	ev-document-model.c		\
 	ev-loading-window.c		\
@@ -51,31 +51,31 @@ libatrilview_la_SOURCES = 			\
 	$(NOINST_H_FILES)		\
 	$(INST_H_FILES)
 
-libatrilview_la_CPPFLAGS = \
-	-DATRILDATADIR=\"$(pkgdatadir)\"	\
-	-DG_LOG_DOMAIN=\"AtrilView\"		\
+libxreaderview_la_CPPFLAGS = \
+	-DXREADERDATADIR=\"$(pkgdatadir)\"	\
+	-DG_LOG_DOMAIN=\"XreaderView\"		\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
-	-DATRIL_COMPILATION			\
+	-DXREADER_COMPILATION			\
 	-I$(top_srcdir)				\
 	-I$(top_srcdir)/libdocument		\
 	-I$(top_builddir)			\
 	$(AM_CPPFLAGS)
 
-libatrilview_la_CFLAGS = \
+libxreaderview_la_CFLAGS = \
 	$(LIBVIEW_CFLAGS)	\
 	$(WARN_CFLAGS)		\
 	$(DISABLE_DEPRECATED)	\
 	$(EPUB_CFLAGS)		\
 	$(AM_CFLAGS)
 
-libatrilview_la_LDFLAGS = \
+libxreaderview_la_LDFLAGS = \
 	-version-info $(EV_VIEW_LT_VERSION_INFO)	\
 	-no-undefined	\
 	-export-symbols-regex "^ev_*"	\
 	$(AM_LDFLAGS)
 
-libatrilview_la_LIBADD = \
-	$(top_builddir)/libdocument/libatrildocument.la \
+libxreaderview_la_LIBADD = \
+	$(top_builddir)/libdocument/libxreaderdocument.la \
 	$(LIBVIEW_LIBS)								 \
 	$(EPUB_LIBS)
 
@@ -122,9 +122,9 @@ EXTRA_DIST = \
 
 if ENABLE_INTROSPECTION
 
-AtrilView-$(EV_API_VERSION).gir: libatrilview.la Makefile $(INST_H_FILES) $(filter %.c,$(libatrilview_la_SOURCES))
+XreaderView-$(EV_API_VERSION).gir: libxreaderview.la Makefile $(INST_H_FILES) $(filter %.c,$(libxreaderview_la_SOURCES))
 	$(AM_V_GEN) PKG_CONFIG_PATH=$(top_builddir):$$PKG_CONFIG_PATH \
-	$(G_IR_SCANNER) -v --namespace AtrilView \
+	$(G_IR_SCANNER) -v --namespace XreaderView \
 	--add-include-path=$(top_builddir)/libdocument \
 	--strip-prefix=Ev \
 	--nsversion=$(EV_API_VERSION) \
@@ -134,24 +134,24 @@ AtrilView-$(EV_API_VERSION).gir: libatrilview.la Makefile $(INST_H_FILES) $(filt
 	--include=Gdk-$(GTK_API_VERSION) \
 	--include=GdkPixbuf-2.0 \
 	--include=Gtk-$(GTK_API_VERSION) \
-	--include=AtrilDocument-$(EV_API_VERSION) \
-	--library=atrilview \
+	--include=XreaderDocument-$(EV_API_VERSION) \
+	--library=xreaderview \
 	--libtool="$(LIBTOOL)" \
 	--output $@ \
-	--pkg atril-document-$(EV_API_VERSION) \
-	--pkg atril-view-$(EV_API_VERSION) \
+	--pkg xreader-document-$(EV_API_VERSION) \
+	--pkg xreader-view-$(EV_API_VERSION) \
 	-L$(top_builddir)/libdocument/ \
 	-I$(top_srcdir) \
 	-I$(top_builddir) \
-	-DATRIL_COMPILATION \
+	-DXREADER_COMPILATION \
 	$(filter %.h,$^) \
 	$(filter %.c,$^)
 
 girdir = $(GIRDIR)
-gir_DATA = AtrilView-$(EV_API_VERSION).gir
+gir_DATA = XreaderView-$(EV_API_VERSION).gir
 
 typelibsdir = $(GIRTYPELIBDIR)
-typelibs_DATA = AtrilView-$(EV_API_VERSION).typelib
+typelibs_DATA = XreaderView-$(EV_API_VERSION).typelib
 
 EXTRA_DIST += $(gir_DATA)
 CLEANFILES += $(gir_DATA) $(typelibs_DATA)

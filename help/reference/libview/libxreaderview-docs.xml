@@ -5,7 +5,7 @@
   <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
   <!ENTITY version SYSTEM "version.xml">
 ]>
-<book id="atril-view">
+<book id="xreader-view">
   <!--
     Copyright © 2009, 2010 Christian Persch
 
@@ -17,9 +17,9 @@
     A copy of the license is included in the COPYING file.
     -->
   <bookinfo>
-    <title>Atril View Library Reference Manual</title>
+    <title>Xreader View Library Reference Manual</title>
     <releaseinfo>
-      For Atril version &version;.
+      For Xreader version &version;.
       The latest version of this documentation can be found on-line at the
       <ulink role="online-location" url="http://library.mate.org/devel/libevview/index.html">MATE Library</ulink>.
     </releaseinfo>
@@ -67,7 +67,7 @@
   </bookinfo>
 
   <part id="view-view">
-    <title>Atril View</title>
+    <title>Xreader View</title>
     <partintro>
       <para>
       </para>

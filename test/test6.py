@@ -12,7 +12,7 @@ from dogtail.procedural import *
 if os.path.exists(homedir + "output.ps"):
     os.unlink(homedir + "output.ps")
 
-run('atril', arguments=' '+srcdir+'/test-page-labels.pdf')
+run('xreader', arguments=' '+srcdir+'/test-page-labels.pdf')
 
 click('File', roleName='menu')
 click('Print...', roleName='menu item')
@@ -26,6 +26,6 @@ if statinfo.st_size > 100000:
     exit(1)
 os.unlink (homedir + "output.ps")
 
-# Close atril
+# Close xreader
 click('File', roleName='menu')
 click('Close', roleName='menu item')

@@ -18,7 +18,7 @@
  *
  */
 
-#include <atril-view.h>
+#include <xreader-view.h>
  
 #include <gtk/gtk.h>
 

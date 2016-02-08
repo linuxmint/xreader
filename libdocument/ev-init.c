@@ -1,13 +1,13 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of xreader, a mate document viewer
  *
  * Copyright © 2009 Christian Persch
  *
- * Atril is free software; you can redistribute it and/or modify it
+ * Xreader is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation; either version 2.1 of the License, or
  * (at your option) any later version.
  *
- * Atril is distributed in the hope that it will be useful, but
+ * Xreader is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser
  * General Public License for more details.
@@ -38,10 +38,10 @@ ev_get_locale_dir (void)
 /**
  * ev_init:
  *
- * Initializes the atril document library, and binds the atril
+ * Initializes the xreader document library, and binds the xreader
  * gettext domain.
  *
- * You must call this before calling any other function in the atril
+ * You must call this before calling any other function in the xreader
  * document library.
  *
  * Returns: %TRUE if any backends were found; %FALSE otherwise
@@ -68,7 +68,7 @@ ev_init (void)
 /**
  * ev_shutdown:
  *
- * Shuts the atril document library down.
+ * Shuts the xreader document library down.
  */
 void
 ev_shutdown (void)
@@ -86,7 +86,7 @@ ev_shutdown (void)
 /*
  * _ev_is_initialized:
  *
- * Returns: %TRUE if the atril document library has been initialized
+ * Returns: %TRUE if the xreader document library has been initialized
  */
 gboolean
 _ev_is_initialized (void)

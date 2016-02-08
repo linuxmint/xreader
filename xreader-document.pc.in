@@ -1,12 +1,12 @@
 prefix=@prefix@
 exec_prefix=@exec_prefix@
 libdir=@libdir@
-includedir=@includedir@/atril/@EV_API_VERSION@
-backenddir=@libdir@/atril/@EV_BINARY_VERSION@/backends
+includedir=@includedir@/xreader/@EV_API_VERSION@
+backenddir=@libdir@/xreader/@EV_BINARY_VERSION@/backends
 
-Name: Atril Document
+Name: Xreader Document
 Description: MATE document viewer backend library
 Version: @VERSION@
 Requires: gio-2.0 >= @GLIB_REQUIRED@ gtk+-@GTK_API_VERSION@ >= @GTK_REQUIRED@
-Libs: -L${libdir} -latrildocument
+Libs: -L${libdir} -lxreaderdocument
 Cflags: -I${includedir}

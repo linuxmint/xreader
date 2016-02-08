@@ -7,7 +7,7 @@ libevmisc_la_SOURCES = \
 	ev-page-action-widget.h
 
 libevmisc_la_CFLAGS =	\
-	-DATRILDATADIR=\"$(pkgdatadir)\"	\
+	-DXREADERDATADIR=\"$(pkgdatadir)\"	\
 	-I$(top_srcdir)			\
 	-I$(top_srcdir)/libdocument	\
 	-I$(top_srcdir)/libview		\
@@ -16,7 +16,7 @@ libevmisc_la_CFLAGS =	\
 	$(DISABLE_DEPRECATED)
 
 libevmisc_la_LIBADD = \
-	$(top_builddir)/libdocument/libatrildocument.la \
-	$(top_builddir)/libview/libatrilview.la
+	$(top_builddir)/libdocument/libxreaderdocument.la \
+	$(top_builddir)/libview/libxreaderview.la
 
 -include $(top_srcdir)/git.mk
