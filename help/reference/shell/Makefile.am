@@ -98,7 +98,8 @@ GTKDOC_CFLAGS = \
 	-I$(top_srcdir)/libview				\
 	-I$(top_srcdir)/libmisc				\
 	-I$(top_builddir)/libview			\
-	-I$(top_srcdir)/properties			\
+	-I$(top_srcdir)/properties-caja			\
+	-I$(top_srcdir)/properties-nemo			\
 	-DXREADERDATADIR=\"$(pkgdatadir)\"		\
 	-DMATEDATADIR=\"$(datadir)\"			\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"		\
@@ -121,7 +122,8 @@ GTKDOC_LIBS = \
 	$(top_builddir)/cut-n-paste/totem-screensaver/libtotemscrsaver.la	\
 	$(top_builddir)/cut-n-paste/gimpcellrenderertoggle/libgimpcellrenderertoggle.la	\
 	$(top_builddir)/cut-n-paste/smclient/libsmclient.la		\
-	$(top_builddir)/properties/libevproperties.la			\
+	$(top_builddir)/properties-caja/libevproperties.la			\
+	$(top_builddir)/properties-nemo/libevproperties.la			\
 	$(top_builddir)/libdocument/libxreaderdocument.la			\
 	$(top_builddir)/libview/libxreaderview.la				\
 	$(top_builddir)/libmisc/libevmisc.la				\

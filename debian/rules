@@ -19,6 +19,7 @@ override_dh_install:
 	rm -rfv debian/tmp/usr/lib/*/xreader/3/backends/*.la
 	rm -rfv debian/tmp/usr/share/MateConf/gsettings/xreader.convert
 	sed 's@TYPELIBDIR@${TYPELIBDIR}@' debian/gir1.2-xreader.install.in > debian/gir1.2-xreader.install
+	sed 's@TYPELIBDIR@${TYPELIBDIR}@' debian/xreader.install.in > debian/xreader.install
 	dh_install --fail-missing
 
 override_dh_auto_test:

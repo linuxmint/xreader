@@ -7,7 +7,8 @@ SUBDIRS =       \
     backend     \
     libview     \
     libmisc     \
-    properties  \
+    properties-caja  \
+    properties-nemo  \
     shell       \
     po          \
     help
@@ -81,6 +82,7 @@ DISTCHECK_CONFIGURE_FLAGS =   \
     --disable-schemas-compile \
     --enable-gtk-doc          \
     --disable-caja            \
+    --disable-nemo            \
     --disable-tests           \
     --disable-silent-rules
 

@@ -277,6 +277,26 @@ fi
 
 AM_CONDITIONAL([ENABLE_CAJA],[test "$enable_caja" = "yes"])
 
+# Check for Nemo property page build
+AC_ARG_ENABLE([nemo],
+  [AS_HELP_STRING([--disable-nemo],
+                  [Disable build of nemo extensions])],
+  [],
+  [enable_nemo=yes])
+
+if test "$enable_nemo" = "yes" ; then
+  PKG_CHECK_MODULES([NEMO],[gtk+-x11-3.0 $MM gthread-2.0 libnemo-extension],
+                    [],[AC_MSG_ERROR([libnemo-extension not found; use --disable-nemo to disable the nemo extensions])])
+  NEMO_EXTENSION_DIR=`$PKG_CONFIG --variable=extensiondir libnemo-extension`
+  AC_SUBST([nemoextensiondir],[$NEMO_EXTENSION_DIR])
+  AC_SUBST(NEMO_CFLAGS)
+  AC_SUBST(NEMO_LIBS)
+
+  AC_DEFINE([HAVE_NEMO],[1], [defined if you build the nemo plugin])
+fi
+
+AM_CONDITIONAL([ENABLE_NEMO],[test "$enable_nemo" = "yes"])
+
 # Check for thumbnailer build
 
 AC_ARG_ENABLE([thumbnailer],
@@ -736,8 +756,10 @@ libview/Makefile
 Makefile
 po/Makefile.in
 previewer/Makefile
-properties/libxreader-properties-page.caja-extension.in
-properties/Makefile
+properties-caja/libxreader-properties-page.caja-extension.in
+properties-caja/Makefile
+properties-nemo/libxreader-properties-page.nemo-extension.in
+properties-nemo/Makefile
 shell/Makefile
 test/Makefile
 thumbnailer/Makefile
@@ -756,6 +778,7 @@ Configure summary:
     Keyring Support.....:    $with_keyring
     DBUS Support........:    $enable_dbus
     Caja Plugin.........:    $enable_caja
+    Nemo Plugin.........:    $enable_nemo
     Thumbnailer.........:    $enable_thumbnailer
     Previewer...........:    $enable_previewer
     Gtk-Doc Support.....:    $enable_gtk_doc
