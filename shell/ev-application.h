@@ -69,7 +69,6 @@ GDBusConnection  *ev_application_get_dbus_connection (EvApplication   *applicati
 gboolean	  ev_application_has_window	     (EvApplication   *application);
 guint             ev_application_get_n_windows       (EvApplication   *application);
 const gchar *     ev_application_get_uri             (EvApplication   *application);
-GObject		 *ev_application_get_media_keys	     (EvApplication   *application);
 
 void 		  ev_application_set_filechooser_uri (EvApplication   *application,
 						      GtkFileChooserAction action,

@@ -97,10 +97,6 @@
 #include "ev-bookmarks.h"
 #include "ev-bookmark-action.h"
 
-#ifdef ENABLE_DBUS
-#include "ev-media-player-keys.h"
-#endif /* ENABLE_DBUS */
-
 typedef enum {
 	PAGE_MODE_DOCUMENT,
 	PAGE_MODE_PASSWORD
@@ -346,9 +342,6 @@ static void     view_external_link_cb                   (EvWindow         *windo
 
 static void     ev_window_load_file_remote              (EvWindow         *ev_window,
 							 GFile            *source_file);
-static void     ev_window_media_player_key_pressed      (EvWindow         *window,
-							 const gchar      *key,
-							 gpointer          user_data);
 static void     ev_window_update_max_min_scale          (EvWindow         *window);
 #ifdef ENABLE_DBUS
 static void	ev_window_emit_closed			(EvWindow         *window);
@@ -5579,13 +5572,6 @@ ev_window_dispose (GObject *object)
 {
 	EvWindow *window = EV_WINDOW (object);
 	EvWindowPrivate *priv = window->priv;
-	GObject *mpkeys = ev_application_get_media_keys (EV_APP);
-
-	if (mpkeys) {
-		g_signal_handlers_disconnect_by_func (mpkeys,
-						      ev_window_media_player_key_pressed,
-						      window);
-	}
 
 #ifdef ENABLE_DBUS
 	if (priv->dbus_object_id > 0) {
@@ -6300,13 +6286,6 @@ sidebar_widget_model_set (EvSidebarLinks *ev_sidebar_links,
 static gboolean
 view_actions_focus_in_cb (GtkWidget *widget, GdkEventFocus *event, EvWindow *window)
 {
-#ifdef ENABLE_DBUS
-	GObject *keys;
-
-	keys = ev_application_get_media_keys (EV_APP);
-	ev_media_player_keys_focused (EV_MEDIA_PLAYER_KEYS (keys));
-#endif /* ENABLE_DBUS */
-
 	update_chrome_flag (window, EV_CHROME_RAISE_TOOLBAR, FALSE);
 	ev_window_set_action_sensitive (window, "ViewToolbar", TRUE);
 
@@ -7004,41 +6983,6 @@ ev_attachment_popup_cmd_save_attachment_as (GtkAction *action, EvWindow *window)
 	gtk_widget_show (fc);
 }
 
-static void
-ev_window_media_player_key_pressed (EvWindow    *window,
-				    const gchar *key,
-				    gpointer     user_data)
-{
-	if (!gtk_window_is_active (GTK_WINDOW (window))) 
-		return;
-	
-	/* Note how Previous/Next only go to the
-	 * next/previous page despite their icon telling you
-	 * they should go to the beginning/end.
-	 *
-	 * There's very few keyboards with FFW/RWD though,
-	 * so we stick the most useful keybinding on the most
-	 * often seen keys
-	 */
-	if (strcmp (key, "Play") == 0) {
-		ev_window_run_presentation (window);
-	} else if (strcmp (key, "Previous") == 0) {
-		if (EV_WINDOW_IS_PRESENTATION (window))
-			ev_view_presentation_previous_page (EV_VIEW_PRESENTATION (window->priv->presentation_view));
-		else
-			ev_window_cmd_go_previous_page (NULL, window);
-	} else if (strcmp (key, "Next") == 0) {
-		if (EV_WINDOW_IS_PRESENTATION (window))
-			ev_view_presentation_next_page (EV_VIEW_PRESENTATION (window->priv->presentation_view));
-		else
-			ev_window_cmd_go_next_page (NULL, window);
-	} else if (strcmp (key, "FastForward") == 0) {
-		ev_window_cmd_go_last_page (NULL, window);
-	} else if (strcmp (key, "Rewind") == 0) {
-		ev_window_cmd_go_first_page (NULL, window);
-	}
-}
-
 static EggToolbarsModel *
 get_toolbars_model (void)
 {
@@ -7275,7 +7219,6 @@ ev_window_init (EvWindow *ev_window)
 	GtkWidget *sidebar_widget;
 	GtkWidget *menuitem;
 	EggToolbarsModel *toolbars_model;
-	GObject *mpkeys;
 	gchar *ui_path;
 #ifdef ENABLE_DBUS
 	GDBusConnection *connection;
@@ -7685,14 +7628,6 @@ ev_window_init (EvWindow *ev_window)
 	ev_window->priv->attachment_popup = gtk_ui_manager_get_widget (ev_window->priv->ui_manager,
 								       "/AttachmentPopup");
 	ev_window->priv->attach_list = NULL;
-
-	/* Media player keys */
-	mpkeys = ev_application_get_media_keys (EV_APP);
-	if (mpkeys) {
-		g_signal_connect_swapped (mpkeys, "key_pressed",
-					  G_CALLBACK (ev_window_media_player_key_pressed),
-					  ev_window);
-	}
 
 	/* Give focus to the document view */
 	gtk_widget_grab_focus (ev_window->priv->view);

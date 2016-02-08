@@ -40,10 +40,6 @@
 #include "ev-file-helpers.h"
 #include "ev-stock-icons.h"
 
-#ifdef ENABLE_DBUS
-#include "ev-media-player-keys.h"
-#endif /* ENABLE_DBUS */
-
 struct _EvApplication {
 	GObject base_instance;
 
@@ -55,7 +51,6 @@ struct _EvApplication {
 #ifdef ENABLE_DBUS
 	GDBusConnection *connection;
         guint registration_id;
-	EvMediaPlayerKeys *keys;
 	gboolean doc_registered;
 #endif
 
@@ -915,10 +910,6 @@ ev_application_shutdown (EvApplication *application)
 	application->scr_saver = NULL;
 
 #ifdef ENABLE_DBUS
-	if (application->keys) {
-		g_object_unref (application->keys);
-		application->keys = NULL;
-	}
         if (application->registration_id != 0) {
                 g_dbus_connection_unregister_object (application->connection,
                                                      application->registration_id);
@@ -997,7 +988,6 @@ static void ev_application_init(EvApplication* ev_application)
                 g_error_free (error);
         }
 
-	ev_application->keys = ev_media_player_keys_new ();
 #endif /* ENABLE_DBUS */
 
 	ev_application->scr_saver = totem_scrsaver_new ();
@@ -1056,24 +1046,6 @@ const gchar *
 ev_application_get_uri (EvApplication *application)
 {
 	return application->uri;
-}
-
-/**
- * ev_application_get_media_keys:
- * @application: The instance of the application.
- *
- * It gives you access to the media player keys handler object.
- *
- * Returns: A #EvMediaPlayerKeys.
- */
-GObject *
-ev_application_get_media_keys (EvApplication *application)
-{
-#ifdef ENABLE_DBUS
-	return G_OBJECT (application->keys);
-#else
-	return NULL;
-#endif /* ENABLE_DBUS */
 }
 
 void

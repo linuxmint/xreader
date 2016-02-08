@@ -95,13 +95,6 @@ xreader_SOURCES=				\
 	ev-sidebar-thumbnails.h		\
 	main.c
 
-if ENABLE_DBUS
-xreader_SOURCES += \
-	ev-media-player-keys.c \
-	ev-media-player-keys.h
-endif
-
-
 xreader_LDFLAGS = $(AM_LDFLAGS)
 
 xreader_LDADD=										\

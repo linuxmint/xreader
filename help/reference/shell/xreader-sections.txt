@@ -350,22 +350,6 @@ EGG_FIND_BAR_GET_CLASS
 </SECTION>
 
 <SECTION>
-<FILE>ev-media-player-keys</FILE>
-EvMediaPlayerKeys
-EvMediaPlayerKeysClass
-ev_media_player_keys_new
-ev_media_player_keys_focused
-<SUBSECTION Standard>
-EV_MEDIA_PLAYER_KEYS
-EV_IS_MEDIA_PLAYER_KEYS
-EV_TYPE_MEDIA_PLAYER_KEYS
-ev_media_player_keys_get_type
-EV_MEDIA_PLAYER_KEYS_CLASS
-EV_IS_MEDIA_PLAYER_KEYS_CLASS
-EV_MEDIA_PLAYER_KEYS_GET_CLASS
-</SECTION>
-
-<SECTION>
 <FILE>ev-navigation-action</FILE>
 <TITLE>EvNavigationAction</TITLE>
 EvNavigationAction
