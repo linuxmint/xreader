@@ -83,36 +83,16 @@ AC_SUBST([EV_INTLTOOL_XREADER_BACKEND_RULE])
 
 GLIB_GSETTINGS
 
-AC_MSG_CHECKING([which gtk+ version to compile against])
-AC_ARG_WITH([gtk],
-  [AS_HELP_STRING([--with-gtk=2.0|3.0], [which gtk+ version to compile against (default: 2.0)])],
-  [case "$with_gtk" in
-     2.0|3.0) ;;
-     *) AC_MSG_ERROR([invalid gtk version specified]) ;;
-   esac],
-  [with_gtk=2.0])
-AC_MSG_RESULT([$with_gtk])
-
 dnl Specify required versions of dependencies
 CAIRO_REQUIRED=1.9.10
 GLIB_REQUIRED=2.36.0
 LIBSECRET_REQUIRED=0.5
 MATEDESKTOP_REQUIRED=1.9.0
-
-case "$with_gtk" in
-  2.0) GTK_API_VERSION=2.0
-       WEBKIT_API_VERSION=1.0
-       GAIL_API_VERSION=
-       GTK_REQUIRED=2.24.0
-       WEBKIT_REQUIRED=2.4.3
-       ;;
-  3.0) GTK_API_VERSION=3.0
-       WEBKIT_API_VERSION=4.0
-       GAIL_API_VERSION=-3.0
-       GTK_REQUIRED=3.0.0
-       WEBKIT_REQUIRED=2.4.3
-       ;;
-esac
+GTK_API_VERSION=3.0
+WEBKIT_API_VERSION=4.0
+GAIL_API_VERSION=-3.0
+GTK_REQUIRED=3.0.0
+WEBKIT_REQUIRED=2.4.3
 
 AC_SUBST([GLIB_REQUIRED])
 AC_SUBST([GTK_REQUIRED])
@@ -131,13 +111,14 @@ dnl Check dependencies
 
 AC_SEARCH_LIBS([hypot],[m])
 
-PKG_CHECK_MODULES(LIBDOCUMENT, gtk+-$GTK_API_VERSION >= $GTK_REQUIRED gio-2.0 >= $GLIB_REQUIRED)
-PKG_CHECK_MODULES(LIBVIEW, gtk+-$GTK_API_VERSION >= $GTK_REQUIRED gail$GAIL_API_VERSION >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED)
-PKG_CHECK_MODULES(BACKEND, cairo >= $CAIRO_REQUIRED gtk+-$GTK_API_VERSION >= $GTK_REQUIRED)
-PKG_CHECK_MODULES(FRONTEND_CORE, gtk+-$GTK_API_VERSION >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED)
+PKG_CHECK_MODULES(LIBDOCUMENT, gtk+-3.0 >= $GTK_REQUIRED gio-2.0 >= $GLIB_REQUIRED)
+PKG_CHECK_MODULES(LIBVIEW, gtk+-3.0 >= $GTK_REQUIRED gail$GAIL_API_VERSION >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED)
+PKG_CHECK_MODULES(BACKEND, cairo >= $CAIRO_REQUIRED gtk+-3.0 >= $GTK_REQUIRED)
+PKG_CHECK_MODULES(FRONTEND_CORE, gtk+-3.0 >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED)
+PKG_CHECK_MODULES(FRONTENDGTK2_CORE, gtk+-2.0 gthread-2.0 gio-2.0 >= $GLIB_REQUIRED)
 PKG_CHECK_MODULES(GMODULE, gmodule-2.0 >= $GLIB_REQUIRED)
 
-PKG_CHECK_MODULES([SHELL_CORE],[libxml-2.0 >= $LIBXML_REQUIRED gtk+-$GTK_API_VERSION >= $GTK_REQUIRED gio-2.0 >= $GLIB_REQUIRED gthread-2.0 x11])
+PKG_CHECK_MODULES([SHELL_CORE],[libxml-2.0 >= $LIBXML_REQUIRED gtk+-3.0 >= $GTK_REQUIRED gio-2.0 >= $GLIB_REQUIRED gthread-2.0 x11])
 
 dnl
 dnl zlib support
@@ -157,7 +138,7 @@ dnl
 dnl SM client
 dnl
 
-PKG_CHECK_MODULES([SMCLIENT],[gtk+-$GTK_API_VERSION gthread-2.0 sm >= 1.0.0])
+PKG_CHECK_MODULES([SMCLIENT],[gtk+-3.0 gthread-2.0 sm >= 1.0.0])
 AC_SUBST([SMCLIENT_CFLAGS])
 AC_SUBST([SMCLIENT_LIBS])
 
@@ -185,7 +166,7 @@ AC_ARG_WITH([gtk-unix-print],
 AC_MSG_RESULT([$with_gtk_unix_print])
 
 if test "$with_gtk_unix_print" = "yes"; then
-   PKG_CHECK_MODULES(GTKUNIXPRINT, [gtk+-unix-print-$GTK_API_VERSION >= $GTK_REQUIRED])
+   PKG_CHECK_MODULES(GTKUNIXPRINT, [gtk+-unix-print-3.0 >= $GTK_REQUIRED])
    AC_DEFINE([GTKUNIXPRINT_ENABLED], [1], [Define if gtk+-unix-print is enabled.])
 fi
 
@@ -267,6 +248,11 @@ FRONTEND_LIBS="$FRONTEND_CORE_LIBS -lz"
 AC_SUBST(FRONTEND_CFLAGS)
 AC_SUBST(FRONTEND_LIBS)
 
+FRONTENDGTK2_CFLAGS="$FRONTENDGTK2_CORE_CFLAGS $DEBUG_FLAGS"
+FRONTENDGTK2_LIBS="$FRONTENDGTK2_CORE_LIBS -lz"
+AC_SUBST(FRONTENDGTK2_CFLAGS)
+AC_SUBST(FRONTENDGTK2_LIBS)
+
 EV_DAEMON_CFLAGS="$EV_DAEMON_CFLAGS $DEBUG_FLAGS"
 AC_SUBST([EV_DAEMON_CFLAGS])
 AC_SUBST([EV_DAEMON_LIBS])
@@ -279,7 +265,7 @@ AC_ARG_ENABLE([caja],
   [enable_caja=yes])
 
 if test "$enable_caja" = "yes" ; then
-  PKG_CHECK_MODULES([CAJA],[gtk+-x11-$GTK_API_VERSION $MM gthread-2.0 libcaja-extension],
+  PKG_CHECK_MODULES([CAJA],[gtk+-x11-2.0 $MM gthread-2.0 libcaja-extension],
                     [],[AC_MSG_ERROR([libcaja-extension not found; use --disable-caja to disable the caja extensions])])
   CAJA_EXTENSION_DIR=`$PKG_CONFIG --variable=extensiondir libcaja-extension`
   AC_SUBST([cajaextensiondir],[$CAJA_EXTENSION_DIR])
@@ -312,7 +298,7 @@ AC_ARG_ENABLE([previewer],
   [enable_previewer=yes])
 
 if test x$enable_previewer = "xyes" ; then
-  PKG_CHECK_MODULES([PREVIEWER],[gtk+-$GTK_API_VERSION >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED])
+  PKG_CHECK_MODULES([PREVIEWER],[gtk+-3.0 >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED])
 fi
 
 AM_CONDITIONAL([ENABLE_PREVIEWER],[test "$enable_previewer" = "yes"])
@@ -661,7 +647,7 @@ YELP_HELP_INIT
 GTK_DOC_CHECK([1.13], [--flavour no-tmpl])
 
 AC_SUBST([GLIB_PREFIX], [$($PKG_CONFIG --variable=prefix glib-2.0)])
-AC_SUBST([GTK_PREFIX], [$($PKG_CONFIG --variable=prefix gtk+-$GTK_API_VERSION)])
+AC_SUBST([GTK_PREFIX], [$($PKG_CONFIG --variable=prefix gtk+-3.0)])
 
 # ******************
 # Backends directory

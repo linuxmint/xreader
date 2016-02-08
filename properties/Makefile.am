@@ -3,7 +3,7 @@ AM_CPPFLAGS=					\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
 	-I$(top_srcdir)				\
 	-I$(top_builddir)			\
-	$(FRONTEND_CFLAGS)			\
+	$(FRONTENDGTK2_CFLAGS)			\
 	$(CAJA_CFLAGS)			\
 	$(DISABLE_DEPRECATED)			\
 	$(WARN_CFLAGS)
@@ -25,7 +25,7 @@ libxreader_properties_page_la_SOURCES = 	\
 libxreader_properties_page_la_LIBADD = 		\
 	libevproperties.la			\
 	$(top_builddir)/libdocument/libxreaderdocument.la	\
-	$(FRONTEND_LIBS)			\
+	$(FRONTENDGTK2_LIBS)			\
 	$(CAJA_LIBS)
 
 libxreader_properties_page_la_LDFLAGS = -module -avoid-version -no-undefined

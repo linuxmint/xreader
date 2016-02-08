@@ -35,7 +35,6 @@ override_dh_auto_configure:
 		--enable-comics \
 		--enable-introspection \
 		--disable-static \
-		--with-gtk=3.0 \
 		$(DEB_XREADER_FLAGS)
 
 override_dh_strip:
