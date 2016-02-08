@@ -1,29 +1,19 @@
-Atril
-==================================================
 Atril is a document viewer capable of displaying 
 multiple and single page document formats like PDF 
-and Postscript.  For more general information about 
-Atril please visit our website at 
+and Postscript.
 
-https://github.com/mate-desktop/atril
-
-Atril is a fork of Evince
-
-This software is licensed under the GPL
-
-Atril Requirements
+Requirements
 ==================================================
-MATE Platform libraries [ https://github.com/mate-desktop/ ]
 Poppler for PDF viewing [ http://poppler.freedesktop.org/ ]
 GhostScript for Postscript viewing [ http://www.cs.wisc.edu/~ghost/ ]
 
-Atril Optional Backend Libraries
+Optional Backend Libraries
 ==================================================
 DjVuLibre for DjVu viewing [ http://djvulibre.djvuzone.org/ ]
 Rar for viewing CBR comics [ http://www.rarsoft.com/ ]
 libgxps for XPS documents [ https://wiki.gnome.org/libgxps ]
 
-Atril Requirements to Run Tests
+Requirements to Run Tests
 ==================================================
 python-dogtail [ https://fedorahosted.org/dogtail/ ]
 python-pyatspi2 [ http://download.gnome.org/sources/pyatspi/ ]
