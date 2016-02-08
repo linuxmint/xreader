@@ -40,10 +40,11 @@
 
 #include "totem-scrsaver.h"
 
-#define GS_SERVICE   "org.mate.ScreenSaver"
-#define GS_PATH      "/org/mate/ScreenSaver"
-#define GS_INTERFACE "org.mate.ScreenSaver"
+#define GS_SERVICE   "org.gnome.SessionManager"
+#define GS_PATH      "/org/gnome/SessionManager"
+#define GS_INTERFACE "org.gnome.SessionManager"
 
+#define GSM_INHIBITOR_FLAG_IDLE 1 << 3
 #define XSCREENSAVER_MIN_TIMEOUT 60
 
 enum {
@@ -178,9 +179,8 @@ screensaver_inhibit_dbus (TotemScrsaver *scr,
 		g_return_if_fail (scr->priv->reason != NULL);
 		g_dbus_proxy_call (priv->gs_proxy,
 				   "Inhibit",
-				   g_variant_new ("(ss)",
-						  g_get_application_name (),
-						  scr->priv->reason),
+				   g_variant_new ("(susu)",
+				   g_get_application_name (), 0, scr->priv->reason, GSM_INHIBITOR_FLAG_IDLE),
 				   G_DBUS_CALL_FLAGS_NO_AUTO_START,
 				   -1,
 				   NULL,
