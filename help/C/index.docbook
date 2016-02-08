@@ -21,108 +21,12 @@
          Document Format (PDF) files and PostScript files
       </para>
     </abstract>
-    <copyright>
-      <year>2015</year>
-      <holder>MATE Documentation Project</holder>
-    </copyright>
-    <copyright>
-      <year>2005</year>
-      <holder>Nickolay V. Shmyrev</holder>
-    </copyright>
-    <copyright>
-      <year>2004</year>
-      <holder>Sun Microsystems</holder>
-    </copyright>
-
-<!-- translators: uncomment this:
-    <copyright>
-      <year>2002</year>
-      <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
-    </copyright>
--->
-
-    <publisher> 
-      <publishername> MATE Documentation Project </publishername> 
-    </publisher>
-    <publisher>
-      <publishername> GNOME Documentation Project </publishername>
-    </publisher> 
 
     &legal;
-    <!-- This file  contains link to license for the documentation (GNU FDL), and 
-         other legal stuff such as "NO WARRANTY" statement. Please do not change 
-	 any of this. -->
-
-    <authorgroup> 
-      <author role="maintainer">
-        <firstname>MATE Documentation Project</firstname>
-        <surname></surname>
-        <affiliation><orgname>MATE Desktop</orgname></affiliation>
-      </author>
-      <author>
-        <firstname>Sun</firstname>
-        <surname>GNOME Documentation Team</surname>
-        <affiliation><orgname>Sun Microsystems</orgname></affiliation>
-      </author>
-      <author>
-	<firstname>Nickolay V. </firstname> 
-	<surname>Shmyrev</surname> 
-	<affiliation> 
-	  <orgname>GNOME Documentation Project</orgname>
-	  <address> <email>nshmyrev@yandex.ru</email> </address> 
-	</affiliation> 
-      </author> 
-
-<!-- This is appropriate place for other contributors: translators,
-     maintainers,  etc. Commented out by default.
-      <othercredit role="translator">
-	<firstname>Latin</firstname> 
-	<surname>Translator 1</surname> 
-	<affiliation> 
-          <orgname>Latin Translation Team</orgname> 
-  	  <address> <email>translator@gnome.org</email> </address> 
-        </affiliation>
-        <contrib>Latin translation</contrib>
-      </othercredit>
--->
-    </authorgroup>
-
-    <revhistory>
-      <revision> 
-        <revnumber>&appname; Manual V&manrevision;</revnumber>
-	<date>July 2015</date>
-        <revdescription>
-          <para role="author">MATE Documentation Team</para>
-          <para role="publisher">MATE Documentation Project</para>
-        </revdescription>
-      </revision>
-      <revision>
-        <revnumber>&appname; Manual V1.1</revnumber> 
-	<date>2008-04-05</date>
-        <revdescription>
-          <para role="author">Niels Giesen</para>
-          <para role="author">Claude Paroz</para>
-          <para role="publisher">GNOME Documentation Project</para>
-        </revdescription>
-      </revision> 
-      <revision> 
-        <revnumber>&appname; Manual V1.0</revnumber> 
-	<date>2005-04-06</date>
-        <revdescription>
-          <para role="author">Nickolay V. Shmyrev</para>
-          <para role="publisher">GNOME Documentation Project</para>
-        </revdescription>
-      </revision> 
-    </revhistory> 
 
     <releaseinfo>This manual describes version &appversion; of &appname;
     </releaseinfo> 
-    <legalnotice> 
-      <title>Feedback</title> 
-      <para>To report a bug or make a suggestion regarding the &appname; application or this manual, follow the directions in the <ulink url="help:mate-user-guide/feedback" type="help">MATE Feedback Page</ulink>.
-      </para>
-<!-- Translators may also add here feedback address for translations -->
-    </legalnotice> 
+
   </articleinfo> 
 
   <indexterm zone="index"> 
@@ -133,14 +37,6 @@
   </indexterm>
 
 <!-- ============= Document Body ============================= -->
-<!-- ============= Introduction ============================== -->
-<!-- Use the Introduction section to give a brief overview of what
-     the application is and what it does. -->
-  <sect1 id="xreader-introduction"> 
-    <title>Introduction</title> 
-    <para>The &app; application enables you to view documents of various formats like Portable Document Format (PDF) files and PostScript files.  &app; follows Freedesktop.org and MATE standards to provide integration with Desktop Environment.
-    </para>
-  </sect1>
 
 <!-- =========== Getting Started ============================== -->
 
