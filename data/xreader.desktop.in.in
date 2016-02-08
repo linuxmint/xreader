@@ -1,6 +1,5 @@
 [Desktop Entry]
-_Name=Xreader Document Viewer
-_GenericName=Document Viewer
+_Name=Document Viewer
 _Comment=View multi-page documents
 TryExec=xreader
 Exec=xreader %U
@@ -8,11 +7,6 @@ StartupNotify=true
 Terminal=false
 Type=Application
 Icon=xreader
-X-MATE-DocPath=
-X-MATE-Bugzilla-Bugzilla=MATE
-X-MATE-Bugzilla-Product=xreader
-X-MATE-Bugzilla-Component=BugBuddyBugs
-X-MATE-Bugzilla-Version=@VERSION@
 Categories=GTK;Office;Viewer;
 Keywords=MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;
 MimeType=@XREADER_MIME_TYPES@

@@ -4980,48 +4980,9 @@ ev_window_dual_mode_changed_cb (EvDocumentModel *model,
 					 ev_document_model_get_dual_page (model));
 }
 
-static char *
-build_comments_string (EvDocument *document)
-{
-	gchar *comments = NULL;
-	EvDocumentBackendInfo info;
-
-	if (document && ev_document_get_backend_info (document, &info)) {
-		comments = g_strdup_printf (
-			_("Document Viewer\nUsing %s (%s)"),
-			info.name, info.version);
-	} else {
-		comments = g_strdup_printf (
-			_("Document Viewer"));
-	}
-
-	return comments;
-}
-
 static void
 ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
 {
-	const char *authors[] = {
-		"Martin Kretzschmar <m_kretzschmar@gmx.net>",
-		"Jonathan Blandford <jrb@gnome.org>",
-		"Marco Pesenti Gritti <marco@gnome.org>",
-		"Nickolay V. Shmyrev <nshmyrev@yandex.ru>",
-		"Bryan Clark <clarkbw@gnome.org>",
-		"Carlos Garcia Campos <carlosgc@gnome.org>",
-		"Wouter Bolsterlee <wbolster@gnome.org>",
-		"Christian Persch <chpe" "\100" "gnome.org>",
-		"Perberos <perberos@gmail.com>",
-		"Stefano Karapetsas <stefano@karapetsas.com>",
-		"Steve Zesch <stevezesch2@gmail.com>",
-		"Avishkar Gupta <avishkar.gupta.delhi@gmail.com>",
-		NULL
-	};
-
-	const char *documenters[] = {
-		"Nickolay V. Shmyrev <nshmyrev@yandex.ru>",
-		NULL
-	};
-
 	const char *license[] = {
 		N_("Xreader is free software; you can redistribute it and/or modify "
 		   "it under the terms of the GNU General Public License as published by "
@@ -5037,40 +4998,19 @@ ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
 	};
 
 	char *license_trans;
-	char *comments;
-
-#ifdef ENABLE_NLS
-	const char **p;
-
-	for (p = authors; *p; ++p)
-		*p = _(*p);
-
-	for (p = documenters; *p; ++p)
-		*p = _(*p);
-#endif
-
 	license_trans = g_strconcat (_(license[0]), "\n", _(license[1]), "\n",
 				     _(license[2]), "\n", NULL);
-
-	comments = build_comments_string (ev_window->priv->document);
 
 	gtk_show_about_dialog (
 		GTK_WINDOW (ev_window),
 		"name", _("Xreader"),
 		"version", VERSION,
-		"copyright",
-		_("© 1996–2009 The Evince authors\n© 2012–2016 The MATE developers"),
 		"license", license_trans,
-		"website", "http://www.mate-desktop.org/",
-		"comments", comments,
-		"authors", authors,
-		"documenters", documenters,
-		"translator-credits", _("translator-credits"),
+		"website", "http://www.github.com/linuxmint/xreader/",
 		"logo-icon-name", "xreader",
 		"wrap-license", TRUE,
 		NULL);
 
-	g_free (comments);
 	g_free (license_trans);
 }
 
