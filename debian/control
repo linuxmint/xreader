@@ -1,0 +1,202 @@
+Source: atril
+Section: x11
+Priority: optional
+Maintainer: Stefano Karapetsas <stefano@karapetsas.com>
+Uploaders: Mike Gabriel <sunweaver@debian.org>,
+           John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+           Stefano Karapetsas <stefano@karapetsas.com>,
+           Vangelis Mouhtsis <vangelis@gnugr.org>,
+           Martin Wimpress <code@flexion.org>,
+Build-Depends: debhelper (>= 9),
+               gobject-introspection,
+               intltool,
+               libcaja-extension-dev (>= 1.12),
+               libdjvulibre-dev,
+               libgail-3-dev,
+               libgirepository1.0-dev,
+               libglib2.0-dev,
+               libgtk-3-dev,
+               libgxps-dev,
+               libkpathsea-dev,
+               libmate-desktop-dev (>= 1.12),
+               libpoppler-glib-dev,
+               libsecret-1-dev,
+               libsm-dev,
+               libspectre-dev,
+               libtiff-dev,
+               libwebkit2gtk-3.0-dev (>= 2.4.3) | libwebkit2gtk-4.0-dev (>= 2.4.3),
+               libx11-dev,
+               libxml2-dev,
+               lsb-release,
+               mate-common (>= 1.12),
+               xsltproc,
+               yelp-tools,
+               zlib1g-dev,
+Standards-Version: 3.9.6
+Homepage: http://www.mate-desktop.org/
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-mate/atril.git;a=summary
+Vcs-Git: git://anonscm.debian.org/pkg-mate/atril.git
+
+Package: atril
+Architecture: any
+Depends: atril-common (>= ${source:Version}),
+         libatrildocument3 (= ${binary:Version}),
+         libatrilview3 (= ${binary:Version}),
+         mate-desktop-common,
+         shared-mime-info,
+         ${misc:Depends},
+         ${shlibs:Depends},
+Recommends: dbus-x11,
+            gvfs,
+Provides: djvu-viewer,
+          pdf-viewer,
+          postscript-viewer,
+Suggests: caja,
+          poppler-data,
+          unrar,
+Description: MATE document viewer
+ Atril is a simple multi-page document viewer.  It can display
+ and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
+ Portable Document Format (PDF) files.
+ .
+ When supported by the document, it also allows searching for text,
+ copying text to the clipboard, hypertext navigation, and
+ table-of-contents bookmarks.
+
+Package: atril-dbg
+Section: debug
+Priority: extra
+Architecture: any
+Depends: atril (= ${binary:Version}),
+         ${misc:Depends},
+Description: MATE document viewer (debugging symbols)
+ Atril is a simple multi-page document viewer.  It can display
+ and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
+ Portable Document Format (PDF) files.
+ .
+ This package contains debugging symbols for Atril.
+ .
+ The debugging symbols are installed in /usr/lib/debug and will
+ automatically be used by gdb.
+
+Package: atril-common
+Architecture: all
+Depends: ${misc:Depends},
+Breaks: atril (<= 1.0.3-3),
+Description: MATE document viewer (common files)
+ Atril is a simple multi-page document viewer.  It can display
+ and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
+ Portable Document Format (PDF) files.
+ .
+ This package contains the architecture independent files.
+
+Package: libatrilview3
+Section: libs
+Architecture: any
+Depends: libatrildocument3 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends},
+Replaces: libatril (<< 1.9.0),
+Description: MATE document viewing library
+ Atril is a simple multi-page document viewer.  It can display
+ and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
+ Portable Document Format (PDF) files.
+ .
+ This package contains the document viewing library used by Atril.
+
+Package: libatrilview-dev
+Section: libdevel
+Architecture: any
+Depends: libatrilview3 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends},
+Breaks: libatril-dev (<< 1.9.0),
+Description: MATE document viewing library (development files)
+ Atril is a simple multi-page document viewer.  It can display
+ and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
+ Portable Document Format (PDF) files.
+ .
+ This package contains the development files for the libatrilview
+ library.
+
+Package: libatrilview3-dbg
+Section: debug
+Priority: extra
+Architecture: any
+Depends: libatrilview3 (= ${binary:Version}),
+         ${misc:Depends},
+Breaks: atril-dbg (<< 1.9.0),
+Description: MATE document viewing library (debugging symbols)
+ Atril is a simple multi-page document viewer.  It can display
+ and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
+ Portable Document Format (PDF) files.
+ .
+ This package contains debugging symbols for the libatrilview
+ library.
+ .
+ The debugging symbols are installed in /usr/lib/debug and will
+ automatically be used by gdb.
+
+Package: libatrildocument3
+Section: libs
+Architecture: any
+Depends: libjs-mathjax,
+         ${misc:Depends},
+         ${shlibs:Depends},
+Breaks: libatril (<< 1.9.0),
+Replaces: libatril (<< 1.9.0),
+Description: MATE document rendering library
+ Atril is a simple multi-page document viewer.  It can display
+ and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
+ Portable Document Format (PDF) files.
+ .
+ This package contains the document rendering library used by Atril.
+
+Package: libatrildocument-dev
+Section: libdevel
+Architecture: any
+Depends: libatrildocument3 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends},
+Breaks: libatril-dev (<< 1.9.0),
+Replaces: libatril-dev (<< 1.9.0),
+Description: MATE document rendering library (development files)
+ Atril is a simple multi-page document viewer.  It can display
+ and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
+ Portable Document Format (PDF) files.
+ .
+ This package contains the development files for the libatrildocument
+ library.
+
+Package: libatrildocument3-dbg
+Section: debug
+Priority: extra
+Architecture: any
+Depends: libatrildocument3 (= ${binary:Version}),
+         ${misc:Depends},
+Breaks: atril-dbg (<< 1.9.0),
+Description: MATE document rendering library (debugging symbols)
+ Atril is a simple multi-page document viewer.  It can display
+ and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
+ Portable Document Format (PDF) files.
+ .
+ This package contains debugging symbols for the libatrildocument
+ library.
+ .
+ The debugging symbols are installed in /usr/lib/debug and will
+ automatically be used by gdb.
+
+Package: gir1.2-atril
+Architecture: any
+Depends: ${gir:Depends},
+         ${misc:Depends},
+         ${shlibs:Depends},
+Description: GObject introspection data for Atril
+ Atril is a simple multi-page document viewer.  It can display
+ and print PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI and
+ Portable Document Format (PDF) files.
+ .
+ This package contains introspection data for Atril.
+ .
+ It can be used by packages using the GIRepository format to generate
+ dynamic bindings.

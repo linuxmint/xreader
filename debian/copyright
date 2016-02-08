@@ -1,0 +1,801 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: atril
+Upstream-Contact: Stefano Karapetsas <stefano@karapetsas.com>
+Source: http://git.mate-desktop.org/atril/
+
+Files: backend/dvi/cairo-device.c
+       backend/dvi/cairo-device.h
+       backend/ps/ev-spectre.c
+       backend/xps/xps-document.c
+       backend/xps/xps-document.h
+       libdocument/ev-attachment.c
+       libdocument/ev-attachment.h
+       libdocument/ev-backends-manager.c
+       libdocument/ev-backends-manager.h
+       libdocument/ev-document-attachments.c
+       libdocument/ev-document-attachments.h
+       libdocument/ev-document-forms.c
+       libdocument/ev-document-forms.h
+       libdocument/ev-document-images.c
+       libdocument/ev-document-images.h
+       libdocument/ev-document-layers.c
+       libdocument/ev-document-layers.h
+       libdocument/ev-document-print.c
+       libdocument/ev-document-print.h
+       libdocument/ev-document-transition.c
+       libdocument/ev-document-transition.h
+       libdocument/ev-image.c
+       libdocument/ev-image.h
+       libdocument/ev-layer.c
+       libdocument/ev-layer.h
+       libdocument/ev-mapping-list.c
+       libdocument/ev-mapping-list.h
+       libdocument/ev-page.c
+       libdocument/ev-page.h
+       libview/ev-job-scheduler.c
+       libview/ev-job-scheduler.h
+       libview/ev-loading-window.c
+       libview/ev-loading-window.h
+       libview/ev-print-operation.c
+       libview/ev-print-operation.h
+       libview/ev-view-presentation.c
+       libview/ev-view-presentation.h
+       previewer/ev-previewer-window.c
+       previewer/ev-previewer-window.h
+       previewer/ev-previewer.c
+       shell/ev-annotation-properties-dialog.c
+       shell/ev-annotation-properties-dialog.h
+       shell/ev-convert-metadata.c
+       shell/ev-file-monitor.c
+       shell/ev-file-monitor.h
+       shell/ev-keyring.c
+       shell/ev-keyring.h
+       shell/ev-metadata.c
+       shell/ev-metadata.h
+       shell/ev-open-recent-action.c
+       shell/ev-open-recent-action.h
+       shell/ev-progress-message-area.c
+       shell/ev-progress-message-area.h
+       shell/ev-sidebar-annotations.c
+       shell/ev-sidebar-annotations.h
+       shell/ev-sidebar-layers.c
+       shell/ev-sidebar-layers.h
+Copyright: 2006-2010, Carlos Garcia Campos <carlosgc@gnome.org>
+License: GPL-2+
+
+Files: backend/pdf/ev-poppler.h
+       libdocument/ev-document-factory.c
+       libdocument/ev-document-factory.h
+       libdocument/ev-document-find.c
+       libdocument/ev-document-find.h
+       libdocument/ev-document-fonts.c
+       libdocument/ev-document-fonts.h
+       libdocument/ev-document-links.c
+       libdocument/ev-document-links.h
+       libdocument/ev-document-security.c
+       libdocument/ev-document-security.h
+       libdocument/ev-link.c
+       libdocument/ev-link.h
+       libdocument/ev-selection.c
+       libview/ev-pixbuf-cache.h
+       libview/ev-view-accessible.c
+       libview/ev-view-accessible.h
+       libview/ev-view-cursor.c
+       libview/ev-view-cursor.h
+       libview/ev-view-private.h
+       libview/ev-view.c
+       libview/ev-view.h
+       properties/ev-properties-view.c
+       properties/ev-properties-view.h
+       shell/ev-password-view.h
+       shell/ev-properties-dialog.c
+       shell/ev-properties-dialog.h
+       shell/ev-properties-fonts.c
+       shell/ev-properties-fonts.h
+       shell/ev-sidebar-links.c
+       shell/ev-sidebar-links.h
+       shell/ev-sidebar-thumbnails.h
+       shell/ev-sidebar.c
+       shell/ev-sidebar.h
+       shell/ev-window-title.c
+       shell/ev-window-title.h
+Copyright: 2004-2005, Red Hat, Inc.
+License: GPL-2+
+
+Files: backend/dvi/mdvi-lib/bitmap.c
+       backend/dvi/mdvi-lib/bitmap.h
+       backend/dvi/mdvi-lib/color.c
+       backend/dvi/mdvi-lib/color.h
+       backend/dvi/mdvi-lib/common.c
+       backend/dvi/mdvi-lib/common.h
+       backend/dvi/mdvi-lib/defaults.h
+       backend/dvi/mdvi-lib/dviread.c
+       backend/dvi/mdvi-lib/files.c
+       backend/dvi/mdvi-lib/font.c
+       backend/dvi/mdvi-lib/fontmap.c
+       backend/dvi/mdvi-lib/fontmap.h
+       backend/dvi/mdvi-lib/fontsrch.c
+       backend/dvi/mdvi-lib/gf.c
+       backend/dvi/mdvi-lib/hash.c
+       backend/dvi/mdvi-lib/list.c
+       backend/dvi/mdvi-lib/mdvi.h
+       backend/dvi/mdvi-lib/pagesel.c
+       backend/dvi/mdvi-lib/paper.c
+       backend/dvi/mdvi-lib/pk.c
+       backend/dvi/mdvi-lib/private.h
+       backend/dvi/mdvi-lib/setup.c
+       backend/dvi/mdvi-lib/sp-epsf.c
+       backend/dvi/mdvi-lib/special.c
+       backend/dvi/mdvi-lib/sysdeps.h
+       backend/dvi/mdvi-lib/t1.c
+       backend/dvi/mdvi-lib/tfm.c
+       backend/dvi/mdvi-lib/tfmfile.c
+       backend/dvi/mdvi-lib/tt.c
+       backend/dvi/mdvi-lib/util.c
+       backend/dvi/mdvi-lib/vf.c
+Copyright: 2000, Matias Atria
+License: GPL-2+
+
+Files: cut-n-paste/toolbar-editor/egg-editable-toolbar.c
+       cut-n-paste/toolbar-editor/egg-editable-toolbar.h
+       cut-n-paste/toolbar-editor/egg-toolbars-model.c
+       cut-n-paste/zoom-control/ephy-zoom-action.c
+       cut-n-paste/zoom-control/ephy-zoom-action.h
+       libmisc/ev-page-action-widget.c
+       libmisc/ev-page-action-widget.h
+       libmisc/ev-page-action.c
+       libmisc/ev-page-action.h
+       shell/ev-navigation-action-widget.c
+       shell/ev-navigation-action-widget.h
+       shell/ev-navigation-action.c
+       shell/ev-navigation-action.h
+Copyright: 2002-2004, Marco Pesenti Gritti
+           2003-2005, Christian Persch
+License: GPL-2+
+
+Files: cut-n-paste/toolbar-editor/egg-toolbar-editor.c
+       cut-n-paste/toolbar-editor/egg-toolbar-editor.h
+       cut-n-paste/toolbar-editor/egg-toolbars-model.h
+       libdocument/ev-async-renderer.c
+       libdocument/ev-async-renderer.h
+       libdocument/ev-document-info.h
+       libdocument/ev-document-misc.h
+       libdocument/ev-selection.h
+       shell/ev-history.c
+       shell/ev-history.h
+       shell/ev-sidebar-page.c
+       shell/ev-sidebar-page.h
+       shell/main.c
+Copyright: 2000-2005, Marco Pesenti Gritti
+License: GPL-2+
+
+Files: libview/ev-document-model.h
+       libview/ev-page-cache.c
+       libview/ev-page-cache.h
+       shell/ev-message-area.c
+       shell/ev-message-area.h
+       shell/ev-sidebar-attachments.c
+       shell/ev-sidebar-attachments.h
+Copyright: 2006-2009, Carlos Garcia Campos
+License: GPL-2+
+
+Files: libdocument/ev-link-action.c
+       libdocument/ev-link-action.h
+       libdocument/ev-link-dest.c
+       libdocument/ev-link-dest.h
+       libview/ev-jobs.c
+       libview/ev-jobs.h
+       shell/ev-password-view.c
+Copyright: 2005, Red Hat, Inc.
+           2006-2008, Carlos Garcia Campos <carlosgc@gnome.org>
+License: GPL-2+
+
+Files: libdocument/ev-file-exporter.c
+       libdocument/ev-file-exporter.h
+       libview/ev-stock-icons.c
+       libview/ev-stock-icons.h
+       shell/ev-application.h
+       shell/ev-window.h
+Copyright: 2003-2004, Martin Kretzschmar
+License: GPL-2+
+
+Files: backend/pixbuf/pixbuf-document.c
+       backend/pixbuf/pixbuf-document.h
+       libdocument/ev-document-thumbnails.c
+       shell/ev-utils.c
+       shell/ev-utils.h
+Copyright: 2004, Anders Carlsson <andersca@gnome.org>
+License: GPL-2+
+
+Files: libdocument/ev-annotation.c
+       libdocument/ev-annotation.h
+       libdocument/ev-document-annotations.c
+       libview/ev-annotation-window.c
+       libview/ev-annotation-window.h
+Copyright: 2007, Iñigo Martinez <inigomartinez@gmail.com>
+           2009, Carlos Garcia Campos <carlosgc@gnome.org>
+License: GPL-2+
+
+Files: cut-n-paste/smclient/eggdesktopfile.h
+       cut-n-paste/smclient/eggsmclient-private.h
+       cut-n-paste/smclient/eggsmclient.c
+       cut-n-paste/smclient/eggsmclient.h
+Copyright: 2007, Novell, Inc.
+License: LGPL-2+
+
+Files: atril-document.h
+       atril-view.h
+       libdocument/ev-init.c
+       libdocument/ev-init.h
+Copyright: 2009, Christian Persch
+License: LGPL-2.1+
+
+Files: cut-n-paste/zoom-control/ephy-zoom-control.c
+       cut-n-paste/zoom-control/ephy-zoom-control.h
+       cut-n-paste/zoom-control/ephy-zoom.c
+       cut-n-paste/zoom-control/ephy-zoom.h
+Copyright: 2003-2004, Christian Persch
+License: GPL-2+
+
+Files: backend/tiff/tiff-document.c
+       backend/tiff/tiff-document.h
+       libdocument/ev-render-context.c
+       libdocument/ev-render-context.h
+Copyright: 2005, Jonathan Blandford <jrb@gnome.org>
+License: GPL-2+
+
+Files: backend/djvu/djvu-document.c
+       backend/djvu/djvu-document.h
+       backend/dvi/dvi-document.c
+       backend/dvi/dvi-document.h
+Copyright: 2005, Nickolay V. Shmyrev <nshmyrev@yandex.ru>
+License: GPL-2+
+
+Files: libview/ev-timeline.c
+       libview/ev-timeline.h
+       libview/ev-transition-animation.c
+       libview/ev-transition-animation.h
+Copyright: 2007, Carlos Garnacho <carlos@imendio.com>
+License: LGPL-2+
+
+Files: cut-n-paste/synctex/synctex_parser.h
+       cut-n-paste/synctex/synctex_parser_utils.c
+       cut-n-paste/synctex/synctex_parser_utils.h
+Copyright: 2008-2010, jerome DOT laurens AT u-bourgogne DOT fr
+License: Expat
+
+Files: backend/pdf/ev-poppler.cc
+       shell/ev-properties-license.c
+       shell/ev-properties-license.h
+Copyright: 2004-2005, Red Hat, Inc.
+           2009, Juanjo Marín <juanj.marin@juntadeandalucia.es>
+License: GPL-2+
+
+Files: backend/djvu/djvu-document-private.h
+       backend/djvu/djvu-text-page.c
+       backend/djvu/djvu-text-page.h
+Copyright: 2006, Michael Hofmann <mh21@piware.de>
+License: GPL-2+
+
+Files: libdocument/ev-debug.c
+       libdocument/ev-debug.h
+Copyright: 1998-1999, Alex Roberts, Evan Lawrence
+           2000-2001, Chema Celorio, Paolo Maggi
+           2002-2005, Paolo Maggi
+License: GPL-2+
+
+Files: libdocument/ev-document.c
+       libdocument/ev-document.h
+Copyright: 2000-2004, Marco Pesenti Gritti
+           2009, Carlos Garcia Campos
+License: GPL-2+
+
+Files: libdocument/ev-transition-effect.c
+       libdocument/ev-transition-effect.h
+Copyright: 2007, Carlos Garnacho <carlos@imendio.com>
+License: GPL-2+
+
+Files: libdocument/ev-module.c
+       libdocument/ev-module.h
+Copyright: 2003, Marco Pesenti Gritti
+           2003-2004, Christian Persch
+           2005, Paolo Maggi
+License: GPL-2+
+
+Files: backend/dvi/texmfcnf.c
+       backend/dvi/texmfcnf.h
+Copyright: 2010, Hib Eris <hib@hiberis.nl>
+License: GPL-2+
+
+Files: backend/djvu/djvu-links.c
+       backend/djvu/djvu-links.h
+Copyright: 2006, Pauli Virtanen <pav@iki.fi>
+License: GPL-2+
+
+Files: libdocument/ev-document-text.c
+       libdocument/ev-document-text.h
+Copyright: 2010, Yaco Sistemas, Daniel Garcia <danigm@yaco.es>
+License: GPL-2+
+
+Files: cut-n-paste/gimpcellrenderertoggle/gimpcellrenderertoggle.c
+       cut-n-paste/gimpcellrenderertoggle/gimpcellrenderertoggle.h
+Copyright: 1995-1997, Peter Mattis and Spencer Kimball
+           2003-2004, Sven Neumann <sven@gimp.org>
+License: LGPL-2+
+
+Files: shell/eggfindbar.c
+       shell/eggfindbar.h
+Copyright: 2004, Red Hat, Inc.
+License: LGPL-2+
+
+Files: backend/dvi/mdvi-lib/afmparse.c
+       backend/dvi/mdvi-lib/afmparse.h
+Copyright: 1988-1990, Adobe Systems Incorporated
+License: Afmparse
+
+Files: cut-n-paste/synctex/synctex_parser.c
+Copyright: 2008-2010, Jerome Laurens <jerome.laurens@u-bourgogne.fr
+License: Expat
+
+Files: libdocument/ev-document-thumbnails.h
+Copyright: 2004, Anders Carlsson
+License: GPL-2+
+
+Files: shell/ev-sidebar-thumbnails.c
+Copyright: 2004, Red Hat, Inc.
+           2004-2005, Anders Carlsson <andersca@gnome.org>
+License: GPL-2+
+
+Files: properties/ev-properties-main.c
+Copyright: 2000-2001, Eazel, Inc.
+           2003, Andrew Sobala <aes@gnome.org>
+           2005, Bastien Nocera <hadess@hadess.net>
+License: GPL-2+
+
+Files: shell/ev-media-player-keys.c
+Copyright: 2007, Jan Arne Petersen <jap@gnome.org>
+           2008, Bastien Nocera <hadess@hadess.net>
+           2010, Christian Persch
+License: GPL-2+
+
+Files: shell/ev-media-player-keys.h
+Copyright: 2007, Jan Arne Petersen <jap@gnome.org>
+           2008, Bastien Nocera <hadess@hadess.net>
+License: GPL-2+
+
+Files: shell/ev-window.c
+Copyright: 2000-2004, Marco Pesenti Gritti
+           2003-2009 Christian Persch
+           2004, Martin Kretzschmar
+           2004, Red Hat, Inc.
+           2008, Carlos Garcia Campos
+           2009, Juanjo Marín <juanj.marin@juntadeandalucia.es>
+License: GPL-2+
+
+Files: libview/ev-document-model.c
+Copyright: 2005, Red Hat, Inc.
+           2009, Carlos Garcia Campos
+License: GPL-2+
+
+Files: shell/ev-daemon.c
+Copyright: 2009, Carlos Garcia Campos <carlosgc@gnome.org>
+           2010, Christian Persch
+License: GPL-2+
+
+Files: shell/ev-bookmark-action.c
+       shell/ev-bookmark-action.h
+       shell/ev-bookmarks.c
+       shell/ev-bookmarks.h
+       shell/ev-sidebar-bookmarks.c
+       shell/ev-sidebar-bookmarks.h
+Copyright: 2010 Carlos Garcia Campos <carlosgc@gnome.org>
+License: GPL-2+
+
+Files: libdocument/ev-document-misc.c
+Copyright: 2000-2003, Marco Pesenti Gritti
+           2007, Carlos Garcia Campos <carlosgc@gnome.org>
+           2009, Juanjo Marín <juanj.marin@juntadeandalucia.es>
+License: GPL-2+
+
+Files: libdocument/ev-form-field.c
+Copyright: 2006, Julien Rebetez
+           2007, Carlos Garcia Campos <carlosgc@gnome.org>
+License: GPL-2+
+
+Files: libdocument/ev-file-helpers.c
+Copyright: 2002, Jorn Baayen
+           2009, Christian Persch
+License: GPL-2+
+
+Files: shell/ev-application.c
+Copyright: 2004, Martin Kretzschmar
+           2010, Christian Persch
+License: GPL-2+
+
+Files: thumbnailer/atril-thumbnailer.c
+Copyright: 2005, Fernando Herrera <fherrera@onirica.com>
+License: GPL-2+
+
+Files: libdocument/ev-document-annotations.h
+Copyright: 2007, Iñigo Martinez <inigomartinez@gmail.com>
+License: GPL-2+
+
+Files: libdocument/ev-file-helpers.h
+Copyright: 2002, Jorn Baayen
+License: GPL-2+
+
+Files: backend/comics/comics-document.c
+Copyright: 2005, Teemu Tervo <teemu.tervo@gmx.net>
+           2009-2010, Juanjo Marín <juanj.marin@juntadeandalucia.es>
+License: GPL-2+
+
+Files: libdocument/ev-form-field.h
+Copyright: 2006, Julien Rebetez
+License: GPL-2+
+
+Files: backend/comics/comics-document.h
+Copyright: 2005, Teemu Tervo <teemu.tervo@gmx.net>
+License: GPL-2+
+
+Files: backend/tiff/tiff2ps.h
+Copyright: 2005, rpath, Inc.
+License: GPL-2+
+
+Files: cut-n-paste/totem-screensaver/totem-scrsaver.h
+Copyright: 2004, Bastien Nocera <hadess@hadess.net>
+License: LGPL-2+
+
+Files: cut-n-paste/totem-screensaver/totem-scrsaver.c
+Copyright: 2004-2006, Bastien Nocera <hadess@hadess.net>
+           2010, Carlos Garcia Campos
+           2010, Christian Persch
+License: LGPL-2+
+
+Files: cut-n-paste/smclient/eggsmclient-xsmp.c
+Copyright: 1998, Carsten Schaar, and twm
+           1998, The Open Group
+           2007, Novell, Inc
+License: LGPL-2+
+
+Files: cut-n-paste/smclient/eggdesktopfile.c
+Copyright: 1999-2000, Red Hat Inc
+           2001, George Lebl
+           2007, Novell, Inc
+License: LGPL-2+
+
+Files: backend/ps/ev-spectre.h
+Copyright: 1998-2005, The Free Software Foundation, Inc.
+License: LGPL-2+
+
+Files: backend/tiff/tiff2ps.c
+Copyright: 1988-1997, Sam Leffler
+           1991-1997, Silicon Graphics, Inc
+           2005, rpath, Inc
+License: GPL-2+
+Comment:
+ Using license from COPYING file.
+
+Files: po/*.po
+       po/gnome-copyrights.txt
+Copyright: THE PACKAGE'S COPYRIGHT HOLDER
+           2005, Free Software Foundation, Inc.
+           2007, Ihar Hrachyshka
+           2009-2010, The Gnome Foundation
+License: GPL-2+
+Comment:
+ Using license from COPYING file.
+
+Files: properties/libatril-properties-page.caja-extension.in.in
+Copyright: 2000, 2001 Eazel Inc.
+           2003 Andrew Sobala <aes@gnome.org>
+           2005 Bastien Nocera <hadess@hadess.net>
+           2005 Red Hat, Inc
+License: GPL-2+
+Comment:
+ Using license from COPYING file.
+
+Files: backend/epub/epub-document.c
+       backend/epub/epub-document.h
+       backend/epub/epubdocument.atril-backend.in
+       backend/epub/minizip/Makefile.am
+       backend/epub/minizip/ioapi.c
+       backend/epub/minizip/ioapi.h
+       backend/epub/minizip/unzip.c
+       backend/epub/minizip/unzip.h
+       backend/epub/Makefile.am
+       libview/ev-web-view.c
+       libview/ev-web-view.h
+Copyright: 2014 Avishkar Gupta <avishkar.gupta.delhi@gmail.com>
+License: GPL-2+
+
+Files: help/*
+Copyright: Jonathan Blandford <jrb@redhat.com>
+           Alexander Shopov  <ash@contact.bg>
+           Andre Klapper  <a9016009@gmx.de>
+           Christophe Bliard <christophe.bliard@trux.info>
+           Claude Paroz  <claude@2xlibre.net>
+           Claudio Saavedra  <csaavedra@alumnos.utalca.cl>
+           Daniel Nylander <po@danielnylander.se>
+           Danilo Šegan  <danilo@gnome.org>
+           David Lodge <dave@cirt.net>
+           Francisco Javier F. Serrador  <serrador@openshine.com>
+           Funda Wang  <fundawang@gmail.com>
+           Gil Forcada  <gforcada@gnome.org>
+           ikhov <Tima-S@yandex.ru>
+           Ilkka Tuohela  <hile@iki.fi>
+           Inaki Larranaga Murgoitio  <dooteo@euskalgnu.org>
+           Jan Arne Petersen  <jpetersen@jpetersen.org>
+           Joachim Noreiko <jnoreiko@yahoo.com>
+           Jonh Wendell <jwendell@gnome.org>
+           Jorge Gonzalez  <jorgegonz@svn.mate.org>
+           Josep Puigdemont i Casamajó  <josep.puigdemont@gmail.com>
+           Leonardo Ferreira Fontenelle  <leonardof@gnome.org>
+           Luca Ferretti  <elle.uca@libero.it>
+           Marc Brockschmidt  <bugzilla.g@marcbrockschmidt.de>
+           Mario Blättermann  <mariobl@svn.mate.org>
+           Maxim Dziumanenko <dziumanenko@gmail.com>
+           Nickolay V. Shmyrev <nshmyrev@yandex.ru>
+           Nikos Charonitakis  <charosn@her.forthnet.gr>
+           Philip Withnall  <philip@tecnocode.co.uk>
+           Raykov <zbrox@i-space.org>
+           Reinout van Schouwen <reinout@cs.vu.nl>
+           Satoru SATOH <ss@mate.gr.jp>
+           Simos Xenitellis  <simos@gnome.org>
+           Timo Jyrinki  <timo.jyrinki@iki.fi>
+           Tommi Vainikainen  <thv@iki.fi>
+           Wouter Bolsterlee  <wbolster@gnome.org>
+           Yannig Marchegay <yannig@marchegay.org>
+           Brian Pepple  <bdpepple@ameritech.net>
+           Andrej Žnidaršič <andrej.znidarsic@gmail.com>
+           Carles Ferrando Garcia <carles.ferrando@gmail.com>
+           Claude Paroz <claude@2xlibre.net>
+           Daniel Nylander <po@danielnylander.se>
+           Daniel S. Koda <danielskoda@gmail.com>
+           Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>
+           Jorge González <jorgegonz@svn.mate.org>
+           Kostas Papadimas <pkst@gnome.org>
+           Marek Černocký <marek@manet.cz>
+           Mario Blättermann <mariobl@gnome.org>
+           Maxim Dziumanenko <dziumanenko@gmail.com>
+           Milo Casagrande <milo@ubuntu.com>
+           Nguyễn Đình Trung <nguyendinhtrung141@gmail.com>
+           Nickolay V. Shmyrev <nshmyrev@yandex.ru>
+           Philip Withnall <philip@tecnocode.co.uk>
+           Satoru SATOH <ss@mate.gr.jp>
+           Tommi Vainikainen <Tommi.Vainikainen@iki.fi>
+           Wouter Bolsterlee <uws+mate@xs4all.nl>
+           Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>
+           Данило Шеган <danilo@gnome.org>
+           朱涛 <bill_zt@sina.com>
+License: GFDL-1.1+
+
+Files: .tx/config
+       backend/comics/Makefile.am
+       backend/comics/*.in
+       backend/djvu/Makefile.am
+       backend/djvu/*.in
+       backend/dvi/mdvi-lib/Makefile.am
+       backend/dvi/mdvi-lib/dviopcodes.h
+       backend/dvi/mdvi-lib/hash.h
+       backend/dvi/mdvi-lib/paper.h
+       backend/dvi/Makefile.am
+       backend/dvi/fonts.c
+       backend/dvi/fonts.h
+       backend/dvi/*.in
+       backend/pdf/Makefile.am
+       backend/pdf/*.in
+       backend/pixbuf/Makefile.am
+       backend/pixbuf/*.in
+       backend/ps/Makefile.am
+       backend/ps/*.in
+       backend/tiff/Makefile.am
+       backend/tiff/*.in
+       backend/xps/Makefile.am
+       backend/xps/*.in
+       backend/Makefile.am
+       backend/backend.symbols
+       cut-n-paste/gimpcellrenderertoggle/Makefile.am
+       cut-n-paste/gimpcellrenderertoggle/*.list
+       cut-n-paste/smclient/Makefile.am
+       cut-n-paste/synctex/Makefile.am
+       cut-n-paste/toolbar-editor/Makefile.am
+       cut-n-paste/toolbar-editor/*.list
+       cut-n-paste/totem-screensaver/Makefile.am
+       cut-n-paste/totem-screensaver/README
+       cut-n-paste/zoom-control/Makefile.am
+       cut-n-paste/Makefile.am
+       data/icons/16x16/actions/Makefile.am
+       data/icons/16x16/actions/*.png
+       data/icons/16x16/actions/*.xcf
+       data/icons/16x16/actions/*.svg
+       data/icons/16x16/apps/Makefile.am
+       data/icons/16x16/apps/*.png
+       data/icons/16x16/mimetypes/Makefile.am
+       data/icons/16x16/mimetypes/*.png
+       data/icons/16x16/Makefile.am
+       data/icons/22x22/actions/Makefile.am
+       data/icons/22x22/actions/*.png
+       data/icons/22x22/actions/*.xcf
+       data/icons/22x22/actions/*.svg
+       data/icons/22x22/apps/Makefile.am
+       data/icons/22x22/apps/*.png
+       data/icons/22x22/mimetypes/Makefile.am
+       data/icons/22x22/mimetypes/*.png
+       data/icons/22x22/Makefile.am
+       data/icons/24x24/actions/Makefile.am
+       data/icons/24x24/actions/*.png
+       data/icons/24x24/apps/Makefile.am
+       data/icons/24x24/apps/*.png
+       data/icons/24x24/mimetypes/Makefile.am
+       data/icons/24x24/mimetypes/*.png
+       data/icons/24x24/Makefile.am
+       data/icons/32x32/actions/Makefile.am
+       data/icons/32x32/actions/*.png
+       data/icons/32x32/mimetypes/Makefile.am
+       data/icons/32x32/mimetypes/*.png
+       data/icons/32x32/Makefile.am
+       data/icons/48x48/actions/Makefile.am
+       data/icons/48x48/actions/*.png
+       data/icons/48x48/apps/Makefile.am
+       data/icons/48x48/apps/*.png
+       data/icons/48x48/Makefile.am
+       data/icons/scalable/actions/Makefile.am
+       data/icons/scalable/actions/*.svg
+       data/icons/scalable/apps/Makefile.am
+       data/icons/scalable/apps/*.svg
+       data/icons/scalable/mimetypes/Makefile.am
+       data/icons/scalable/mimetypes/*.svg
+       data/icons/scalable/Makefile.am
+       data/icons/Makefile.am
+       data/Makefile.am
+       data/*.xml
+       data/atril.1
+       data/atril.convert
+       data/atril.ico
+       data/*.png
+       data/*.in
+       libdocument/Makefile.am
+       libdocument/ev-version.h.in
+       libdocument/*.template
+       libmisc/Makefile.am
+       libview/Makefile.am
+       libview/ev-pixbuf-cache.c
+       libview/*.template
+       libview/*.list
+       po/ChangeLog
+       po/LINGUAS
+       po/POTFILES.*
+       previewer/Makefile.am
+       previewer/atril-previewer.1
+       properties/Makefile.am
+       shell/Makefile.am
+       shell/atril-icon.rc
+       shell/ev-marshal.list
+       test/Makefile.am
+       test/*.py
+       test/test-encrypt.pdf
+       test/test-links.pdf
+       test/test-mime.bin
+       test/test-page-labels.pdf
+       thumbnailer/Makefile.am
+       thumbnailer/atril-thumbnailer.1
+       thumbnailer/atril.thumbnailer.in
+       AUTHORS
+       COPYING
+       ChangeLog
+       Makefile.am
+       NEWS
+       NEWS.gnome
+       README
+       TODO
+       autogen.sh
+       atril-document.*
+       atril-view.*
+       configure.ac
+Copyright: *No copyright*
+License: GPL-2+
+Comment:
+ Using license from COPYING file.
+
+Files: debian/*
+Copyright: 2011-2014, Stefano Karapetsas <stefano@karapetsas.com>
+           2014, Mike Gabriel <sunweaver@debian.org>
+License: GPL-2+
+
+License: GPL-2+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU Genaral Public License for more details.
+ .
+ You should have received a copy og the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+
+License: LGPL-2+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+ .
+ You should have received a copy of the GNU Library General Public
+ License along with this library. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU Library General
+ Public License version 2 can be found in "/usr/share/common-licenses/LGPL-2".
+
+License: LGPL-2.1+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2.1 of the License, or (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+ .
+ You should have received a copy of the GNU Library General Public
+ License along with this library. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU Library General
+ Public License version 2.1 can be found in "/usr/share/common-licenses/LGPL-2.1".
+
+License: Expat
+ Permission is hereby granted, free of charge, to any person obtaining
+ a copy of this software and associated documentation files (the
+ "Software"), to deal in the Software without restriction, including
+ without limitation the rights to use, copy, modify, merge, publish,
+ distribute, sublicense, and/or sell copies of the Software, and to
+ permit persons to whom the Software is furnished to do so, subject to
+ the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included
+ in all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+License: Afmparse
+ This file may be freely copied and redistributed as long as:
+   1) This entire notice continues to be included in the file,
+   2) If the file has been modified in any way, a notice of such
+      modification is conspicuously indicated.
+ .
+ PostScript, Display PostScript, and Adobe are registered trademarks of
+ Adobe Systems Incorporated.
+ .
+ THE INFORMATION BELOW IS FURNISHED AS IS, IS SUBJECT TO CHANGE WITHOUT
+ NOTICE, AND SHOULD NOT BE CONSTRUED AS A COMMITMENT BY ADOBE SYSTEMS
+ INCORPORATED. ADOBE SYSTEMS INCORPORATED ASSUMES NO RESPONSIBILITY OR
+ LIABILITY FOR ANY ERRORS OR INACCURACIES, MAKES NO WARRANTY OF ANY
+ KIND (EXPRESS, IMPLIED OR STATUTORY) WITH RESPECT TO THIS INFORMATION,
+ AND EXPRESSLY DISCLAIMS ANY AND ALL WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR PARTICULAR PURPOSES AND NONINFRINGEMENT OF THIRD PARTY RIGHTS.
+
+License: GFDL-1.1+
+ Permission is granted to copy, distribute and/or modify this
+ document under the terms of the GNU Free Documentation
+ License (GFDL), Version 1.1 or any later version published
+ by the Free Software Foundation with no Invariant Sections,
+ no Front-Cover Texts, and no Back-Cover Texts.
+ .
+ On Debian systems, the complete text of the GNU Free Documentation License
+ version 1.2 can be found in "/usr/share/common-licenses/GFDL-1.2".

@@ -1,0 +1,6 @@
+# atril ships a caja extension and those extensions are known to erroneously
+# trigger debhelper's makeshlibs script
+atril: pkg-has-shlibs-control-file-but-no-actual-shared-libs
+atril: postinst-has-useless-call-to-ldconfig
+atril: postrm-has-useless-call-to-ldconfig
+

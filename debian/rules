@@ -1,0 +1,50 @@
+#!/usr/bin/make -f
+
+TYPELIBDIR=$(shell pkg-config gobject-introspection-1.0 --variable libdir | sed -e 's/.//')
+
+DHFLAGS=--parallel
+DEB_ATRIL_FLAGS=
+ifeq ($(shell dpkg-vendor --is Debian && echo yes),yes)
+ifeq ($(shell lsb_release -cs),wheezy)
+	DEB_ATRIL_FLAGS=--without-keyring
+endif
+endif
+
+%:
+	dh $@ $(DHFLAGS)
+
+override_dh_install:
+	rm -rfv debian/tmp/usr/lib/*/*.la
+	rm -rfv debian/tmp/usr/lib/*/caja/extensions-2.0/*.la
+	rm -rfv debian/tmp/usr/lib/*/atril/3/backends/*.la
+	rm -rfv debian/tmp/usr/share/MateConf/gsettings/atril.convert
+	sed 's@TYPELIBDIR@${TYPELIBDIR}@' debian/gir1.2-atril.install.in > debian/gir1.2-atril.install
+	dh_install --fail-missing
+
+override_dh_auto_test:
+	DEB_BUILD_OPTIONS=nocheck dh_auto_test
+
+override_dh_auto_configure:
+	NOCONFIGURE=1 ./autogen.sh
+	dh_auto_configure $(DHFLAGS) -- \
+		--enable-gtk-doc \
+		--enable-djvu \
+		--enable-dvi \
+		--enable-t1lib \
+		--enable-pixbuf \
+		--enable-comics \
+		--enable-introspection \
+		--disable-static \
+		--with-gtk=3.0 \
+		$(DEB_ATRIL_FLAGS)
+
+override_dh_strip:
+	dh_strip -patril --dbg-package=atril-dbg
+	dh_strip -plibatrildocument3 --dbg-package=libatrildocument3-dbg
+	dh_strip -plibatrilview3 --dbg-package=libatrilview3-dbg
+
+override_dh_builddeb:
+	dh_builddeb -- -Zxz -z9
+
+get-orig-source:
+	uscan --noconf --force-download --rename --download-current-version --destdir=..
