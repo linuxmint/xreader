@@ -219,7 +219,6 @@ struct _EvWindowPrivate {
 	GtkPrintSettings *print_settings;
 	GtkPageSetup     *print_page_setup;
 	gboolean          close_after_print;
-	GSettings        *lockdown_settings;
 #ifdef ENABLE_DBUS
 	/* DBus */
 	guint  dbus_object_id;
@@ -235,11 +234,6 @@ struct _EvWindowPrivate {
 #define PAGE_SELECTOR_ACTION	"PageSelector"
 #define ZOOM_CONTROL_ACTION	"ViewZoom"
 #define NAVIGATION_ACTION	"Navigation"
-
-#define MATE_LOCKDOWN_SCHEMA       "org.mate.lockdown"
-#define MATE_LOCKDOWN_SAVE         "disable-save-to-disk"
-#define MATE_LOCKDOWN_PRINT        "disable-printing"
-#define MATE_LOCKDOWN_PRINT_SETUP  "disable-print-setup"
 
 #ifdef ENABLE_DBUS
 #define EV_WINDOW_DBUS_OBJECT_PATH "/org/x/reader/Window/%d"
@@ -437,16 +431,6 @@ ev_window_setup_action_sensitivity (EvWindow *ev_window)
 
 	if (has_document && !ev_print_operation_exists_for_document(document))
 		ok_to_print = FALSE;
-
-	if (has_document && ev_window->priv->lockdown_settings &&
-	    g_settings_get_boolean (ev_window->priv->lockdown_settings, MATE_LOCKDOWN_SAVE)) {
-		ok_to_copy = FALSE;
-	}
-
-	if (has_document && ev_window->priv->lockdown_settings &&
-	    g_settings_get_boolean (ev_window->priv->lockdown_settings, MATE_LOCKDOWN_PRINT)) {
-		ok_to_print = FALSE;
-	}
 
 	/* File menu */
 	ev_window_set_action_sensitive (ev_window, "FileOpenCopy", has_document);
@@ -1465,14 +1449,6 @@ override_restrictions_changed (GSettings *settings,
 	ev_window_setup_action_sensitivity (ev_window);
 }
 
-static void
-lockdown_changed (GSettings *settings,
-		  gchar       *key,
-		  EvWindow    *ev_window)
-{
-	ev_window_setup_action_sensitivity (ev_window);
-}
-
 static gboolean
 ev_window_setup_document (EvWindow *ev_window)
 {
@@ -1494,17 +1470,6 @@ ev_window_setup_document (EvWindow *ev_window)
 				  "changed::"GS_OVERRIDE_RESTRICTIONS,
 				  G_CALLBACK (override_restrictions_changed),
 				  ev_window);
-	}
-
-	GSettingsSchema *schema_mate_lockdown_schema = g_settings_schema_source_lookup (g_settings_schema_source_get_default(), MATE_LOCKDOWN_SCHEMA, FALSE);
-	if (schema_mate_lockdown_schema != NULL) {
-		g_settings_schema_unref (schema_mate_lockdown_schema);
-		if (!ev_window->priv->lockdown_settings)
-			ev_window->priv->lockdown_settings = g_settings_new (MATE_LOCKDOWN_SCHEMA);
-		g_signal_connect (ev_window->priv->lockdown_settings,
-					 "changed",
-					 G_CALLBACK (lockdown_changed),
-					 ev_window);
 	}
 
 	ev_window_setup_action_sensitivity (ev_window);
@@ -3503,12 +3468,7 @@ ev_window_print_range (EvWindow *ev_window,
 	ev_print_operation_set_current_page (op, current_page);
 	ev_print_operation_set_print_settings (op, print_settings);
 	ev_print_operation_set_default_page_setup (op, print_page_setup);
-
-	if (ev_window->priv->lockdown_settings)
-		ev_print_operation_set_embed_page_setup (op, !g_settings_get_boolean (ev_window->priv->lockdown_settings,
-												 MATE_LOCKDOWN_PRINT_SETUP));
-	else
-		ev_print_operation_set_embed_page_setup (op, TRUE);
+	ev_print_operation_set_embed_page_setup (op, TRUE);
 
 	g_object_unref (print_settings);
 	g_object_unref (print_page_setup);
@@ -5654,11 +5614,6 @@ ev_window_dispose (GObject *object)
 	if (priv->setup_document_idle > 0) {
 		g_source_remove (priv->setup_document_idle);
 		priv->setup_document_idle = 0;
-	}
-
-	if (priv->lockdown_settings) {
-		g_object_unref (priv->lockdown_settings);
-		priv->lockdown_settings = NULL;
 	}
 
 	if (priv->monitor) {
