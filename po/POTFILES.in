@@ -27,9 +27,12 @@ data/xreader.desktop.in.in
 [type: gettext/gsettings]data/org.x.reader.gschema.xml
 previewer/ev-previewer.c
 previewer/ev-previewer-window.c
-properties/ev-properties-main.c
-properties/ev-properties-view.c
-[type: gettext/ini]properties/libxreader-properties-page.caja-extension.in
+properties-caja/ev-properties-main.c
+properties-caja/ev-properties-view.c
+[type: gettext/ini]properties-caja/libxreader-properties-page.caja-extension.in
+properties-nemo/ev-properties-main.c
+properties-nemo/ev-properties-view.c
+[type: gettext/ini]properties-nemo/libxreader-properties-page.nemo-extension.in
 libmisc/ev-page-action.c
 libmisc/ev-page-action-widget.c
 libview/ev-loading-window.c
