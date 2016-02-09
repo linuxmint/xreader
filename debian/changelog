@@ -1,3 +1,23 @@
+xreader (1.0.1) sarah; urgency=medium
+
+  * Fixed missing file
+  * Packaging: Removed breaks/replaces
+  * Compile xreader in GTK3 but the Caja extension in GTK2
+  * Added nemo properties page extension
+  * Use generic names in window title and menu, and update about dialog.
+  * Updated figure in help, removed a few MATE references
+  * Updated help
+  * Removed support for MATE lockdown (DE-specific)
+  * Use the presence API to inhibit the screensaver in presentation mode
+  * Remove support for media-keys (requires DE-specific settings daemon)
+  * Fixed Uninhiting session when leaving presentation mode (was broken by migration to presence API)
+  * ev-page-action-widget: Use an insensitive entry for pages label
+  * page-action-widget: Only show page number in pages label when it's different
+  * Removed separators in default toolbar
+  * Added makepot and pot file
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 09 Feb 2016 16:12:30 +0000
+
 xreader (1.0.0) sarah; urgency=medium
 
   * Initial version
