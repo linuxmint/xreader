@@ -591,23 +591,14 @@ AC_ARG_ENABLE(epub,
 
 have_webkit="no"
 if test "x$enable_epub" = "xyes"; then
-    case "$with_gtk" in
-        2.0)
-        PKG_CHECK_MODULES(EPUB, webkit-$WEBKIT_API_VERSION >= $WEBKIT_REQUIRED \
-	    libxml-2.0 >= $LIBXML_REQUIRED zlib,have_webkit=yes,have_webkit=no)
-	;;
-        3.0)
-        PKG_CHECK_MODULES(EPUB, webkit2gtk-$WEBKIT_API_VERSION >= $WEBKIT_REQUIRED \
-	    libxml-2.0 >= $LIBXML_REQUIRED zlib,have_webkit=yes,have_webkit=no)
-        if test "x$have_webkit" = "xno"; then
-	   AC_MSG_NOTICE([Webkit2 4.0 not found, trying 3.0])
-           WEBKIT_API_VERSION=3.0
-           PKG_CHECK_MODULES(EPUB, webkit2gtk-$WEBKIT_API_VERSION >= $WEBKIT_REQUIRED \
-	       libxml-2.0 >= $LIBXML_REQUIRED zlib,have_webkit=yes,have_webkit=no)
-        fi
-	;;
-esac
-
+   PKG_CHECK_MODULES(EPUB, webkit2gtk-$WEBKIT_API_VERSION >= $WEBKIT_REQUIRED \
+	libxml-2.0 >= $LIBXML_REQUIRED zlib,have_webkit=yes,have_webkit=no)
+   if test "x$have_webkit" = "xno"; then
+      AC_MSG_NOTICE([Webkit2 4.0 not found, trying 3.0])
+      WEBKIT_API_VERSION=3.0
+      PKG_CHECK_MODULES(EPUB, webkit2gtk-$WEBKIT_API_VERSION >= $WEBKIT_REQUIRED \
+	libxml-2.0 >= $LIBXML_REQUIRED zlib,have_webkit=yes,have_webkit=no)
+   fi
 
    if test "x$have_webkit" = "xyes"; then
       AC_DEFINE([ENABLE_EPUB], [1], [Enable support for ePub documents.])
@@ -773,7 +764,6 @@ AC_OUTPUT
 echo "
 Configure summary:
 
-    GTK+ version........:    $with_gtk
     GTK+ Unix Print.....:    $with_gtk_unix_print
     Keyring Support.....:    $with_keyring
     DBUS Support........:    $enable_dbus
