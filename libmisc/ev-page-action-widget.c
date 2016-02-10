@@ -108,6 +108,7 @@ ev_page_action_widget_set_current_page (EvPageActionWidget *action_widget,
 	update_pages_label (action_widget, page);
 }
 
+static void
 ev_page_action_widget_update_max_width (EvPageActionWidget *action_widget)
 {
         gchar *max_label;
