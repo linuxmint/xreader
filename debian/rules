@@ -16,6 +16,7 @@ endif
 override_dh_install:
 	rm -rfv debian/tmp/usr/lib/*/*.la
 	rm -rfv debian/tmp/usr/lib/*/caja/extensions-2.0/*.la
+	rm -rfv debian/tmp/usr/lib/nemo/extensions-3.0/*.la
 	rm -rfv debian/tmp/usr/lib/*/xreader/3/backends/*.la
 	rm -rfv debian/tmp/usr/share/MateConf/gsettings/xreader.convert
 	sed 's@TYPELIBDIR@${TYPELIBDIR}@' debian/gir1.2-xreader.install.in > debian/gir1.2-xreader.install
