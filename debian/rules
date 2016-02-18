@@ -1,6 +1,7 @@
 #!/usr/bin/make -f
 
 TYPELIBDIR=$(shell pkg-config gobject-introspection-1.0 --variable libdir | sed -e 's/.//')
+NEMO_EXTENSION_LIBDIR=$(shell pkg-config libnemo-extension --variable libdir | sed -e 's/.//')
 
 DHFLAGS=--parallel
 DEB_XREADER_FLAGS=
@@ -20,7 +21,7 @@ override_dh_install:
 	rm -rfv debian/tmp/usr/lib/*/xreader/3/backends/*.la
 	rm -rfv debian/tmp/usr/share/MateConf/gsettings/xreader.convert
 	sed 's@TYPELIBDIR@${TYPELIBDIR}@' debian/gir1.2-xreader.install.in > debian/gir1.2-xreader.install
-	sed 's@TYPELIBDIR@${TYPELIBDIR}@' debian/xreader.install.in > debian/xreader.install
+	sed 's@NEMO_EXTENSION_LIBDIR@${NEMO_EXTENSION_LIBDIR}@' debian/xreader.install.in > debian/xreader.install
 	dh_install --fail-missing
 
 override_dh_auto_test:
