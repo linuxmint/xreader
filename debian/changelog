@@ -1,3 +1,15 @@
+xreader (1.0.2) sarah; urgency=medium
+
+  [ Sorokin Alexei ]
+  * Fix WebKit detection
+  * Fix wrong return type in ev-page-action-widget.c
+
+  [ Clement Lefebvre ]
+  * Remove nemo extension .la files
+  * Don't use gi typelibdir for nemo extension path, use libnemo-extension libdir instead
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 27 Apr 2016 12:17:33 +0100
+
 xreader (1.0.1) sarah; urgency=medium
 
   * Fixed missing file
