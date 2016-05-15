@@ -3,6 +3,7 @@ AM_CPPFLAGS=					\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
 	-I$(top_srcdir)				\
 	-I$(top_builddir)			\
+    -I$(top_srcdir)/shell       \
 	$(FRONTEND_CFLAGS)			\
 	$(NEMO_CFLAGS)			\
 	$(DISABLE_DEPRECATED)			\
@@ -11,7 +12,6 @@ AM_CPPFLAGS=					\
 noinst_LTLIBRARIES = libevproperties.la
 
 libevproperties_la_SOURCES=			\
-	ev-properties-view.c			\
 	ev-properties-view.h
 
 if ENABLE_NEMO

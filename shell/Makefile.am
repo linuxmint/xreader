@@ -13,8 +13,6 @@ AM_CPPFLAGS=							\
 	-I$(top_srcdir)/libview					\
 	-I$(top_builddir)/libview				\
 	-I$(top_srcdir)/libmisc					\
-	-I$(top_srcdir)/properties-caja				\
-	-I$(top_srcdir)/properties-nemo				\
 	-DMATEICONDIR=\""$(datadir)/pixmaps"\" 		\
 	-DBINDIR=\""$(bindir)"\"				\
 	-DLIBEXECDIR=\""$(libexecdir)"\"			\
@@ -68,6 +66,7 @@ xreader_SOURCES=				\
 	ev-properties-fonts.h		\
 	ev-properties-license.c		\
 	ev-properties-license.h		\
+    ev-properties-view.c        \
 	ev-properties-view.h		\
 	ev-open-recent-action.c		\
 	ev-open-recent-action.h		\
