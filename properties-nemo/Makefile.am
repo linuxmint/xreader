@@ -3,7 +3,6 @@ AM_CPPFLAGS=					\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
 	-I$(top_srcdir)				\
 	-I$(top_builddir)			\
-    -I$(top_srcdir)/shell       \
 	$(FRONTEND_CFLAGS)			\
 	$(NEMO_CFLAGS)			\
 	$(DISABLE_DEPRECATED)			\
@@ -20,6 +19,7 @@ nemoextension_LTLIBRARIES = libxreader-properties-page.la
 
 libxreader_properties_page_la_CFLAGS = -I$(top_srcdir)
 libxreader_properties_page_la_SOURCES = 	\
+	ev-properties-view.c			\
 	ev-properties-main.c
 
 libxreader_properties_page_la_LIBADD = 		\
