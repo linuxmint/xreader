@@ -20,15 +20,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-09 16:11+0000\n"
-"PO-Revision-Date: 2016-03-05 11:04+0000\n"
-"Last-Translator: Benoît \"badetitou\" Verhaeghe <badetitou@gmail.com>\n"
+"PO-Revision-Date: 2016-05-23 13:05+0000\n"
+"Last-Translator: Phan Hoang <phahoatho@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/mate/MATE/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Launchpad-Export-Date: 2016-04-21 14:44+0000\n"
-"X-Generator: Launchpad (build 17995)\n"
+"X-Launchpad-Export-Date: 2016-05-24 09:38+0000\n"
+"X-Generator: Launchpad (build 18053)\n"
 "Language: fr\n"
 
 #: ../backend/comics/comics-document.c:217
@@ -134,15 +134,15 @@ msgstr "N'a pas pu ouvrir l'archive"
 
 #: ../backend/epub/epub-document.c:789 ../backend/epub/epub-document.c:805
 msgid "could not extract archive"
-msgstr "N'a pas pu extraire l'archive"
+msgstr "Impossible d'extraire l'archive"
 
 #: ../backend/epub/epub-document.c:837 ../backend/epub/epub-document.c:920
 msgid "could not retrieve container file"
-msgstr "N'a pas pu récupérer le fichier conteneur"
+msgstr "Impossible de récupérer  le fichier conteneur"
 
 #: ../backend/epub/epub-document.c:849
 msgid "could not open container file"
-msgstr "N'a pas pu ouvrir le fichier conteneur"
+msgstr "Impossible d'ouvrir le fichier conteneur"
 
 #: ../backend/epub/epub-document.c:859
 msgid "container file is corrupt"
@@ -150,7 +150,7 @@ msgstr "fichier conteneur endommagé"
 
 #: ../backend/epub/epub-document.c:869
 msgid "epub file is invalid or corrupt"
-msgstr "le fichier epub n'est pas valable ou est corrompu"
+msgstr "le fichier epub n'est pas valide ou est corrompu"
 
 #: ../backend/epub/epub-document.c:879
 msgid "epub file is corrupt, no container"
@@ -158,11 +158,11 @@ msgstr "le fichier epub est corrompu, aucun conteneur"
 
 #: ../backend/epub/epub-document.c:964
 msgid "could not parse content manifest"
-msgstr "n'as pas pu analyser le contenu du manifeste"
+msgstr "Impossible d'analyser le manifeste du contenu"
 
 #: ../backend/epub/epub-document.c:973
 msgid "content file is invalid"
-msgstr "fichier de contenu non valable"
+msgstr "fichier de contenu non valide"
 
 #: ../backend/epub/epub-document.c:982
 msgid "epub file has no spine"
@@ -175,12 +175,12 @@ msgstr "le fichier ePub n'a aucun manifeste"
 #: ../backend/epub/epub-document.c:1077
 msgid "Could not set up document tree for loading, some files missing"
 msgstr ""
-"N'a pas pu créer l’arborescence du document pour le chargement, certains "
+"Impossible de créer l’arborescence du document pour le chargement, certains "
 "fichiers sont manquants"
 
 #: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
-msgstr "documents ePub"
+msgstr "Documents ePub"
 
 #: ../backend/pdf/ev-poppler.cc:519
 msgid "This work is in the Public Domain"
@@ -255,12 +255,12 @@ msgstr "Documents PDF"
 #: ../backend/ps/ev-spectre.c:102
 #, c-format
 msgid "Failed to load document “%s”"
-msgstr "Le chargement du document « %s » a échoué"
+msgstr "Échec du chargement du document « %s »"
 
 #: ../backend/ps/ev-spectre.c:135
 #, c-format
 msgid "Failed to save document “%s”"
-msgstr "L'enregistrement du document « %s » a échoué"
+msgstr "Échec de l'enregistrement du document « %s »"
 
 #: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
@@ -535,7 +535,7 @@ msgstr "Prévisualiseur de documents de MATE"
 
 #: ../previewer/ev-previewer-window.c:91 ../shell/ev-window.c:3309
 msgid "Failed to print document"
-msgstr "L'impression du document a échoué"
+msgstr "Échec de l'impression du document"
 
 #: ../previewer/ev-previewer-window.c:237
 #, c-format
@@ -776,7 +776,7 @@ msgstr "Avertissement"
 
 #: ../libview/ev-print-operation.c:1235
 msgid "Your print range selection does not include any pages"
-msgstr "Votre intervalle d'impression n'inclut aucune page"
+msgstr "Votre sélection d'impression n'inclut aucune page"
 
 #: ../libview/ev-print-operation.c:1892
 msgid "Page Scaling:"
@@ -1054,8 +1054,8 @@ msgid ""
 "The metadata format used by Xreader has changed, and hence it needs to be "
 "migrated. If the migration is cancelled the metadata storage will not work."
 msgstr ""
-"Le format des métadonnées utilisées par Xreader a changé, elles doivent donc "
-"être adaptées. Si la migration est annulée, le stockage des métadonnées ne "
+"Le format des métadonnées utilisé par Xreader a changé, il doit donc être "
+"adapté. Si la migration est annulée, le stockage des métadonnées ne "
 "fonctionnera pas."
 
 #: ../shell/ev-open-recent-action.c:72
@@ -1087,8 +1087,8 @@ msgstr "Mot de passe requis"
 msgid ""
 "The document “%s” is locked and requires a password before it can be opened."
 msgstr ""
-"Le document « %s » est verrouillé et nécessite un mot de passe avant de "
-"pouvoir être ouvert."
+"Le document « %s » est verrouillé et nécessite un mot de passe pour son "
+"ouverture."
 
 #: ../shell/ev-password-view.c:332
 msgid "_Password:"
@@ -1100,7 +1100,7 @@ msgstr "_Oublier le mot de passe immédiatement"
 
 #: ../shell/ev-password-view.c:377
 msgid "Remember password until you _log out"
-msgstr "Se _souvenir du mot de passe pour cette session"
+msgstr "Se _souvenir du mot de passe jusqu'à la fin de cette session"
 
 #: ../shell/ev-password-view.c:389
 msgid "Remember _forever"
@@ -1237,7 +1237,8 @@ msgstr "Le document ne contient que des pages vides"
 
 #: ../shell/ev-window.c:1567
 msgid "Presentation mode is not supported for ePub documents."
-msgstr "Le mode présentation n'est pas supporté pour les documents ePub."
+msgstr ""
+"Le mode présentation n'est pas pris en charge pour les documents ePub."
 
 #: ../shell/ev-window.c:1759 ../shell/ev-window.c:1927
 msgid "Unable to open document"
@@ -1264,7 +1265,7 @@ msgstr "Rechargement du document à partir de %s"
 
 #: ../shell/ev-window.c:2307
 msgid "Failed to reload document."
-msgstr "Le rechargement du document a échoué."
+msgstr "Impossible de charger le document."
 
 #: ../shell/ev-window.c:2457
 msgid "Open Document"
@@ -1273,17 +1274,17 @@ msgstr "Ouvrir un document"
 #: ../shell/ev-window.c:2755
 #, c-format
 msgid "Saving document to %s"
-msgstr "Enregistrement du document vers %s"
+msgstr "Enregistrement du document dans %s"
 
 #: ../shell/ev-window.c:2758
 #, c-format
 msgid "Saving attachment to %s"
-msgstr "Enregistrement de la pièce jointe vers %s"
+msgstr "Enregistrement de la pièce jointe dans %s"
 
 #: ../shell/ev-window.c:2761
 #, c-format
 msgid "Saving image to %s"
-msgstr "Enregistrement de l'image vers %s"
+msgstr "Enregistrement de l'image dans %s"
 
 #: ../shell/ev-window.c:2805 ../shell/ev-window.c:2905
 #, c-format
@@ -1379,7 +1380,8 @@ msgstr "Fermer _après l'impression"
 
 #: ../shell/ev-window.c:4107
 msgid "Presentation mode is not supported for ePub documents"
-msgstr "Le mode présentation n'est pas supporté pour les documents ePub"
+msgstr ""
+"Le mode présentation n'est pas pris en charge pour les documents ePub"
 
 #: ../shell/ev-window.c:4419
 msgid "Toolbar Editor"
@@ -1409,7 +1411,7 @@ msgid ""
 "details.\n"
 msgstr ""
 "Xreader est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE "
-"GARANTIE ; sans même la garantie implicite de VALEUR MARCHANDE ou "
+"GARANTIE ; sans même la garantie implicite de COMMERCIALISABILITÉ ou "
 "D'ADÉQUATION À UN BESOIN PARTICULIER. Pour plus de détails, voir la Licence "
 "Publique Générale GNU.\n"
 
@@ -1435,7 +1437,7 @@ msgstr "Xreader"
 msgid "%d found on this page"
 msgid_plural "%d found on this page"
 msgstr[0] "Trouvé %d fois sur cette page"
-msgstr[1] "Trouvés %d fois sur cette page"
+msgstr[1] "Trouvé %d fois sur cette page"
 
 #: ../shell/ev-window.c:5237
 msgid "Not found"

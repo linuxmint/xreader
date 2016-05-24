@@ -12,15 +12,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-09 16:11+0000\n"
-"PO-Revision-Date: 2016-02-09 17:31+0000\n"
-"Last-Translator: Joe Hansen <Unknown>\n"
+"PO-Revision-Date: 2016-05-21 09:58+0000\n"
+"Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/mate/MATE/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2016-04-21 14:44+0000\n"
-"X-Generator: Launchpad (build 17995)\n"
+"X-Launchpad-Export-Date: 2016-05-24 09:38+0000\n"
+"X-Generator: Launchpad (build 18053)\n"
 "Language: da\n"
 
 #: ../backend/comics/comics-document.c:217
@@ -471,7 +471,7 @@ msgstr "6400%"
 
 #: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer"
-msgstr ""
+msgstr "En dokumentfremviser"
 
 #: ../data/xreader.appdata.xml.in.h:2
 msgid ""
@@ -481,6 +481,12 @@ msgid ""
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
 msgstr ""
+"<p>Xreader er et program til visning af flersidede dokumenter. Det kan vise "
+"og udskrive filer af typen PostScript (PS), indkapslet PostScript (EPS), "
+"DJVU, DVI, XPS og Portable Document Format (PDF) så vel som comic book-"
+"arkivfiler. Hvis det understøttes af dokumentet, kan der søges efter tekst, "
+"kopieres tekst til udklipsholderen, foretages navigation i hypertekst og "
+"indholdsfortegnelsesbogmærker."
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
 msgid "Document Viewer"

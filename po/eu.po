@@ -12,15 +12,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-09 16:11+0000\n"
-"PO-Revision-Date: 2016-02-09 19:03+0000\n"
+"PO-Revision-Date: 2016-05-18 18:17+0000\n"
 "Last-Translator: Asier Iturralde Sarasola <Unknown>\n"
 "Language-Team: Basque (http://www.transifex.com/mate/MATE/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2016-04-21 14:44+0000\n"
-"X-Generator: Launchpad (build 17995)\n"
+"X-Launchpad-Export-Date: 2016-05-24 09:38+0000\n"
+"X-Generator: Launchpad (build 18053)\n"
 "Language: eu\n"
 
 #: ../backend/comics/comics-document.c:217
@@ -492,11 +492,13 @@ msgstr "Ikusi orrialde anitzeko dokumentuak"
 
 #: ../data/org.x.reader.gschema.xml.h:1
 msgid "Override document restrictions"
-msgstr ""
+msgstr "Jaramonik ez egin dokumentuaren murriztapenei"
 
 #: ../data/org.x.reader.gschema.xml.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
+"Jaramonik ez egin dokumentuaren kopiatzeko edo inprimatzeko bezalako "
+"murriztapenei"
 
 #: ../previewer/ev-previewer.c:35
 msgid "Delete the temporary file"
@@ -1198,6 +1200,8 @@ msgid ""
 "Cannot enter presentation mode with ePub documents use fullscreen mode "
 "instead."
 msgstr ""
+"Ezin da aurkezpen modua erabili ePub dokumentuekin, erabili pantaila osoko "
+"modua."
 
 #: ../shell/ev-window.c:1526
 msgid "The document contains no pages"
@@ -1209,7 +1213,7 @@ msgstr "Dokumentuak orrialde hutsak soilik ditu"
 
 #: ../shell/ev-window.c:1567
 msgid "Presentation mode is not supported for ePub documents."
-msgstr ""
+msgstr "ePub dokumentuetan ezin da aurkezpen modua erabili."
 
 #: ../shell/ev-window.c:1759 ../shell/ev-window.c:1927
 msgid "Unable to open document"
@@ -1348,7 +1352,7 @@ msgstr "Itxi inprimatu _ondoren"
 
 #: ../shell/ev-window.c:4107
 msgid "Presentation mode is not supported for ePub documents"
-msgstr ""
+msgstr "ePub dokumentuetan ezin da aurkezpen modua erabili"
 
 #: ../shell/ev-window.c:4419
 msgid "Toolbar Editor"

@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-09 16:11+0000\n"
-"PO-Revision-Date: 2016-03-08 15:57+0000\n"
+"PO-Revision-Date: 2016-05-20 08:27+0000\n"
 "Last-Translator: Балкыбаев Мурат <d2vsd1@mail.ru>\n"
 "Language-Team: Kazakh (http://www.transifex.com/mate/MATE/language/kk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2016-04-21 14:45+0000\n"
-"X-Generator: Launchpad (build 17995)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Launchpad-Export-Date: 2016-05-24 09:38+0000\n"
+"X-Generator: Launchpad (build 18053)\n"
 "Language: kk\n"
 
 #: ../backend/comics/comics-document.c:217
@@ -1283,6 +1283,7 @@ msgstr "Көшірмесін сақтау"
 msgid "%d pending job in queue"
 msgid_plural "%d pending jobs in queue"
 msgstr[0] "Кезекте %d жұмыс бар"
+msgstr[1] "Кезекте %d жұмыс бар"
 
 #: ../shell/ev-window.c:3366
 #, c-format
@@ -1399,6 +1400,7 @@ msgstr "Xreader"
 msgid "%d found on this page"
 msgid_plural "%d found on this page"
 msgstr[0] "%d бұл парақтан табылды"
+msgstr[1] "%d бұл парақтан табылды"
 
 #: ../shell/ev-window.c:5237
 msgid "Not found"
