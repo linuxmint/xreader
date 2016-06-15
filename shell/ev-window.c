@@ -3902,6 +3902,8 @@ static void
 ev_window_update_fullscreen_action (EvWindow *window)
 {
 	GtkAction *action;
+	EvDocument *document = window->priv->document;
+	gboolean has_pages = FALSE;
 
 	action = gtk_action_group_get_action (window->priv->action_group, "ViewFullscreen");
 	g_signal_handlers_block_by_func
@@ -3910,6 +3912,14 @@ ev_window_update_fullscreen_action (EvWindow *window)
 				      ev_document_model_get_fullscreen (window->priv->model));
 	g_signal_handlers_unblock_by_func
 		(action, G_CALLBACK (ev_window_cmd_view_fullscreen), window);
+
+	/* Disable presentation start button, if no document has been loaded */
+	if (document) {
+		has_pages = ev_document_get_n_pages (document) > 0;
+	}
+	ev_window_set_action_sensitive (window,
+			"StartPresentation",
+			has_pages && !(document->iswebdocument));
 }
 
 static void
