@@ -4956,7 +4956,7 @@ ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
 
 	gtk_show_about_dialog (
 		GTK_WINDOW (ev_window),
-		"name", _("Xreader"),
+		"program-name", _("Xreader"),
 		"version", VERSION,
 		"license", license_trans,
 		"website", "http://www.github.com/linuxmint/xreader/",
