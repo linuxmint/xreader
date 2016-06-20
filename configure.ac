@@ -4,7 +4,7 @@
 
 m4_define([ev_major_version], [1])
 m4_define([ev_minor_version], [0])
-m4_define([ev_micro_version], [6])
+m4_define([ev_micro_version], [7])
 m4_define([ev_extra_version], [])
 m4_define([ev_version], [ev_major_version.ev_minor_version.ev_micro_version()ev_extra_version])
 
@@ -40,7 +40,7 @@ m4_define([ev_binary_version], [ev_document_lt_current])
 # *****************************************************************************
 
 AC_PREREQ([2.57])
-AC_INIT([xreader], [ev_version], [http://www.mate-desktop.org/], [xreader])
+AC_INIT([xreader], [ev_version], [https://github.com/linuxmint/xreader/issues], [xreader])
 AM_INIT_AUTOMAKE([1.10 foreign tar-ustar dist-xz no-dist-gzip check-news])
 
 AC_CONFIG_HEADERS([config.h])
