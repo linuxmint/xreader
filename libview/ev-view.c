@@ -2236,7 +2236,7 @@ ev_view_form_field_text_create_widget (EvView      *view,
 				g_free (txt);
 			}
 
-			g_signal_connect( buffer, "focus-out-event",
+			g_signal_connect (text, "focus-out-event",
 					  G_CALLBACK (ev_view_form_field_text_focus_out),
 					  view);
 			g_signal_connect (buffer, "changed",
@@ -2294,7 +2294,7 @@ ev_view_form_field_choice_changed (GtkWidget   *widget,
 {
 	EvFormFieldChoice *field_choice = EV_FORM_FIELD_CHOICE (field);
 	
-	if (gtk_combo_box_get_has_entry ( GTK_COMBO_BOX (widget))) {
+	if (GTK_IS_COMBO_BOX (widget)) {
 		gint item;
 		
 		item = gtk_combo_box_get_active (GTK_COMBO_BOX (widget));
