@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-09 16:11+0000\n"
-"PO-Revision-Date: 2016-04-01 21:19+0000\n"
+"PO-Revision-Date: 2016-06-12 15:08+0000\n"
 "Last-Translator: tomoe_musashi <hkg.musashi@gmail.com>\n"
 "Language-Team: Chinese (Hong Kong) "
 "(http://www.transifex.com/mate/MATE/language/zh_HK/)\n"
@@ -20,8 +20,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2016-05-24 09:38+0000\n"
-"X-Generator: Launchpad (build 18053)\n"
+"X-Launchpad-Export-Date: 2016-06-25 09:32+0000\n"
+"X-Generator: Launchpad (build 18111)\n"
 "Language: zh_HK\n"
 
 #: ../backend/comics/comics-document.c:217
@@ -1181,7 +1181,7 @@ msgstr "頁 %s — %s"
 msgid ""
 "Cannot enter presentation mode with ePub documents use fullscreen mode "
 "instead."
-msgstr "無法在 epub 文件進入簡報模式，以全螢幕模式代替。"
+msgstr "無法在 epub 文件進入簡報模式，以全熒幕模式代替。"
 
 #: ../shell/ev-window.c:1526
 msgid "The document contains no pages"
@@ -1525,11 +1525,11 @@ msgstr "關於(_A)"
 #. Toolbar-only
 #: ../shell/ev-window.c:5956
 msgid "Leave Fullscreen"
-msgstr "離開全螢幕"
+msgstr "離開全熒幕"
 
 #: ../shell/ev-window.c:5957
 msgid "Leave fullscreen mode"
-msgstr "離開全螢幕模式"
+msgstr "離開全熒幕模式"
 
 #: ../shell/ev-window.c:5959
 msgid "Start Presentation"
@@ -1574,11 +1574,11 @@ msgstr "一次顯示兩頁"
 
 #: ../shell/ev-window.c:6031
 msgid "_Fullscreen"
-msgstr "全螢幕(_F)"
+msgstr "全熒幕(_F)"
 
 #: ../shell/ev-window.c:6032
 msgid "Expand the window to fill the screen"
-msgstr "將視窗展開為全螢幕"
+msgstr "將視窗展開為全熒幕"
 
 #: ../shell/ev-window.c:6034
 msgid "Pre_sentation"
@@ -1742,7 +1742,7 @@ msgstr "編號"
 
 #: ../shell/main.c:67
 msgid "Run xreader in fullscreen mode"
-msgstr "以全螢幕模式執行 xreader"
+msgstr "以全熒幕模式執行 xreader"
 
 #: ../shell/main.c:68
 msgid "Run xreader in presentation mode"
