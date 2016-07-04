@@ -15,8 +15,6 @@ man_MANS=xreader.1
 
 uidir = $(pkgdatadir)
 ui_DATA =				\
-	xreader-ui.xml			\
-	xreader-toolbar.xml		\
 	hand-open.png
 
 if ENABLE_PREVIEWER
