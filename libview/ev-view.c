@@ -142,6 +142,11 @@ static EvFormField *ev_view_get_form_field_at_location       (EvView            
 							       gdouble            y);
 
 /*** Annotations ***/
+static GtkWidget    *get_window_for_annot 		     (EvView 		 *view,
+							      EvAnnotation	 *annot);
+static void          map_annot_to_window		     (EvView		 *view,
+							      EvAnnotation	 *annot,
+							      GtkWidget		 *window);
 static EvAnnotation *ev_view_get_annotation_at_location      (EvView             *view,
 							      gdouble             x,
 							      gdouble             y);
@@ -2554,6 +2559,27 @@ ev_view_handle_form_field (EvView      *view,
 }
 
 /* Annotations */
+static GtkWidget *
+get_window_for_annot (EvView       *view,
+		      EvAnnotation *annot)
+{
+	if (view->annot_window_map == NULL)
+		return NULL;
+
+	return g_hash_table_lookup (view->annot_window_map, annot);
+}
+
+static void
+map_annot_to_window (EvView       *view,
+                     EvAnnotation *annot,
+		     GtkWidget    *window)
+{
+	if (view->annot_window_map == NULL)
+		view->annot_window_map = g_hash_table_new (g_direct_hash, NULL);
+
+	g_hash_table_insert (view->annot_window_map, annot, window);
+}
+
 static EvViewWindowChild *
 ev_view_get_window_child (EvView    *view,
 			  GtkWidget *window)
@@ -2815,7 +2841,7 @@ ev_view_create_annotation_window (EvView       *view,
 	g_signal_connect_swapped (annot, "notify::contents",
 				  G_CALLBACK (ev_view_annotation_save_contents),
 				  view);
-	g_object_set_data (G_OBJECT (annot), "popup", window);
+	map_annot_to_window (view, annot, window);
 
 	page = ev_annotation_get_page_index (annot);
 	ev_annotation_window_get_rectangle (EV_ANNOTATION_WINDOW (window), &doc_rect);
@@ -2855,7 +2881,7 @@ show_annotation_windows (EvView *view,
 		if (!ev_annotation_markup_has_popup (EV_ANNOTATION_MARKUP (annot)))
 			continue;
 
-		window = g_object_get_data (G_OBJECT (annot), "popup");
+		window = get_window_for_annot (view, annot);
 		if (window) {
 			ev_view_window_child_move_with_parent (view, window);
 			continue;
@@ -2866,7 +2892,7 @@ show_annotation_windows (EvView *view,
 		window = child ? child->window : NULL;
 		if (window) {
 			ev_annotation_window_set_annotation (EV_ANNOTATION_WINDOW (window), annot);
-			g_object_set_data (G_OBJECT (annot), "popup", window);
+			map_annot_to_window (view, annot, window);
 			ev_view_window_child_move_with_parent (view, window);
 		} else {
 			ev_view_create_annotation_window (view, annot, parent);
@@ -2892,7 +2918,7 @@ hide_annotation_windows (EvView *view,
 		if (!EV_IS_ANNOTATION_MARKUP (annot))
 			continue;
 
-		window = g_object_get_data (G_OBJECT (annot), "popup");
+		window = get_window_for_annot (view, annot);
 		if (window)
 			gtk_widget_hide (window);
 	}
@@ -2948,7 +2974,7 @@ ev_view_handle_annotation (EvView       *view,
 	if (EV_IS_ANNOTATION_MARKUP (annot)) {
 		GtkWidget *window;
 
-		window = g_object_get_data (G_OBJECT (annot), "popup");
+		window = get_window_for_annot (view, annot);
 		if (!window && ev_annotation_markup_can_have_popup (EV_ANNOTATION_MARKUP (annot))) {
 			EvRectangle    popup_rect;
 			GtkWindow     *parent;
@@ -3146,8 +3172,18 @@ ev_view_remove_annotation (EvView       *view,
 
 	page = ev_annotation_get_page_index (annot);
 
-	if (EV_IS_ANNOTATION_MARKUP (annot))
-		ev_view_remove_window_child_for_annot (view, page, annot);
+    if (EV_IS_ANNOTATION_MARKUP (annot)) {
+		EvViewWindowChild *child;
+
+		child = ev_view_find_window_child_for_annot (view, page, annot);
+		if (child) {
+			view->window_children = g_list_remove (view->window_children, child);
+			gtk_widget_destroy (child->window);
+			g_free (child);
+		}
+    }
+	if (view->annot_window_map != NULL)
+		g_hash_table_remove (view->annot_window_map, annot);
 
 	ev_document_doc_mutex_lock ();
 	ev_document_annotations_remove_annotation (EV_DOCUMENT_ANNOTATIONS (view->document),
@@ -4925,6 +4961,8 @@ ev_view_finalize (GObject *object)
 	if (view->image_dnd_info.image)
 		g_object_unref (view->image_dnd_info.image);
 	view->image_dnd_info.image = NULL;
+	if (view->annot_window_map)
+		g_hash_table_destroy (view->annot_window_map);
 
 	g_object_unref (view->zoom_gesture);
 
