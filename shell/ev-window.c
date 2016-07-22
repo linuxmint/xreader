@@ -1552,6 +1552,7 @@ ev_window_set_document (EvWindow *ev_window, EvDocument *document)
 		ev_web_view_disconnect_handlers(EV_WEB_VIEW(ev_window->priv->webview));
 		g_object_ref_sink(ev_window->priv->webview);
 		g_object_unref(ev_window->priv->webview);
+		ev_window->priv->webview = NULL;
 	}
 #endif
 	if (EV_WINDOW_IS_PRESENTATION (ev_window) && document->iswebdocument == FALSE) {
