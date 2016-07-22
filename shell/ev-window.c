@@ -1532,22 +1532,22 @@ ev_window_set_document (EvWindow *ev_window, EvDocument *document)
 		ev_window_warning_message (ev_window, "%s",
 					   _("The document contains only empty pages"));
 	}
+
 #if ENABLE_EPUB
-	GtkWidget *parent= gtk_widget_get_parent(ev_window->priv->webview);
 	if (document->iswebdocument == TRUE && 
-	          parent == NULL )
+	    ev_window->priv->view != NULL)
 	{
 		/*We have encountered a web document, replace the xreader view with a web view, if the web view is not already loaded.*/
 		gtk_container_remove (GTK_CONTAINER(ev_window->priv->scrolled_window),
 		                      ev_window->priv->view);
 		ev_view_disconnect_handlers(EV_VIEW(ev_window->priv->view));
-		g_object_unref(ev_window->priv->view);
+		g_object_unref(ev_window->priv->view);  
 		ev_window->priv->view = NULL;
 		gtk_container_add (GTK_CONTAINER (ev_window->priv->scrolled_window),
 				   ev_window->priv->webview);
 		gtk_widget_show(ev_window->priv->webview);		
 	}
-	else {
+	else if(ev_window->priv->webview != NULL && document->iswebdocument == FALSE) {
 		/*Since the document is not a webdocument might as well get rid of the webview now*/
 		ev_web_view_disconnect_handlers(EV_WEB_VIEW(ev_window->priv->webview));
 		g_object_ref_sink(ev_window->priv->webview);
