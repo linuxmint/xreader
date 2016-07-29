@@ -110,6 +110,8 @@ typedef struct _EvHeightToPageCache {
 struct _EvView {
 	GtkLayout layout;
 
+	/* Container */
+	GList *children;
 	EvDocument *document;
 
 	/* Find */
