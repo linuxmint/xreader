@@ -238,6 +238,8 @@ struct _EvWindowPrivate {
 
 #define GS_SCHEMA_NAME           "org.x.reader"
 #define GS_OVERRIDE_RESTRICTIONS "override-restrictions"
+#define GS_LAST_DOCUMENT_DIRECTORY "document-directory"
+#define GS_LAST_PICTURES_DIRECTORY "pictures-directory"
 
 #define SIDEBAR_DEFAULT_SIZE    132
 #define LINKS_SIDEBAR_ID "links"
@@ -1446,6 +1448,22 @@ override_restrictions_changed (GSettings *settings,
 	ev_window_setup_action_sensitivity (ev_window);
 }
 
+static GSettings *
+ev_window_ensure_settings (EvWindow *ev_window)
+{
+        EvWindowPrivate *priv = ev_window->priv;
+
+        if (priv->settings != NULL)
+                return priv->settings;
+
+        priv->settings = g_settings_new (GS_SCHEMA_NAME);
+        g_signal_connect (priv->settings,
+                          "changed::"GS_OVERRIDE_RESTRICTIONS,
+                          G_CALLBACK (override_restrictions_changed),
+                          ev_window);
+        return priv->settings;
+}
+
 static gboolean
 ev_window_setup_document (EvWindow *ev_window)
 {
@@ -1460,14 +1478,6 @@ ev_window_setup_document (EvWindow *ev_window)
 	
 	ev_window_title_set_document (ev_window->priv->title, document);
 	ev_window_title_set_uri (ev_window->priv->title, ev_window->priv->uri);
-
-	if (!ev_window->priv->settings) {
-		ev_window->priv->settings = g_settings_new (GS_SCHEMA_NAME);
-		g_signal_connect (ev_window->priv->settings,
-				  "changed::"GS_OVERRIDE_RESTRICTIONS,
-				  G_CALLBACK (override_restrictions_changed),
-				  ev_window);
-	}
 
 	ev_window_setup_action_sensitivity (ev_window);
 
@@ -2423,6 +2433,75 @@ ev_window_reload_document (EvWindow *ev_window,
 	}
 }
 
+static const gchar *
+get_settings_key_for_directory (GUserDirectory directory)
+{
+        switch (directory) {
+                case G_USER_DIRECTORY_PICTURES:
+                        return GS_LAST_PICTURES_DIRECTORY;
+                case G_USER_DIRECTORY_DOCUMENTS:
+                default:
+                        return GS_LAST_DOCUMENT_DIRECTORY;
+        }
+}
+
+static void
+ev_window_file_chooser_restore_folder (EvWindow       *window,
+                                       GtkFileChooser *file_chooser,
+                                       const gchar    *uri,
+                                       GUserDirectory  directory)
+{
+        const gchar *folder_uri, *dir;
+        gchar *parent_uri = NULL;
+
+        g_settings_get (ev_window_ensure_settings (window),
+                        get_settings_key_for_directory (directory),
+                        "ms", &folder_uri);
+        if (folder_uri == NULL && uri != NULL) {
+                GFile *file, *parent;
+
+                file = g_file_new_for_uri (uri);
+                parent = g_file_get_parent (file);
+                g_object_unref (file);
+                if (parent) {
+                        folder_uri = parent_uri = g_file_get_uri (parent);
+                        g_object_unref (parent);
+                }
+        }
+
+        if (folder_uri) {
+                gtk_file_chooser_set_current_folder_uri (file_chooser, folder_uri);
+        } else {
+                dir = g_get_user_special_dir (directory);
+                gtk_file_chooser_set_current_folder (file_chooser,
+                                                     dir ? dir : g_get_home_dir ());
+        }
+
+        g_free (parent_uri);
+}
+
+static void
+ev_window_file_chooser_save_folder (EvWindow       *window,
+                                    GtkFileChooser *file_chooser,
+                                    GUserDirectory  directory)
+{
+        gchar *uri, *folder;
+
+        folder = gtk_file_chooser_get_current_folder (file_chooser);
+        if (g_strcmp0 (folder, g_get_user_special_dir (directory)) == 0) {
+                /* Store 'nothing' if the folder is the default one */
+                uri = NULL;
+        } else {
+                uri = gtk_file_chooser_get_current_folder_uri (file_chooser);
+        }
+        g_free (folder);
+
+        g_settings_set (ev_window_ensure_settings (window),
+                        get_settings_key_for_directory (directory),
+                        "ms", uri);
+        g_free (uri);
+}
+
 static void
 file_open_dialog_response_cb (GtkWidget *chooser,
 			      gint       response_id,
@@ -2431,6 +2510,10 @@ file_open_dialog_response_cb (GtkWidget *chooser,
 	if (response_id == GTK_RESPONSE_OK) {
 		GSList *uris;
 		gchar  *uri;
+
+		ev_window_file_chooser_save_folder (ev_window,
+											GTK_FILE_CHOOSER (chooser),
+											G_USER_DIRECTORY_DOCUMENTS);
 
 		uris = gtk_file_chooser_get_uris (GTK_FILE_CHOOSER (chooser));
 
@@ -2455,8 +2538,6 @@ static void
 ev_window_cmd_file_open (GtkAction *action, EvWindow *window)
 {
 	GtkWidget   *chooser;
-	const gchar *default_uri;
-	gchar       *parent_uri = NULL;
 
 	chooser = gtk_file_chooser_dialog_new (_("Open Document"),
 					       GTK_WINDOW (window),
@@ -2470,30 +2551,10 @@ ev_window_cmd_file_open (GtkAction *action, EvWindow *window)
 	gtk_file_chooser_set_select_multiple (GTK_FILE_CHOOSER (chooser), TRUE);
 	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (chooser), FALSE);
 
-	default_uri = ev_application_get_filechooser_uri (EV_APP, GTK_FILE_CHOOSER_ACTION_OPEN);
-	if (!default_uri && window->priv->uri) {
-		GFile *file, *parent;
-
-		file = g_file_new_for_uri (window->priv->uri);
-		parent = g_file_get_parent (file);
-		if (parent) {
-			parent_uri = g_file_get_uri (parent);
-			default_uri = parent_uri;
-			g_object_unref (parent);
-		}
-		g_object_unref (file);
-	}
-
-	if (default_uri) {
-		gtk_file_chooser_set_current_folder_uri (GTK_FILE_CHOOSER (chooser), default_uri);
-	} else {
-		const gchar *folder;
-
-		folder = g_get_user_special_dir (G_USER_DIRECTORY_DOCUMENTS);
-		gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (chooser),
-						     folder ? folder : g_get_home_dir ());
-	}
-	g_free (parent_uri);
+	ev_window_file_chooser_restore_folder (window,
+										   GTK_FILE_CHOOSER (chooser),
+	                                       NULL,
+										   G_USER_DIRECTORY_DOCUMENTS);
 
 	g_signal_connect (chooser, "response",
 			  G_CALLBACK (file_open_dialog_response_cb),
@@ -2928,6 +2989,10 @@ file_save_dialog_response_cb (GtkWidget *fc,
 		return;
 	}
 
+	ev_window_file_chooser_save_folder (ev_window,
+										GTK_FILE_CHOOSER (fc),
+										G_USER_DIRECTORY_DOCUMENTS);
+
 	uri = gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (fc));
 	file = g_file_new_for_uri (uri);
 	parent = g_file_get_parent (file);
@@ -3001,6 +3066,11 @@ ev_window_cmd_save_as (GtkAction *action, EvWindow *ev_window)
 
 	g_object_unref (file);
 	g_free (base_name);
+
+	ev_window_file_chooser_restore_folder (ev_window,
+										   GTK_FILE_CHOOSER (fc),
+										   ev_window->priv->uri,
+										   G_USER_DIRECTORY_DOCUMENTS);
 
 	g_signal_connect (fc, "response",
 			  G_CALLBACK (file_save_dialog_response_cb),
@@ -6722,6 +6792,11 @@ ev_view_popup_cmd_save_image_as (GtkAction *action, EvWindow *window)
 	
 	file_chooser_dialog_add_writable_pixbuf_formats	(GTK_FILE_CHOOSER (fc));
 	
+	ev_window_file_chooser_restore_folder (window,
+										   GTK_FILE_CHOOSER (fc),
+										   NULL,
+										   G_USER_DIRECTORY_PICTURES);
+
 	g_signal_connect (fc, "response",
 			  G_CALLBACK (image_save_dialog_response_cb),
 			  window);
@@ -6856,6 +6931,10 @@ attachment_save_dialog_response_cb (GtkWidget *fc,
 		return;
 	}
 
+	ev_window_file_chooser_save_folder (ev_window,
+										GTK_FILE_CHOOSER (fc),
+										G_USER_DIRECTORY_DOCUMENTS);
+
 	uri = gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (fc));
 	target_file = g_file_new_for_uri (uri);
 	g_object_get (G_OBJECT (fc), "action", &fc_action, NULL);
@@ -6951,6 +7030,11 @@ ev_attachment_popup_cmd_save_attachment_as (GtkAction *action, EvWindow *window)
 	if (attachment)
 		gtk_file_chooser_set_current_name (GTK_FILE_CHOOSER (fc),
 						   ev_attachment_get_name (attachment));
+
+	ev_window_file_chooser_restore_folder (window,
+										   GTK_FILE_CHOOSER (fc),
+										   NULL,
+										   G_USER_DIRECTORY_DOCUMENTS);
 
 	g_signal_connect (fc, "response",
 			  G_CALLBACK (attachment_save_dialog_response_cb),
