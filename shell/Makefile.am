@@ -70,8 +70,6 @@ xreader_SOURCES=				\
 	ev-properties-view.h		\
 	ev-open-recent-action.c		\
 	ev-open-recent-action.h		\
-	ev-resources.c 	\
-	ev-resources.h 	\
 	ev-utils.c			\
 	ev-utils.h			\
 	ev-window.c			\
@@ -112,10 +110,7 @@ xreader_LDADD=										\
 	$(SHELL_LIBS)									\
 	$(MATE_DESKTOP_LIBS)
 
-BUILT_SOURCES = \
-	ev-marshal.h \
-	ev-marshal.c \
-	ev-resources.c
+BUILT_SOURCES = ev-marshal.h ev-marshal.c
 
 xreader_convert_metadata_SOURCES=	\
 	ev-convert-metadata.c
@@ -142,15 +137,7 @@ xreaderd_LDADD=				\
 	$(EV_DAEMON_LIBS)
 endif
 
-EXTRA_DIST = \
-	ev-marshal.list \
-	xreader.css \
-	evince-ui.xml \
-	evince-toolbar.xml \
-	xreader.gresource.xml
-
-ev-resources.c: xreader.gresource.xml Makefile $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir=$(srcdir) --sourcedir=$(top_srcdir)/data $(srcdir)/xreader.gresource.xml)
-	$(AM_V_GEN) XMLLINT=$(XMLLINT) $(GLIB_COMPILE_RESOURCES) --target $@ --sourcedir=$(srcdir) --sourcedir=$(top_srcdir)/data --generate-source --c-name ev $<
+EXTRA_DIST = ev-marshal.list
 
 ev-marshal.h: $(srcdir)/ev-marshal.list
 	$(AM_V_GEN)$(GLIB_GENMARSHAL) --prefix=ev_marshal $(srcdir)/ev-marshal.list --header > ev-marshal.h

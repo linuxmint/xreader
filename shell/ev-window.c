@@ -253,7 +253,7 @@ struct _EvWindowPrivate {
 #define EV_PRINT_SETTINGS_GROUP "Print Settings"
 #define EV_PAGE_SETUP_GROUP     "Page Setup"
 
-#define TOOLBAR_RESOURCE_PATH "/org/x/reader/ui/toolbar.xml"
+#define EV_TOOLBARS_FILENAME "xreader-toolbar.xml"
 
 #define MIN_SCALE 0.05409
 #define PAGE_CACHE_SIZE 52428800 /* 50MB */
@@ -4011,6 +4011,44 @@ fullscreen_toolbar_setup_item_properties (GtkUIManager *ui_manager)
 }
 
 static void
+fullscreen_toolbar_remove_shadow (GtkWidget *toolbar)
+{
+#if GTK_CHECK_VERSION (3, 0, 0)
+	GtkCssProvider *provider;
+
+	gtk_widget_set_name (toolbar, "ev-fullscreen-toolbar");
+
+	provider = gtk_css_provider_new ();
+	gtk_css_provider_load_from_data (provider,
+					 "#ev-fullscreen-toolbar {\n"
+					 " -GtkToolbar-shadow-type: none; }",
+					 -1, NULL);
+	gtk_style_context_add_provider (gtk_widget_get_style_context (toolbar),
+					GTK_STYLE_PROVIDER (provider),
+					GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+	g_object_unref (provider);
+}
+#else
+	static gboolean done = FALSE;
+
+	if (!done) {
+		gtk_rc_parse_string (
+			"\n"
+			"   style \"fullscreen-toolbar-style\"\n"
+			"   {\n"
+			"      GtkToolbar::shadow-type=GTK_SHADOW_NONE\n"
+			"   }\n"
+			"\n"
+			"    widget \"*.fullscreen-toolbar\" style \"fullscreen-toolbar-style\"\n"
+			"\n");
+		done = TRUE;
+	}
+	
+	gtk_widget_set_name (toolbar, "fullscreen-toolbar");
+}
+#endif
+
+static void
 ev_window_run_fullscreen (EvWindow *window)
 {
 	gboolean fullscreen_window = TRUE;
@@ -4022,10 +4060,10 @@ ev_window_run_fullscreen (EvWindow *window)
 		window->priv->fullscreen_toolbar =
 			gtk_ui_manager_get_widget (window->priv->ui_manager,
 						   "/FullscreenToolbar");
-		gtk_widget_set_name (window->priv->fullscreen_toolbar,
-				"ev-fullscreen-toolbar");
+
 		gtk_toolbar_set_style (GTK_TOOLBAR (window->priv->fullscreen_toolbar),
 				       GTK_TOOLBAR_BOTH_HORIZ);
+		fullscreen_toolbar_remove_shadow (window->priv->fullscreen_toolbar);
 		fullscreen_toolbar_setup_item_properties (window->priv->ui_manager);
 
 		gtk_box_pack_start (GTK_BOX (window->priv->main_box),
@@ -7056,10 +7094,12 @@ get_toolbars_model (void)
 
 	toolbars_file = g_build_filename (ev_application_get_dot_dir (EV_APP, FALSE),
 					  "xreader_toolbar.xml", NULL);
-	egg_toolbars_model_load_names_from_resource (toolbars_model, TOOLBAR_RESOURCE_PATH);
+	toolbars_path = g_build_filename (ev_application_get_data_dir (EV_APP),
+					 "xreader-toolbar.xml", NULL);
+	egg_toolbars_model_load_names (toolbars_model, toolbars_path);
 
 	if (!egg_toolbars_model_load_toolbars (toolbars_model, toolbars_file)) {
-		egg_toolbars_model_load_toolbars_from_resource (toolbars_model, TOOLBAR_RESOURCE_PATH);
+		egg_toolbars_model_load_toolbars (toolbars_model, toolbars_path);
                 goto skip_conversion;
 	}
 
@@ -7081,6 +7121,7 @@ get_toolbars_model (void)
 
     skip_conversion:
 	g_free (toolbars_file);
+	g_free (toolbars_path);
 
 	egg_toolbars_model_set_flags (toolbars_model, 0, EGG_TB_MODEL_NOT_REMOVABLE);
 
@@ -7268,37 +7309,16 @@ static const GDBusInterfaceVTable interface_vtable = {
 static GDBusNodeInfo *introspection_data;
 #endif /* ENABLE_DBUS */
 
-static gboolean
-_gtk_css_provider_load_from_resource (GtkCssProvider *provider,
-									  const char     *resource_path,
-									  GError        **error)
-{
-	GBytes  *data;
-	gboolean retval;
-
-	data = g_resources_lookup_data (resource_path, 0, error);
-	if (!data)
-		return FALSE;
-
-	retval = gtk_css_provider_load_from_data (provider,
-											  g_bytes_get_data (data, NULL),
-											  g_bytes_get_size (data),
-											  error);
-	g_bytes_unref (data);
-
-	return retval;
-}
-
 static void
 ev_window_init (EvWindow *ev_window)
 {
 	GtkActionGroup *action_group;
 	GtkAccelGroup *accel_group;
-	GtkCssProvider *css_provider;
 	GError *error = NULL;
 	GtkWidget *sidebar_widget;
 	GtkWidget *menuitem;
 	EggToolbarsModel *toolbars_model;
+	gchar *ui_path;
 #ifdef ENABLE_DBUS
 	GDBusConnection *connection;
 	static gint window_id = 0;
@@ -7396,20 +7416,15 @@ ev_window_init (EvWindow *ev_window)
 	gtk_ui_manager_insert_action_group (ev_window->priv->ui_manager,
 					    action_group, 0);
 
-	gtk_ui_manager_add_ui_from_resource (ev_window->priv->ui_manager,
-										 "/org/x/reader/ui/xreader.xml",
-										 &error);
-	g_assert_no_error (error);
-
-	css_provider = gtk_css_provider_new ();
-	_gtk_css_provider_load_from_resource (css_provider,
-										  "/org/x/reader/ui/xreader.css",
-										  &error);
-	g_assert_no_error (error);
-	gtk_style_context_add_provider_for_screen (gtk_widget_get_screen (GTK_WIDGET (ev_window)),
-					GTK_STYLE_PROVIDER (css_provider),
-					GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-	g_object_unref (css_provider);
+	ui_path = g_build_filename (ev_application_get_data_dir (EV_APP),
+				    "xreader-ui.xml", NULL);
+	if (!gtk_ui_manager_add_ui_from_file (
+		ev_window->priv->ui_manager, ui_path, &error))
+	{
+		g_warning ("building menus failed: %s", error->message);
+		g_error_free (error);
+	}
+	g_free (ui_path);
 
 	ev_window->priv->recent_manager = gtk_recent_manager_get_default ();
 	ev_window->priv->recent_action_group = NULL;
