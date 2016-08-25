@@ -163,7 +163,21 @@ ev_document_misc_paint_one_page (cairo_t      *cr,
 
 	gdk_cairo_set_source_color (cr, highlight ? &style->text[state] : &style->dark[state]);
 #endif
-	gdk_cairo_rectangle (cr, area);
+	cairo_rectangle (cr,
+			 area->x,
+			 area->y,
+			 area->width - border->right + border->left,
+			 area->height - border->bottom + border->top);
+	cairo_rectangle (cr,
+			 area->x + area->width - border->right,
+			 area->y + border->right - border->left,
+			 border->right,
+			 area->height - border->right + border->left);
+	cairo_rectangle (cr,
+			 area->x + border->bottom - border->top,
+			 area->y + area->height - border->bottom,
+			 area->width - border->bottom + border->top,
+			 border->bottom);
 	cairo_fill (cr);
 
 	if (inverted_colors)
@@ -175,25 +189,6 @@ ev_document_misc_paint_one_page (cairo_t      *cr,
 			 area->y + border->top,
 			 area->width - (border->left + border->right),
 			 area->height - (border->top + border->bottom));
-	cairo_fill (cr);
-
-#if GTK_CHECK_VERSION (3, 0, 0)
-	gdk_cairo_set_source_rgba (cr, &bg);
-#else
-	gdk_cairo_set_source_color (cr, &style->mid[state]);
-#endif
-	cairo_rectangle (cr,
-			 area->x,
-			 area->y + area->height - (border->bottom - border->top),
-			 border->bottom - border->top,
-			 border->bottom - border->top);
-	cairo_fill (cr);
-
-	cairo_rectangle (cr,
-			 area->x + area->width - (border->right - border->left),
-			 area->y,
-			 border->right - border->left,
-			 border->right - border->left);
 	cairo_fill (cr);
 }
 
