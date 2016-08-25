@@ -144,17 +144,11 @@ ev_document_misc_paint_one_page (cairo_t      *cr,
 	GtkStyleContext *context = gtk_widget_get_style_context (widget);
 	GtkStateFlags state = gtk_widget_get_state_flags (widget);
         GdkRGBA fg, bg, shade_bg;
-        GtkSymbolicColor *c1, *c2;
 
         gtk_style_context_get_background_color (context, state, &bg);
         gtk_style_context_get_color (context, state, &fg);
-
-        // FIXME: should we cache the shade_bg?
-        c1 = gtk_symbolic_color_new_literal (&bg);
-        c2 = gtk_symbolic_color_new_shade (c1, 0.7);
-        gtk_symbolic_color_resolve (c2, NULL, &shade_bg);
-        gtk_symbolic_color_unref (c1);
-        gtk_symbolic_color_unref (c2);
+        gtk_style_context_get_color (context, state, &shade_bg);
+        shade_bg.alpha *= 0.5;
 
 	gdk_cairo_set_source_rgba (cr, highlight ? &fg : &shade_bg);
 #else
