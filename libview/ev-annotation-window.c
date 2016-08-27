@@ -28,11 +28,6 @@
 #include "ev-view-marshal.h"
 #include "ev-document-misc.h"
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gdk_cursor_unref g_object_unref
-#define gtk_widget_render_icon(A,B,C,D) gtk_widget_render_icon_pixbuf(A,B,C)
-#endif
-
 enum {
 	PROP_0,
 	PROP_ANNOTATION,
@@ -139,7 +134,6 @@ static void
 ev_annotation_window_set_color (EvAnnotationWindow *window,
 				GdkColor           *color)
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
         GtkStyleProperties *properties;
         GtkStyleProvider   *provider;
 	GdkRGBA             rgba;
@@ -165,34 +159,6 @@ ev_annotation_window_set_color (EvAnnotationWindow *window,
         gtk_style_context_add_provider (gtk_widget_get_style_context (window->resize_sw),
                                         provider, GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
         g_object_unref (properties);
-#else
-	GtkRcStyle *rc_style;
-	GdkColor    gcolor;
-
-	gcolor = *color;
-
-	/* Allocate these colors */
-	gdk_colormap_alloc_color (gtk_widget_get_colormap (GTK_WIDGET (window)),
-				  &gcolor, FALSE, TRUE);
-
-	/* Apply colors to style */
-	rc_style = gtk_widget_get_modifier_style (GTK_WIDGET (window));
-	rc_style->base[GTK_STATE_NORMAL] = gcolor;
-	rc_style->bg[GTK_STATE_PRELIGHT] = gcolor;
-	rc_style->bg[GTK_STATE_NORMAL] = gcolor;
-	rc_style->bg[GTK_STATE_ACTIVE] = gcolor;
-	rc_style->color_flags[GTK_STATE_PRELIGHT] = GTK_RC_BG;
-	rc_style->color_flags[GTK_STATE_NORMAL] = GTK_RC_BG | GTK_RC_BASE;
-	rc_style->color_flags[GTK_STATE_ACTIVE] = GTK_RC_BG;
-
-	/* Apply the style to the widgets */
-	g_object_ref (rc_style);
-	gtk_widget_modify_style (GTK_WIDGET (window), rc_style);
-	gtk_widget_modify_style (window->close_button, rc_style);
-	gtk_widget_modify_style (window->resize_se, rc_style);
-	gtk_widget_modify_style (window->resize_sw, rc_style);
-	g_object_unref (rc_style);
-#endif
 }
 
 static void
@@ -287,7 +253,7 @@ ev_annotation_window_set_resize_cursor (GtkWidget          *widget,
 						     GDK_BOTTOM_LEFT_CORNER :
 						     GDK_BOTTOM_RIGHT_CORNER);
 		gdk_window_set_cursor (gdk_window, cursor);
-		gdk_cursor_unref (cursor);
+		g_object_unref (cursor);
 	} else {
 		gdk_window_set_cursor (gdk_window, NULL);
 	}

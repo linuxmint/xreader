@@ -42,11 +42,7 @@
 
 #include <gtk/gtk.h>
 #if ENABLE_EPUB
-#if GTK_CHECK_VERSION(3, 0, 0)
 #include <webkit2/webkit2.h>
-#else
-#include <webkit/webkit.h>
-#endif
 #endif
 #include <errno.h>
 #include <glib/gstdio.h>
@@ -831,51 +827,6 @@ ev_job_thumbnail_dispose (GObject *object)
 }
 
 #if ENABLE_EPUB
-#if !GTK_CHECK_VERSION(3, 0, 0)
-static void
-web_thumbnail_get_screenshot_cb(GObject        *object,
-                                GParamSpec     *pspec,
-                                EvJobThumbnail *job_thumb)
-{
-	WebKitWebView *webview = WEBKIT_WEB_VIEW(object);
-	WebKitLoadStatus status = webkit_web_view_get_load_status (webview);
-	if (status != WEBKIT_LOAD_FINISHED) {
-		return;
-	}
-
-	ev_document_doc_mutex_lock ();
-
-	EvPage *page = ev_document_get_page (EV_JOB(job_thumb)->document, job_thumb->page);
-	job_thumb->surface = webkit_web_view_get_snapshot (webview);
-	EvRenderContext *rc = ev_render_context_new (page, job_thumb->rotation, job_thumb->scale);
-	EvPage *screenshotpage;
-	screenshotpage = ev_page_new(job_thumb->page);
-	screenshotpage->backend_page = (EvBackendPage)job_thumb->surface;
-	screenshotpage->backend_destroy_func = (EvBackendPageDestroyFunc)cairo_surface_destroy ;
-	ev_render_context_set_page(rc,screenshotpage);
-
-	job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (EV_JOB(job_thumb)->document),
-	                                                             rc, TRUE);
-	g_object_unref(screenshotpage);
-	g_object_unref(rc);
-
-	ev_document_doc_mutex_unlock ();
-	ev_job_succeeded (EV_JOB(job_thumb));
-	return;
-}
-
-static gboolean
-webview_load_error_cb (WebKitWebView  *webview,
-                       WebKitWebFrame *web_frame,
-                       gchar          *uri,
-                       GError         *web_error,
-                       EvJobThumbnail *job_thumb)
-{
-	g_warning ("Error loading data from %s: %s", uri, web_error->message);
-	ev_job_failed_from_error (EV_JOB(job_thumb), web_error);
-	return TRUE;
-}
-#else
 static void
 snapshot_callback(WebKitWebView *webview,
                   GAsyncResult  *results,
@@ -939,7 +890,6 @@ webview_load_failed_cb (WebKitWebView  *webview,
 	ev_job_failed_from_error (EV_JOB(job_thumb), e);
 	return TRUE;
 }
-#endif  /* GTK_CHECK_VERSION */
 #endif  /* ENABLE_EPUB */
 
 static gboolean
@@ -973,22 +923,12 @@ ev_job_thumbnail_run (EvJob *job)
 	if (job->document->iswebdocument == TRUE) {
 		if (!webview) {
 			webview = webkit_web_view_new();
-#if !GTK_CHECK_VERSION (3, 0, 0)
-			g_object_connect(WEBKIT_WEB_VIEW(webview),"signal::notify::load-status",
-			                 G_CALLBACK(web_thumbnail_get_screenshot_cb),
-			                 g_object_ref (job_thumb),
-			                 NULL);
-			g_signal_connect(WEBKIT_WEB_VIEW(webview),"load-error",
-			                 G_CALLBACK(webview_load_error_cb),
-			                 g_object_ref (job_thumb));
-#else
 			g_signal_connect(WEBKIT_WEB_VIEW(webview),"load-changed",
 			                 G_CALLBACK(web_thumbnail_get_screenshot_cb),
 			                 g_object_ref (job_thumb));
 			g_signal_connect(WEBKIT_WEB_VIEW(webview),"load-failed",
 			                 G_CALLBACK(webview_load_failed_cb),
 			                 g_object_ref (job_thumb));
-#endif  /* GTK_CHECK_VERSION */
 		}
 
 		if (!offscreenwindow) {

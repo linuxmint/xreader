@@ -602,7 +602,6 @@ ev_pixbuf_cache_clear_job_sizes (EvPixbufCache *pixbuf_cache,
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 get_selection_colors (GtkWidget *widget, GdkColor *text, GdkColor *base)
 {
 	GtkStyleContext *context = gtk_widget_get_style_context (widget);
@@ -623,20 +622,6 @@ get_selection_colors (GtkWidget *widget, GdkColor *text, GdkColor *base)
         base->green = CLAMP ((guint) (bg.green * 65535), 0, 65535);
         base->blue = CLAMP ((guint) (bg.blue * 65535), 0, 65535);
 }
-#else
-get_selection_colors (GtkWidget *widget, GdkColor **text, GdkColor **base)
-{
-	GtkStyle *style = gtk_widget_get_style (widget);
-
-	if (gtk_widget_has_focus (widget)) {
-		*text = &style->text [GTK_STATE_SELECTED];
-		*base = &style->base [GTK_STATE_SELECTED];
-	} else {
-		*text = &style->text [GTK_STATE_ACTIVE];
-		*base = &style->base [GTK_STATE_ACTIVE];
-	}
-}
-#endif
 
 static void
 add_job (EvPixbufCache  *pixbuf_cache,
@@ -660,22 +645,12 @@ add_job (EvPixbufCache  *pixbuf_cache,
 					   width, height);
 
 	if (new_selection_surface_needed (pixbuf_cache, job_info, page, scale)) {
-#if GTK_CHECK_VERSION (3, 0, 0)
 		GdkColor text, base;
-#else
-		GdkColor *text, *base;
-
-		gtk_widget_ensure_style (pixbuf_cache->view);
-#endif
 		get_selection_colors (pixbuf_cache->view, &text, &base);
 		ev_job_render_set_selection_info (EV_JOB_RENDER (job_info->job), 
 						  &(job_info->target_points),
 						  job_info->selection_style,
-#if GTK_CHECK_VERSION (3, 0, 0)
 						  &text, &base);
-#else
-						  text, base);
-#endif
 	}
 
 	g_signal_connect (job_info->job, "finished",
@@ -983,11 +958,7 @@ ev_pixbuf_cache_get_selection_surface (EvPixbufCache   *pixbuf_cache,
 	 */
 	if (ev_rect_cmp (&(job_info->target_points), &(job_info->selection_points))) {
 		EvRectangle *old_points;
-#if GTK_CHECK_VERSION (3, 0, 0)
 		GdkColor text, base;
-#else
-		GdkColor *text, *base;
-#endif
 		EvRenderContext *rc;
 		EvPage *ev_page;
 
@@ -1012,10 +983,6 @@ ev_pixbuf_cache_get_selection_surface (EvPixbufCache   *pixbuf_cache,
 							   rc, job_info->selection_style,
 							   &(job_info->target_points));
 
-#if !GTK_CHECK_VERSION (3, 0, 0)
-		gtk_widget_ensure_style (pixbuf_cache->view);
-#endif
-
 		get_selection_colors (pixbuf_cache->view, &text, &base);
 
 		ev_selection_render_selection (EV_SELECTION (pixbuf_cache->document),
@@ -1023,11 +990,7 @@ ev_pixbuf_cache_get_selection_surface (EvPixbufCache   *pixbuf_cache,
 					       &(job_info->target_points),
 					       old_points,
 					       job_info->selection_style,
-#if GTK_CHECK_VERSION (3, 0, 0)
 					       &text, &base);
-#else
-					       text, base);
-#endif
 		job_info->selection_points = job_info->target_points;
 		g_object_unref (rc);
 		ev_document_doc_mutex_unlock ();
