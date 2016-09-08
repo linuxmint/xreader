@@ -1,0 +1,4 @@
+cd po
+INTLTOOL_EXTRACT="/usr/bin/intltool-extract" XGETTEXT="/usr/bin/xgettext" srcdir=. /usr/bin/intltool-update --gettext-package xreader --pot
+mv xreader.pot ..
+
