@@ -265,7 +265,7 @@ egg_toolbar_editor_class_init (EggToolbarEditorClass *klass)
 						       G_PARAM_READWRITE | G_PARAM_STATIC_NAME | G_PARAM_STATIC_NICK | G_PARAM_STATIC_BLURB |
 						       G_PARAM_CONSTRUCT));
 
-#if GTK_CHECK_VERSION (3, 19, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
   GtkWidgetClass *widget_class  = GTK_WIDGET_CLASS (klass);
   gtk_widget_class_set_css_name (widget_class, "EggToolbarEditor");
 #endif
