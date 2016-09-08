@@ -26,7 +26,6 @@
 #define EV_DOCUMENT_THUMBNAILS_H
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
-#include <gtk/gtk.h>
 #include "ev-render-context.h"
 
 G_BEGIN_DECLS
