@@ -3060,12 +3060,6 @@ ev_window_cmd_save_as (GtkAction *action, EvWindow *ev_window)
 	default_uri = ev_application_get_filechooser_uri (EV_APP, GTK_FILE_CHOOSER_ACTION_SAVE);
 	if (default_uri) {
 		gtk_file_chooser_set_current_folder_uri (GTK_FILE_CHOOSER (fc), default_uri);
-	} else {
-		const gchar *folder;
-
-		folder = g_get_user_special_dir (G_USER_DIRECTORY_DOCUMENTS);
-		gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (fc),
-						     folder ? folder : g_get_home_dir ());
 	}
 
 	g_object_unref (file);
