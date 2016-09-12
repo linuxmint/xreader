@@ -1480,6 +1480,7 @@ ev_window_setup_document (EvWindow *ev_window)
 	ev_window_title_set_document (ev_window->priv->title, document);
 	ev_window_title_set_uri (ev_window->priv->title, ev_window->priv->uri);
 
+	ev_window_ensure_settings (ev_window);
 	ev_window_setup_action_sensitivity (ev_window);
 
 	if (ev_window->priv->history)
@@ -2455,8 +2456,8 @@ ev_window_file_chooser_restore_folder (EvWindow       *window,
                                        const gchar    *uri,
                                        GUserDirectory  directory)
 {
-        const gchar *folder_uri, *dir;
-        gchar *parent_uri = NULL;
+        const gchar *dir;
+        gchar *folder_uri;
 
         g_settings_get (ev_window_ensure_settings (window),
                         get_settings_key_for_directory (directory),
@@ -2468,8 +2469,8 @@ ev_window_file_chooser_restore_folder (EvWindow       *window,
                 parent = g_file_get_parent (file);
                 g_object_unref (file);
                 if (parent) {
-                        folder_uri = parent_uri = g_file_get_uri (parent);
-                        g_object_unref (parent);
+					folder_uri = g_file_get_uri (parent);
+					g_object_unref (parent);
                 }
         }
 
@@ -2481,7 +2482,7 @@ ev_window_file_chooser_restore_folder (EvWindow       *window,
                                                      dir ? dir : g_get_home_dir ());
         }
 
-        g_free (parent_uri);
+        g_free (folder_uri);
 }
 
 static void
@@ -3015,7 +3016,6 @@ ev_window_cmd_save_as (GtkAction *action, EvWindow *ev_window)
 	GtkWidget *fc;
 	gchar *base_name;
 	GFile *file;
-	const gchar *folder;
 
 	fc = gtk_file_chooser_dialog_new (
 		_("Save a Copy"),
@@ -3036,10 +3036,6 @@ ev_window_cmd_save_as (GtkAction *action, EvWindow *ev_window)
 	file = g_file_new_for_uri (ev_window->priv->uri);
 	base_name = g_file_get_basename (file);
 	gtk_file_chooser_set_current_name (GTK_FILE_CHOOSER (fc), base_name);
-
-	folder = g_get_user_special_dir (G_USER_DIRECTORY_DOCUMENTS);
-	gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (fc),
-										 folder ? folder : g_get_home_dir ());
 
 	g_object_unref (file);
 	g_free (base_name);
@@ -6703,6 +6699,10 @@ image_save_dialog_response_cb (GtkWidget *fc,
 		gtk_widget_destroy (fc);
 		return;
 	}
+
+	ev_window_file_chooser_save_folder (ev_window,
+										GTK_FILE_CHOOSER (fc),
+										G_USER_DIRECTORY_PICTURES);
 
 	uri = gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (fc));
 	filter = gtk_file_chooser_get_filter (GTK_FILE_CHOOSER (fc));
