@@ -238,9 +238,10 @@ struct _EvWindowPrivate {
 
 #define GS_SCHEMA_NAME           "org.x.reader"
 #define GS_OVERRIDE_RESTRICTIONS "override-restrictions"
+#define GS_PAGE_CACHE_SIZE       "page-cache-size"
+#define GS_AUTO_RELOAD           "auto-reload"
 #define GS_LAST_DOCUMENT_DIRECTORY "document-directory"
 #define GS_LAST_PICTURES_DIRECTORY "pictures-directory"
-#define GS_AUTO_RELOAD           "auto-reload"
 
 #define SIDEBAR_DEFAULT_SIZE    132
 #define LINKS_SIDEBAR_ID "links"
@@ -257,7 +258,6 @@ struct _EvWindowPrivate {
 #define EV_TOOLBARS_FILENAME "xreader-toolbar.xml"
 
 #define MIN_SCALE 0.05409
-#define PAGE_CACHE_SIZE 52428800 /* 50MB */
 
 #define MAX_RECENT_ITEM_LEN (40)
 
@@ -1355,6 +1355,18 @@ setup_view_from_metadata (EvWindow *window)
 }
 
 static void
+page_cache_size_changed (GSettings *settings,
+			 gchar     *key,
+			 EvWindow  *ev_window)
+{
+	guint page_cache_mb;
+
+	page_cache_mb = g_settings_get_uint (settings, GS_PAGE_CACHE_SIZE);
+	ev_view_set_page_cache_size (EV_VIEW (ev_window->priv->view),
+				     page_cache_mb * 1024 * 1024);
+}
+
+static void
 ev_window_setup_default (EvWindow *ev_window)
 {
 	EvDocumentModel *model = ev_window->priv->model;
@@ -1462,6 +1474,11 @@ ev_window_ensure_settings (EvWindow *ev_window)
                           "changed::"GS_OVERRIDE_RESTRICTIONS,
                           G_CALLBACK (override_restrictions_changed),
                           ev_window);
+        g_signal_connect (priv->settings,
+			  "changed::"GS_PAGE_CACHE_SIZE,
+			  G_CALLBACK (page_cache_size_changed),
+			  ev_window);
+
         return priv->settings;
 }
 
@@ -2469,8 +2486,8 @@ ev_window_file_chooser_restore_folder (EvWindow       *window,
                 parent = g_file_get_parent (file);
                 g_object_unref (file);
                 if (parent) {
-					folder_uri = g_file_get_uri (parent);
-					g_object_unref (parent);
+                	folder_uri = g_file_get_uri (parent);
+                	g_object_unref (parent);
                 }
         }
 
@@ -3042,8 +3059,8 @@ ev_window_cmd_save_as (GtkAction *action, EvWindow *ev_window)
 
 	ev_window_file_chooser_restore_folder (ev_window,
 										   GTK_FILE_CHOOSER (fc),
-										   ev_window->priv->uri,
-										   G_USER_DIRECTORY_DOCUMENTS);
+                                               ev_window->priv->uri,
+                                               G_USER_DIRECTORY_DOCUMENTS);
 
 	g_signal_connect (fc, "response",
 			  G_CALLBACK (file_save_dialog_response_cb),
@@ -4297,17 +4314,19 @@ ev_window_update_max_min_scale (EvWindow *window)
 	gdouble    min_width, min_height;
 	gdouble    width, height;
 	gdouble    max_scale;
+	guint      page_cache_mb;
 	gint       rotation = ev_document_model_get_rotation (window->priv->model);
 
 	if (!window->priv->document)
 		return;
 
+	page_cache_mb = g_settings_get_uint (window->priv->settings, GS_PAGE_CACHE_SIZE);
 	dpi = get_screen_dpi (window) / 72.0;
 
 	ev_document_get_min_page_size (window->priv->document, &min_width, &min_height);
 	width = (rotation == 0 || rotation == 180) ? min_width : min_height;
 	height = (rotation == 0 || rotation == 180) ? min_height : min_width;
-	max_scale = sqrt (PAGE_CACHE_SIZE / (width * dpi * 4 * height * dpi));
+	max_scale = sqrt ((page_cache_mb * 1024 * 1024) / (width * dpi * 4 * height * dpi));
 
 	action = gtk_action_group_get_action (window->priv->action_group,
 					      ZOOM_CONTROL_ACTION);
@@ -6804,9 +6823,9 @@ ev_view_popup_cmd_save_image_as (GtkAction *action, EvWindow *window)
 
 	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (fc), FALSE);
 	gtk_file_chooser_set_do_overwrite_confirmation (GTK_FILE_CHOOSER (fc), TRUE);
-	
+
 	file_chooser_dialog_add_writable_pixbuf_formats	(GTK_FILE_CHOOSER (fc));
-	
+
 	ev_window_file_chooser_restore_folder (window,
 										   GTK_FILE_CHOOSER (fc),
 										   NULL,
@@ -7294,6 +7313,7 @@ ev_window_init (EvWindow *ev_window)
 	GtkWidget *sidebar_widget;
 	GtkWidget *menuitem;
 	EggToolbarsModel *toolbars_model;
+	guint page_cache_mb;
 	gchar *ui_path;
 #ifdef ENABLE_DBUS
 	GDBusConnection *connection;
@@ -7568,7 +7588,10 @@ ev_window_init (EvWindow *ev_window)
 	                         ev_window, 0);
 #endif
 #endif
-	ev_view_set_page_cache_size (EV_VIEW (ev_window->priv->view), PAGE_CACHE_SIZE);
+	page_cache_mb = g_settings_get_uint (ev_window_ensure_settings (ev_window),
+					     GS_PAGE_CACHE_SIZE);
+	ev_view_set_page_cache_size (EV_VIEW (ev_window->priv->view),
+				     page_cache_mb * 1024 * 1024);
 	ev_view_set_model (EV_VIEW (ev_window->priv->view), ev_window->priv->model);
 
 	ev_window->priv->password_view = ev_password_view_new (GTK_WINDOW (ev_window));
