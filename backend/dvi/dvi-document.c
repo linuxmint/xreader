@@ -20,7 +20,6 @@
 #include "config.h"
 
 #include "dvi-document.h"
-#include "texmfcnf.h"
 #include "ev-document-thumbnails.h"
 #include "ev-document-misc.h"
 #include "ev-file-exporter.h"
@@ -33,12 +32,7 @@
 
 #include <glib/gi18n-lib.h>
 #include <ctype.h>
-#ifdef G_OS_WIN32
-# define WIFEXITED(x) ((x) != 3)
-# define WEXITSTATUS(x) (x)
-#else
-# include <sys/wait.h>
-#endif
+#include <sys/wait.h>
 #include <stdlib.h>
 
 GMutex dvi_context_mutex;
@@ -246,13 +240,10 @@ dvi_document_class_init (DviDocumentClass *klass)
 {
 	GObjectClass    *gobject_class = G_OBJECT_CLASS (klass);
 	EvDocumentClass *ev_document_class = EV_DOCUMENT_CLASS (klass);
-	gchar *texmfcnf;
 
 	gobject_class->finalize = dvi_document_finalize;
 
-	texmfcnf = get_texmfcnf();
-	mdvi_init_kpathsea ("xreader", MDVI_MFMODE, MDVI_FALLBACK_FONT, MDVI_DPI, texmfcnf);
-	g_free(texmfcnf);
+	mdvi_init_kpathsea ("xreader", MDVI_MFMODE, MDVI_FALLBACK_FONT, MDVI_DPI, getenv("TEXMFCNF"));
 
 	mdvi_register_special ("Color", "color", NULL, dvi_document_do_color_special, 1);
 	mdvi_register_fonts ();

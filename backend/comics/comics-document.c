@@ -30,27 +30,14 @@
 #include <glib/gstdio.h>
 #include <gio/gio.h>
 
-#ifdef G_OS_WIN32
-# define WIFEXITED(x) ((x) != 3)
-# define WEXITSTATUS(x) (x)
-#else
-# include <sys/wait.h>
-#endif
+#include <sys/wait.h>
 
 #include "comics-document.h"
 #include "ev-document-misc.h"
 #include "ev-document-thumbnails.h"
 #include "ev-file-helpers.h"
 
-#ifdef G_OS_WIN32
-/* On windows g_spawn_command_line_sync reads stdout in O_BINARY mode, not in O_TEXT mode.
- * As a consequence, newlines are in a platform dependent representation (\r\n). This
- * might be considered a bug in glib.
- */
-#define EV_EOL "\r\n"
-#else
 #define EV_EOL "\n"
-#endif
 
 typedef enum
 {
