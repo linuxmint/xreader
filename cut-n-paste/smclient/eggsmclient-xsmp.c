@@ -368,9 +368,7 @@ sm_client_xsmp_startup (EggSMClient *client,
       xsmp->client_id = g_strdup (ret_client_id);
       free (ret_client_id);
 
-      gdk_threads_enter ();
       gdk_x11_set_sm_client_id (xsmp->client_id);
-      gdk_threads_leave ();
 
       g_debug ("Got client ID \"%s\"", xsmp->client_id);
     }
@@ -538,8 +536,6 @@ idle_do_pending_events (gpointer data)
   EggSMClientXSMP *xsmp = data;
   EggSMClient *client = data;
 
-  gdk_threads_enter ();
-
   xsmp->idle = 0;
 
   if (xsmp->waiting_to_emit_quit)
@@ -563,7 +559,6 @@ idle_do_pending_events (gpointer data)
     }
 
  out:
-  gdk_threads_leave ();
   return FALSE;
 }
 
@@ -1285,9 +1280,7 @@ process_ice_messages (IceConn ice_conn)
 {
   IceProcessMessagesStatus status;
 
-  gdk_threads_enter ();
   status = IceProcessMessages (ice_conn, NULL, NULL);
-  gdk_threads_leave ();
 
   switch (status)
     {
