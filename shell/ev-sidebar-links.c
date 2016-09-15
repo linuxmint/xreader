@@ -82,7 +82,7 @@ static guint signals[N_SIGNALS] = { 0 };
 
 G_DEFINE_TYPE_EXTENDED (EvSidebarLinks, 
                         ev_sidebar_links, 
-                        GTK_TYPE_VBOX,
+                        GTK_TYPE_BOX,
                         0, 
                         G_IMPLEMENT_INTERFACE (EV_TYPE_SIDEBAR_PAGE, 
 					       ev_sidebar_links_page_iface_init))
@@ -452,6 +452,8 @@ static void
 ev_sidebar_links_init (EvSidebarLinks *ev_sidebar_links)
 {
 	ev_sidebar_links->priv = EV_SIDEBAR_LINKS_GET_PRIVATE (ev_sidebar_links);
+
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_sidebar_links), GTK_ORIENTATION_VERTICAL);
 
 	ev_sidebar_links_construct (ev_sidebar_links);
 }

@@ -67,7 +67,7 @@ static guint signals[N_SIGNALS] = { 0 };
 
 G_DEFINE_TYPE_EXTENDED (EvSidebarAnnotations,
                         ev_sidebar_annotations,
-                        GTK_TYPE_VBOX,
+                        GTK_TYPE_BOX,
                         0,
                         G_IMPLEMENT_INTERFACE (EV_TYPE_SIDEBAR_PAGE,
 					       ev_sidebar_annotations_page_iface_init))
@@ -128,6 +128,9 @@ ev_sidebar_annotations_add_annots_list (EvSidebarAnnotations *ev_annots)
 					GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
 	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow),
 					     GTK_SHADOW_IN);
+
+	// Use as much vertical space as available
+	gtk_widget_set_vexpand (GTK_WIDGET (swindow), TRUE);
 
 	/* Create tree view */
 	loading_model = ev_sidebar_annotations_create_simple_model (_("Loading…"));
@@ -236,6 +239,7 @@ ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 	gtk_notebook_set_show_border (GTK_NOTEBOOK (ev_annots->priv->notebook), FALSE);
 	ev_sidebar_annotations_add_annots_list (ev_annots);
 	ev_sidebar_annotations_add_annots_palette (ev_annots);
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_annots), GTK_ORIENTATION_VERTICAL);
 	gtk_container_add (GTK_CONTAINER (ev_annots), ev_annots->priv->notebook);
 	gtk_widget_show (ev_annots->priv->notebook);
 }

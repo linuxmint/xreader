@@ -55,7 +55,7 @@ static guint signals[N_SIGNALS] = { 0 };
 
 G_DEFINE_TYPE_EXTENDED (EvSidebarLayers,
                         ev_sidebar_layers,
-                        GTK_TYPE_VBOX,
+                        GTK_TYPE_BOX,
                         0, 
                         G_IMPLEMENT_INTERFACE (EV_TYPE_SIDEBAR_PAGE, 
 					       ev_sidebar_layers_page_iface_init))
@@ -282,6 +282,7 @@ ev_sidebar_layers_init (EvSidebarLayers *ev_layers)
 	
 	ev_layers->priv = EV_SIDEBAR_LAYERS_GET_PRIVATE (ev_layers);
 
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_layers), GTK_ORIENTATION_VERTICAL);
 	swindow = gtk_scrolled_window_new (NULL, NULL);
 	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (swindow),
 					GTK_POLICY_NEVER,

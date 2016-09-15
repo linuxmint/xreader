@@ -74,7 +74,7 @@ static const PropertyInfo properties_info[] = {
 };
 
 struct _EvPropertiesView {
-	GtkVBox base_instance;
+	GtkBox base_instance;
 
 	GtkWidget *table;
 	GtkWidget *labels[N_PROPERTIES];
@@ -82,10 +82,10 @@ struct _EvPropertiesView {
 };
 
 struct _EvPropertiesViewClass {
-	GtkVBoxClass base_class;
+	GtkBoxClass base_class;
 };
 
-G_DEFINE_TYPE (EvPropertiesView, ev_properties_view, GTK_TYPE_VBOX)
+G_DEFINE_TYPE (EvPropertiesView, ev_properties_view, GTK_TYPE_BOX)
 
 static void
 ev_properties_view_dispose (GObject *object)
@@ -385,6 +385,7 @@ ev_properties_view_set_info (EvPropertiesView *properties, const EvDocumentInfo 
 static void
 ev_properties_view_init (EvPropertiesView *properties)
 {
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (properties), GTK_ORIENTATION_VERTICAL);
 	properties->table = gtk_table_new (13, 2, FALSE);
 	gtk_table_set_col_spacings (GTK_TABLE (properties->table), 12);
 	gtk_table_set_row_spacings (GTK_TABLE (properties->table), 6);

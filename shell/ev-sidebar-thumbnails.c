@@ -101,7 +101,7 @@ static void         adjustment_changed_cb                  (EvSidebarThumbnails 
 
 G_DEFINE_TYPE_EXTENDED (EvSidebarThumbnails, 
                         ev_sidebar_thumbnails, 
-                        GTK_TYPE_VBOX,
+                        GTK_TYPE_BOX,
                         0, 
                         G_IMPLEMENT_INTERFACE (EV_TYPE_SIDEBAR_PAGE, 
 					       ev_sidebar_thumbnails_page_iface_init))
@@ -656,6 +656,8 @@ ev_sidebar_init_tree_view (EvSidebarThumbnails *ev_sidebar_thumbnails)
 	EvSidebarThumbnailsPrivate *priv;
 	GtkTreeSelection *selection;
 	GtkCellRenderer *renderer;
+
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_sidebar_thumbnails), GTK_ORIENTATION_VERTICAL);
 
 	priv = ev_sidebar_thumbnails->priv;
 	priv->tree_view = gtk_tree_view_new_with_model (GTK_TREE_MODEL (priv->list_store));

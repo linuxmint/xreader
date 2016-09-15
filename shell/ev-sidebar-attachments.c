@@ -71,7 +71,7 @@ static void ev_sidebar_attachments_page_iface_init (EvSidebarPageInterface *ifac
 
 G_DEFINE_TYPE_EXTENDED (EvSidebarAttachments,
                         ev_sidebar_attachments,
-                        GTK_TYPE_VBOX,
+                        GTK_TYPE_BOX,
                         0, 
                         G_IMPLEMENT_INTERFACE (EV_TYPE_SIDEBAR_PAGE, 
 					       ev_sidebar_attachments_page_iface_init))
@@ -536,6 +536,7 @@ ev_sidebar_attachments_init (EvSidebarAttachments *ev_attachbar)
 	
 	ev_attachbar->priv = EV_SIDEBAR_ATTACHMENTS_GET_PRIVATE (ev_attachbar);
 
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_attachbar), GTK_ORIENTATION_VERTICAL);
 	swindow = gtk_scrolled_window_new (NULL, NULL);
 	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (swindow),
 					GTK_POLICY_NEVER,

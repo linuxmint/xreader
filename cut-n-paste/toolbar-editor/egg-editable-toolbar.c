@@ -86,7 +86,7 @@ struct _EggEditableToolbarPrivate
   GtkToolItem *dnd_toolitem;
 };
 
-G_DEFINE_TYPE (EggEditableToolbar, egg_editable_toolbar, GTK_TYPE_VBOX);
+G_DEFINE_TYPE (EggEditableToolbar, egg_editable_toolbar, GTK_TYPE_BOX);
 
 static int
 get_dock_position (EggEditableToolbar *etoolbar,
@@ -1380,6 +1380,8 @@ static void
 egg_editable_toolbar_init (EggEditableToolbar *etoolbar)
 {
   EggEditableToolbarPrivate *priv;
+
+  gtk_orientable_set_orientation (GTK_ORIENTABLE (etoolbar), GTK_ORIENTATION_VERTICAL);
 
   priv = etoolbar->priv = EGG_EDITABLE_TOOLBAR_GET_PRIVATE (etoolbar);
 

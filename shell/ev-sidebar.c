@@ -58,7 +58,7 @@ struct _EvSidebarPrivate {
 	GtkTreeModel *page_model;
 };
 
-G_DEFINE_TYPE (EvSidebar, ev_sidebar, GTK_TYPE_VBOX)
+G_DEFINE_TYPE (EvSidebar, ev_sidebar, GTK_TYPE_BOX)
 
 #define EV_SIDEBAR_GET_PRIVATE(object) \
 		(G_TYPE_INSTANCE_GET_PRIVATE ((object), EV_TYPE_SIDEBAR, EvSidebarPrivate))
@@ -341,6 +341,8 @@ ev_sidebar_init (EvSidebar *ev_sidebar)
 	GtkWidget *image;
 
 	ev_sidebar->priv = EV_SIDEBAR_GET_PRIVATE (ev_sidebar);
+
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_sidebar), GTK_ORIENTATION_VERTICAL);
 
 	/* data model */
 	ev_sidebar->priv->page_model = (GtkTreeModel *)
