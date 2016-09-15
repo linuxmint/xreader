@@ -14,16 +14,16 @@
     </key>
     <key name="auto-reload" type="b">
       <default>true</default>
-      <summary>Automatically reload then document</summary>
-      <description>The document is automatically reloaded on file change.</description>
+      <summary>Automatically reload the document</summary>
+      <description>Whether the document is automatically reloaded on file change.</description>
     </key>
     <key name="document-directory" type="ms">
       <default>nothing</default>
-      <summary>The URI of the directory last used to open or save a document</summary>
+      <summary>The URI of the directory last used to open or save a document.</summary>
     </key>
     <key name="pictures-directory" type="ms">
       <default>nothing</default>
-      <summary>The URI of the directory last used to save a picture</summary>
+      <summary>The URI of the directory last used to save a picture.</summary>
     </key>
     <key name="page-cache-size" type="u">
       <default>50</default>
