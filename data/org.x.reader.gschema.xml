@@ -12,6 +12,11 @@
       <summary>Override document restrictions</summary>
       <description>Override document restrictions, like restriction to copy or to print.</description>
     </key>
+    <key name="auto-reload" type="b">
+      <default>true</default>
+      <summary>Automatically reload then document</summary>
+      <description>The document is automatically reloaded on file change.</description>
+    </key>
     <key name="document-directory" type="ms">
       <default>nothing</default>
       <summary>The URI of the directory last used to open or save a document</summary>
@@ -20,6 +25,12 @@
       <default>nothing</default>
       <summary>The URI of the directory last used to save a picture</summary>
     </key>
+    <key name="page-cache-size" type="u">
+      <default>50</default>
+      <summary>Page cache size in MiB</summary>
+      <description>The maximum size that will be used to cache rendered pages, limits maximum zoom level.</description>
+    </key>
+
     <child name="default" schema="org.x.reader.Default"/>
   </schema>
 

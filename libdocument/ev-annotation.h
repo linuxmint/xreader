@@ -27,6 +27,7 @@
 #define EV_ANNOTATION_H
 
 #include <glib-object.h>
+#include <gdk/gdk.h>
 
 #include "ev-document.h"
 #include "ev-attachment.h"

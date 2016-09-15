@@ -20,6 +20,7 @@
 #include <config.h>
 
 #include <glib/gstdio.h>
+#include <gmodule.h>
 
 #include "ev-module.h"
 #include "ev-backends-manager.h"

@@ -29,7 +29,7 @@
 
 #include <glib-object.h>
 #include <glib.h>
-#include <gdk/gdk.h>
+#include <gmodule.h>
 #include <cairo.h>
 
 #include "ev-document-info.h"

@@ -238,6 +238,8 @@ struct _EvWindowPrivate {
 
 #define GS_SCHEMA_NAME           "org.x.reader"
 #define GS_OVERRIDE_RESTRICTIONS "override-restrictions"
+#define GS_PAGE_CACHE_SIZE       "page-cache-size"
+#define GS_AUTO_RELOAD           "auto-reload"
 #define GS_LAST_DOCUMENT_DIRECTORY "document-directory"
 #define GS_LAST_PICTURES_DIRECTORY "pictures-directory"
 
@@ -256,7 +258,6 @@ struct _EvWindowPrivate {
 #define EV_TOOLBARS_FILENAME "xreader-toolbar.xml"
 
 #define MIN_SCALE 0.05409
-#define PAGE_CACHE_SIZE 52428800 /* 50MB */
 
 #define MAX_RECENT_ITEM_LEN (40)
 
@@ -1354,6 +1355,18 @@ setup_view_from_metadata (EvWindow *window)
 }
 
 static void
+page_cache_size_changed (GSettings *settings,
+			 gchar     *key,
+			 EvWindow  *ev_window)
+{
+	guint page_cache_mb;
+
+	page_cache_mb = g_settings_get_uint (settings, GS_PAGE_CACHE_SIZE);
+	ev_view_set_page_cache_size (EV_VIEW (ev_window->priv->view),
+				     page_cache_mb * 1024 * 1024);
+}
+
+static void
 ev_window_setup_default (EvWindow *ev_window)
 {
 	EvDocumentModel *model = ev_window->priv->model;
@@ -1461,6 +1474,11 @@ ev_window_ensure_settings (EvWindow *ev_window)
                           "changed::"GS_OVERRIDE_RESTRICTIONS,
                           G_CALLBACK (override_restrictions_changed),
                           ev_window);
+        g_signal_connect (priv->settings,
+			  "changed::"GS_PAGE_CACHE_SIZE,
+			  G_CALLBACK (page_cache_size_changed),
+			  ev_window);
+
         return priv->settings;
 }
 
@@ -1479,6 +1497,7 @@ ev_window_setup_document (EvWindow *ev_window)
 	ev_window_title_set_document (ev_window->priv->title, document);
 	ev_window_title_set_uri (ev_window->priv->title, ev_window->priv->uri);
 
+	ev_window_ensure_settings (ev_window);
 	ev_window_setup_action_sensitivity (ev_window);
 
 	if (ev_window->priv->history)
@@ -1592,7 +1611,9 @@ static void
 ev_window_document_changed (EvWindow *ev_window,
 			    gpointer  user_data)
 {
-	ev_window_reload_document (ev_window, NULL);
+	if (ev_window->priv->settings &&
+	    g_settings_get_boolean (ev_window->priv->settings, GS_AUTO_RELOAD))
+		ev_window_reload_document (ev_window, NULL);
 }
 
 static void
@@ -2152,7 +2173,7 @@ ev_window_open_uri (EvWindow       *ev_window,
 		g_object_unref (ev_window->priv->bookmarks);
 
 	source_file = g_file_new_for_uri (uri);
-	if (!ev_file_is_temp (source_file) && ev_is_metadata_supported_for_file (source_file)) {
+	if (ev_is_metadata_supported_for_file (source_file)) {
 		ev_window->priv->metadata = ev_metadata_new (source_file);
 		ev_window_init_metadata_with_default_values (ev_window);
 	} else {
@@ -2452,8 +2473,8 @@ ev_window_file_chooser_restore_folder (EvWindow       *window,
                                        const gchar    *uri,
                                        GUserDirectory  directory)
 {
-        const gchar *folder_uri, *dir;
-        gchar *parent_uri = NULL;
+        const gchar *dir;
+        gchar *folder_uri;
 
         g_settings_get (ev_window_ensure_settings (window),
                         get_settings_key_for_directory (directory),
@@ -2465,8 +2486,8 @@ ev_window_file_chooser_restore_folder (EvWindow       *window,
                 parent = g_file_get_parent (file);
                 g_object_unref (file);
                 if (parent) {
-                        folder_uri = parent_uri = g_file_get_uri (parent);
-                        g_object_unref (parent);
+                	folder_uri = g_file_get_uri (parent);
+                	g_object_unref (parent);
                 }
         }
 
@@ -2478,7 +2499,7 @@ ev_window_file_chooser_restore_folder (EvWindow       *window,
                                                      dir ? dir : g_get_home_dir ());
         }
 
-        g_free (parent_uri);
+        g_free (folder_uri);
 }
 
 static void
@@ -2510,7 +2531,6 @@ file_open_dialog_response_cb (GtkWidget *chooser,
 {
 	if (response_id == GTK_RESPONSE_OK) {
 		GSList *uris;
-		gchar  *uri;
 
 		ev_window_file_chooser_save_folder (ev_window,
 											GTK_FILE_CHOOSER (chooser),
@@ -2525,11 +2545,6 @@ file_open_dialog_response_cb (GtkWidget *chooser,
 		g_slist_foreach (uris, (GFunc)g_free, NULL);
 		g_slist_free (uris);
 
-		uri = gtk_file_chooser_get_current_folder_uri (GTK_FILE_CHOOSER (chooser));
-		ev_application_set_filechooser_uri (EV_APP,
-						    GTK_FILE_CHOOSER_ACTION_OPEN,
-						    uri);
-		g_free (uri);
 	}
 
 	gtk_widget_destroy (chooser);
@@ -2983,7 +2998,6 @@ file_save_dialog_response_cb (GtkWidget *fc,
 			      EvWindow  *ev_window)
 {
 	gchar *uri;
-	GFile *file, *parent;
 
 	if (response_id != GTK_RESPONSE_OK) {
 		gtk_widget_destroy (fc);
@@ -2995,19 +3009,6 @@ file_save_dialog_response_cb (GtkWidget *fc,
 										G_USER_DIRECTORY_DOCUMENTS);
 
 	uri = gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (fc));
-	file = g_file_new_for_uri (uri);
-	parent = g_file_get_parent (file);
-	g_object_unref (file);
-	if (parent) {
-		gchar *folder_uri;
-
-		folder_uri = g_file_get_uri (parent);
-		ev_application_set_filechooser_uri (EV_APP,
-						    GTK_FILE_CHOOSER_ACTION_SAVE,
-						    folder_uri);
-		g_free (folder_uri);
-		g_object_unref (parent);
-	}
 
 	/* FIXME: remote copy should be done here rather than in the save job, 
 	 * so that we can track progress and cancel the operation
@@ -3032,7 +3033,6 @@ ev_window_cmd_save_as (GtkAction *action, EvWindow *ev_window)
 	GtkWidget *fc;
 	gchar *base_name;
 	GFile *file;
-	const gchar *default_uri;
 
 	fc = gtk_file_chooser_dialog_new (
 		_("Save a Copy"),
@@ -3054,24 +3054,13 @@ ev_window_cmd_save_as (GtkAction *action, EvWindow *ev_window)
 	base_name = g_file_get_basename (file);
 	gtk_file_chooser_set_current_name (GTK_FILE_CHOOSER (fc), base_name);
 
-	default_uri = ev_application_get_filechooser_uri (EV_APP, GTK_FILE_CHOOSER_ACTION_SAVE);
-	if (default_uri) {
-		gtk_file_chooser_set_current_folder_uri (GTK_FILE_CHOOSER (fc), default_uri);
-	} else {
-		const gchar *folder;
-
-		folder = g_get_user_special_dir (G_USER_DIRECTORY_DOCUMENTS);
-		gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (fc),
-						     folder ? folder : g_get_home_dir ());
-	}
-
 	g_object_unref (file);
 	g_free (base_name);
 
 	ev_window_file_chooser_restore_folder (ev_window,
 										   GTK_FILE_CHOOSER (fc),
-										   ev_window->priv->uri,
-										   G_USER_DIRECTORY_DOCUMENTS);
+                                               ev_window->priv->uri,
+                                               G_USER_DIRECTORY_DOCUMENTS);
 
 	g_signal_connect (fc, "response",
 			  G_CALLBACK (file_save_dialog_response_cb),
@@ -4325,17 +4314,19 @@ ev_window_update_max_min_scale (EvWindow *window)
 	gdouble    min_width, min_height;
 	gdouble    width, height;
 	gdouble    max_scale;
+	guint      page_cache_mb;
 	gint       rotation = ev_document_model_get_rotation (window->priv->model);
 
 	if (!window->priv->document)
 		return;
 
+	page_cache_mb = g_settings_get_uint (window->priv->settings, GS_PAGE_CACHE_SIZE);
 	dpi = get_screen_dpi (window) / 72.0;
 
 	ev_document_get_min_page_size (window->priv->document, &min_width, &min_height);
 	width = (rotation == 0 || rotation == 180) ? min_width : min_height;
 	height = (rotation == 0 || rotation == 180) ? min_height : min_width;
-	max_scale = sqrt (PAGE_CACHE_SIZE / (width * dpi * 4 * height * dpi));
+	max_scale = sqrt ((page_cache_mb * 1024 * 1024) / (width * dpi * 4 * height * dpi));
 
 	action = gtk_action_group_get_action (window->priv->action_group,
 					      ZOOM_CONTROL_ACTION);
@@ -6728,6 +6719,10 @@ image_save_dialog_response_cb (GtkWidget *fc,
 		return;
 	}
 
+	ev_window_file_chooser_save_folder (ev_window,
+										GTK_FILE_CHOOSER (fc),
+										G_USER_DIRECTORY_PICTURES);
+
 	uri = gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (fc));
 	filter = gtk_file_chooser_get_filter (GTK_FILE_CHOOSER (fc));
 	format = g_object_get_data (G_OBJECT (filter), "pixbuf-format");
@@ -6828,9 +6823,9 @@ ev_view_popup_cmd_save_image_as (GtkAction *action, EvWindow *window)
 
 	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (fc), FALSE);
 	gtk_file_chooser_set_do_overwrite_confirmation (GTK_FILE_CHOOSER (fc), TRUE);
-	
+
 	file_chooser_dialog_add_writable_pixbuf_formats	(GTK_FILE_CHOOSER (fc));
-	
+
 	ev_window_file_chooser_restore_folder (window,
 										   GTK_FILE_CHOOSER (fc),
 										   NULL,
@@ -7318,6 +7313,7 @@ ev_window_init (EvWindow *ev_window)
 	GtkWidget *sidebar_widget;
 	GtkWidget *menuitem;
 	EggToolbarsModel *toolbars_model;
+	guint page_cache_mb;
 	gchar *ui_path;
 #ifdef ENABLE_DBUS
 	GDBusConnection *connection;
@@ -7592,7 +7588,10 @@ ev_window_init (EvWindow *ev_window)
 	                         ev_window, 0);
 #endif
 #endif
-	ev_view_set_page_cache_size (EV_VIEW (ev_window->priv->view), PAGE_CACHE_SIZE);
+	page_cache_mb = g_settings_get_uint (ev_window_ensure_settings (ev_window),
+					     GS_PAGE_CACHE_SIZE);
+	ev_view_set_page_cache_size (EV_VIEW (ev_window->priv->view),
+				     page_cache_mb * 1024 * 1024);
 	ev_view_set_model (EV_VIEW (ev_window->priv->view), ev_window->priv->model);
 
 	ev_window->priv->password_view = ev_password_view_new (GTK_WINDOW (ev_window));
