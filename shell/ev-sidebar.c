@@ -375,7 +375,7 @@ ev_sidebar_init (EvSidebar *ev_sidebar)
 			    FALSE, FALSE, 0);
 	gtk_widget_show (ev_sidebar->priv->label);
 
-	arrow = gtk_arrow_new (GTK_ARROW_DOWN, GTK_SHADOW_NONE);
+	arrow = gtk_image_new_from_icon_name ("pan-down-symbolic", GTK_ICON_SIZE_BUTTON);
 	gtk_box_pack_end (GTK_BOX (select_hbox), arrow, FALSE, FALSE, 0);
 	gtk_widget_show (arrow);
 
