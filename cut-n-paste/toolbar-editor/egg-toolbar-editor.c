@@ -463,7 +463,7 @@ editor_create_item (EggToolbarEditor *editor,
 		        G_CALLBACK (drag_end_cb), NULL);
     }
 
-  vbox = gtk_vbox_new (0, FALSE);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, FALSE);
   gtk_widget_show (vbox);
   gtk_container_add (GTK_CONTAINER (event_box), vbox);
 

@@ -120,7 +120,7 @@ ev_password_view_init (EvPasswordView *password_view)
 
 	/* set ourselves up */
 	align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
-	vbox = gtk_vbox_new (FALSE, 24);
+	vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 24);
 	gtk_container_set_border_width (GTK_CONTAINER (vbox), 24);
 	gtk_container_add (GTK_CONTAINER (password_view), align);
 	gtk_container_add (GTK_CONTAINER (align), vbox);
@@ -142,10 +142,10 @@ ev_password_view_init (EvPasswordView *password_view)
 				  _("This document is locked and can only be read by entering the correct password."));
 	gtk_label_set_markup (GTK_LABEL (label), markup);
 	g_free (markup);
-			      
+
 	gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);
 
-	hbox = gtk_hbox_new (FALSE, 0);
+	hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
 	gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
 
 	button = gtk_button_new_with_mnemonic (_("_Unlock Document"));
@@ -275,9 +275,9 @@ ev_password_view_ask_password (EvPasswordView *password_view)
 						 GTK_RESPONSE_OK,
 						 GTK_RESPONSE_CANCEL,
 						 -1);
-	
+
 	/* Build contents */
-	hbox = gtk_hbox_new (FALSE, 12);
+	hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12);
 	gtk_container_set_border_width (GTK_CONTAINER (hbox), 5);
 	gtk_box_pack_start (GTK_BOX (content_area), hbox, TRUE, TRUE, 0);
 	gtk_widget_show (hbox);
@@ -289,7 +289,7 @@ ev_password_view_ask_password (EvPasswordView *password_view)
 	gtk_box_pack_start (GTK_BOX (hbox), icon, FALSE, FALSE, 0);
 	gtk_widget_show (icon);
 
-	main_vbox = gtk_vbox_new (FALSE, 18);
+	main_vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 18);
 	gtk_box_pack_start (GTK_BOX (hbox), main_vbox, TRUE, TRUE, 0);
 	gtk_widget_show (main_vbox);
 
@@ -309,7 +309,7 @@ ev_password_view_ask_password (EvPasswordView *password_view)
 			    FALSE, FALSE, 0);
 	gtk_widget_show (label);
 
-	vbox = gtk_vbox_new (FALSE, 6);
+	vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
 	gtk_box_pack_start (GTK_BOX (main_vbox), vbox, FALSE, FALSE, 0);
 	gtk_widget_show (vbox);
 
@@ -357,7 +357,7 @@ ev_password_view_ask_password (EvPasswordView *password_view)
 		GtkWidget  *remember_box;
 		GSList     *group;
 
-		remember_box = gtk_vbox_new (FALSE, 6);
+		remember_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
 		gtk_box_pack_start (GTK_BOX (vbox), remember_box,
 				    FALSE, FALSE, 0);
 		gtk_widget_show (remember_box);

@@ -193,7 +193,7 @@ show_progress_dialog (ConvertData *data)
 	gtk_box_pack_start (GTK_BOX (vbox), label, TRUE, TRUE, 0);
 	gtk_widget_show (label);
 
-	pbox = gtk_vbox_new (FALSE, 6);
+	pbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
 	progress = gtk_progress_bar_new ();
 	data->progress = progress;
 	gtk_box_pack_start (GTK_BOX (pbox), progress, TRUE, TRUE, 0);

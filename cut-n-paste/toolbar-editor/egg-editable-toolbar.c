@@ -1026,7 +1026,7 @@ create_dock (EggEditableToolbar *etoolbar)
 {
   GtkWidget *toolbar, *hbox;
 
-  hbox = gtk_hbox_new (0, FALSE);
+  hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, FALSE);
 
   toolbar = gtk_toolbar_new ();
   gtk_toolbar_set_show_arrow (GTK_TOOLBAR (toolbar), TRUE);

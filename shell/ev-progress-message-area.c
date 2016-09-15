@@ -80,13 +80,13 @@ ev_progress_message_area_init (EvProgressMessageArea *area)
 {
 	GtkWidget *contents;
 	GtkWidget *vbox;
-	
+
 	area->priv = EV_PROGRESS_MESSAGE_AREA_GET_PRIVATE (area);
 
 	contents = _ev_message_area_get_main_box (EV_MESSAGE_AREA (area));
-	
-	vbox = gtk_vbox_new (FALSE, 6);
-	
+
+	vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
+
 	area->priv->label = gtk_label_new (NULL);
 	gtk_label_set_use_markup (GTK_LABEL (area->priv->label), TRUE);
 	gtk_label_set_ellipsize (GTK_LABEL (area->priv->label),
