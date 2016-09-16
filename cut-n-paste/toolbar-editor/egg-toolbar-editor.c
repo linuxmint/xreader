@@ -554,7 +554,7 @@ append_table (GtkTable *table, GList *items, gint y, gint width)
 
       if (y > 0)
         {
-          item = gtk_hseparator_new ();
+          item = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
           alignment = gtk_alignment_new (0.5, 0.5, 1.0, 0.0);
           gtk_container_add (GTK_CONTAINER (alignment), item);
           gtk_widget_show (alignment);
