@@ -76,7 +76,11 @@ static const PropertyInfo properties_info[] = {
 struct _EvPropertiesView {
 	GtkBox base_instance;
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	GtkWidget *grid;
+#else
 	GtkWidget *table;
+#endif
 	GtkWidget *labels[N_PROPERTIES];
 	gchar     *uri;
 };
@@ -150,7 +154,11 @@ make_valid_utf8 (const gchar *name)
 
 static void
 set_property (EvPropertiesView *properties,
+#if GTK_CHECK_VERSION (3, 0, 0)
+	      GtkGrid          *grid,
+#else
 	      GtkTable         *table,
+#endif
 	      Property          property,
 	      const gchar      *text,
 	      gint             *row)
@@ -166,8 +174,12 @@ set_property (EvPropertiesView *properties,
 		gtk_label_set_markup (GTK_LABEL (label), markup);
 		g_free (markup);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+		gtk_grid_attach (grid, label, 0, *row, 1, 1);
+#else
 		gtk_table_attach (table, label, 0, 1, *row, *row + 1,
 				  GTK_FILL, GTK_FILL, 0, 0);
+#endif
 		gtk_widget_show (label);
 	}
 
@@ -195,8 +207,12 @@ set_property (EvPropertiesView *properties,
 	}
 
 	if (!properties->labels[property]) {
+#if GTK_CHECK_VERSION (3, 0, 0)
+		gtk_grid_attach (grid, label, 1, *row, 1, 1);
+#else
 		gtk_table_attach (table, label, 1, 2, *row, *row + 1,
 				  GTK_FILL | GTK_EXPAND, GTK_FILL, 0, 0);
+#endif
 		properties->labels[property] = label;
 	}
 
@@ -313,6 +329,74 @@ ev_regular_paper_size (const EvDocumentInfo *info)
 void
 ev_properties_view_set_info (EvPropertiesView *properties, const EvDocumentInfo *info)
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+	GtkWidget *grid;
+	gchar     *text;
+	gint       row = 0;
+
+	grid = properties->grid;
+
+	if (info->fields_mask & EV_DOCUMENT_INFO_TITLE) {
+		set_property (properties, GTK_GRID (grid), TITLE_PROPERTY, info->title, &row);
+	}
+	set_property (properties, GTK_GRID (grid), URI_PROPERTY, properties->uri, &row);
+	if (info->fields_mask & EV_DOCUMENT_INFO_SUBJECT) {
+		set_property (properties, GTK_GRID (grid), SUBJECT_PROPERTY, info->subject, &row);
+	}
+	if (info->fields_mask & EV_DOCUMENT_INFO_AUTHOR) {
+		set_property (properties, GTK_GRID (grid), AUTHOR_PROPERTY, info->author, &row);
+	}
+	if (info->fields_mask & EV_DOCUMENT_INFO_KEYWORDS) {
+		set_property (properties, GTK_GRID (grid), KEYWORDS_PROPERTY, info->keywords, &row);
+	}
+	if (info->fields_mask & EV_DOCUMENT_INFO_PRODUCER) {
+		set_property (properties, GTK_GRID (grid), PRODUCER_PROPERTY, info->producer, &row);
+	}
+	if (info->fields_mask & EV_DOCUMENT_INFO_CREATOR) {
+		set_property (properties, GTK_GRID (grid), CREATOR_PROPERTY, info->creator, &row);
+	}
+	if (info->fields_mask & EV_DOCUMENT_INFO_CREATION_DATE) {
+		text = ev_document_misc_format_date (info->creation_date);
+		set_property (properties, GTK_GRID (grid), CREATION_DATE_PROPERTY, text, &row);
+		g_free (text);
+	}
+	if (info->fields_mask & EV_DOCUMENT_INFO_MOD_DATE) {
+		text = ev_document_misc_format_date (info->modified_date);
+		set_property (properties, GTK_GRID (grid), MOD_DATE_PROPERTY, text, &row);
+		g_free (text);
+	}
+	if (info->fields_mask & EV_DOCUMENT_INFO_FORMAT) {
+		set_property (properties, GTK_GRID (grid), FORMAT_PROPERTY, info->format, &row);
+	}
+	if (info->fields_mask & EV_DOCUMENT_INFO_N_PAGES) {
+		text = g_strdup_printf ("%d", info->n_pages);
+		set_property (properties, GTK_GRID (grid), N_PAGES_PROPERTY, text, &row);
+		g_free (text);
+	}
+	if (info->fields_mask & EV_DOCUMENT_INFO_LINEARIZED)
+	{
+		/* nice hack bro */
+		if (info->linearized == 1)
+		{
+			set_property (properties, GTK_GRID (grid), LINEARIZED_PROPERTY, _("Yes"), &row);
+		}
+		else if (info->linearized == 0)
+		{
+			set_property (properties, GTK_GRID (grid), LINEARIZED_PROPERTY, _("No"), &row);
+		}
+		else
+		{
+			set_property (properties, GTK_GRID (grid), LINEARIZED_PROPERTY, info->linearized, &row);
+		}
+	}
+	if (info->fields_mask & EV_DOCUMENT_INFO_SECURITY) {
+		set_property (properties, GTK_GRID (grid), SECURITY_PROPERTY, info->security, &row);
+	}
+	if (info->fields_mask & EV_DOCUMENT_INFO_PAPER_SIZE) {
+		text = ev_regular_paper_size (info);
+		set_property (properties, GTK_GRID (grid), PAPER_SIZE_PROPERTY, text, &row);
+		g_free (text);
+#else
 	GtkWidget *table;
 	gchar     *text;
 	gint       row = 0;
@@ -379,6 +463,7 @@ ev_properties_view_set_info (EvPropertiesView *properties, const EvDocumentInfo 
 		text = ev_regular_paper_size (info);
 		set_property (properties, GTK_TABLE (table), PAPER_SIZE_PROPERTY, text, &row);
 		g_free (text);
+#endif
 	}
 }
 
@@ -386,6 +471,14 @@ static void
 ev_properties_view_init (EvPropertiesView *properties)
 {
 	gtk_orientable_set_orientation (GTK_ORIENTABLE (properties), GTK_ORIENTATION_VERTICAL);
+#if GTK_CHECK_VERSION (3, 0, 0)
+	properties->grid = gtk_grid_new ();
+	gtk_grid_set_column_spacing (GTK_GRID (properties->grid), 12);
+	gtk_grid_set_row_spacing (GTK_GRID (properties->grid), 6);
+	gtk_container_set_border_width (GTK_CONTAINER (properties->grid), 12);
+	gtk_box_pack_start (GTK_BOX (properties), properties->grid, TRUE, TRUE, 0);
+	gtk_widget_show (properties->grid);
+#else
 	properties->table = gtk_table_new (13, 2, FALSE);
 	gtk_table_set_col_spacings (GTK_TABLE (properties->table), 12);
 	gtk_table_set_row_spacings (GTK_TABLE (properties->table), 6);
@@ -393,6 +486,7 @@ ev_properties_view_init (EvPropertiesView *properties)
 	gtk_box_pack_start (GTK_BOX (properties), properties->table, 
 			    TRUE, TRUE, 0);
 	gtk_widget_show (properties->table);
+#endif
 }
 
 void
