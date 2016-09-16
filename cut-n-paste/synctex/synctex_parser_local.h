@@ -5,7 +5,7 @@ This file is part of the SyncTeX package.
 
 Latest Revision: Tue Jun 14 08:23:30 UTC 2011
 
-Version: 1.17
+Version: 1.18
 
 See synctex_parser_readme.txt for more details
 
@@ -43,4 +43,3 @@ authorization from the copyright holder.
 #   include <w2c/c-auto.h> /* for inline && HAVE_xxx */
 /*	No inlining for synctex tool in texlive. */
 #	define SYNCTEX_INLINE
-
