@@ -21,10 +21,12 @@
 #include "config.h"
 
 #include <glib/gi18n.h>
+#include <gtk/gtk.h>
 
 #include "ev-sidebar-bookmarks.h"
 
 #include "ev-document.h"
+#include "ev-document-misc.h"
 #include "ev-sidebar-page.h"
 #include "ev-utils.h"
 
@@ -378,7 +380,7 @@ ev_sidebar_bookmarks_popup_menu (GtkWidget *widget)
         EvSidebarBookmarks *sidebar_bookmarks = EV_SIDEBAR_BOOKMARKS (widget);
         gint                x, y;
 
-        gtk_widget_get_pointer (widget, &x, &y);
+        ev_document_misc_get_pointer_position (widget, &x, &y);
         return ev_sidebar_bookmarks_popup_menu_show (sidebar_bookmarks, x, y, TRUE);
 }
 

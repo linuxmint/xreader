@@ -3009,7 +3009,7 @@ ev_view_cancel_add_annotation (EvView *view)
 		return;
 
 	view->adding_annot = FALSE;
-	gtk_widget_get_pointer (GTK_WIDGET (view), &x, &y);
+	ev_document_misc_get_pointer_position (GTK_WIDGET (view), &x, &y);
 	ev_view_handle_cursor_over_xy (view, x, y);
 }
 
@@ -3499,8 +3499,8 @@ static gboolean
 ev_view_popup_menu (GtkWidget *widget)
 {
 	gint x, y;
-	
-	gtk_widget_get_pointer (widget, &x, &y);
+
+	ev_document_misc_get_pointer_position (widget, &x, &y);
 	return ev_view_do_popup_menu (EV_VIEW (widget), x, y);
 }
 
@@ -3821,7 +3821,7 @@ selection_scroll_timeout_cb (EvView *view)
 	GtkAllocation allocation;
 
 	gtk_widget_get_allocation (widget, &allocation);
-	gtk_widget_get_pointer (widget, &x, &y);
+	ev_document_misc_get_pointer_position (widget, &x, &y);
 
 	if (y > allocation.height) {
 		shift = (y - allocation.height) / 2;
@@ -3938,9 +3938,9 @@ ev_view_motion_notify_event (GtkWidget      *widget,
 
 	window = gtk_widget_get_window (widget);
 
-        if (event->is_hint || event->window != window) {
-	    gtk_widget_get_pointer (widget, &x, &y);
-        } else {
+	if (event->is_hint || event->window != window) {
+	    ev_document_misc_get_pointer_position (widget, &x, &y);
+	} else {
 	    x = event->x;
 	    y = event->y;
 	}
@@ -4966,7 +4966,7 @@ ev_view_change_page (EvView *view,
 
 	hide_loading_window (view);
 
-	gtk_widget_get_pointer (GTK_WIDGET (view), &x, &y);
+	ev_document_misc_get_pointer_position (GTK_WIDGET (view), &x, &y);
 	ev_view_handle_cursor_over_xy (view, x, y);
 
 	gtk_widget_queue_resize (GTK_WIDGET (view));
@@ -5055,6 +5055,7 @@ on_adjustment_value_changed (GtkAdjustment *adjustment,
 	}
 
 	gtk_widget_get_pointer (widget, &x, &y);
+	ev_document_misc_get_pointer_position (GTK_WIDGET (view), &x, &y);
 	ev_view_handle_cursor_over_xy (view, x, y);
 
 	if (view->document)
@@ -5191,8 +5192,8 @@ ev_view_autoscroll_start (EvView *view)
 	view->scroll_info.timeout_id =
 		g_timeout_add (20, (GSourceFunc)ev_view_autoscroll_cb,
 			       view);
-	
-	gtk_widget_get_pointer (GTK_WIDGET (view), &x, &y);
+
+	ev_document_misc_get_pointer_position (GTK_WIDGET (view), &x, &y);
 	ev_view_handle_cursor_over_xy (view, x, y);
 }
 
@@ -5212,7 +5213,7 @@ ev_view_autoscroll_stop (EvView *view)
 		view->scroll_info.timeout_id = 0;
 	}
 
-	gtk_widget_get_pointer (GTK_WIDGET (view), &x, &y);
+	ev_document_misc_get_pointer_position (GTK_WIDGET (view), &x, &y);
 	ev_view_handle_cursor_over_xy (view, x, y);
 }
 
