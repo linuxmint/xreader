@@ -665,15 +665,13 @@ comics_document_get_page_size (EvDocument *document,
 				gdk_pixbuf_loader_close (loader, NULL);
 			}
 		}
-
-		if (gdk_pixbuf_loader_get_pixbuf (loader)) {
-			pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
+		pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
+		if (pixbuf) {
 			if (width)
 				*width = gdk_pixbuf_get_width (pixbuf);
 			if (height)
 				*height = gdk_pixbuf_get_height (pixbuf);
 		}
-
 		g_spawn_close_pid (child_pid);
 		g_object_unref (loader);
 	} else {
@@ -681,11 +679,14 @@ comics_document_get_page_size (EvDocument *document,
                                              (char *) comics_document->page_names->pdata[page->index],
 					     NULL);
 		pixbuf = gdk_pixbuf_new_from_file (filename, NULL);
+		if (pixbuf) {
+			if (width)
+				*width = gdk_pixbuf_get_width (pixbuf);
+			if (height)
+				*height = gdk_pixbuf_get_height (pixbuf);
+			g_object_unref (pixbuf);
+		}
 		g_free (filename);
-		if (width)
-			*width = gdk_pixbuf_get_width (pixbuf);
-		if (height)
-			*height = gdk_pixbuf_get_height (pixbuf);
 	}
 }
 
@@ -702,7 +703,7 @@ comics_document_render_pixbuf (EvDocument      *document,
 			       EvRenderContext *rc)
 {
 	GdkPixbufLoader *loader;
-	GdkPixbuf *rotated_pixbuf;
+	GdkPixbuf *rotated_pixbuf, *tmp_pixbuf;
 	char **argv;
 	guchar buf[4096];
 	gboolean success;
@@ -741,10 +742,10 @@ comics_document_render_pixbuf (EvDocument      *document,
 				outpipe = -1;
 			}
 		}
-
-		rotated_pixbuf = gdk_pixbuf_rotate_simple (
-					gdk_pixbuf_loader_get_pixbuf (loader),
-					360 - rc->rotation);
+		tmp_pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
+		rotated_pixbuf =
+			gdk_pixbuf_rotate_simple (tmp_pixbuf,
+						  360 - rc->rotation);
 		g_spawn_close_pid (child_pid);
 		g_object_unref (loader);
 	} else {
@@ -752,16 +753,18 @@ comics_document_render_pixbuf (EvDocument      *document,
 			g_build_filename (comics_document->dir,
                                           (char *) comics_document->page_names->pdata[rc->page->index],
 					  NULL);
-	   
+
 		gdk_pixbuf_get_file_info (filename, &width, &height);
-		
-		rotated_pixbuf = 
-		  gdk_pixbuf_rotate_simple (gdk_pixbuf_new_from_file_at_size (
-					    filename, width * (rc->scale) + 0.5,
-					    height * (rc->scale) + 0.5, NULL),
-					    360 - rc->rotation);
+
+		tmp_pixbuf =
+			gdk_pixbuf_new_from_file_at_size (
+				    filename, width * (rc->scale) + 0.5,
+				    height * (rc->scale) + 0.5, NULL);
+		rotated_pixbuf =
+			gdk_pixbuf_rotate_simple (tmp_pixbuf,
+						  360 - rc->rotation);
 		g_free (filename);
-	
+		g_object_unref (tmp_pixbuf);
 	}
 	return rotated_pixbuf;
 }
