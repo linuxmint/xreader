@@ -1074,7 +1074,7 @@ ev_view_get_max_page_size (EvView *view,
 static void
 get_page_y_offset (EvView *view, int page, int *y_offset)
 {
-	int max_width, offset;
+	int max_width, offset = 0;
 	GtkBorder border;
 
 	g_return_if_fail (y_offset != NULL);
