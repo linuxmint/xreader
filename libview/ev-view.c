@@ -4809,6 +4809,10 @@ ev_view_class_init (EvViewClass *class)
 	widget_class->popup_menu = ev_view_popup_menu;
 	widget_class->query_tooltip = ev_view_query_tooltip;
 
+#if GTK_CHECK_VERSION(3, 20, 0)
+	gtk_widget_class_set_css_name (widget_class, "evview");
+#endif
+
 	container_class->remove = ev_view_remove;
 	container_class->forall = ev_view_forall;
 
