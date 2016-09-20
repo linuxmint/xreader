@@ -569,8 +569,8 @@ ev_sidebar_attachments_init (EvSidebarAttachments *ev_attachbar)
 	gtk_container_add (GTK_CONTAINER (swindow),
 			   ev_attachbar->priv->icon_view);
 
-	gtk_container_add (GTK_CONTAINER (ev_attachbar),
-			   swindow);
+	gtk_box_pack_start (GTK_BOX (ev_attachbar), swindow, TRUE, TRUE, 0);
+
 	gtk_widget_show_all (GTK_WIDGET (ev_attachbar));
 
 	/* Icon Theme */
@@ -601,7 +601,9 @@ ev_sidebar_attachments_new (void)
 {
 	GtkWidget *ev_attachbar;
 
-	ev_attachbar = g_object_new (EV_TYPE_SIDEBAR_ATTACHMENTS, NULL);
+	ev_attachbar = g_object_new (EV_TYPE_SIDEBAR_ATTACHMENTS,
+	                              "orientation", GTK_ORIENTATION_VERTICAL,
+	                              NULL);
 
 	return ev_attachbar;
 }
