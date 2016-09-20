@@ -3419,6 +3419,12 @@ ev_view_draw (GtkWidget      *widget,
 		ev_view_loading_window_move (view);
 	}
 
+	gtk_render_background (gtk_widget_get_style_context (widget),
+			       cr,
+			       0, 0,
+			       gtk_widget_get_allocated_width (widget),
+			       gtk_widget_get_allocated_height (widget));
+
 	if (view->document == NULL)
 		return FALSE;
 
@@ -4903,10 +4909,16 @@ ev_view_class_init (EvViewClass *class)
 static void
 ev_view_init (EvView *view)
 {
+	GtkStyleContext *context;
+
 	gtk_widget_set_has_window (GTK_WIDGET (view), TRUE);
 	gtk_widget_set_can_focus (GTK_WIDGET (view), TRUE);
 	gtk_widget_set_redraw_on_allocate (GTK_WIDGET (view), FALSE);
 	gtk_container_set_resize_mode (GTK_CONTAINER (view), GTK_RESIZE_QUEUE);
+
+	context = gtk_widget_get_style_context (GTK_WIDGET (view));
+	gtk_style_context_add_class (context, "content-view");
+	gtk_style_context_add_class (context, "view");
 
 	gtk_widget_set_events (GTK_WIDGET (view),
 			       GDK_EXPOSURE_MASK |
