@@ -5733,7 +5733,7 @@ jump_to_find_result (EvView *view)
 }
 
 /**
- * jump_to_find_page
+ * jump_to_find_page:
  * @view: #EvView instance
  * @direction: Direction to look
  * @shift: Shift from current page
