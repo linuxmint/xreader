@@ -231,6 +231,10 @@ ev_spawn (const char     *uri,
 			g_string_append_printf (cmd, " --page-index=%d",
 			                        ev_link_dest_get_page (dest) + 1);
 			break;
+		case EV_LINK_DEST_TYPE_NAMED:
+		g_string_append_printf (cmd, " --named-dest=%s",
+			                    ev_link_dest_get_named_dest (dest));
+			break;
 		default:
 			break;
 		}
@@ -448,6 +452,10 @@ on_register_uri_cb (GObject      *source_object,
 		case EV_LINK_DEST_TYPE_PAGE:
 			g_variant_builder_add (&builder, "{sv}", "page-index",
 			                       g_variant_new_uint32 (ev_link_dest_get_page (data->dest)));
+			break;
+		case EV_LINK_DEST_TYPE_NAMED:
+			g_variant_builder_add (&builder, "{sv}", "named-dest",
+			                       g_variant_new_string (ev_link_dest_get_named_dest (data->dest)));
 			break;
 		default:
 			break;
@@ -744,6 +752,8 @@ method_call_cb (GDBusConnection       *connection,
 			mode = g_variant_get_uint32 (value);
 			} else if (strcmp (key, "page-label") == 0 && g_variant_classify (value) == G_VARIANT_CLASS_STRING) {
 				dest = ev_link_dest_new_page_label (g_variant_get_string (value, NULL));
+			} else if (strcmp (key, "named-dest") == 0 && g_variant_classify (value) == G_VARIANT_CLASS_STRING) {
+				dest = ev_link_dest_new_named (g_variant_get_string (value, NULL));
 			} else if (strcmp (key, "page-index") == 0 && g_variant_classify (value) == G_VARIANT_CLASS_UINT32) {
 				dest = ev_link_dest_new_page (g_variant_get_uint32 (value));
 			} else if (strcmp (key, "find-string") == 0 && g_variant_classify (value) == G_VARIANT_CLASS_STRING) {
