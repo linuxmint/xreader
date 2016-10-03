@@ -66,19 +66,14 @@ typedef struct {
 
 typedef struct _EvRectangle EvRectangle;
 typedef struct _EvMapping EvMapping;
-
+typedef struct _EvSourceLink EvSourceLink;
 typedef struct _EvDocumentBackendInfo EvDocumentBackendInfo;
+
 struct _EvDocumentBackendInfo
 {
 	const gchar *name;
 	const gchar *version;
 };
-
-typedef struct {
-	const gchar *filename;
-	gint         line;
-	gint         col;
-} EvSourceLink;
 
 struct _EvDocument
 {
@@ -209,6 +204,21 @@ struct _EvMapping {
 	gpointer    data;
 };
 
+#define EV_TYPE_SOURCE_LINK (ev_source_link_get_type ())
+struct _EvSourceLink
+{
+        gchar *filename;
+        gint   line;
+        gint   col;
+};
+
+GType          ev_source_link_get_type (void) G_GNUC_CONST;
+EvSourceLink  *ev_source_link_new      (const gchar *filename,
+					gint         line,
+					gint         col);
+EvSourceLink  *ev_source_link_copy     (EvSourceLink *link);
+void           ev_source_link_free     (EvSourceLink *link);
+
 /* convenience macro to ease interface addition in the CODE
  * section of EV_BACKEND_REGISTER_WITH_CODE (this macro relies on
  * the g_define_type_id present within EV_BACKEND_REGISTER_WITH_CODE()).
@@ -288,25 +298,6 @@ register_xreader_backend (GTypeModule *module)					\
  */
 #define EV_BACKEND_REGISTER(BackendName, backend_name)			\
 	EV_BACKEND_REGISTER_WITH_CODE(BackendName, backend_name, ;)
-
-/*
- * A convenience macro for boxed type implementations, which defines a
- * type_name_get_type() function registering the boxed type.
- */
-#define EV_DEFINE_BOXED_TYPE(TypeName, type_name, copy_func, free_func)               \
-GType                                                                                 \
-type_name##_get_type (void)                                                           \
-{                                                                                     \
-        static volatile gsize g_define_type_id__volatile = 0;                         \
-	if (g_once_init_enter (&g_define_type_id__volatile)) {                        \
-	        GType g_define_type_id =                                              \
-		    g_boxed_type_register_static (g_intern_static_string (#TypeName), \
-		                                  (GBoxedCopyFunc) copy_func,         \
-						  (GBoxedFreeFunc) free_func);        \
-		g_once_init_leave (&g_define_type_id__volatile, g_define_type_id);    \
-	}                                                                             \
-	return g_define_type_id__volatile;                                            \
-}
 
 G_END_DECLS
 

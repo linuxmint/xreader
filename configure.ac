@@ -381,7 +381,7 @@ AC_ARG_ENABLE([pdf],
   [enable_pdf=yes])
 
 if test "x$enable_pdf" = "xyes"; then
-    POPPLER_REQUIRED=0.16.0
+    POPPLER_REQUIRED=0.18.0
     PKG_CHECK_MODULES(POPPLER, poppler-glib >= $POPPLER_REQUIRED libxml-2.0 >= $LIBXML_REQUIRED,enable_pdf=yes,enable_pdf=no)
 
     if test "x$enable_pdf" = "xyes"; then
@@ -565,7 +565,7 @@ AC_ARG_ENABLE(xps,
 	[enable_xps=yes])
 
 if test "x$enable_xps" = "xyes"; then
-   GXPS_REQUIRED=0.2.0
+   GXPS_REQUIRED=0.2.1
    PKG_CHECK_MODULES(GXPS, libgxps >= $GXPS_REQUIRED,enable_xps=yes,enable_xps=no)
 
    if test "x$enable_xps" = "xyes"; then

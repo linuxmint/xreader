@@ -497,7 +497,7 @@ ev_view_presentation_update_current_page (EvViewPresentation *pview,
 	if (pview->cursor != EV_VIEW_CURSOR_HIDDEN) {
 		gint x, y;
 
-		gtk_widget_get_pointer (GTK_WIDGET (pview), &x, &y);
+		ev_document_misc_get_pointer_position (GTK_WIDGET (pview), &x, &y);
 		ev_view_presentation_set_cursor_for_location (pview, x, y);
 	}
 
@@ -684,7 +684,7 @@ ev_view_presentation_goto_window_create (EvViewPresentation *pview)
 	gtk_container_add (GTK_CONTAINER (pview->goto_window), frame);
 	gtk_widget_show (frame);
 
-	hbox = gtk_hbox_new (FALSE, 0);
+	hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
 	gtk_container_set_border_width (GTK_CONTAINER (hbox), 3);
 	gtk_container_add (GTK_CONTAINER (frame), hbox);
 	gtk_widget_show (hbox);
@@ -993,8 +993,6 @@ ev_view_presentation_draw_end_page (EvViewPresentation *pview, cairo_t *cr)
 	PangoLayout *layout;
 	PangoFontDescription *font_desc;
 	gchar *markup;
-	GtkAllocation allocation;
-	GdkRectangle area = {0};
 	const gchar *text = _("End of presentation. Click to exit.");
 
 	if (pview->state != EV_PRESENTATION_END)
@@ -1008,10 +1006,6 @@ ev_view_presentation_draw_end_page (EvViewPresentation *pview, cairo_t *cr)
 	font_desc = pango_font_description_new ();
 	pango_font_description_set_size (font_desc, 16 * PANGO_SCALE);
 	pango_layout_set_font_description (layout, font_desc);
-
-	gtk_widget_get_allocation (widget, &allocation);
-	area.width = allocation.width;
-	area.height = allocation.height;
 
 	gtk_render_layout (gtk_widget_get_style_context (widget),
                            cr, 15, 15, layout);
@@ -1141,7 +1135,7 @@ ev_view_presentation_key_press_event (GtkWidget   *widget,
 
 		ev_view_presentation_goto_window_create (pview);
 		ev_view_presentation_goto_window_send_key_event (pview, (GdkEvent *)event);
-		gtk_widget_get_pointer (GTK_WIDGET (pview), &x, &y);
+		ev_document_misc_get_pointer_position (GTK_WIDGET (pview), &x, &y);
 		gtk_window_move (GTK_WINDOW (pview->goto_window), x, y);
 		gtk_widget_show (pview->goto_window);
 		ev_view_presentation_goto_entry_grab_focus (pview);

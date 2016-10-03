@@ -21,10 +21,12 @@
 #include "config.h"
 
 #include <glib/gi18n.h>
+#include <gtk/gtk.h>
 
 #include "ev-sidebar-bookmarks.h"
 
 #include "ev-document.h"
+#include "ev-document-misc.h"
 #include "ev-sidebar-page.h"
 #include "ev-utils.h"
 
@@ -62,7 +64,7 @@ static void ev_sidebar_bookmarks_page_iface_init (EvSidebarPageInterface *iface)
 
 G_DEFINE_TYPE_EXTENDED (EvSidebarBookmarks,
                         ev_sidebar_bookmarks,
-                        GTK_TYPE_VBOX,
+                        GTK_TYPE_BOX,
                         0,
                         G_IMPLEMENT_INTERFACE (EV_TYPE_SIDEBAR_PAGE,
                                                ev_sidebar_bookmarks_page_iface_init))
@@ -378,7 +380,7 @@ ev_sidebar_bookmarks_popup_menu (GtkWidget *widget)
         EvSidebarBookmarks *sidebar_bookmarks = EV_SIDEBAR_BOOKMARKS (widget);
         gint                x, y;
 
-        gtk_widget_get_pointer (widget, &x, &y);
+        ev_document_misc_get_pointer_position (widget, &x, &y);
         return ev_sidebar_bookmarks_popup_menu_show (sidebar_bookmarks, x, y, TRUE);
 }
 
@@ -426,6 +428,7 @@ ev_sidebar_bookmarks_init (EvSidebarBookmarks *sidebar_bookmarks)
                                                                EvSidebarBookmarksPrivate);
         priv = sidebar_bookmarks->priv;
 
+        gtk_orientable_set_orientation (GTK_ORIENTABLE (sidebar_bookmarks), GTK_ORIENTATION_VERTICAL);
         gtk_box_set_spacing (GTK_BOX (sidebar_bookmarks), 6);
 
         swindow = gtk_scrolled_window_new (NULL, NULL);

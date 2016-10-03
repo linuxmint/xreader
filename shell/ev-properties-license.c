@@ -29,14 +29,14 @@
 #include "ev-properties-license.h"
 
 struct _EvPropertiesLicense {
-	GtkVBox base_instance;
+	GtkBox base_instance;
 };
 
 struct _EvPropertiesLicenseClass {
-	GtkVBoxClass base_class;
+	GtkBoxClass base_class;
 };
 
-G_DEFINE_TYPE (EvPropertiesLicense, ev_properties_license, GTK_TYPE_VBOX)
+G_DEFINE_TYPE (EvPropertiesLicense, ev_properties_license, GTK_TYPE_BOX)
 
 static void
 ev_properties_license_class_init (EvPropertiesLicenseClass *properties_license_class)
@@ -154,6 +154,7 @@ ev_properties_license_set_license (EvPropertiesLicense *properties,
 static void
 ev_properties_license_init (EvPropertiesLicense *properties)
 {
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (properties), GTK_ORIENTATION_VERTICAL);
 	gtk_box_set_spacing (GTK_BOX (properties), 12);
 	gtk_container_set_border_width (GTK_CONTAINER (properties), 12);
 }

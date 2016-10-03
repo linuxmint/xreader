@@ -31,7 +31,7 @@
 #include "ev-properties-fonts.h"
 
 struct _EvPropertiesFonts {
-	GtkVBox base_instance;
+	GtkBox base_instance;
 
 	GtkWidget *fonts_treeview;
 	GtkWidget *fonts_progress_label;
@@ -41,13 +41,13 @@ struct _EvPropertiesFonts {
 };
 
 struct _EvPropertiesFontsClass {
-	GtkVBoxClass base_class;
+	GtkBoxClass base_class;
 };
 
 static void
 job_fonts_finished_cb (EvJob *job, EvPropertiesFonts *properties);
 
-G_DEFINE_TYPE (EvPropertiesFonts, ev_properties_fonts, GTK_TYPE_VBOX)
+G_DEFINE_TYPE (EvPropertiesFonts, ev_properties_fonts, GTK_TYPE_BOX)
 
 static void
 ev_properties_fonts_dispose (GObject *object)
@@ -109,6 +109,7 @@ ev_properties_fonts_init (EvPropertiesFonts *properties)
 	GtkCellRenderer   *renderer;
 	GtkTreeViewColumn *column;
 
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (properties), GTK_ORIENTATION_VERTICAL);
 	gtk_container_set_border_width (GTK_CONTAINER (properties), 12);
 	gtk_box_set_spacing (GTK_BOX (properties), 6);
 	

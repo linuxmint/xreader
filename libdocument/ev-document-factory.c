@@ -204,7 +204,7 @@ free_uncompressed_uri (gchar *uri_unc)
  * If the document is encrypted, it is returned but also @error is set to
  * %EV_DOCUMENT_ERROR_ENCRYPTED.
  *
- * Returns: a new #EvDocument, or %NULL.
+ * Returns: (transfer full): a new #EvDocument, or %NULL.
  */
 EvDocument *
 ev_document_factory_get_document (const char *uri, GError **error)

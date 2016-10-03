@@ -1430,7 +1430,7 @@ ev_window_refresh_window_thumbnail (EvWindow *ev_window)
 	gint rotation;
 	EvDocument *document = ev_window->priv->document;
 
-	if (!EV_IS_DOCUMENT_THUMBNAILS (document) ||
+	if (!document || ev_document_get_n_pages (document) <= 0 ||
 	    ev_document_get_n_pages (document) <= 0 ||
 	    !ev_document_check_dimensions (document)) {
 		return;
@@ -3043,10 +3043,6 @@ ev_window_cmd_save_as (GtkAction *action, EvWindow *ev_window)
 
 	ev_document_factory_add_filters (fc, ev_window->priv->document);
 	gtk_dialog_set_default_response (GTK_DIALOG (fc), GTK_RESPONSE_OK);
-        gtk_dialog_set_alternative_button_order (GTK_DIALOG (fc),
-                                                GTK_RESPONSE_OK,
-                                                GTK_RESPONSE_CANCEL,
-                                                -1);
 
 	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (fc), FALSE);
 	gtk_file_chooser_set_do_overwrite_confirmation (GTK_FILE_CHOOSER (fc), TRUE);
@@ -3637,11 +3633,6 @@ ev_window_check_document_modified (EvWindow *ev_window)
 				GTK_RESPONSE_YES,
 				NULL);
 	gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_YES);
-        gtk_dialog_set_alternative_button_order (GTK_DIALOG (dialog),
-                                                 GTK_RESPONSE_YES,
-                                                 GTK_RESPONSE_NO,
-                                                 GTK_RESPONSE_CANCEL,
-                                                 -1);
 
 	g_signal_connect (dialog, "response",
 			  G_CALLBACK (document_modified_confirmation_dialog_response),
@@ -3710,8 +3701,14 @@ ev_window_check_print_queue (EvWindow *ev_window)
 		text = g_strdup_printf (_("Wait until print job “%s” finishes before closing?"),
 					job_name);
 	} else {
-		text = g_strdup_printf (_("There are %d print jobs active. "
-					  "Wait until print finishes before closing?"),
+		/* TRANS: the singular form is not really used as n_print_jobs > 1
+			  but some languages distinguish between different plurals forms,
+			  so the ngettext is needed. */
+		text = g_strdup_printf (ngettext("There is %d print job active. "
+						 "Wait until print finishes before closing?",
+						 "There are %d print jobs active. "
+						 "Wait until print finishes before closing?",
+						 n_print_jobs),
 					n_print_jobs);
 	}
 
@@ -3734,11 +3731,6 @@ ev_window_check_print_queue (EvWindow *ev_window)
 				GTK_RESPONSE_YES,
 				NULL);
 	gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_YES);
-        gtk_dialog_set_alternative_button_order (GTK_DIALOG (dialog),
-                                                 GTK_RESPONSE_YES,
-                                                 GTK_RESPONSE_NO,
-                                                 GTK_RESPONSE_CANCEL,
-                                                 -1);
 
 	g_signal_connect (dialog, "response",
 			  G_CALLBACK (print_jobs_confirmation_dialog_response),
@@ -6450,7 +6442,8 @@ launch_action (EvWindow *window, EvLinkAction *action)
 	GAppInfo *app_info;
 	GFile *file;
 	GList file_list = {NULL};
-	GAppLaunchContext *context;
+	GdkAppLaunchContext *context;
+	GdkScreen *screen;
 	GError *error = NULL;
 
 	if (filename == NULL)
@@ -6481,14 +6474,13 @@ launch_action (EvWindow *window, EvLinkAction *action)
 		return;
 	}
 
-	context = G_APP_LAUNCH_CONTEXT (gdk_app_launch_context_new ());
-	gdk_app_launch_context_set_screen (GDK_APP_LAUNCH_CONTEXT (context),
-					   gtk_window_get_screen (GTK_WINDOW (window)));
-	gdk_app_launch_context_set_timestamp (GDK_APP_LAUNCH_CONTEXT (context),
-                                              gtk_get_current_event_time ());
-	
+	screen = gtk_window_get_screen (GTK_WINDOW (window));
+	context = gdk_display_get_app_launch_context (gdk_screen_get_display (screen));
+	gdk_app_launch_context_set_screen (context, screen);
+	gdk_app_launch_context_set_timestamp (context, gtk_get_current_event_time ());
+
 	file_list.data = file;
-	if (!g_app_info_launch (app_info, &file_list, context, &error)) {
+	if (!g_app_info_launch (app_info, &file_list, G_APP_LAUNCH_CONTEXT (context), &error)) {
 		ev_window_error_message (window, error,
 					 "%s",
 					 _("Unable to launch external application."));
@@ -6509,13 +6501,13 @@ launch_external_uri (EvWindow *window, EvLinkAction *action)
 	const gchar *uri = ev_link_action_get_uri (action);
 	GError *error = NULL;
 	gboolean ret;
-	GAppLaunchContext *context;
+	GdkAppLaunchContext *context;
+	GdkScreen *screen;
 
-	context = G_APP_LAUNCH_CONTEXT (gdk_app_launch_context_new ());
-	gdk_app_launch_context_set_screen (GDK_APP_LAUNCH_CONTEXT (context),
-					   gtk_window_get_screen (GTK_WINDOW (window)));
-	gdk_app_launch_context_set_timestamp (GDK_APP_LAUNCH_CONTEXT (context),
-					      gtk_get_current_event_time ());
+	screen = gtk_window_get_screen (GTK_WINDOW (window));
+	context = gdk_display_get_app_launch_context (gdk_screen_get_display (screen));
+	gdk_app_launch_context_set_screen (context, screen);
+	gdk_app_launch_context_set_timestamp (context, gtk_get_current_event_time ());
 
 	if (!g_strstr_len (uri, strlen (uri), "://") &&
 	    !g_str_has_prefix (uri, "mailto:")) {
@@ -6540,10 +6532,10 @@ launch_external_uri (EvWindow *window, EvLinkAction *action)
 				new_uri = g_strdup_printf ("file:///%s", uri);
 			}
 		}
-		ret = g_app_info_launch_default_for_uri (new_uri, context, &error);
+		ret = g_app_info_launch_default_for_uri (new_uri, G_APP_LAUNCH_CONTEXT (context), &error);
 		g_free (new_uri);
 	} else {
-		ret = g_app_info_launch_default_for_uri (uri, context, &error);
+		ret = g_app_info_launch_default_for_uri (uri, G_APP_LAUNCH_CONTEXT (context), &error);
 	}
 
   	if (ret == FALSE) {
@@ -6816,10 +6808,6 @@ ev_view_popup_cmd_save_image_as (GtkAction *action, EvWindow *window)
 					  NULL);
 
 	gtk_dialog_set_default_response (GTK_DIALOG (fc), GTK_RESPONSE_OK);
-        gtk_dialog_set_alternative_button_order (GTK_DIALOG (fc),
-                                                 GTK_RESPONSE_OK,
-                                                 GTK_RESPONSE_CANCEL,
-                                                 -1);
 
 	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (fc), FALSE);
 	gtk_file_chooser_set_do_overwrite_confirmation (GTK_FILE_CHOOSER (fc), TRUE);
@@ -7053,10 +7041,6 @@ ev_attachment_popup_cmd_save_attachment_as (GtkAction *action, EvWindow *window)
 		NULL);
 
 	gtk_dialog_set_default_response (GTK_DIALOG (fc), GTK_RESPONSE_OK);
-        gtk_dialog_set_alternative_button_order (GTK_DIALOG (fc),
-                                                 GTK_RESPONSE_OK,
-                                                 GTK_RESPONSE_CANCEL,
-                                                 -1);
 
 	gtk_file_chooser_set_do_overwrite_confirmation (GTK_FILE_CHOOSER (fc), TRUE);
 	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (fc), FALSE);
@@ -7369,7 +7353,7 @@ ev_window_init (EvWindow *ev_window)
 	gtk_style_context_add_class (context, "xreader-window");
 #endif
 
-	ev_window->priv->main_box = gtk_vbox_new (FALSE, 0);
+	ev_window->priv->main_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 	gtk_container_add (GTK_CONTAINER (ev_window), ev_window->priv->main_box);
 	gtk_widget_show (ev_window->priv->main_box);
 
@@ -7563,7 +7547,7 @@ ev_window_init (EvWindow *ev_window)
 	ev_sidebar_add_page (EV_SIDEBAR (ev_window->priv->sidebar),
 			     sidebar_widget);
 
-	ev_window->priv->view_box = gtk_vbox_new (FALSE, 0);
+	ev_window->priv->view_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 	ev_window->priv->scrolled_window =
 		GTK_WIDGET (g_object_new (GTK_TYPE_SCROLLED_WINDOW,
 					  "shadow-type", GTK_SHADOW_IN,

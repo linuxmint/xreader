@@ -440,10 +440,9 @@ ev_document_synctex_backward_search (EvDocument *document,
 			filename = synctex_scanner_get_name (scanner, synctex_node_tag (node));
 
 			if (filename) {
-				result = g_new (EvSourceLink, 1);
-				result->filename = filename;
-				result->line = synctex_node_line (node);
-				result->col = synctex_node_column (node);
+				result = ev_source_link_new (filename,
+							     synctex_node_line (node),
+							     synctex_node_column (node));
 			}
                 }
         }
@@ -732,8 +731,50 @@ ev_document_find_page_by_label (EvDocument  *document,
 	return FALSE;
 }
 
+/* EvSourceLink */
+G_DEFINE_BOXED_TYPE (EvSourceLink, ev_source_link, ev_source_link_copy, ev_source_link_free)
+
+EvSourceLink *
+ev_source_link_new (const gchar *filename,
+		    gint 	 line,
+		    gint 	 col)
+{
+	EvSourceLink *link = g_slice_new (EvSourceLink);
+
+	link->filename = g_strdup (filename);
+	link->line = line;
+	link->col = col;
+
+	return link;
+}
+
+EvSourceLink *
+ev_source_link_copy (EvSourceLink *link)
+{
+	EvSourceLink *copy;
+
+	g_return_val_if_fail (link != NULL, NULL);
+
+	copy = g_slice_new (EvSourceLink);
+
+	*copy = *link;
+	copy->filename = g_strdup (link->filename);
+
+	return copy;
+}
+
+void
+ev_source_link_free (EvSourceLink *link)
+{
+	if (link == NULL)
+		return;
+
+	g_free (link->filename);
+	g_slice_free (EvSourceLink, link);
+}
+
 /* EvDocumentInfo */
-EV_DEFINE_BOXED_TYPE (EvDocumentInfo, ev_document_info, ev_document_info_copy, ev_document_info_free)
+G_DEFINE_BOXED_TYPE (EvDocumentInfo, ev_document_info, ev_document_info_copy, ev_document_info_free)
 
 EvDocumentInfo *
 ev_document_info_copy (EvDocumentInfo *info)
@@ -793,7 +834,7 @@ ev_document_info_free (EvDocumentInfo *info)
 }
 
 /* EvDocumentLicense */
-EV_DEFINE_BOXED_TYPE (EvDocumentLicense, ev_document_license, ev_document_license_copy, ev_document_license_free)
+G_DEFINE_BOXED_TYPE (EvDocumentLicense, ev_document_license, ev_document_license_copy, ev_document_license_free)
 
 EvDocumentLicense *
 ev_document_license_new (void)
@@ -853,7 +894,7 @@ ev_document_license_get_web_statement (EvDocumentLicense *license)
 }
 
 /* EvRectangle */
-EV_DEFINE_BOXED_TYPE (EvRectangle, ev_rectangle, ev_rectangle_copy, ev_rectangle_free)
+G_DEFINE_BOXED_TYPE (EvRectangle, ev_rectangle, ev_rectangle_copy, ev_rectangle_free)
 
 EvRectangle *
 ev_rectangle_new (void)

@@ -32,6 +32,7 @@
 #include <gtk/gtk.h>
 
 #include "ev-document-attachments.h"
+#include "ev-document-misc.h"
 #include "ev-jobs.h"
 #include "ev-job-scheduler.h"
 #include "ev-file-helpers.h"
@@ -71,7 +72,7 @@ static void ev_sidebar_attachments_page_iface_init (EvSidebarPageInterface *ifac
 
 G_DEFINE_TYPE_EXTENDED (EvSidebarAttachments,
                         ev_sidebar_attachments,
-                        GTK_TYPE_VBOX,
+                        GTK_TYPE_BOX,
                         0, 
                         G_IMPLEMENT_INTERFACE (EV_TYPE_SIDEBAR_PAGE, 
 					       ev_sidebar_attachments_page_iface_init))
@@ -263,7 +264,7 @@ ev_sidebar_attachments_popup_menu (GtkWidget *widget)
 	EvSidebarAttachments *ev_attachbar = EV_SIDEBAR_ATTACHMENTS (widget);
 	gint                  x, y;
 
-	gtk_widget_get_pointer (widget, &x, &y);
+	ev_document_misc_get_pointer_position (widget, &x, &y);
 
 	return ev_sidebar_attachments_popup_menu_show (ev_attachbar, x, y);
 }
@@ -536,6 +537,7 @@ ev_sidebar_attachments_init (EvSidebarAttachments *ev_attachbar)
 	
 	ev_attachbar->priv = EV_SIDEBAR_ATTACHMENTS_GET_PRIVATE (ev_attachbar);
 
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_attachbar), GTK_ORIENTATION_VERTICAL);
 	swindow = gtk_scrolled_window_new (NULL, NULL);
 	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (swindow),
 					GTK_POLICY_NEVER,
@@ -567,8 +569,8 @@ ev_sidebar_attachments_init (EvSidebarAttachments *ev_attachbar)
 	gtk_container_add (GTK_CONTAINER (swindow),
 			   ev_attachbar->priv->icon_view);
 
-	gtk_container_add (GTK_CONTAINER (ev_attachbar),
-			   swindow);
+	gtk_box_pack_start (GTK_BOX (ev_attachbar), swindow, TRUE, TRUE, 0);
+
 	gtk_widget_show_all (GTK_WIDGET (ev_attachbar));
 
 	/* Icon Theme */
@@ -599,7 +601,9 @@ ev_sidebar_attachments_new (void)
 {
 	GtkWidget *ev_attachbar;
 
-	ev_attachbar = g_object_new (EV_TYPE_SIDEBAR_ATTACHMENTS, NULL);
+	ev_attachbar = g_object_new (EV_TYPE_SIDEBAR_ATTACHMENTS,
+	                              "orientation", GTK_ORIENTATION_VERTICAL,
+	                              NULL);
 
 	return ev_attachbar;
 }

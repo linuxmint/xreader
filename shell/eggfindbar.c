@@ -102,7 +102,7 @@ egg_find_bar_class_init (EggFindBarClass *klass)
   find_bar_signals[NEXT] =
     g_signal_new ("next",
 		  G_OBJECT_CLASS_TYPE (object_class),
-		  G_SIGNAL_RUN_FIRST,
+		  G_SIGNAL_RUN_FIRST | G_SIGNAL_ACTION,
                   G_STRUCT_OFFSET (EggFindBarClass, next),
 		  NULL, NULL,
 		  g_cclosure_marshal_VOID__VOID,
@@ -110,7 +110,7 @@ egg_find_bar_class_init (EggFindBarClass *klass)
   find_bar_signals[PREVIOUS] =
     g_signal_new ("previous",
 		  G_OBJECT_CLASS_TYPE (object_class),
-		  G_SIGNAL_RUN_FIRST,
+		  G_SIGNAL_RUN_FIRST | G_SIGNAL_ACTION,
                   G_STRUCT_OFFSET (EggFindBarClass, previous),
 		  NULL, NULL,
 		  g_cclosure_marshal_VOID__VOID,
@@ -204,6 +204,11 @@ egg_find_bar_class_init (EggFindBarClass *klass)
   gtk_binding_entry_add_signal (binding_set, GDK_KEY_KP_Page_Down, 0,
 				"scroll", 1,
 				GTK_TYPE_SCROLL_TYPE, GTK_SCROLL_PAGE_FORWARD);
+
+  gtk_binding_entry_add_signal (binding_set, GDK_KEY_Up, GDK_CONTROL_MASK,
+                                "previous", 0);
+  gtk_binding_entry_add_signal (binding_set, GDK_KEY_Down, GDK_CONTROL_MASK,
+                                "next", 0);
 }
 
 static void
@@ -314,8 +319,8 @@ egg_find_bar_init (EggFindBar *find_bar)
 
   /* Find: |_____| */
   item = gtk_tool_item_new ();
-  box = gtk_hbox_new (FALSE, 12);
-  
+  box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12);
+
   alignment = gtk_alignment_new (0.0, 0.5, 1.0, 0.0);
   gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 0, 2, 2);
 
@@ -327,7 +332,7 @@ egg_find_bar_init (EggFindBar *find_bar)
   gtk_label_set_mnemonic_widget (GTK_LABEL (label), priv->find_entry);
 
   /* Prev */
-  arrow = gtk_arrow_new (GTK_ARROW_LEFT, GTK_SHADOW_NONE);
+  arrow = gtk_image_new_from_icon_name ("pan-start-symbolic", GTK_ICON_SIZE_BUTTON);
   priv->previous_button = gtk_tool_button_new (arrow, Q_("Find Pre_vious"));
   gtk_tool_button_set_use_underline (GTK_TOOL_BUTTON (priv->previous_button), TRUE);
   gtk_tool_item_set_is_important (priv->previous_button, TRUE);
@@ -335,7 +340,7 @@ egg_find_bar_init (EggFindBar *find_bar)
 			       _("Find previous occurrence of the search string"));
 
   /* Next */
-  arrow = gtk_arrow_new (GTK_ARROW_RIGHT, GTK_SHADOW_NONE);
+  arrow = gtk_image_new_from_icon_name ("pan-end-symbolic", GTK_ICON_SIZE_BUTTON);
   priv->next_button = gtk_tool_button_new (arrow, Q_("Find Ne_xt"));
   gtk_tool_button_set_use_underline (GTK_TOOL_BUTTON (priv->next_button), TRUE);
   gtk_tool_item_set_is_important (priv->next_button, TRUE);

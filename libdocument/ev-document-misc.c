@@ -319,15 +319,15 @@ ev_document_misc_surface_rotate_and_scale (cairo_surface_t *surface,
 	        default:
 			cairo_translate (cr, 0, 0);
 	}
-	
+	cairo_rotate (cr, dest_rotation * G_PI / 180.0);
+
 	if (dest_width != width || dest_height != height) {
 		cairo_pattern_set_filter (cairo_get_source (cr), CAIRO_FILTER_BILINEAR);
 		cairo_scale (cr,
 			     (gdouble)dest_width / width,
 			     (gdouble)dest_height / height);
 	}
-	
-	cairo_rotate (cr, dest_rotation * G_PI / 180.0);
+
 	cairo_set_source_surface (cr, surface, 0, 0);
 	cairo_paint (cr);
 	cairo_destroy (cr);
@@ -414,3 +414,46 @@ ev_document_misc_format_date (GTime utime)
 
 	return g_locale_to_utf8 (s, -1, NULL, NULL, NULL);
 }
+
+void
+ev_document_misc_get_pointer_position (GtkWidget *widget,
+                                       gint      *x,
+                                       gint      *y)
+{
+#if GTK_CHECK_VERSION (3, 20, 0)
+		GdkSeat *seat;
+#else
+        GdkDeviceManager *device_manager;
+#endif
+        GdkDevice        *device_pointer;
+        GdkRectangle      allocation;
+
+        if (x)
+                *x = -1;
+        if (y)
+                *y = -1;
+
+        if (!gtk_widget_get_realized (widget))
+                return;
+
+#if GTK_CHECK_VERSION(3, 20, 0)
+        seat = gdk_display_get_default_seat (gtk_widget_get_display (widget));
+        device_pointer = gdk_seat_get_pointer (seat);
+#else
+        device_manager = gdk_display_get_device_manager (gtk_widget_get_display (widget));
+        device_pointer = gdk_device_manager_get_client_pointer (device_manager);
+#endif
+        gdk_window_get_device_position (gtk_widget_get_window (widget),
+                                        device_pointer,
+                                        x, y, NULL);
+
+        if (gtk_widget_get_has_window (widget))
+                return;
+
+        gtk_widget_get_allocation (widget, &allocation);
+        if (x)
+                *x -= allocation.x;
+        if (y)
+                *y -= allocation.y;
+}
+

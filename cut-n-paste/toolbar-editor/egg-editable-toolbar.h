@@ -41,7 +41,7 @@ typedef struct _EggEditableToolbarClass   EggEditableToolbarClass;
 
 struct _EggEditableToolbar
 {
-  GtkVBox parent_object;
+  GtkBox parent_object;
 
   /*< private >*/
   EggEditableToolbarPrivate *priv;
@@ -49,7 +49,7 @@ struct _EggEditableToolbar
 
 struct _EggEditableToolbarClass
 {
-  GtkVBoxClass parent_class;
+  GtkBoxClass parent_class;
 
   void (* action_request) (EggEditableToolbar *etoolbar,
 			   const char *action_name);
@@ -81,6 +81,9 @@ void                egg_editable_toolbar_set_selected    (EggEditableToolbar   *
 
 void              egg_editable_toolbar_add_visibility    (EggEditableToolbar   *etoolbar,
 							  const char           *path);
+void              egg_editable_toolbar_set_primary_class (EggEditableToolbar *etoolbar,
+                                                          gboolean            set,
+                                                          const gchar        *path);
 
 /* Private Functions */
 

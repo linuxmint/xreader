@@ -1,11 +1,12 @@
 /* 
-Copyright (c) 2008, 2009, 2010 jerome DOT laurens AT u-bourgogne DOT fr
+Copyright (c) 2008, 2009, 2010 , 2011 jerome DOT laurens AT u-bourgogne DOT fr
 
 This file is part of the SyncTeX package.
 
-Latest Revision: Wed Jul  1 11:16:51 UTC 2009
+Latest Revision: Tue Jun 14 08:23:30 UTC 2011
 
-Version: 1.12
+Version: 1.18
+
 See synctex_parser_readme.txt for more details
 
 License:
@@ -58,6 +59,8 @@ Thu Jun 19 09:39:21 UTC 2008
 extern "C" {
 #endif
 
+#   define SYNCTEX_VERSION_STRING "1.18"
+
 /*  synctex_node_t is the type for all synctex nodes.
  *  The synctex file is parsed into a tree of nodes, either sheet, boxes, math nodes... */
 typedef struct _synctex_node *  synctex_node_t;
@@ -89,7 +92,7 @@ typedef _synctex_scanner_t *  synctex_scanner_t;
  *	It is the directory where all the auxiliary stuff is created.
  *	Sometimes, the synctex output file and the pdf, dvi or xdv files are not created in the same directory.
  *	This is the case in MikTeX (I will include this into TeX Live).
- *	This directory path can be nil, it will be ignored.
+ *	This directory path can be nil, it will be ignored then.
  *	It can be either absolute or relative to the directory of the output pdf (dvi or xdv) file.
  *	If no synctex file is found in the same directory as the output file, then we try to find one in the build directory.
  *  Please note that this new "build_directory" is provided as a convenient argument but should not be used.
@@ -161,8 +164,9 @@ synctex_scanner_t synctex_scanner_parse(synctex_scanner_t scanner);
  *  Sumatra-PDF, Skim, iTeXMac2 and Texworks are examples of open source software that use this library.
  *  You can browse their code for a concrete implementation.
  */
-int synctex_display_query(synctex_scanner_t scanner,const char *  name,int line,int column);
-int synctex_edit_query(synctex_scanner_t scanner,int page,float h,float v);
+typedef long synctex_status_t;
+synctex_status_t synctex_display_query(synctex_scanner_t scanner,const char *  name,int line,int column);
+synctex_status_t synctex_edit_query(synctex_scanner_t scanner,int page,float h,float v);
 synctex_node_t synctex_next_result(synctex_scanner_t scanner);
 
 /*  Display all the information contained in the scanner object.
@@ -235,6 +239,7 @@ synctex_node_t synctex_node_sheet(synctex_node_t node);
 synctex_node_t synctex_node_child(synctex_node_t node);
 synctex_node_t synctex_node_sibling(synctex_node_t node);
 synctex_node_t synctex_node_next(synctex_node_t node);
+synctex_node_t synctex_sheet(synctex_scanner_t scanner,int page);
 synctex_node_t synctex_sheet_content(synctex_scanner_t scanner,int page);
 
 /*  These are the types of the synctex nodes */
@@ -263,6 +268,11 @@ const char * synctex_node_isa(synctex_node_t node);
 void synctex_node_log(synctex_node_t node);
 void synctex_node_display(synctex_node_t node);
 
+/*  Given a node, access to the location in the synctex file where it is defined.
+ */
+typedef unsigned int synctex_charindex_t;
+synctex_charindex_t synctex_node_charindex(synctex_node_t node);
+
 /*  Given a node, access to its tag, line and column.
  *  The line and column numbers are 1 based.
  *  The latter is not yet fully supported in TeX, the default implementation returns 0 which means the whole line.
@@ -272,6 +282,14 @@ void synctex_node_display(synctex_node_t node);
 int synctex_node_tag(synctex_node_t node);
 int synctex_node_line(synctex_node_t node);
 int synctex_node_column(synctex_node_t node);
+
+/*  In order to enhance forward synchronization,
+ *  non void horizontal boxes have supplemental cached information.
+ *  The mean line is the average of the line numbers of the included nodes.
+ *  The child count is the number of chidren.
+ */
+int synctex_node_mean_line(synctex_node_t node);
+int synctex_node_child_count(synctex_node_t node);
 
 /*  This is the page where the node appears.
  *  This is a 1 based index as given by TeX.

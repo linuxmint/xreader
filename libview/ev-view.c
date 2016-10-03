@@ -301,9 +301,8 @@ G_DEFINE_TYPE_WITH_CODE (EvView, ev_view, GTK_TYPE_CONTAINER, G_IMPLEMENT_INTERF
 #define EV_HEIGHT_TO_PAGE_CACHE_KEY "ev-height-to-page-cache"
 
 static void
-build_height_to_page (EvHeightToPageCache *cache,
-		      EvDocument          *document,
-		      gint                 rotation)
+ev_view_build_height_to_page_cache (EvView		*view,
+                                    EvHeightToPageCache *cache)
 {
 	gboolean swap, uniform, dual_even_left;
 	int i;
@@ -311,17 +310,18 @@ build_height_to_page (EvHeightToPageCache *cache,
 	double saved_height;
 	gdouble u_width, u_height;
 	gint n_pages;
+	EvDocument *document = view->document;
 
-	swap = (rotation == 90 || rotation == 270);
+	swap = (view->rotation == 90 || view->rotation == 270);
 
 	uniform = ev_document_is_page_size_uniform (document);
 	n_pages = ev_document_get_n_pages (document);
-	dual_even_left = (n_pages > 2);
+	dual_even_left = get_dual_even_left (view);
 
 	g_free (cache->height_to_page);
 	g_free (cache->dual_height_to_page);
 
-	cache->rotation = rotation;
+	cache->rotation = view->rotation;
 	cache->height_to_page = g_new0 (gdouble, n_pages + 1);
 	cache->dual_height_to_page = g_new0 (gdouble, n_pages + 2);
 
@@ -393,21 +393,6 @@ build_height_to_page (EvHeightToPageCache *cache,
 }
 
 static void
-ev_height_to_page_cache_get_height (EvHeightToPageCache *cache,
-				    EvDocument          *document,
-				    gint                 page,
-				    gint                 rotation,
-				    gdouble             *height,
-				    gdouble             *dual_height)
-{
-	if (cache->rotation != rotation)
-		build_height_to_page (cache, document, rotation);
-
-	*height = cache->height_to_page[page];
-	*dual_height = cache->dual_height_to_page[page];
-}
-
-static void
 ev_height_to_page_cache_free (EvHeightToPageCache *cache)
 {
 	if (cache->height_to_page) {
@@ -433,7 +418,7 @@ ev_view_get_height_to_page_cache (EvView *view)
 	cache = g_object_get_data (G_OBJECT (view->document), EV_HEIGHT_TO_PAGE_CACHE_KEY);
 	if (!cache) {
 		cache = g_new0 (EvHeightToPageCache, 1);
-		build_height_to_page (cache, view->document, view->rotation);
+		ev_view_build_height_to_page_cache (view, cache);
 		g_object_set_data_full (G_OBJECT (view->document),
 					EV_HEIGHT_TO_PAGE_CACHE_KEY,
 					cache,
@@ -449,16 +434,18 @@ ev_view_get_height_to_page (EvView *view,
 			    gint   *height,
 			    gint   *dual_height)
 {
+	EvHeightToPageCache *cache = NULL;
 	gdouble h, dh;
 
 	if (!view->height_to_page_cache)
 		return;
 
-	ev_height_to_page_cache_get_height (view->height_to_page_cache,
-					    view->document,
-					    page,
-					    view->rotation,
-					    &h, &dh);
+	cache = view->height_to_page_cache;
+	if (cache->rotation != view->rotation)
+		ev_view_build_height_to_page_cache (view, cache);
+	h = cache->height_to_page[page];
+	dh = cache->dual_height_to_page[page];
+
 	if (height)
 		*height = (gint)(h * view->scale + 0.5);
 
@@ -1329,7 +1316,8 @@ doc_rect_to_view_rect (EvView       *view,
 static gboolean
 get_dual_even_left (EvView *view)
 {
-	return (ev_document_get_n_pages (view->document) > 2);
+	gint n_pages = ev_document_get_n_pages (view->document);
+	return (n_pages > 2 && view->dual_even_left);
 }
 
 static void
@@ -3009,7 +2997,7 @@ ev_view_cancel_add_annotation (EvView *view)
 		return;
 
 	view->adding_annot = FALSE;
-	gtk_widget_get_pointer (GTK_WIDGET (view), &x, &y);
+	ev_document_misc_get_pointer_position (GTK_WIDGET (view), &x, &y);
 	ev_view_handle_cursor_over_xy (view, x, y);
 }
 
@@ -3031,7 +3019,7 @@ ev_view_synctex_backward_search (EvView *view,
 	link = ev_document_synctex_backward_search (view->document, page, x_new, y_new);
 	if (link) {
 		g_signal_emit (view, signals[SIGNAL_SYNC_SOURCE], 0, link);
-		g_free (link);
+		ev_source_link_free (link);
 
 		return TRUE;
 	}
@@ -3499,8 +3487,8 @@ static gboolean
 ev_view_popup_menu (GtkWidget *widget)
 {
 	gint x, y;
-	
-	gtk_widget_get_pointer (widget, &x, &y);
+
+	ev_document_misc_get_pointer_position (widget, &x, &y);
 	return ev_view_do_popup_menu (EV_VIEW (widget), x, y);
 }
 
@@ -3821,7 +3809,7 @@ selection_scroll_timeout_cb (EvView *view)
 	GtkAllocation allocation;
 
 	gtk_widget_get_allocation (widget, &allocation);
-	gtk_widget_get_pointer (widget, &x, &y);
+	ev_document_misc_get_pointer_position (widget, &x, &y);
 
 	if (y > allocation.height) {
 		shift = (y - allocation.height) / 2;
@@ -3938,9 +3926,9 @@ ev_view_motion_notify_event (GtkWidget      *widget,
 
 	window = gtk_widget_get_window (widget);
 
-        if (event->is_hint || event->window != window) {
-	    gtk_widget_get_pointer (widget, &x, &y);
-        } else {
+	if (event->is_hint || event->window != window) {
+	    ev_document_misc_get_pointer_position (widget, &x, &y);
+	} else {
 	    x = event->x;
 	    y = event->y;
 	}
@@ -4946,6 +4934,7 @@ ev_view_init (EvView *view)
 	view->selection_mode = EV_VIEW_SELECTION_TEXT;
 	view->continuous = TRUE;
 	view->dual_page = FALSE;
+	view->dual_even_left = TRUE;
 	view->fullscreen = FALSE;
 	view->sizing_mode = EV_SIZING_FIT_WIDTH;
 	view->pending_scroll = SCROLL_TO_KEEP_POSITION;
@@ -4966,7 +4955,7 @@ ev_view_change_page (EvView *view,
 
 	hide_loading_window (view);
 
-	gtk_widget_get_pointer (GTK_WIDGET (view), &x, &y);
+	ev_document_misc_get_pointer_position (GTK_WIDGET (view), &x, &y);
 	ev_view_handle_cursor_over_xy (view, x, y);
 
 	gtk_widget_queue_resize (GTK_WIDGET (view));
@@ -5055,6 +5044,7 @@ on_adjustment_value_changed (GtkAdjustment *adjustment,
 	}
 
 	gtk_widget_get_pointer (widget, &x, &y);
+	ev_document_misc_get_pointer_position (GTK_WIDGET (view), &x, &y);
 	ev_view_handle_cursor_over_xy (view, x, y);
 
 	if (view->document)
@@ -5191,8 +5181,8 @@ ev_view_autoscroll_start (EvView *view)
 	view->scroll_info.timeout_id =
 		g_timeout_add (20, (GSourceFunc)ev_view_autoscroll_cb,
 			       view);
-	
-	gtk_widget_get_pointer (GTK_WIDGET (view), &x, &y);
+
+	ev_document_misc_get_pointer_position (GTK_WIDGET (view), &x, &y);
 	ev_view_handle_cursor_over_xy (view, x, y);
 }
 
@@ -5212,7 +5202,7 @@ ev_view_autoscroll_stop (EvView *view)
 		view->scroll_info.timeout_id = 0;
 	}
 
-	gtk_widget_get_pointer (GTK_WIDGET (view), &x, &y);
+	ev_document_misc_get_pointer_position (GTK_WIDGET (view), &x, &y);
 	ev_view_handle_cursor_over_xy (view, x, y);
 }
 
@@ -5345,6 +5335,19 @@ ev_view_dual_page_changed_cb (EvDocumentModel *model,
 }
 
 static void
+ev_view_dual_odd_left_changed_cb (EvDocumentModel *model,
+				  GParamSpec      *pspec,
+				  EvView          *view)
+{
+	view->dual_even_left = !ev_document_model_get_dual_page_odd_pages_left (model);
+
+	view->pending_scroll = SCROLL_TO_PAGE_POSITION;
+	/* Total height of some page pairs may changes, recompute cache */
+	ev_view_build_height_to_page_cache(view, view->height_to_page_cache);
+	gtk_widget_queue_resize (GTK_WIDGET (view));
+}
+
+static void
 ev_view_fullscreen_changed_cb (EvDocumentModel *model,
 			       GParamSpec      *pspec,
 			       EvView          *view)
@@ -5405,6 +5408,9 @@ ev_view_set_model (EvView          *view,
 			  view);
 	g_signal_connect (view->model, "notify::dual-page",
 			  G_CALLBACK (ev_view_dual_page_changed_cb),
+			  view);
+	g_signal_connect (view->model, "notify::dual-odd-left",
+			  G_CALLBACK (ev_view_dual_odd_left_changed_cb),
 			  view);
 	g_signal_connect (view->model, "notify::fullscreen",
 			  G_CALLBACK (ev_view_fullscreen_changed_cb),

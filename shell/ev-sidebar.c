@@ -58,7 +58,7 @@ struct _EvSidebarPrivate {
 	GtkTreeModel *page_model;
 };
 
-G_DEFINE_TYPE (EvSidebar, ev_sidebar, GTK_TYPE_VBOX)
+G_DEFINE_TYPE (EvSidebar, ev_sidebar, GTK_TYPE_BOX)
 
 #define EV_SIDEBAR_GET_PRIVATE(object) \
 		(G_TYPE_INSTANCE_GET_PRIVATE ((object), EV_TYPE_SIDEBAR, EvSidebarPrivate))
@@ -342,6 +342,8 @@ ev_sidebar_init (EvSidebar *ev_sidebar)
 
 	ev_sidebar->priv = EV_SIDEBAR_GET_PRIVATE (ev_sidebar);
 
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_sidebar), GTK_ORIENTATION_VERTICAL);
+
 	/* data model */
 	ev_sidebar->priv->page_model = (GtkTreeModel *)
 			gtk_list_store_new (PAGE_COLUMN_NUM_COLS,
@@ -351,7 +353,7 @@ ev_sidebar_init (EvSidebar *ev_sidebar)
 					    G_TYPE_INT);
 
 	/* top option menu */
-	hbox = gtk_hbox_new (FALSE, 0);
+	hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
 	ev_sidebar->priv->hbox = hbox;
 	gtk_box_pack_start (GTK_BOX (ev_sidebar), hbox, FALSE, FALSE, 0);
 	gtk_widget_show (hbox);
@@ -365,7 +367,7 @@ ev_sidebar_init (EvSidebar *ev_sidebar)
 			  G_CALLBACK (ev_sidebar_select_button_key_press_cb),
 			  ev_sidebar);
 
-	select_hbox = gtk_hbox_new (FALSE, 0);
+	select_hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
 
 	ev_sidebar->priv->label = gtk_label_new ("");
 	gtk_box_pack_start (GTK_BOX (select_hbox),
@@ -373,7 +375,7 @@ ev_sidebar_init (EvSidebar *ev_sidebar)
 			    FALSE, FALSE, 0);
 	gtk_widget_show (ev_sidebar->priv->label);
 
-	arrow = gtk_arrow_new (GTK_ARROW_DOWN, GTK_SHADOW_NONE);
+	arrow = gtk_image_new_from_icon_name ("pan-down-symbolic", GTK_ICON_SIZE_BUTTON);
 	gtk_box_pack_end (GTK_BOX (select_hbox), arrow, FALSE, FALSE, 0);
 	gtk_widget_show (arrow);
 
