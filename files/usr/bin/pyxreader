@@ -30,6 +30,10 @@ class XReader:
         self.toolbutton_prev.connect("clicked", self.on_button_prev_clicked)
         self.toolbutton_next.connect("clicked", self.on_button_next_clicked)
         self.menuitem_open.connect("activate", self.on_menuitem_open_activated)
+        self.menuitem_prev.connect("activate", self.on_menuitem_prev_activated)
+        self.menuitem_next.connect("activate", self.on_menuitem_next_activated)
+        self.menuitem_first.connect("activate", self.on_menuitem_first_activated)
+        self.menuitem_last.connect("activate", self.on_menuitem_last_activated)
 
         self.view = EvinceView.View()
         self.scrolledwindow.add(self.view)
@@ -61,6 +65,18 @@ class XReader:
         if response == Gtk.ResponseType.OK:
             self.load(dialog.get_uri())
         dialog.destroy()
+
+    def on_menuitem_prev_activated(self, widget):
+        self.view.previous_page()
+
+    def on_menuitem_next_activated(self, widget):
+        self.view.next_page()
+
+    def on_menuitem_first_activated(self, widget):
+        self.model.set_page (0)
+
+    def on_menuitem_last_activated(self, widget):
+        self.model.set_page (self.document.get_n_pages() - 1)
 
 xreader = XReader()
 xreader.load(sys.argv[1])
