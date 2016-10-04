@@ -148,6 +148,48 @@
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">_View</property>
                 <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu" id="menu2">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="menuitem_odd_left">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_Odd pages on the left</property>
+                        <property name="use_underline">True</property>
+                        <accelerator key="o" signal="activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="menuitem_continuous">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_Continuous</property>
+                        <property name="use_underline">True</property>
+                        <accelerator key="c" signal="activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="menuitem_dual">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_Dual</property>
+                        <property name="use_underline">True</property>
+                        <accelerator key="d" signal="activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="menuitem_inverted_colors">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_Inverted colors</property>
+                        <property name="use_underline">True</property>
+                        <accelerator key="i" signal="activate"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
             </child>
             <child>

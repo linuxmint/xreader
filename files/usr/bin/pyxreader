@@ -34,6 +34,10 @@ class XReader:
         self.menuitem_next.connect("activate", self.on_menuitem_next_activated)
         self.menuitem_first.connect("activate", self.on_menuitem_first_activated)
         self.menuitem_last.connect("activate", self.on_menuitem_last_activated)
+        self.menuitem_inverted_colors.connect("activate", self.on_menuitem_inverted_colors_activated)
+        self.menuitem_continuous.connect("activate", self.on_menuitem_continuous_activated)
+        self.menuitem_dual.connect("activate", self.on_menuitem_dual_activated)
+        self.menuitem_odd_left.connect("activate", self.on_menuitem_odd_left_activated)
 
         self.view = EvinceView.View()
         self.scrolledwindow.add(self.view)
@@ -73,10 +77,22 @@ class XReader:
         self.view.next_page()
 
     def on_menuitem_first_activated(self, widget):
-        self.model.set_page (0)
+        self.model.set_page(0)
 
     def on_menuitem_last_activated(self, widget):
-        self.model.set_page (self.document.get_n_pages() - 1)
+        self.model.set_page(self.document.get_n_pages() - 1)
+
+    def on_menuitem_inverted_colors_activated(self, widget):
+        self.model.set_inverted_colors(widget.get_active())
+
+    def on_menuitem_continuous_activated(self, widget):
+        self.model.set_continuous(widget.get_active())
+
+    def on_menuitem_dual_activated(self, widget):
+        self.model.set_dual_page(widget.get_active())
+
+    def on_menuitem_odd_left_activated(self, widget):
+        self.model.dual_odd_left = widget.get_active()
 
 xreader = XReader()
 xreader.load(sys.argv[1])
