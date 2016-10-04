@@ -732,6 +732,7 @@ data/icons/scalable/Makefile
 data/icons/scalable/apps/Makefile
 data/icons/scalable/actions/Makefile
 data/icons/scalable/mimetypes/Makefile
+files/Makefile
 help/Makefile
 help/reference/Makefile
 help/reference/libdocument/Makefile

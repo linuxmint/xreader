@@ -11,6 +11,7 @@ SUBDIRS =       \
     properties-nemo  \
     shell       \
     po          \
+    files       \
     help
 
 if ENABLE_TESTS
