@@ -11,44 +11,57 @@ from gi.repository import Gtk
 from gi.repository import EvinceDocument
 from gi.repository import EvinceView
 
-def callback_button_prev(widget, view):
-	view.previous_page()
+import gettext
+gettext.install("xreader", "/usr/share/locale")
 
-def callback_button_next(widget, model):
-	model.set_fullscreen(True)
+class XReader:
 
-def callback_button_zoom_in(widget, view):
-	view.zoom_in()
+    def __init__(self):
 
-def callback_button_zoom_out(widget, view):
-	view.zoom_out()
+        # Load the UI
+        self.builder = Gtk.Builder()
+        self.builder.set_translation_domain("xreader")
+        self.builder.add_from_file("/usr/share/xreader/pyxreader.ui")
+        for widget in self.builder.get_objects():
+            name = Gtk.Buildable.get_name(widget)
+            setattr(self, name, widget)
 
+        # Connect widget signals (do this here rather than in Glade where regressions aren't as visible)
+        self.toolbutton_prev.connect("clicked", self.on_button_prev_clicked)
+        self.toolbutton_next.connect("clicked", self.on_button_next_clicked)
+        self.menuitem_open.connect("activate", self.on_menuitem_open_activated)
 
-gladefile = "/usr/share/xreader/pyxreader.ui"
-builder = Gtk.Builder()
-builder.add_from_file(gladefile)
-scrolled = builder.get_object("scrolledwindow1")
-window = builder.get_object("window1")
-button_prev = builder.get_object("toolbutton_prev")
-button_next = builder.get_object("toolbutton_next")
+        self.view = EvinceView.View()
+        self.scrolledwindow.add(self.view)
+        self.window.connect("destroy", Gtk.main_quit)
+        self.window.show_all()
 
-EvinceDocument.init()
-doc =  EvinceDocument.Document.factory_get_document(sys.argv[1])
+    def load(self, uri):
+        try:
+            EvinceDocument.init()
+            self.document =  EvinceDocument.Document.factory_get_document(uri)
+            self.model = EvinceView.DocumentModel.new_with_document(self.document)
+            self.view.set_model(self.model)
+        except Exception as exception:
+            print(exception)
 
-view = EvinceView.View()
-model = EvinceView.DocumentModel.new_with_document(doc)
-view.set_model(model)
+    def on_button_prev_clicked(self, widget):
+        self.view.previous_page()
 
+    def on_button_next_clicked(self, widget):
+        self.view.next_page()
 
-model.set_dual_page(True)
-model.set_dual_page_odd_pages_left(True)
-scrolled.add(view)
+    def on_menuitem_open_activated(self, widget):
+        dialog = Gtk.FileChooserDialog("Please choose a document", self.window,
+            Gtk.FileChooserAction.OPEN,
+            (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+             Gtk.STOCK_OPEN, Gtk.ResponseType.OK))
+        dialog.set_default_size(800, 400)
+        response = dialog.run()
+        if response == Gtk.ResponseType.OK:
+            self.load(dialog.get_uri())
+        dialog.destroy()
 
-
-button_prev.connect("clicked", callback_button_prev, view)
-button_next.connect("clicked", callback_button_next, model)
-
-window.connect("destroy", Gtk.main_quit)
-window.show_all()
+xreader = XReader()
+xreader.load(sys.argv[1])
 Gtk.main()
-
