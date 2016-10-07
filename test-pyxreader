@@ -1,0 +1,9 @@
+#!/bin/bash
+
+sudo cp files/usr/share/xreader/pyxreader.ui /usr/share/xreader/pyxreader.ui
+sudo cp files/usr/bin/pyxreader /usr/bin/pyxreader
+
+cp magazine.pdf /tmp/
+pyxreader file:///tmp/magazine.pdf
+
+
