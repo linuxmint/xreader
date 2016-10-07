@@ -7,10 +7,70 @@
     <property name="can_focus">False</property>
     <property name="icon_name">go-previous-symbolic</property>
   </object>
+  <object class="GtkImage" id="image10">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">go-up-symbolic</property>
+  </object>
+  <object class="GtkImage" id="image11">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">go-down-symbolic</property>
+  </object>
+  <object class="GtkImage" id="image12">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">go-top-symbolic</property>
+  </object>
+  <object class="GtkImage" id="image13">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">go-bottom-symbolic</property>
+  </object>
+  <object class="GtkImage" id="image14">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">help-about-symbolic</property>
+  </object>
   <object class="GtkImage" id="image2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="icon_name">go-next-symbolic</property>
+  </object>
+  <object class="GtkImage" id="image3">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">document-open-symbolic</property>
+  </object>
+  <object class="GtkImage" id="image4">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">document-save-symbolic</property>
+  </object>
+  <object class="GtkImage" id="image5">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">document-save-as-symbolic</property>
+  </object>
+  <object class="GtkImage" id="image6">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">application-exit-symbolic</property>
+  </object>
+  <object class="GtkImage" id="image7">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">edit-copy-symbolic</property>
+  </object>
+  <object class="GtkImage" id="image8">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">edit-select-all-symbolic</property>
+  </object>
+  <object class="GtkImage" id="image9">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">edit-find-symbolic</property>
   </object>
   <object class="GtkWindow" id="window">
     <property name="can_focus">False</property>
@@ -37,12 +97,13 @@
                     <property name="can_focus">False</property>
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_open">
-                        <property name="label">gtk-open</property>
+                        <property name="label">_Open...</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="accel_path">&lt;Control&gt;b</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
+                        <property name="image">image3</property>
+                        <property name="use_stock">False</property>
                         <accelerator key="o" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
@@ -57,20 +118,22 @@
                     </child>
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_save">
-                        <property name="label">gtk-save</property>
+                        <property name="label">_Save</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
+                        <property name="image">image4</property>
+                        <property name="use_stock">False</property>
                       </object>
                     </child>
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_save_as">
-                        <property name="label">gtk-save-as</property>
+                        <property name="label">Save _As...</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
+                        <property name="image">image5</property>
+                        <property name="use_stock">False</property>
                       </object>
                     </child>
                     <child>
@@ -81,11 +144,12 @@
                     </child>
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_quit">
-                        <property name="label">gtk-quit</property>
+                        <property name="label">_Quit</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
+                        <property name="image">image6</property>
+                        <property name="use_stock">False</property>
                       </object>
                     </child>
                   </object>
@@ -104,21 +168,23 @@
                     <property name="can_focus">False</property>
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_copy">
-                        <property name="label">gtk-copy</property>
+                        <property name="label">_Copy</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
+                        <property name="image">image7</property>
+                        <property name="use_stock">False</property>
                         <accelerator key="c" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_select_all">
-                        <property name="label">gtk-select-all</property>
+                        <property name="label">Select _All</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
+                        <property name="image">image8</property>
+                        <property name="use_stock">False</property>
                         <accelerator key="a" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
@@ -130,11 +196,12 @@
                     </child>
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_find">
-                        <property name="label">gtk-find</property>
+                        <property name="label">_Find</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
+                        <property name="image">image9</property>
+                        <property name="use_stock">False</property>
                         <accelerator key="f" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
@@ -228,21 +295,23 @@
                     <property name="can_focus">False</property>
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_prev">
-                        <property name="label">gtk-go-up</property>
+                        <property name="label">_Up</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
+                        <property name="image">image10</property>
+                        <property name="use_stock">False</property>
                         <accelerator key="Up" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_next">
-                        <property name="label">gtk-go-down</property>
+                        <property name="label">_Down</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
+                        <property name="image">image11</property>
+                        <property name="use_stock">False</property>
                         <accelerator key="Down" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
@@ -254,21 +323,23 @@
                     </child>
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_first">
-                        <property name="label">gtk-goto-top</property>
+                        <property name="label">_Top</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
+                        <property name="image">image12</property>
+                        <property name="use_stock">False</property>
                         <accelerator key="Page_Up" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_last">
-                        <property name="label">gtk-goto-bottom</property>
+                        <property name="label">_Bottom</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
+                        <property name="image">image13</property>
+                        <property name="use_stock">False</property>
                         <accelerator key="Page_Down" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
@@ -288,11 +359,11 @@
                     <property name="can_focus">False</property>
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_about">
-                        <property name="label">gtk-about</property>
+                        <property name="label">About</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
+                        <property name="image">image14</property>
+                        <property name="use_stock">False</property>
                       </object>
                     </child>
                   </object>
@@ -329,6 +400,9 @@
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="image">image1</property>
+                            <style>
+                              <class name="flat"/>
+                            </style>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -342,6 +416,9 @@
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="image">image2</property>
+                            <style>
+                              <class name="flat"/>
+                            </style>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -349,9 +426,6 @@
                             <property name="position">1</property>
                           </packing>
                         </child>
-                        <style>
-                          <class name="linked"/>
-                        </style>
                       </object>
                       <packing>
                         <property name="expand">False</property>
