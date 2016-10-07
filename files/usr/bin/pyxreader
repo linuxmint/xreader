@@ -42,6 +42,8 @@ class XReader:
         self.menuitem_help.connect("activate", self.on_menuitem_help_activated)
         self.menuitem_about.connect("activate", self.on_menuitem_about_activated)
 
+        self.menuitem_save.connect("activate", self.on_menuitem_save_activated)
+
         self.view = EvinceView.View()
         self.scrolledwindow.add(self.view)
         self.window.connect("destroy", Gtk.main_quit)
@@ -53,6 +55,7 @@ class XReader:
             self.document =  EvinceDocument.Document.factory_get_document(uri)
             self.model = EvinceView.DocumentModel.new_with_document(self.document)
             self.view.set_model(self.model)
+            self.uri = uri
         except Exception as exception:
             print(exception)
 
@@ -110,6 +113,10 @@ class XReader:
         aboutdialog.set_transient_for(self.window)
         aboutdialog.run()
         aboutdialog.destroy()
+
+    def on_menuitem_save_activated(self, widget):
+        job = EvinceView.JobSave.new(self.document, self.uri, self.uri)
+        job.run()
 
 xreader = XReader()
 xreader.load(sys.argv[1])
