@@ -17,3 +17,59 @@ Requirements to Run Tests
 ==================================================
 python-dogtail [ https://fedorahosted.org/dogtail/ ]
 python-pyatspi2 [ http://download.gnome.org/sources/pyatspi/ ]
+
+Todo list for pyxreader (specific to assigned branch)
+=====================================================
+
+MENU
+
+    file
+        open
+            add filters
+        open_a_copy/save_a_copy --> is it needed? can't we just save here?
+        print
+        properties
+        recent files
+        close
+
+    edit
+        copy
+        select_all
+        search features
+        rotate left/right
+
+    view
+        toolbar
+        menubar?
+        fullscreen
+        presentation
+        odd-page-left
+        zoom in / zoom out
+        ideal size
+        fit to width
+        enlarge window
+        reload
+
+TOOLBAR
+
+    tooltips
+    page switcher
+    zoom
+
+OTHER FEATURES
+
+    mime association
+    appinfo, icon etc..
+    annotations
+    thumbnails
+    bookmarks
+    packaging (discontinue numerous packages, guarantee upgrade path etc..)
+    remember settings... persistently? or per document?
+    inhibit in presentation mode
+    screen blanking
+
+EXTERNAL
+
+    thumbnailer
+    nemo-properties
+    caja-properties
