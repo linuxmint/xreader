@@ -2,6 +2,7 @@
 
 import sys
 import gi
+import subprocess
 
 gi.require_version('Gtk', '3.0')
 gi.require_version('EvinceDocument', '3.0')
@@ -38,6 +39,8 @@ class XReader:
         self.menuitem_continuous.connect("activate", self.on_menuitem_continuous_activated)
         self.menuitem_dual.connect("activate", self.on_menuitem_dual_activated)
         self.menuitem_odd_left.connect("activate", self.on_menuitem_odd_left_activated)
+        self.menuitem_help.connect("activate", self.on_menuitem_help_activated)
+        self.menuitem_about.connect("activate", self.on_menuitem_about_activated)
 
         self.view = EvinceView.View()
         self.scrolledwindow.add(self.view)
@@ -93,6 +96,20 @@ class XReader:
 
     def on_menuitem_odd_left_activated(self, widget):
         self.model.dual_odd_left = widget.get_active()
+
+    def on_menuitem_help_activated(self, widget):
+        subprocess.Popen(["yelp", "help:xreader"])
+
+    def on_menuitem_about_activated(self, widget):
+        aboutdialog = Gtk.AboutDialog()
+        aboutdialog.set_program_name("Xreader")
+        aboutdialog.set_version("XREADER_VERSION")
+        aboutdialog.set_website("http://github.com/linuxmint/xreader")
+        aboutdialog.set_website_label(_("Website"))
+        aboutdialog.set_logo_icon_name("xreader")
+        aboutdialog.set_transient_for(self.window)
+        aboutdialog.run()
+        aboutdialog.destroy()
 
 xreader = XReader()
 xreader.load(sys.argv[1])

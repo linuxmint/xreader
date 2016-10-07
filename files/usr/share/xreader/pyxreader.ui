@@ -32,6 +32,11 @@
     <property name="can_focus">False</property>
     <property name="icon_name">help-about-symbolic</property>
   </object>
+  <object class="GtkImage" id="image15">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">help-contents-symbolic</property>
+  </object>
   <object class="GtkImage" id="image2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -358,10 +363,22 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkImageMenuItem" id="menuitem_about">
-                        <property name="label">About</property>
+                      <object class="GtkImageMenuItem" id="menuitem_help">
+                        <property name="label" translatable="yes">_Contents</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="image">image15</property>
+                        <property name="use_stock">False</property>
+                        <accelerator key="F1" signal="activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="menuitem_about">
+                        <property name="label">_About</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
                         <property name="image">image14</property>
                         <property name="use_stock">False</property>
                       </object>
