@@ -46,6 +46,8 @@ class XReader:
 
         self.menuitem_zoom_in.connect("activate", self.on_menuitem_zoom_in_activated)
         self.menuitem_zoom_out.connect("activate", self.on_menuitem_zoom_out_activated)
+        self.menuitem_rotate_left.connect("activate", self.on_menuitem_rotate_left_activated)
+        self.menuitem_rotate_right.connect("activate", self.on_menuitem_rotate_right_activated)
 
         self.menuitem_best_fit.connect("activate", self.on_menuitem_best_fit_activated)
         self.menuitem_fit_width.connect("activate", self.on_menuitem_fit_width_activated)
@@ -114,6 +116,12 @@ class XReader:
     def on_menuitem_zoom_out_activated(self, widget):
         self.model.set_sizing_mode(EvinceView.SizingMode.FREE)
         self.view.zoom_out()
+
+    def on_menuitem_rotate_left_activated(self, widget):
+        self.model.set_rotation(self.model.get_rotation() - 90)
+
+    def on_menuitem_rotate_right_activated(self, widget):
+        self.model.set_rotation(self.model.get_rotation() + 90)
 
     def on_menuitem_best_fit_activated(self, widget):
         self.model.set_sizing_mode(EvinceView.SizingMode.BEST_FIT)
