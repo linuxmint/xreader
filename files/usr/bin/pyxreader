@@ -41,8 +41,14 @@ class XReader:
         self.menuitem_odd_left.connect("activate", self.on_menuitem_odd_left_activated)
         self.menuitem_help.connect("activate", self.on_menuitem_help_activated)
         self.menuitem_about.connect("activate", self.on_menuitem_about_activated)
-
+        self.menuitem_reload.connect("activate", self.on_menuitem_reload_activated)
         self.menuitem_save.connect("activate", self.on_menuitem_save_activated)
+
+        self.menuitem_zoom_in.connect("activate", self.on_menuitem_zoom_in_activated)
+        self.menuitem_zoom_out.connect("activate", self.on_menuitem_zoom_out_activated)
+
+        self.menuitem_best_fit.connect("activate", self.on_menuitem_best_fit_activated)
+        self.menuitem_fit_width.connect("activate", self.on_menuitem_fit_width_activated)
 
         self.view = EvinceView.View()
         self.scrolledwindow.add(self.view)
@@ -96,6 +102,24 @@ class XReader:
 
     def on_menuitem_dual_activated(self, widget):
         self.model.set_dual_page(widget.get_active())
+
+    def on_menuitem_reload_activated(self, widget):
+        self.document.load(self.uri)
+        self.view.reload()
+
+    def on_menuitem_zoom_in_activated(self, widget):
+        self.model.set_sizing_mode(EvinceView.SizingMode.FREE)
+        self.view.zoom_in()
+
+    def on_menuitem_zoom_out_activated(self, widget):
+        self.model.set_sizing_mode(EvinceView.SizingMode.FREE)
+        self.view.zoom_out()
+
+    def on_menuitem_best_fit_activated(self, widget):
+        self.model.set_sizing_mode(EvinceView.SizingMode.BEST_FIT)
+
+    def on_menuitem_fit_width_activated(self, widget):
+        self.model.set_sizing_mode(EvinceView.SizingMode.FIT_WIDTH)
 
     def on_menuitem_odd_left_activated(self, widget):
         self.model.dual_odd_left = widget.get_active()
