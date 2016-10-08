@@ -15,6 +15,8 @@ from gi.repository import EvinceView
 import gettext
 gettext.install("xreader", "/usr/share/locale")
 
+THUMBNAIL_WIDTH = 100
+
 class XReader:
 
     def __init__(self):
@@ -64,8 +66,22 @@ class XReader:
             self.model = EvinceView.DocumentModel.new_with_document(self.document)
             self.view.set_model(self.model)
             self.uri = uri
+
+            for i in range(0, self.document.get_n_pages()):
+                pixbuf = self.get_page_thumbnail(i)
+                self.window.set_icon(pixbuf)
+                break
+
         except Exception as exception:
             print(exception)
+
+
+    def get_page_thumbnail(self, page_number):
+        page =self.document.get_page(page_number)
+        (width, height) = self.document.get_page_size(page_number)
+        render_context = EvinceDocument.RenderContext.new(page, self.model.get_rotation(), THUMBNAIL_WIDTH / width)
+        pixbuf = self.document.get_thumbnail(render_context)
+        return pixbuf
 
     def on_button_prev_clicked(self, widget):
         self.view.previous_page()
