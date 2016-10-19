@@ -379,7 +379,7 @@ ev_document_misc_invert_pixbuf (GdkPixbuf *pixbuf)
 }
 
 gdouble
-ev_document_misc_get_screen_dpi (GdkScreen *screen)
+ev_document_misc_get_screen_dpi (GdkScreen *screen, gint monitor)
 {
 	gdouble dp, di;
 
@@ -388,6 +388,10 @@ ev_document_misc_get_screen_dpi (GdkScreen *screen)
 
 	/*diagonal in inches*/
 	di = hypot (gdk_screen_get_width_mm(screen), gdk_screen_get_height_mm (screen)) / 25.4;
+
+#ifdef HAVE_HIDPI_SUPPORT
+	di /= gdk_screen_get_monitor_scale_factor(screen, monitor);
+#endif
 
 	return (dp / di);
 }
