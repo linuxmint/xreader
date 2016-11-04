@@ -40,6 +40,7 @@
 static gchar   *ev_page_label;
 static gchar   *ev_find_string;
 static gint     ev_page_index = 0;
+static gchar   *ev_named_dest;
 static gboolean preview_mode = FALSE;
 static gboolean fullscreen_mode = FALSE;
 static gboolean presentation_mode = FALSE;
@@ -65,6 +66,7 @@ static const GOptionEntry goption_options[] =
 	{ "page-label", 'p', 0, G_OPTION_ARG_STRING, &ev_page_label, N_("The page label of the document to display."), N_("PAGE")},
 	{ "page-index", 'i', 0, G_OPTION_ARG_INT, &ev_page_index, N_("The page number of the document to display."), N_("NUMBER")},
 	{ "fullscreen", 'f', 0, G_OPTION_ARG_NONE, &fullscreen_mode, N_("Run xreader in fullscreen mode"), NULL },
+	{ "named-dest", 'n', 0, G_OPTION_ARG_STRING, &ev_named_dest, N_("Named destination to display."), N_("DEST")},
 	{ "presentation", 's', 0, G_OPTION_ARG_NONE, &presentation_mode, N_("Run xreader in presentation mode"), NULL },
 	{ "preview", 'w', 0, G_OPTION_ARG_NONE, &preview_mode, N_("Run xreader as a previewer"), NULL },
 	{ "find", 'l', 0, G_OPTION_ARG_STRING, &ev_find_string, N_("The word or phrase to find in the document"), N_("STRING")},
@@ -171,6 +173,8 @@ load_files (const char **files)
 		global_dest = ev_link_dest_new_page_label (ev_page_label);
 	else if (ev_page_index)
 		global_dest = ev_link_dest_new_page (MAX (0, ev_page_index - 1));
+	else if (ev_named_dest)
+		global_dest = ev_link_dest_new_named (ev_named_dest);
 
 	if (fullscreen_mode)
 		mode = EV_WINDOW_MODE_FULLSCREEN;

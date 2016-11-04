@@ -1074,7 +1074,7 @@ ev_view_get_max_page_size (EvView *view,
 static void
 get_page_y_offset (EvView *view, int page, int *y_offset)
 {
-	int max_width, offset;
+	int max_width, offset = 0;
 	GtkBorder border;
 
 	g_return_if_fail (y_offset != NULL);
@@ -3301,6 +3301,9 @@ ev_view_scroll_event (GtkWidget *widget, GdkEventScroll *event)
 	EvView *view = EV_VIEW (widget);
 	guint state;
 
+	if (event->direction == GDK_SCROLL_SMOOTH)
+		return FALSE;
+
 	state = event->state & gtk_accelerator_get_default_mod_mask ();
 
 	if (state == GDK_CONTROL_MASK) {
@@ -3346,6 +3349,8 @@ ev_view_scroll_event (GtkWidget *widget, GdkEventScroll *event)
 		        case GDK_SCROLL_LEFT:
 				ev_view_previous_page (view);
 				break;
+		        case GDK_SCROLL_SMOOTH:
+					g_assert_not_reached ();
 		}
 
 		return TRUE;
@@ -3418,6 +3423,12 @@ ev_view_draw (GtkWidget      *widget,
 		   gtk_widget_get_visible (view->loading_window)) {
 		ev_view_loading_window_move (view);
 	}
+
+	gtk_render_background (gtk_widget_get_style_context (widget),
+			       cr,
+			       0, 0,
+			       gtk_widget_get_allocated_width (widget),
+			       gtk_widget_get_allocated_height (widget));
 
 	if (view->document == NULL)
 		return FALSE;
@@ -4803,6 +4814,10 @@ ev_view_class_init (EvViewClass *class)
 	widget_class->popup_menu = ev_view_popup_menu;
 	widget_class->query_tooltip = ev_view_query_tooltip;
 
+#if GTK_CHECK_VERSION(3, 20, 0)
+	gtk_widget_class_set_css_name (widget_class, "evview");
+#endif
+
 	container_class->remove = ev_view_remove;
 	container_class->forall = ev_view_forall;
 
@@ -4903,10 +4918,16 @@ ev_view_class_init (EvViewClass *class)
 static void
 ev_view_init (EvView *view)
 {
+	GtkStyleContext *context;
+
 	gtk_widget_set_has_window (GTK_WIDGET (view), TRUE);
 	gtk_widget_set_can_focus (GTK_WIDGET (view), TRUE);
 	gtk_widget_set_redraw_on_allocate (GTK_WIDGET (view), FALSE);
 	gtk_container_set_resize_mode (GTK_CONTAINER (view), GTK_RESIZE_QUEUE);
+
+	context = gtk_widget_get_style_context (GTK_WIDGET (view));
+	gtk_style_context_add_class (context, "content-view");
+	gtk_style_context_add_class (context, "view");
 
 	gtk_widget_set_events (GTK_WIDGET (view),
 			       GDK_EXPOSURE_MASK |
@@ -5712,7 +5733,7 @@ jump_to_find_result (EvView *view)
 }
 
 /**
- * jump_to_find_page
+ * jump_to_find_page:
  * @view: #EvView instance
  * @direction: Direction to look
  * @shift: Shift from current page
