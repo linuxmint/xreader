@@ -4476,9 +4476,7 @@ draw_one_page (EvView       *view,
 			return;
 		}
 
-#ifdef HAVE_HIDPI_SUPPORT
 		cairo_surface_get_device_scale (page_surface, &device_scale_x, &device_scale_y);
-#endif
 
 		if (page == current_page)
 			hide_loading_window (view);

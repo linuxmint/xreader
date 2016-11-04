@@ -84,14 +84,14 @@ AC_SUBST([EV_INTLTOOL_XREADER_BACKEND_RULE])
 GLIB_GSETTINGS
 
 dnl Specify required versions of dependencies
-CAIRO_REQUIRED=1.9.10
+CAIRO_REQUIRED=1.14.0
 GLIB_REQUIRED=2.36.0
 LIBSECRET_REQUIRED=0.5
 MATEDESKTOP_REQUIRED=1.9.0
 GTK_API_VERSION=3.0
 WEBKIT_API_VERSION=4.0
 GAIL_API_VERSION=-3.0
-GTK_REQUIRED=3.0.0
+GTK_REQUIRED=3.10.0
 WEBKIT_REQUIRED=2.4.3
 
 AC_SUBST([GLIB_REQUIRED])
@@ -119,25 +119,6 @@ PKG_CHECK_MODULES(FRONTENDGTK2_CORE, gtk+-2.0 gthread-2.0 gio-2.0 >= $GLIB_REQUI
 PKG_CHECK_MODULES(GMODULE, gmodule-2.0 >= $GLIB_REQUIRED)
 
 PKG_CHECK_MODULES([SHELL_CORE],[libxml-2.0 >= $LIBXML_REQUIRED gtk+-3.0 >= $GTK_REQUIRED gio-2.0 >= $GLIB_REQUIRED gthread-2.0 x11])
-
-
-# Although GTK+ 3.10 includes hi-dpi functionality, it does not require a cairo with
-# cairo_surface_set_device_scale(), which we also need if we're to support hi-dpi,
-# so we need check for that explicity.
-
-xreader_save_LIBS=$LIBS
-LIBS="$LIBS $LIBVIEW_LIBS"
-AC_CHECK_FUNCS(cairo_surface_set_device_scale)
-LIBS=$xreader_save_LIBS
-
-AC_MSG_CHECKING([for hi-dpi support])
-if test "$ac_cv_func_cairo_surface_set_device_scale" = yes ; then
-   AC_DEFINE([HAVE_HIDPI_SUPPORT], [1], [Define if cairo and GTK+ have necessary functions for hi-dpi])
-   AC_MSG_RESULT([yes])
-else
-   AC_MSG_RESULT([no])
-fi
-
 
 dnl
 dnl zlib support
