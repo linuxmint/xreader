@@ -1,3 +1,112 @@
+xreader (1.2.0) serena; urgency=medium
+
+  [ Moser Peter ]
+  * Fixing bug17
+  * Fixes #19: Blacked-out selected text on unfocus
+  * Fixing #20
+  * ATRIL BACKPORTS: Remove the check for a parent, more intuitive conditions
+  * ATRIL BACKPORTS: window: fix another random webview-related crash
+  * Cleaning /libview/* from GTK2 define blocks
+
+  [ Clement Lefebvre ]
+  * Revert "Merge pull request #23 from Piiit/issue19"
+  * Move xreader menu item from Office to Accessories
+
+  [ Matthew Petroff ]
+  * Fix rendering of page shadow so it actually looks like a shadow.
+  * Fix rendering of shadow for inactive pages.
+
+  [ Moser Peter ]
+  * Fixing #22: Moving po/makepot and po/xreader.pot to the root directory
+  * ATRIL BACKPORTS: add css name EggToolbarEditor
+  * ATRIL BACKPORTS: check for GTK+3 stable release, not development one
+  * ATRIL BACKPORTS: backend, libdocument: reorganize some includes
+  * ATRIL BACKPORTS: Add a setting to disable auto-reload
+  * ATRIL BACKPORTS: shell: Don't set the current folder while saving a file
+  * ATRIL BACKPORTS: shell: Do not save file chooser open/save uri
+  * ATRIL BACKPORTS: shell: Store and restore current folder when opening or saving file
+  * ATRIL BACKPORTS: shell: Create metadata object even for temp files
+  * ATRIL BACKPORTS: ev-window: add new gsetting to set the page cache size
+  * ATRIL BACKPORTS: backend: drop some win32-specific stuff
+  * ATRIL BACKPORTS: fix minor build warning
+  * ATRIL BACKPORTS: GTK3 egg: don't use deprecated gdk_threads_{enter/leave} ()
+  * ATRIL BACKPORTS: GTK+-3: do not use deprecated gtk_{h/v}box_new
+  * ATRIL BACKPORTS: GTK3 ev-timeline: don't use deprecated gdk_threads_{enter/leave} ()
+  * ATRIL BACKPORTS: Do not use deprecated GTK_TYPE_VBOX definitions
+  * ATRIL BACKPORTS: GTK+-3.0: avoid deprecated usage of GtkArrow
+  * ATRIL BACKPORTS: schema: some corrections and a typo fix
+  * ATRIL BACKPORTS: cut-n-paste: Update synctex parser to version 1.16
+  * ATRIL BACKPORTS: synctex: update to version 1.17
+  * ATRIL BACKPORTS: synctex: fix compile warnings
+  * ATRIL BACKPORTS: synctex: Update from upstream
+  * ATRIL BACKPORTS: synctex: Fix -Wundef warning
+  * ATRIL BACKPORTS: synctex: update to 1.18
+  * ATRIL BACKPORTS: GTK+-3: fix deprecated gtk_{v/h}separator_new
+  * ATRIL BACKPORTS: GTK+-3 ev-password-view: Do not use deprecate composite-child API
+  * ATRIL BACKPORTS: GTK+-3 ev-sidebar-annotations: replace deprecated gtk_widget_render_icon
+  * ATRIL BACKPORTS: GTK+-3: Use GtkGrid instead of GtkTable
+  * ATRIL BACKPORTS: Fix undefined variable warnings in dvi-backend
+  * ATRIL BACKPORTS: GTK+-3 cut-n-paste: Update toolbar-editor from libegg
+  * ATRIL BACKPORTS: shell: add plural form for "cancel print jobs before closing" dialog
+  * ATRIL BACKPORTS: configure: Bump poppler requirements to 0.18.0
+  * ATRIL BACKPORTS: document-model: annotate ev_document_model_get_document()
+  * ATRIL BACKPORTS: libdocument: Use G_DEFINE_BOXED_TYPE instead of custom macro
+  * ATRIL BACKPORTS: libdocument: Add missing annotation to ev_document_factory_get_document.
+  * ATRIL BACKPORTS: libdocument: Make EvSourceLink boxed.
+  * ATRIL BACKPORTS: libdocument: Document EvAnnotation.
+  * ATRIL BACKPORTS: GTK+-3: do not use gdk_app_launch_context_new()
+  * ATRIL BACKPORTS: GTK+-3: do not use deprecated gtk_dialog_set_alternative_button_order
+  * ATRIL BACKPORTS: GTK+-3: Use ev_document_misc_get_pointer_position() instad of deprecated gtk_widget_get_pointer()
+  * ATRIL BACKPORTS: GTK+-3 toolbar-editor: port GtkTable to GtkGrid
+  * ATRIL BACKPORTS: GTK+-3 ev-view-presentation: Fix a unused-but-set-variable compile warning
+  * ATRIL BACKPORTS: Fix rotated tiff documents
+  * ATRIL BACKPORTS: Refresh thumbnail only when window has a document
+  * ATRIL BACKPORTS: libview: Add dual-odd-left property to EvDocumentModel
+  * ATRIL BACKPORTS: libview: Add an option to show odd pages on the left in dual mode
+  * ATRIL BACKPORTS: eggfindbar: Find next/previous with control + Up/Down
+  * ATRIL BACKPORTS: comics: Fix some memory leaks
+  * ATRIL BACKPORTS: xps: Fill version information of EvDocumentBackendInfo
+  * ATRIL BACKPORTS: dvi: Use t1 font mapping files
+  * ATRIL BACKPORTS: dvi: Use new font name instead of the old one
+  * Transifex config folder .tx removed
+  * New .gitignore file
+  * Fix for Bug #50: File attachment not shown
+
+  [ voxspox ]
+  * readd short keys for "best fit", "fit page" and "dual"
+
+  [ Matthew Petroff ]
+  * Add hi-dpi support for main view.
+  * Take monitor scale factor into account when calculating zoom.
+
+  [ Clement Lefebvre ]
+  * Revert "Merge pull request #57 from voxspox/master"
+
+  [ Moser Peter ]
+  * ATRIL BACKPORTS: Gtk+-3 ev-view: Set a style class on the view so it can be more easily styled
+  * ATRIL BACKPORTS: GTK+-3.20 ev-view: Update EvView style to use CSS node name
+  * ATRIL BACKPORTS: ev-view: Fix compile warning
+  * ATRIL BACKPORTS: GTK+-3 ev-view-presentation: Fix a crash during the build with introspection enabled
+  * ATRIL BACKPORTS: GTK+-3 libview: Fix compiler warnings
+  * ATRIL BACKPORTS: Setting parent for annotation properties dialog
+  * ATRIL BACKPORTS: tiff: Fix for -Wformat-nonliteral warnings
+  * ATRIL BACKPORTS: shell: Fix -Wformat-nonliteral warning
+  * ATRIL BACKPORTS: ev-view: add missing semicolon to gtk-doc comment
+  * ATRIL BACKPORTS: toolbar-editor: Fix compiler warning
+  * ATRIL BACKPORTS: tiff: fix compile warning
+  * ATRIL BACKPORTS: tiff: issue warnings on print errors
+  * ATRIL BACKPORTS: GTK+-3 gimpcellrenderertoggle: Fix compile warnings
+  * ATRIL BACKPORTS: distcheck: explicitly use currently selected GTK+ version
+  * ATRIL BACKPORTS: Add --named-dest command line argument
+
+  [ Clement Lefebvre ]
+  * Update pot file
+
+  [ Matthew Petroff ]
+  * Bump Cairo version to 1.14.0 and GTK version to 3.10.0 such that hi-dpi conditionals aren't needed.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 05 Nov 2016 10:56:24 +0000
+
 xreader (1.0.8) sarah; urgency=medium
 
   [ Moser Peter ]
