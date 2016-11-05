@@ -4474,6 +4474,7 @@ draw_one_page (EvView       *view,
 		cairo_surface_t *page_surface = NULL;
 		gint             selection_width, selection_height;
 		cairo_surface_t *selection_surface = NULL;
+		double device_scale_x = 1, device_scale_y = 1;
 
 		page_surface = ev_pixbuf_cache_get_surface (view->pixbuf_cache, page);
 
@@ -4485,6 +4486,8 @@ draw_one_page (EvView       *view,
 
 			return;
 		}
+
+		cairo_surface_get_device_scale (page_surface, &device_scale_x, &device_scale_y);
 
 		if (page == current_page)
 			hide_loading_window (view);
@@ -4501,13 +4504,13 @@ draw_one_page (EvView       *view,
 			cairo_pattern_set_filter (cairo_get_source (cr),
 						  CAIRO_FILTER_FAST);
 			cairo_scale (cr,
-				     (gdouble)width / page_width,
-				     (gdouble)height / page_height);
+				     (gdouble)width / page_width * device_scale_x,
+				     (gdouble)height / page_height * device_scale_y);
 		}
 
 		cairo_surface_set_device_offset (page_surface,
-						 overlap.x - real_page_area.x,
-						 overlap.y - real_page_area.y);
+						 (overlap.x - real_page_area.x) * device_scale_x,
+						 (overlap.y - real_page_area.y) * device_scale_y);
 		cairo_set_source_surface (cr, page_surface, 0, 0);
 		cairo_paint (cr);
 		cairo_restore (cr);
@@ -4536,13 +4539,13 @@ draw_one_page (EvView       *view,
 			cairo_pattern_set_filter (cairo_get_source (cr),
 						  CAIRO_FILTER_FAST);
 			cairo_scale (cr,
-				     (gdouble)width / selection_width,
-				     (gdouble)height / selection_height);
+				     (gdouble)width / selection_width * device_scale_x,
+				     (gdouble)height / selection_height * device_scale_y);
 		}
 
 		cairo_surface_set_device_offset (selection_surface,
-						 overlap.x - real_page_area.x,
-						 overlap.y - real_page_area.y);
+						 (overlap.x - real_page_area.x) * device_scale_x,
+						 (overlap.y - real_page_area.y) * device_scale_y);
 
 		cairo_set_source_surface (cr, selection_surface, 0, 0);
 		cairo_paint (cr);
@@ -4916,6 +4919,14 @@ ev_view_class_init (EvViewClass *class)
 }
 
 static void
+on_notify_scale_factor (EvView     *view,
+			GParamSpec *pspec)
+{
+	if (view->document)
+		view_update_range_and_current_page (view);
+}
+
+static void
 ev_view_init (EvView *view)
 {
 	GtkStyleContext *context;
@@ -4961,6 +4972,9 @@ ev_view_init (EvView *view)
 	view->pending_scroll = SCROLL_TO_KEEP_POSITION;
 	view->jump_to_find_result = TRUE;
 	view->highlight_find_results = FALSE;
+
+	g_signal_connect (view, "notify::scale-factor",
+			  G_CALLBACK (on_notify_scale_factor), NULL);
 }
 
 /*** Callbacks ***/
