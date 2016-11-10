@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-09 16:11+0000\n"
+"POT-Creation-Date: 2016-11-04 15:49+0000\n"
 "PO-Revision-Date: 2016-02-09 16:21+0000\n"
 "Last-Translator: infirit <Unknown>\n"
 "Language-Team: Mongolian (http://www.transifex.com/mate/MATE/language/mn/)\n"
@@ -17,62 +17,61 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2016-06-25 09:32+0000\n"
-"X-Generator: Launchpad (build 18111)\n"
+"X-Launchpad-Export-Date: 2016-11-09 17:17+0000\n"
+"X-Generator: Launchpad (build 18255)\n"
 "Language: mn\n"
 
-#: ../backend/comics/comics-document.c:217
+#: ../backend/comics/comics-document.c:204
 #, c-format
 msgid ""
 "Error launching the command “%s” in order to decompress the comic book: %s"
 msgstr "Зурагт ном задлах “%s” командыг гүйцэтгэхэд алдаа гарлаа: %s"
 
-#: ../backend/comics/comics-document.c:231
+#: ../backend/comics/comics-document.c:218
 #, c-format
 msgid "The command “%s” failed at decompressing the comic book."
 msgstr "Зурагт ном задлах “%s” командыг биелүүлэх амжилтгүй боллоо."
 
-#: ../backend/comics/comics-document.c:240
+#: ../backend/comics/comics-document.c:227
 #, c-format
 msgid "The command “%s” did not end normally."
 msgstr "“%s” команд хэвийн байдлаар дууссангүй."
 
-#: ../backend/comics/comics-document.c:444
+#: ../backend/comics/comics-document.c:431
 #, c-format
 msgid "Not a comic book MIME type: %s"
 msgstr "MIME төрлийн зурагт ном биш байна: %s"
 
-#: ../backend/comics/comics-document.c:451
+#: ../backend/comics/comics-document.c:438
 msgid ""
 "Can't find an appropriate command to decompress this type of comic book"
 msgstr "Энэ төрлийн зурагт номыг задлах тохиромжтой команд олсонгүй"
 
-#: ../backend/comics/comics-document.c:525 ../backend/epub/epub-document.c:627
+#: ../backend/comics/comics-document.c:512 ../backend/epub/epub-document.c:627
 #: ../libdocument/ev-document-factory.c:145
 #: ../libdocument/ev-document-factory.c:288
 msgid "Unknown MIME Type"
 msgstr "Танигдахгүй MIME төрөл"
 
-#: ../backend/comics/comics-document.c:552
+#: ../backend/comics/comics-document.c:539
 msgid "File corrupted"
 msgstr "Файл гэмтсэн байна"
 
-#: ../backend/comics/comics-document.c:565
+#: ../backend/comics/comics-document.c:552
 msgid "No files in archive"
 msgstr "Архивд файл байхгүй байна"
 
-#: ../backend/comics/comics-document.c:604
+#: ../backend/comics/comics-document.c:591
 #, c-format
 msgid "No images found in archive %s"
 msgstr "%s архиваас зураг олдсонгүй"
 
-#: ../backend/comics/comics-document.c:848
-#: ../backend/epub/epub-document.c:1777
+#: ../backend/comics/comics-document.c:838 ../backend/epub/epub-document.c:1777
 #, c-format
 msgid "There was an error deleting “%s”."
 msgstr "\"%s\"-ийг устгахад алдаа гарсан байна."
 
-#: ../backend/comics/comics-document.c:991
+#: ../backend/comics/comics-document.c:981
 #, c-format
 msgid "Error %s"
 msgstr "%s алдаа"
@@ -97,7 +96,7 @@ msgstr ""
 msgid "DjVu Documents"
 msgstr "DjVu баримт бичиг"
 
-#: ../backend/dvi/dvi-document.c:113
+#: ../backend/dvi/dvi-document.c:107
 msgid "DVI document has incorrect format"
 msgstr "DVI баримт бичиг буруу форматтай байна."
 
@@ -171,15 +170,17 @@ msgstr "Энэ бүтээл нийтийн домэйнд байна"
 
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:772 ../backend/pdf/ev-poppler.cc:778
-#: ../properties-caja/ev-properties-view.c:364
-#: ../properties-nemo/ev-properties-view.c:364
+#: ../properties-caja/ev-properties-view.c:381
+#: ../properties-caja/ev-properties-view.c:448
+#: ../properties-nemo/ev-properties-view.c:362
 msgid "Yes"
 msgstr "Тийм"
 
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:775 ../backend/pdf/ev-poppler.cc:778
-#: ../properties-caja/ev-properties-view.c:368
-#: ../properties-nemo/ev-properties-view.c:368
+#: ../properties-caja/ev-properties-view.c:385
+#: ../properties-caja/ev-properties-view.c:452
+#: ../properties-nemo/ev-properties-view.c:366
 msgid "No"
 msgstr "Үгүй"
 
@@ -249,7 +250,7 @@ msgstr "“%s” баримтыг хадгалах амжилтгүй болло
 msgid "PostScript Documents"
 msgstr "ПостСкрипт баримтууд"
 
-#: ../backend/tiff/tiff-document.c:127
+#: ../backend/tiff/tiff-document.c:114
 msgid "Invalid document"
 msgstr "Буруу баримт бичиг"
 
@@ -258,12 +259,12 @@ msgstr "Буруу баримт бичиг"
 msgid "Couldn't save attachment “%s”: %s"
 msgstr "“%s” хавсралтыг хадгалж чадсангүй: %s"
 
-#: ../libdocument/ev-attachment.c:372
+#: ../libdocument/ev-attachment.c:373
 #, c-format
 msgid "Couldn't open attachment “%s”: %s"
 msgstr "“%s” хавсралтыг нээж чадсангүй: %s"
 
-#: ../libdocument/ev-attachment.c:407
+#: ../libdocument/ev-attachment.c:408
 #, c-format
 msgid "Couldn't open attachment “%s”"
 msgstr "“%s” хавсралтыг нээж чадсангүй"
@@ -281,12 +282,12 @@ msgstr "Бүх баримт бичиг"
 msgid "All Files"
 msgstr "Бүх файл"
 
-#: ../libdocument/ev-file-helpers.c:146
+#: ../libdocument/ev-file-helpers.c:147
 #, c-format
 msgid "Failed to create a temporary file: %s"
 msgstr "Түр зуурын хавтас нээх амжилтгүй боллоо: %s"
 
-#: ../libdocument/ev-file-helpers.c:308
+#: ../libdocument/ev-file-helpers.c:309
 #, c-format
 msgid "Failed to create a temporary directory: %s"
 msgstr "Түр зуурын хавтас нээх амжилтгүй боллоо: %s"
@@ -363,41 +364,41 @@ msgstr "Сэшн менежментийн сонголтуудыг харуул�
 #. * produce duplicates, but don't worry about it. If your language
 #. * normally has a mnemonic at the start, please use the _. If not,
 #. * please remove.
-#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:977
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:978
 #, c-format
 msgid "Show “_%s”"
 msgstr "“_%s”-ийг харуулах"
 
-#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1443
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1467
 msgid "_Move on Toolbar"
 msgstr "_Хэрэгслийн мөрөнд шилжих"
 
-#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1444
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1468
 msgid "Move the selected item on the toolbar"
 msgstr "Хэрэгслийн мөрний сонгогдсон зүйл рүү шилжих"
 
-#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1445
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1469
 msgid "_Remove from Toolbar"
 msgstr "_Хэрэгслийн мөрнөөс устгах"
 
-#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1446
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1470
 msgid "Remove the selected item from the toolbar"
 msgstr "Сонгогдсон зүйлийг хэрэгслийн мөрнөөс устгах"
 
-#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1447
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1471
 msgid "_Delete Toolbar"
 msgstr "_Хэрэгслийн мөрийг устгах"
 
-#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1448
+#: ../cut-n-paste/toolbar-editor/egg-editable-toolbar.c:1472
 msgid "Remove the selected toolbar"
 msgstr "Сонгогдсон хэрэгслийн мөрийг устгах"
 
-#: ../cut-n-paste/toolbar-editor/egg-toolbar-editor.c:491
+#: ../cut-n-paste/toolbar-editor/egg-toolbar-editor.c:496
 msgid "Separator"
 msgstr "Тусгаарлагч"
 
 #. translators: this is the label for toolbar button
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6259
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6327
 msgid "Best Fit"
 msgstr "Нарийн тааруулах"
 
@@ -405,7 +406,7 @@ msgstr "Нарийн тааруулах"
 msgid "Fit Page Width"
 msgstr "Хуудасны өргөнтэй тааруулах"
 
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:5923
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:5991
 msgid "Expand Window to Fit"
 msgstr ""
 
@@ -494,6 +495,32 @@ msgstr ""
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 
+#: ../data/org.x.reader.gschema.xml.h:3
+msgid "Automatically reload the document"
+msgstr ""
+
+#: ../data/org.x.reader.gschema.xml.h:4
+msgid "Whether the document is automatically reloaded on file change."
+msgstr ""
+
+#: ../data/org.x.reader.gschema.xml.h:5
+msgid "The URI of the directory last used to open or save a document."
+msgstr ""
+
+#: ../data/org.x.reader.gschema.xml.h:6
+msgid "The URI of the directory last used to save a picture."
+msgstr ""
+
+#: ../data/org.x.reader.gschema.xml.h:7
+msgid "Page cache size in MiB"
+msgstr ""
+
+#: ../data/org.x.reader.gschema.xml.h:8
+msgid ""
+"The maximum size that will be used to cache rendered pages, limits maximum "
+"zoom level."
+msgstr ""
+
 #: ../previewer/ev-previewer.c:35
 msgid "Delete the temporary file"
 msgstr "Түр зуурын файлыг устгах"
@@ -506,7 +533,7 @@ msgstr "Тохиргооны файлыг хэвлэх"
 msgid "MATE Document Previewer"
 msgstr "ГНОУМ баримт бичиг урьдчилан үзүүлэгч"
 
-#: ../previewer/ev-previewer-window.c:91 ../shell/ev-window.c:3309
+#: ../previewer/ev-previewer-window.c:91 ../shell/ev-window.c:3369
 msgid "Failed to print document"
 msgstr "Баримт бичиг хэвлэх амжилтгүй боллоо"
 
@@ -516,59 +543,59 @@ msgid "The selected printer '%s' could not be found"
 msgstr "Сонгосон '%s' хэвлэгч олдсонгүй"
 
 #. Go menu
-#: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:5930
+#: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:5998
 msgid "_Previous Page"
 msgstr "_Өмнөх хуудас"
 
-#: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:5931
+#: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:5999
 msgid "Go to the previous page"
 msgstr "Өмнөх хуудсанд очих"
 
-#: ../previewer/ev-previewer-window.c:287 ../shell/ev-window.c:5933
+#: ../previewer/ev-previewer-window.c:287 ../shell/ev-window.c:6001
 msgid "_Next Page"
 msgstr "_Дараах хуудас"
 
-#: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:5934
+#: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:6002
 msgid "Go to the next page"
 msgstr "Дараах хуудсанд очих"
 
-#: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:5914
+#: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:5982
 msgid "Enlarge the document"
 msgstr "Баримт бичиг томсгох"
 
-#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:5917
+#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:5985
 msgid "Shrink the document"
 msgstr "Баримт бичиг жижигсгэх"
 
-#: ../previewer/ev-previewer-window.c:297 ../libview/ev-print-operation.c:1313
+#: ../previewer/ev-previewer-window.c:297 ../libview/ev-print-operation.c:1308
 msgid "Print"
 msgstr "Хэвлэх"
 
-#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:5883
+#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:5951
 msgid "Print this document"
 msgstr "Уг баримт бичгийг хэвлэх"
 
-#: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:6037
+#: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:6105
 msgid "_Best Fit"
 msgstr "_Нарийн тааруулах"
 
-#: ../previewer/ev-previewer-window.c:343 ../shell/ev-window.c:6038
+#: ../previewer/ev-previewer-window.c:343 ../shell/ev-window.c:6106
 msgid "Make the current document fill the window"
 msgstr "Нээлттэй байгаа баримт бичгээ цонх дүүргэж байршуулах"
 
-#: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:6040
+#: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:6108
 msgid "Fit Page _Width"
 msgstr "Хуудасны өргөнтэй тааруулах"
 
-#: ../previewer/ev-previewer-window.c:346 ../shell/ev-window.c:6041
+#: ../previewer/ev-previewer-window.c:346 ../shell/ev-window.c:6109
 msgid "Make the current document fill the window width"
 msgstr "Нээлттэй байгаа баримт бичгээ цонхны өргөнийг дүүргэж байршуулах"
 
-#: ../previewer/ev-previewer-window.c:547 ../shell/ev-window.c:6181
+#: ../previewer/ev-previewer-window.c:547 ../shell/ev-window.c:6249
 msgid "Page"
 msgstr "Хуудас"
 
-#: ../previewer/ev-previewer-window.c:548 ../shell/ev-window.c:6182
+#: ../previewer/ev-previewer-window.c:548 ../shell/ev-window.c:6250
 msgid "Select Page"
 msgstr "Хуудсаа сонгох"
 
@@ -594,7 +621,7 @@ msgstr "Сэдэв:"
 
 #: ../properties-caja/ev-properties-view.c:63
 #: ../properties-nemo/ev-properties-view.c:63
-#: ../shell/ev-annotation-properties-dialog.c:156
+#: ../shell/ev-annotation-properties-dialog.c:154
 msgid "Author:"
 msgstr "Зохиогч:"
 
@@ -648,9 +675,9 @@ msgstr "Аюулгүй байдал:"
 msgid "Paper Size:"
 msgstr "Хуудасны хэмжээ:"
 
-#: ../properties-caja/ev-properties-view.c:188
-#: ../properties-nemo/ev-properties-view.c:188
-#: ../libview/ev-print-operation.c:1897
+#: ../properties-caja/ev-properties-view.c:200
+#: ../properties-nemo/ev-properties-view.c:187
+#: ../libview/ev-print-operation.c:1892
 msgid "None"
 msgstr "Хоосон"
 
@@ -660,35 +687,35 @@ msgstr "Хоосон"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #. 
-#: ../properties-caja/ev-properties-view.c:217
-#: ../properties-nemo/ev-properties-view.c:217
+#: ../properties-caja/ev-properties-view.c:233
+#: ../properties-nemo/ev-properties-view.c:215
 msgid "default:mm"
 msgstr "өгөгдмөл:mm"
 
-#: ../properties-caja/ev-properties-view.c:261
-#: ../properties-nemo/ev-properties-view.c:261
+#: ../properties-caja/ev-properties-view.c:277
+#: ../properties-nemo/ev-properties-view.c:259
 #, c-format
 msgid "%.0f × %.0f mm"
 msgstr "%.0f x %.0f мм"
 
-#: ../properties-caja/ev-properties-view.c:265
-#: ../properties-nemo/ev-properties-view.c:265
+#: ../properties-caja/ev-properties-view.c:281
+#: ../properties-nemo/ev-properties-view.c:263
 #, c-format
 msgid "%.2f × %.2f inch"
 msgstr "%.2f x %.2f инч"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: ../properties-caja/ev-properties-view.c:289
-#: ../properties-nemo/ev-properties-view.c:289
+#: ../properties-caja/ev-properties-view.c:305
+#: ../properties-nemo/ev-properties-view.c:287
 #, c-format
 msgid "%s, Portrait (%s)"
 msgstr "%s, Босоо (%s)"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: ../properties-caja/ev-properties-view.c:296
-#: ../properties-nemo/ev-properties-view.c:296
+#: ../properties-caja/ev-properties-view.c:312
+#: ../properties-nemo/ev-properties-view.c:294
 #, c-format
 msgid "%s, Landscape (%s)"
 msgstr "%s, Хэвтээ (%s)"
@@ -703,20 +730,18 @@ msgstr ""
 msgid "Shows details for Xreader documents"
 msgstr ""
 
-#: ../libmisc/ev-page-action-widget.c:85
-#: ../libmisc/ev-page-action-widget.c:124
+#: ../libmisc/ev-page-action-widget.c:85 ../libmisc/ev-page-action-widget.c:125
 #, c-format
 msgid "(%d of %d)"
 msgstr "(%d -ийн %d)"
 
-#: ../libmisc/ev-page-action-widget.c:87
-#: ../libmisc/ev-page-action-widget.c:126
+#: ../libmisc/ev-page-action-widget.c:87 ../libmisc/ev-page-action-widget.c:127
 #, c-format
 msgid "of %d"
 msgstr "%d-ийн"
 
 #. Create tree view
-#: ../libview/ev-loading-window.c:81 ../shell/ev-sidebar-annotations.c:133
+#: ../libview/ev-loading-window.c:76 ../shell/ev-sidebar-annotations.c:136
 #: ../shell/ev-sidebar-layers.c:125 ../shell/ev-sidebar-links.c:260
 msgid "Loading…"
 msgstr "Ачаалж байна..."
@@ -735,35 +760,35 @@ msgstr "Дуусч байна..."
 msgid "Printing page %d of %d…"
 msgstr "%d-ийн %d хуудсыг хэвлэж байна..."
 
-#: ../libview/ev-print-operation.c:1167
+#: ../libview/ev-print-operation.c:1162
 msgid "Printing is not supported on this printer."
 msgstr "Уг хэвлэгч дээр хэвлэх боломжгүй байна."
 
-#: ../libview/ev-print-operation.c:1232
+#: ../libview/ev-print-operation.c:1227
 msgid "Invalid page selection"
 msgstr "Болохгүй хуудас сонгосон байна"
 
-#: ../libview/ev-print-operation.c:1233
+#: ../libview/ev-print-operation.c:1228
 msgid "Warning"
 msgstr "Анхааруулга"
 
-#: ../libview/ev-print-operation.c:1235
+#: ../libview/ev-print-operation.c:1230
 msgid "Your print range selection does not include any pages"
 msgstr "Хэвлэгчийн тань хэвлэх хуудасны сонголт хийгдээгүй байна"
 
-#: ../libview/ev-print-operation.c:1892
+#: ../libview/ev-print-operation.c:1887
 msgid "Page Scaling:"
 msgstr "Хуудасны хэмжээс:"
 
-#: ../libview/ev-print-operation.c:1898
+#: ../libview/ev-print-operation.c:1893
 msgid "Shrink to Printable Area"
 msgstr "Хэвлэх хэсэгт жижигрүүлэх"
 
-#: ../libview/ev-print-operation.c:1899
+#: ../libview/ev-print-operation.c:1894
 msgid "Fit to Printable Area"
 msgstr "Хэвлэх хэсэгт тааруулах"
 
-#: ../libview/ev-print-operation.c:1902
+#: ../libview/ev-print-operation.c:1897
 msgid ""
 "Scale document pages to fit the selected printer page. Select from one of "
 "the following:\n"
@@ -787,11 +812,11 @@ msgstr ""
 "• \"Хэвлэх хэсэгт тааруулах\": Хэвлэгчийн хуудасны хэвлэгчийн хэсэгт "
 "тааруулахын тулд хуудсыг томосгох буюу багасгадаг.\n"
 
-#: ../libview/ev-print-operation.c:1914
+#: ../libview/ev-print-operation.c:1909
 msgid "Auto Rotate and Center"
 msgstr "Автоматаар эргүүлэх буюу голлуулах"
 
-#: ../libview/ev-print-operation.c:1917
+#: ../libview/ev-print-operation.c:1912
 msgid ""
 "Rotate printer page orientation of each page to match orientation of each "
 "document page. Document pages will be centered within the printer page."
@@ -800,11 +825,11 @@ msgstr ""
 "хэвлэгчийн хуудасны чигийг эргүүлнэ. Баримт бичгийн хуудас хэвлэгчийн "
 "хуудсан дотор голлоно."
 
-#: ../libview/ev-print-operation.c:1922
+#: ../libview/ev-print-operation.c:1917
 msgid "Select page size using document page size"
 msgstr "Баримт бичгийн хуудасны хэмжээг ашиглан хуудасны хэмжээг сонгох"
 
-#: ../libview/ev-print-operation.c:1924
+#: ../libview/ev-print-operation.c:1919
 msgid ""
 "When enabled, each page will be printed on the same size paper as the "
 "document page."
@@ -812,11 +837,11 @@ msgstr ""
 "Тохируулсан бол хуудас бүр баримт бичгийн хуудастай ижил "
 "хэмжээгээрхэвлэгдэнэ."
 
-#: ../libview/ev-print-operation.c:2006
+#: ../libview/ev-print-operation.c:2001
 msgid "Page Handling"
 msgstr "Хуудас боловсруулалт"
 
-#: ../libview/ev-jobs.c:1790
+#: ../libview/ev-jobs.c:1730
 #, c-format
 msgid "Failed to print page %d: %s"
 msgstr "%d хуудсыг хэвлэх амжилтгүй боллоо: %s"
@@ -841,83 +866,83 @@ msgstr "Харагдцыг доош нь гүйлгэх"
 msgid "Document View"
 msgstr "Баримт бичгийн харагдац"
 
-#: ../libview/ev-view-presentation.c:722
+#: ../libview/ev-view-presentation.c:692
 msgid "Jump to page:"
 msgstr "Хуудас руу очих:"
 
-#: ../libview/ev-view-presentation.c:1038
+#: ../libview/ev-view-presentation.c:996
 msgid "End of presentation. Click to exit."
 msgstr "Үзүүлэн дууслаа. Хулганаараа товшин гарна уу."
 
-#: ../libview/ev-view.c:1863
+#: ../libview/ev-view.c:1821
 msgid "Go to first page"
 msgstr "Эхний хуудсанд очих"
 
-#: ../libview/ev-view.c:1865
+#: ../libview/ev-view.c:1823
 msgid "Go to previous page"
 msgstr "Өмнөх хуудсанд очих"
 
-#: ../libview/ev-view.c:1867
+#: ../libview/ev-view.c:1825
 msgid "Go to next page"
 msgstr "Дараах хуудсанд очих"
 
-#: ../libview/ev-view.c:1869
+#: ../libview/ev-view.c:1827
 msgid "Go to last page"
 msgstr "Сүүлийн хуудсанд очих"
 
-#: ../libview/ev-view.c:1871
+#: ../libview/ev-view.c:1829
 msgid "Go to page"
 msgstr "Хуудсанд очих"
 
-#: ../libview/ev-view.c:1873
+#: ../libview/ev-view.c:1831
 msgid "Find"
 msgstr "Хайж олох"
 
-#: ../libview/ev-view.c:1901
+#: ../libview/ev-view.c:1859
 #, c-format
 msgid "Go to page %s"
 msgstr "%s хуудсанд очих"
 
-#: ../libview/ev-view.c:1907
+#: ../libview/ev-view.c:1865
 #, c-format
 msgid "Go to %s on file “%s”"
 msgstr "“%s” файл дээрх %s -д очих"
 
-#: ../libview/ev-view.c:1910
+#: ../libview/ev-view.c:1868
 #, c-format
 msgid "Go to file “%s”"
 msgstr "“%s”файлд очих"
 
-#: ../libview/ev-view.c:1918
+#: ../libview/ev-view.c:1876
 #, c-format
 msgid "Launch %s"
 msgstr "%s-ийг нээх"
 
-#: ../shell/eggfindbar.c:322
+#: ../shell/eggfindbar.c:327
 msgid "Find:"
 msgstr "Хайж олох:"
 
-#: ../shell/eggfindbar.c:331 ../shell/ev-window.c:5900
+#: ../shell/eggfindbar.c:336 ../shell/ev-window.c:5968
 msgid "Find Pre_vious"
 msgstr "Өмнөхийг хайж олох"
 
-#: ../shell/eggfindbar.c:335
+#: ../shell/eggfindbar.c:340
 msgid "Find previous occurrence of the search string"
 msgstr "Хайлтын үгний өмнөх тохиолдлыг хайж олох"
 
-#: ../shell/eggfindbar.c:339 ../shell/ev-window.c:5898
+#: ../shell/eggfindbar.c:344 ../shell/ev-window.c:5966
 msgid "Find Ne_xt"
 msgstr "Дараагийнхыг хайж олох"
 
-#: ../shell/eggfindbar.c:343
+#: ../shell/eggfindbar.c:348
 msgid "Find next occurrence of the search string"
 msgstr "Хайлтын үгний дараагийн тохиолдлыг хайж олох"
 
-#: ../shell/eggfindbar.c:350
+#: ../shell/eggfindbar.c:355
 msgid "Case Sensitive"
 msgstr ""
 
-#: ../shell/eggfindbar.c:353
+#: ../shell/eggfindbar.c:358
 msgid "Toggle case sensitive search"
 msgstr "Хайлтыг үсгийн хэмжээ таниж хийх"
 
@@ -925,79 +950,79 @@ msgstr "Хайлтыг үсгийн хэмжээ таниж хийх"
 msgid "Icon:"
 msgstr ""
 
-#: ../shell/ev-annotation-properties-dialog.c:101
+#: ../shell/ev-annotation-properties-dialog.c:100
 msgid "Note"
 msgstr ""
 
-#: ../shell/ev-annotation-properties-dialog.c:102
+#: ../shell/ev-annotation-properties-dialog.c:101
 msgid "Comment"
 msgstr ""
 
-#: ../shell/ev-annotation-properties-dialog.c:103
+#: ../shell/ev-annotation-properties-dialog.c:102
 msgid "Key"
 msgstr ""
 
-#: ../shell/ev-annotation-properties-dialog.c:104
+#: ../shell/ev-annotation-properties-dialog.c:103
 msgid "Help"
 msgstr ""
 
-#: ../shell/ev-annotation-properties-dialog.c:105
+#: ../shell/ev-annotation-properties-dialog.c:104
 msgid "New Paragraph"
 msgstr ""
 
-#: ../shell/ev-annotation-properties-dialog.c:106
+#: ../shell/ev-annotation-properties-dialog.c:105
 msgid "Paragraph"
 msgstr ""
 
-#: ../shell/ev-annotation-properties-dialog.c:107
+#: ../shell/ev-annotation-properties-dialog.c:106
 msgid "Insert"
 msgstr ""
 
-#: ../shell/ev-annotation-properties-dialog.c:108
+#: ../shell/ev-annotation-properties-dialog.c:107
 msgid "Cross"
 msgstr ""
 
-#: ../shell/ev-annotation-properties-dialog.c:109
+#: ../shell/ev-annotation-properties-dialog.c:108
 msgid "Circle"
 msgstr ""
 
-#: ../shell/ev-annotation-properties-dialog.c:110
+#: ../shell/ev-annotation-properties-dialog.c:109
 msgid "Unknown"
 msgstr ""
 
-#: ../shell/ev-annotation-properties-dialog.c:136
+#: ../shell/ev-annotation-properties-dialog.c:134
 msgid "Annotation Properties"
 msgstr ""
 
-#: ../shell/ev-annotation-properties-dialog.c:169
+#: ../shell/ev-annotation-properties-dialog.c:165
 msgid "Color:"
 msgstr ""
 
-#: ../shell/ev-annotation-properties-dialog.c:181
+#: ../shell/ev-annotation-properties-dialog.c:175
 msgid "Style:"
 msgstr ""
 
-#: ../shell/ev-annotation-properties-dialog.c:197
+#: ../shell/ev-annotation-properties-dialog.c:189
 msgid "Transparent"
 msgstr ""
 
-#: ../shell/ev-annotation-properties-dialog.c:204
+#: ../shell/ev-annotation-properties-dialog.c:196
 msgid "Opaque"
 msgstr ""
 
-#: ../shell/ev-annotation-properties-dialog.c:215
+#: ../shell/ev-annotation-properties-dialog.c:206
 msgid "Initial window state:"
 msgstr ""
 
-#: ../shell/ev-annotation-properties-dialog.c:222
+#: ../shell/ev-annotation-properties-dialog.c:212
 msgid "Open"
 msgstr ""
 
-#: ../shell/ev-annotation-properties-dialog.c:223
+#: ../shell/ev-annotation-properties-dialog.c:213
 msgid "Close"
 msgstr ""
 
-#: ../shell/ev-application.c:995
+#: ../shell/ev-application.c:998
 msgid "Running in presentation mode"
 msgstr "Үзүүлэнгийн горим дээр ажиллаж байна"
 
@@ -1032,7 +1057,7 @@ msgstr ""
 msgid "Open a recently used document"
 msgstr "Сүүлд хэрэглэсэн баримт бичгийг нээх"
 
-#: ../shell/ev-password-view.c:142
+#: ../shell/ev-password-view.c:140
 msgid ""
 "This document is locked and can only be read by entering the correct "
 "password."
@@ -1040,38 +1065,38 @@ msgstr ""
 "Уг баримт бичиг түгжигдсэн бөгөөд та зөв нууц үгийг нь оруулснаар үүнд "
 "нэвтрэн зөвхөн унших боломжтой болно."
 
-#: ../shell/ev-password-view.c:151 ../shell/ev-password-view.c:269
+#: ../shell/ev-password-view.c:149 ../shell/ev-password-view.c:266
 msgid "_Unlock Document"
 msgstr "_Баримт бичгийн түгжээг тайлах"
 
-#: ../shell/ev-password-view.c:261
+#: ../shell/ev-password-view.c:258
 msgid "Enter password"
 msgstr "Нууц үгээ оруулах"
 
-#: ../shell/ev-password-view.c:301
-msgid "Password required"
-msgstr "Нууц үг оруулах хэрэгтэй"
-
-#: ../shell/ev-password-view.c:302
+#: ../shell/ev-password-view.c:293
 #, c-format
 msgid ""
 "The document “%s” is locked and requires a password before it can be opened."
 msgstr ""
 "“%s” баримт бичиг түгжигдсэн бөгөөд нээхийн тулд нууц үг оруулах хэрэгтэй."
 
-#: ../shell/ev-password-view.c:332
+#: ../shell/ev-password-view.c:296
+msgid "Password required"
+msgstr "Нууц үг оруулах хэрэгтэй"
+
+#: ../shell/ev-password-view.c:326
 msgid "_Password:"
 msgstr "_ Нууц үг:"
 
-#: ../shell/ev-password-view.c:365
+#: ../shell/ev-password-view.c:357
 msgid "Forget password _immediately"
 msgstr "Нэн даруй нууц үгийг мартах"
 
-#: ../shell/ev-password-view.c:377
+#: ../shell/ev-password-view.c:369
 msgid "Remember password until you _log out"
 msgstr "Гарах хүртлээ нууц үгээ санах"
 
-#: ../shell/ev-password-view.c:389
+#: ../shell/ev-password-view.c:381
 msgid "Remember _forever"
 msgstr "Байнга санах"
 
@@ -1091,11 +1116,11 @@ msgstr "Фонт"
 msgid "Document License"
 msgstr "Баримт бичгийн лиценз"
 
-#: ../shell/ev-properties-fonts.c:135
+#: ../shell/ev-properties-fonts.c:136
 msgid "Font"
 msgstr "Фонт"
 
-#: ../shell/ev-properties-fonts.c:162
+#: ../shell/ev-properties-fonts.c:163
 #, c-format
 msgid "Gathering font information… %3d%%"
 msgstr "Фонтны мэдээлэл цуглуулж байна... %3d%%"
@@ -1112,62 +1137,62 @@ msgstr "Бичвэрийн Лиценз"
 msgid "Further Information"
 msgstr "Дэлгэрэнгүй мэдээлэл"
 
-#: ../shell/ev-sidebar-annotations.c:161
+#: ../shell/ev-sidebar-annotations.c:164
 msgid "List"
 msgstr ""
 
-#: ../shell/ev-sidebar-annotations.c:203 ../shell/ev-sidebar-annotations.c:533
+#: ../shell/ev-sidebar-annotations.c:206 ../shell/ev-sidebar-annotations.c:535
 msgid "Annotations"
 msgstr ""
 
-#: ../shell/ev-sidebar-annotations.c:209
+#: ../shell/ev-sidebar-annotations.c:212
 msgid "Text"
 msgstr ""
 
-#: ../shell/ev-sidebar-annotations.c:210
+#: ../shell/ev-sidebar-annotations.c:213
 msgid "Add text annotation"
 msgstr ""
 
-#: ../shell/ev-sidebar-annotations.c:221
+#: ../shell/ev-sidebar-annotations.c:224
 msgid "Add"
 msgstr ""
 
-#: ../shell/ev-sidebar-annotations.c:364
+#: ../shell/ev-sidebar-annotations.c:368
 msgid "Document contains no annotations"
 msgstr ""
 
-#: ../shell/ev-sidebar-annotations.c:396
+#: ../shell/ev-sidebar-annotations.c:400
 #, c-format
 msgid "Page %d"
 msgstr ""
 
-#: ../shell/ev-sidebar-attachments.c:695
+#: ../shell/ev-sidebar-attachments.c:699
 msgid "Attachments"
 msgstr "Хавсралт"
 
-#: ../shell/ev-sidebar-bookmarks.c:152
+#: ../shell/ev-sidebar-bookmarks.c:154
 msgid "_Open Bookmark"
 msgstr ""
 
-#: ../shell/ev-sidebar-bookmarks.c:154
+#: ../shell/ev-sidebar-bookmarks.c:156
 msgid "_Rename Bookmark"
 msgstr ""
 
-#: ../shell/ev-sidebar-bookmarks.c:156
+#: ../shell/ev-sidebar-bookmarks.c:158
 msgid "_Remove Bookmark"
 msgstr ""
 
-#: ../shell/ev-sidebar-bookmarks.c:311 ../shell/ev-window.c:924
-#: ../shell/ev-window.c:4675
+#: ../shell/ev-sidebar-bookmarks.c:313 ../shell/ev-window.c:931
+#: ../shell/ev-window.c:4743
 #, c-format
 msgid "Page %s"
 msgstr "%s Хуудас"
 
-#: ../shell/ev-sidebar-bookmarks.c:609
+#: ../shell/ev-sidebar-bookmarks.c:612
 msgid "Bookmarks"
 msgstr ""
 
-#: ../shell/ev-sidebar-layers.c:444
+#: ../shell/ev-sidebar-layers.c:445
 msgid "Layers"
 msgstr "Давхарга"
 
@@ -1175,179 +1200,185 @@ msgstr "Давхарга"
 msgid "Print…"
 msgstr "Хэвлэх..."
 
-#: ../shell/ev-sidebar-links.c:720
+#: ../shell/ev-sidebar-links.c:722
 msgid "Index"
 msgstr "Үзүүлэлт"
 
-#: ../shell/ev-sidebar-thumbnails.c:1006
+#: ../shell/ev-sidebar-thumbnails.c:1008
 msgid "Thumbnails"
 msgstr "Ерөнхийлөн харуулах"
 
-#: ../shell/ev-window.c:921
+#: ../shell/ev-window.c:928
 #, c-format
 msgid "Page %s — %s"
 msgstr "%s - %s хуудас"
 
-#: ../shell/ev-window.c:1061
+#: ../shell/ev-window.c:1068
 msgid ""
 "Cannot enter presentation mode with ePub documents use fullscreen mode "
 "instead."
 msgstr ""
 
-#: ../shell/ev-window.c:1526
+#: ../shell/ev-window.c:1559
 msgid "The document contains no pages"
 msgstr "Уг баримт бичиг хуудасгүй байна"
 
-#: ../shell/ev-window.c:1529
+#: ../shell/ev-window.c:1562
 msgid "The document contains only empty pages"
 msgstr "Уг баримт бичиг зөвхөн хоосон хуудастай байна"
 
-#: ../shell/ev-window.c:1567
+#: ../shell/ev-window.c:1601
 msgid "Presentation mode is not supported for ePub documents."
 msgstr ""
 
-#: ../shell/ev-window.c:1759 ../shell/ev-window.c:1927
+#: ../shell/ev-window.c:1795 ../shell/ev-window.c:1963
 msgid "Unable to open document"
 msgstr "Баримт бичиг нээх боломжгүй"
 
-#: ../shell/ev-window.c:1896
+#: ../shell/ev-window.c:1932
 #, c-format
 msgid "Loading document from “%s”"
 msgstr "“%s”-ээс баримт бичиг ачаалж байна"
 
-#: ../shell/ev-window.c:2040 ../shell/ev-window.c:2331
+#: ../shell/ev-window.c:2076 ../shell/ev-window.c:2367
 #, c-format
 msgid "Downloading document (%d%%)"
 msgstr "(%d%%) баримт бичгийг татаж байна"
 
-#: ../shell/ev-window.c:2073
+#: ../shell/ev-window.c:2109
 msgid "Failed to load remote file."
 msgstr "Алсын файл ачаалах амжилтгүй боллоо."
 
-#: ../shell/ev-window.c:2275
+#: ../shell/ev-window.c:2311
 #, c-format
 msgid "Reloading document from %s"
 msgstr "%s-ээс баримт бичиг ахин ачаалж байна"
 
-#: ../shell/ev-window.c:2307
+#: ../shell/ev-window.c:2343
 msgid "Failed to reload document."
 msgstr "Баримт бичиг ахин ачаалах амжилтгүй боллоо."
 
-#: ../shell/ev-window.c:2457
+#: ../shell/ev-window.c:2558
 msgid "Open Document"
 msgstr "Баримт бичиг нээх"
 
-#: ../shell/ev-window.c:2755
+#: ../shell/ev-window.c:2836
 #, c-format
 msgid "Saving document to %s"
 msgstr "Баримт бичгийг %s -д хадгалж байна"
 
-#: ../shell/ev-window.c:2758
+#: ../shell/ev-window.c:2839
 #, c-format
 msgid "Saving attachment to %s"
 msgstr "Хавсралтыг %s -д хадгалж байна"
 
-#: ../shell/ev-window.c:2761
+#: ../shell/ev-window.c:2842
 #, c-format
 msgid "Saving image to %s"
 msgstr "Зургийг %s-д хадгалж байна"
 
-#: ../shell/ev-window.c:2805 ../shell/ev-window.c:2905
+#: ../shell/ev-window.c:2886 ../shell/ev-window.c:2986
 #, c-format
 msgid "The file could not be saved as “%s”."
 msgstr "Уг файлыг “%s” болгон хадгалж чадсангүй."
 
-#: ../shell/ev-window.c:2836
+#: ../shell/ev-window.c:2917
 #, c-format
 msgid "Uploading document (%d%%)"
 msgstr "(%d%%) баримт бичгийг оруулж байна"
 
-#: ../shell/ev-window.c:2840
+#: ../shell/ev-window.c:2921
 #, c-format
 msgid "Uploading attachment (%d%%)"
 msgstr "(%d%%) хавсралтыг оруулж байна"
 
-#: ../shell/ev-window.c:2844
+#: ../shell/ev-window.c:2925
 #, c-format
 msgid "Uploading image (%d%%)"
 msgstr "(%d%%) зургийг оруулж байна"
 
-#: ../shell/ev-window.c:2968
+#: ../shell/ev-window.c:3038
 msgid "Save a Copy"
 msgstr "Хуулбарыг хадгалах"
 
-#: ../shell/ev-window.c:3253
+#: ../shell/ev-window.c:3313
 #, c-format
 msgid "%d pending job in queue"
 msgid_plural "%d pending jobs in queue"
 msgstr[0] "%d ажил хүлээлгэнд байна"
 
-#: ../shell/ev-window.c:3366
+#: ../shell/ev-window.c:3426
 #, c-format
 msgid "Printing job “%s”"
 msgstr "“%s” ажлыг хэвлэж байна"
 
-#: ../shell/ev-window.c:3538
+#: ../shell/ev-window.c:3598
 msgid ""
 "Document contains form fields that have been filled out. If you don't save a "
 "copy, changes will be permanently lost."
 msgstr ""
 
-#: ../shell/ev-window.c:3542
+#: ../shell/ev-window.c:3602
 msgid ""
 "Document contains new or modified annotations. If you don't save a copy, "
 "changes will be permanently lost."
 msgstr ""
 
-#: ../shell/ev-window.c:3549
+#: ../shell/ev-window.c:3609
 #, c-format
 msgid "Save a copy of document “%s” before closing?"
 msgstr ""
 
-#: ../shell/ev-window.c:3568
+#: ../shell/ev-window.c:3628
 msgid "Close _without Saving"
 msgstr ""
 
-#: ../shell/ev-window.c:3572
+#: ../shell/ev-window.c:3632
 msgid "Save a _Copy"
 msgstr ""
 
-#: ../shell/ev-window.c:3646
+#: ../shell/ev-window.c:3701
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
 msgstr "Хаахаасаа өмнө “%s” хэвлэгдэж буй ажлыг дуустал хүлээх үү?"
 
-#: ../shell/ev-window.c:3649
+#. TRANS: the singular form is not really used as n_print_jobs > 1
+#. but some languages distinguish between different plurals forms,
+#. so the ngettext is needed.
+#: ../shell/ev-window.c:3707
 #, c-format
 msgid ""
+"There is %d print job active. Wait until print finishes before closing?"
+msgid_plural ""
 "There are %d print jobs active. Wait until print finishes before closing?"
-msgstr "Идэвхтэй %d хэвлэх ажил байна. Хэвлэгдэж дуусахыг хүлээх үү?"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../shell/ev-window.c:3661
+#: ../shell/ev-window.c:3722
 msgid "If you close the window, pending print jobs will not be printed."
 msgstr "Цонхоо хаавал хэвлэгдэхээр хүлээлгэнд байгаа ажлууд хэвлэгдэхгүй."
 
-#: ../shell/ev-window.c:3665
+#: ../shell/ev-window.c:3726
 msgid "Cancel _print and Close"
 msgstr "Хэвлэхийг цуцлаад хаах"
 
-#: ../shell/ev-window.c:3669
+#: ../shell/ev-window.c:3730
 msgid "Close _after Printing"
 msgstr "Хэвлэсний дараа хаах"
 
-#: ../shell/ev-window.c:4107
+#: ../shell/ev-window.c:4173
 msgid "Presentation mode is not supported for ePub documents"
 msgstr ""
 
-#: ../shell/ev-window.c:4419
+#: ../shell/ev-window.c:4487
 msgid "Toolbar Editor"
 msgstr "Хэрэгслийн мөрийн засварлагч"
 
-#: ../shell/ev-window.c:4720
+#: ../shell/ev-window.c:4788
 msgid "There was an error displaying help"
 msgstr "Тусламж хүссэн алдаа гарсан байна"
 
-#: ../shell/ev-window.c:4940
+#: ../shell/ev-window.c:5008
 msgid ""
 "Xreader is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -1358,7 +1389,7 @@ msgstr ""
 "гаргадаг Олон нийтийн ерөнхий лицензийн 2-р хувилбар болон сүүлийн үеийн "
 "хүссэн хувилбарынхаа нөхцөлд нийцүүлэн өөрчлөн ахин түгээх боломжтой.\n"
 
-#: ../shell/ev-window.c:4944
+#: ../shell/ev-window.c:5012
 msgid ""
 "Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -1370,356 +1401,356 @@ msgstr ""
 "түгээдэг. Дэлгэрэнгүй мэдээлэл авахыг хүсвэл ГНУ Олон нийтийн ерөнхий "
 "лицензтэй танилцана уу.\n"
 
-#: ../shell/ev-window.c:4948
+#: ../shell/ev-window.c:5016
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
 
-#: ../shell/ev-window.c:4959
+#: ../shell/ev-window.c:5027
 msgid "Xreader"
 msgstr "Эвинс"
 
 #. TRANS: Sometimes this could be better translated as
 #. "%d hit(s) on this page".  Therefore this string
 #. contains plural cases.
-#: ../shell/ev-window.c:5232
+#: ../shell/ev-window.c:5300
 #, c-format
 msgid "%d found on this page"
 msgid_plural "%d found on this page"
 msgstr[0] "Энэ хуудсанд %d олдлоо"
 
-#: ../shell/ev-window.c:5237
+#: ../shell/ev-window.c:5305
 msgid "Not found"
 msgstr ""
 
-#: ../shell/ev-window.c:5243
+#: ../shell/ev-window.c:5311
 #, c-format
 msgid "%3d%% remaining to search"
 msgstr "Хайлт хийхэд %3d%% үлдсэн байна"
 
-#: ../shell/ev-window.c:5865
+#: ../shell/ev-window.c:5933
 msgid "_File"
 msgstr "_Файл"
 
-#: ../shell/ev-window.c:5866
+#: ../shell/ev-window.c:5934
 msgid "_Edit"
 msgstr "_Засварлах"
 
-#: ../shell/ev-window.c:5867
+#: ../shell/ev-window.c:5935
 msgid "_View"
 msgstr "_Үзэх"
 
-#: ../shell/ev-window.c:5868
+#: ../shell/ev-window.c:5936
 msgid "_Go"
 msgstr "_Орох"
 
-#: ../shell/ev-window.c:5869
+#: ../shell/ev-window.c:5937
 msgid "_Bookmarks"
 msgstr ""
 
-#: ../shell/ev-window.c:5870
+#: ../shell/ev-window.c:5938
 msgid "_Help"
 msgstr "_Тусламж"
 
 #. File menu
-#: ../shell/ev-window.c:5873 ../shell/ev-window.c:6221
+#: ../shell/ev-window.c:5941 ../shell/ev-window.c:6289
 msgid "_Open…"
 msgstr "_Нээх..."
 
-#: ../shell/ev-window.c:5874 ../shell/ev-window.c:6222
+#: ../shell/ev-window.c:5942 ../shell/ev-window.c:6290
 msgid "Open an existing document"
 msgstr "Байгаа баримт бичгийг нээх"
 
-#: ../shell/ev-window.c:5876
+#: ../shell/ev-window.c:5944
 msgid "Op_en a Copy"
 msgstr "Хуулбарыг нээх"
 
-#: ../shell/ev-window.c:5877
+#: ../shell/ev-window.c:5945
 msgid "Open a copy of the current document in a new window"
 msgstr "Нээлттэй байгаа баримт бичгийн хуулбарыг шинэ цонхонд нээх"
 
-#: ../shell/ev-window.c:5879
+#: ../shell/ev-window.c:5947
 msgid "_Save a Copy…"
 msgstr "_Хуулбарыг хадгалах..."
 
-#: ../shell/ev-window.c:5880
+#: ../shell/ev-window.c:5948
 msgid "Save a copy of the current document"
 msgstr "Нээлттэй байгаа баримт бичгийн хуулбарыг хадгалах"
 
-#: ../shell/ev-window.c:5882
+#: ../shell/ev-window.c:5950
 msgid "_Print…"
 msgstr "_Хэвлэх..."
 
-#: ../shell/ev-window.c:5885
+#: ../shell/ev-window.c:5953
 msgid "P_roperties"
 msgstr "Шинж чанар"
 
-#: ../shell/ev-window.c:5893
+#: ../shell/ev-window.c:5961
 msgid "Select _All"
 msgstr "Бүгдийг_сонгох"
 
-#: ../shell/ev-window.c:5895
+#: ../shell/ev-window.c:5963
 msgid "_Find…"
 msgstr "_Хайх..."
 
-#: ../shell/ev-window.c:5896
+#: ../shell/ev-window.c:5964
 msgid "Find a word or phrase in the document"
 msgstr "Баримт бичгээс үг болон холбоо үг хайх"
 
-#: ../shell/ev-window.c:5902
+#: ../shell/ev-window.c:5970
 msgid "T_oolbar"
 msgstr "Хэрэгслийн мөр"
 
-#: ../shell/ev-window.c:5904
+#: ../shell/ev-window.c:5972
 msgid "Rotate _Left"
 msgstr "Зүүн тал руу эргүүлэх"
 
-#: ../shell/ev-window.c:5906
+#: ../shell/ev-window.c:5974
 msgid "Rotate _Right"
 msgstr "Баруун тал руу эргүүлэх"
 
-#: ../shell/ev-window.c:5908
+#: ../shell/ev-window.c:5976
 msgid "Save Current Settings as _Default"
 msgstr ""
 
-#: ../shell/ev-window.c:5919
+#: ../shell/ev-window.c:5987
 msgid "_Reload"
 msgstr "_Ахин ачаалах"
 
-#: ../shell/ev-window.c:5920
+#: ../shell/ev-window.c:5988
 msgid "Reload the document"
 msgstr "Баримт бичгийг дахин ачаалах"
 
-#: ../shell/ev-window.c:5922
+#: ../shell/ev-window.c:5990
 msgid "_Expand Window to Fit"
 msgstr ""
 
-#: ../shell/ev-window.c:5926
+#: ../shell/ev-window.c:5994
 msgid "Auto_scroll"
 msgstr "Автоматаар гүйлгэх"
 
-#: ../shell/ev-window.c:5936
+#: ../shell/ev-window.c:6004
 msgid "_First Page"
 msgstr "_Эхний хуудас"
 
-#: ../shell/ev-window.c:5937
+#: ../shell/ev-window.c:6005
 msgid "Go to the first page"
 msgstr "Эхний хуудсанд  очих"
 
-#: ../shell/ev-window.c:5939
+#: ../shell/ev-window.c:6007
 msgid "_Last Page"
 msgstr "_ Сүүлийн хуудас"
 
-#: ../shell/ev-window.c:5940
+#: ../shell/ev-window.c:6008
 msgid "Go to the last page"
 msgstr "Сүүлийн хуудсанд очих"
 
 #. Bookmarks menu
-#: ../shell/ev-window.c:5944
+#: ../shell/ev-window.c:6012
 msgid "_Add Bookmark"
 msgstr ""
 
-#: ../shell/ev-window.c:5945
+#: ../shell/ev-window.c:6013
 msgid "Add a bookmark for the current page"
 msgstr ""
 
 #. Help menu
-#: ../shell/ev-window.c:5949
+#: ../shell/ev-window.c:6017
 msgid "_Contents"
 msgstr "_Агуулагдхуун"
 
-#: ../shell/ev-window.c:5952
+#: ../shell/ev-window.c:6020
 msgid "_About"
 msgstr "_Тухай"
 
 #. Toolbar-only
-#: ../shell/ev-window.c:5956
+#: ../shell/ev-window.c:6024
 msgid "Leave Fullscreen"
 msgstr "Дэлгэц дүүрэн үлдээх"
 
-#: ../shell/ev-window.c:5957
+#: ../shell/ev-window.c:6025
 msgid "Leave fullscreen mode"
 msgstr "Дэлгэц дүүрэн горимоор үлдээх"
 
-#: ../shell/ev-window.c:5959
+#: ../shell/ev-window.c:6027
 msgid "Start Presentation"
 msgstr "Үзүүлэн эхлүүлэх"
 
-#: ../shell/ev-window.c:5960
+#: ../shell/ev-window.c:6028
 msgid "Start a presentation"
 msgstr "Үзүүлэн эхлүүлэх"
 
 #. View Menu
-#: ../shell/ev-window.c:6019
+#: ../shell/ev-window.c:6087
 msgid "_Toolbar"
 msgstr "_Хэрэгслийн мөр"
 
-#: ../shell/ev-window.c:6020
+#: ../shell/ev-window.c:6088
 msgid "Show or hide the toolbar"
 msgstr "Хэрэгслийн мөрийг харуулах буюу нуух"
 
-#: ../shell/ev-window.c:6022
+#: ../shell/ev-window.c:6090
 msgid "Side _Pane"
 msgstr "Хажуугийн_шугам"
 
-#: ../shell/ev-window.c:6023
+#: ../shell/ev-window.c:6091
 msgid "Show or hide the side pane"
 msgstr "Хажуугийн шугамыг харуулах буюу нуух"
 
-#: ../shell/ev-window.c:6025
+#: ../shell/ev-window.c:6093
 msgid "_Continuous"
 msgstr "_Үргэлжлэх"
 
-#: ../shell/ev-window.c:6026
+#: ../shell/ev-window.c:6094
 msgid "Show the entire document"
 msgstr "Баримт бичгийг бүхлээр нь үзүүлэх"
 
-#: ../shell/ev-window.c:6028
+#: ../shell/ev-window.c:6096
 msgid "_Dual"
 msgstr "_Зэрэг"
 
-#: ../shell/ev-window.c:6029
+#: ../shell/ev-window.c:6097
 msgid "Show two pages at once"
 msgstr "Хоёр хуудсыг нэгэн зэрэг харуулах"
 
-#: ../shell/ev-window.c:6031
+#: ../shell/ev-window.c:6099
 msgid "_Fullscreen"
 msgstr "_Дэлгэц дүүрэн"
 
-#: ../shell/ev-window.c:6032
+#: ../shell/ev-window.c:6100
 msgid "Expand the window to fill the screen"
 msgstr "Цонхыг өргөсгөж дэлгэцийг дүүргэх"
 
-#: ../shell/ev-window.c:6034
+#: ../shell/ev-window.c:6102
 msgid "Pre_sentation"
 msgstr "Үзүүлэн"
 
-#: ../shell/ev-window.c:6035
+#: ../shell/ev-window.c:6103
 msgid "Run document as a presentation"
 msgstr "Баримт бичгийг үзүүлэн байдлаар ажиллуулах"
 
-#: ../shell/ev-window.c:6043
+#: ../shell/ev-window.c:6111
 msgid "_Inverted Colors"
 msgstr "_Хувиргасан өнгө"
 
-#: ../shell/ev-window.c:6044
+#: ../shell/ev-window.c:6112
 msgid "Show page contents with the colors inverted"
 msgstr "Хувиргасан өнгөтэй хуудасны агуулагдхууныг харуулах"
 
 #. Links
-#: ../shell/ev-window.c:6052
+#: ../shell/ev-window.c:6120
 msgid "_Open Link"
 msgstr "_Холбоосыг нээх"
 
-#: ../shell/ev-window.c:6054
+#: ../shell/ev-window.c:6122
 msgid "_Go To"
 msgstr "_Орох"
 
-#: ../shell/ev-window.c:6056
+#: ../shell/ev-window.c:6124
 msgid "Open in New _Window"
 msgstr "Шинэ цонхонд нээх"
 
-#: ../shell/ev-window.c:6058
+#: ../shell/ev-window.c:6126
 msgid "_Copy Link Address"
 msgstr "_Холбоосын хаягийг хуулах"
 
-#: ../shell/ev-window.c:6060
+#: ../shell/ev-window.c:6128
 msgid "_Save Image As…"
 msgstr "_Зургийг өөр форматаар хадгалах..."
 
-#: ../shell/ev-window.c:6062
+#: ../shell/ev-window.c:6130
 msgid "Copy _Image"
 msgstr "Зургийг хуулах"
 
-#: ../shell/ev-window.c:6064
+#: ../shell/ev-window.c:6132
 msgid "Annotation Properties…"
 msgstr ""
 
-#: ../shell/ev-window.c:6069
+#: ../shell/ev-window.c:6137
 msgid "_Open Attachment"
 msgstr "_Хавсралтыг нээх"
 
-#: ../shell/ev-window.c:6071
+#: ../shell/ev-window.c:6139
 msgid "_Save Attachment As…"
 msgstr "_Хавсралтыг өөр форматаар хадгалах..."
 
-#: ../shell/ev-window.c:6195
+#: ../shell/ev-window.c:6263
 msgid "Zoom"
 msgstr "Зургийн хэмжээг өөрчлөх"
 
-#: ../shell/ev-window.c:6197
+#: ../shell/ev-window.c:6265
 msgid "Adjust the zoom level"
 msgstr "Зургийн хэмжээг өөрчлөх түвшнийг тохируулах"
 
-#: ../shell/ev-window.c:6207
+#: ../shell/ev-window.c:6275
 msgid "Navigation"
 msgstr "Залуур"
 
-#: ../shell/ev-window.c:6209
+#: ../shell/ev-window.c:6277
 msgid "Back"
 msgstr "Буцах"
 
 #. translators: this is the history action
-#: ../shell/ev-window.c:6212
+#: ../shell/ev-window.c:6280
 msgid "Move across visited pages"
 msgstr "Үзсэн хуудсууд руу шилжих"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6242
+#: ../shell/ev-window.c:6310
 msgid "Previous"
 msgstr "Өмнөх"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6247
+#: ../shell/ev-window.c:6315
 msgid "Next"
 msgstr "Дараах"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6251
+#: ../shell/ev-window.c:6319
 msgid "Zoom In"
 msgstr "Зургийг томруулах"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6255
+#: ../shell/ev-window.c:6323
 msgid "Zoom Out"
 msgstr "Зургийг жижигрүүлэх"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6263
+#: ../shell/ev-window.c:6331
 msgid "Fit Width"
 msgstr "Өргөнийг тохируулах"
 
-#: ../shell/ev-window.c:6401 ../shell/ev-window.c:6418
+#: ../shell/ev-window.c:6470 ../shell/ev-window.c:6486
 msgid "Unable to launch external application."
 msgstr "Нэмэлт програм ажиллуулах боломжгүй."
 
-#: ../shell/ev-window.c:6475
+#: ../shell/ev-window.c:6543
 msgid "Unable to open external link"
 msgstr "Нэмэлт холбоос нээх боломжгүй"
 
-#: ../shell/ev-window.c:6666
+#: ../shell/ev-window.c:6738
 msgid "Couldn't find appropriate format to save image"
 msgstr "Зургийг хадгалах тохиромжтой формат олдсонгүй"
 
-#: ../shell/ev-window.c:6698
+#: ../shell/ev-window.c:6770
 msgid "The image could not be saved."
 msgstr "Зураг хадгалагдсангүй."
 
-#: ../shell/ev-window.c:6730
+#: ../shell/ev-window.c:6802
 msgid "Save Image"
 msgstr "Зураг хадгалах"
 
-#: ../shell/ev-window.c:6860
+#: ../shell/ev-window.c:6934
 msgid "Unable to open attachment"
 msgstr "Хавсралт нээх боломжгүй байна"
 
-#: ../shell/ev-window.c:6913
+#: ../shell/ev-window.c:6991
 msgid "The attachment could not be saved."
 msgstr "Хавсралт хадгалагдсангүй."
 
-#: ../shell/ev-window.c:6958
+#: ../shell/ev-window.c:7036
 msgid "Save Attachment"
 msgstr "Хавсралтыг хадгалах"
 
@@ -1732,46 +1763,54 @@ msgstr "%s - Нууц үгээ оруулах хэрэгтэй"
 msgid "By extension"
 msgstr "Өргөтгөлөөр"
 
-#: ../shell/main.c:57 ../shell/main.c:233
+#: ../shell/main.c:58 ../shell/main.c:237
 msgid "MATE Document Viewer"
 msgstr "ГНОУМ баримт бичиг үзүүлэгч"
 
-#: ../shell/main.c:65
+#: ../shell/main.c:66
 msgid "The page label of the document to display."
 msgstr ""
 
-#: ../shell/main.c:65
+#: ../shell/main.c:66
 msgid "PAGE"
 msgstr "ХУУДАС"
 
-#: ../shell/main.c:66
+#: ../shell/main.c:67
 msgid "The page number of the document to display."
 msgstr ""
 
-#: ../shell/main.c:66
+#: ../shell/main.c:67
 msgid "NUMBER"
 msgstr ""
 
-#: ../shell/main.c:67
+#: ../shell/main.c:68
 msgid "Run xreader in fullscreen mode"
 msgstr "Эвинсийг дэлгэц дүүрэн горимоор ажиллуулах"
 
-#: ../shell/main.c:68
+#: ../shell/main.c:69
+msgid "Named destination to display."
+msgstr ""
+
+#: ../shell/main.c:69
+msgid "DEST"
+msgstr ""
+
+#: ../shell/main.c:70
 msgid "Run xreader in presentation mode"
 msgstr "Эвинсийг үзүүлэнгийн горимоор ажиллуулах"
 
-#: ../shell/main.c:69
+#: ../shell/main.c:71
 msgid "Run xreader as a previewer"
 msgstr "Эвинсийг урьдчилан үзүүлэгч болгон ажиллуулах"
 
-#: ../shell/main.c:70
+#: ../shell/main.c:72
 msgid "The word or phrase to find in the document"
 msgstr "Баримт бичгээс хайх үг болон холбоо үг"
 
-#: ../shell/main.c:70
+#: ../shell/main.c:72
 msgid "STRING"
 msgstr "БИЧВЭР"
 
-#: ../shell/main.c:74
+#: ../shell/main.c:76
 msgid "[FILE…]"
 msgstr "[ФАЙЛ...]"
