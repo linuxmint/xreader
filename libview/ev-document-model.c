@@ -560,10 +560,10 @@ ev_document_model_set_dual_page (EvDocumentModel *model,
 
 	g_object_notify (G_OBJECT (model), "dual-page");
 
-	if (dual_page && model->dual_page_odd_left) {
-		model->dual_page_odd_left = FALSE;
-		g_object_notify (G_OBJECT (model), "dual-odd-left");
-	}
+    if (dual_page && model->dual_page_odd_left) {
+        model->dual_page_odd_left = FALSE;
+        g_object_notify (G_OBJECT (model), "dual-odd-left");
+    }
 }
 
 gboolean
@@ -589,10 +589,10 @@ ev_document_model_set_dual_page_odd_pages_left (EvDocumentModel *model,
 
 	g_object_notify (G_OBJECT (model), "dual-odd-left");
 
-	if (odd_left && model->dual_page) {
-		model->dual_page = FALSE;
-		g_object_notify (G_OBJECT (model), "dual-page");
-	}
+    if (odd_left && model->dual_page) {
+        model->dual_page = FALSE;
+        g_object_notify (G_OBJECT (model), "dual-page");
+    }
 }
 
 gboolean
