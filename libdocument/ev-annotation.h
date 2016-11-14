@@ -129,9 +129,9 @@ gboolean             ev_annotation_set_color                 (EvAnnotation      
 
 #ifndef HAVE_CAJA
 void                 ev_annotation_get_rgba                  (EvAnnotation           *annot,
-                                                              GdkRGBA                *color);
+                                                              GdkRGBA                *rgba);
 gboolean             ev_annotation_set_rgba                  (EvAnnotation           *annot,
-                                                              const GdkRGBA          *color);
+                                                              const GdkRGBA          *rgba);
 #endif
 
 /* EvAnnotationMarkup */
