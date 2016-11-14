@@ -260,14 +260,14 @@ ev_annotation_window_set_resize_cursor (GtkWidget          *widget,
 	}
 }
 
-static gboolean
-text_view_button_press (GtkWidget          *widget,
-			GdkEventButton     *event,
-			EvAnnotationWindow *window)
+static void
+text_view_state_flags_changed (GtkWidget     *widget,
+                               GtkStateFlags  previous_flags)
 {
-	ev_annotation_window_grab_focus (window);
+    GtkStateFlags current_flags = gtk_widget_get_state_flags (widget);
 
-	return FALSE;
+    if (current_flags & GTK_STATE_FLAG_BACKDROP)
+        gtk_text_view_set_cursor_visible (GTK_TEXT_VIEW (widget), FALSE);
 }
 
 static void
@@ -322,8 +322,8 @@ ev_annotation_window_init (EvAnnotationWindow *window)
 					GTK_POLICY_AUTOMATIC);
 	window->text_view = gtk_text_view_new ();
 	gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW (window->text_view), GTK_WRAP_WORD);
-	g_signal_connect (window->text_view, "button_press_event",
-			  G_CALLBACK (text_view_button_press),
+	g_signal_connect (window->text_view, "state-flags-changed",
+			  G_CALLBACK (text_view_state_flags_changed),
 			  window);
 	gtk_container_add (GTK_CONTAINER (swindow), window->text_view);
 	gtk_widget_show (window->text_view);
@@ -495,6 +495,10 @@ ev_annotation_window_focus_in_event (GtkWidget     *widget,
 		}
 		window->in_move = FALSE;
 	}
+
+    gtk_widget_grab_focus (window->text_view);
+    send_focus_change (window->text_view, TRUE);
+    gtk_text_view_set_cursor_visible (GTK_TEXT_VIEW (window->text_view), TRUE);
 
 	return FALSE;
 }
