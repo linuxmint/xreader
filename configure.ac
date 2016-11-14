@@ -623,7 +623,7 @@ if test "x$enable_dvi" = "xyes"; then
     XREADER_MIME_TYPES="${XREADER_MIME_TYPES}application/x-dvi;application/x-bzdvi;application/x-gzdvi;"
 fi
 if test "x$enable_djvu" = "xyes"; then
-    XREADER_MIME_TYPES="${XREADER_MIME_TYPES}image/vnd.djvu;"
+    XREADER_MIME_TYPES="${XREADER_MIME_TYPES}image/vnd.djvu;image/vnd.djvu+multipage;""
 fi
 if test "x$enable_tiff" = "xyes"; then
     XREADER_MIME_TYPES="${XREADER_MIME_TYPES}image/tiff;"
