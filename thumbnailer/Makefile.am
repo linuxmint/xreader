@@ -33,6 +33,7 @@ thumbnailer_DATA = $(thumbnailer_in_files:.thumbnailer.in=.thumbnailer)
 xreader.thumbnailer: $(thumbnailer_in_files)
 	$(AM_V_GEN)sed \
 		-e "s|\@XREADER_MIME_TYPES\@|$(XREADER_MIME_TYPES)|" \
+		-e "s|application/epub+zip;||" \
 		$< > $@
 
 EXTRA_DIST =         	\
