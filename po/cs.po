@@ -26,15 +26,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-04 15:49+0000\n"
-"PO-Revision-Date: 2016-04-15 16:33+0000\n"
-"Last-Translator: Tomáš Moravec <otoman100@gmail.com>\n"
+"PO-Revision-Date: 2016-12-02 13:54+0000\n"
+"Last-Translator: Ondřej Kolín <ondrej.kolin@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/mate/MATE/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2016-11-09 17:17+0000\n"
-"X-Generator: Launchpad (build 18255)\n"
+"X-Launchpad-Export-Date: 2016-12-12 12:17+0000\n"
+"X-Generator: Launchpad (build 18292)\n"
 "Language: cs\n"
 
 #: ../backend/comics/comics-document.c:204
@@ -519,29 +519,32 @@ msgstr ""
 
 #: ../data/org.x.reader.gschema.xml.h:3
 msgid "Automatically reload the document"
-msgstr ""
+msgstr "Automaticky znovu načítat dokument"
 
 #: ../data/org.x.reader.gschema.xml.h:4
 msgid "Whether the document is automatically reloaded on file change."
 msgstr ""
+"Zda se má soubor automaticky znovu načíst při jeho změně jiným programem."
 
 #: ../data/org.x.reader.gschema.xml.h:5
 msgid "The URI of the directory last used to open or save a document."
-msgstr ""
+msgstr "Cesta k naposledy použitému adresáři."
 
 #: ../data/org.x.reader.gschema.xml.h:6
 msgid "The URI of the directory last used to save a picture."
-msgstr ""
+msgstr "Cesta k adresáři naposledy použitému při uložení obrázku."
 
 #: ../data/org.x.reader.gschema.xml.h:7
 msgid "Page cache size in MiB"
-msgstr ""
+msgstr "Velikost stránky mezipaměti v MiB"
 
 #: ../data/org.x.reader.gschema.xml.h:8
 msgid ""
 "The maximum size that will be used to cache rendered pages, limits maximum "
 "zoom level."
 msgstr ""
+"Maximální velikost, která bude použita k ukládání vykreslených stránek do "
+"mezipaměti; omezuje maximální velikost přiblížení."
 
 #: ../previewer/ev-previewer.c:35
 msgid "Delete the temporary file"
@@ -1380,7 +1383,11 @@ msgid ""
 msgid_plural ""
 "There are %d print jobs active. Wait until print finishes before closing?"
 msgstr[0] ""
+"%d tisková úloha je aktivní. Odložit uzavření, dokud se nedokončí tisk?"
 msgstr[1] ""
+"%d tiskové úlohy jsou aktivní. Odložit uzavření, dokud se nedokončí tisk?"
+msgstr[2] ""
+"%d tiskových úloh je aktivních. Odložit uzavření, dokud se nedokončí tisk?"
 
 #: ../shell/ev-window.c:3722
 msgid "If you close the window, pending print jobs will not be printed."
@@ -1822,11 +1829,11 @@ msgstr "Spustit Xreader v celoobrazovkovém režimu"
 
 #: ../shell/main.c:69
 msgid "Named destination to display."
-msgstr ""
+msgstr "Pojmenované umístění k zobrazení."
 
 #: ../shell/main.c:69
 msgid "DEST"
-msgstr ""
+msgstr "CÍL"
 
 #: ../shell/main.c:70
 msgid "Run xreader in presentation mode"

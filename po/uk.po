@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-04 15:49+0000\n"
-"PO-Revision-Date: 2016-11-05 08:51+0000\n"
+"PO-Revision-Date: 2016-11-13 05:41+0000\n"
 "Last-Translator: Микола Ткач <Stuartlittle1970@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/mate/MATE/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -23,8 +23,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2016-11-09 17:17+0000\n"
-"X-Generator: Launchpad (build 18255)\n"
+"X-Launchpad-Export-Date: 2016-12-12 12:17+0000\n"
+"X-Generator: Launchpad (build 18292)\n"
 "Language: uk\n"
 
 #: ../backend/comics/comics-document.c:204
@@ -515,15 +515,18 @@ msgstr "Самочинно перезавантажувати документ"
 
 #: ../data/org.x.reader.gschema.xml.h:4
 msgid "Whether the document is automatically reloaded on file change."
-msgstr ""
+msgstr "Чи повинен документ самочинно перезавантажуватися при зміні файлу."
 
 #: ../data/org.x.reader.gschema.xml.h:5
 msgid "The URI of the directory last used to open or save a document."
 msgstr ""
+"URI каталогу, який використовувався останнім для відкриття або збереження "
+"документу."
 
 #: ../data/org.x.reader.gschema.xml.h:6
 msgid "The URI of the directory last used to save a picture."
 msgstr ""
+"URI каталогу, який використовувався останнім для збереження зображення."
 
 #: ../data/org.x.reader.gschema.xml.h:7
 msgid "Page cache size in MiB"

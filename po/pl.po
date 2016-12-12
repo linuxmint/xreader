@@ -11,16 +11,16 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-04 15:49+0000\n"
-"PO-Revision-Date: 2016-02-18 18:34+0000\n"
-"Last-Translator: Damian Woźniak <fiszet@gmail.com>\n"
+"PO-Revision-Date: 2016-11-13 17:11+0000\n"
+"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Polish (http://www.transifex.com/mate/MATE/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2016-11-09 17:17+0000\n"
-"X-Generator: Launchpad (build 18255)\n"
+"X-Launchpad-Export-Date: 2016-12-12 12:17+0000\n"
+"X-Generator: Launchpad (build 18292)\n"
 "Language: pl\n"
 
 #: ../backend/comics/comics-document.c:204
@@ -511,29 +511,34 @@ msgstr ""
 
 #: ../data/org.x.reader.gschema.xml.h:3
 msgid "Automatically reload the document"
-msgstr ""
+msgstr "Automatyczne ponownie wczytywanie dokumentu"
 
 #: ../data/org.x.reader.gschema.xml.h:4
 msgid "Whether the document is automatically reloaded on file change."
 msgstr ""
+"Określa czy dokument jest automatycznie ponownie wczytywany przy zmianie "
+"pliku."
 
 #: ../data/org.x.reader.gschema.xml.h:5
 msgid "The URI of the directory last used to open or save a document."
 msgstr ""
+"Adres URI ostatnio użytego katalogu do otwarcia lub zapisania dokumentu."
 
 #: ../data/org.x.reader.gschema.xml.h:6
 msgid "The URI of the directory last used to save a picture."
-msgstr ""
+msgstr "Adres URI ostatnio użytego katalogu do zapisu obrazu."
 
 #: ../data/org.x.reader.gschema.xml.h:7
 msgid "Page cache size in MiB"
-msgstr ""
+msgstr "Rozmiar bufora strony w MiB"
 
 #: ../data/org.x.reader.gschema.xml.h:8
 msgid ""
 "The maximum size that will be used to cache rendered pages, limits maximum "
 "zoom level."
 msgstr ""
+"Maksymalny rozmiar, który będzie używany do buforowania wyświetlanych stron, "
+"ogranicza maksymalny poziom powiększenia."
 
 #: ../previewer/ev-previewer.c:35
 msgid "Delete the temporary file"
@@ -1376,7 +1381,11 @@ msgid ""
 msgid_plural ""
 "There are %d print jobs active. Wait until print finishes before closing?"
 msgstr[0] ""
+"%d aktywne zadanie wydruku. Poczekać na ukończenie wydruku przed zamknięciem?"
 msgstr[1] ""
+"%d aktywne zadania wydruku. Poczekać na ukończenie wydruku przed zamknięciem?"
+msgstr[2] ""
+"%d aktywnych zadań wydruku. Poczekać na ukończenie wydruku przed zamknięciem?"
 
 #: ../shell/ev-window.c:3722
 msgid "If you close the window, pending print jobs will not be printed."
@@ -1821,11 +1830,11 @@ msgstr "Uruchamia program Xreader w trybie pełnoekranowym"
 
 #: ../shell/main.c:69
 msgid "Named destination to display."
-msgstr ""
+msgstr "Nazwa celu do wyświetlenia."
 
 #: ../shell/main.c:69
 msgid "DEST"
-msgstr ""
+msgstr "CEL"
 
 #: ../shell/main.c:70
 msgid "Run xreader in presentation mode"

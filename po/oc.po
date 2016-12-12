@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-04 15:49+0000\n"
-"PO-Revision-Date: 2016-09-29 21:30+0000\n"
+"PO-Revision-Date: 2016-11-18 10:07+0000\n"
 "Last-Translator: Cédric VALMARY (Tot en òc) <cvalmary@yahoo.fr>\n"
 "Language-Team: Occitan (post 1500) "
 "(http://www.transifex.com/mate/MATE/language/oc/)\n"
@@ -18,8 +18,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Launchpad-Export-Date: 2016-11-09 17:17+0000\n"
-"X-Generator: Launchpad (build 18255)\n"
+"X-Launchpad-Export-Date: 2016-12-12 12:17+0000\n"
+"X-Generator: Launchpad (build 18292)\n"
 "Language: oc\n"
 
 #: ../backend/comics/comics-document.c:204
@@ -507,7 +507,7 @@ msgstr ""
 
 #: ../data/org.x.reader.gschema.xml.h:3
 msgid "Automatically reload the document"
-msgstr ""
+msgstr "Recargar lo document automaticament"
 
 #: ../data/org.x.reader.gschema.xml.h:4
 msgid "Whether the document is automatically reloaded on file change."
@@ -523,13 +523,15 @@ msgstr ""
 
 #: ../data/org.x.reader.gschema.xml.h:7
 msgid "Page cache size in MiB"
-msgstr ""
+msgstr "Talha del cache de las paginas en Mio"
 
 #: ../data/org.x.reader.gschema.xml.h:8
 msgid ""
 "The maximum size that will be used to cache rendered pages, limits maximum "
 "zoom level."
 msgstr ""
+"La talha maximala que serà utilizada per lo cache del rendut de las paginas, "
+"limita lo nivèl de zoom maximal."
 
 #: ../previewer/ev-previewer.c:35
 msgid "Delete the temporary file"
@@ -1368,7 +1370,11 @@ msgid ""
 msgid_plural ""
 "There are %d print jobs active. Wait until print finishes before closing?"
 msgstr[0] ""
+"%d prètzfait d'impression es en cors. Cal esperar la fin de l'impression "
+"abans de tampar ?"
 msgstr[1] ""
+"%d prètzfaits d'impression son en cors. Cal esperar la fin de l'impression "
+"abans de tampar ?"
 
 #: ../shell/ev-window.c:3722
 msgid "If you close the window, pending print jobs will not be printed."
@@ -1501,7 +1507,7 @@ msgstr "P_roprietats"
 
 #: ../shell/ev-window.c:5961
 msgid "Select _All"
-msgstr "Seleccionar un fichièr"
+msgstr "Seleccionar _tot"
 
 #: ../shell/ev-window.c:5963
 msgid "_Find…"
@@ -1773,7 +1779,7 @@ msgstr "%s — Senhal requesit"
 
 #: ../shell/ev-utils.c:326
 msgid "By extension"
-msgstr ""
+msgstr "Per extension"
 
 #: ../shell/main.c:58 ../shell/main.c:237
 msgid "MATE Document Viewer"
@@ -1781,7 +1787,7 @@ msgstr ""
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."
-msgstr ""
+msgstr "L'etiqueta de la pagina del document d'afichar."
 
 #: ../shell/main.c:66
 msgid "PAGE"
@@ -1789,7 +1795,7 @@ msgstr "PAGINA"
 
 #: ../shell/main.c:67
 msgid "The page number of the document to display."
-msgstr ""
+msgstr "Lo numèro de la pagina del document d'afichar."
 
 #: ../shell/main.c:67
 msgid "NUMBER"
@@ -1801,11 +1807,11 @@ msgstr ""
 
 #: ../shell/main.c:69
 msgid "Named destination to display."
-msgstr ""
+msgstr "Destinacion nomenada d'afichar."
 
 #: ../shell/main.c:69
 msgid "DEST"
-msgstr ""
+msgstr "DEST"
 
 #: ../shell/main.c:70
 msgid "Run xreader in presentation mode"
@@ -1817,12 +1823,12 @@ msgstr ""
 
 #: ../shell/main.c:72
 msgid "The word or phrase to find in the document"
-msgstr ""
+msgstr "Lo mot o la frasa de recercar dins lo document"
 
 #: ../shell/main.c:72
 msgid "STRING"
-msgstr ""
+msgstr "CADENA"
 
 #: ../shell/main.c:76
 msgid "[FILE…]"
-msgstr ""
+msgstr "[FICHIÈR...]"

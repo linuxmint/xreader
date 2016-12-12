@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-11-04 15:49+0000\n"
-"PO-Revision-Date: 2016-04-09 15:44+0000\n"
+"PO-Revision-Date: 2016-12-05 09:59+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2016-11-09 17:17+0000\n"
-"X-Generator: Launchpad (build 18255)\n"
+"X-Launchpad-Export-Date: 2016-12-12 12:17+0000\n"
+"X-Generator: Launchpad (build 18292)\n"
 "Language: is\n"
 
 #: ../backend/comics/comics-document.c:204
@@ -505,29 +505,31 @@ msgstr "Hunsa takmarkanir í skjali, eins og á afritun og prentun."
 
 #: ../data/org.x.reader.gschema.xml.h:3
 msgid "Automatically reload the document"
-msgstr ""
+msgstr "Endurhlaða skjalið sjálfkrafa"
 
 #: ../data/org.x.reader.gschema.xml.h:4
 msgid "Whether the document is automatically reloaded on file change."
-msgstr ""
+msgstr "Hvort skjal sé endurlesið sjálfvirkt við breytingu á skrá."
 
 #: ../data/org.x.reader.gschema.xml.h:5
 msgid "The URI of the directory last used to open or save a document."
-msgstr ""
+msgstr "Slóð á möppuna sem síðast var notuð til að opna eða vista skjal."
 
 #: ../data/org.x.reader.gschema.xml.h:6
 msgid "The URI of the directory last used to save a picture."
-msgstr ""
+msgstr "Slóð á möppuna sem síðast var notuð til að vista mynd."
 
 #: ../data/org.x.reader.gschema.xml.h:7
 msgid "Page cache size in MiB"
-msgstr ""
+msgstr "Stærð skyndiminnis blaðsíðu í MiB"
 
 #: ../data/org.x.reader.gschema.xml.h:8
 msgid ""
 "The maximum size that will be used to cache rendered pages, limits maximum "
 "zoom level."
 msgstr ""
+"Hámarksstærð skyndiminnis sem notað verður til að geyma myndgerðar síður, "
+"þetta takmarkar aðdráttarstig."
 
 #: ../previewer/ev-previewer.c:35
 msgid "Delete the temporary file"
@@ -1366,7 +1368,11 @@ msgid ""
 msgid_plural ""
 "There are %d print jobs active. Wait until print finishes before closing?"
 msgstr[0] ""
+"Það er %d verk sem á eftir að prenta. Viltu bíða með að loka þangað til búið "
+"er að prenta það út?"
 msgstr[1] ""
+"Það eru %d verk sem á eftir að prenta. Viltu bíða með að loka þangað til "
+"búið er að prenta þau út?"
 
 #: ../shell/ev-window.c:3722
 msgid "If you close the window, pending print jobs will not be printed."
@@ -1807,11 +1813,11 @@ msgstr "Keyra xreader í heilskjásham"
 
 #: ../shell/main.c:69
 msgid "Named destination to display."
-msgstr ""
+msgstr "Áfangastaður sem á að birta."
 
 #: ../shell/main.c:69
 msgid "DEST"
-msgstr ""
+msgstr "ÚTTAK"
 
 #: ../shell/main.c:70
 msgid "Run xreader in presentation mode"
