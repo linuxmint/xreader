@@ -41,10 +41,6 @@
 #include <gio/gio.h>
 #include <gtk/gtk.h>
 
-#include "egg-editable-toolbar.h"
-#include "egg-toolbar-editor.h"
-#include "egg-toolbars-model.h"
-
 #include "eggfindbar.h"
 
 #include "ephy-zoom-action.h"
@@ -125,6 +121,7 @@ struct _EvWindowPrivate {
 	GtkWidget *main_box;
 	GtkWidget *menubar;
 	GtkWidget *toolbar;
+	GtkWidget *toolbar_revealer;
 	GtkWidget *hpaned;
 	GtkWidget *view_box;
 	GtkWidget *sidebar;
@@ -627,11 +624,9 @@ update_chrome_visibility (EvWindow *window)
 	sidebar = (priv->chrome & EV_CHROME_SIDEBAR) != 0 && priv->document && !presentation;
 
 	set_widget_visibility (priv->menubar, menubar);	
-	set_widget_visibility (priv->toolbar, toolbar);
 	set_widget_visibility (priv->find_bar, findbar);
 	set_widget_visibility (priv->sidebar, sidebar);
-	
-	ev_window_set_action_sensitive (window, "EditToolbar", toolbar);
+	gtk_revealer_set_reveal_child (GTK_REVEALER (priv->toolbar_revealer), toolbar);
 
 	if (priv->fullscreen_toolbar != NULL) {
 		set_widget_visibility (priv->fullscreen_toolbar, fullscreen_toolbar);
@@ -4420,63 +4415,6 @@ ev_window_cmd_view_inverted_colors (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_edit_toolbar_cb (GtkDialog *dialog,
-			       gint       response,
-			       EvWindow  *ev_window)
-{
-	EggEditableToolbar *toolbar;
-	gchar              *toolbars_file;
-
-	toolbar = EGG_EDITABLE_TOOLBAR (ev_window->priv->toolbar);
-        egg_editable_toolbar_set_edit_mode (toolbar, FALSE);
-
-	toolbars_file = g_build_filename (ev_application_get_dot_dir (EV_APP, TRUE),
-					  "xreader_toolbar.xml", NULL);
-	egg_toolbars_model_save_toolbars (egg_editable_toolbar_get_model (toolbar),
-					  toolbars_file, "1.0");
-	g_free (toolbars_file);
-
-        gtk_widget_destroy (GTK_WIDGET (dialog));
-}
-
-static void
-ev_window_cmd_edit_toolbar (GtkAction *action, EvWindow *ev_window)
-{
-	GtkWidget          *dialog;
-	GtkWidget          *editor;
-	GtkWidget          *content_area;
-	EggEditableToolbar *toolbar;
-
-	dialog = gtk_dialog_new_with_buttons (_("Toolbar Editor"),
-					      GTK_WINDOW (ev_window),
-				              GTK_DIALOG_DESTROY_WITH_PARENT,
-					      GTK_STOCK_CLOSE,
-					      GTK_RESPONSE_CLOSE,
-					      NULL);
-	content_area = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
-	gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_CLOSE);
-	gtk_container_set_border_width (GTK_CONTAINER (GTK_DIALOG (dialog)), 5);
-	gtk_box_set_spacing (GTK_BOX (content_area), 2);
-	gtk_window_set_default_size (GTK_WINDOW (dialog), 500, 400);
-
-	toolbar = EGG_EDITABLE_TOOLBAR (ev_window->priv->toolbar);
-	editor = egg_toolbar_editor_new (ev_window->priv->ui_manager,
-					 egg_editable_toolbar_get_model (toolbar));
-
-	gtk_container_set_border_width (GTK_CONTAINER (editor), 5);
-	gtk_box_set_spacing (GTK_BOX (EGG_TOOLBAR_EDITOR (editor)), 5);
-
-	gtk_box_pack_start (GTK_BOX (content_area), editor, TRUE, TRUE, 0);
-
-	egg_editable_toolbar_set_edit_mode (toolbar, TRUE);
-
-	g_signal_connect (dialog, "response",
-			  G_CALLBACK (ev_window_cmd_edit_toolbar_cb),
-			  ev_window);
-	gtk_widget_show_all (dialog);
-}
-
-static void
 ev_window_cmd_edit_save_settings (GtkAction *action, EvWindow *ev_window)
 {
 	EvWindowPrivate *priv = ev_window->priv;
@@ -5923,8 +5861,6 @@ static const GtkActionEntry entries[] = {
 	  G_CALLBACK (ev_window_cmd_edit_find_next) },
 	{ "EditFindPrevious", NULL, N_("Find Pre_vious"), "<shift><control>G", NULL,
 	  G_CALLBACK (ev_window_cmd_edit_find_previous) },
-        { "EditToolbar", NULL, N_("T_oolbar"), NULL, NULL,
-          G_CALLBACK (ev_window_cmd_edit_toolbar) },
 	{ "EditRotateLeft", EV_STOCK_ROTATE_LEFT, N_("Rotate _Left"), "<control>Left", NULL,
 	  G_CALLBACK (ev_window_cmd_edit_rotate_left) },
 	{ "EditRotateRight", EV_STOCK_ROTATE_RIGHT, N_("Rotate _Right"), "<control>Right", NULL,
@@ -7018,52 +6954,6 @@ ev_attachment_popup_cmd_save_attachment_as (GtkAction *action, EvWindow *window)
 	gtk_widget_show (fc);
 }
 
-static EggToolbarsModel *
-get_toolbars_model (void)
-{
-	EggToolbarsModel *toolbars_model;
-	gchar            *toolbars_file;
-	gchar            *toolbars_path;
-	gint              i;
-
-	toolbars_model = egg_toolbars_model_new ();
-
-	toolbars_file = g_build_filename (ev_application_get_dot_dir (EV_APP, FALSE),
-					  "xreader_toolbar.xml", NULL);
-	toolbars_path = g_build_filename (ev_application_get_data_dir (EV_APP),
-					 "xreader-toolbar.xml", NULL);
-	egg_toolbars_model_load_names (toolbars_model, toolbars_path);
-
-	if (!egg_toolbars_model_load_toolbars (toolbars_model, toolbars_file)) {
-		egg_toolbars_model_load_toolbars (toolbars_model, toolbars_path);
-                goto skip_conversion;
-	}
-
-	/* Open item doesn't exist anymore,
-	 * convert it to OpenRecent for compatibility
-	 */
-	for (i = 0; i < egg_toolbars_model_n_items (toolbars_model, 0); i++) {
-		const gchar *item;
-
-		item = egg_toolbars_model_item_nth (toolbars_model, 0, i);
-		if (g_ascii_strcasecmp (item, "FileOpen") == 0) {
-			egg_toolbars_model_remove_item (toolbars_model, 0, i);
-			egg_toolbars_model_add_item (toolbars_model, 0, i,
-						     "FileOpenRecent");
-			egg_toolbars_model_save_toolbars (toolbars_model, toolbars_file, "1.0");
-			break;
-		}
-	}
-
-    skip_conversion:
-	g_free (toolbars_file);
-	g_free (toolbars_path);
-
-	egg_toolbars_model_set_flags (toolbars_model, 0, EGG_TB_MODEL_NOT_REMOVABLE);
-
-	return toolbars_model;
-}
-
 #ifdef ENABLE_DBUS
 static void
 ev_window_sync_source (EvWindow     *window,
@@ -7245,6 +7135,29 @@ static const GDBusInterfaceVTable interface_vtable = {
 static GDBusNodeInfo *introspection_data;
 #endif /* ENABLE_DBUS */
 
+static GtkWidget *
+create_toolbar_button (GtkAction *action)
+{
+	GtkWidget *button;
+	GtkWidget *image;
+	GtkWidget *label;
+	GtkWidget *box;
+
+	button = gtk_button_new ();
+	image = gtk_image_new_from_icon_name (gtk_action_get_icon_name (action), GTK_ICON_SIZE_MENU);
+	label = gtk_label_new_with_mnemonic (gtk_action_get_short_label (action));
+	box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 4);
+
+	gtk_container_add (GTK_CONTAINER (button), box);
+	gtk_box_pack_start (GTK_BOX (box), image, FALSE, FALSE, 0);
+	gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
+	gtk_style_context_add_class (gtk_widget_get_style_context (button), "flat");
+	gtk_activatable_set_related_action (GTK_ACTIVATABLE (button), action);
+	gtk_widget_set_tooltip_text (button, gtk_action_get_tooltip (action));
+
+	return button;
+}
+
 static void
 ev_window_init (EvWindow *ev_window)
 {
@@ -7254,7 +7167,11 @@ ev_window_init (EvWindow *ev_window)
 	GtkWidget *sidebar_widget;
 	GtkWidget *menuitem;
 	GtkStyleContext *context;
-	EggToolbarsModel *toolbars_model;
+	GtkWidget *tool_item;
+	GtkWidget *tool_box;
+	GtkWidget *box;
+	GtkWidget *button;
+	GtkAction *action;
 	guint page_cache_mb;
 	gchar *ui_path;
 #ifdef ENABLE_DBUS
@@ -7381,24 +7298,42 @@ ev_window_init (EvWindow *ev_window)
 					      "/MainMenu/EditMenu/EditRotateRightMenu");
 	gtk_image_menu_item_set_always_show_image (GTK_IMAGE_MENU_ITEM (menuitem), TRUE);
 
-	toolbars_model = get_toolbars_model ();
-	ev_window->priv->toolbar = GTK_WIDGET
-		(g_object_new (EGG_TYPE_EDITABLE_TOOLBAR,
-			       "ui-manager", ev_window->priv->ui_manager,
-			       "popup-path", "/ToolbarPopup",
-			       "model", toolbars_model,
-			       NULL));
-	g_object_unref (toolbars_model);
+	ev_window->priv->toolbar_revealer = gtk_revealer_new ();
+	gtk_box_pack_start (GTK_BOX (ev_window->priv->main_box), ev_window->priv->toolbar_revealer, FALSE, TRUE, 0);
+	gtk_revealer_set_transition_duration (GTK_REVEALER (ev_window->priv->toolbar_revealer), 175);
 
-	gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (ev_window->priv->toolbar)),
-				     GTK_STYLE_CLASS_PRIMARY_TOOLBAR);
+	ev_window->priv->toolbar = gtk_toolbar_new ();
+	gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (ev_window->priv->toolbar)), 
+								 GTK_STYLE_CLASS_PRIMARY_TOOLBAR);
+	gtk_container_add (GTK_CONTAINER (ev_window->priv->toolbar_revealer), ev_window->priv->toolbar);
 
-	egg_editable_toolbar_show (EGG_EDITABLE_TOOLBAR (ev_window->priv->toolbar),
-				   "DefaultToolBar");
-	gtk_box_pack_start (GTK_BOX (ev_window->priv->main_box),
-			    ev_window->priv->toolbar,
-			    FALSE, FALSE, 0);
-	gtk_widget_show (ev_window->priv->toolbar);
+	tool_item = gtk_tool_item_new ();
+	gtk_toolbar_insert (GTK_TOOLBAR (ev_window->priv->toolbar), GTK_TOOL_ITEM (tool_item), 0);
+	gtk_widget_set_margin_end (tool_item, 12);
+
+	tool_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+	gtk_container_add (GTK_CONTAINER (tool_item), tool_box);
+
+	box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+	gtk_box_pack_start (GTK_BOX (tool_box), box, FALSE, FALSE, 0);
+
+	action = gtk_action_group_get_action (ev_window->priv->action_group, "GoPreviousPage");
+	button = create_toolbar_button (action);
+	gtk_box_pack_start (GTK_BOX (box), button, FALSE, FALSE, 0);
+
+	action = gtk_action_group_get_action (ev_window->priv->action_group, "GoNextPage");
+	button = create_toolbar_button (action);
+	gtk_box_pack_start (GTK_BOX (box), button, FALSE, FALSE, 0);
+
+	action = gtk_action_group_get_action (ev_window->priv->action_group, "PageSelector");
+	tool_item = gtk_action_create_tool_item (action);
+	gtk_container_add (GTK_CONTAINER (ev_window->priv->toolbar), tool_item);
+
+	action = gtk_action_group_get_action (ev_window->priv->action_group, "ViewZoom");
+	tool_item = gtk_action_create_tool_item (action);
+	gtk_container_add (GTK_CONTAINER (ev_window->priv->toolbar), tool_item);
+
+	gtk_widget_show_all (ev_window->priv->toolbar_revealer);
 
 	/* Add the main area */
 	ev_window->priv->hpaned = gtk_paned_new (GTK_ORIENTATION_HORIZONTAL);
