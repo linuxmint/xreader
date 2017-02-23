@@ -508,7 +508,6 @@ ev_window_update_actions (EvWindow *ev_window)
 				ev_view_get_has_selection (view));
 	}
 #if ENABLE_EPUB
-#if GTK_CHECK_VERSION (3, 0, 0)
 	else if (webview) {
 		/*
 		 * The webkit2 function for this is an asynchronous call,
@@ -518,13 +517,6 @@ ev_window_update_actions (EvWindow *ev_window)
 		ev_window_set_action_sensitive (ev_window,"EditCopy",
 						has_pages);
 	}
-#else
-	else if(webview) {
-		ev_window_set_action_sensitive (ev_window, "EditCopy",
-						has_pages &&
-				ev_web_view_get_has_selection (webview));
-	}
-#endif
 #endif
 	ev_window_set_action_sensitive (ev_window, "EditFindNext",
 					has_pages && can_find_in_page);
@@ -958,17 +950,6 @@ view_selection_changed_cb (EvView   *view,
 	ev_window_set_action_sensitive (window, "EditCopy",
 					ev_view_get_has_selection (view));
 }
-#if ENABLE_EPUB
-#if !GTK_CHECK_VERSION (3, 0, 0)
-static void
-web_view_selection_changed_cb(EvWebView *webview,
-				EvWindow *window)
-{
-	ev_window_set_action_sensitive (window,"EditCopy",
-					ev_web_view_get_has_selection(webview));
-}
-#endif
-#endif
 
 static void
 view_layers_changed_cb (EvView   *view,
@@ -3996,7 +3977,6 @@ fullscreen_toolbar_setup_item_properties (GtkUIManager *ui_manager)
 static void
 fullscreen_toolbar_remove_shadow (GtkWidget *toolbar)
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
 	GtkCssProvider *provider;
 
 	gtk_widget_set_name (toolbar, "ev-fullscreen-toolbar");
@@ -4011,25 +3991,6 @@ fullscreen_toolbar_remove_shadow (GtkWidget *toolbar)
 					GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 	g_object_unref (provider);
 }
-#else
-	static gboolean done = FALSE;
-
-	if (!done) {
-		gtk_rc_parse_string (
-			"\n"
-			"   style \"fullscreen-toolbar-style\"\n"
-			"   {\n"
-			"      GtkToolbar::shadow-type=GTK_SHADOW_NONE\n"
-			"   }\n"
-			"\n"
-			"    widget \"*.fullscreen-toolbar\" style \"fullscreen-toolbar-style\"\n"
-			"\n");
-		done = TRUE;
-	}
-	
-	gtk_widget_set_name (toolbar, "fullscreen-toolbar");
-}
-#endif
 
 static void
 ev_window_run_fullscreen (EvWindow *window)
@@ -4505,11 +4466,7 @@ ev_window_cmd_edit_toolbar (GtkAction *action, EvWindow *ev_window)
 	gtk_container_set_border_width (GTK_CONTAINER (editor), 5);
 	gtk_box_set_spacing (GTK_BOX (EGG_TOOLBAR_EDITOR (editor)), 5);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	gtk_box_pack_start (GTK_BOX (content_area), editor, TRUE, TRUE, 0);
-#else
-	gtk_container_add (GTK_CONTAINER (content_area), editor);
-#endif
 
 	egg_editable_toolbar_set_edit_mode (toolbar, TRUE);
 
@@ -5480,9 +5437,6 @@ find_bar_visibility_changed_cb (EggFindBar *find_bar,
 		}
 #if ENABLE_EPUB
 		else {
-#if !GTK_CHECK_VERSION(3, 0, 0)
-			ev_web_view_find_set_highlight_search(EV_WEB_VIEW(ev_window->priv->webview),visible);
-#endif
 			ev_web_view_find_search_changed(EV_WEB_VIEW(ev_window->priv->webview));
 			ev_web_view_set_handler(EV_WEB_VIEW(ev_window->priv->webview),visible);
 		}
@@ -7299,6 +7253,7 @@ ev_window_init (EvWindow *ev_window)
 	GError *error = NULL;
 	GtkWidget *sidebar_widget;
 	GtkWidget *menuitem;
+	GtkStyleContext *context;
 	EggToolbarsModel *toolbars_model;
 	guint page_cache_mb;
 	gchar *ui_path;
@@ -7349,12 +7304,8 @@ ev_window_init (EvWindow *ev_window)
 	ev_window->priv->chrome = EV_CHROME_NORMAL;
 	ev_window->priv->title = ev_window_title_new (ev_window);
 
-#if GTK_CHECK_VERSION(3, 0, 0)
-	GtkStyleContext *context;
-
 	context = gtk_widget_get_style_context (GTK_WIDGET (ev_window));
 	gtk_style_context_add_class (context, "xreader-window");
-#endif
 
 	ev_window->priv->main_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 	gtk_container_add (GTK_CONTAINER (ev_window), ev_window->priv->main_box);
@@ -7439,10 +7390,8 @@ ev_window_init (EvWindow *ev_window)
 			       NULL));
 	g_object_unref (toolbars_model);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (ev_window->priv->toolbar)),
 				     GTK_STYLE_CLASS_PRIMARY_TOOLBAR);
-#endif
 
 	egg_editable_toolbar_show (EGG_EDITABLE_TOOLBAR (ev_window->priv->toolbar),
 				   "DefaultToolBar");
@@ -7452,11 +7401,8 @@ ev_window_init (EvWindow *ev_window)
 	gtk_widget_show (ev_window->priv->toolbar);
 
 	/* Add the main area */
-#if GTK_CHECK_VERSION (3, 0, 0)
 	ev_window->priv->hpaned = gtk_paned_new (GTK_ORIENTATION_HORIZONTAL);
-#else
-	ev_window->priv->hpaned = gtk_hpaned_new ();
-#endif
+
 	g_signal_connect (ev_window->priv->hpaned,
 			  "notify::position",
 			  G_CALLBACK (ev_window_sidebar_position_change_cb),
@@ -7569,11 +7515,6 @@ ev_window_init (EvWindow *ev_window)
 #if ENABLE_EPUB /*The webview, we won't add it now but it will replace the xreader-view if a web(epub) document is encountered.*/
 	ev_window->priv->webview = ev_web_view_new();
 	ev_web_view_set_model(EV_WEB_VIEW(ev_window->priv->webview),ev_window->priv->model);
-#if !GTK_CHECK_VERSION (3, 0, 0)
-	g_signal_connect_object (ev_window->priv->webview,"selection-changed",
-	                         G_CALLBACK(web_view_selection_changed_cb),
-	                         ev_window, 0);
-#endif
 #endif
 	page_cache_mb = g_settings_get_uint (ev_window_ensure_settings (ev_window),
 					     GS_PAGE_CACHE_SIZE);
