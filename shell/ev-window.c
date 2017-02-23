@@ -5832,88 +5832,88 @@ static const GtkActionEntry entries[] = {
 	{ "Help", NULL, N_("_Help") },
 
 	/* File menu */
-	{ "FileOpen", GTK_STOCK_OPEN, N_("_Open…"), "<control>O",
+	{ "FileOpen", "document-open-symbolic", N_("_Open…"), "<control>O",
 	  N_("Open an existing document"),
 	  G_CALLBACK (ev_window_cmd_file_open) },
 	{ "FileOpenCopy", NULL, N_("Op_en a Copy"), "<control>N",
 	  N_("Open a copy of the current document in a new window"),
 	  G_CALLBACK (ev_window_cmd_file_open_copy) },
-       	{ "FileSaveAs", GTK_STOCK_SAVE_AS, N_("_Save a Copy…"), "<control>S",
+    { "FileSaveAs", "document-save-as-symbolic", N_("_Save a Copy…"), "<control>S",
 	  N_("Save a copy of the current document"),
 	  G_CALLBACK (ev_window_cmd_save_as) },
-	{ "FilePrint", GTK_STOCK_PRINT, N_("_Print…"), "<control>P",
+	{ "FilePrint", "document-print-symbolic", N_("_Print…"), "<control>P",
 	  N_("Print this document"),
 	  G_CALLBACK (ev_window_cmd_file_print) },
-	{ "FileProperties", GTK_STOCK_PROPERTIES, N_("P_roperties"), "<alt>Return", NULL,
+	{ "FileProperties", "document-properties-symbolic", N_("P_roperties"), "<alt>Return", NULL,
 	  G_CALLBACK (ev_window_cmd_file_properties) },			      
-	{ "FileCloseWindow", GTK_STOCK_CLOSE, NULL, "<control>W", NULL,
+	{ "FileCloseWindow", "window-close-symbolic", N_("_Close"), "<control>W", NULL,
 	  G_CALLBACK (ev_window_cmd_file_close_window) },
 
         /* Edit menu */
-        { "EditCopy", GTK_STOCK_COPY, NULL, "<control>C", NULL,
+        { "EditCopy", "edit-copy-symbolic", N_("_Copy"), "<control>C", NULL,
           G_CALLBACK (ev_window_cmd_edit_copy) },
- 	{ "EditSelectAll", GTK_STOCK_SELECT_ALL, N_("Select _All"), "<control>A", NULL,
+ 	{ "EditSelectAll", "edit-select-all-symbolic", N_("Select _All"), "<control>A", NULL,
 	  G_CALLBACK (ev_window_cmd_edit_select_all) },
-        { "EditFind", GTK_STOCK_FIND, N_("_Find…"), "<control>F",
+        { "EditFind", "edit-find-symbolic", N_("_Find…"), "<control>F",
           N_("Find a word or phrase in the document"),
           G_CALLBACK (ev_window_cmd_edit_find) },
 	{ "EditFindNext", NULL, N_("Find Ne_xt"), "<control>G", NULL,
 	  G_CALLBACK (ev_window_cmd_edit_find_next) },
 	{ "EditFindPrevious", NULL, N_("Find Pre_vious"), "<shift><control>G", NULL,
 	  G_CALLBACK (ev_window_cmd_edit_find_previous) },
-	{ "EditRotateLeft", EV_STOCK_ROTATE_LEFT, N_("Rotate _Left"), "<control>Left", NULL,
+	{ "EditRotateLeft", "object-rotate-left-symbolic", N_("Rotate _Left"), "<control>Left", NULL,
 	  G_CALLBACK (ev_window_cmd_edit_rotate_left) },
-	{ "EditRotateRight", EV_STOCK_ROTATE_RIGHT, N_("Rotate _Right"), "<control>Right", NULL,
+	{ "EditRotateRight", "object-rotate-right-symbolic", N_("Rotate _Right"), "<control>Right", NULL,
 	  G_CALLBACK (ev_window_cmd_edit_rotate_right) },
 	{ "EditSaveSettings", NULL, N_("Save Current Settings as _Default"), "<control>T", NULL,
 	  G_CALLBACK (ev_window_cmd_edit_save_settings) },
 
 
         /* View menu */
-        { "ViewZoomIn", GTK_STOCK_ZOOM_IN, NULL, "<control>plus",
+        { "ViewZoomIn", "zoom-in-symbolic", N_("Zoom _In"), "<control>plus",
           N_("Enlarge the document"),
           G_CALLBACK (ev_window_cmd_view_zoom_in) },
-        { "ViewZoomOut", GTK_STOCK_ZOOM_OUT, NULL, "<control>minus",
+        { "ViewZoomOut", "zoom-out-symbolic", N_("Zoom _Out"), "<control>minus",
           N_("Shrink the document"),
           G_CALLBACK (ev_window_cmd_view_zoom_out) },
-        { "ViewReload", GTK_STOCK_REFRESH, N_("_Reload"), "<control>R",
+        { "ViewReload", "view-refresh-symbolic", N_("_Reload"), "<control>R",
           N_("Reload the document"),
           G_CALLBACK (ev_window_cmd_view_reload) },
-        { "ViewExpandWindow", GTK_STOCK_ZOOM_FIT, N_("_Expand Window to Fit"), "<control>e",
+        { "ViewExpandWindow", "zoom-fit-best-symbolic", N_("_Expand Window to Fit"), "<control>e",
           N_("Expand Window to Fit"),
           G_CALLBACK (ev_window_cmd_view_expand_window) },
 
-	{ "ViewAutoscroll", GTK_STOCK_MEDIA_PLAY, N_("Auto_scroll"), NULL, NULL,
+	{ "ViewAutoscroll", "media-playback-start-symbolic", N_("Auto_scroll"), NULL, NULL,
 	  G_CALLBACK (ev_window_cmd_view_autoscroll) },
 
         /* Go menu */
-        { "GoPreviousPage", GTK_STOCK_GO_UP, N_("_Previous Page"), "<control>Page_Up",
+        { "GoPreviousPage", "go-up-symbolic", N_("_Previous Page"), "<control>Page_Up",
           N_("Go to the previous page"),
           G_CALLBACK (ev_window_cmd_go_previous_page) },
-        { "GoNextPage", GTK_STOCK_GO_DOWN, N_("_Next Page"), "<control>Page_Down",
+        { "GoNextPage", "go-down-symbolic", N_("_Next Page"), "<control>Page_Down",
           N_("Go to the next page"),
           G_CALLBACK (ev_window_cmd_go_next_page) },
-        { "GoFirstPage", GTK_STOCK_GOTO_TOP, N_("_First Page"), "<control>Home",
+        { "GoFirstPage", "go-top-symbolic", N_("_First Page"), "<control>Home",
           N_("Go to the first page"),
           G_CALLBACK (ev_window_cmd_go_first_page) },
-        { "GoLastPage", GTK_STOCK_GOTO_BOTTOM, N_("_Last Page"), "<control>End",
+        { "GoLastPage", "go-bottom-symbolic", N_("_Last Page"), "<control>End",
           N_("Go to the last page"),
           G_CALLBACK (ev_window_cmd_go_last_page) },
 
 	/* Bookmarks menu */
-	{ "BookmarksAdd", GTK_STOCK_ADD, N_("_Add Bookmark"), "<control>D",
+	{ "BookmarksAdd", "bookmark-new-symbolic", N_("_Add Bookmark"), "<control>D",
 	  N_("Add a bookmark for the current page"),
 	  G_CALLBACK (ev_window_cmd_bookmarks_add) },
 
 	/* Help menu */
-	{ "HelpContents", GTK_STOCK_HELP, N_("_Contents"), "F1", NULL,
+	{ "HelpContents", "help-contents-symbolic", N_("_Contents"), "F1", NULL,
 	  G_CALLBACK (ev_window_cmd_help_contents) },
 
-	{ "HelpAbout", GTK_STOCK_ABOUT, N_("_About"), NULL, NULL,
+	{ "HelpAbout", "help-about-symbolic", N_("_About"), NULL, NULL,
 	  G_CALLBACK (ev_window_cmd_help_about) },
 
 	/* Toolbar-only */
-	{ "LeaveFullscreen", GTK_STOCK_LEAVE_FULLSCREEN, N_("Leave Fullscreen"), NULL,
+	{ "LeaveFullscreen", "view-restore-symbolic", N_("Leave Fullscreen"), NULL,
 	  N_("Leave fullscreen mode"),
 	  G_CALLBACK (ev_window_cmd_leave_fullscreen) },
 	{ "StartPresentation", EV_STOCK_RUN_PRESENTATION, N_("Start Presentation"), NULL,
@@ -6009,9 +6009,9 @@ static const GtkToggleActionEntry toggle_entries[] = {
 /* Popups specific items */
 static const GtkActionEntry view_popup_entries [] = {
 	/* Links */
-	{ "OpenLink", GTK_STOCK_OPEN, N_("_Open Link"), NULL,
+	{ "OpenLink", "document-open-symbolic", N_("_Open Link"), NULL,
 	  NULL, G_CALLBACK (ev_view_popup_cmd_open_link) },
-	{ "GoLink", GTK_STOCK_GO_FORWARD, N_("_Go To"), NULL,
+	{ "GoLink", "go-next-symbolic", N_("_Go To"), NULL,
 	  NULL, G_CALLBACK (ev_view_popup_cmd_open_link) },
 	{ "OpenLinkNewWindow", NULL, N_("Open in New _Window"), NULL,
 	  NULL, G_CALLBACK (ev_view_popup_cmd_open_link_new_window) },
@@ -6026,9 +6026,9 @@ static const GtkActionEntry view_popup_entries [] = {
 };
 
 static const GtkActionEntry attachment_popup_entries [] = {
-	{ "OpenAttachment", GTK_STOCK_OPEN, N_("_Open Attachment"), NULL,
+	{ "OpenAttachment", "document-open-symbolic", N_("_Open Attachment"), NULL,
 	  NULL, G_CALLBACK (ev_attachment_popup_cmd_open_attachment) },
-	{ "SaveAttachmentAs", GTK_STOCK_SAVE_AS, N_("_Save Attachment As…"), NULL,
+	{ "SaveAttachmentAs", "document-save-as-symbolic", N_("_Save Attachment As…"), NULL,
 	  NULL, G_CALLBACK (ev_attachment_popup_cmd_save_attachment_as) },
 };
 
