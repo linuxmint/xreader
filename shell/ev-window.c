@@ -3951,40 +3951,27 @@ ev_window_update_fullscreen_action (EvWindow *window)
 			has_pages && !(document->iswebdocument));
 }
 
-static void
-fullscreen_toolbar_setup_item_properties (GtkUIManager *ui_manager)
+static GtkWidget *
+create_toolbar_button (GtkAction *action)
 {
-	GtkWidget *item;
+	GtkWidget *button;
+	GtkWidget *image;
+	GtkWidget *label;
+	GtkWidget *box;
 
-	item = gtk_ui_manager_get_widget (ui_manager, "/FullscreenToolbar/GoPreviousPage");
-	g_object_set (item, "is-important", FALSE, NULL);
+	button = gtk_button_new ();
+	image = gtk_image_new_from_icon_name (gtk_action_get_icon_name (action), GTK_ICON_SIZE_MENU);
+	label = gtk_label_new_with_mnemonic (gtk_action_get_short_label (action));
+	box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 4);
 
-	item = gtk_ui_manager_get_widget (ui_manager, "/FullscreenToolbar/GoNextPage");
-	g_object_set (item, "is-important", FALSE, NULL);
+	gtk_container_add (GTK_CONTAINER (button), box);
+	gtk_box_pack_start (GTK_BOX (box), image, FALSE, FALSE, 0);
+	gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
+	gtk_style_context_add_class (gtk_widget_get_style_context (button), "flat");
+	gtk_activatable_set_related_action (GTK_ACTIVATABLE (button), action);
+	gtk_widget_set_tooltip_text (button, gtk_action_get_tooltip (action));
 
-	item = gtk_ui_manager_get_widget (ui_manager, "/FullscreenToolbar/StartPresentation");
-	g_object_set (item, "is-important", TRUE, NULL);
-	
-	item = gtk_ui_manager_get_widget (ui_manager, "/FullscreenToolbar/LeaveFullscreen");
-	g_object_set (item, "is-important", TRUE, NULL);
-}
-
-static void
-fullscreen_toolbar_remove_shadow (GtkWidget *toolbar)
-{
-	GtkCssProvider *provider;
-
-	gtk_widget_set_name (toolbar, "ev-fullscreen-toolbar");
-
-	provider = gtk_css_provider_new ();
-	gtk_css_provider_load_from_data (provider,
-					 "#ev-fullscreen-toolbar {\n"
-					 " -GtkToolbar-shadow-type: none; }",
-					 -1, NULL);
-	gtk_style_context_add_provider (gtk_widget_get_style_context (toolbar),
-					GTK_STYLE_PROVIDER (provider),
-					GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-	g_object_unref (provider);
+	return button;
 }
 
 static void
@@ -3994,22 +3981,59 @@ ev_window_run_fullscreen (EvWindow *window)
 
 	if (ev_document_model_get_fullscreen (window->priv->model))
 		return;
-	
+
 	if (!window->priv->fullscreen_toolbar) {
-		window->priv->fullscreen_toolbar =
-			gtk_ui_manager_get_widget (window->priv->ui_manager,
-						   "/FullscreenToolbar");
+		GtkWidget *tool_item;
+		GtkWidget *tool_box;
+		GtkAction *action;
+		GtkWidget *button;
 
-		gtk_toolbar_set_style (GTK_TOOLBAR (window->priv->fullscreen_toolbar),
-				       GTK_TOOLBAR_BOTH_HORIZ);
-		fullscreen_toolbar_remove_shadow (window->priv->fullscreen_toolbar);
-		fullscreen_toolbar_setup_item_properties (window->priv->ui_manager);
+		window->priv->fullscreen_toolbar = gtk_toolbar_new ();
 
-		gtk_box_pack_start (GTK_BOX (window->priv->main_box),
-				    window->priv->fullscreen_toolbar,
-				    FALSE, FALSE, 0);
-		gtk_box_reorder_child (GTK_BOX (window->priv->main_box),
-				       window->priv->fullscreen_toolbar, 1);
+		tool_item = gtk_tool_item_new ();
+		gtk_toolbar_insert (GTK_TOOLBAR (window->priv->fullscreen_toolbar), GTK_TOOL_ITEM (tool_item), 0);
+		gtk_widget_set_margin_end (tool_item, 12);
+
+		tool_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+		gtk_container_add (GTK_CONTAINER (tool_item), tool_box);
+
+		action = gtk_action_group_get_action (window->priv->action_group, "GoPreviousPage");
+		button = create_toolbar_button (action);
+		gtk_box_pack_start (GTK_BOX (tool_box), button, FALSE, FALSE, 0);
+
+		action = gtk_action_group_get_action (window->priv->action_group, "GoNextPage");
+		button = create_toolbar_button (action);
+		gtk_box_pack_start (GTK_BOX (tool_box), button, FALSE, FALSE, 0);
+
+		gtk_widget_show_all (tool_item);
+
+		action = gtk_action_group_get_action (window->priv->action_group, "PageSelector");
+		tool_item = gtk_action_create_tool_item (action);
+		gtk_container_add (GTK_CONTAINER (window->priv->fullscreen_toolbar), tool_item);
+
+		action = gtk_action_group_get_action (window->priv->action_group, "ViewZoom");
+		tool_item = gtk_action_create_tool_item (action);
+		gtk_container_add (GTK_CONTAINER (window->priv->fullscreen_toolbar), tool_item);
+
+		tool_item = gtk_tool_item_new ();
+		gtk_container_add (GTK_CONTAINER (window->priv->fullscreen_toolbar), tool_item);
+		gtk_tool_item_set_expand (GTK_TOOL_ITEM (tool_item), TRUE);
+
+		tool_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+		gtk_container_add (GTK_CONTAINER (tool_item), tool_box);
+
+		action = gtk_action_group_get_action (window->priv->action_group, "LeaveFullscreen");
+		button = create_toolbar_button (action);
+		gtk_box_pack_end (GTK_BOX (tool_box), button, FALSE, FALSE, 0);
+
+		action = gtk_action_group_get_action (window->priv->action_group, "StartPresentation");
+		button = create_toolbar_button (action);
+		gtk_box_pack_end (GTK_BOX (tool_box), button, FALSE, FALSE, 0);
+
+		gtk_widget_show_all (tool_item);
+
+		gtk_box_pack_start (GTK_BOX (window->priv->main_box), window->priv->fullscreen_toolbar, FALSE, FALSE, 0);
+		gtk_box_reorder_child (GTK_BOX (window->priv->main_box), window->priv->fullscreen_toolbar, 1);
 	}
 
 	if (EV_WINDOW_IS_PRESENTATION (window)) {
@@ -5916,7 +5940,7 @@ static const GtkActionEntry entries[] = {
 	{ "LeaveFullscreen", "view-restore-symbolic", N_("Leave Fullscreen"), NULL,
 	  N_("Leave fullscreen mode"),
 	  G_CALLBACK (ev_window_cmd_leave_fullscreen) },
-	{ "StartPresentation", EV_STOCK_RUN_PRESENTATION, N_("Start Presentation"), NULL,
+	{ "StartPresentation", "x-office-presentation", N_("Start Presentation"), NULL,
 	  N_("Start a presentation"),
 	  G_CALLBACK (ev_window_cmd_start_presentation) },
 
@@ -7134,29 +7158,6 @@ static const GDBusInterfaceVTable interface_vtable = {
 
 static GDBusNodeInfo *introspection_data;
 #endif /* ENABLE_DBUS */
-
-static GtkWidget *
-create_toolbar_button (GtkAction *action)
-{
-	GtkWidget *button;
-	GtkWidget *image;
-	GtkWidget *label;
-	GtkWidget *box;
-
-	button = gtk_button_new ();
-	image = gtk_image_new_from_icon_name (gtk_action_get_icon_name (action), GTK_ICON_SIZE_MENU);
-	label = gtk_label_new_with_mnemonic (gtk_action_get_short_label (action));
-	box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 4);
-
-	gtk_container_add (GTK_CONTAINER (button), box);
-	gtk_box_pack_start (GTK_BOX (box), image, FALSE, FALSE, 0);
-	gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
-	gtk_style_context_add_class (gtk_widget_get_style_context (button), "flat");
-	gtk_activatable_set_related_action (GTK_ACTIVATABLE (button), action);
-	gtk_widget_set_tooltip_text (button, gtk_action_get_tooltip (action));
-
-	return button;
-}
 
 static void
 ev_window_init (EvWindow *ev_window)
