@@ -36,6 +36,8 @@ override_dh_auto_configure:
 		--enable-t1lib \
 		--enable-pixbuf \
 		--enable-comics \
+		--enable-caja \
+		--enable-nemo \
 		--enable-introspection \
 		--disable-static \
 		$(DEB_XREADER_FLAGS)

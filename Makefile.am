@@ -6,12 +6,16 @@ SUBDIRS =       \
     libdocument \
     backend     \
     libview     \
-    libmisc     \
-    properties-caja  \
-    properties-nemo  \
-    shell       \
-    po          \
-    help
+    libmisc
+
+
+if ENABLE_CAJA
+    SUBDIRS += properties-caja
+endif
+
+if ENABLE_NEMO
+    SUBDIRS += properties-nemo
+endif
 
 if ENABLE_TESTS
     SUBDIRS += test
@@ -24,6 +28,11 @@ endif
 if ENABLE_PREVIEWER
     SUBDIRS += previewer
 endif
+
+# dpkg-buildpackage: Building shell, po and help is dependent of properties-nemo
+# and properties-caja, which must be build before.
+SUBDIRS += shell po help
+
 
 NULL =
 
@@ -39,7 +48,7 @@ header_DATA = \
     xreader-view.h \
     $(NULL)
 
-# Applications 
+# Applications
 
 intltool_extra = intltool-extract.in intltool-merge.in intltool-update.in
 
