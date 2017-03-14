@@ -73,6 +73,12 @@ typedef struct {
 	EvImage *image;
 } ImageDNDInfo;
 
+typedef enum {
+	EV_PAN_ACTION_NONE,
+	EV_PAN_ACTION_NEXT,
+	EV_PAN_ACTION_PREV
+} EvPanAction;
+
 /* Annotation popup windows */
 typedef struct {
 	GtkWidget *window;
@@ -203,8 +209,10 @@ struct _EvView {
 	gboolean a11y_enabled;
 
 	/* Gestures */
+	GtkGesture *pan_gesture;
 	GtkGesture *zoom_gesture;
 	gdouble prev_zoom_gesture_scale;
+	EvPanAction pan_action;
 };
 
 struct _EvViewClass {
