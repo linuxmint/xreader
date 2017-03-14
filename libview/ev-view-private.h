@@ -201,6 +201,10 @@ struct _EvView {
 
 	/* Accessibility */
 	gboolean a11y_enabled;
+
+	/* Gestures */
+	GtkGesture *zoom_gesture;
+	gdouble prev_zoom_gesture_scale;
 };
 
 struct _EvViewClass {
