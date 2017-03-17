@@ -594,35 +594,39 @@ ev_application_unregister_uri (EvApplication *application,
 
 static void
 ev_application_open_uri_in_window (EvApplication  *application,
-				   const char     *uri,
-				   EvWindow       *ev_window,
-				   GdkScreen      *screen,
-				   EvLinkDest     *dest,
-				   EvWindowRunMode mode,
-				   const gchar    *search_string,
-				   guint           timestamp)
+                                   const char     *uri,
+                                   EvWindow       *ev_window,
+                                   GdkScreen      *screen,
+                                   EvLinkDest     *dest,
+                                   EvWindowRunMode mode,
+                                   const gchar    *search_string,
+                                   guint           timestamp)
 {
-	GdkWindow *gdk_window;
+    if (screen) {
+        ev_stock_icons_set_screen (screen);
+        gtk_window_set_screen (GTK_WINDOW (ev_window), screen);
+    }
 
-	if (screen) {
-		ev_stock_icons_set_screen (screen);
-		gtk_window_set_screen (GTK_WINDOW (ev_window), screen);
-	}
+    /* We need to load uri before showing the window, so
+       we can restore window size without flickering */
+    ev_window_open_uri (ev_window, uri, dest, mode, search_string);
 
-	/* We need to load uri before showing the window, so
-	   we can restore window size without flickering */
-	ev_window_open_uri (ev_window, uri, dest, mode, search_string);
+    if (!gtk_widget_get_realized (GTK_WIDGET (ev_window)))
+        gtk_widget_realize (GTK_WIDGET (ev_window));
 
-	if (!gtk_widget_get_realized (GTK_WIDGET (ev_window)))
-		gtk_widget_realize (GTK_WIDGET (ev_window));
+#ifdef GDK_WINDOWING_X11
+    GdkWindow *gdk_window = gtk_widget_get_window (GTK_WIDGET (ev_window));
+    if (GDK_IS_X11_WINDOW (gdk_window)) {
+        if (timestamp <= 0)
+            timestamp = gdk_x11_get_server_time (gdk_window);
 
-	gdk_window = gtk_widget_get_window (GTK_WIDGET (ev_window));
-
-	if (timestamp <= 0)
-		timestamp = gdk_x11_get_server_time (gdk_window);
-	gdk_x11_window_set_user_time (gdk_window, timestamp);
-
-	gtk_window_present (GTK_WINDOW (ev_window));
+        gdk_x11_window_set_user_time (gdk_window, timestamp);
+        gtk_window_present (GTK_WINDOW (ev_window));
+    } else
+#endif /* GDK_WINDOWING_X11 */
+    {
+        gtk_window_present_with_time (GTK_WINDOW (ev_window), timestamp);
+    }
 }
 
 static void
@@ -693,27 +697,32 @@ ev_application_open_uri_at_dest (EvApplication  *application,
  */
 void
 ev_application_open_window (EvApplication *application,
-			    GdkScreen     *screen,
-			    guint32        timestamp)
+                            GdkScreen     *screen,
+                            guint32        timestamp)
 {
-	GtkWidget *new_window = ev_window_new ();
-	GdkWindow *gdk_window;
+    GtkWidget *new_window = ev_window_new ();
 
-	if (screen) {
-		ev_stock_icons_set_screen (screen);
-		gtk_window_set_screen (GTK_WINDOW (new_window), screen);
-	}
+    if (screen) {
+        ev_stock_icons_set_screen (screen);
+        gtk_window_set_screen (GTK_WINDOW (new_window), screen);
+    }
 
-	if (!gtk_widget_get_realized (new_window))
-		gtk_widget_realize (new_window);
+    if (!gtk_widget_get_realized (new_window))
+        gtk_widget_realize (new_window);
 
-	gdk_window = gtk_widget_get_window (GTK_WIDGET (new_window));
+#ifdef GDK_WINDOWING_X11
+    GdkWindow *gdk_window = gtk_widget_get_window (GTK_WIDGET (new_window));
+    if (GDK_IS_X11_WINDOW (gdk_window)) {
+        if (timestamp <= 0)
+            timestamp = gdk_x11_get_server_time (gdk_window);
+        gdk_x11_window_set_user_time (gdk_window, timestamp);
 
-	if (timestamp <= 0)
-		timestamp = gdk_x11_get_server_time (gdk_window);
-	gdk_x11_window_set_user_time (gdk_window, timestamp);
-
-	gtk_window_present (GTK_WINDOW (new_window));
+        gtk_window_present (GTK_WINDOW (new_window));
+    } else
+#endif /* GDK_WINDOWING_X11 */
+    {
+        gtk_window_present_with_time (GTK_WINDOW (new_window), timestamp);
+    }
 }
 
 #ifdef ENABLE_DBUS
