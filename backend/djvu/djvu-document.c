@@ -667,14 +667,11 @@ djvu_document_find_find_text (EvDocumentFind   *document,
 	document_get_page_size (djvu_document, page->index, &width, &height);
 	for (l = matches; l && l->data; l = g_list_next (l)) {
 		EvRectangle *r = (EvRectangle *)l->data;
-		gdouble      tmp;
+		gdouble tmp = r->y1;
 
-		tmp = r->y1;
-		
 		r->x1 *= SCALE_FACTOR;
 		r->x2 *= SCALE_FACTOR;
 
-		tmp = r->y1;
 		r->y1 = height - r->y2 * SCALE_FACTOR;
 		r->y2 = height - tmp * SCALE_FACTOR;
 	}
