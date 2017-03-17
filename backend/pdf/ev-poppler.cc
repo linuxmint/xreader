@@ -1523,13 +1523,17 @@ pdf_document_find_find_text (EvDocumentFind *document_find,
 	PopplerPage *poppler_page;
 	gdouble height;
 	GList *retval = NULL;
+	PopplerFindFlags options = POPPLER_FIND_DEFAULT;
 
 	g_return_val_if_fail (POPPLER_IS_PAGE (page->backend_page), NULL);
 	g_return_val_if_fail (text != NULL, NULL);
 
 	poppler_page = POPPLER_PAGE (page->backend_page);
 	
-	matches = poppler_page_find_text (poppler_page, text);
+	if (case_sensitive)
+		options = POPPLER_FIND_CASE_SENSITIVE;
+
+	matches = poppler_page_find_text_with_options (poppler_page, text, options);
 	if (!matches)
 		return NULL;
 
