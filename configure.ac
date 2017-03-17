@@ -256,7 +256,7 @@ AC_ARG_ENABLE([caja],
   [enable_caja=yes])
 
 if test "$enable_caja" = "yes" ; then
-  PKG_CHECK_MODULES([CAJA],[gtk+-x11-2.0 $MM gthread-2.0 libcaja-extension],
+  PKG_CHECK_MODULES([CAJA],[$MM gthread-2.0 libcaja-extension],
                     [],[AC_MSG_ERROR([libcaja-extension not found; use --disable-caja to disable the caja extensions])])
   CAJA_EXTENSION_DIR=`$PKG_CONFIG --variable=extensiondir libcaja-extension`
   AC_SUBST([cajaextensiondir],[$CAJA_EXTENSION_DIR])
@@ -276,7 +276,7 @@ AC_ARG_ENABLE([nemo],
   [enable_nemo=yes])
 
 if test "$enable_nemo" = "yes" ; then
-  PKG_CHECK_MODULES([NEMO],[gtk+-x11-3.0 $MM gthread-2.0 libnemo-extension],
+  PKG_CHECK_MODULES([NEMO],[$MM gthread-2.0 libnemo-extension],
                     [],[AC_MSG_ERROR([libnemo-extension not found; use --disable-nemo to disable the nemo extensions])])
   NEMO_EXTENSION_DIR=`$PKG_CONFIG --variable=extensiondir libnemo-extension`
   AC_SUBST([nemoextensiondir],[$NEMO_EXTENSION_DIR])
