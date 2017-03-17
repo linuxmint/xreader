@@ -27,6 +27,7 @@
 #include <glib.h>
 
 #include "ev-document.h"
+#include "ev-macros.h"
 
 G_BEGIN_DECLS
 
@@ -39,8 +40,13 @@ gboolean    _ev_backends_manager_init                     (void);
 void        _ev_backends_manager_shutdown                 (void);
 
 EvDocument  *ev_backends_manager_get_document             (const gchar *mime_type);
+
+EV_DEPRECATED
 const gchar *ev_backends_manager_get_document_module_name (EvDocument  *document);
+
+EV_DEPRECATED
 EvTypeInfo  *ev_backends_manager_get_document_type_info   (EvDocument  *document);
+
 GList       *ev_backends_manager_get_all_types_info       (void);
 const gchar *ev_backends_manager_get_backends_dir         (void);
 G_END_DECLS

@@ -31,6 +31,7 @@
 
 #include "ev-document.h"
 #include "ev-attachment.h"
+#include "ev-macros.h"
 
 G_BEGIN_DECLS
 
@@ -115,10 +116,23 @@ gboolean             ev_annotation_set_modified              (EvAnnotation      
 							      const gchar            *modified);
 gboolean             ev_annotation_set_modified_from_time    (EvAnnotation           *annot,
 							      GTime                   utime);
+#ifndef HAVE_CAJA
+EV_DEPRECATED_FOR(ev_annotaion_get_rgba)
+#endif
 void                 ev_annotation_get_color                 (EvAnnotation           *annot,
 							      GdkColor               *color);
+#ifndef HAVE_CAJA
+EV_DEPRECATED_FOR(ev_annotaion_set_rgba)
+#endif
 gboolean             ev_annotation_set_color                 (EvAnnotation           *annot,
 							      const GdkColor         *color);
+
+#ifndef HAVE_CAJA
+void                 ev_annotation_get_rgba                  (EvAnnotation           *annot,
+                                                              GdkRGBA                *rgba);
+gboolean             ev_annotation_set_rgba                  (EvAnnotation           *annot,
+                                                              const GdkRGBA          *rgba);
+#endif
 
 /* EvAnnotationMarkup */
 GType                ev_annotation_markup_get_type           (void) G_GNUC_CONST;
