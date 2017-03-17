@@ -629,7 +629,7 @@ if test "x$enable_tiff" = "xyes"; then
     XREADER_MIME_TYPES="${XREADER_MIME_TYPES}image/tiff;"
 fi
 if test "x$enable_comics" = "xyes"; then
-    XREADER_MIME_TYPES="${XREADER_MIME_TYPES}application/x-cbr;application/x-cbz;application/x-cb7;application/x-cbt;"
+    XREADER_MIME_TYPES="${XREADER_MIME_TYPES}application/x-cbr;application/x-cbz;application/x-cb7;application/x-cbt;application/vnd.comicbook+zip;"
 fi
 if test "x$enable_pixbuf" = "xyes"; then
     XREADER_MIME_TYPES="${XREADER_MIME_TYPES}image/*;"
