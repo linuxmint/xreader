@@ -1,19 +1,132 @@
-Xreader is a document viewer capable of displaying 
-multiple and single page document formats like PDF 
-and Postscript.
+================================================================================
+                                  XREADER
+================================================================================
+
+
+What is it?
+-----------
+
+Xreader is a document viewer capable of displaying multiple and single page
+document formats like PDF and Postscript. For more general information about
+Xreader please visit our website at https://github.com/linuxmint/xreader.
+
+This software is licensed under GNU GENERAL PUBLIC LICENSE Version 2 from June
+1991 (see COPYING).
+
 
 Requirements
-==================================================
-Poppler for PDF viewing [ http://poppler.freedesktop.org/ ]
-GhostScript for Postscript viewing [ http://www.cs.wisc.edu/~ghost/ ]
+------------
+
+GTK+-3 development packages for *nix-like platforms. These information are only
+interesting for developers, for users, certain dependencies can be retrieved
+via automatic tools like rpm, apt, or such ones. The following options can be
+enabled during build:
+
+    - GConf Support
+    - GTK+ Unix Print
+    - Keyring Support
+    - DBUS Support
+    - SM client support
+    - Nemo Plugin
+    - Caja Plugin
+    - Thumbnailer
+    - Previewer
+    - Gtk-Doc Support
+    - Debug mode
+    - GObject Introspection
+
+
+Installation
+------------
+
+This package should be available through your favorite software installation
+tool. If you like to build it from source start by reading the chapter
+'Building Xreader from source', and the file INSTALL.
+
+
+Building Xreader from source
+----------------------------
+
+1) Install prerequisites:
+
+    apt install git dpkg-dev
+    apt install gobject-introspection libnemo-extension-dev libdjvulibre-dev  \
+                libgail-3-dev libgirepository1.0-dev libgtk-3-dev libgxps-dev \
+                libkpathsea-dev libpoppler-glib-dev libsecret-1-dev           \
+                libspectre-dev libwebkit2gtk-4.0-dev mate-common xsltproc     \
+                yelp-tools
+
+2) Download the source-code to your machine:
+
+    git clone https://github.com/linuxmint/xreader.git
+
+3) cd into the downloaded folder
+
+    cd xreader
+
+4) Run ./autogen.sh with options you like. The following configuration installs
+   all binaries, libs, and shared files into $PWD/install, and enables all
+   available options:
+
+    ./autogen.sh                    \
+        --prefix=$PWD/install/      \
+        --exec-prefix=$PWD/install/ \
+        --enable-debug              \
+        --enable-tests              \
+        --enable-caja               \
+        --enable-nemo               \
+        --enable-pixbuf             \
+        --enable-introspection      \
+        --enable-gtk-doc
+
+5) Compile and install (sudo is needed for make install)
+
+    make && sudo make install
+
+6) Now you can run and test (all executables are in ./install/bin):
+
+    ./install/bin/xreader
+
+7) You can uninstall the installed files with
+
+    make distclean
+
+
+Hacking
+-------
+
+Our Coding Guidelines can be found under
+https://www.gitbook.com/book/linuxmint/coding-guidelines.
+
 
 Optional Backend Libraries
-==================================================
-DjVuLibre for DjVu viewing [ http://djvulibre.djvuzone.org/ ]
-Rar for viewing CBR comics [ http://www.rarsoft.com/ ]
-libgxps for XPS documents [ https://wiki.gnome.org/libgxps ]
+--------------------------
+
+- Poppler for PDF Backend [ http://poppler.freedesktop.org/ ]
+- DjVuLibre for DjVu viewing [ http://djvulibre.djvuzone.org/ ]
+- Rar for viewing CBR comics [ http://www.rarsoft.com/ ]
+- libgxps for XPS documents [ https://wiki.gnome.org/libgxps ]
+- GhostScript for Postscript Backend [ http://www.cs.wisc.edu/~ghost/ ]
+- What about libspectre [ http://libspectre.freedesktop.org/wiki/ ]
+- TIFF Backend
+- DVI Backend
+- Pixbuf Backend
+- Comics Backend
+- Impress Backend
+
 
 Requirements to Run Tests
-==================================================
-python-dogtail [ https://fedorahosted.org/dogtail/ ]
-python-pyatspi2 [ http://download.gnome.org/sources/pyatspi/ ]
+-------------------------
+
+- python-dogtail [ https://fedorahosted.org/dogtail/ ]
+- python-pyatspi2 [ http://download.gnome.org/sources/pyatspi/ ]
+
+
+Optional Programs
+-----------------
+
+- Freeware unrar for viewing CBR comics [ http://www.rarsoft.com/ ]
+- Gna! unrar (unrar-free) can be used too, though it can't decompress rar v3.0
+  files [ http://gna.org/projects/unrar/ ]
+- unzip for viewing CBZ comics [ http://www.info-zip.org ]
+- p7zip for viewing CB7 comics [ http://p7zip.sourceforge.net/ ]
