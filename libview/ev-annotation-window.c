@@ -121,20 +121,14 @@ ev_annotation_window_sync_contents (EvAnnotationWindow *window)
 
 static void
 ev_annotation_window_set_color (EvAnnotationWindow *window,
-				GdkColor           *color)
+				GdkRGBA           *color)
 {
         GtkStyleProperties *properties;
         GtkStyleProvider   *provider;
-	GdkRGBA             rgba;
-
-        rgba.red = color->red / 65535.;
-        rgba.green = color->green / 65535.;
-        rgba.blue = color->blue / 65535.;
-        rgba.alpha = 1;
 
         properties = gtk_style_properties_new ();
         gtk_style_properties_set (properties, 0,
-                                  "background-color", &rgba,
+                                  "background-color", color,
                                   NULL);
 
         provider = GTK_STYLE_PROVIDER (properties);
@@ -165,10 +159,10 @@ ev_annotation_window_color_changed (EvAnnotation       *annot,
 				    GParamSpec         *pspec,
 				    EvAnnotationWindow *window)
 {
-	GdkColor color;
+	GdkRGBA rgba;
 
-	ev_annotation_get_color (annot, &color);
-	ev_annotation_window_set_color (window, &color);
+	ev_annotation_get_rgba (annot, &rgba);
+	ev_annotation_window_set_color (window, &rgba);
 }
 
 static void
@@ -362,13 +356,11 @@ ev_annotation_window_init (EvAnnotationWindow *window)
 	gtk_widget_show (hbox);
 
 	gtk_container_add (GTK_CONTAINER (window), vbox);
-	gtk_container_set_border_width (GTK_CONTAINER (window), 0);
 	gtk_widget_show (vbox);
 
 	gtk_widget_add_events (GTK_WIDGET (window),
 			       GDK_BUTTON_PRESS_MASK |
 			       GDK_KEY_PRESS_MASK);
-	gtk_widget_set_app_paintable (GTK_WIDGET (window), TRUE);
 
 	gtk_container_set_border_width (GTK_CONTAINER (window), 2);
 
@@ -389,7 +381,7 @@ ev_annotation_window_constructor (GType                  type,
 	EvAnnotationMarkup *markup;
 	const gchar        *contents;
 	const gchar        *label;
-	GdkColor            color;
+	GdkRGBA            color;
 	EvRectangle        *rect;
 	gdouble             scale;
 
@@ -415,7 +407,7 @@ ev_annotation_window_constructor (GType                  type,
 			   (gint)((rect->x2 - rect->x1) * scale),
 			   (gint)((rect->y2 - rect->y1) * scale));
 
-	ev_annotation_get_color (annot, &color);
+	ev_annotation_get_rgba (annot, &color);
 	ev_annotation_window_set_color (window, &color);
 	gtk_widget_set_name (GTK_WIDGET (window), ev_annotation_get_name (annot));
 	gtk_window_set_title (GTK_WINDOW (window), label);
@@ -432,7 +424,7 @@ ev_annotation_window_constructor (GType                  type,
 	g_signal_connect (annot, "notify::label",
 			  G_CALLBACK (ev_annotation_window_label_changed),
 			  window);
-	g_signal_connect (annot, "notify::color",
+	g_signal_connect (annot, "notify::rgba",
 			  G_CALLBACK (ev_annotation_window_color_changed),
 			  window);
 
