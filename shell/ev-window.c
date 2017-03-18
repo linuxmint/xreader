@@ -434,6 +434,7 @@ ev_window_setup_action_sensitivity (EvWindow *ev_window)
 	ev_window_set_action_sensitive (ev_window, "FileOpenCopy", has_document);
 	ev_window_set_action_sensitive (ev_window, "FileSaveAs", has_document && ok_to_copy);
 	ev_window_set_action_sensitive (ev_window, "FilePrint", has_pages && ok_to_print);
+	ev_window_set_action_sensitive (ev_window, "FileSend", has_pages);
 	ev_window_set_action_sensitive (ev_window, "FileProperties", has_document && has_properties);
 
         /* Edit menu */
@@ -3546,6 +3547,16 @@ ev_window_cmd_file_print (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
+ev_window_cmd_file_send (GtkAction *action, EvWindow *ev_window)
+{
+	gchar	*command;
+	command = g_strdup_printf ("thunderbird -compose to=,\"attachment='%s'\"", ev_application_get_uri (EV_APP));
+	
+	g_spawn_command_line_async (command, NULL);
+	g_free (command);
+}
+
+static void
 ev_window_cmd_file_properties (GtkAction *action, EvWindow *ev_window)
 {
 	if (ev_window->priv->properties == NULL) {
@@ -5952,6 +5963,9 @@ static const GtkActionEntry entries[] = {
 	{ "FilePrint", GTK_STOCK_PRINT, N_("_Print…"), "<control>P",
 	  N_("Print this document"),
 	  G_CALLBACK (ev_window_cmd_file_print) },
+	{ "FileSend", EV_STOCK_ATTACHMENT, N_("Send by _email…"), "<control>M",
+	  N_("Send this document by mail"),
+	  G_CALLBACK (ev_window_cmd_file_send) },
 	{ "FileProperties", GTK_STOCK_PROPERTIES, N_("P_roperties"), "<alt>Return", NULL,
 	  G_CALLBACK (ev_window_cmd_file_properties) },			      
 	{ "FileCloseWindow", GTK_STOCK_CLOSE, NULL, "<control>W", NULL,
