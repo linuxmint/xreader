@@ -89,6 +89,8 @@ ev_annotation_properties_dialog_constructed (GObject *object)
 	GtkWidget *grid = dialog->grid;
 	GtkWidget *label;
 
+	gtk_window_set_titlebar (GTK_WINDOW (dialog), NULL);
+
 	switch (dialog->annot_type) {
 	case EV_ANNOTATION_TYPE_TEXT:
 		label = gtk_label_new (_("Icon:"));
