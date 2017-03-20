@@ -1096,6 +1096,7 @@ ev_link_from_action (PdfDocument   *pdf_document,
 			
 			dest = ev_link_dest_from_dest (pdf_document, action->goto_dest.dest);
 			ev_action = ev_link_action_new_dest (dest);
+			g_object_unref (dest);
 		}
 			break;
 	        case POPPLER_ACTION_GOTO_REMOTE: {
@@ -1104,6 +1105,7 @@ ev_link_from_action (PdfDocument   *pdf_document,
 			dest = ev_link_dest_from_dest (pdf_document, action->goto_remote.dest);
 			ev_action = ev_link_action_new_remote (dest, 
 							       action->goto_remote.file_name);
+			g_object_unref (dest);
 			
 		}
 			break;
@@ -1179,7 +1181,9 @@ ev_link_from_action (PdfDocument   *pdf_document,
 	}
 	
 	link = ev_link_new (action->any.title, ev_action);
-	
+
+	g_object_unref (ev_action);
+
 	return link;	
 }
 

@@ -30,7 +30,7 @@ struct _EvToolbar
 
 struct _EvToolbarClass
 {
-        GtkToolbarClass parent_class;
+    GtkToolbarClass parent_class;
 };
 
 GType ev_toolbar_get_type (void);
@@ -38,6 +38,12 @@ GtkWidget *ev_toolbar_new (EvWindow *window);
 
 void ev_toolbar_set_style (EvToolbar *ev_toolbar,
                            gboolean   is_fullscreen);
+
+void ev_toolbar_set_preset_sensitivity (EvToolbar *ev_toolbar,
+                                        gboolean   sensitive);
+
+void ev_toolbar_activate_reader_view (EvToolbar *ev_toolbar);
+void ev_toolbar_activate_page_view (EvToolbar *ev_toolbar);
 
 G_END_DECLS
 

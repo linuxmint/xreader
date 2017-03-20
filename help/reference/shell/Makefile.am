@@ -91,7 +91,6 @@ GTKDOC_CFLAGS = \
 	-I$(top_srcdir)/shell				\
 	-I$(top_builddir)/shell				\
 	-I$(top_srcdir)/cut-n-paste/zoom-control/	\
-	-I$(top_srcdir)/cut-n-paste/toolbar-editor/	\
 	-I$(top_srcdir)/cut-n-paste/totem-screensaver/	\
 	-I$(top_srcdir)/libdocument			\
 	-I$(top_builddir)/libdocument			\
@@ -117,7 +116,6 @@ FILTER_OUT = \
 
 GTKDOC_LIBS = \
 	$(top_builddir)/cut-n-paste/zoom-control/libephyzoom.la		\
-	$(top_builddir)/cut-n-paste/toolbar-editor/libtoolbareditor.la	\
 	$(top_builddir)/cut-n-paste/totem-screensaver/libtotemscrsaver.la	\
 	$(top_builddir)/cut-n-paste/smclient/libsmclient.la		\
 	$(top_builddir)/properties-caja/libevproperties.la			\

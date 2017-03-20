@@ -149,7 +149,7 @@ ev_link_action_get_property (GObject    *object,
 		        g_value_set_enum (value, self->priv->type);
 		        break;
 	        case PROP_DEST:
-		        g_value_set_pointer (value, self->priv->dest);
+		        g_value_set_object (value, self->priv->dest);
 			break;
 	        case PROP_URI:
 			g_value_set_string (value, self->priv->uri);
@@ -193,7 +193,7 @@ ev_link_action_set_property (GObject      *object,
 			self->priv->type = g_value_get_enum (value);
 			break;
 	        case PROP_DEST:
-			self->priv->dest = g_value_get_pointer (value);
+			self->priv->dest = g_value_dup_object (value);
 			break;
 	        case PROP_URI:
 			g_free (self->priv->uri);
@@ -235,10 +235,7 @@ ev_link_action_finalize (GObject *object)
 
 	priv = EV_LINK_ACTION (object)->priv;
 
-	if (priv->dest) {
-		g_object_unref (priv->dest);
-		priv->dest = NULL;
-	}
+	g_clear_object (&priv->dest);
 
 	if (priv->uri) {
 		g_free (priv->uri);
@@ -318,11 +315,13 @@ ev_link_action_class_init (EvLinkActionClass *ev_link_action_class)
 							     G_PARAM_CONSTRUCT_ONLY));
 	g_object_class_install_property (g_object_class,
 					 PROP_DEST,
-					 g_param_spec_pointer ("dest",
+					 g_param_spec_object ("dest",
 							       "Action destination",
 							       "The link action destination",
+							       EV_TYPE_LINK_DEST,
 							       G_PARAM_READWRITE |
-							       G_PARAM_CONSTRUCT_ONLY));
+							       G_PARAM_CONSTRUCT_ONLY |
+							       G_PARAM_STATIC_STRINGS));
 	g_object_class_install_property (g_object_class,
 					 PROP_URI,
 					 g_param_spec_string ("uri",
@@ -438,4 +437,47 @@ ev_link_action_new_layers_state (GList *show_list,
 					     "toggle-list", toggle_list,
 					     "type", EV_LINK_ACTION_TYPE_LAYERS_STATE,
 					     NULL));
+}
+
+gboolean
+ev_link_action_equal (EvLinkAction *a,
+                      EvLinkAction *b)
+{
+	g_return_val_if_fail (EV_IS_LINK_ACTION (a), FALSE);
+	g_return_val_if_fail (EV_IS_LINK_ACTION (b), FALSE);
+
+	if (a == b)
+	{
+		return TRUE;
+	}
+
+	if (a->priv->type != b->priv->type)
+	{
+		return FALSE;
+	}
+
+	switch (a->priv->type)
+	{
+		case EV_LINK_ACTION_TYPE_GOTO_DEST:
+			return ev_link_dest_equal (a->priv->dest, b->priv->dest);
+
+		case EV_LINK_ACTION_TYPE_GOTO_REMOTE:
+			return ev_link_dest_equal (a->priv->dest, b->priv->dest) &&
+									   !g_strcmp0 (a->priv->filename, b->priv->filename);
+
+		case EV_LINK_ACTION_TYPE_EXTERNAL_URI:
+			return !g_strcmp0 (a->priv->uri, b->priv->uri);
+
+		case EV_LINK_ACTION_TYPE_LAUNCH:
+			return !g_strcmp0 (a->priv->filename, b->priv->filename) &&
+				   !g_strcmp0 (a->priv->params, b->priv->params);
+
+		case EV_LINK_ACTION_TYPE_NAMED:
+			return !g_strcmp0 (a->priv->name, b->priv->name);
+
+		default:
+			return FALSE;
+	}
+
+	return FALSE;
 }
