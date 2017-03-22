@@ -92,6 +92,7 @@
 #include "ev-annotation-properties-dialog.h"
 #include "ev-bookmarks.h"
 #include "ev-bookmark-action.h"
+#include "ev-toolbar.h"
 
 typedef enum {
 	PAGE_MODE_DOCUMENT,
@@ -166,9 +167,6 @@ struct _EvWindowPrivate {
 	GtkActionGroup   *bookmarks_action_group;
 	guint             bookmarks_ui_id;
 	GtkUIManager     *ui_manager;
-
-	/* Fullscreen mode */
-	GtkWidget *fullscreen_toolbar;
 
 	/* Popup view */
 	GtkWidget    *view_popup;
@@ -618,7 +616,7 @@ update_chrome_visibility (EvWindow *window)
 
 	menubar = (priv->chrome & EV_CHROME_MENUBAR) != 0 && !fullscreen_mode;
 	toolbar = ((priv->chrome & EV_CHROME_TOOLBAR) != 0  || 
-		   (priv->chrome & EV_CHROME_RAISE_TOOLBAR) != 0) && !fullscreen_mode;
+		   (priv->chrome & EV_CHROME_RAISE_TOOLBAR) != 0) && !presentation;
 	fullscreen_toolbar = ((priv->chrome & EV_CHROME_FULLSCREEN_TOOLBAR) != 0 || 
 			      (priv->chrome & EV_CHROME_RAISE_TOOLBAR) != 0) && fullscreen;
 	findbar = (priv->chrome & EV_CHROME_FINDBAR) != 0;
@@ -629,8 +627,13 @@ update_chrome_visibility (EvWindow *window)
 	set_widget_visibility (priv->sidebar, sidebar);
 	gtk_revealer_set_reveal_child (GTK_REVEALER (priv->toolbar_revealer), toolbar);
 
-	if (priv->fullscreen_toolbar != NULL) {
-		set_widget_visibility (priv->fullscreen_toolbar, fullscreen_toolbar);
+	if (fullscreen_toolbar)
+	{
+		ev_toolbar_set_style (priv->toolbar, TRUE);
+	}
+	else
+	{
+		ev_toolbar_set_style (priv->toolbar, FALSE);
 	}
 }
 
@@ -3974,29 +3977,6 @@ ev_window_update_fullscreen_action (EvWindow *window)
 			has_pages && !(document->iswebdocument));
 }
 
-static GtkWidget *
-create_toolbar_button (GtkAction *action)
-{
-	GtkWidget *button;
-	GtkWidget *image;
-	GtkWidget *label;
-	GtkWidget *box;
-
-	button = gtk_button_new ();
-	image = gtk_image_new_from_icon_name (gtk_action_get_icon_name (action), GTK_ICON_SIZE_MENU);
-	label = gtk_label_new_with_mnemonic (gtk_action_get_short_label (action));
-	box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 4);
-
-	gtk_container_add (GTK_CONTAINER (button), box);
-	gtk_box_pack_start (GTK_BOX (box), image, FALSE, FALSE, 0);
-	gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
-	gtk_style_context_add_class (gtk_widget_get_style_context (button), "flat");
-	gtk_activatable_set_related_action (GTK_ACTIVATABLE (button), action);
-	gtk_widget_set_tooltip_text (button, gtk_action_get_tooltip (action));
-
-	return button;
-}
-
 static void
 ev_window_run_fullscreen (EvWindow *window)
 {
@@ -4004,60 +3984,6 @@ ev_window_run_fullscreen (EvWindow *window)
 
 	if (ev_document_model_get_fullscreen (window->priv->model))
 		return;
-
-	if (!window->priv->fullscreen_toolbar) {
-		GtkWidget *tool_item;
-		GtkWidget *tool_box;
-		GtkAction *action;
-		GtkWidget *button;
-
-		window->priv->fullscreen_toolbar = gtk_toolbar_new ();
-
-		tool_item = gtk_tool_item_new ();
-		gtk_toolbar_insert (GTK_TOOLBAR (window->priv->fullscreen_toolbar), GTK_TOOL_ITEM (tool_item), 0);
-		gtk_widget_set_margin_end (tool_item, 12);
-
-		tool_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-		gtk_container_add (GTK_CONTAINER (tool_item), tool_box);
-
-		action = gtk_action_group_get_action (window->priv->action_group, "GoPreviousPage");
-		button = create_toolbar_button (action);
-		gtk_box_pack_start (GTK_BOX (tool_box), button, FALSE, FALSE, 0);
-
-		action = gtk_action_group_get_action (window->priv->action_group, "GoNextPage");
-		button = create_toolbar_button (action);
-		gtk_box_pack_start (GTK_BOX (tool_box), button, FALSE, FALSE, 0);
-
-		gtk_widget_show_all (tool_item);
-
-		action = gtk_action_group_get_action (window->priv->action_group, "PageSelector");
-		tool_item = gtk_action_create_tool_item (action);
-		gtk_container_add (GTK_CONTAINER (window->priv->fullscreen_toolbar), tool_item);
-
-		action = gtk_action_group_get_action (window->priv->action_group, "ViewZoom");
-		tool_item = gtk_action_create_tool_item (action);
-		gtk_container_add (GTK_CONTAINER (window->priv->fullscreen_toolbar), tool_item);
-
-		tool_item = gtk_tool_item_new ();
-		gtk_container_add (GTK_CONTAINER (window->priv->fullscreen_toolbar), tool_item);
-		gtk_tool_item_set_expand (GTK_TOOL_ITEM (tool_item), TRUE);
-
-		tool_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-		gtk_container_add (GTK_CONTAINER (tool_item), tool_box);
-
-		action = gtk_action_group_get_action (window->priv->action_group, "LeaveFullscreen");
-		button = create_toolbar_button (action);
-		gtk_box_pack_end (GTK_BOX (tool_box), button, FALSE, FALSE, 0);
-
-		action = gtk_action_group_get_action (window->priv->action_group, "StartPresentation");
-		button = create_toolbar_button (action);
-		gtk_box_pack_end (GTK_BOX (tool_box), button, FALSE, FALSE, 0);
-
-		gtk_widget_show_all (tool_item);
-
-		gtk_box_pack_start (GTK_BOX (window->priv->main_box), window->priv->fullscreen_toolbar, FALSE, FALSE, 0);
-		gtk_box_reorder_child (GTK_BOX (window->priv->main_box), window->priv->fullscreen_toolbar, 1);
-	}
 
 	if (EV_WINDOW_IS_PRESENTATION (window)) {
 		ev_window_stop_presentation (window, FALSE);
@@ -7223,11 +7149,6 @@ ev_window_init (EvWindow *ev_window)
 	GtkWidget *sidebar_widget;
 	GtkWidget *menuitem;
 	GtkStyleContext *context;
-	GtkWidget *tool_item;
-	GtkWidget *tool_box;
-	GtkWidget *box;
-	GtkWidget *button;
-	GtkAction *action;
 	guint page_cache_mb;
 	gchar *ui_path;
 #ifdef ENABLE_DBUS
@@ -7357,41 +7278,12 @@ ev_window_init (EvWindow *ev_window)
 	ev_window->priv->toolbar_revealer = gtk_revealer_new ();
 	gtk_box_pack_start (GTK_BOX (ev_window->priv->main_box), ev_window->priv->toolbar_revealer, FALSE, TRUE, 0);
 	gtk_revealer_set_transition_duration (GTK_REVEALER (ev_window->priv->toolbar_revealer), 175);
+	gtk_widget_show (ev_window->priv->toolbar_revealer);
 
-	ev_window->priv->toolbar = gtk_toolbar_new ();
-	gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (ev_window->priv->toolbar)), 
-								 GTK_STYLE_CLASS_PRIMARY_TOOLBAR);
+	ev_window->priv->toolbar = ev_toolbar_new (ev_window);
 	gtk_container_add (GTK_CONTAINER (ev_window->priv->toolbar_revealer), ev_window->priv->toolbar);
+	gtk_widget_show (ev_window->priv->toolbar);
 
-	tool_item = gtk_tool_item_new ();
-	gtk_toolbar_insert (GTK_TOOLBAR (ev_window->priv->toolbar), GTK_TOOL_ITEM (tool_item), 0);
-	gtk_widget_set_margin_end (tool_item, 12);
-
-	tool_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-	gtk_container_add (GTK_CONTAINER (tool_item), tool_box);
-
-	box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-	gtk_box_pack_start (GTK_BOX (tool_box), box, FALSE, FALSE, 0);
-
-	action = gtk_action_group_get_action (ev_window->priv->action_group, "GoPreviousPage");
-	button = create_toolbar_button (action);
-	gtk_box_pack_start (GTK_BOX (box), button, FALSE, FALSE, 0);
-
-	action = gtk_action_group_get_action (ev_window->priv->action_group, "GoNextPage");
-	button = create_toolbar_button (action);
-	gtk_box_pack_start (GTK_BOX (box), button, FALSE, FALSE, 0);
-
-	action = gtk_action_group_get_action (ev_window->priv->action_group, "PageSelector");
-	tool_item = gtk_action_create_tool_item (action);
-	gtk_container_add (GTK_CONTAINER (ev_window->priv->toolbar), tool_item);
-
-	action = gtk_action_group_get_action (ev_window->priv->action_group, "ViewZoom");
-	tool_item = gtk_action_create_tool_item (action);
-	gtk_container_add (GTK_CONTAINER (ev_window->priv->toolbar), tool_item);
-
-	gtk_widget_show_all (ev_window->priv->toolbar_revealer);
-
-	/* Add the main area */
 	ev_window->priv->hpaned = gtk_paned_new (GTK_ORIENTATION_HORIZONTAL);
 
 	g_signal_connect (ev_window->priv->hpaned,
@@ -7703,4 +7595,12 @@ ev_window_get_dbus_object_path (EvWindow *ev_window)
 #else
 	return NULL;
 #endif
+}
+
+GtkActionGroup *
+ev_window_get_main_action_group (EvWindow *ev_window)
+{
+	g_return_val_if_fail (EV_WINDOW (ev_window), NULL);
+
+	return ev_window->priv->action_group;
 }
