@@ -113,8 +113,7 @@ GTKDOC_CFLAGS = \
 
 FILTER_OUT = \
 	$(top_builddir)/shell/main.o			\
-	$(top_builddir)/shell/xreaderd-ev-daemon.o	\
-	$(top_builddir)/shell/ev-convert-metadata.o
+	$(top_builddir)/shell/xreaderd-ev-daemon.o
 
 GTKDOC_LIBS = \
 	$(top_builddir)/cut-n-paste/zoom-control/libephyzoom.la		\

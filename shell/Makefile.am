@@ -24,9 +24,8 @@ AM_CPPFLAGS=							\
 
 bin_PROGRAMS=xreader
 
-libexec_PROGRAMS=xreader-convert-metadata
 if ENABLE_DBUS
-libexec_PROGRAMS += xreaderd
+libexec_PROGRAMS = xreaderd
 endif
 
 xreader_SOURCES=				\
@@ -118,12 +117,6 @@ endif
 
 
 BUILT_SOURCES = ev-marshal.h ev-marshal.c
-
-xreader_convert_metadata_SOURCES=	\
-	ev-convert-metadata.c
-
-xreader_convert_metadata_LDADD=		\
-	$(SHELL_LIBS)
 
 if ENABLE_DBUS
 xreaderd_SOURCES=			\
