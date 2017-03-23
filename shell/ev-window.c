@@ -627,14 +627,7 @@ update_chrome_visibility (EvWindow *window)
 	set_widget_visibility (priv->sidebar, sidebar);
 	gtk_revealer_set_reveal_child (GTK_REVEALER (priv->toolbar_revealer), toolbar);
 
-	if (fullscreen_toolbar)
-	{
-		ev_toolbar_set_style (priv->toolbar, TRUE);
-	}
-	else
-	{
-		ev_toolbar_set_style (priv->toolbar, FALSE);
-	}
+	ev_toolbar_set_style (priv->toolbar, fullscreen_toolbar);
 }
 
 static void
