@@ -151,7 +151,7 @@ ev_bookmarks_popup_cmd_remove_bookmark (GtkAction          *action,
 }
 
 static const GtkActionEntry popup_entries[] = {
-        { "OpenBookmark", GTK_STOCK_OPEN, N_("_Open Bookmark"), NULL,
+        { "OpenBookmark", "document-open-symbolic", N_("_Open Bookmark"), NULL,
           NULL, G_CALLBACK (ev_bookmarks_popup_cmd_open_bookmark) },
         { "RenameBookmark", NULL, N_("_Rename Bookmark"), NULL,
           NULL, G_CALLBACK (ev_bookmarks_popup_cmd_rename_bookmark) },
@@ -429,7 +429,6 @@ ev_sidebar_bookmarks_init (EvSidebarBookmarks *sidebar_bookmarks)
         priv = sidebar_bookmarks->priv;
 
         gtk_orientable_set_orientation (GTK_ORIENTABLE (sidebar_bookmarks), GTK_ORIENTATION_VERTICAL);
-        gtk_box_set_spacing (GTK_BOX (sidebar_bookmarks), 6);
 
         swindow = gtk_scrolled_window_new (NULL, NULL);
         gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow),
@@ -468,13 +467,10 @@ ev_sidebar_bookmarks_init (EvSidebarBookmarks *sidebar_bookmarks)
         gtk_container_add (GTK_CONTAINER (swindow), priv->tree_view);
         gtk_widget_show (priv->tree_view);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         hbox = gtk_button_box_new (GTK_ORIENTATION_HORIZONTAL);
-#else
-	hbox = gtk_hbutton_box_new ();
-#endif
+        gtk_container_set_border_width (GTK_CONTAINER (hbox), 12);
 
-        priv->add_button = gtk_button_new_from_stock (GTK_STOCK_ADD);
+        priv->add_button = gtk_button_new_with_label (_("Add"));
         g_signal_connect (priv->add_button, "clicked",
                           G_CALLBACK (ev_sidebar_bookmarks_add_clicked),
                           sidebar_bookmarks);
@@ -482,7 +478,7 @@ ev_sidebar_bookmarks_init (EvSidebarBookmarks *sidebar_bookmarks)
         gtk_box_pack_start (GTK_BOX (hbox), priv->add_button, TRUE, TRUE, 6);
         gtk_widget_show (priv->add_button);
 
-        priv->del_button = gtk_button_new_from_stock (GTK_STOCK_REMOVE);
+        priv->del_button = gtk_button_new_with_label (_("Remove"));
         g_signal_connect (priv->del_button, "clicked",
                           G_CALLBACK (ev_sidebar_bookmarks_del_clicked),
                           sidebar_bookmarks);
