@@ -151,7 +151,7 @@ ev_bookmarks_popup_cmd_remove_bookmark (GtkAction          *action,
 }
 
 static const GtkActionEntry popup_entries[] = {
-        { "OpenBookmark", GTK_STOCK_OPEN, N_("_Open Bookmark"), NULL,
+        { "OpenBookmark", "document-open-symbolic", N_("_Open Bookmark"), NULL,
           NULL, G_CALLBACK (ev_bookmarks_popup_cmd_open_bookmark) },
         { "RenameBookmark", NULL, N_("_Rename Bookmark"), NULL,
           NULL, G_CALLBACK (ev_bookmarks_popup_cmd_rename_bookmark) },
@@ -417,11 +417,13 @@ static void
 ev_sidebar_bookmarks_init (EvSidebarBookmarks *sidebar_bookmarks)
 {
         EvSidebarBookmarksPrivate *priv;
-        GtkWidget                 *swindow;
-        GtkWidget                 *hbox;
-        GtkListStore              *model;
-        GtkCellRenderer           *renderer;
-        GtkTreeSelection          *selection;
+        GtkWidget *swindow;
+        GtkWidget *toolbar;
+        GtkWidget *toolitem;
+        GtkWidget *hbox;
+        GtkListStore *model;
+        GtkCellRenderer *renderer;
+        GtkTreeSelection *selection;
 
         sidebar_bookmarks->priv = G_TYPE_INSTANCE_GET_PRIVATE (sidebar_bookmarks,
                                                                EV_TYPE_SIDEBAR_BOOKMARKS,
@@ -429,7 +431,6 @@ ev_sidebar_bookmarks_init (EvSidebarBookmarks *sidebar_bookmarks)
         priv = sidebar_bookmarks->priv;
 
         gtk_orientable_set_orientation (GTK_ORIENTABLE (sidebar_bookmarks), GTK_ORIENTATION_VERTICAL);
-        gtk_box_set_spacing (GTK_BOX (sidebar_bookmarks), 6);
 
         swindow = gtk_scrolled_window_new (NULL, NULL);
         gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow),
@@ -468,30 +469,35 @@ ev_sidebar_bookmarks_init (EvSidebarBookmarks *sidebar_bookmarks)
         gtk_container_add (GTK_CONTAINER (swindow), priv->tree_view);
         gtk_widget_show (priv->tree_view);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-        hbox = gtk_button_box_new (GTK_ORIENTATION_HORIZONTAL);
-#else
-	hbox = gtk_hbutton_box_new ();
-#endif
+        toolbar = gtk_toolbar_new ();
+        gtk_widget_show (toolbar);
 
-        priv->add_button = gtk_button_new_from_stock (GTK_STOCK_ADD);
+        toolitem = GTK_WIDGET (gtk_tool_item_new ());
+        gtk_toolbar_insert (GTK_TOOLBAR (toolbar), GTK_TOOL_ITEM (toolitem), 0);
+        gtk_widget_show (toolitem);
+
+        hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+        gtk_container_add (GTK_CONTAINER (toolitem), hbox);
+        gtk_style_context_add_class (gtk_widget_get_style_context (hbox), "linked");
+        gtk_widget_show (hbox);
+
+        priv->add_button = gtk_button_new_from_icon_name ("list-add-symbolic", GTK_ICON_SIZE_BUTTON);
         g_signal_connect (priv->add_button, "clicked",
                           G_CALLBACK (ev_sidebar_bookmarks_add_clicked),
                           sidebar_bookmarks);
         gtk_widget_set_sensitive (priv->add_button, FALSE);
-        gtk_box_pack_start (GTK_BOX (hbox), priv->add_button, TRUE, TRUE, 6);
+        gtk_box_pack_start (GTK_BOX (hbox), priv->add_button, FALSE, FALSE, 0);
         gtk_widget_show (priv->add_button);
 
-        priv->del_button = gtk_button_new_from_stock (GTK_STOCK_REMOVE);
+        priv->del_button = gtk_button_new_from_icon_name ("list-remove-symbolic", GTK_ICON_SIZE_BUTTON);
         g_signal_connect (priv->del_button, "clicked",
                           G_CALLBACK (ev_sidebar_bookmarks_del_clicked),
                           sidebar_bookmarks);
         gtk_widget_set_sensitive (priv->del_button, FALSE);
-        gtk_box_pack_start (GTK_BOX (hbox), priv->del_button, TRUE, TRUE, 6);
+        gtk_box_pack_start (GTK_BOX (hbox), priv->del_button, FALSE, FALSE, 0);
         gtk_widget_show (priv->del_button);
 
-        gtk_box_pack_end (GTK_BOX (sidebar_bookmarks), hbox, FALSE, TRUE, 0);
-        gtk_widget_show (hbox);
+        gtk_box_pack_end (GTK_BOX (sidebar_bookmarks), toolbar, FALSE, TRUE, 0);
         gtk_widget_show (GTK_WIDGET (sidebar_bookmarks));
 
         /* Popup menu */
