@@ -282,13 +282,11 @@ ev_sidebar_layers_init (EvSidebarLayers *ev_layers)
 	
 	ev_layers->priv = EV_SIDEBAR_LAYERS_GET_PRIVATE (ev_layers);
 
-	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_layers), GTK_ORIENTATION_VERTICAL);
 	swindow = gtk_scrolled_window_new (NULL, NULL);
 	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (swindow),
 					GTK_POLICY_NEVER,
 					GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow),
-					     GTK_SHADOW_IN);
+
 	/* Data Model */
 	model = ev_sidebar_layers_create_loading_model ();
 
@@ -300,7 +298,7 @@ ev_sidebar_layers_init (EvSidebarLayers *ev_layers)
 	gtk_container_add (GTK_CONTAINER (swindow),
 			   GTK_WIDGET (ev_layers->priv->tree_view));
 
-	gtk_container_add (GTK_CONTAINER (ev_layers), swindow);
+	gtk_box_pack_start (GTK_BOX (ev_layers), swindow, TRUE, TRUE, 0);
 	gtk_widget_show_all (GTK_WIDGET (ev_layers));
 }
 
@@ -329,7 +327,9 @@ ev_sidebar_layers_class_init (EvSidebarLayersClass *ev_layers_class)
 GtkWidget *
 ev_sidebar_layers_new (void)
 {
-	return GTK_WIDGET (g_object_new (EV_TYPE_SIDEBAR_LAYERS, NULL));
+	return GTK_WIDGET (g_object_new (EV_TYPE_SIDEBAR_LAYERS,
+                                     "orientation", GTK_ORIENTATION_VERTICAL,
+                                     NULL));
 }
 
 static void
