@@ -231,11 +231,8 @@ ev_sidebar_select_button_press_cb (GtkWidget      *widget,
 		gtk_widget_get_allocation (widget, &allocation);
 		width = allocation.width;
 		gtk_widget_set_size_request (ev_sidebar->priv->menu, -1, -1);
-#if GTK_CHECK_VERSION (3, 0, 0)
 		gtk_widget_get_preferred_size (ev_sidebar->priv->menu, &requisition, NULL);
-#else
-		gtk_widget_size_request (ev_sidebar->priv->menu, &requisition);
-#endif
+  
 		gtk_widget_set_size_request (ev_sidebar->priv->menu,
 					     MAX (width, requisition.width), -1);
 		
@@ -271,15 +268,6 @@ ev_sidebar_select_button_key_press_cb (GtkWidget   *widget,
 	}
 
 	return FALSE;
-}
-
-static void
-ev_sidebar_close_clicked_cb (GtkWidget *widget,
-			     gpointer   user_data)
-{
-	EvSidebar *ev_sidebar = EV_SIDEBAR (user_data);
-
-	gtk_widget_hide (GTK_WIDGET (ev_sidebar));
 }
 
 static void
@@ -335,10 +323,8 @@ static void
 ev_sidebar_init (EvSidebar *ev_sidebar)
 {
 	GtkWidget *hbox;
-	GtkWidget *close_button;
 	GtkWidget *select_hbox;
 	GtkWidget *arrow;
-	GtkWidget *image;
 
 	ev_sidebar->priv = EV_SIDEBAR_GET_PRIVATE (ev_sidebar);
 
@@ -355,6 +341,7 @@ ev_sidebar_init (EvSidebar *ev_sidebar)
 	/* top option menu */
 	hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
 	ev_sidebar->priv->hbox = hbox;
+	gtk_container_set_border_width (GTK_CONTAINER (hbox), 3);
 	gtk_box_pack_start (GTK_BOX (ev_sidebar), hbox, FALSE, FALSE, 0);
 	gtk_widget_show (hbox);
 
@@ -372,32 +359,20 @@ ev_sidebar_init (EvSidebar *ev_sidebar)
 	ev_sidebar->priv->label = gtk_label_new ("");
 	gtk_box_pack_start (GTK_BOX (select_hbox),
 			    ev_sidebar->priv->label,
-			    FALSE, FALSE, 0);
+			    TRUE, TRUE, 12);
 	gtk_widget_show (ev_sidebar->priv->label);
 
 	arrow = gtk_image_new_from_icon_name ("pan-down-symbolic", GTK_ICON_SIZE_BUTTON);
-	gtk_box_pack_end (GTK_BOX (select_hbox), arrow, FALSE, FALSE, 0);
+	gtk_box_pack_end (GTK_BOX (select_hbox), arrow, FALSE, TRUE, 0);
 	gtk_widget_show (arrow);
 
 	gtk_container_add (GTK_CONTAINER (ev_sidebar->priv->select_button), select_hbox);
 	gtk_widget_show (select_hbox);
 
 	gtk_box_pack_start (GTK_BOX (hbox), ev_sidebar->priv->select_button, TRUE, TRUE, 0);
+	gtk_widget_set_halign (ev_sidebar->priv->select_button, GTK_ALIGN_CENTER);
 	gtk_widget_show (ev_sidebar->priv->select_button);
 
-	close_button = gtk_button_new ();
-	gtk_button_set_relief (GTK_BUTTON (close_button), GTK_RELIEF_NONE);
-	g_signal_connect (close_button, "clicked",
-			  G_CALLBACK (ev_sidebar_close_clicked_cb),
-			  ev_sidebar);
-	   
-	image = gtk_image_new_from_icon_name ("window-close-symbolic",  GTK_ICON_SIZE_MENU);
-	gtk_container_add (GTK_CONTAINER (close_button), image);
-	gtk_widget_show (image);
-   
-	gtk_box_pack_end (GTK_BOX (hbox), close_button, FALSE, FALSE, 0);
-	gtk_widget_show (close_button);
-   
 	ev_sidebar->priv->menu = gtk_menu_new ();
 	g_signal_connect (ev_sidebar->priv->menu, "deactivate",
 			  G_CALLBACK (ev_sidebar_menu_deactivate_cb),
