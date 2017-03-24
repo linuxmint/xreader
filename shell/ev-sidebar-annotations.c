@@ -51,13 +51,12 @@ enum {
 struct _EvSidebarAnnotationsPrivate {
 	EvDocument  *document;
 
-	GtkWidget   *notebook;
-	GtkWidget   *tree_view;
-	GtkWidget   *palette;
-	GtkToolItem *annot_text_item;
+	GtkWidget *notebook;
+	GtkWidget *tree_view;
+	GtkWidget *annot_text_item;
 
-	EvJob       *job;
-	guint        selection_changed_id;
+	EvJob *job;
+	guint selection_changed_id;
 };
 
 static void ev_sidebar_annotations_page_iface_init (EvSidebarPageInterface *iface);
@@ -114,29 +113,53 @@ ev_sidebar_annotations_create_simple_model (const gchar *message)
 }
 
 static void
-ev_sidebar_annotations_add_annots_list (EvSidebarAnnotations *ev_annots)
+ev_sidebar_annotations_text_annot_button_toggled (GtkWidget  *button,
+						  EvSidebarAnnotations *sidebar_annots)
 {
-	GtkWidget         *swindow;
-	GtkTreeModel      *loading_model;
-	GtkCellRenderer   *renderer;
+	EvAnnotationType annot_type;
+
+	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button))) {
+		g_signal_emit (sidebar_annots, signals[ANNOT_ADD_CANCELLED], 0, NULL);
+		return;
+	}
+
+	if (button == sidebar_annots->priv->annot_text_item)
+		annot_type = EV_ANNOTATION_TYPE_TEXT;
+	else
+		annot_type = EV_ANNOTATION_TYPE_UNKNOWN;
+
+	g_signal_emit (sidebar_annots, signals[BEGIN_ANNOT_ADD], 0, annot_type);
+}
+
+static void
+ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
+{
+	GtkWidget *swindow;
+	GtkTreeModel *loading_model;
+	GtkCellRenderer *renderer;
 	GtkTreeViewColumn *column;
-	GtkTreeSelection  *selection;
-	GtkWidget         *label;
+	GtkTreeSelection *selection;
+	GtkWidget *toolbar;
+	GtkWidget *toolitem;
+	GtkWidget *hbox;
+	GtkWidget *image;
+
+
+	ev_annots->priv = EV_SIDEBAR_ANNOTATIONS_GET_PRIVATE (ev_annots);
+
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_annots), GTK_ORIENTATION_VERTICAL);
 
 	swindow = gtk_scrolled_window_new (NULL, NULL);
-	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow),
-					     GTK_SHADOW_IN);
-
-	// Use as much vertical space as available
-	gtk_widget_set_vexpand (GTK_WIDGET (swindow), TRUE);
+	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow), GTK_SHADOW_IN);
+	gtk_box_pack_start (GTK_BOX (ev_annots), swindow, TRUE, TRUE, 0);
+	gtk_widget_show (swindow);
 
 	/* Create tree view */
 	loading_model = ev_sidebar_annotations_create_simple_model (_("Loading…"));
 	ev_annots->priv->tree_view = gtk_tree_view_new_with_model (loading_model);
 	g_object_unref (loading_model);
 
-	gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (ev_annots->priv->tree_view),
-					   FALSE);
+	gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (ev_annots->priv->tree_view), FALSE);
 	selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (ev_annots->priv->tree_view));
 	gtk_tree_selection_set_mode (selection, GTK_SELECTION_NONE);
 
@@ -153,91 +176,36 @@ ev_sidebar_annotations_add_annots_list (EvSidebarAnnotations *ev_annots)
 	gtk_tree_view_column_set_attributes (column, renderer,
 					     "markup", COLUMN_MARKUP,
 					     NULL);
-	gtk_tree_view_append_column (GTK_TREE_VIEW (ev_annots->priv->tree_view),
-				     column);
+	gtk_tree_view_append_column (GTK_TREE_VIEW (ev_annots->priv->tree_view), column);
 
 	gtk_container_add (GTK_CONTAINER (swindow), ev_annots->priv->tree_view);
 	gtk_widget_show (ev_annots->priv->tree_view);
 
-	label = gtk_label_new (_("List"));
-	gtk_notebook_append_page (GTK_NOTEBOOK (ev_annots->priv->notebook),
-				  swindow, label);
-	gtk_widget_show (label);
+	toolbar = gtk_toolbar_new ();
+	gtk_widget_show (toolbar);
 
-	gtk_widget_show (swindow);
-}
+	toolitem = GTK_WIDGET (gtk_tool_item_new ());
+	gtk_toolbar_insert (GTK_TOOLBAR (toolbar), GTK_TOOL_ITEM (toolitem), 0);
+	gtk_widget_show (toolitem);
 
-static void
-ev_sidebar_annotations_text_annot_button_toggled (GtkToggleToolButton  *toolbutton,
-						  EvSidebarAnnotations *sidebar_annots)
-{
-	EvAnnotationType annot_type;
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+	gtk_container_add (GTK_CONTAINER (toolitem), hbox);
+	gtk_widget_show (hbox);
 
-	if (!gtk_toggle_tool_button_get_active (toolbutton)) {
-		g_signal_emit (sidebar_annots, signals[ANNOT_ADD_CANCELLED], 0, NULL);
-		return;
-	}
+	ev_annots->priv->annot_text_item = gtk_toggle_button_new ();
+	image = gtk_image_new_from_icon_name ("list-add-symbolic", GTK_ICON_SIZE_BUTTON);
+	gtk_container_add (GTK_CONTAINER (ev_annots->priv->annot_text_item), image);
+	gtk_widget_show (image);
 
-	if (GTK_TOOL_ITEM (toolbutton) == sidebar_annots->priv->annot_text_item)
-		annot_type = EV_ANNOTATION_TYPE_TEXT;
-	else
-		annot_type = EV_ANNOTATION_TYPE_UNKNOWN;
-
-	g_signal_emit (sidebar_annots, signals[BEGIN_ANNOT_ADD], 0, annot_type);
-}
-
-static void
-ev_sidebar_annotations_add_annots_palette (EvSidebarAnnotations *ev_annots)
-{
-	GtkWidget   *swindow;
-	GtkWidget   *group;
-	GtkToolItem *item;
-	GtkWidget   *label;
-
-	swindow = gtk_scrolled_window_new (NULL, NULL);
-	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow),
-					     GTK_SHADOW_IN);
-
-	ev_annots->priv->palette = gtk_tool_palette_new ();
-	group = gtk_tool_item_group_new (_("Annotations"));
-	gtk_container_add (GTK_CONTAINER (ev_annots->priv->palette), group);
-
-	/* FIXME: use a better icon than EDIT */
-	item = gtk_toggle_tool_button_new ();
-	gtk_tool_button_set_icon_name (GTK_TOOL_BUTTON (item), "list-add-symbolic");
-	gtk_tool_button_set_label (GTK_TOOL_BUTTON (item), _("Text"));
-	gtk_widget_set_tooltip_text (GTK_WIDGET (item), _("Add text annotation"));
-	ev_annots->priv->annot_text_item = item;
-	g_signal_connect (item, "toggled",
+	gtk_box_pack_start (GTK_BOX (hbox), ev_annots->priv->annot_text_item, FALSE, FALSE, 0);
+	gtk_widget_set_tooltip_text (GTK_WIDGET (ev_annots->priv->annot_text_item), _("Add text annotation"));
+	g_signal_connect (ev_annots->priv->annot_text_item, "toggled",
 			  G_CALLBACK (ev_sidebar_annotations_text_annot_button_toggled),
 			  ev_annots);
-	gtk_tool_item_group_insert (GTK_TOOL_ITEM_GROUP (group), item, -1);
-	gtk_widget_show (GTK_WIDGET (item));
+	gtk_widget_show (GTK_WIDGET (ev_annots->priv->annot_text_item));
 
-	gtk_container_add (GTK_CONTAINER (swindow), ev_annots->priv->palette);
-	gtk_widget_show (ev_annots->priv->palette);
-
-	label = gtk_label_new (_("Add"));
-	gtk_notebook_append_page (GTK_NOTEBOOK (ev_annots->priv->notebook),
-				  swindow, label);
-	gtk_widget_show (label);
-
-	gtk_widget_show (swindow);
-}
-
-static void
-ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
-{
-	ev_annots->priv = EV_SIDEBAR_ANNOTATIONS_GET_PRIVATE (ev_annots);
-
-	ev_annots->priv->notebook = gtk_notebook_new ();
-	gtk_notebook_set_show_tabs (GTK_NOTEBOOK (ev_annots->priv->notebook), FALSE);
-	gtk_notebook_set_show_border (GTK_NOTEBOOK (ev_annots->priv->notebook), FALSE);
-	ev_sidebar_annotations_add_annots_list (ev_annots);
-	ev_sidebar_annotations_add_annots_palette (ev_annots);
-	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_annots), GTK_ORIENTATION_VERTICAL);
-	gtk_container_add (GTK_CONTAINER (ev_annots), ev_annots->priv->notebook);
-	gtk_widget_show (ev_annots->priv->notebook);
+	gtk_box_pack_end (GTK_BOX (ev_annots), toolbar, FALSE, TRUE, 0);
+	gtk_widget_show (GTK_WIDGET (ev_annots));
 }
 
 static void
@@ -311,15 +279,15 @@ void
 ev_sidebar_annotations_annot_added (EvSidebarAnnotations *sidebar_annots,
 				    EvAnnotation         *annot)
 {
-	GtkToggleToolButton *toolbutton;
+	GtkWidget *toggle_button;
 
 	if (EV_IS_ANNOTATION_TEXT (annot)) {
-		toolbutton = GTK_TOGGLE_TOOL_BUTTON (sidebar_annots->priv->annot_text_item);
-		g_signal_handlers_block_by_func (toolbutton,
+		toggle_button = sidebar_annots->priv->annot_text_item;
+		g_signal_handlers_block_by_func (toggle_button,
 						 ev_sidebar_annotations_text_annot_button_toggled,
 						 sidebar_annots);
-		gtk_toggle_tool_button_set_active (toolbutton, FALSE);
-		g_signal_handlers_unblock_by_func (toolbutton,
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (toggle_button), FALSE);
+		g_signal_handlers_unblock_by_func (toggle_button,
 						   ev_sidebar_annotations_text_annot_button_toggled,
 						   sidebar_annots);
 	}
@@ -353,6 +321,8 @@ job_finished_callback (EvJobAnnots          *job,
 	GtkTreeStore *model;
 	GtkTreeSelection *selection;
 	GList *l;
+	GtkIconTheme *icon_theme;
+	GdkScreen *screen;
 	GdkPixbuf *text_icon = NULL;
 	GdkPixbuf *attachment_icon = NULL;
 
@@ -401,6 +371,9 @@ job_finished_callback (EvJobAnnots          *job,
 				    -1);
 		g_free (page_label);
 
+		screen = gdk_screen_get_default ();
+		icon_theme = gtk_icon_theme_get_for_screen (screen);
+
 		for (ll = ev_mapping_list_get_list (mapping_list); ll; ll = g_list_next (ll)) {
 			EvAnnotation *annot;
 			const gchar  *label;
@@ -425,16 +398,20 @@ job_finished_callback (EvJobAnnots          *job,
 			if (EV_IS_ANNOTATION_TEXT (annot)) {
 				if (!text_icon) {
 					/* FIXME: use a better icon than EDIT */
-					text_icon = gtk_widget_render_icon_pixbuf (priv->tree_view,
-									    GTK_STOCK_EDIT,
-									    GTK_ICON_SIZE_BUTTON);
+					text_icon = gtk_icon_theme_load_icon (icon_theme,
+														  "starred",
+														  16,
+														  GTK_ICON_LOOKUP_FORCE_REGULAR,
+														  NULL);
 				}
 				pixbuf = text_icon;
 			} else if (EV_IS_ANNOTATION_ATTACHMENT (annot)) {
 				if (!attachment_icon) {
-					attachment_icon = gtk_widget_render_icon_pixbuf (priv->tree_view,
-										  EV_STOCK_ATTACHMENT,
-										  GTK_ICON_SIZE_BUTTON);
+					attachment_icon = gtk_icon_theme_load_icon (icon_theme,
+																"mail-attachment",
+																16,
+																GTK_ICON_LOOKUP_FORCE_REGULAR,
+																NULL);
 				}
 				pixbuf = attachment_icon;
 			}
@@ -493,7 +470,7 @@ ev_sidebar_annotations_document_changed_cb (EvDocumentModel      *model,
 {
 	EvDocument *document = ev_document_model_get_document (model);
 	EvSidebarAnnotationsPrivate *priv = sidebar_annots->priv;
-	gboolean show_tabs;
+	gboolean enable_add;
 
 	if (!EV_IS_DOCUMENT_ANNOTATIONS (document))
 		return;
@@ -502,8 +479,8 @@ ev_sidebar_annotations_document_changed_cb (EvDocumentModel      *model,
 		g_object_unref (priv->document);
 	priv->document = g_object_ref (document);
 
-	show_tabs = ev_document_annotations_can_add_annotation (EV_DOCUMENT_ANNOTATIONS (document));
-	gtk_notebook_set_show_tabs (GTK_NOTEBOOK (priv->notebook), show_tabs);
+	enable_add = ev_document_annotations_can_add_annotation (EV_DOCUMENT_ANNOTATIONS (document));
+	gtk_widget_set_sensitive (priv->annot_text_item, enable_add);
 
 	ev_sidebar_annotations_load (sidebar_annots);
 }
