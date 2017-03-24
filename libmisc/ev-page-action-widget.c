@@ -204,8 +204,7 @@ ev_page_action_widget_init (EvPageActionWidget *action_widget)
 	gtk_style_context_add_class (style_context, GTK_STYLE_CLASS_RAISED);
 	gtk_style_context_add_class (style_context, GTK_STYLE_CLASS_LINKED);
 	action_widget->entry = gtk_entry_new ();
-	gtk_widget_add_events (action_widget->entry,
-			       GDK_BUTTON_MOTION_MASK);
+	gtk_widget_add_events (action_widget->entry, GDK_BUTTON_MOTION_MASK | GDK_SCROLL_MASK);
 	gtk_entry_set_width_chars (GTK_ENTRY (action_widget->entry), 5);
 	gtk_entry_set_text (GTK_ENTRY (action_widget->entry), "");
 	g_signal_connect_swapped (action_widget->entry, "scroll-event",
