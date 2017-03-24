@@ -356,6 +356,7 @@ gimp_cell_renderer_toggle_render (GtkCellRenderer      *cell,
       gdk_rectangle_intersect (&clip_rect, cell_area, &draw_rect))
     {
       cairo_save (cr);
+      gtk_style_context_save (context);
       gdk_cairo_rectangle (cr, &draw_rect);
       cairo_clip (cr);
       gtk_render_frame (context, //gtk_widget_get_style_context (widget),
