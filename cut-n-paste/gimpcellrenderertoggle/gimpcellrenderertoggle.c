@@ -25,16 +25,7 @@
 #include "gimpwidgetsmarshal.h"
 #include "gimpcellrenderertoggle.h"
 
-
 #define DEFAULT_ICON_SIZE  GTK_ICON_SIZE_BUTTON
-
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define GTK_STATE_INSENSITIVE GTK_STATE_FLAG_INSENSITIVE
-#define GTK_STATE_SELECTED GTK_STATE_FLAG_SELECTED
-#define GTK_STATE_ACTIVE GTK_STATE_FLAG_ACTIVE
-#define GTK_STATE_NORMAL 0
-#define gtk_widget_render_icon(A,B,C,D) gtk_widget_render_icon_pixbuf(A,B,C)
-#endif
 
 enum
 {
@@ -281,10 +272,6 @@ gimp_cell_renderer_toggle_get_size (GtkCellRenderer *cell,
     }
 }
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gimp_cell_renderer_toggle_get_size gtk_cell_renderer_get_size
-#endif
-
 static void
 gimp_cell_renderer_toggle_render (GtkCellRenderer      *cell,
                                   cairo_t              *cr,
@@ -314,7 +301,7 @@ gimp_cell_renderer_toggle_render (GtkCellRenderer      *cell,
       return;
     }
 
-  gimp_cell_renderer_toggle_get_size (cell, widget, cell_area,
+  gtk_cell_renderer_get_size (cell, widget, cell_area,
                                       &toggle_rect.x,
                                       &toggle_rect.y,
                                       &toggle_rect.width,
@@ -334,21 +321,21 @@ gimp_cell_renderer_toggle_render (GtkCellRenderer      *cell,
 
   if (!gtk_cell_renderer_get_sensitive (cell))
     {
-      state = GTK_STATE_INSENSITIVE;
+      state = GTK_STATE_FLAG_INSENSITIVE;
     }
   else if ((flags & GTK_CELL_RENDERER_SELECTED) == GTK_CELL_RENDERER_SELECTED)
     {
       if (gtk_widget_has_focus (widget))
-        state = GTK_STATE_SELECTED;
+        state = GTK_STATE_FLAG_SELECTED;
       else
-        state = GTK_STATE_ACTIVE;
+        state = GTK_STATE_FLAG_ACTIVE;
     }
   else
     {
       if (gtk_cell_renderer_toggle_get_activatable (GTK_CELL_RENDERER_TOGGLE (cell)))
-        state = GTK_STATE_NORMAL;
+        state = GTK_STATE_FLAG_NORMAL;
       else
-        state = GTK_STATE_INSENSITIVE;
+        state = GTK_STATE_FLAG_INSENSITIVE;
     }
 
   if ((flags & GTK_CELL_RENDERER_PRELIT) &&
@@ -460,11 +447,10 @@ gimp_cell_renderer_toggle_create_pixbuf (GimpCellRendererToggle *toggle,
   if (toggle->pixbuf)
     g_object_unref (toggle->pixbuf);
 
-  toggle->pixbuf = gtk_widget_render_icon (widget,
+  toggle->pixbuf = gtk_widget_render_icon_pixbuf (widget,
                                            toggle->stock_id,
-                                           toggle->stock_size, NULL);
+                                                  toggle->stock_size);
 }
-
 
 /**
  * gimp_cell_renderer_toggle_new:
