@@ -201,6 +201,7 @@ ephy_zoom_control_init (EphyZoomControl *control)
 	gtk_combo_box_set_active (p->combo, i);
 
 	vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+	gtk_box_set_homogeneous (GTK_BOX (vbox), TRUE);
 	gtk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET (p->combo), TRUE, FALSE, 0);
 	gtk_widget_show (vbox);
 
