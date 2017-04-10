@@ -693,7 +693,6 @@ backend/tiff/Makefile
 backend/xps/Makefile
 cut-n-paste/Makefile
 cut-n-paste/smclient/Makefile
-cut-n-paste/toolbar-editor/Makefile
 cut-n-paste/zoom-control/Makefile
 cut-n-paste/totem-screensaver/Makefile
 cut-n-paste/synctex/Makefile

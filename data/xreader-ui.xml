@@ -125,16 +125,7 @@
   <accelerator name="CtrlKpPlusAccel" action="CtrlKpPlus"/>
   <accelerator name="CtrlKpMinusAccel" action="CtrlKpMinus"/>
   <accelerator name="CtrlInsertAccel" action="CtrlInsert" />
+  <accelerator name="ReaderViewAccel" action="ReaderView"/>
+  <accelerator name="PageViewAccel" action="PageView"/>
 
-  <toolbar name="FullscreenToolbar">
-     <toolitem name="GoPreviousPage" action="GoPreviousPage"/>
-     <toolitem name="GoNextPage" action="GoNextPage"/>
-     <separator/>
-     <toolitem name="PageSelector" action="PageSelector"/>
-     <separator/>
-     <toolitem name="ViewZoom" action="ViewZoom"/>
-     <separator expand="true"/>
-     <toolitem name="StartPresentation" action="StartPresentation"/>
-     <toolitem name="LeaveFullscreen" action="LeaveFullscreen"/>
-  </toolbar>
 </ui>

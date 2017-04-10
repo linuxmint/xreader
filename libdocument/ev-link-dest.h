@@ -92,6 +92,9 @@ EvLinkDest     *ev_link_dest_new_named      (const gchar *named_dest);
 EvLinkDest     *ev_link_dest_new_page_label (const gchar *page_label);
 EvLinkDest     *ev_link_dest_new_hlink      (const gchar* hlink,gint page);
 
+gboolean        ev_link_dest_equal          (EvLinkDest  *a,
+                                             EvLinkDest  *b);
+
 G_END_DECLS
 
 #endif /* EV_LINK_DEST_H */

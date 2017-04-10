@@ -22,7 +22,8 @@
 
 #include <glib-object.h>
 
-#include "ev-link.h"
+#include <xreader-document.h>
+#include <xreader-view.h>
 
 G_BEGIN_DECLS
 
@@ -33,14 +34,14 @@ G_BEGIN_DECLS
 #define EV_IS_HISTORY_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((obj), EV_TYPE_HISTORY))
 #define EV_HISTORY_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS((obj), EV_TYPE_HISTORY, EvHistoryClass))
 
-typedef struct _EvHistory		EvHistory;
-typedef struct _EvHistoryPrivate	EvHistoryPrivate;
-typedef struct _EvHistoryClass		EvHistoryClass;
+typedef struct _EvHistory		 EvHistory;
+typedef struct _EvHistoryPrivate EvHistoryPrivate;
+typedef struct _EvHistoryClass	 EvHistoryClass;
 
 struct _EvHistory
 {
 	GObject parent;
-	
+
 	/*< private >*/
 	EvHistoryPrivate *priv;
 };
@@ -48,17 +49,27 @@ struct _EvHistory
 struct _EvHistoryClass
 {
 	GObjectClass parent_class;
-	
-	void (*changed) (EvHistory *history);
+
+	void (*changed)       (EvHistory *history);
+	void (*activate_link) (EvHistory *history,
+						   EvLink    *link);
 };
 
-GType		ev_history_get_type		(void);
-EvHistory      *ev_history_new			(void);
-void		ev_history_add_link		(EvHistory  *history,
-						 EvLink     *linkk);
-EvLink	       *ev_history_get_link_nth		(EvHistory  *history,
-					 	 int         index);
-int		ev_history_get_n_links		(EvHistory  *history);
+GType           ev_history_get_type         (void);
+EvHistory      *ev_history_new              (EvDocumentModel *model);
+void            ev_history_add_link         (EvHistory       *history,
+											 EvLink          *link);
+gboolean        ev_history_can_go_back      (EvHistory       *history);
+void            ev_history_go_back          (EvHistory       *history);
+gboolean        ev_history_can_go_forward   (EvHistory       *history);
+void            ev_history_go_forward       (EvHistory       *history);
+gboolean        ev_history_go_to_link       (EvHistory       *history,
+											 EvLink          *link);
+GList          *ev_history_get_back_list    (EvHistory       *history);
+GList          *ev_history_get_forward_list (EvHistory       *history);
+
+void            ev_history_freeze           (EvHistory       *history);
+void            ev_history_thaw             (EvHistory       *history);
 
 G_END_DECLS
 
