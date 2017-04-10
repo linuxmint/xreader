@@ -248,7 +248,8 @@ static void
 set_device_scale_on_surface (cairo_surface_t *surface,
                              int              device_scale)
 {
-	cairo_surface_set_device_scale (surface, device_scale, device_scale);
+    if(surface)
+        cairo_surface_set_device_scale (surface, device_scale, device_scale);
 }
 
 static void
