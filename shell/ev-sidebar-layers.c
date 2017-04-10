@@ -21,7 +21,6 @@
 #include "config.h"
 
 #include <glib/gi18n.h>
-#include "gimpcellrenderertoggle.h"
 
 #include "ev-document-layers.h"
 #include "ev-sidebar-page.h"
@@ -245,7 +244,7 @@ ev_sidebar_layers_create_tree_view (EvSidebarLayers *ev_layers)
 
 	column = gtk_tree_view_column_new ();
 
-	renderer = gimp_cell_renderer_toggle_new (EV_STOCK_VISIBLE);
+	renderer = gtk_cell_renderer_toggle_new ();
 	gtk_tree_view_column_pack_start (column, renderer, FALSE);
 	gtk_tree_view_column_set_attributes (column, renderer,
 					     "active", EV_DOCUMENT_LAYERS_COLUMN_VISIBLE,
@@ -254,7 +253,7 @@ ev_sidebar_layers_create_tree_view (EvSidebarLayers *ev_layers)
 					     "sensitive", EV_DOCUMENT_LAYERS_COLUMN_ENABLED,
 					     NULL);
 	g_object_set (G_OBJECT (renderer),
-		      "xpad", 0,
+		      "xpad", 4,
 		      "ypad", 0,
 		      NULL);
 	g_signal_connect (renderer, "toggled",
