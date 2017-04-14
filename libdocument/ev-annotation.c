@@ -1186,6 +1186,12 @@ ev_annotation_attachment_new (EvPage       *page,
 					    NULL));
 }
 
+/**
+ * ev_annotation_attachment_get_attachment:
+ * @annot: an #EvAnnotationAttachment
+ *
+ * Returns: (transfer none): an #EvAttachment
+ */
 EvAttachment *
 ev_annotation_attachment_get_attachment (EvAnnotationAttachment *annot)
 {
