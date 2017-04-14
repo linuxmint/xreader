@@ -302,17 +302,26 @@ egg_find_bar_init (EggFindBar *find_bar)
 
   /* Find: |_____| */
   item = gtk_tool_item_new ();
-  box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12);
-
-  alignment = gtk_alignment_new (0.0, 0.5, 1.0, 0.0);
-  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 0, 2, 2);
+  box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
 
   label = gtk_label_new_with_mnemonic (_("Find:"));
+  gtk_widget_set_halign (label, GTK_ALIGN_START);
+  gtk_widget_set_hexpand (label, TRUE);
+  gtk_widget_set_margin_start (label, 2);
+  gtk_widget_set_margin_top (label, 4);
+  gtk_widget_set_margin_bottom (label, 4);
+  gtk_widget_show (label);
 
   priv->find_entry = gtk_entry_new ();
   gtk_entry_set_width_chars (GTK_ENTRY (priv->find_entry), 32);
   gtk_entry_set_max_length (GTK_ENTRY (priv->find_entry), 512);
+  gtk_widget_set_halign (priv->find_entry, GTK_ALIGN_START);
+  gtk_widget_set_hexpand (priv->find_entry, TRUE);
+  gtk_widget_set_margin_end (priv->find_entry, 2);
+  gtk_widget_set_margin_top (priv->find_entry, 4);
+  gtk_widget_set_margin_bottom (priv->find_entry, 4);
   gtk_label_set_mnemonic_widget (GTK_LABEL (label), priv->find_entry);
+  gtk_widget_show (priv->find_entry);
 
   /* Prev */
   arrow = gtk_image_new_from_icon_name ("pan-start-symbolic", GTK_ICON_SIZE_BUTTON);
@@ -368,8 +377,7 @@ egg_find_bar_init (EggFindBar *find_bar)
 
   gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
   gtk_box_pack_start (GTK_BOX (box), priv->find_entry, TRUE, TRUE, 0);
-  gtk_container_add (GTK_CONTAINER (alignment), box);
-  gtk_container_add (GTK_CONTAINER (item), alignment);
+  gtk_container_add (GTK_CONTAINER (item), box);
   gtk_toolbar_insert (GTK_TOOLBAR (find_bar), item, -1);
   gtk_toolbar_insert (GTK_TOOLBAR (find_bar), priv->previous_button, -1);
   gtk_toolbar_insert (GTK_TOOLBAR (find_bar), priv->next_button, -1);
