@@ -104,7 +104,8 @@ ev_properties_license_add_section (EvPropertiesLicense *properties,
 	gchar     *markup;
 
 	title = gtk_label_new (NULL);
-	gtk_misc_set_alignment (GTK_MISC (title), 0.0, 0.5);
+	gtk_widget_set_halign (title, GTK_ALIGN_START);
+	gtk_widget_set_valign (title, GTK_ALIGN_CENTER);
 	gtk_label_set_use_markup (GTK_LABEL (title), TRUE);
 	markup = g_strdup_printf ("<b>%s</b>", title_text);
 	gtk_label_set_markup (GTK_LABEL (title), markup);

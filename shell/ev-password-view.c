@@ -278,7 +278,8 @@ ev_password_view_ask_password (EvPasswordView *password_view)
 	icon = gtk_image_new_from_stock (GTK_STOCK_DIALOG_AUTHENTICATION,
 					 GTK_ICON_SIZE_DIALOG);
 
-	gtk_misc_set_alignment (GTK_MISC (icon), 0.5, 0.0);
+	gtk_widget_set_halign (icon, GTK_ALIGN_CENTER);
+	gtk_widget_set_valign (icon, GTK_ALIGN_START);
 	gtk_box_pack_start (GTK_BOX (hbox), icon, FALSE, FALSE, 0);
 	gtk_widget_show (icon);
 
@@ -287,7 +288,8 @@ ev_password_view_ask_password (EvPasswordView *password_view)
 	gtk_widget_show (main_vbox);
 
 	label = gtk_label_new (NULL);
-	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+	gtk_widget_set_halign (label, GTK_ALIGN_START);
+	gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
 	gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
 	file_name = g_file_get_basename (password_view->priv->uri_file);
 	text = g_markup_printf_escaped (_("The document “%s” is locked and requires a password before it can be opened."),
@@ -324,7 +326,8 @@ ev_password_view_ask_password (EvPasswordView *password_view)
 	gtk_widget_show (grid);
 
 	label = gtk_label_new_with_mnemonic (_("_Password:"));
-	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+	gtk_widget_set_halign (label, GTK_ALIGN_START);
+	gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
 
 	password_view->priv->password_entry = gtk_entry_new ();
 	gtk_entry_set_visibility (GTK_ENTRY (password_view->priv->password_entry), FALSE);
