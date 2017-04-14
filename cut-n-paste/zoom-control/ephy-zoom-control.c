@@ -193,7 +193,11 @@ ephy_zoom_control_init (EphyZoomControl *control)
 					      (GtkTreeViewRowSeparatorFunc) row_is_separator,
 					      NULL, NULL);
 
+#if GTK_CHECK_VERSION(3,20,0)
+	gtk_widget_set_focus_on_click (GTK_WIDGET (p->combo), FALSE);
+#else
 	gtk_combo_box_set_focus_on_click (p->combo, FALSE);
+#endif
 	g_object_ref_sink (G_OBJECT (p->combo));
 	gtk_widget_show (GTK_WIDGET (p->combo));
 
