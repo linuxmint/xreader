@@ -105,7 +105,8 @@ ev_message_area_init (EvMessageArea *area)
 	gtk_label_set_use_markup (GTK_LABEL (area->priv->label), TRUE);
 	gtk_label_set_line_wrap (GTK_LABEL (area->priv->label), TRUE);
 	gtk_label_set_selectable (GTK_LABEL (area->priv->label), TRUE);
-	gtk_misc_set_alignment (GTK_MISC (area->priv->label), 0.0, 0.5);
+	gtk_widget_set_halign (area->priv->label, GTK_ALIGN_START);
+	gtk_widget_set_valign (area->priv->label, GTK_ALIGN_CENTER);
 	gtk_widget_set_can_focus (area->priv->label, TRUE);
 	gtk_box_pack_start (GTK_BOX (vbox), area->priv->label, TRUE, TRUE, 0);
 	gtk_widget_show (area->priv->label);
@@ -114,12 +115,14 @@ ev_message_area_init (EvMessageArea *area)
 	gtk_label_set_use_markup (GTK_LABEL (area->priv->secondary_label), TRUE);
 	gtk_label_set_line_wrap (GTK_LABEL (area->priv->secondary_label), TRUE);
 	gtk_label_set_selectable (GTK_LABEL (area->priv->secondary_label), TRUE);
-	gtk_misc_set_alignment (GTK_MISC (area->priv->secondary_label), 0.0, 0.5);
+	gtk_widget_set_halign (area->priv->secondary_label, GTK_ALIGN_START);
+	gtk_widget_set_valign (area->priv->secondary_label, GTK_ALIGN_CENTER);
 	gtk_widget_set_can_focus (area->priv->secondary_label, TRUE);
 	gtk_box_pack_start (GTK_BOX (vbox), area->priv->secondary_label, TRUE, TRUE, 0);
 
 	area->priv->image = gtk_image_new_from_stock (NULL, GTK_ICON_SIZE_DIALOG);
-	gtk_misc_set_alignment (GTK_MISC (area->priv->image), 0.5, 0.0);
+	gtk_widget_set_halign (area->priv->image, GTK_ALIGN_CENTER);
+	gtk_widget_set_valign (area->priv->image, GTK_ALIGN_START);
 	gtk_box_pack_start (GTK_BOX (hbox), area->priv->image, FALSE, FALSE, 0);
 	gtk_widget_show (area->priv->image);
 
