@@ -21,8 +21,6 @@
 
 #include <glib.h>
 #include <math.h>
-#include <gtk/gtk.h>
-#include <gdk/gdk.h>
 #include "ev-timeline.h"
 
 #define EV_TIMELINE_GET_PRIV(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), EV_TYPE_TIMELINE, EvTimelinePriv))

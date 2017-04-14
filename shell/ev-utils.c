@@ -225,11 +225,7 @@ ev_gui_sanitise_popup_position (GtkMenu *menu,
 
 	g_return_if_fail (widget != NULL);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	gtk_widget_get_preferred_size (GTK_WIDGET (menu), &req, NULL);
-#else
-	gtk_widget_size_request (GTK_WIDGET (menu), &req);
-#endif
 
 	monitor_num = gdk_screen_get_monitor_at_point (screen, *x, *y);
 	gtk_menu_set_monitor (menu, monitor_num);
@@ -255,11 +251,7 @@ ev_gui_menu_position_tree_selection (GtkMenu   *menu,
 	GtkAllocation allocation;
 	GdkRectangle visible;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	gtk_widget_get_preferred_size (GTK_WIDGET (menu), &req, NULL);
-#else
-	gtk_widget_size_request (GTK_WIDGET (menu), &req);
-#endif
 	gdk_window_get_origin (gtk_widget_get_window (widget), x, y);
 	gtk_widget_get_allocation (widget, &allocation);
 

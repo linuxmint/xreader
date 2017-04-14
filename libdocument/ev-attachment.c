@@ -20,7 +20,7 @@
 #include <config.h>
 #include <glib/gi18n-lib.h>
 #include <glib/gstdio.h>
-#include <gtk/gtk.h>
+#include <gdk/gdk.h>
 #include "ev-file-helpers.h"
 #include "ev-attachment.h"
 
