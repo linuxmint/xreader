@@ -93,7 +93,7 @@ static gboolean      new_selection_surface_needed(EvPixbufCache      *pixbuf_cac
 #define PAGE_CACHE_LEN(pixbuf_cache) \
 	(pixbuf_cache->start_page>=0?((pixbuf_cache->end_page - pixbuf_cache->start_page) + 1):0)
 
-#define MAX_PRELOADED_PAGES 3
+#define MAX_PRELOADED_PAGES 20
 
 G_DEFINE_TYPE (EvPixbufCache, ev_pixbuf_cache, G_TYPE_OBJECT)
 
