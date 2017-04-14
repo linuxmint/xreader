@@ -104,7 +104,6 @@ ev_password_view_clicked_cb (GtkWidget      *button,
 static void
 ev_password_view_init (EvPasswordView *password_view)
 {
-	GtkWidget *align;
 	GtkWidget *vbox;
 	GtkWidget *hbox;
 	GtkWidget *image;
@@ -117,11 +116,12 @@ ev_password_view_init (EvPasswordView *password_view)
 	password_view->priv->password_save = G_PASSWORD_SAVE_NEVER;
 
 	/* set ourselves up */
-	align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
-	vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 24);
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 24);
+	gtk_widget_set_valign (vbox, GTK_ALIGN_CENTER);
+	gtk_widget_set_hexpand (vbox, FALSE);
+	gtk_widget_set_vexpand (vbox, FALSE);
 	gtk_container_set_border_width (GTK_CONTAINER (vbox), 24);
-	gtk_container_add (GTK_CONTAINER (password_view), align);
-	gtk_container_add (GTK_CONTAINER (align), vbox);
+	gtk_container_add (GTK_CONTAINER (password_view), vbox);
 
 	password_view->priv->label =
 		(GtkWidget *) g_object_new (GTK_TYPE_LABEL,
@@ -143,14 +143,14 @@ ev_password_view_init (EvPasswordView *password_view)
 
 	gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);
 
-	hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
 	gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
 
 	button = gtk_button_new_with_mnemonic (_("_Unlock Document"));
 	g_signal_connect (button, "clicked", G_CALLBACK (ev_password_view_clicked_cb), password_view);
 	gtk_box_pack_end (GTK_BOX (hbox), button, FALSE, FALSE, 0);
 
-	gtk_widget_show_all (align);
+	gtk_widget_show_all (vbox);
 }
 
 /* Public functions */
@@ -237,7 +237,6 @@ ev_password_view_ask_password (EvPasswordView *password_view)
 {
 	GtkDialog *dialog;
 	GtkWidget *content_area, *action_area;
-	GtkWidget *entry_container;
 	GtkWidget *hbox, *main_vbox, *vbox, *icon;
 	GtkWidget *grid;
 	GtkWidget *label;
@@ -270,7 +269,7 @@ ev_password_view_ask_password (EvPasswordView *password_view)
 					   GTK_RESPONSE_OK, FALSE);
 
 	/* Build contents */
-	hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
 	gtk_container_set_border_width (GTK_CONTAINER (hbox), 5);
 	gtk_box_pack_start (GTK_BOX (content_area), hbox, TRUE, TRUE, 0);
 	gtk_widget_show (hbox);
@@ -305,25 +304,25 @@ ev_password_view_ask_password (EvPasswordView *password_view)
 			    FALSE, FALSE, 0);
 	gtk_widget_show (label);
 
-	vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
 	gtk_box_pack_start (GTK_BOX (main_vbox), vbox, FALSE, FALSE, 0);
 	gtk_widget_show (vbox);
 
-	/* The table that holds the entries */
-	entry_container = gtk_alignment_new (0.0, 0.0, 1.0, 1.0);
-
-	gtk_alignment_set_padding (GTK_ALIGNMENT (entry_container),
-				   0, 0, 0, 0);
-	
-	gtk_box_pack_start (GTK_BOX (vbox), entry_container,
-			    FALSE, FALSE, 0);
-	gtk_widget_show (entry_container);
-
+	/* The grid that holds the entries */
 	grid = gtk_grid_new ();
 	gtk_grid_set_column_spacing (GTK_GRID (grid), 12);
 	gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
-	gtk_container_add (GTK_CONTAINER (entry_container), grid);
+	gtk_widget_set_valign (grid, GTK_ALIGN_START);
+	gtk_widget_set_hexpand (grid, TRUE);
+	gtk_widget_set_vexpand (grid, TRUE);
+	gtk_widget_set_margin_top (grid, 0);
+	gtk_widget_set_margin_bottom (grid, 0);
+	gtk_widget_set_margin_start (grid, 0);
+	gtk_widget_set_margin_end (grid, 0);
 	gtk_widget_show (grid);
+	gtk_box_pack_start (GTK_BOX (vbox),
+	                    grid,
+	                    FALSE, FALSE, 0);
 
 	label = gtk_label_new_with_mnemonic (_("_Password:"));
 	gtk_widget_set_halign (label, GTK_ALIGN_START);
@@ -337,6 +336,7 @@ ev_password_view_ask_password (EvPasswordView *password_view)
 	g_signal_connect (password_view->priv->password_entry, "activate",
 			  G_CALLBACK (ev_password_dialog_entry_activated_cb),
 			  dialog);
+
 	gtk_grid_attach (GTK_GRID (grid), label, 0, 0, 1, 1);
 	gtk_widget_show (label);
 
@@ -352,7 +352,7 @@ ev_password_view_ask_password (EvPasswordView *password_view)
 		GtkWidget  *remember_box;
 		GSList     *group;
 
-		remember_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
+		remember_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
 		gtk_box_pack_start (GTK_BOX (vbox), remember_box,
 				    FALSE, FALSE, 0);
 		gtk_widget_show (remember_box);
