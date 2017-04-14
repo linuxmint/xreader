@@ -821,11 +821,7 @@ ev_document_info_free (EvDocumentInfo *info)
 	g_free (info->keywords);
 	g_free (info->creator);
 	g_free (info->producer);
-
-	if (info->linearized != 0 && info->linearized != 1)
-	{
-		g_free(info->linearized);
-	}
+	g_free (info->linearized);
 
 	g_free (info->security);
 	ev_document_license_free (info->license);

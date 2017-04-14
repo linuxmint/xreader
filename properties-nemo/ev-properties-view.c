@@ -354,21 +354,8 @@ ev_properties_view_set_info (EvPropertiesView *properties, const EvDocumentInfo 
 		set_property (properties, GTK_GRID (grid), N_PAGES_PROPERTY, text, &row);
 		g_free (text);
 	}
-	if (info->fields_mask & EV_DOCUMENT_INFO_LINEARIZED)
-	{
-		/* nice hack bro */
-		if (info->linearized == 1)
-		{
-			set_property (properties, GTK_GRID (grid), LINEARIZED_PROPERTY, _("Yes"), &row);
-		}
-		else if (info->linearized == 0)
-		{
-			set_property (properties, GTK_GRID (grid), LINEARIZED_PROPERTY, _("No"), &row);
-		}
-		else
-		{
-			set_property (properties, GTK_GRID (grid), LINEARIZED_PROPERTY, info->linearized, &row);
-		}
+	if (info->fields_mask & EV_DOCUMENT_INFO_LINEARIZED) {
+		set_property (properties, GTK_GRID (grid), LINEARIZED_PROPERTY, info->linearized, &row);
 	}
 	if (info->fields_mask & EV_DOCUMENT_INFO_SECURITY) {
 		set_property (properties, GTK_GRID (grid), SECURITY_PROPERTY, info->security, &row);
