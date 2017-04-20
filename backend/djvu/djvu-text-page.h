@@ -46,15 +46,22 @@ struct _DjvuTextLink {
 	miniexp_t pair;
 };
 
-char *			djvu_text_page_copy 		(DjvuTextPage *page, 
+typedef enum {
+	DJVU_SELECTION_TEXT,
+	DJVU_SELECTION_BOX,
+} DjvuSelectionType;
+
+GList        *djvu_text_page_get_selection_region (DjvuTextPage *page,
 		    					 EvRectangle  *rectangle);
-void			djvu_text_page_prepare_search	(DjvuTextPage *page,
+char         *djvu_text_page_copy                 (DjvuTextPage *page,
+                                                   EvRectangle  *rectangle);
+void          djvu_text_page_prepare_search       (DjvuTextPage *page,
 	       		    				 gboolean      case_sensitive);
-void 			djvu_text_page_search 		(DjvuTextPage *page, 
-		    					 const char    *text,
-							 gboolean       case_sensitive);
-DjvuTextPage*		djvu_text_page_new 		(miniexp_t     text);
-void 			djvu_text_page_free 		(DjvuTextPage *page);
+void                   djvu_text_page_search           (DjvuTextPage *page,
+                                                        const char    *text,
+                                                        gboolean       case_sensitive);
+DjvuTextPage*          djvu_text_page_new              (miniexp_t     text);
+void                   djvu_text_page_free             (DjvuTextPage *page);
 
 #endif /* __DJVU_TEXT_PAGE_H__ */
 
