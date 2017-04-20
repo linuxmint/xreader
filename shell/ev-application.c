@@ -264,12 +264,7 @@ ev_spawn (const char     *uri,
 		GList uri_list;
 		GList *uris = NULL;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 		ctx = gdk_display_get_app_launch_context (gdk_screen_get_display (screen));
-#else
-		ctx = gdk_app_launch_context_new ();
-		gdk_app_launch_context_set_display (ctx, gdk_screen_get_display (screen));
-#endif
 		gdk_app_launch_context_set_screen (ctx, screen);
 		gdk_app_launch_context_set_timestamp (ctx, timestamp);
 

@@ -140,23 +140,16 @@ ev_document_misc_paint_one_page (cairo_t      *cr,
 				 gboolean      highlight,
 				 gboolean      inverted_colors)
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
 	GtkStyleContext *context = gtk_widget_get_style_context (widget);
 	GtkStateFlags state = gtk_widget_get_state_flags (widget);
-        GdkRGBA fg, bg, shade_bg;
+    GdkRGBA fg, bg, shade_bg;
 
-        gtk_style_context_get_background_color (context, state, &bg);
-        gtk_style_context_get_color (context, state, &fg);
-        gtk_style_context_get_color (context, state, &shade_bg);
-        shade_bg.alpha *= 0.5;
+    gtk_style_context_get_background_color (context, state, &bg);
+    gtk_style_context_get_color (context, state, &fg);
+    gtk_style_context_get_color (context, state, &shade_bg);
+    shade_bg.alpha *= 0.5;
 
 	gdk_cairo_set_source_rgba (cr, highlight ? &fg : &shade_bg);
-#else
-	GtkStyle    *style = gtk_widget_get_style (widget);
-	GtkStateType state = gtk_widget_get_state (widget);
-
-	gdk_cairo_set_source_color (cr, highlight ? &style->text[state] : &style->dark[state]);
-#endif
 	cairo_rectangle (cr,
 			 area->x,
 			 area->y,

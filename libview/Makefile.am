@@ -131,9 +131,9 @@ XreaderView-$(EV_API_VERSION).gir: libxreaderview.la Makefile $(INST_H_FILES) $(
 	--include=GLib-2.0 \
 	--include=GObject-2.0 \
 	--include=Gio-2.0 \
-	--include=Gdk-$(GTK_API_VERSION) \
+	--include=Gdk-3.0 \
 	--include=GdkPixbuf-2.0 \
-	--include=Gtk-$(GTK_API_VERSION) \
+	--include=Gtk-3.0 \
 	--include=XreaderDocument-$(EV_API_VERSION) \
 	--library=xreaderview \
 	--libtool="$(LIBTOOL)" \

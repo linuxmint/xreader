@@ -160,9 +160,9 @@ XreaderDocument-$(EV_API_VERSION).gir: libxreaderdocument.la Makefile $(INST_H_F
 	--nsversion=$(EV_API_VERSION) \
 	--include=GLib-2.0 \
 	--include=Gio-2.0 \
-	--include=Gdk-$(GTK_API_VERSION) \
+	--include=Gdk-3.0 \
 	--include=GdkPixbuf-2.0 \
-	--include=Gtk-$(GTK_API_VERSION) \
+	--include=Gtk-3.0 \
 	--library=xreaderdocument \
 	--libtool="$(LIBTOOL)" \
 	--output $@ \

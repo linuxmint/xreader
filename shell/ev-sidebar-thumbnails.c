@@ -685,14 +685,11 @@ static void
 ev_sidebar_init_icon_view (EvSidebarThumbnails *ev_sidebar_thumbnails)
 {
 	EvSidebarThumbnailsPrivate *priv;
-#if GTK_CHECK_VERSION (3, 0, 0)
 	GtkCellRenderer *renderer;
-#endif
 
 	priv = ev_sidebar_thumbnails->priv;
 
 	priv->icon_view = gtk_icon_view_new_with_model (GTK_TREE_MODEL (priv->list_store));
-#if GTK_CHECK_VERSION (3, 0, 0)
 	renderer = g_object_new (GTK_TYPE_CELL_RENDERER_PIXBUF,
 				 "xalign", 0.5,
 				 "yalign", 1.0,
@@ -712,10 +709,6 @@ ev_sidebar_init_icon_view (EvSidebarThumbnails *ev_sidebar_thumbnails)
 	gtk_cell_layout_pack_end (GTK_CELL_LAYOUT (priv->icon_view), renderer, FALSE);
 	gtk_cell_layout_set_attributes (GTK_CELL_LAYOUT (priv->icon_view),
 					renderer, "markup", 0, NULL);
-#else
-	gtk_icon_view_set_markup_column (GTK_ICON_VIEW (priv->icon_view), 0);
-	gtk_icon_view_set_pixbuf_column (GTK_ICON_VIEW (priv->icon_view), 1);
-#endif
 	g_signal_connect (priv->icon_view, "selection-changed",
 			  G_CALLBACK (ev_sidebar_icon_selection_changed), ev_sidebar_thumbnails);
 
@@ -750,11 +743,7 @@ ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 	 * it's just a workaround for bug #449462 (GTK2 only)
 	 */
 	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (priv->swindow),
-#if GTK_CHECK_VERSION (3, 0, 0)
 					GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-#else
-					GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-#endif
 	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (priv->swindow),
 					     GTK_SHADOW_IN);
 	priv->vadjustment = gtk_scrolled_window_get_vadjustment (GTK_SCROLLED_WINDOW (priv->swindow));
