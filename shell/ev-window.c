@@ -1199,8 +1199,6 @@ setup_document_from_metadata (EvWindow *window)
 	 * show the first page. */
 	page = ev_document_model_get_page (window->priv->model);
 	n_pages = ev_document_get_n_pages (window->priv->document);
-	if (page == n_pages - 1)
-		ev_document_model_set_page (window->priv->model, 0);
 
 	if (ev_metadata_get_int (window->priv->metadata, "window_width", &width) &&
 	    ev_metadata_get_int (window->priv->metadata, "window_height", &height))
