@@ -691,6 +691,17 @@ ev_web_view_zoom_out(EvWebView *webview)
 	return TRUE;
 }
 
+gboolean
+ev_web_view_zoom_reset(EvWebView *webview)
+{
+  if (webview->zoom_level == 1)
+		return FALSE;
+
+	webkit_web_view_set_zoom_level (WEBKIT_WEB_VIEW(webview),
+	                                1.0);
+	return TRUE;
+}
+
 /**
  * ev_web_view_disconnect_handlers
  * @webview : #EvWebView instance
