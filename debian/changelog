@@ -1,3 +1,109 @@
+xreader (1.4.0) sonya; urgency=medium
+
+  [ Moser Peter ]
+  * Documentation: Add INSTALL, update README
+  * ATRIL BACKPORTS: document-model: Make dual mode and dual mode odd page left mutally exclusive
+  * ATRIL BACKPORTS: Split dual mode option into dual mode with odd and even pages on the left
+  * ATRIL BACKPORTS: Fix case sensitive searching for PDF
+  * ATRIL BACKPORTS: bump poppler version requirement to 0.22.0
+  * ATRIL BACKPORTS: comics: properly open files with special characters in path
+  * ATRIL BACKPORTS: comics: fix indent
+  * ATRIL BACKPORTS: comics: fix MIME type comparisons
+  * ATRIL BACKPORTS: comics: support application/vnd.comicbook+zip MIME type
+  * ATRIL BACKPORTS: djvu: remove unneeded assignment
+  * ATRIL BACKPORTS: libview: remove useless always-false condition
+  * ATRIL BACKPORTS: tiff: use function from cairo >= 1.6 unconditionally
+  * ATRIL BACKPORTS: add some missing contextual information for translators
+  * ATRIL BACKPORTS: djvu: support image/vnd.djvu+multipage MIME type
+  * ATRIL BACKPORTS: thumbnailer: skip epub files
+  * EVINCE BACKPORTS: configure.ac: Remove old workaround to build with deprecated symbols
+  * EVINCE BACKPORTS: Removed deprecated GTK_POLICY_AUTOMATIC
+  * EVINCE BACKPORTS: Fix a crash when running with Broadway GDK backend
+
+  [ JosephMcc ]
+  * ev-window.c: Remove some gtk version checks
+  * ev-window: Swap out the EggEditable toolbar for a normal toolbar
+  * Convert all icons to symbolics
+  * Tweak the fullscreen toolbar to match the style of the main toolbar a bit better
+  * annotation-window: Fix the sizes of close and resize icons
+
+  [ Moser Peter ]
+  * BUILD: --disable-caja and --disable-nemo are no longer ignored
+  * EVINCE BACKPORTS: libdocument: Add deprecation macros
+  * EVINCE BACKPORTS: libdocument: Use the new deprecation macros
+  * EVINCE BACKPORTS: libdocument: Add EvAnnotation API using GdkRGBA
+  * EVINCE BACKPORTS: shell: Use GdkRGBA for annotations
+  * EVINCE BACKPORTS: ev-annotation: use correct variable names in function prototype
+  * EVINCE BACKPORTS: libview: Don't change the font color of the annotation window
+  * EVINCE BACKPORTS: libview: Fix focus on ev_annotation_window
+  * EVINCE BACKPORTS: libview: fix annotation window focus change after creation
+
+  [ Clement Lefebvre ]
+  * ev-view: Add pinch/zoom gesture to handle document zooming
+  * ev-view: explicitly require a GtkScrolledWindow as the parent widget
+  * ev-view: Add pan gesture to switch page
+  * libview: Ctrl+mouse wheel zoom should be pointer-centered, not window-centered
+
+  [ rezso ]
+  * Remove unneeded pkgconfig checks
+
+  [ JosephMcc ]
+  * configure.ac: Fix a build break
+  * ev-annotation-window: Fix setting the color of the window border
+  * annotation-properties-dialog: Don't use a header bar
+
+  [ Moser Peter ]
+  * Revert "EVINCE BACKPORTS: configure.ac: Remove old workaround to build with deprecated symbols"
+
+  [ JosephMcc ]
+  * Add a new EvToolbar
+  * ev-window.c: Simplify an if/else
+
+  [ Moser Peter ]
+  * ATRIL BACKPORTS: shell: remove metadata migration code
+
+  [ JosephMcc ]
+  * annotations-sidebar: Clean up the styling
+  * bookmarks-sidebar: Clean up the styling
+  * ev-sidebar: Do a bit of restyling
+  * sidebar-layers: Make it actually usable
+
+  [ Clement Lefebvre ]
+  * Fix packaging
+
+  [ JosephMcc ]
+  * ev-page-action-widget: Allow changing pages with mouse wheel scrolling
+  * ev-page-action-widget: Update the page number when unfocused
+
+  [ Moser Peter ]
+  * ATRIL BACKPORTS: shell: replace deprecated function call inside GTK+3 code block
+  * ATRIL BACKPORTS: cut-n-paste: set vertical box to be homogeneous in GTK+3 code too
+  * ATRIL BACKPORTS: PART 1 OF "move to GTK+3 (>= 3.14), drop GTK+2 code and --with-gtk build option"
+
+  [ JosephMcc ]
+  * ev-view: Properly declare a function
+  * shell: Ditch gimpcellrenderertoggle
+  * toolbar: Make further improvements
+
+  [ Moser Peter ]
+  * Fix for bug #92: Segfault if djvu file gets clicked/moved
+  * EVINCE BACKPORTS: djvu: Make empty pages white.
+  * EVINCE BACKPORTS: djvu: Use dpi of pages to compute scaling factor
+  * EVINCE BACKPORTS: djvu: enable selection highlighting
+  *  ATRIL BACKPORTS: PART 2 OF "move to GTK+3 (>= 3.14), drop GTK+2 code and --with-gtk build option"
+  * ATRIL BACKPORTS: comics backend: add support for unarchiver (unar and lsar)
+  * ATRIL BACKPORTS: force X11
+  * ATRIL BACKPORTS: First page should not reloaded
+  * ATRIL BACKPORTS: Previously opened page incorrectly restored if it was the last one
+
+  [ rezso ]
+  * Remove GTK2 code (#108)
+
+  [ Clement Lefebvre ]
+  * l10n: Update POT file
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 05 May 2017 13:05:55 +0100
+
 xreader (1.2.2) serena; urgency=medium
 
   * l10n: Update translations
