@@ -19,8 +19,6 @@ libdocument/ev-document-factory.c
 libdocument/ev-file-helpers.c
 cut-n-paste/smclient/eggdesktopfile.c
 cut-n-paste/smclient/eggsmclient.c
-cut-n-paste/toolbar-editor/egg-editable-toolbar.c
-cut-n-paste/toolbar-editor/egg-toolbar-editor.c
 cut-n-paste/zoom-control/ephy-zoom.h
 data/xreader.appdata.xml.in
 data/xreader.desktop.in.in
@@ -29,10 +27,10 @@ previewer/ev-previewer.c
 previewer/ev-previewer-window.c
 properties-caja/ev-properties-main.c
 properties-caja/ev-properties-view.c
-[type: gettext/ini]properties-caja/libxreader-properties-page.caja-extension.in
+[type: gettext/ini]properties-caja/libxreader-properties-page.caja-extension.in.in
 properties-nemo/ev-properties-main.c
 properties-nemo/ev-properties-view.c
-[type: gettext/ini]properties-nemo/libxreader-properties-page.nemo-extension.in
+[type: gettext/ini]properties-nemo/libxreader-properties-page.nemo-extension.in.in
 libmisc/ev-page-action.c
 libmisc/ev-page-action-widget.c
 libview/ev-loading-window.c
@@ -45,9 +43,9 @@ shell/eggfindbar.c
 shell/ev-annotation-properties-dialog.c
 shell/ev-application.c
 shell/ev-history.c
+shell/ev-history-action.c
+shell/ev-history-action-widget.c
 shell/ev-keyring.c
-shell/ev-navigation-action.c
-shell/ev-navigation-action-widget.c
 shell/ev-open-recent-action.c
 shell/ev-password-view.c
 shell/ev-properties-dialog.c
@@ -59,6 +57,7 @@ shell/ev-sidebar-bookmarks.c
 shell/ev-sidebar-layers.c
 shell/ev-sidebar-links.c
 shell/ev-sidebar-thumbnails.c
+shell/ev-toolbar.c
 shell/ev-window.c
 shell/ev-window-title.c
 shell/ev-utils.c
