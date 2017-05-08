@@ -97,7 +97,6 @@ GTKDOC_CFLAGS = \
 	-I$(top_srcdir)/libview				\
 	-I$(top_srcdir)/libmisc				\
 	-I$(top_builddir)/libview			\
-	-I$(top_srcdir)/properties-caja			\
 	-I$(top_srcdir)/properties-nemo			\
 	-DXREADERDATADIR=\"$(pkgdatadir)\"		\
 	-DMATEDATADIR=\"$(datadir)\"			\
@@ -110,6 +109,11 @@ GTKDOC_CFLAGS = \
 	$(GTK_PRINT_CFLAGS)				\
 	$(MATE_DESKTOP_CFLAGS)
 
+if ENABLE_CAJA
+GTKDOC_CFLAGS += \
+	-I$(top_srcdir)/properties-caja
+endif
+
 FILTER_OUT = \
 	$(top_builddir)/shell/main.o			\
 	$(top_builddir)/shell/xreaderd-ev-daemon.o
@@ -118,7 +122,6 @@ GTKDOC_LIBS = \
 	$(top_builddir)/cut-n-paste/zoom-control/libephyzoom.la		\
 	$(top_builddir)/cut-n-paste/totem-screensaver/libtotemscrsaver.la	\
 	$(top_builddir)/cut-n-paste/smclient/libsmclient.la		\
-	$(top_builddir)/properties-caja/libevproperties.la			\
 	$(top_builddir)/properties-nemo/libevproperties.la			\
 	$(top_builddir)/libdocument/libxreaderdocument.la			\
 	$(top_builddir)/libview/libxreaderview.la				\
@@ -127,6 +130,11 @@ GTKDOC_LIBS = \
 	$(GTK_PRINT_LIBS)						\
 	$(MATE_DESKTOP_LIBS)						\
 	$(filter-out $(FILTER_OUT),$(wildcard $(top_builddir)/shell/*.o))
+
+if ENABLE_CAJA
+GTKDOC_LIBS += \
+	$(top_builddir)/properties-caja/libevproperties.la
+endif
 
 # This includes the standard gtk-doc make rules, copied by gtkdocize.
 include $(top_srcdir)/gtk-doc.make
