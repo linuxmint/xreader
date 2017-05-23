@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-05 13:04+0100\n"
-"PO-Revision-Date: 2017-05-05 21:09+0000\n"
+"PO-Revision-Date: 2017-05-07 20:47+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian (http://www.transifex.com/mate/MATE/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -23,8 +23,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "(n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2017-05-06 12:41+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
+"X-Launchpad-Export-Date: 2017-05-23 10:35+0000\n"
+"X-Generator: Launchpad (build 18387)\n"
 "Language: lt\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -1172,6 +1172,9 @@ msgid ""
 "Non-Continuous + Best Fit\n"
 "Ctrl+2"
 msgstr ""
+"Puslapio rodinys\n"
+"Neištisinis + Talpinti geriausiu būdu\n"
+"Vald+2"
 
 #: ../shell/ev-toolbar.c:143
 msgid ""
@@ -1179,6 +1182,9 @@ msgid ""
 "Continuous + Fit Page Width\n"
 "Ctrl+1"
 msgstr ""
+"Skaitytuvės rodinys\n"
+"Ištisinis + Talpinti pagal puslapio plotį\n"
+"Vald+1"
 
 #: ../shell/ev-window.c:991
 msgid ""
@@ -1607,7 +1613,7 @@ msgstr "Rodyti visą dokumentą"
 
 #: ../shell/ev-window.c:5925
 msgid "_Dual (Even pages left)"
-msgstr ""
+msgstr "_Dvigubas (lyginiai puslapiai kairėje)"
 
 #: ../shell/ev-window.c:5926
 msgid "Show two pages at once with even pages on the left"
