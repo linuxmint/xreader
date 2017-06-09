@@ -4284,7 +4284,9 @@ draw_rubberband (EvView             *view,
 	GdkRGBA          color;
 
 	context = gtk_widget_get_style_context (GTK_WIDGET (view));
+	gtk_style_context_save (context);
 	gtk_style_context_get_background_color (context, GTK_STATE_FLAG_SELECTED, &color);
+	gtk_style_context_restore (context);
 
 	cairo_save (cr);
 	cairo_set_source_rgba (cr, color.red, color.green, color.blue, alpha);

@@ -633,6 +633,8 @@ get_selection_colors (GtkWidget *widget, GdkColor *text, GdkColor *base)
 
         state |= gtk_widget_has_focus (widget) ? GTK_STATE_FLAG_SELECTED : GTK_STATE_FLAG_ACTIVE;
 
+        gtk_style_context_save (context);
+
         gtk_style_context_get_color (context, state, &fg);
         text->pixel = 0;
         text->red = CLAMP ((guint) (fg.red * 65535), 0, 65535);
@@ -644,6 +646,8 @@ get_selection_colors (GtkWidget *widget, GdkColor *text, GdkColor *base)
         base->red = CLAMP ((guint) (bg.red * 65535), 0, 65535);
         base->green = CLAMP ((guint) (bg.green * 65535), 0, 65535);
         base->blue = CLAMP ((guint) (bg.blue * 65535), 0, 65535);
+
+        gtk_style_context_restore (context);
 }
 
 static void
