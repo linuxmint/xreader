@@ -1,3 +1,16 @@
+xreader (1.4.3) sonya; urgency=medium
+
+  [ Piiit ]
+  * shell: Make main window title translatable (fix issue #39) (#138)
+  * Fixes "Having selected text leads to high cpu load" (#140)
+  * Fix for 'Inverted Colors won't be saved by Save Current Settings as Default' (#142)
+
+  [ Clement Lefebvre ]
+  * Build: Remove unnecessary ev_get_locale_dir()
+  * Branding: Use a generic app name
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 19 Jun 2017 13:43:22 +0200
+
 xreader (1.4.2) sonya; urgency=medium
 
   [ Clement Lefebvre ]
