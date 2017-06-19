@@ -144,9 +144,11 @@ ev_document_misc_paint_one_page (cairo_t      *cr,
 	GtkStateFlags state = gtk_widget_get_state_flags (widget);
     GdkRGBA fg, bg, shade_bg;
 
+    gtk_style_context_save (context);
     gtk_style_context_get_background_color (context, state, &bg);
     gtk_style_context_get_color (context, state, &fg);
     gtk_style_context_get_color (context, state, &shade_bg);
+    gtk_style_context_restore (context);
     shade_bg.alpha *= 0.5;
 
 	gdk_cairo_set_source_rgba (cr, highlight ? &fg : &shade_bg);
