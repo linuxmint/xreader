@@ -4,7 +4,7 @@ AM_CPPFLAGS = 		       			\
 	-I$(top_srcdir)				\
 	-I$(top_srcdir)/libdocument		\
 	-I$(srcdir)/minizip			\
-	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
+	-DXREADER_LOCALE_DIR=\"$(datadir)/locale\"	\
 	-DXREADER_COMPILATION			\
 	$(BACKEND_CFLAGS)			\
 	$(WARN_CXXFLAGS)			\

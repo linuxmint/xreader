@@ -29,12 +29,6 @@
 
 static int ev_init_count;
 
-const gchar *
-ev_get_locale_dir (void)
-{
-	return MATELOCALEDIR;
-}
-
 /**
  * ev_init:
  *
@@ -55,7 +49,7 @@ ev_init (void)
                 return have_backends;
 
 	/* set up translation catalog */
-	bindtextdomain (GETTEXT_PACKAGE, ev_get_locale_dir ());
+	bindtextdomain (GETTEXT_PACKAGE, XREADER_LOCALE_DIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 
         _ev_debug_init ();

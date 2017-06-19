@@ -99,7 +99,7 @@ GTKDOC_CFLAGS = \
 	-I$(top_builddir)/libview			\
 	-DXREADERDATADIR=\"$(pkgdatadir)\"		\
 	-DMATEDATADIR=\"$(datadir)\"			\
-	-DMATELOCALEDIR=\"$(datadir)/locale\"		\
+	-DXREADER_LOCALE_DIR=\"$(datadir)/locale\"		\
 	-DMATEICONDIR=\""$(datadir)/pixmaps"\" 	\
 	-DXREADER_COMPILATION				\
 	$(SHELL_CFLAGS)					\

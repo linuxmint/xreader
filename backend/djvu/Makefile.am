@@ -2,7 +2,7 @@ AM_CPPFLAGS = \
 	-I$(top_srcdir)						\
 	-I$(top_srcdir)/libdocument				\
 	-DMATEICONDIR=\""${prefix}/${DATADIRNAME}/pixmaps"\" 	\
-	-DMATELOCALEDIR=\"$(datadir)/locale\"			\
+	-DXREADER_LOCALE_DIR=\"$(datadir)/locale\"			\
 	-DXREADER_COMPILATION			\
 	$(BACKEND_CFLAGS)					\
 	$(DJVU_CFLAGS)						\

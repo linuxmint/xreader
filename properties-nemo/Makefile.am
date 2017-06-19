@@ -1,6 +1,6 @@
 AM_CPPFLAGS=					\
 	-DXREADERDATADIR=\"$(pkgdatadir)\"	\
-	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
+	-DXREADER_LOCALE_DIR=\"$(datadir)/locale\"	\
 	-I$(top_srcdir)				\
 	-I$(top_builddir)			\
 	$(FRONTEND_CFLAGS)			\

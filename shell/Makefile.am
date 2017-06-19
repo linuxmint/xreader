@@ -1,5 +1,6 @@
 AM_CPPFLAGS=							\
 	-DXREADERDATADIR=\"$(pkgdatadir)\"				\
+	-DXREADER_LOCALE_DIR=\"$(datadir)/locale\"	\
 	-DMATEDATADIR=\"$(datadir)\"				\
 	-I$(top_srcdir)						\
 	-I$(top_builddir)					\

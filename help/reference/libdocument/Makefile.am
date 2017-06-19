@@ -98,7 +98,7 @@ GTKDOC_CFLAGS = \
 	-DXREADERDATADIR=\"$(pkgdatadir)\"		\
 	-DMATEDATADIR=\"$(datadir)\"			\
 	-DXREADER_UIDIR=\"$(pkgdatadir)\" 		\
-	-DMATELOCALEDIR=\"$(datadir)/locale\"		\
+	-DXREADER_LOCALE_DIR=\"$(datadir)/locale\"		\
 	-DEV_BACKENDSDIR=\"$(backenddir)\"		\
 	-DXREADER_COMPILATION				\
 	$(AM_CFLAGS)					\

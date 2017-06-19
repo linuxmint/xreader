@@ -277,7 +277,7 @@ register_xreader_backend (GTypeModule *module)					\
 	};									\
 										\
 	/* Initialise the i18n stuff */						\
-	bindtextdomain (GETTEXT_PACKAGE, MATELOCALEDIR);			\
+	bindtextdomain (GETTEXT_PACKAGE, XREADER_LOCALE_DIR);			\
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");			\
                                                                                 \
 	g_define_type_id = g_type_module_register_type (module,		        \

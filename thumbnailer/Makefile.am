@@ -9,7 +9,7 @@ xreader_thumbnailer_CPPFLAGS = \
 	-DXREADERDATADIR=\"$(pkgdatadir)\"	\
 	-I$(top_srcdir)				\
 	-I$(top_builddir)			\
-	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
+	-DXREADER_LOCALE_DIR=\"$(datadir)/locale\"	\
 	-DMATEICONDIR=\""$(datadir)/pixmaps"\" \
 	$(AM_CPPFLAGS)
 

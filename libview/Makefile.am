@@ -54,7 +54,7 @@ libxreaderview_la_SOURCES = 			\
 libxreaderview_la_CPPFLAGS = \
 	-DXREADERDATADIR=\"$(pkgdatadir)\"	\
 	-DG_LOG_DOMAIN=\"XreaderView\"		\
-	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
+	-DXREADER_LOCALE_DIR=\"$(datadir)/locale\"	\
 	-DXREADER_COMPILATION			\
 	-I$(top_srcdir)				\
 	-I$(top_srcdir)/libdocument		\

@@ -94,7 +94,7 @@ libxreaderdocument_la_SOURCES=			\
 libxreaderdocument_la_CPPFLAGS = \
 	-DG_LOG_DOMAIN=\"XreaderDocument\"		\
 	-DXREADER_UIDIR=\"$(pkgdatadir)\"		\
-	-DMATELOCALEDIR=\"$(datadir)/locale\"		\
+	-DXREADER_LOCALE_DIR=\"$(datadir)/locale\"		\
 	-DEV_BACKENDSDIR=\"$(backenddir)\"		\
 	-DEV_BACKENDSBINARYVERSION=\"$(backend_binary_version)\"	\
 	-DXREADER_COMPILATION				\
