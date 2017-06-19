@@ -236,9 +236,7 @@ main (int argc, char *argv[])
 
 	gdk_set_allowed_backends ("x11");
 
-	g_set_application_name (_("Xreader Document Viewer"));
-
-	context = g_option_context_new (N_("Xreader Document Viewer"));
+	context = g_option_context_new (N_("Document Viewer"));
 	g_option_context_set_translation_domain(context, GETTEXT_PACKAGE);
 	g_option_context_add_main_entries (context, goption_options, GETTEXT_PACKAGE);
 	g_option_context_add_group (context, egg_sm_client_get_option_group ());
@@ -267,6 +265,7 @@ main (int argc, char *argv[])
 	ev_stock_icons_init ();
 
 	gtk_window_set_default_icon_name ("accessories-document-viewer");
+	g_set_application_name (_("Document Viewer"));
 
 	ev_application_load_session (EV_APP);
 	load_files (file_arguments);
