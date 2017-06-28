@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-05 13:04+0100\n"
+"POT-Creation-Date: 2017-06-19 13:41+0200\n"
 "PO-Revision-Date: 2016-11-05 15:45+0000\n"
 "Last-Translator: tomoe_musashi <hkg.musashi@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) "
@@ -23,8 +23,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2017-05-23 10:35+0000\n"
-"X-Generator: Launchpad (build 18387)\n"
+"X-Launchpad-Export-Date: 2017-06-28 07:53+0000\n"
+"X-Generator: Launchpad (build 18416)\n"
 "Language: zh_TW\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -443,6 +443,7 @@ msgstr ""
 "(EPS)，DJVU，DVI，XPS，PDF，與漫畫書壓縮檔。其允許在支援的文件搜尋文字，複製文字至剪貼簿，超文字導航與製作目錄書籤。 </p>"
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
+#: ../shell/main.c:239 ../shell/main.c:268
 msgid "Document Viewer"
 msgstr "文件檢視器"
 
@@ -1703,10 +1704,6 @@ msgstr "%s — 需要密碼"
 #: ../shell/ev-utils.c:318
 msgid "By extension"
 msgstr "依延伸檔名"
-
-#: ../shell/main.c:58 ../shell/main.c:239
-msgid "MATE Document Viewer"
-msgstr "MATE 文件檢視器"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."

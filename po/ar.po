@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-05 13:04+0100\n"
+"POT-Creation-Date: 2017-06-19 13:41+0200\n"
 "PO-Revision-Date: 2016-02-09 17:23+0000\n"
 "Last-Translator: infirit <Unknown>\n"
 "Language-Team: Arabic (http://www.transifex.com/mate/MATE/language/ar/)\n"
@@ -23,8 +23,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n % 100 >= "
 "3 && n % 100 <= 10 ? 3 : n % 100 >= 11 && n % 100 <= 99 ? 4 : 5;\n"
-"X-Launchpad-Export-Date: 2017-05-23 10:35+0000\n"
-"X-Generator: Launchpad (build 18387)\n"
+"X-Launchpad-Export-Date: 2017-06-28 07:53+0000\n"
+"X-Generator: Launchpad (build 18416)\n"
 "Language: ar\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -442,6 +442,7 @@ msgid ""
 msgstr ""
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
+#: ../shell/main.c:239 ../shell/main.c:268
 msgid "Document Viewer"
 msgstr "عارض الوثائق"
 
@@ -1726,10 +1727,6 @@ msgstr "‏%s — كلمة المرور مطلوبة"
 #: ../shell/ev-utils.c:318
 msgid "By extension"
 msgstr "بالامتداد"
-
-#: ../shell/main.c:58 ../shell/main.c:239
-msgid "MATE Document Viewer"
-msgstr "عارِض مستندات متّة"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."

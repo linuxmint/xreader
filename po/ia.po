@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-05-05 13:04+0100\n"
-"PO-Revision-Date: 2017-02-18 14:50+0000\n"
+"POT-Creation-Date: 2017-06-19 13:41+0200\n"
+"PO-Revision-Date: 2017-06-22 20:42+0000\n"
 "Last-Translator: karm <melo@carmu.com>\n"
 "Language-Team: Interlingua <ia@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2017-05-23 10:35+0000\n"
-"X-Generator: Launchpad (build 18387)\n"
+"X-Launchpad-Export-Date: 2017-06-28 07:53+0000\n"
+"X-Generator: Launchpad (build 18416)\n"
 
 #: ../backend/comics/comics-document.c:208
 #, c-format
@@ -446,6 +446,7 @@ msgstr ""
 "contentos. </p>"
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
+#: ../shell/main.c:239 ../shell/main.c:268
 msgid "Document Viewer"
 msgstr "Visor de documentos"
 
@@ -1016,11 +1017,11 @@ msgstr "Pagina %s"
 
 #: ../shell/ev-history-action-widget.c:215
 msgid "Go to previous history item"
-msgstr ""
+msgstr "Vader al elemento precedente del chronologia"
 
 #: ../shell/ev-history-action-widget.c:219
 msgid "Go to next history item"
-msgstr ""
+msgstr "Vader al elemento sequente del chronologia"
 
 #: ../shell/ev-keyring.c:86
 #, c-format
@@ -1464,12 +1465,12 @@ msgstr "P_roprietates"
 
 #: ../shell/ev-window.c:5782
 msgid "_Close"
-msgstr ""
+msgstr "_Clauder"
 
 #. Edit menu
 #: ../shell/ev-window.c:5786
 msgid "_Copy"
-msgstr ""
+msgstr "_Copiar"
 
 #: ../shell/ev-window.c:5788
 msgid "Select _All"
@@ -1498,11 +1499,11 @@ msgstr "Salvar le actual configurationes como pre_Definite"
 #. View menu
 #: ../shell/ev-window.c:5806
 msgid "Zoom _In"
-msgstr ""
+msgstr "Ampl_Iar"
 
 #: ../shell/ev-window.c:5809
 msgid "Zoom _Out"
-msgstr ""
+msgstr "Reducer (zoom _Out)"
 
 #: ../shell/ev-window.c:5812
 msgid "_Reload"
@@ -1598,19 +1599,19 @@ msgstr "Monstrar le documento integre"
 
 #: ../shell/ev-window.c:5925
 msgid "_Dual (Even pages left)"
-msgstr ""
+msgstr "_Dual (Paginas dispar a sinistra)"
 
 #: ../shell/ev-window.c:5926
 msgid "Show two pages at once with even pages on the left"
-msgstr ""
+msgstr "Monstra duo paginas al vice con le paginas dispar sur le sinistra"
 
 #: ../shell/ev-window.c:5928
 msgid "Dual (_Odd pages left)"
-msgstr ""
+msgstr "_Dual (Paginas par,  _Odd, a sinistra)"
 
 #: ../shell/ev-window.c:5929
 msgid "Show two pages at once with odd pages on the left"
-msgstr ""
+msgstr "Monstra duo paginas al vice con le paginas spar sur le sinistra"
 
 #: ../shell/ev-window.c:5931
 msgid "_Fullscreen"
@@ -1675,7 +1676,7 @@ msgstr "_Salvar le attachamento como…"
 
 #: ../shell/ev-window.c:6081
 msgid "History"
-msgstr ""
+msgstr "Chronologia"
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6110
@@ -1742,10 +1743,6 @@ msgstr "%s — Necessita le contrasigno"
 #: ../shell/ev-utils.c:318
 msgid "By extension"
 msgstr "Per extension"
-
-#: ../shell/main.c:58 ../shell/main.c:239
-msgid "MATE Document Viewer"
-msgstr "MATE visor de documentos"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."

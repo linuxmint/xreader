@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-05 13:04+0100\n"
+"POT-Creation-Date: 2017-06-19 13:41+0200\n"
 "PO-Revision-Date: 2016-04-21 14:29+0000\n"
 "Last-Translator: Clement Lefebvre <root@linuxmint.com>\n"
 "Language-Team: Bengali (http://www.transifex.com/mate/MATE/language/bn/)\n"
@@ -19,8 +19,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2017-05-23 10:35+0000\n"
-"X-Generator: Launchpad (build 18387)\n"
+"X-Launchpad-Export-Date: 2017-06-28 07:53+0000\n"
+"X-Generator: Launchpad (build 18416)\n"
 "Language: bn\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -441,6 +441,7 @@ msgid ""
 msgstr ""
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
+#: ../shell/main.c:239 ../shell/main.c:268
 msgid "Document Viewer"
 msgstr "নথি প্রদর্শক"
 
@@ -1718,10 +1719,6 @@ msgstr "%s — পাসওয়ার্ড আবশ্যক"
 #: ../shell/ev-utils.c:318
 msgid "By extension"
 msgstr "এক্সটেনশন এর মাধ্যমে"
-
-#: ../shell/main.c:58 ../shell/main.c:239
-msgid "MATE Document Viewer"
-msgstr "MATE নথি প্রদর্শক"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."

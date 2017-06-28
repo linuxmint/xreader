@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-05 13:04+0100\n"
+"POT-Creation-Date: 2017-06-19 13:41+0200\n"
 "PO-Revision-Date: 2017-05-05 13:59+0000\n"
 "Last-Translator: Alberlan Lopes <alberlan@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
@@ -31,8 +31,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Launchpad-Export-Date: 2017-05-23 10:35+0000\n"
-"X-Generator: Launchpad (build 18387)\n"
+"X-Launchpad-Export-Date: 2017-06-28 07:53+0000\n"
+"X-Generator: Launchpad (build 18416)\n"
 "Language: pt_BR\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -464,6 +464,7 @@ msgstr ""
 "hipertexto e marcadores de mesa-de-conteúdo. </p>"
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
+#: ../shell/main.c:239 ../shell/main.c:268
 msgid "Document Viewer"
 msgstr "Visualizador de documentos"
 
@@ -1767,10 +1768,6 @@ msgstr "%s — Senha requerida"
 #: ../shell/ev-utils.c:318
 msgid "By extension"
 msgstr "Por extensão"
-
-#: ../shell/main.c:58 ../shell/main.c:239
-msgid "MATE Document Viewer"
-msgstr "Visualizador de documentos do MATE"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."

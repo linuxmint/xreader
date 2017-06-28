@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xreader\n"
 "Report-Msgid-Bugs-To: "
 "http://bugzilla.mate.org/enter_bug.cgi?product=xreader&component=general\n"
-"POT-Creation-Date: 2017-05-05 13:04+0100\n"
+"POT-Creation-Date: 2017-06-19 13:41+0200\n"
 "PO-Revision-Date: 2016-02-09 17:30+0000\n"
 "Last-Translator: Thomas Thurman <Unknown>\n"
 "Language-Team: Shavian <ubuntu-l10n-en-shaw@launchpad.net>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2017-05-23 10:35+0000\n"
-"X-Generator: Launchpad (build 18387)\n"
+"X-Launchpad-Export-Date: 2017-06-28 07:53+0000\n"
+"X-Generator: Launchpad (build 18416)\n"
 
 #: ../backend/comics/comics-document.c:208
 #, c-format
@@ -433,6 +433,7 @@ msgid ""
 msgstr ""
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
+#: ../shell/main.c:239 ../shell/main.c:268
 msgid "Document Viewer"
 msgstr "𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 𐑝𐑿𐑼"
 
@@ -1703,10 +1704,6 @@ msgstr "%s — 𐑐𐑭𐑕𐑢𐑼𐑛 𐑮𐑦𐑒𐑢𐑲𐑼𐑛"
 #: ../shell/ev-utils.c:318
 msgid "By extension"
 msgstr "𐑚𐑲 𐑩𐑒𐑕𐑑𐑧𐑯𐑖𐑩𐑯"
-
-#: ../shell/main.c:58 ../shell/main.c:239
-msgid "MATE Document Viewer"
-msgstr "·𐑜𐑯𐑴𐑥 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 𐑝𐑿𐑼"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."

@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-05 13:04+0100\n"
+"POT-Creation-Date: 2017-06-19 13:41+0200\n"
 "PO-Revision-Date: 2017-05-07 01:28+0000\n"
 "Last-Translator: AlephAlpha <alephalpha911@gmail.com>\n"
 "Language-Team: Chinese (China) "
@@ -29,8 +29,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2017-05-23 10:35+0000\n"
-"X-Generator: Launchpad (build 18387)\n"
+"X-Launchpad-Export-Date: 2017-06-28 07:53+0000\n"
+"X-Generator: Launchpad (build 18416)\n"
 "Language: zh_CN\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -450,6 +450,7 @@ msgstr ""
 "当文档支持时，它还有搜索文本，将文本复制到剪贴板，超文本导航，目录书签等功能。</p>"
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
+#: ../shell/main.c:239 ../shell/main.c:268
 msgid "Document Viewer"
 msgstr "文档查看器"
 
@@ -1719,10 +1720,6 @@ msgstr "%s - 需要密码"
 #: ../shell/ev-utils.c:318
 msgid "By extension"
 msgstr "按扩展名"
-
-#: ../shell/main.c:58 ../shell/main.c:239
-msgid "MATE Document Viewer"
-msgstr "MATE 文档查看器"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."

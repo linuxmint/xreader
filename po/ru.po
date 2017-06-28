@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-05 13:04+0100\n"
+"POT-Creation-Date: 2017-06-19 13:41+0200\n"
 "PO-Revision-Date: 2016-12-12 10:29+0000\n"
 "Last-Translator: Snow fire <vovan_kireev@mail.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/mate/MATE/language/ru/)\n"
@@ -24,8 +24,8 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-"X-Launchpad-Export-Date: 2017-05-23 10:35+0000\n"
-"X-Generator: Launchpad (build 18387)\n"
+"X-Launchpad-Export-Date: 2017-06-28 07:53+0000\n"
+"X-Generator: Launchpad (build 18416)\n"
 "Language: ru\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -455,6 +455,7 @@ msgstr ""
 "гипертекстовой навигацией и закладками. </p>"
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
+#: ../shell/main.c:239 ../shell/main.c:268
 msgid "Document Viewer"
 msgstr "Просмотр документов"
 
@@ -1747,10 +1748,6 @@ msgstr "%s ― требуется пароль"
 #: ../shell/ev-utils.c:318
 msgid "By extension"
 msgstr "По расширению"
-
-#: ../shell/main.c:58 ../shell/main.c:239
-msgid "MATE Document Viewer"
-msgstr "Просмотр документов"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."

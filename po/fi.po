@@ -9,16 +9,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-05 13:04+0100\n"
-"PO-Revision-Date: 2017-01-31 12:08+0000\n"
+"POT-Creation-Date: 2017-06-19 13:41+0200\n"
+"PO-Revision-Date: 2017-06-02 23:12+0000\n"
 "Last-Translator: Ari Ervasti <ari.ervasti87@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/mate/MATE/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2017-05-23 10:35+0000\n"
-"X-Generator: Launchpad (build 18387)\n"
+"X-Launchpad-Export-Date: 2017-06-28 07:53+0000\n"
+"X-Generator: Launchpad (build 18416)\n"
 "Language: fi\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -445,6 +445,7 @@ msgstr ""
 "tiedostossa hypertekstinä ja merkitä kirjanmerkkejä sisällykseen.</p>"
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
+#: ../shell/main.c:239 ../shell/main.c:268
 msgid "Document Viewer"
 msgstr "Asiakirjakatselin"
 
@@ -1012,11 +1013,11 @@ msgstr "Sivu %s"
 
 #: ../shell/ev-history-action-widget.c:215
 msgid "Go to previous history item"
-msgstr ""
+msgstr "Siirry edelliseen historiakohteeseen"
 
 #: ../shell/ev-history-action-widget.c:219
 msgid "Go to next history item"
-msgstr ""
+msgstr "Siirry seuraavaan historiakohteeseen"
 
 #: ../shell/ev-keyring.c:86
 #, c-format
@@ -1165,6 +1166,9 @@ msgid ""
 "Non-Continuous + Best Fit\n"
 "Ctrl+2"
 msgstr ""
+"Sivunäkymä\n"
+"Ei-jatkuva + Paras sovitus\n"
+"Ctrl+2"
 
 #: ../shell/ev-toolbar.c:143
 msgid ""
@@ -1172,6 +1176,9 @@ msgid ""
 "Continuous + Fit Page Width\n"
 "Ctrl+1"
 msgstr ""
+"Lukijanäkymä\n"
+"Jatkuva + Sovitus sivun leveyteen\n"
+"Ctrl+1"
 
 #: ../shell/ev-window.c:991
 msgid ""
@@ -1461,12 +1468,12 @@ msgstr "O_minaisuudet"
 
 #: ../shell/ev-window.c:5782
 msgid "_Close"
-msgstr ""
+msgstr "_Sulje"
 
 #. Edit menu
 #: ../shell/ev-window.c:5786
 msgid "_Copy"
-msgstr ""
+msgstr "_Kopioi"
 
 #: ../shell/ev-window.c:5788
 msgid "Select _All"
@@ -1495,11 +1502,11 @@ msgstr "Tallenna nykyiset asetukset _oletusarvoiksi"
 #. View menu
 #: ../shell/ev-window.c:5806
 msgid "Zoom _In"
-msgstr ""
+msgstr "_Lähennä"
 
 #: ../shell/ev-window.c:5809
 msgid "Zoom _Out"
-msgstr ""
+msgstr "_Loitonna"
 
 #: ../shell/ev-window.c:5812
 msgid "_Reload"
@@ -1595,19 +1602,22 @@ msgstr "Näytä koko asiakirja"
 
 #: ../shell/ev-window.c:5925
 msgid "_Dual (Even pages left)"
-msgstr ""
+msgstr "_Aukeama (parilliset sivut vasemmalla)"
 
 #: ../shell/ev-window.c:5926
 msgid "Show two pages at once with even pages on the left"
 msgstr ""
+"Näytä kaksi sivua samanaikaisesti siten, että parilliset sivut ovat "
+"vasemmalla"
 
 #: ../shell/ev-window.c:5928
 msgid "Dual (_Odd pages left)"
-msgstr ""
+msgstr "Aukeama (paritt_omat sivut vasemmalla)"
 
 #: ../shell/ev-window.c:5929
 msgid "Show two pages at once with odd pages on the left"
 msgstr ""
+"Näytä kaksi sivua kerrallaan siten, että parittomat sivut ovat vasemmalla"
 
 #: ../shell/ev-window.c:5931
 msgid "_Fullscreen"
@@ -1672,7 +1682,7 @@ msgstr "_Tallenna liite nimellä…"
 
 #: ../shell/ev-window.c:6081
 msgid "History"
-msgstr ""
+msgstr "Historia"
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6110
@@ -1739,10 +1749,6 @@ msgstr "%s — vaaditaan salasana"
 #: ../shell/ev-utils.c:318
 msgid "By extension"
 msgstr "Päätteen mukaan"
-
-#: ../shell/main.c:58 ../shell/main.c:239
-msgid "MATE Document Viewer"
-msgstr "Maten asiakirjakatselin"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."

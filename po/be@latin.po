@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xreader.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-05 13:04+0100\n"
+"POT-Creation-Date: 2017-06-19 13:41+0200\n"
 "PO-Revision-Date: 2016-02-09 16:27+0000\n"
 "Last-Translator: Ihar Hrachyshka <Unknown>\n"
 "Language-Team: Belarusian Latin <http://be-latin.open-tran.eu>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Launchpad-Export-Date: 2017-05-23 10:35+0000\n"
-"X-Generator: Launchpad (build 18387)\n"
+"X-Launchpad-Export-Date: 2017-06-28 07:53+0000\n"
+"X-Generator: Launchpad (build 18416)\n"
 
 #: ../backend/comics/comics-document.c:208
 #, c-format
@@ -434,6 +434,7 @@ msgid ""
 msgstr ""
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
+#: ../shell/main.c:239 ../shell/main.c:268
 msgid "Document Viewer"
 msgstr "Ahladalnik dakumentaŭ"
 
@@ -1700,10 +1701,6 @@ msgstr ""
 #: ../shell/ev-utils.c:318
 msgid "By extension"
 msgstr "Pavodle pašyreńnia"
-
-#: ../shell/main.c:58 ../shell/main.c:239
-msgid "MATE Document Viewer"
-msgstr "Ahladalnik dakumentaŭ dla MATE"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."

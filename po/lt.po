@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-05 13:04+0100\n"
-"PO-Revision-Date: 2017-05-07 20:47+0000\n"
+"POT-Creation-Date: 2017-06-19 13:41+0200\n"
+"PO-Revision-Date: 2017-06-23 22:37+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian (http://www.transifex.com/mate/MATE/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -23,8 +23,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "(n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2017-05-23 10:35+0000\n"
-"X-Generator: Launchpad (build 18387)\n"
+"X-Launchpad-Export-Date: 2017-06-28 07:53+0000\n"
+"X-Generator: Launchpad (build 18416)\n"
 "Language: lt\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -70,7 +70,7 @@ msgstr "Archyve nėra failų"
 #: ../backend/comics/comics-document.c:619
 #, c-format
 msgid "No images found in archive %s"
-msgstr "Archyve %s nereasta jokių paveikslėlių"
+msgstr "Archyve %s nereasta jokių paveikslų"
 
 #: ../backend/comics/comics-document.c:866 ../backend/epub/epub-document.c:1777
 #, c-format
@@ -261,7 +261,7 @@ msgstr "Netaisyklingas dokumentas"
 #: ../libdocument/ev-attachment.c:304 ../libdocument/ev-attachment.c:325
 #, c-format
 msgid "Couldn't save attachment “%s”: %s"
-msgstr "Nepavyko išsaugoti priedo „%s“: %s"
+msgstr "Nepavyko įrašyti priedo „%s“: %s"
 
 #: ../libdocument/ev-attachment.c:373
 #, c-format
@@ -431,7 +431,7 @@ msgstr "6400%"
 
 #: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer"
-msgstr "Dokumentų peržiūros programa"
+msgstr "Dokumentų žiūryklė"
 
 #: ../data/xreader.appdata.xml.in.h:2
 msgid ""
@@ -441,16 +441,16 @@ msgid ""
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
 msgstr ""
-"<p> Xreader yra paprasta dokumentų peržiūros programa. Ji gali rodyti ir "
-"spausdinti PostScript (PS), Uždarus PostScript (EPS), DJVU, DVI, XPS ir "
-"Portable Document Format (PDF) failus, o taip pat komiksų archyvų failus. "
-"Kuomet tai palaiko dokumentas, programa leidžia atlikti teksto paiešką, "
-"kopijuoti tekstą į iškarpinę ir palaiko hiperteksto naršymą bei turinio "
-"žymes. </p>"
+"<p> Xreader yra paprasta dokumentų žiūryklė. Ji gali rodyti ir spausdinti "
+"PostScript (PS), uždarus PostScript (EPS), DJVU, DVI, XPS ir Portable "
+"Document Format (PDF) failus, o taip pat komiksų archyvų failus. Kuomet tai "
+"palaiko dokumentas, programa leidžia atlikti teksto paiešką, kopijuoti "
+"tekstą į iškarpinę ir palaiko hiperteksto naršymą bei turinio žymes. </p>"
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
+#: ../shell/main.c:239 ../shell/main.c:268
 msgid "Document Viewer"
-msgstr "Dokumentų peržiūros programa"
+msgstr "Dokumentų žiūryklė"
 
 #: ../data/xreader.desktop.in.in.h:2
 msgid "View multi-page documents"
@@ -1191,8 +1191,8 @@ msgid ""
 "Cannot enter presentation mode with ePub documents use fullscreen mode "
 "instead."
 msgstr ""
-"Nepavyko įjungti EPUB dokumentų pateikties režimo. Naudokite viso ekrano "
-"režimą."
+"Nepavyko įjungti EPUB dokumentų pateikties veiksenos. Naudokite viso ekrano "
+"veikseną."
 
 #: ../shell/ev-window.c:1484
 msgid "The document contains no pages"
@@ -1204,7 +1204,7 @@ msgstr "Šiame dokumente yra tik tušti puslapiai"
 
 #: ../shell/ev-window.c:1526
 msgid "Presentation mode is not supported for ePub documents."
-msgstr "EPUB dokumentai nepalaiko pateikties režimo."
+msgstr "EPUB dokumentai nepalaiko pateikties veiksenos."
 
 #: ../shell/ev-window.c:1716 ../shell/ev-window.c:1880
 msgid "Unable to open document"
@@ -1250,12 +1250,12 @@ msgstr "Priedas įrašomas į %s"
 #: ../shell/ev-window.c:2756
 #, c-format
 msgid "Saving image to %s"
-msgstr "Įrašomas paveikslėlis į %s"
+msgstr "Įrašomas paveikslas į %s"
 
 #: ../shell/ev-window.c:2800 ../shell/ev-window.c:2900
 #, c-format
 msgid "The file could not be saved as “%s”."
-msgstr "Failo išsaugoti kaip „%s“ nepavyko."
+msgstr "Failo įrašyti kaip „%s“ nepavyko."
 
 #: ../shell/ev-window.c:2831
 #, c-format
@@ -1270,11 +1270,11 @@ msgstr "Siunčiamas priedas (%d%%)"
 #: ../shell/ev-window.c:2839
 #, c-format
 msgid "Uploading image (%d%%)"
-msgstr "Siunčiamas paveikslėlis (%d%%)"
+msgstr "Siunčiamas paveikslas (%d%%)"
 
 #: ../shell/ev-window.c:2952
 msgid "Save a Copy"
-msgstr "Išsaugoti kopiją"
+msgstr "Įrašyti kopiją"
 
 #: ../shell/ev-window.c:3227
 #, c-format
@@ -1294,21 +1294,21 @@ msgid ""
 "Document contains form fields that have been filled out. If you don't save a "
 "copy, changes will be permanently lost."
 msgstr ""
-"Dokumentas turi formos laukų, kurie buvo užpildyti. Jei neišsaugosite "
-"kopijos, pakeitimai bus negrįžtamai prarasti."
+"Dokumente yra formos laukų, kurie buvo užpildyti. Jei neįrašysite kopijos, "
+"pakeitimai bus negrįžtamai prarasti."
 
 #: ../shell/ev-window.c:3516
 msgid ""
 "Document contains new or modified annotations. If you don't save a copy, "
 "changes will be permanently lost."
 msgstr ""
-"Dokumentas turi naujų arba pakeistų anotacijų. Jei neišsaugosite kopijos, "
+"Dokumente yra naujų arba pakeistų pastabų. Jei neįrašysite kopijos, "
 "pakeitimai bus negrįžtamai prarasti."
 
 #: ../shell/ev-window.c:3523
 #, c-format
 msgid "Save a copy of document “%s” before closing?"
-msgstr "Išsaugoti dokumento „%s“ kopiją užveriant?"
+msgstr "Ar prieš užveriant, įrašyti dokumento „%s“ kopiją?"
 
 #: ../shell/ev-window.c:3542
 msgid "Close _without Saving"
@@ -1316,7 +1316,7 @@ msgstr "Užverti _neišsaugant"
 
 #: ../shell/ev-window.c:3546
 msgid "Save a _Copy"
-msgstr "Išsaugoti _kopiją"
+msgstr "Įrašyti _kopiją"
 
 #: ../shell/ev-window.c:3615
 #, c-format
@@ -1356,7 +1356,7 @@ msgstr "Užverti _išspausdinus"
 
 #: ../shell/ev-window.c:4025
 msgid "Presentation mode is not supported for ePub documents"
-msgstr "EPUB dokumentai nepalaiko pateikties režimo"
+msgstr "EPUB dokumentai nepalaiko pateikties veiksenos"
 
 #: ../shell/ev-window.c:4591
 msgid "There was an error displaying help"
@@ -1442,7 +1442,7 @@ msgstr "Žy_mės"
 
 #: ../shell/ev-window.c:5765
 msgid "_Help"
-msgstr "_Pagalba"
+msgstr "Ž_inynas"
 
 #. File menu
 #: ../shell/ev-window.c:5768 ../shell/ev-window.c:6089
@@ -1463,11 +1463,11 @@ msgstr "Atverti šio dokumento kopiją naujame lange"
 
 #: ../shell/ev-window.c:5774
 msgid "_Save a Copy…"
-msgstr "Iš_saugoti kopiją..."
+msgstr "Į_rašyti kopiją…"
 
 #: ../shell/ev-window.c:5775
 msgid "Save a copy of the current document"
-msgstr "Išsaugoti šio dokumento kopiją"
+msgstr "Įrašyti esamo dokumento kopiją"
 
 #: ../shell/ev-window.c:5777
 msgid "_Print…"
@@ -1508,7 +1508,7 @@ msgstr "Pasukti _dešinėn"
 
 #: ../shell/ev-window.c:5801
 msgid "Save Current Settings as _Default"
-msgstr "Išsaugoti dabartinius nustatymus kaip _numatytuosius"
+msgstr "Įrašyti dabartinius nustatymus kaip _numatytuosius"
 
 #. View menu
 #: ../shell/ev-window.c:5806
@@ -1670,11 +1670,11 @@ msgstr "_Kopijuoti nuorodos adresą"
 
 #: ../shell/ev-window.c:5960
 msgid "_Save Image As…"
-msgstr "Įrašyti _paveikslėlį kaip..."
+msgstr "Įrašyti _paveikslą kaip..."
 
 #: ../shell/ev-window.c:5962
 msgid "Copy _Image"
-msgstr "Kopijuoti _paveikslėlį"
+msgstr "Kopijuoti _paveikslą"
 
 #: ../shell/ev-window.c:5964
 msgid "Annotation Properties…"
@@ -1686,7 +1686,7 @@ msgstr "_Atverti priedą"
 
 #: ../shell/ev-window.c:5971
 msgid "_Save Attachment As…"
-msgstr "_Įrašyti priedą"
+msgstr "Įraš_yti priedą kaip…"
 
 #: ../shell/ev-window.c:6081
 msgid "History"
@@ -1727,15 +1727,15 @@ msgstr "Nepavyko atverti išorinės nuorodos"
 
 #: ../shell/ev-window.c:6538
 msgid "Couldn't find appropriate format to save image"
-msgstr "Nepavyko rasti tinkamo formato paveikslėliui įrašyti"
+msgstr "Nepavyko rasti tinkamo formato paveikslui įrašyti"
 
 #: ../shell/ev-window.c:6570
 msgid "The image could not be saved."
-msgstr "Paveikslėlio įrašyti nepavyko."
+msgstr "Paveikslo įrašyti nepavyko."
 
 #: ../shell/ev-window.c:6602
 msgid "Save Image"
-msgstr "Įrašyti paveikslėlį"
+msgstr "Įrašyti paveikslą"
 
 #: ../shell/ev-window.c:6734
 msgid "Unable to open attachment"
@@ -1743,7 +1743,7 @@ msgstr "Nepavyko atverti priedo"
 
 #: ../shell/ev-window.c:6791
 msgid "The attachment could not be saved."
-msgstr "Priedo išsaugoti nepavyko."
+msgstr "Priedo įrašyti nepavyko."
 
 #: ../shell/ev-window.c:6836
 msgid "Save Attachment"
@@ -1757,10 +1757,6 @@ msgstr "%s — Reikalingas slaptažodis"
 #: ../shell/ev-utils.c:318
 msgid "By extension"
 msgstr "Pagal plėtinį"
-
-#: ../shell/main.c:58 ../shell/main.c:239
-msgid "MATE Document Viewer"
-msgstr "MATE dokumentų peržiūros programa"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."

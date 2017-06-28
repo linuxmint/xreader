@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-05 13:04+0100\n"
+"POT-Creation-Date: 2017-06-19 13:41+0200\n"
 "PO-Revision-Date: 2017-02-14 11:20+0000\n"
 "Last-Translator: Rokar ✌ <Unknown>\n"
 "Language-Team: Kurdish (http://www.transifex.com/mate/MATE/language/ku/)\n"
@@ -17,8 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2017-05-23 10:36+0000\n"
-"X-Generator: Launchpad (build 18387)\n"
+"X-Launchpad-Export-Date: 2017-06-28 07:53+0000\n"
+"X-Generator: Launchpad (build 18416)\n"
 "Language: ku\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -435,6 +435,7 @@ msgid ""
 msgstr ""
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
+#: ../shell/main.c:239 ../shell/main.c:268
 msgid "Document Viewer"
 msgstr "Nîşanderê Belgeyan"
 
@@ -1688,10 +1689,6 @@ msgstr "%s — Şîfre pêwist e"
 #: ../shell/ev-utils.c:318
 msgid "By extension"
 msgstr ""
-
-#: ../shell/main.c:58 ../shell/main.c:239
-msgid "MATE Document Viewer"
-msgstr "Nîşanderê Belgeyan yê MATE"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."
