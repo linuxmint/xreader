@@ -18,10 +18,6 @@ ui_DATA =				\
 	xreader-ui.xml			\
 	hand-open.png
 
-if ENABLE_PREVIEWER
-ui_DATA += xreader-previewer-ui.xml
-endif
-
 #
 # Desktop file
 #
