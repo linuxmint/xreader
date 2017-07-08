@@ -1,5 +1,5 @@
 /* ev-previewer-window.c: 
- *  this file is part of xreader, a mate document viewer
+ *  this file is part of xreader, a generic document viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos <carlosgc@gnome.org>
  *
@@ -479,12 +479,6 @@ ev_previewer_window_dispose (GObject *object)
 	G_OBJECT_CLASS (ev_previewer_window_parent_class)->dispose (object);
 }
 
-static gchar*
-data_dir (void)
-{
-	return g_strdup (XREADERDATADIR);
-}
-
 static void
 ev_previewer_window_init (EvPreviewerWindow *window)
 {
@@ -519,7 +513,6 @@ ev_previewer_window_constructor (GType                  type,
 	GtkWidget         *toolbar;
 	GtkAction         *action;
 	GError            *error = NULL;
-	gchar             *datadir, *ui_path;
 	gdouble            dpi;
 
 	object = G_OBJECT_CLASS (ev_previewer_window_parent_class)->constructor (type,
@@ -572,14 +565,9 @@ ev_previewer_window_constructor (GType                  type,
 					    window->accels_group, 1);
 	gtk_window_add_accel_group (GTK_WINDOW (window),
 				    gtk_ui_manager_get_accel_group (window->ui_manager));
-	datadir = data_dir ();
-	ui_path = g_build_filename (datadir, "xreader-previewer-ui.xml", NULL);
-	if (!gtk_ui_manager_add_ui_from_file (window->ui_manager, ui_path, &error)) {
-		g_warning ("Failed to load ui from xreader-previewer-ui.xml: %s", error->message);
-		g_error_free (error);
-	}
-	g_free (ui_path);
-	g_free (datadir);
+
+	gtk_ui_manager_add_ui_from_resource (window->ui_manager, "/org/x/reader/previewer/ui/previewer.xml", &error);
+	g_assert_no_error (error);
 
 	/* GTKUIManager connects actions accels only for menu items,
 	 * but not for tool items. See bug #612972.
