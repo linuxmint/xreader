@@ -7043,11 +7043,33 @@ static const GDBusInterfaceVTable interface_vtable = {
 static GDBusNodeInfo *introspection_data;
 #endif /* ENABLE_DBUS */
 
+static gboolean
+_gtk_css_provider_load_from_resource (GtkCssProvider *provider,
+                     const char     *resource_path,
+                     GError        **error)
+{
+   GBytes  *data;
+   gboolean retval;
+
+   data = g_resources_lookup_data (resource_path, 0, error);
+   if (!data)
+       return FALSE;
+
+   retval = gtk_css_provider_load_from_data (provider,
+                         g_bytes_get_data (data, NULL),
+                         g_bytes_get_size (data),
+                         error);
+   g_bytes_unref (data);
+
+   return retval;
+}
+
 static void
 ev_window_init (EvWindow *ev_window)
 {
 	GtkActionGroup *action_group;
 	GtkAccelGroup *accel_group;
+	GtkCssProvider *css_provider;
 	GError *error = NULL;
 	GtkWidget *sidebar_widget;
 	GtkWidget *menuitem;
@@ -7154,6 +7176,16 @@ ev_window_init (EvWindow *ev_window)
 	        "/org/x/reader/shell/ui/xreader.xml",
 	        &error);
 	g_assert_no_error (error);
+
+	css_provider = gtk_css_provider_new ();
+	_gtk_css_provider_load_from_resource (css_provider,
+            "/org/x/reader/shell/ui/xreader.css",
+            &error);
+	g_assert_no_error (error);
+	gtk_style_context_add_provider_for_screen (gtk_widget_get_screen (GTK_WIDGET (ev_window)),
+            GTK_STYLE_PROVIDER (css_provider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+	g_object_unref (css_provider);
 
 	ev_window->priv->recent_manager = gtk_recent_manager_get_default ();
 	ev_window->priv->recent_action_group = NULL;
