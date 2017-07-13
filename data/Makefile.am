@@ -14,8 +14,7 @@ man_MANS=xreader.1
 #
 
 uidir = $(pkgdatadir)
-ui_DATA =				\
-	xreader-ui.xml			\
+ui_DATA = \
 	hand-open.png
 
 #

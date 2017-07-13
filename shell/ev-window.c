@@ -7053,7 +7053,6 @@ ev_window_init (EvWindow *ev_window)
 	GtkWidget *menuitem;
 	GtkStyleContext *context;
 	guint page_cache_mb;
-	gchar *ui_path;
 #ifdef ENABLE_DBUS
 	GDBusConnection *connection;
 	static gint window_id = 0;
@@ -7151,15 +7150,10 @@ ev_window_init (EvWindow *ev_window)
 	gtk_ui_manager_insert_action_group (ev_window->priv->ui_manager,
 					    action_group, 0);
 
-	ui_path = g_build_filename (ev_application_get_data_dir (EV_APP),
-				    "xreader-ui.xml", NULL);
-	if (!gtk_ui_manager_add_ui_from_file (
-		ev_window->priv->ui_manager, ui_path, &error))
-	{
-		g_warning ("building menus failed: %s", error->message);
-		g_error_free (error);
-	}
-	g_free (ui_path);
+	gtk_ui_manager_add_ui_from_resource (ev_window->priv->ui_manager,
+	        "/org/x/reader/shell/ui/xreader.xml",
+	        &error);
+	g_assert_no_error (error);
 
 	ev_window->priv->recent_manager = gtk_recent_manager_get_default ();
 	ev_window->priv->recent_action_group = NULL;

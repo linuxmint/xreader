@@ -46,7 +46,6 @@ struct _EvApplication {
 	gchar *uri;
 
 	gchar *dot_dir;
-	gchar *data_dir;
 
 #ifdef ENABLE_DBUS
 	GDBusConnection *connection;
@@ -938,8 +937,6 @@ ev_application_shutdown (EvApplication *application)
 
         g_free (application->dot_dir);
         application->dot_dir = NULL;
-        g_free (application->data_dir);
-        application->data_dir = NULL;
 
 	g_object_unref (application);
         instance = NULL;
@@ -966,8 +963,6 @@ static void ev_application_init(EvApplication* ev_application)
 	{
 		ev_application->dot_dir = g_build_filename(g_get_user_config_dir(), "xreader", NULL);
 	}
-
-	ev_application->data_dir = g_strdup (XREADERDATADIR);
 
 	ev_application_init_session (ev_application);
 
@@ -1077,8 +1072,3 @@ ev_application_get_dot_dir (EvApplication *application,
 	return application->dot_dir;
 }
 
-const gchar *
-ev_application_get_data_dir (EvApplication   *application)
-{
-	return application->data_dir;
-}
