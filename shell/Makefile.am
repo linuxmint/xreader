@@ -68,6 +68,8 @@ xreader_SOURCES=				\
 	ev-properties-view.h		\
 	ev-open-recent-action.c		\
 	ev-open-recent-action.h		\
+	ev-resources.c \
+	ev-resources.h \
 	ev-toolbar.c 		\
 	ev-toolbar.h 		\
 	ev-utils.c			\
@@ -115,7 +117,10 @@ if ENABLE_NEMO
 endif
 
 
-BUILT_SOURCES = ev-marshal.h ev-marshal.c
+BUILT_SOURCES = \
+	ev-marshal.h \
+	ev-marshal.c \
+	ev-resources.c
 
 if ENABLE_DBUS
 xreaderd_SOURCES=			\
@@ -136,7 +141,10 @@ xreaderd_LDADD=				\
 	$(EV_DAEMON_LIBS)
 endif
 
-EXTRA_DIST = ev-marshal.list
+EXTRA_DIST = \
+	ev-marshal.list \
+	xreader-ui.xml \
+	xreader.gresource.xml
 
 ev-marshal.h: $(srcdir)/ev-marshal.list
 	$(AM_V_GEN)$(GLIB_GENMARSHAL) --prefix=ev_marshal $(srcdir)/ev-marshal.list --header > ev-marshal.h
@@ -144,6 +152,9 @@ ev-marshal.h: $(srcdir)/ev-marshal.list
 ev-marshal.c: $(srcdir)/ev-marshal.list
 	echo '#include "ev-marshal.h"' > ev-marshal.c
 	$(AM_V_GEN)$(GLIB_GENMARSHAL) --prefix=ev_marshal $(srcdir)/ev-marshal.list --body >> ev-marshal.c
+
+ev-resources.c: xreader.gresource.xml Makefile $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir $(srcdir) $(srcdir)/xreader.gresource.xml)
+	$(AM_V_GEN) XMLLINT=$(XMLLINT) $(GLIB_COMPILE_RESOURCES) --target $@ --sourcedir $(srcdir) --generate-source --c-name ev $<
 
 DISTCLEANFILES =
 
