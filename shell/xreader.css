@@ -1,3 +1,9 @@
 EvView {
     background-color: @theme_bg_color;
 }
+
+EvWindow .content-view .view {
+    background-color: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
+}
+
