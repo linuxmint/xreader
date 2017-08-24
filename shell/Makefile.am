@@ -96,6 +96,13 @@ xreader_SOURCES=				\
 	ev-sidebar-thumbnails.h		\
 	main.c
 
+if ENABLE_DBUS
+nodist_xreader_SOURCES = \
+	ev-gdbus-generated.c \
+	ev-gdbus-generated.h \
+	$(NULL)
+endif
+
 xreader_LDFLAGS = $(AM_LDFLAGS)
 
 xreader_LDADD=										\
@@ -123,6 +130,10 @@ BUILT_SOURCES = \
 	ev-resources.c
 
 if ENABLE_DBUS
+BUILT_SOURCES += ev-gdbus-generated.c ev-gdbus-generated.h
+endif
+
+if ENABLE_DBUS
 xreaderd_SOURCES=			\
 	ev-daemon.c
 
@@ -144,7 +155,8 @@ endif
 EXTRA_DIST = \
 	ev-marshal.list \
 	xreader-ui.xml \
-	xreader.gresource.xml
+	xreader.gresource.xml \
+	ev-gdbus.xml
 
 ev-marshal.h: $(srcdir)/ev-marshal.list
 	$(AM_V_GEN)$(GLIB_GENMARSHAL) --prefix=ev_marshal $(srcdir)/ev-marshal.list --header > ev-marshal.h
@@ -155,6 +167,14 @@ ev-marshal.c: $(srcdir)/ev-marshal.list
 
 ev-resources.c: xreader.gresource.xml Makefile $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir $(srcdir) $(srcdir)/xreader.gresource.xml)
 	$(AM_V_GEN) XMLLINT=$(XMLLINT) $(GLIB_COMPILE_RESOURCES) --target $@ --sourcedir $(srcdir) --generate-source --c-name ev $<
+
+ev-gdbus-generated.c ev-gdbus-generated.h: ev-gdbus.xml Makefile
+	$(AM_V_GEN) $(GDBUS_CODEGEN) \
+			--interface-prefix=org.x.reader \
+			--c-namespace=Ev \
+			--c-generate-object-manager \
+			--generate-c-code ev-gdbus-generated \
+			$<
 
 DISTCLEANFILES =
 
