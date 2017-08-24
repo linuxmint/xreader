@@ -158,9 +158,15 @@ AS_IF([test "x$found_zlib" = "xno"], [
   AC_SUBST(ZLIB_LIBS)
 ])
 
-dnl
-dnl SM client
-dnl
+AC_ARG_VAR([GDBUS_CODEGEN],[the gdbus-codegen programme])
+AC_PATH_PROG([GDBUS_CODEGEN],[gdbus-codegen],[])
+if test -z "$GDBUS_CODEGEN"; then
+  AC_MSG_ERROR([gdbus-codegen not found])
+fi
+
+# *********
+# SM client
+# *********
 
 PKG_CHECK_MODULES([SMCLIENT],[gtk+-3.0 gthread-2.0 sm >= 1.0.0])
 AC_SUBST([SMCLIENT_CFLAGS])
