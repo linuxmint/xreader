@@ -136,21 +136,19 @@ ev_previewer_window_zoom_out (GtkAction         *action,
 }
 
 static void
-ev_previewer_window_zoom_best_fit (GtkToggleAction   *action,
-				   EvPreviewerWindow *window)
+ev_previewer_window_zoom_best_fit (GtkToggleAction *action, EvPreviewerWindow *window)
 {
-	ev_document_model_set_sizing_mode (window->model,
-					   gtk_toggle_action_get_active (action) ?
-					   EV_SIZING_BEST_FIT : EV_SIZING_FREE);
+    ev_document_model_set_sizing_mode (window->model,
+            ev_document_model_get_sizing_mode (window->model) == EV_SIZING_BEST_FIT ?
+            EV_SIZING_FREE : EV_SIZING_BEST_FIT);
 }
 
 static void
-ev_previewer_window_zoom_page_width (GtkToggleAction   *action,
-				     EvPreviewerWindow *window)
+ev_previewer_window_zoom_page_width (GtkToggleAction *action, EvPreviewerWindow *window)
 {
-	ev_document_model_set_sizing_mode (window->model,
-					   gtk_toggle_action_get_active (action) ?
-					   EV_SIZING_FIT_WIDTH : EV_SIZING_FREE);
+    ev_document_model_set_sizing_mode (window->model,
+            ev_document_model_get_sizing_mode (window->model) == EV_SIZING_FIT_WIDTH ?
+            EV_SIZING_FREE : EV_SIZING_FIT_WIDTH);
 }
 
 static void
@@ -316,10 +314,14 @@ static const GtkActionEntry accel_entries[] = {
 	  G_CALLBACK (ev_previewer_window_scroll_forward) },
 	{ "ShiftReturn", NULL, "", "<shift>Return", NULL,
 	  G_CALLBACK (ev_previewer_window_scroll_backward) },
-	{ "p", GTK_STOCK_GO_UP, "", "p", NULL,
-	  G_CALLBACK (ev_previewer_window_previous_page) },
+	{ "f", EV_STOCK_ZOOM_PAGE, "", "f", NULL,
+	  G_CALLBACK (ev_previewer_window_zoom_best_fit) },
 	{ "n", GTK_STOCK_GO_DOWN, "", "n", NULL,
 	  G_CALLBACK (ev_previewer_window_next_page) },
+	{ "p", GTK_STOCK_GO_UP, "", "p", NULL,
+	  G_CALLBACK (ev_previewer_window_previous_page) },
+	{ "w", EV_STOCK_ZOOM_WIDTH, "", "w", NULL,
+	  G_CALLBACK (ev_previewer_window_zoom_page_width) },
 	{ "Plus", GTK_STOCK_ZOOM_IN, NULL, "plus", NULL,
 	  G_CALLBACK (ev_previewer_window_zoom_in) },
 	{ "CtrlEqual", GTK_STOCK_ZOOM_IN, NULL, "<control>equal", NULL,

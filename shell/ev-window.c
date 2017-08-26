@@ -564,8 +564,11 @@ ev_window_set_view_accels_sensitivity (EvWindow *window, gboolean sensitive)
 		ev_window_set_action_sensitive (window, "KpPlus", sensitive);
 		ev_window_set_action_sensitive (window, "KpMinus", sensitive);
 		ev_window_set_action_sensitive (window, "Equal", sensitive);
-		ev_window_set_action_sensitive (window, "p", sensitive);
+		ev_window_set_action_sensitive (window, "d", sensitive);
+		ev_window_set_action_sensitive (window, "f", sensitive);
 		ev_window_set_action_sensitive (window, "n", sensitive);
+		ev_window_set_action_sensitive (window, "p", sensitive);
+		ev_window_set_action_sensitive (window, "w", sensitive);
 
 		ev_window_set_action_sensitive (window, "Slash", sensitive && can_find);
 	}
@@ -3729,11 +3732,11 @@ ev_window_cmd_continuous (GtkAction *action, EvWindow *ev_window)
 static void
 ev_window_cmd_dual (GtkAction *action, EvWindow *ev_window)
 {
-	gboolean dual_page;
+    gboolean was_dual_page;
 
-	ev_window_stop_presentation (ev_window, TRUE);
-	dual_page = gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action));
-	ev_document_model_set_dual_page (ev_window->priv->model, dual_page);
+    ev_window_stop_presentation (ev_window, TRUE);
+    was_dual_page = ev_document_model_get_dual_page (ev_window->priv->model);
+    ev_document_model_set_dual_page (ev_window->priv->model, !was_dual_page);
 }
 
 static void
@@ -3750,27 +3753,27 @@ ev_window_cmd_dual_odd_pages_left (GtkAction *action, EvWindow *ev_window)
 static void
 ev_window_cmd_view_best_fit (GtkAction *action, EvWindow *ev_window)
 {
-	ev_window_stop_presentation (ev_window, TRUE);
+    ev_window_stop_presentation (ev_window, TRUE);
 
-	if (gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action))) {
-		ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_BEST_FIT);
-	} else {
-		ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FREE);
-	}
-	ev_window_update_actions (ev_window);
+    if (ev_document_model_get_sizing_mode (ev_window->priv->model) == EV_SIZING_BEST_FIT) {
+        ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FREE);
+    } else {
+        ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_BEST_FIT);
+    }
+    ev_window_update_actions (ev_window);
 }
 
 static void
 ev_window_cmd_view_page_width (GtkAction *action, EvWindow *ev_window)
 {
-	ev_window_stop_presentation (ev_window, TRUE);
+    ev_window_stop_presentation (ev_window, TRUE);
 
-	if (gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action))) {
-		ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FIT_WIDTH);
-	} else {
-		ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FREE);
-	}
-	ev_window_update_actions (ev_window);
+    if (ev_document_model_get_sizing_mode (ev_window->priv->model) == EV_SIZING_FIT_WIDTH) {
+        ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FREE);
+    } else {
+        ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FIT_WIDTH);
+    }
+    ev_window_update_actions (ev_window);
 }
 
 
@@ -5876,10 +5879,16 @@ static const GtkActionEntry entries[] = {
           G_CALLBACK (ev_window_cmd_scroll_forward) },
         { "ShiftReturn", NULL, "", "<shift>Return", NULL,
           G_CALLBACK (ev_window_cmd_scroll_backward) },
-	{ "p", GTK_STOCK_GO_UP, "", "p", NULL,
-	  G_CALLBACK (ev_window_cmd_go_previous_page) },
-	{ "n", GTK_STOCK_GO_DOWN, "", "n", NULL,
-	  G_CALLBACK (ev_window_cmd_go_next_page) },
+        { "d", EV_STOCK_VIEW_DUAL, "", "d", NULL,
+          G_CALLBACK (ev_window_cmd_dual) },
+        { "f", EV_STOCK_ZOOM_PAGE, "", "f", NULL,
+          G_CALLBACK (ev_window_cmd_view_best_fit) },
+        { "n", GTK_STOCK_GO_DOWN, "", "n", NULL,
+          G_CALLBACK (ev_window_cmd_go_next_page) },
+        { "p", GTK_STOCK_GO_UP, "", "p", NULL,
+          G_CALLBACK (ev_window_cmd_go_previous_page) },
+        { "w", EV_STOCK_ZOOM_WIDTH, "", "w", NULL,
+          G_CALLBACK (ev_window_cmd_view_page_width) },
         { "Plus", GTK_STOCK_ZOOM_IN, NULL, "plus", NULL,
           G_CALLBACK (ev_window_cmd_view_zoom_in) },
         { "CtrlEqual", GTK_STOCK_ZOOM_IN, NULL, "<control>equal", NULL,
