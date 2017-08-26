@@ -983,6 +983,12 @@ extract_argv (EvDocument *document, gint page)
 	char *command_line, *quoted_archive, *quoted_filename;
 	GError *err = NULL;
 
+	if (g_strrstr (comics_document->page_names->pdata[page], "--checkpoint-action="))
+	{
+		g_warning ("File unsupported\n");
+		gtk_main_quit ();
+	}
+
         if (page >= comics_document->page_names->len)
                 return NULL;
 
