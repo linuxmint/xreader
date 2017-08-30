@@ -83,6 +83,7 @@ void		ev_web_view_copy				   (EvWebView  *webview);
 /* Zoom control */
 gboolean     ev_web_view_zoom_in               (EvWebView *webview);
 gboolean     ev_web_view_zoom_out              (EvWebView *webview);
+gboolean     ev_web_view_zoom_reset            (EvWebView *webview);
 
 /*For safe replacement by an EvView*/
 void       ev_web_view_disconnect_handlers    (EvWebView  *webview);

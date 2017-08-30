@@ -136,6 +136,14 @@ ev_previewer_window_zoom_out (GtkAction         *action,
 }
 
 static void
+ev_previewer_window_zoom_reset (GtkAction         *action,
+			      EvPreviewerWindow *window)
+{
+	ev_document_model_set_sizing_mode (window->model, EV_SIZING_FREE);
+	ev_view_zoom_reset (window->view);
+}
+
+static void
 ev_previewer_window_zoom_best_fit (GtkToggleAction   *action,
 				   EvPreviewerWindow *window)
 {
@@ -295,6 +303,9 @@ static const GtkActionEntry action_entries[] = {
         { "ViewZoomOut", GTK_STOCK_ZOOM_OUT, NULL, "<control>minus",
           N_("Shrink the document"),
           G_CALLBACK (ev_previewer_window_zoom_out) },
+        { "ViewZoomReset", GTK_STOCK_ZOOM_100, NULL, "<control>0",
+          N_("Reset zoom to 100\%"),
+          G_CALLBACK (ev_previewer_window_zoom_reset) },
 #if GTKUNIXPRINT_ENABLED
 	/* translators: Print document currently shown in the Print Preview window */
 	{ "PreviewPrint", GTK_STOCK_PRINT, N_("Print"), NULL,
