@@ -219,12 +219,12 @@ ev_toolbar_constructed (GObject *object)
     ev_toolbar->priv->expand_window_button = create_button (action);
     gtk_box_pack_end (GTK_BOX (box), ev_toolbar->priv->expand_window_button, FALSE, FALSE, 0);
 
-    action = gtk_action_group_get_action (action_group, "ViewZoomOut");
+    action = gtk_action_group_get_action (action_group, "ViewZoomIn");
     button = create_button (action);
     gtk_box_pack_end (GTK_BOX (box), button, FALSE, FALSE, 0);
     gtk_widget_show (GTK_WIDGET (button));
 
-    action = gtk_action_group_get_action (action_group, "ViewZoomIn");
+    action = gtk_action_group_get_action (action_group, "ViewZoomOut");
     button = create_button (action);
     gtk_box_pack_end (GTK_BOX (box), button, FALSE, FALSE, 0);
     gtk_widget_show (GTK_WIDGET (button));
