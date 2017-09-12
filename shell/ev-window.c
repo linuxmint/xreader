@@ -5874,7 +5874,7 @@ static const GtkActionEntry entries[] = {
         { "GoLastPage", "go-last-symbolic", N_("_Last Page"), "<control>End",
           N_("Go to the last page"),
           G_CALLBACK (ev_window_cmd_go_last_page) },
-        { "GoPreviousHistory", NULL, N_("_Previous History Item"), NULL,
+        { "GoPreviousHistory", NULL, N_("Previous History Item"), NULL,
           N_("Go to previous history item"),
           G_CALLBACK (ev_window_cmd_go_previous_history) },
         { "GoNextHistory", NULL, N_("Next History Item"), NULL,
