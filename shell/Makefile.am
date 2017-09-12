@@ -1,3 +1,5 @@
+NULL =
+
 AM_CPPFLAGS=							\
 	-DXREADERDATADIR=\"$(pkgdatadir)\"				\
 	-DXREADER_LOCALE_DIR=\"$(datadir)/locale\"	\
@@ -130,12 +132,22 @@ BUILT_SOURCES = \
 	ev-resources.c
 
 if ENABLE_DBUS
-BUILT_SOURCES += ev-gdbus-generated.c ev-gdbus-generated.h
+BUILT_SOURCES += \
+	ev-gdbus-generated.c \
+	ev-gdbus-generated.h \
+	ev-daemon-gdbus-generated.c \
+	ev-daemon-gdbus-generated.h
 endif
 
 if ENABLE_DBUS
-xreaderd_SOURCES=			\
-	ev-daemon.c
+xreaderd_SOURCES = \
+	ev-daemon.c \
+	$(NULL)
+
+nodist_xreaderd_SOURCES = \
+	ev-daemon-gdbus-generated.c \
+	ev-daemon-gdbus-generated.h
+	$(NULL)
 
 xreaderd_CFLAGS=				\
 	-DXREADERDATADIR=\"$(pkgdatadir)\"			\
@@ -156,7 +168,8 @@ EXTRA_DIST = \
 	ev-marshal.list \
 	xreader-ui.xml \
 	xreader.gresource.xml \
-	ev-gdbus.xml
+	ev-gdbus.xml \
+	ev-daemon-gdbus.xml
 
 ev-marshal.h: $(srcdir)/ev-marshal.list
 	$(AM_V_GEN)$(GLIB_GENMARSHAL) --prefix=ev_marshal $(srcdir)/ev-marshal.list --header > ev-marshal.h
@@ -176,6 +189,14 @@ ev-gdbus-generated.c ev-gdbus-generated.h: ev-gdbus.xml Makefile
 			--generate-c-code ev-gdbus-generated \
 			$<
 
-DISTCLEANFILES =
+ev-daemon-gdbus-generated.c ev-daemon-gdbus-generated.h: ev-daemon-gdbus.xml Makefile
+	$(AM_V_GEN) $(GDBUS_CODEGEN) \
+			--interface-prefix=org.x.reader \
+			--c-namespace=Ev \
+			--c-generate-object-manager \
+			--generate-c-code ev-daemon-gdbus-generated \
+			$<
+
+DISTCLEANFILES = $(BUILT_SOURCES)
 
 -include $(top_srcdir)/git.mk
