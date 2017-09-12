@@ -17,7 +17,7 @@ DOC_MAIN_SGML_FILE = $(DOC_MODULE)-docs.xml
 
 # The directory containing the source code. Relative to $(srcdir).
 # gtk-doc will search all .c & .h files beneath here for inline comments
-# xreadering the functions and macros.
+# evinceing the functions and macros.
 # e.g. DOC_SOURCE_DIR=../../../gtk
 DOC_SOURCE_DIR = $(top_srcdir)/shell
 
@@ -110,7 +110,8 @@ GTKDOC_CFLAGS = \
 
 FILTER_OUT = \
 	$(top_builddir)/shell/main.o			\
-	$(top_builddir)/shell/xreaderd-ev-daemon.o
+	$(top_builddir)/shell/xreaderd-ev-daemon.o \
+	$(top_builddir)/shell/xreaderd-ev-daemon-gdbus-generated.o
 
 GTKDOC_LIBS = \
 	$(top_builddir)/cut-n-paste/zoom-control/libephyzoom.la		\
