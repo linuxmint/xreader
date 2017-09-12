@@ -538,11 +538,15 @@ ev_window_update_actions (EvWindow *ev_window)
 		ev_window_set_action_sensitive (ev_window, "GoNextPage", page < n_pages - 1);
 		ev_window_set_action_sensitive (ev_window, "GoFirstPage", page > 0);
 		ev_window_set_action_sensitive (ev_window, "GoLastPage", page < n_pages - 1);
+		ev_window_set_action_sensitive (ev_window, "GoPreviousHistory", ev_history_can_go_back (ev_window->priv->history));
+    	ev_window_set_action_sensitive (ev_window, "GoNextHistory", ev_history_can_go_forward (ev_window->priv->history));
 	} else {
   		ev_window_set_action_sensitive (ev_window, "GoFirstPage", FALSE);
 		ev_window_set_action_sensitive (ev_window, "GoPreviousPage", FALSE);
 		ev_window_set_action_sensitive (ev_window, "GoNextPage", FALSE);
 		ev_window_set_action_sensitive (ev_window, "GoLastPage", FALSE);
+		ev_window_set_action_sensitive (ev_window, "GoPreviousHistory", FALSE);
+		ev_window_set_action_sensitive (ev_window, "GoNextHistory", FALSE);
 	}
 }
 
@@ -4397,9 +4401,23 @@ ev_window_cmd_view_zoom_reset (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_go_previous_page (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_go_previous_history (GtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
+		ev_history_go_back (ev_window->priv->history);
+}
+
+static void
+ev_window_cmd_go_next_history (GtkAction *action, EvWindow *ev_window)
+{
+        g_return_if_fail (EV_IS_WINDOW (ev_window));
+        ev_history_go_forward (ev_window->priv->history);
+}
+
+static void
+ev_window_cmd_go_previous_page (GtkAction *action, EvWindow *ev_window)
+{
+    g_return_if_fail (EV_IS_WINDOW (ev_window));
 #if ENABLE_EPUB
 	if ( ev_window->priv->document->iswebdocument == TRUE ) {
 		ev_web_view_previous_page(EV_WEB_VIEW(ev_window->priv->webview));
@@ -5844,18 +5862,24 @@ static const GtkActionEntry entries[] = {
 	  G_CALLBACK (ev_window_cmd_view_autoscroll) },
 
         /* Go menu */
-        { "GoPreviousPage", "go-up-symbolic", N_("_Previous Page"), "<control>Page_Up",
+        { "GoPreviousPage", "go-previous-symbolic", N_("_Previous Page"), "<control>Page_Up",
           N_("Go to the previous page"),
           G_CALLBACK (ev_window_cmd_go_previous_page) },
-        { "GoNextPage", "go-down-symbolic", N_("_Next Page"), "<control>Page_Down",
+        { "GoNextPage", "go-next-symbolic", N_("_Next Page"), "<control>Page_Down",
           N_("Go to the next page"),
           G_CALLBACK (ev_window_cmd_go_next_page) },
-        { "GoFirstPage", "go-top-symbolic", N_("_First Page"), "<control>Home",
+        { "GoFirstPage", "go-first-symbolic", N_("_First Page"), "<control>Home",
           N_("Go to the first page"),
           G_CALLBACK (ev_window_cmd_go_first_page) },
-        { "GoLastPage", "go-bottom-symbolic", N_("_Last Page"), "<control>End",
+        { "GoLastPage", "go-last-symbolic", N_("_Last Page"), "<control>End",
           N_("Go to the last page"),
           G_CALLBACK (ev_window_cmd_go_last_page) },
+        { "GoPreviousHistory", NULL, N_("_Previous History Item"), NULL,
+          N_("Go to previous history item"),
+          G_CALLBACK (ev_window_cmd_go_previous_history) },
+        { "GoNextHistory", NULL, N_("Next History Item"), NULL,
+          N_("Go to next history item"),
+          G_CALLBACK (ev_window_cmd_go_next_history) },
 
 	/* Bookmarks menu */
 	{ "BookmarksAdd", "bookmark-new-symbolic", N_("_Add Bookmark"), "<control>D",
@@ -6010,6 +6034,12 @@ sidebar_links_link_activated_cb (EvSidebarLinks *sidebar_links, EvLink *link, Ev
 }
 
 static void
+history_changed_cb (EvHistory *history, EvWindow *window)
+{
+	ev_window_update_actions(window);
+}
+
+static void
 activate_link_cb (GObject *object, EvLink *link, EvWindow *window)
 {
 	if (window->priv->view) {
@@ -6097,14 +6127,6 @@ register_custom_actions (EvWindow *window, GtkActionGroup *group)
 				  window->priv->model);
 	g_signal_connect (action, "activate_link",
 			  G_CALLBACK (activate_link_cb), window);
-	gtk_action_group_add_action (group, action);
-	g_object_unref (action);
-
-	action = g_object_new (EV_TYPE_HISTORY_ACTION,
-			       "name", HISTORY_ACTION,
-			       "label", _("History"),
-			       NULL);
-	ev_history_action_set_history (EV_HISTORY_ACTION (action), window->priv->history);
 	gtk_action_group_add_action (group, action);
 	g_object_unref (action);
 
@@ -7156,6 +7178,8 @@ ev_window_init (EvWindow *ev_window)
 	ev_window->priv->history = ev_history_new (ev_window->priv->model);
 	g_signal_connect (ev_window->priv->history, "activate-link",
 			  		  G_CALLBACK (activate_link_cb), ev_window);
+	g_signal_connect (ev_window->priv->history, "changed",
+			  		  G_CALLBACK (history_changed_cb), ev_window);
 
 	ev_window->priv->main_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 	gtk_container_add (GTK_CONTAINER (ev_window), ev_window->priv->main_box);

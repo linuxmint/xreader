@@ -58,6 +58,9 @@
       <separator/>
       <menuitem name="GoFirstPageMenu" action="GoFirstPage"/>
       <menuitem name="GoLastPageMenu" action="GoLastPage"/>
+      <separator/>
+      <menuitem name="GoPreviousHistory" action="GoPreviousHistory"/>
+      <menuitem name="GoNextHistory" action="GoNextHistory"/>
     </menu>
 
     <menu name="BookmarksMenu" action="Bookmarks">

@@ -188,11 +188,24 @@ ev_toolbar_constructed (GObject *object)
 
     action_group = ev_window_get_main_action_group (ev_toolbar->priv->window);
 
-    /* Navigation */
-    action = gtk_action_group_get_action (action_group, "History");
-    tool_item = GTK_TOOL_ITEM (gtk_action_create_tool_item (action));
+    /* Go Previous/Next page */
+    tool_item = gtk_tool_item_new ();
     gtk_container_add (GTK_CONTAINER (ev_toolbar), GTK_WIDGET (tool_item));
     gtk_widget_show (GTK_WIDGET (tool_item));
+
+    box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+    gtk_container_add (GTK_CONTAINER (tool_item), box);
+    gtk_widget_show (GTK_WIDGET (box));
+
+    action = gtk_action_group_get_action (action_group, "GoPreviousPage");
+    button = create_button (action);
+    gtk_box_pack_start (GTK_BOX (box), button, FALSE, FALSE, 0);
+    gtk_widget_show (GTK_WIDGET (button));
+
+    action = gtk_action_group_get_action (action_group, "GoNextPage");
+    button = create_button (action);
+    gtk_box_pack_start (GTK_BOX (box), button, FALSE, FALSE, 0);
+    gtk_widget_show (GTK_WIDGET (button));
 
     action = gtk_action_group_get_action (action_group, "PageSelector");
     tool_item = GTK_TOOL_ITEM (gtk_action_create_tool_item (action));
