@@ -1334,7 +1334,7 @@ ev_window_setup_default (EvWindow *ev_window)
 	ev_document_model_set_inverted_colors (model, g_settings_get_boolean (settings, "inverted-colors"));
 	ev_document_model_set_sizing_mode (model, g_settings_get_enum (settings, "sizing-mode"));
 	if (ev_document_model_get_sizing_mode (model) == EV_SIZING_FREE)
-		ev_document_model_set_scale (model, g_settings_get_double (settings, "zoom"));
+		ev_document_model_set_scale (model, g_settings_get_double (settings, "zoom") * get_screen_dpi (ev_window) / 72.0);
 }
 
 
@@ -4401,7 +4401,7 @@ ev_window_cmd_view_zoom_reset (GtkAction *action, EvWindow *ev_window)
 	else
 #endif
 	{
-		ev_view_zoom_reset (EV_VIEW (ev_window->priv->view));
+    ev_document_model_set_scale (ev_window->priv->model, get_screen_dpi (ev_window) / 72.0);
 	}
 }
 
@@ -5449,7 +5449,7 @@ zoom_control_changed_cb (EphyZoomAction *action,
 
 	if (mode == EV_SIZING_FREE) {
 		ev_document_model_set_scale (ev_window->priv->model,
-					     zoom * get_screen_dpi (ev_window) / 72.0);
+					     zoom);
 	}
 }
 
@@ -6259,6 +6259,33 @@ window_state_event_cb (EvWindow *window, GdkEventWindowState *event, gpointer du
 	return FALSE;
 }
 
+#define EPSILON 0.0000001
+static void
+maybe_update_zoom (EvWindow *ev_window)
+{
+    gdouble md_zoom, doc_zoom, mon_dpi, new_dpi;
+    EvSizingMode mode;
+
+    if (!ev_window->priv->metadata)
+        return;
+    if (!ev_window->priv->model)
+        return;
+
+    mode = ev_document_model_get_sizing_mode (ev_window->priv->model);
+    if (mode != EV_SIZING_FREE)
+        return;
+
+    ev_metadata_get_double(ev_window->priv->metadata, "zoom", &md_zoom);
+    doc_zoom = ev_document_model_get_scale (ev_window->priv->model);
+
+    mon_dpi = (doc_zoom / md_zoom) * 72.0;
+    new_dpi = get_screen_dpi (ev_window);
+
+    if (ABS(mon_dpi - new_dpi) > EPSILON) {
+        ev_document_model_set_scale (ev_window->priv->model, (md_zoom * new_dpi) / 72.0);
+    }
+}
+
 static gboolean
 window_configure_event_cb (EvWindow *window, GdkEventConfigure *event, gpointer dummy)
 {
@@ -6284,6 +6311,8 @@ window_configure_event_cb (EvWindow *window, GdkEventConfigure *event, gpointer 
 			ev_metadata_set_int (window->priv->metadata, "window_height", event->height);
 		}
 	}
+
+  maybe_update_zoom (window);
 
 	return FALSE;
 }
