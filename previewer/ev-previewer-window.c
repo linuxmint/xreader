@@ -304,7 +304,7 @@ static const GtkActionEntry action_entries[] = {
           N_("Shrink the document"),
           G_CALLBACK (ev_previewer_window_zoom_out) },
         { "ViewZoomReset", GTK_STOCK_ZOOM_100, NULL, "<control>0",
-          N_("Reset zoom to 100\%"),
+          N_("Original size"),
           G_CALLBACK (ev_previewer_window_zoom_reset) },
 #if GTKUNIXPRINT_ENABLED
 	/* translators: Print document currently shown in the Print Preview window */

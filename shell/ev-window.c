@@ -5845,8 +5845,8 @@ static const GtkActionEntry entries[] = {
 
 
         /* View menu */
-        { "ViewZoomReset", "zoom-original-symbolic", N_("_Reset Zoom"), "<control>0",
-          N_("Reset zoom to 100\%"),
+        { "ViewZoomReset", "zoom-original-symbolic", N_("_Original size"), "<control>0",
+          N_("View the document at its original size"),
           G_CALLBACK (ev_window_cmd_view_zoom_reset) },
         { "ViewZoomIn", "zoom-in-symbolic", N_("Zoom _In"), "<control>plus",
           N_("Enlarge the document"),
@@ -6173,7 +6173,7 @@ set_action_properties (GtkActionGroup *action_group)
   
   action = gtk_action_group_get_action (action_group, "ViewZoomReset");
 	/*translators: this is the label for toolbar button*/
-	g_object_set (action, "short_label", _("Reset Zoom"), NULL);
+	g_object_set (action, "short_label", _("Original size"), NULL);
 
 	action = gtk_action_group_get_action (action_group, "ViewBestFit");
 	/*translators: this is the label for toolbar button*/
