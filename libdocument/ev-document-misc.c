@@ -377,6 +377,7 @@ gdouble
 ev_document_misc_get_screen_dpi (GdkScreen *screen, gint monitor)
 {
     gdouble dp, di;
+    gint mmX, mmY;
 	  GdkRectangle monitorRect;
 
     /*diagonal in pixels*/
@@ -384,8 +385,16 @@ ev_document_misc_get_screen_dpi (GdkScreen *screen, gint monitor)
     dp = hypot (monitorRect.width, monitorRect.height);
 
     /*diagonal in inches*/
-    di = hypot (gdk_screen_get_monitor_width_mm(screen, monitor),
-                gdk_screen_get_monitor_height_mm(screen, monitor)) / 25.4;
+    mmX = gdk_screen_get_monitor_width_mm(screen, monitor);
+    mmY = gdk_screen_get_monitor_height_mm(screen, monitor);
+
+    /* Fallback in cases where devices report their aspect ratio */
+    if (mmX == 160 && (mmY == 90 || mmY == 100) ||
+        mmX == 16  && (mmY == 9  || mmY == 10)) {
+        return 96.0;
+    }
+
+    di = hypot (mmX, mmY) / 25.4;
 
     di /= gdk_screen_get_monitor_scale_factor(screen, monitor);
 
