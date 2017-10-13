@@ -610,10 +610,12 @@ ev_application_open_uri_in_window (EvApplication  *application,
 
 	/* We need to load uri before showing the window, so
 	   we can restore window size without flickering */
-	ev_window_open_uri (ev_window, uri, dest, mode, search_string);
-
-	if (!gtk_widget_get_realized (GTK_WIDGET (ev_window)))
-		gtk_widget_realize (GTK_WIDGET (ev_window));
+    if (!gtk_widget_get_realized (GTK_WIDGET (ev_window))) {
+        gtk_widget_hide(GTK_WIDGET (ev_window));
+        gtk_widget_realize (GTK_WIDGET (ev_window));
+    }
+    ev_window_open_uri (ev_window, uri, dest, mode, search_string);
+    gtk_widget_show(GTK_WIDGET (ev_window));
 
 #ifdef GDK_WINDOWING_X11
     GdkWindow *gdk_window = gtk_widget_get_window (GTK_WIDGET (ev_window));

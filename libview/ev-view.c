@@ -5653,14 +5653,6 @@ ev_view_zoom_out (EvView *view)
 	ev_view_zoom (view, ZOOM_OUT_FACTOR);
 }
 
-void
-ev_view_zoom_reset (EvView *view)
-{
-  gdouble scale;
-  g_return_if_fail (view->sizing_mode == EV_SIZING_FREE);
-  ev_document_model_set_scale (view->model, 1.0);
-}
-
 static double
 zoom_for_size_fit_width (gdouble doc_width,
 			 gdouble doc_height,

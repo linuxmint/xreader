@@ -140,7 +140,7 @@ ev_previewer_window_zoom_reset (GtkAction         *action,
 			      EvPreviewerWindow *window)
 {
 	ev_document_model_set_sizing_mode (window->model, EV_SIZING_FREE);
-	ev_view_zoom_reset (window->view);
+  ev_document_model_set_scale (window->model, get_screen_dpi (window) / 72.0);
 }
 
 static void
@@ -304,7 +304,7 @@ static const GtkActionEntry action_entries[] = {
           N_("Shrink the document"),
           G_CALLBACK (ev_previewer_window_zoom_out) },
         { "ViewZoomReset", GTK_STOCK_ZOOM_100, NULL, "<control>0",
-          N_("Reset zoom to 100\%"),
+          N_("Original size"),
           G_CALLBACK (ev_previewer_window_zoom_reset) },
 #if GTKUNIXPRINT_ENABLED
 	/* translators: Print document currently shown in the Print Preview window */
@@ -530,6 +530,8 @@ ev_previewer_window_constructor (GType                  type,
 										 n_construct_properties,
 										 construct_params);
 	window = EV_PREVIEWER_WINDOW (object);
+  gtk_widget_hide(GTK_WIDGET (window));
+  gtk_widget_realize (GTK_WIDGET (window));
 
 	dpi = get_screen_dpi (window);
 	ev_document_model_set_min_scale (window->model, MIN_SCALE * dpi / 72.0);

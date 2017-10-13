@@ -376,17 +376,31 @@ ev_document_misc_invert_pixbuf (GdkPixbuf *pixbuf)
 gdouble
 ev_document_misc_get_screen_dpi (GdkScreen *screen, gint monitor)
 {
-	gdouble dp, di;
+    gdouble dp, di;
+    gint mmX, mmY;
+	  GdkRectangle monitorRect;
 
-	/*diagonal in pixels*/
-	dp = hypot (gdk_screen_get_width (screen), gdk_screen_get_height (screen));
+    /*diagonal in pixels*/
+    gdk_screen_get_monitor_geometry(screen, monitor, &monitorRect);
 
-	/*diagonal in inches*/
-	di = hypot (gdk_screen_get_width_mm(screen), gdk_screen_get_height_mm (screen)) / 25.4;
+    /*diagonal in inches*/
+    mmX = gdk_screen_get_monitor_width_mm(screen, monitor);
+    mmY = gdk_screen_get_monitor_height_mm(screen, monitor);
 
-	di /= gdk_screen_get_monitor_scale_factor(screen, monitor);
+    /* Fallback in cases where devices report their aspect ratio */
+    if (mmX == 160 && (mmY == 90 || mmY == 100) ||
+        mmX == 16  && (mmY == 9  || mmY == 10)  ||
+        mmX == 0 || mmY == 0 ||
+        monitorRect.width == 0 || monitorRect.height == 0) {
+        return 96.0;
+    }
 
-	return (dp / di);
+    dp = hypot (monitorRect.width, monitorRect.height);
+
+    di = hypot (mmX, mmY) / 25.4;
+    di /= gdk_screen_get_monitor_scale_factor(screen, monitor);
+
+    return (dp / di);
 }
 
 /* Returns a locale specific date and time representation */
