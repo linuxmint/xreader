@@ -235,13 +235,6 @@ struct _EvWindowPrivate {
 #define EV_WINDOW_DBUS_INTERFACE        "org.x.reader.Window"
 #endif
 
-#define GS_SCHEMA_NAME                  "org.x.reader"
-#define GS_OVERRIDE_RESTRICTIONS        "override-restrictions"
-#define GS_PAGE_CACHE_SIZE              "page-cache-size"
-#define GS_AUTO_RELOAD                  "auto-reload"
-#define GS_LAST_DOCUMENT_DIRECTORY      "document-directory"
-#define GS_LAST_PICTURES_DIRECTORY      "pictures-directory"
-
 #define SIDEBAR_DEFAULT_SIZE            132
 #define LINKS_SIDEBAR_ID                "links"
 #define THUMBNAILS_SIDEBAR_ID           "thumbnails"
@@ -5906,11 +5899,11 @@ static const GtkActionEntry entries[] = {
                 "<control>End",
                 N_("Go to the last page"),
                 G_CALLBACK (ev_window_cmd_go_last_page) },
-        { "GoPreviousHistory", NULL, N_("Previous History Item"),
+        { "GoPreviousHistory", "view-sort-ascending-symbolic", N_("Previous History Item"),
                 NULL,
                 N_("Go to previous history item"),
                 G_CALLBACK (ev_window_cmd_go_previous_history) },
-        { "GoNextHistory", NULL, N_("Next History Item"),
+        { "GoNextHistory", "view-sort-descending-symbolic", N_("Next History Item"),
                 NULL,
                 N_("Go to next history item"),
                 G_CALLBACK (ev_window_cmd_go_next_history) },
@@ -7598,7 +7591,7 @@ ev_window_init (EvWindow *ev_window)
     /* Give focus to the document view */
     gtk_widget_grab_focus (ev_window->priv->view);
 
-    ev_window->priv->default_settings = g_settings_new (GS_SCHEMA_NAME".Default");
+    ev_window->priv->default_settings = g_settings_new (GS_SCHEMA_NAME_DEFAULT);
     g_settings_delay (ev_window->priv->default_settings);
     ev_window_setup_default (ev_window);
     update_chrome_actions (ev_window);

@@ -31,10 +31,10 @@
       <description>The maximum size that will be used to cache rendered pages, limits maximum zoom level.</description>
     </key>
 
-    <child name="default" schema="org.x.reader.Default"/>
+    <child name="default" schema="org.x.reader.default"/>
   </schema>
 
-  <schema id="org.x.reader.Default" path="/org/x/reader/default/" gettext-domain="xreader">
+  <schema id="org.x.reader.default" path="/org/x/reader/default/" gettext-domain="xreader">
     <key name="show-toolbar" type="b">
       <default>true</default>
     </key>
@@ -70,6 +70,15 @@
     </key>
     <key name="sidebar-size" type="i">
       <default>132</default>
+    </key>
+  </schema>
+
+  <schema id="org.x.reader.toolbar" path="/org/x/reader/toolbar/" gettext-domain="xreader">
+    <key name="show-expand-window" type="b">
+      <default>false</default>
+    </key>
+    <key name="show-history-buttons" type="b">
+      <default>false</default>
     </key>
   </schema>
 
