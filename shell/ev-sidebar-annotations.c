@@ -279,13 +279,19 @@ void
 ev_sidebar_annotations_annot_added (EvSidebarAnnotations *sidebar_annots,
 				    EvAnnotation         *annot)
 {
-	ev_sidebar_annotations_load (sidebar_annots);
-}
+	GtkWidget *toggle_button;
 
-void
-ev_sidebar_annotations_annot_removed (EvSidebarAnnotations *sidebar_annots,
-				    EvAnnotation         *annot)
-{
+	if (EV_IS_ANNOTATION_TEXT (annot)) {
+		toggle_button = sidebar_annots->priv->annot_text_item;
+		g_signal_handlers_block_by_func (toggle_button,
+						 ev_sidebar_annotations_text_annot_button_toggled,
+						 sidebar_annots);
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (toggle_button), FALSE);
+		g_signal_handlers_unblock_by_func (toggle_button,
+						   ev_sidebar_annotations_text_annot_button_toggled,
+						   sidebar_annots);
+	}
+
 	ev_sidebar_annotations_load (sidebar_annots);
 }
 
