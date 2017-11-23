@@ -11,15 +11,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-26 12:04+0100\n"
-"PO-Revision-Date: 2017-10-26 13:22+0000\n"
+"PO-Revision-Date: 2017-11-12 06:51+0000\n"
 "Last-Translator: KAMI <kami911@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/mate/MATE/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2017-11-03 11:45+0000\n"
-"X-Generator: Launchpad (build 18493)\n"
+"X-Launchpad-Export-Date: 2017-11-23 10:44+0000\n"
+"X-Generator: Launchpad (build 18509)\n"
 "Language: hu\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -134,11 +134,11 @@ msgstr "hibás konténer fájl"
 
 #: ../backend/epub/epub-document.c:869
 msgid "epub file is invalid or corrupt"
-msgstr "epub fáj érvénytelen vagy hibás"
+msgstr "ePub-fájl érvénytelen vagy hibás"
 
 #: ../backend/epub/epub-document.c:879
 msgid "epub file is corrupt, no container"
-msgstr "epub fájl hibás, nem tartalmaz konténert"
+msgstr "ePub-fájl hibás, nem tartalmaz konténert"
 
 #: ../backend/epub/epub-document.c:964
 msgid "could not parse content manifest"
@@ -150,11 +150,11 @@ msgstr "tartalomjegyzék fájl érvénytelen"
 
 #: ../backend/epub/epub-document.c:982
 msgid "epub file has no spine"
-msgstr "az epub fájlnak nincs gerince"
+msgstr "az ePub-fájlnak nincs gerince"
 
 #: ../backend/epub/epub-document.c:991
 msgid "epub file has no manifest"
-msgstr "az epub fájlnak nincs tartalomjegyzéke"
+msgstr "az ePub-fájlnak nincs tartalomjegyzéke"
 
 #: ../backend/epub/epub-document.c:1077
 msgid "Could not set up document tree for loading, some files missing"
@@ -163,7 +163,7 @@ msgstr ""
 
 #: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
-msgstr "epub dokumentumok"
+msgstr "ePub dokumentumok"
 
 #: ../backend/pdf/ev-poppler.cc:519
 msgid "This work is in the Public Domain"
@@ -482,7 +482,7 @@ msgstr "Kép mentésére utoljára használt mappa elérési útja."
 
 #: ../data/org.x.reader.gschema.xml.h:7
 msgid "Page cache size in MiB"
-msgstr "Oldalgyorsítótár mérete MiB-ben"
+msgstr "Oldalgyorsítótár mérete (MiB)"
 
 #: ../data/org.x.reader.gschema.xml.h:8
 msgid ""
