@@ -70,6 +70,8 @@ xreader_SOURCES=				\
 	ev-properties-view.h		\
 	ev-open-recent-action.c		\
 	ev-open-recent-action.h		\
+	ev-recent-view.c \
+	ev-recent-view.h \
 	ev-resources.c \
 	ev-resources.h \
 	ev-toolbar.c 		\

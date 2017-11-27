@@ -51,7 +51,7 @@ EvApplication    *ev_application_get_instance        (void);
 
 void              ev_application_shutdown            (EvApplication   *application);
 gboolean          ev_application_load_session        (EvApplication   *application);
-void              ev_application_open_window         (EvApplication   *application,
+void              ev_application_open_recent_view    (EvApplication   *application,
 						      GdkScreen       *screen,
 						      guint32          timestamp);
 void              ev_application_open_uri_at_dest    (EvApplication   *application,

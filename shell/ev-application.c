@@ -692,18 +692,19 @@ ev_application_open_uri_at_dest (EvApplication  *application,
 }
 
 /**
- * ev_application_open_window:
+ * ev_application_open_recent_view:
  * @application: The instance of the application.
  * @timestamp: Current time value.
  *
- * Creates a new window
+ * Creates a new window with recent files
  */
 void
-ev_application_open_window (EvApplication *application,
+ev_application_open_recent_view (EvApplication *application,
                             GdkScreen     *screen,
                             guint32        timestamp)
 {
     GtkWidget *new_window = ev_window_new ();
+    ev_window_open_recent_view (EV_WINDOW (new_window));
 
     if (screen) {
         ev_stock_icons_set_screen (screen);

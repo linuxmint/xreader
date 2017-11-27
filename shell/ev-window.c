@@ -93,6 +93,7 @@
 #include "ev-bookmarks.h"
 #include "ev-bookmark-action.h"
 #include "ev-toolbar.h"
+#include "ev-recent-view.h"
 
 #ifdef ENABLE_DBUS
 #include "ev-gdbus-generated.h"
@@ -181,7 +182,10 @@ struct _EvWindowPrivate {
 	/* Popup attachment */
 	GtkWidget    *attachment_popup;
 	GList        *attach_list;
-
+	
+	/* Recent view */
+	EvRecentView *recent_view;
+	
 	/* Document */
 	EvDocumentModel *model;
 	char *uri;
@@ -352,6 +356,12 @@ static void     ev_window_setup_bookmarks               (EvWindow         *windo
 static void    zoom_control_changed_cb                 (EphyZoomAction *action,
                                                          float           zoom,
                                                          EvWindow       *ev_window);
+static gint    compare_recent_items 		       (GtkRecentInfo *a, 
+							GtkRecentInfo *b);
+static void     ev_window_destroy_recent_view           (EvWindow         *ev_window);
+static void     recent_view_item_activated_cb           (EvRecentView     *recent_view,
+							 const char       *uri,
+							 EvWindow         *ev_window);
 
 static guint ev_window_n_copies = 0;
 
@@ -1499,6 +1509,8 @@ ev_window_set_document (EvWindow *ev_window, EvDocument *document)
 		ev_window_warning_message (ev_window, "%s",
 					   _("The document contains only empty pages"));
 	}
+	
+	ev_window_destroy_recent_view (ev_window);
 
 #if ENABLE_EPUB
 	if (document->iswebdocument == TRUE && 
@@ -2211,6 +2223,40 @@ ev_window_open_document (EvWindow       *ev_window,
 	g_signal_connect_swapped (ev_window->priv->monitor, "changed",
 				  G_CALLBACK (ev_window_document_changed),
 				  ev_window);
+}
+
+
+void
+ev_window_open_recent_view (EvWindow *ev_window)
+{
+	if (ev_window->priv->recent_view)
+		return;
+
+	gtk_widget_hide (ev_window->priv->hpaned);
+
+	ev_window->priv->recent_view = ev_recent_view_new();
+	g_signal_connect_object (ev_window->priv->recent_view,
+				 "item-activated",
+				 G_CALLBACK (recent_view_item_activated_cb),
+				 ev_window, 0);
+	gtk_box_pack_start (GTK_BOX (ev_window->priv->main_box), 
+			    GTK_WIDGET (ev_window->priv->recent_view), 
+			    TRUE, TRUE, 0);
+	
+	ev_window_title_set_type (ev_window->priv->title, EV_WINDOW_TITLE_RECENT);
+	ev_window_update_actions (ev_window);
+	gtk_widget_show (ev_window->priv->recent_view);
+}
+
+static void
+ev_window_destroy_recent_view (EvWindow *ev_window)
+{
+	if (!ev_window->priv->recent_view)
+		return;
+
+	gtk_widget_destroy (GTK_WIDGET (ev_window->priv->recent_view));
+	ev_window->priv->recent_view = NULL;
+	gtk_widget_show (ev_window->priv->hpaned);
 }
 
 static void
@@ -6055,6 +6101,16 @@ activate_link_cb (GObject *object, EvLink *link, EvWindow *window)
 		gtk_widget_grab_focus (window->priv->webview);
 	}
 #endif
+}
+
+static void
+recent_view_item_activated_cb (EvRecentView *recent_view,
+                               const char   *uri,
+                               EvWindow     *ev_window)
+{
+	ev_application_open_uri_at_dest (EV_APP, uri,
+					 gtk_window_get_screen (GTK_WINDOW (ev_window)),
+					 NULL, 0, NULL, gtk_get_current_event_time ());
 }
 
 static void
