@@ -68,6 +68,8 @@ xreader_SOURCES=				\
 	ev-properties-license.h		\
     ev-properties-view.c        \
 	ev-properties-view.h		\
+	ev-preferences-dialog.c		\
+	ev-preferences-dialog.h		\
 	ev-open-recent-action.c		\
 	ev-open-recent-action.h		\
 	ev-resources.c \

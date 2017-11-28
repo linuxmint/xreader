@@ -70,6 +70,7 @@
 #include "ev-history-action.h"
 #include "ev-password-view.h"
 #include "ev-properties-dialog.h"
+#include "ev-preferences-dialog.h"
 #include "ev-sidebar-annotations.h"
 #include "ev-sidebar-attachments.h"
 #include "ev-sidebar-bookmarks.h"
@@ -104,13 +105,13 @@ typedef enum {
 } EvWindowPageMode;
 
 typedef enum {
-    EV_CHROME_MENUBAR    = 1 << 0,
-    EV_CHROME_TOOLBAR    = 1 << 1,
-    EV_CHROME_FINDBAR    = 1 << 2,
-    EV_CHROME_RAISE_TOOLBAR    = 1 << 3,
-    EV_CHROME_FULLSCREEN_TOOLBAR    = 1 << 4,
-    EV_CHROME_SIDEBAR    = 1 << 5,
-    EV_CHROME_NORMAL    = EV_CHROME_MENUBAR | EV_CHROME_TOOLBAR | EV_CHROME_SIDEBAR
+    EV_CHROME_MENUBAR             = 1 << 0,
+    EV_CHROME_TOOLBAR             = 1 << 1,
+    EV_CHROME_FINDBAR             = 1 << 2,
+    EV_CHROME_RAISE_TOOLBAR       = 1 << 3,
+    EV_CHROME_FULLSCREEN_TOOLBAR  = 1 << 4,
+    EV_CHROME_SIDEBAR             = 1 << 5,
+    EV_CHROME_NORMAL              = EV_CHROME_MENUBAR | EV_CHROME_TOOLBAR | EV_CHROME_SIDEBAR
 } EvChrome;
 
 typedef enum {
@@ -3436,6 +3437,13 @@ ev_window_cmd_file_properties (GtkAction *action,
 }
 
 static void
+ev_window_cmd_edit_preferences (GtkAction *action,
+                                EvWindow *ev_window)
+{
+    ev_preferences_dialog_show(ev_window);
+}
+
+static void
 document_modified_confirmation_dialog_response (GtkDialog *dialog,
                                                 gint       response,
                                                 EvWindow  *ev_window)
@@ -4604,18 +4612,25 @@ ev_window_cmd_view_autoscroll (GtkAction *action,
 #define EV_HELP "help:xreader"
 
 static void
-ev_window_cmd_help_contents (GtkAction *action,
-                             EvWindow  *ev_window)
+ev_window_cmd_help_contents (GtkAction *action, 
+                             EvWindow *ev_window)
 {
-    GError  *error = NULL;
+	ev_window_show_help(ev_window, NULL);
+}
 
-    gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (ev_window)),
-            EV_HELP,
-            gtk_get_current_event_time (),
-            &error);
+void
+ev_window_show_help (EvWindow *ev_window, 
+                     const gchar *uri)
+{
+    GError  *error       = NULL;
+    gchar   *help_page   = EV_HELP;
+
+    if (uri) {
+        help_page = g_strdup_printf ("%s:%s", EV_HELP, uri);
+    }
+    gtk_show_uri(gtk_window_get_screen(GTK_WINDOW(ev_window)), help_page, gtk_get_current_event_time(), &error);
     if (error) {
-        ev_window_error_message (ev_window, error,
-                "%s", _("There was an error displaying help"));
+        ev_window_error_message(ev_window, error, "%s", _("There was an error displaying help"));
         g_error_free (error);
     }
 }
@@ -5854,7 +5869,10 @@ static const GtkActionEntry entries[] = {
                 "<control>T",
                 NULL,
                 G_CALLBACK (ev_window_cmd_edit_save_settings) },
-
+        { "EditPreferences", "preferences-other-symbolic", N_("Preferences"),
+                "<shift><control>P",
+                NULL,
+                G_CALLBACK (ev_window_cmd_edit_preferences) },
 
         /* View menu */
         { "ViewZoomReset", "zoom-original-symbolic", N_("_Original size"),
@@ -5899,11 +5917,11 @@ static const GtkActionEntry entries[] = {
                 "<control>End",
                 N_("Go to the last page"),
                 G_CALLBACK (ev_window_cmd_go_last_page) },
-        { "GoPreviousHistory", "view-sort-ascending-symbolic", N_("Previous History Item"),
+        { "GoPreviousHistory", "xapp-go-history-previous-symbolic", N_("Previous History Item"),
                 NULL,
                 N_("Go to previous history item"),
                 G_CALLBACK (ev_window_cmd_go_previous_history) },
-        { "GoNextHistory", "view-sort-descending-symbolic", N_("Next History Item"),
+        { "GoNextHistory", "xapp-go-history-next-symbolic", N_("Next History Item"),
                 NULL,
                 N_("Go to next history item"),
                 G_CALLBACK (ev_window_cmd_go_next_history) },
