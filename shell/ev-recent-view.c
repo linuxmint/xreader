@@ -78,6 +78,14 @@ compare_recent_items (GtkRecentInfo *a,
         return 0;
 }
 
+static void
+destroy_child (GtkWidget *child, gpointer data)
+{
+	gtk_container_remove (GTK_CONTAINER (data), child);
+}
+
+
+
 static gchar *
 format_name (const gchar *name)
 {
@@ -112,11 +120,21 @@ on_item_activated (GtkButton *button,
 }
 
 static void
+ev_recent_view_clear (EvRecentView *ev_recent_view)
+{
+	EvRecentViewPrivate *priv = ev_recent_view->priv;
+	gtk_container_foreach (GTK_CONTAINER (priv->view), 
+						   (GtkCallback) destroy_child, priv->view);
+}
+
+static void
 ev_recent_view_refresh (EvRecentView *ev_recent_view)
 {
 	GList *items, *l;
 	const gchar 	 	*xreader = g_get_application_name ();
 	EvRecentViewPrivate *priv = ev_recent_view->priv;
+	
+	ev_recent_view_clear (ev_recent_view);
 	
 	items = gtk_recent_manager_get_items (priv->recent_manager);
 	items = g_list_sort (items, (GCompareFunc) compare_recent_items);
@@ -230,6 +248,8 @@ ev_recent_view_dispose (GObject *obj)
 		priv->recent_manager_changed_handler_id = 0;
 	}
 	priv->recent_manager = NULL;
+	
+	ev_recent_view_clear (ev_recent_view);
 
     G_OBJECT_CLASS (ev_recent_view_parent_class)->dispose (obj);
 }
