@@ -484,7 +484,8 @@ EvJob          *ev_job_find_new           (EvDocument      *document,
 					   const gchar     *text,
 					   gboolean         case_sensitive);
 gint            ev_job_find_get_n_results (EvJobFind       *job,
-					   gint             pages);
+					   gint             pages);			   
+const gchar    *ev_job_find_get_text	  (EvJobFind       *job);
 gdouble         ev_job_find_get_progress  (EvJobFind       *job);
 gboolean        ev_job_find_has_results   (EvJobFind       *job);
 GList         **ev_job_find_get_results   (EvJobFind       *job);

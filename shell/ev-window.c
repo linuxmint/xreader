@@ -5292,30 +5292,47 @@ ev_window_search_start (EvWindow *ev_window)
 		return;
 	
 	search_string = egg_find_bar_get_search_string (find_bar);
+	gboolean has_string = (search_string && search_string[0]);
+	
+	if (has_string && ev_window->priv->find_job != NULL
+		&& ev_job_is_finished (ev_window->priv->find_job)) {
+		
+		EvJobFind *job_find = EV_JOB_FIND (ev_window->priv->find_job);
+		const gchar *searched_string = ev_job_find_get_text (job_find);
+
+		if (!ev_job_find_has_results (job_find) 
+			&& strstr (search_string, searched_string)) {
+			egg_find_bar_set_status_text (find_bar, _("Not found"));
+			return;
+		}
+	}
 
 	ev_window_clear_find_job (ev_window);
-
-	if (search_string && search_string[0]) {
-		ev_window->priv->find_job = ev_job_find_new (ev_window->priv->document,
-							     ev_document_model_get_page (ev_window->priv->model),
-							     ev_document_get_n_pages (ev_window->priv->document),
-							     search_string,
-							     egg_find_bar_get_case_sensitive (find_bar));
-		
-		g_signal_connect (ev_window->priv->find_job, "finished",
-				  G_CALLBACK (ev_window_find_job_finished_cb),
-				  ev_window);
-		g_signal_connect (ev_window->priv->find_job, "updated",
-				  G_CALLBACK (ev_window_find_job_updated_cb),
-				  ev_window);
-		ev_job_scheduler_push_job (ev_window->priv->find_job, EV_JOB_PRIORITY_NONE);
-	} else {
+	
+	if (!has_string) {
 		ev_window_update_actions (ev_window);
 		egg_find_bar_set_status_text (find_bar, NULL);
 		if (ev_window->priv->document->iswebdocument == FALSE) {
 			gtk_widget_queue_draw (GTK_WIDGET (ev_window->priv->view));
 		}
+		return;
 	}
+	
+	
+	ev_window->priv->find_job = ev_job_find_new (ev_window->priv->document,
+						     ev_document_model_get_page (ev_window->priv->model),
+						     ev_document_get_n_pages (ev_window->priv->document),
+						     search_string,
+						     egg_find_bar_get_case_sensitive (find_bar));
+	
+	g_signal_connect (ev_window->priv->find_job, "finished",
+			  G_CALLBACK (ev_window_find_job_finished_cb),
+			  ev_window);
+	g_signal_connect (ev_window->priv->find_job, "updated",
+			  G_CALLBACK (ev_window_find_job_updated_cb),
+			  ev_window);
+	ev_job_scheduler_push_job (ev_window->priv->find_job, EV_JOB_PRIORITY_NONE);
+ 
 }
 
 static void
