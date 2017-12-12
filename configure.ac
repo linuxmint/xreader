@@ -9,7 +9,7 @@ m4_define([ev_extra_version], [])
 m4_define([ev_version], [ev_major_version.ev_minor_version.ev_micro_version()ev_extra_version])
 
 # The xreader API version
-m4_define([ev_api_version], [1.5.0])
+m4_define([ev_api_version], [1.5])
 
 # Libtool versioning. The backend and view libraries have separate versions.
 # Before making a release, the libtool version should be modified.
