@@ -1,4 +1,4 @@
-/* this file is part of xreader, a mate document viewer
+/* this file is part of xreader, a generic document viewer
  *
  *  Copyright (C) 2004 Martin Kretzschmar
  *
@@ -61,12 +61,12 @@ typedef struct _EvWindowPrivate EvWindowPrivate;
 
 
 struct _EvWindow {
-    GtkWindow          base_instance;
-    EvWindowPrivate   *priv;
+    GtkApplicationWindow    base_instance;
+    EvWindowPrivate        *priv;
 };
 
 struct _EvWindowClass {
-    GtkWindowClass     base_class;
+    GtkApplicationWindowClass     base_class;
 };
 
 GType               ev_window_get_type                  (void) G_GNUC_CONST;
