@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; c-indent-level: 8 -*- */
-/* this file is part of xreader, a mate document viewer
+/* this file is part of xreader, a generic document viewer
  *
  *  Copyright (C) 2009 Juanjo Marín <juanj.marin@juntadeandalucia.es>
  *  Copyright (C) 2008 Carlos Garcia Campos
@@ -352,9 +352,7 @@ static void    zoom_control_changed_cb                       (EphyZoomAction *ac
                                                               float           zoom,
                                                               EvWindow       *ev_window);
 
-static guint ev_window_n_copies = 0;
-
-G_DEFINE_TYPE (EvWindow, ev_window, GTK_TYPE_WINDOW)
+G_DEFINE_TYPE (EvWindow, ev_window, GTK_TYPE_APPLICATION_WINDOW)
 
 static gdouble
 get_screen_dpi (EvWindow *window)
@@ -2461,8 +2459,6 @@ ev_window_open_copy_at_dest (EvWindow   *window,
                              EvLinkDest *dest)
 {
     EvWindow *new_window = EV_WINDOW (ev_window_new ());
-
-    ev_window_n_copies++;
 
     if (window->priv->metadata)
         new_window->priv->metadata = g_object_ref (window->priv->metadata);
@@ -5508,18 +5504,6 @@ ev_window_drag_data_received (GtkWidget        *widget,
 }
 
 static void
-ev_window_finalize (GObject *object)
-{
-    G_OBJECT_CLASS (ev_window_parent_class)->finalize (object);
-
-    if (ev_window_n_copies == 0) {
-        ev_application_shutdown (EV_APP);
-    } else {
-        ev_window_n_copies--;
-    }
-}
-
-static void
 ev_window_dispose (GObject *object)
 {
     EvWindow *window = EV_WINDOW (object);
@@ -5799,7 +5783,6 @@ ev_window_class_init (EvWindowClass *ev_window_class)
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (ev_window_class);
 
     g_object_class->dispose = ev_window_dispose;
-    g_object_class->finalize = ev_window_finalize;
 
     widget_class->delete_event = ev_window_delete_event;
     widget_class->key_press_event = ev_window_key_press_event;
@@ -7142,7 +7125,7 @@ ev_window_emit_closed (EvWindow *window)
      * to make sure the signal is emitted.
      */
     if (ev_application_get_n_windows (EV_APP) == 1)
-        g_dbus_connection_flush_sync (ev_application_get_dbus_connection (EV_APP), NULL, NULL);
+        g_dbus_connection_flush_sync (g_application_get_dbus_connection (g_application_get_default ()), NULL, NULL);
 }
 
 static void
@@ -7222,7 +7205,7 @@ ev_window_init (EvWindow *ev_window)
     ev_window->priv = EV_WINDOW_GET_PRIVATE (ev_window);
 
 #ifdef ENABLE_DBUS
-    connection = ev_application_get_dbus_connection (EV_APP);
+    connection = g_application_get_dbus_connection (g_application_get_default ());
     if (connection) {
         EvXreaderWindow *skeleton;
 
@@ -7651,8 +7634,9 @@ ev_window_new (void)
     GtkWidget *ev_window;
 
     ev_window = GTK_WIDGET (g_object_new (EV_TYPE_WINDOW,
-            "type", GTK_WINDOW_TOPLEVEL,
-            NULL));
+                            "type", GTK_WINDOW_TOPLEVEL,
+                            "application", g_application_get_default (),
+                            NULL));
 
     return ev_window;
 }
