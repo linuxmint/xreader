@@ -1,3 +1,13 @@
+xreader (1.6.2) sylvia; urgency=medium
+
+  [ Michael Webster ]
+  * configure.ac: Use major.minor version only for API, this breaks loading of introspection otherwise, which seems to expect only *-1.5.typelib.
+
+  [ Mickael Albertus ]
+  * BugFix #135 (#186)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 18 Dec 2017 13:28:50 +0000
+
 xreader (1.6.1) sylvia; urgency=medium
 
   * l10n: Update translations
