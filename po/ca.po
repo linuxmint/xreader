@@ -12,15 +12,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-26 12:04+0100\n"
-"PO-Revision-Date: 2017-10-27 05:32+0000\n"
-"Last-Translator: Isidro Pisa <isidro@utils.info>\n"
+"PO-Revision-Date: 2017-11-14 10:18+0000\n"
+"Last-Translator: Robert Antoni Buj Gelonch <Unknown>\n"
 "Language-Team: Catalan (http://www.transifex.com/mate/MATE/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2017-11-03 11:45+0000\n"
-"X-Generator: Launchpad (build 18493)\n"
+"X-Launchpad-Export-Date: 2017-11-23 10:44+0000\n"
+"X-Generator: Launchpad (build 18509)\n"
 "Language: ca\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -469,20 +469,21 @@ msgstr ""
 
 #: ../data/org.x.reader.gschema.xml.h:3
 msgid "Automatically reload the document"
-msgstr "Recarrega el document automàticament"
+msgstr "Torna a carregar automàticament el document"
 
 #: ../data/org.x.reader.gschema.xml.h:4
 msgid "Whether the document is automatically reloaded on file change."
 msgstr ""
-"Indica si el document es recarrega automàticament en canviar l'arxiu."
+"Indica si el document es torna a carregar automàticament en canviar el "
+"fitxer."
 
 #: ../data/org.x.reader.gschema.xml.h:5
 msgid "The URI of the directory last used to open or save a document."
-msgstr "La URI de l'últim directori usat per obrir o desar un document"
+msgstr "L'URI de l'últim directori usat per obrir o desar un document"
 
 #: ../data/org.x.reader.gschema.xml.h:6
 msgid "The URI of the directory last used to save a picture."
-msgstr "La URI de l'últim directori usat per desar una imatge."
+msgstr "L'URI de l'últim directori usat per desar una imatge."
 
 #: ../data/org.x.reader.gschema.xml.h:7
 msgid "Page cache size in MiB"
@@ -1516,7 +1517,7 @@ msgstr "Mida _original"
 
 #: ../shell/ev-window.c:5849
 msgid "View the document at its original size"
-msgstr "Veure el document en la mida original"
+msgstr "Visualitza el document en la mida original"
 
 #: ../shell/ev-window.c:5851
 msgid "Zoom _In"
@@ -1528,11 +1529,11 @@ msgstr "_Redueix el zoom"
 
 #: ../shell/ev-window.c:5857
 msgid "_Reload"
-msgstr "Ac_tualitza"
+msgstr "To_rna a carregar"
 
 #: ../shell/ev-window.c:5858
 msgid "Reload the document"
-msgstr "Actualitza el document"
+msgstr "Torna a carregar el document"
 
 #: ../shell/ev-window.c:5860
 msgid "_Expand Window to Fit"
@@ -1569,7 +1570,7 @@ msgstr "Element següent de l'historial"
 #. Bookmarks menu
 #: ../shell/ev-window.c:5888
 msgid "_Add Bookmark"
-msgstr "_Afegeix marcador"
+msgstr "_Afegeix el marcador"
 
 #: ../shell/ev-window.c:5889
 msgid "Add a bookmark for the current page"
