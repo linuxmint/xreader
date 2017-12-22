@@ -93,6 +93,7 @@
 #include "ev-bookmarks.h"
 #include "ev-bookmark-action.h"
 #include "ev-toolbar.h"
+#include "ev-recent-view.h"
 
 #ifdef ENABLE_DBUS
 #include "ev-gdbus-generated.h"
@@ -181,6 +182,9 @@ struct _EvWindowPrivate {
     /* Popup attachment */
     GtkWidget    *attachment_popup;
     GList        *attach_list;
+
+    /* Recent view */
+    EvRecentView *recent_view;
 
     /* Document */
     EvDocumentModel *model;
@@ -351,6 +355,12 @@ static void     ev_window_setup_bookmarks                    (EvWindow         *
 static void    zoom_control_changed_cb                       (EphyZoomAction *action,
                                                               float           zoom,
                                                               EvWindow       *ev_window);
+static gint    compare_recent_items                          (GtkRecentInfo  *a, 
+							      GtkRecentInfo  *b);
+static void    ev_window_destroy_recent_view                 (EvWindow       *ev_window);
+static void    recent_view_item_activated_cb                 (EvRecentView   *recent_view,
+							 const char       *uri,
+							 EvWindow         *ev_window);
 
 G_DEFINE_TYPE (EvWindow, ev_window, GTK_TYPE_APPLICATION_WINDOW)
 
@@ -491,7 +501,6 @@ ev_window_update_actions (EvWindow *ev_window)
     {
         view = EV_VIEW (ev_window->priv->view);
     }
-
     can_find_in_page = (ev_window->priv->find_job && ev_job_find_has_results (EV_JOB_FIND (ev_window->priv->find_job)));
     if (view) {
         ev_window_set_action_sensitive (ev_window, "EditCopy", has_pages && ev_view_get_has_selection (view));
@@ -767,7 +776,6 @@ ev_window_warning_message (EvWindow    *window,
                                 GTK_RESPONSE_CLOSE,
                                 NULL);
     g_free (msg);
-
     g_signal_connect (area, "response", G_CALLBACK (ev_window_message_area_response_cb), window);
     gtk_widget_show (area);
     ev_window_set_message_area (window, area);
@@ -1456,6 +1464,8 @@ ev_window_set_document (EvWindow *ev_window,
     } else if (!ev_document_check_dimensions (document) && document->iswebdocument == FALSE) {
         ev_window_warning_message (ev_window, "%s", _("The document contains only empty pages"));
     }
+
+    ev_window_destroy_recent_view (ev_window);
 
 #if ENABLE_EPUB
     if (document->iswebdocument == TRUE && ev_window->priv->view != NULL)
@@ -2160,6 +2170,39 @@ ev_window_open_document (EvWindow       *ev_window,
             ev_window);
 }
 
+void
+ev_window_open_recent_view (EvWindow *ev_window)
+{
+    if (ev_window->priv->recent_view)
+        return;
+
+    gtk_widget_hide (ev_window->priv->hpaned);
+
+    ev_window->priv->recent_view = ev_recent_view_new();
+    g_signal_connect_object (ev_window->priv->recent_view,
+                             "item-activated",
+                             G_CALLBACK (recent_view_item_activated_cb),
+                             ev_window, 0);
+    gtk_box_pack_start (GTK_BOX (ev_window->priv->main_box), 
+                        GTK_WIDGET (ev_window->priv->recent_view), 
+                        TRUE, TRUE, 0);
+	
+    ev_window_title_set_type (ev_window->priv->title, EV_WINDOW_TITLE_RECENT);
+    ev_window_update_actions (ev_window);
+    gtk_widget_show (ev_window->priv->recent_view);
+}
+
+static void
+ev_window_destroy_recent_view (EvWindow *ev_window)
+{
+    if (!ev_window->priv->recent_view)
+        return;
+
+    gtk_widget_destroy (GTK_WIDGET (ev_window->priv->recent_view));
+    ev_window->priv->recent_view = NULL;
+    gtk_widget_show (ev_window->priv->hpaned);
+}
+
 static void
 ev_window_reload_local (EvWindow *ev_window)
 {
@@ -2459,6 +2502,7 @@ ev_window_open_copy_at_dest (EvWindow   *window,
                              EvLinkDest *dest)
 {
     EvWindow *new_window = EV_WINDOW (ev_window_new ());
+
 
     if (window->priv->metadata)
         new_window->priv->metadata = g_object_ref (window->priv->metadata);
@@ -5884,6 +5928,7 @@ static const GtkActionEntry entries[] = {
                 "<control>e",
                 N_("Expand Window to Fit"),
                 G_CALLBACK (ev_window_cmd_view_expand_window) },
+
         { "ViewAutoscroll", "media-playback-start-symbolic", N_("Auto_scroll"),
                 NULL,
                 NULL,
@@ -6096,6 +6141,7 @@ static const GtkToggleActionEntry toggle_entries[] = {
                  "<control>I",
                  N_("Show page contents with the colors inverted"),
                  G_CALLBACK (ev_window_cmd_view_inverted_colors) },
+
 };
 
 /* Popups specific items */
@@ -6161,6 +6207,16 @@ activate_link_cb (GObject  *object,
         gtk_widget_grab_focus (window->priv->webview);
     }
 #endif
+}
+
+static void
+recent_view_item_activated_cb (EvRecentView *recent_view,
+                               const char   *uri,
+                               EvWindow     *ev_window)
+{
+    ev_application_open_uri_at_dest (EV_APP, uri,
+                                     gtk_window_get_screen (GTK_WINDOW (ev_window)),
+                                     NULL, 0, NULL, gtk_get_current_event_time ());
 }
 
 static void
@@ -6768,7 +6824,6 @@ image_save_dialog_response_cb (GtkWidget *fc,
     gdk_pixbuf_save (pixbuf, filename, file_format, &error, NULL);
     g_free (file_format);
     g_object_unref (pixbuf);
-
     has_error:
     if (error) {
         ev_window_error_message (ev_window, error,

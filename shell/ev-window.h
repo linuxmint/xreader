@@ -82,6 +82,7 @@ void                ev_window_open_document             (EvWindow       *ev_wind
                                                          EvLinkDest     *dest,
                                                          EvWindowRunMode mode,
                                                          const gchar    *search_string);
+void                ev_window_open_recent_view         (EvWindow       *ev_window);
 gboolean            ev_window_is_empty                  (const EvWindow *ev_window);
 void                ev_window_print_range               (EvWindow       *ev_window,
                                                          int             first_page,
@@ -90,6 +91,7 @@ const gchar *       ev_window_get_dbus_object_path      (EvWindow       *ev_wind
 
 GtkActionGroup *    ev_window_get_main_action_group     (EvWindow       *window);
 EvDocumentModel *   ev_window_get_document_model        (EvWindow       *ev_window);
+
 
 G_END_DECLS
 
