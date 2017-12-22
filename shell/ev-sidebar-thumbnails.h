@@ -51,6 +51,10 @@ struct _EvSidebarThumbnailsClass {
 
 GType      ev_sidebar_thumbnails_get_type     (void) G_GNUC_CONST;
 GtkWidget *ev_sidebar_thumbnails_new          (void);
+gboolean   ev_sidebar_thumbnails_can_zoom_in  (EvSidebarThumbnails *sidebar_thumbnails);
+gboolean   ev_sidebar_thumbnails_can_zoom_out (EvSidebarThumbnails *sidebar_thumbnails);
+void       ev_sidebar_thumbnails_zoom_in      (EvSidebarThumbnails *sidebar_thumbnails);
+void       ev_sidebar_thumbnails_zoom_out     (EvSidebarThumbnails *sidebar_thumbnails);
 
 G_END_DECLS
 
