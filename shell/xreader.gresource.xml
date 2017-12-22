@@ -19,5 +19,6 @@
   <gresource prefix="/org/x/reader/shell">
     <file alias="ui/xreader.xml" compressed="true" preprocess="xml-stripblanks">xreader-ui.xml</file>
     <file alias="ui/xreader.css" compressed="true">xreader.css</file>
+    <file alias="ui/ev-preferences-dialog.ui" compressed="true" preprocess="xml-stripblanks">ev-preferences-dialog.ui</file>
   </gresource>
 </gresources>

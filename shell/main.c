@@ -165,7 +165,7 @@ load_files (const char **files)
 
 	if (!files) {
 		if (!ev_application_has_window (EV_APP))
-			ev_application_open_window (EV_APP, screen, GDK_CURRENT_TIME);
+			ev_application_open_recent_view (EV_APP, screen, GDK_CURRENT_TIME);
 		return;
 	}
 
@@ -224,8 +224,10 @@ load_files (const char **files)
 int
 main (int argc, char *argv[])
 {
+    EvApplication  *application;
 	GOptionContext *context;
 	GError         *error = NULL;
+    int             status;
 
 #ifdef ENABLE_NLS
 	/* Initialize the i18n stuff */
@@ -267,7 +269,15 @@ main (int argc, char *argv[])
 	gtk_window_set_default_icon_name ("accessories-document-viewer");
 	g_set_application_name (_("Document Viewer"));
 
-	ev_application_load_session (EV_APP);
+    application = ev_application_new ();
+    if (!g_application_register (G_APPLICATION (application), NULL, &error)) {
+        g_printerr ("Failed to register: %s\n", error->message);
+        g_error_free (error);
+        status = 1;
+        goto done;
+    }
+
+	ev_application_load_session (application);
 	load_files (file_arguments);
 
 	/* Change directory so we don't prevent unmounting in case the initial cwd
@@ -275,10 +285,12 @@ main (int argc, char *argv[])
 	 */
 	g_chdir (g_get_home_dir ());
 
-	gtk_main ();
+	status = g_application_run (G_APPLICATION (application), 0, NULL);
 
+    done:
 	ev_shutdown ();
 	ev_stock_icons_shutdown ();
 
-	return 0;
+    g_object_unref (application);
+	return status;
 }

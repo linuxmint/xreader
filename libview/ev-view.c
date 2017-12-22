@@ -2607,17 +2607,19 @@ ev_view_remove_window_child_for_annot (EvView       *view,
 		EvAnnotation      *wannot;
 
 		child = (EvViewWindowChild *)children->data;
-		children = children->next;
 
-		if (child->page != page)
+		if (child->page != page) {
+			children = children->next;
 			continue;
+		}
 
 		wannot = ev_annotation_window_get_annotation (EV_ANNOTATION_WINDOW (child->window));
-		if (ev_annotation_equal (wannot, annot)){
+		if (ev_annotation_equal (wannot, annot)) {
 			gtk_widget_destroy (child->window);
 			view->window_children = g_list_delete_link (view->window_children, children);
 			break;
 		}
+		children = children->next;
 	}
 }
 
@@ -3043,8 +3045,6 @@ ev_view_remove_annotation (EvView       *view,
 
 	if (EV_IS_ANNOTATION_MARKUP (annot))
 		ev_view_remove_window_child_for_annot (view, page, annot);
-
-	//_ev_view_set_focused_element (view, NULL, -1);
 
 	ev_document_doc_mutex_lock ();
 	ev_document_annotations_remove_annotation (EV_DOCUMENT_ANNOTATIONS (view->document),

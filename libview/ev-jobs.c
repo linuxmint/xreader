@@ -1482,6 +1482,12 @@ ev_job_find_get_n_results (EvJobFind *job,
 	}
 }
 
+const gchar *
+ev_job_find_get_text (EvJobFind *job)
+{
+	return job->text;
+}
+
 gdouble
 ev_job_find_get_progress (EvJobFind *job)
 {

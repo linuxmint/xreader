@@ -4,12 +4,12 @@
 
 m4_define([ev_major_version], [1])
 m4_define([ev_minor_version], [6])
-m4_define([ev_micro_version], [0])
+m4_define([ev_micro_version], [2])
 m4_define([ev_extra_version], [])
 m4_define([ev_version], [ev_major_version.ev_minor_version.ev_micro_version()ev_extra_version])
 
 # The xreader API version
-m4_define([ev_api_version], [1.5.0])
+m4_define([ev_api_version], [1.5])
 
 # Libtool versioning. The backend and view libraries have separate versions.
 # Before making a release, the libtool version should be modified.
@@ -120,6 +120,7 @@ GTK_REQUIRED=3.14.0
 WEBKIT_REQUIRED=2.4.3
 LIBSECRET_REQUIRED=0.5
 LIBXML_REQUIRED=2.5.0
+XAPP_REQUIRED=1.1.0
 
 AC_SUBST([GLIB_REQUIRED])
 AC_SUBST([GTK_REQUIRED])
@@ -141,8 +142,14 @@ PKG_CHECK_MODULES(LIBVIEW, gtk+-3.0 >= $GTK_REQUIRED gail$GAIL_API_VERSION >= $G
 PKG_CHECK_MODULES(BACKEND, cairo >= $CAIRO_REQUIRED gtk+-3.0 >= $GTK_REQUIRED)
 PKG_CHECK_MODULES(FRONTEND_CORE, gtk+-3.0 >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED)
 PKG_CHECK_MODULES(GMODULE, gmodule-2.0 >= $GLIB_REQUIRED)
-
-PKG_CHECK_MODULES([SHELL_CORE],[libxml-2.0 >= $LIBXML_REQUIRED gtk+-3.0 >= $GTK_REQUIRED gio-2.0 >= $GLIB_REQUIRED gthread-2.0 x11])
+PKG_CHECK_MODULES(SHELL_CORE, [
+	libxml-2.0 >= $LIBXML_REQUIRED
+	gtk+-3.0 >= $GTK_REQUIRED
+	gio-2.0 >= $GLIB_REQUIRED
+	gthread-2.0
+	x11
+	xapp >= $XAPP_REQUIRED
+])
 
 dnl
 dnl zlib support
