@@ -70,6 +70,7 @@
 #include "ev-history-action.h"
 #include "ev-password-view.h"
 #include "ev-properties-dialog.h"
+#include "ev-preferences-dialog.h"
 #include "ev-sidebar-annotations.h"
 #include "ev-sidebar-attachments.h"
 #include "ev-sidebar-bookmarks.h"
@@ -105,13 +106,13 @@ typedef enum {
 } EvWindowPageMode;
 
 typedef enum {
-    EV_CHROME_MENUBAR    = 1 << 0,
-    EV_CHROME_TOOLBAR    = 1 << 1,
-    EV_CHROME_FINDBAR    = 1 << 2,
-    EV_CHROME_RAISE_TOOLBAR    = 1 << 3,
-    EV_CHROME_FULLSCREEN_TOOLBAR    = 1 << 4,
-    EV_CHROME_SIDEBAR    = 1 << 5,
-    EV_CHROME_NORMAL    = EV_CHROME_MENUBAR | EV_CHROME_TOOLBAR | EV_CHROME_SIDEBAR
+    EV_CHROME_MENUBAR             = 1 << 0,
+    EV_CHROME_TOOLBAR             = 1 << 1,
+    EV_CHROME_FINDBAR             = 1 << 2,
+    EV_CHROME_RAISE_TOOLBAR       = 1 << 3,
+    EV_CHROME_FULLSCREEN_TOOLBAR  = 1 << 4,
+    EV_CHROME_SIDEBAR             = 1 << 5,
+    EV_CHROME_NORMAL              = EV_CHROME_MENUBAR | EV_CHROME_TOOLBAR | EV_CHROME_SIDEBAR
 } EvChrome;
 
 typedef enum {
@@ -238,13 +239,6 @@ struct _EvWindowPrivate {
 #define EV_WINDOW_DBUS_OBJECT_PATH      "/org/x/reader/Window/%d"
 #define EV_WINDOW_DBUS_INTERFACE        "org.x.reader.Window"
 #endif
-
-#define GS_SCHEMA_NAME                  "org.x.reader"
-#define GS_OVERRIDE_RESTRICTIONS        "override-restrictions"
-#define GS_PAGE_CACHE_SIZE              "page-cache-size"
-#define GS_AUTO_RELOAD                  "auto-reload"
-#define GS_LAST_DOCUMENT_DIRECTORY      "document-directory"
-#define GS_LAST_PICTURES_DIRECTORY      "pictures-directory"
 
 #define SIDEBAR_DEFAULT_SIZE            132
 #define LINKS_SIDEBAR_ID                "links"
@@ -3487,6 +3481,13 @@ ev_window_cmd_file_properties (GtkAction *action,
 }
 
 static void
+ev_window_cmd_edit_preferences (GtkAction *action,
+                                EvWindow *ev_window)
+{
+    ev_preferences_dialog_show(ev_window);
+}
+
+static void
 document_modified_confirmation_dialog_response (GtkDialog *dialog,
                                                 gint       response,
                                                 EvWindow  *ev_window)
@@ -4655,18 +4656,25 @@ ev_window_cmd_view_autoscroll (GtkAction *action,
 #define EV_HELP "help:xreader"
 
 static void
-ev_window_cmd_help_contents (GtkAction *action,
-                             EvWindow  *ev_window)
+ev_window_cmd_help_contents (GtkAction *action, 
+                             EvWindow *ev_window)
 {
-    GError  *error = NULL;
+	ev_window_show_help(ev_window, NULL);
+}
 
-    gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (ev_window)),
-            EV_HELP,
-            gtk_get_current_event_time (),
-            &error);
+void
+ev_window_show_help (EvWindow *ev_window, 
+                     const gchar *uri)
+{
+    GError  *error       = NULL;
+    gchar   *help_page   = EV_HELP;
+
+    if (uri) {
+        help_page = g_strdup_printf ("%s:%s", EV_HELP, uri);
+    }
+    gtk_show_uri(gtk_window_get_screen(GTK_WINDOW(ev_window)), help_page, gtk_get_current_event_time(), &error);
     if (error) {
-        ev_window_error_message (ev_window, error,
-                "%s", _("There was an error displaying help"));
+        ev_window_error_message(ev_window, error, "%s", _("There was an error displaying help"));
         g_error_free (error);
     }
 }
@@ -5905,7 +5913,10 @@ static const GtkActionEntry entries[] = {
                 "<control>T",
                 NULL,
                 G_CALLBACK (ev_window_cmd_edit_save_settings) },
-
+        { "EditPreferences", "preferences-other-symbolic", N_("Preferences"),
+                "<shift><control>P",
+                NULL,
+                G_CALLBACK (ev_window_cmd_edit_preferences) },
 
         /* View menu */
         { "ViewZoomReset", "zoom-original-symbolic", N_("_Original size"),
@@ -5951,11 +5962,11 @@ static const GtkActionEntry entries[] = {
                 "<control>End",
                 N_("Go to the last page"),
                 G_CALLBACK (ev_window_cmd_go_last_page) },
-        { "GoPreviousHistory", NULL, N_("Previous History Item"),
+        { "GoPreviousHistory", "xapp-go-history-previous-symbolic", N_("Previous History Item"),
                 NULL,
                 N_("Go to previous history item"),
                 G_CALLBACK (ev_window_cmd_go_previous_history) },
-        { "GoNextHistory", NULL, N_("Next History Item"),
+        { "GoNextHistory", "xapp-go-history-next-symbolic", N_("Next History Item"),
                 NULL,
                 N_("Go to next history item"),
                 G_CALLBACK (ev_window_cmd_go_next_history) },
@@ -7653,7 +7664,7 @@ ev_window_init (EvWindow *ev_window)
     /* Give focus to the document view */
     gtk_widget_grab_focus (ev_window->priv->view);
 
-    ev_window->priv->default_settings = g_settings_new (GS_SCHEMA_NAME".Default");
+    ev_window->priv->default_settings = g_settings_new (GS_SCHEMA_NAME_DEFAULT);
     g_settings_delay (ev_window->priv->default_settings);
     ev_window_setup_default (ev_window);
     update_chrome_actions (ev_window);

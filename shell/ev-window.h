@@ -31,6 +31,22 @@
 
 G_BEGIN_DECLS
 
+/* Gsettings schema names */
+#define GS_SCHEMA_NAME             "org.x.reader"
+#define GS_SCHEMA_NAME_TOOLBAR     "org.x.reader.toolbar"
+#define GS_SCHEMA_NAME_DEFAULT     "org.x.reader.default"
+
+/* Schema keys: General */
+#define GS_OVERRIDE_RESTRICTIONS   "override-restrictions"
+#define GS_PAGE_CACHE_SIZE         "page-cache-size"
+#define GS_AUTO_RELOAD             "auto-reload"
+#define GS_LAST_DOCUMENT_DIRECTORY "document-directory"
+#define GS_LAST_PICTURES_DIRECTORY "pictures-directory"
+
+/* Schema keys: Toolbar */
+#define GS_SHOW_EXPAND_WINDOW      "show-expand-window"
+#define GS_SHOW_HISTORY_BUTTONS    "show-history-buttons"
+
 typedef enum {
     EV_WINDOW_MODE_NORMAL,
     EV_WINDOW_MODE_FULLSCREEN,
