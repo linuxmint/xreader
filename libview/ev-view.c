@@ -3301,24 +3301,19 @@ ev_view_scroll_event (GtkWidget *widget, GdkEventScroll *event)
 	EvView *view = EV_VIEW (widget);
 	guint state;
 
-	if (event->direction == GDK_SCROLL_SMOOTH)
-		return FALSE;
-
 	state = event->state & gtk_accelerator_get_default_mod_mask ();
 
 	if (state == GDK_CONTROL_MASK) {
 		ev_document_model_set_sizing_mode (view->model, EV_SIZING_FREE);
 		view->zoom_center_x = event->x;
 		view->zoom_center_y = event->y;
-		if (event->direction == GDK_SCROLL_UP ||
-		    event->direction == GDK_SCROLL_LEFT) {
-			if (ev_view_can_zoom_in (view)) {
+		
+		if (event->delta_x > 0 || event->delta_y < 0) {
+			if (ev_view_can_zoom_in (view))
 				ev_view_zoom_in (view);
-			}
 		} else {
-			if (ev_view_can_zoom_out (view)) {
+			if (ev_view_can_zoom_out (view))
 				ev_view_zoom_out (view);
-			}
 		}
 
 		return TRUE;
@@ -3328,32 +3323,19 @@ ev_view_scroll_event (GtkWidget *widget, GdkEventScroll *event)
 
 	/* Shift+Wheel scrolls the in the perpendicular direction */
 	if (state & GDK_SHIFT_MASK) {
-		if (event->direction == GDK_SCROLL_UP)
-			event->direction = GDK_SCROLL_LEFT;
-		else if (event->direction == GDK_SCROLL_LEFT)
-			event->direction = GDK_SCROLL_UP;
-		else if (event->direction == GDK_SCROLL_DOWN)
-			event->direction = GDK_SCROLL_RIGHT;
-		else if (event->direction == GDK_SCROLL_RIGHT)
-			event->direction = GDK_SCROLL_DOWN;
+		event->delta_x = -event->delta_x;
+		event->delta_y = -event->delta_y;
 
 		event->state &= ~GDK_SHIFT_MASK;
 		state &= ~GDK_SHIFT_MASK;
 	}
 
 	if (state == 0 && view->sizing_mode == EV_SIZING_BEST_FIT && !view->continuous) {
-		switch (event->direction) {
-		        case GDK_SCROLL_DOWN:
-		        case GDK_SCROLL_RIGHT:
-				ev_view_next_page (view);	
-				break;
-		        case GDK_SCROLL_UP:
-		        case GDK_SCROLL_LEFT:
-				ev_view_previous_page (view);
-				break;
-		        case GDK_SCROLL_SMOOTH:
-					g_assert_not_reached ();
-		}
+		
+		if (event->delta_x > 0 || event->delta_y < 0) 
+			ev_view_previous_page (view);
+		else
+			ev_view_next_page (view);
 
 		return TRUE;
 	}
@@ -5078,6 +5060,7 @@ ev_view_init (EvView *view)
 			       GDK_BUTTON_PRESS_MASK |
 			       GDK_BUTTON_RELEASE_MASK |
 			       GDK_SCROLL_MASK |
+			       GDK_SMOOTH_SCROLL_MASK |
 			       GDK_KEY_PRESS_MASK |
 			       GDK_POINTER_MOTION_MASK |
 			       GDK_POINTER_MOTION_HINT_MASK |
