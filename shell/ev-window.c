@@ -313,7 +313,9 @@ static void     ev_view_popup_cmd_copy_link_address          (GtkAction        *
 static void     ev_view_popup_cmd_save_image_as              (GtkAction        *action,
                                                               EvWindow         *window);
 static void     ev_view_popup_cmd_copy_image                 (GtkAction        *action,
-                                                             EvWindow         *window);
+                                                              EvWindow         *window);
+static void     ev_view_popup_cmd_remove_annotation          (GtkAction *action,
+                                                              EvWindow  *window);
 static void     ev_view_popup_cmd_annot_properties           (GtkAction        *action,
                                                               EvWindow         *window);
 static void    ev_attachment_popup_cmd_open_attachment       (GtkAction        *action,
