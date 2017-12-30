@@ -70,6 +70,7 @@
 #include "ev-history-action.h"
 #include "ev-password-view.h"
 #include "ev-properties-dialog.h"
+#include "ev-preferences-dialog.h"
 #include "ev-sidebar-annotations.h"
 #include "ev-sidebar-attachments.h"
 #include "ev-sidebar-bookmarks.h"
@@ -93,6 +94,7 @@
 #include "ev-bookmarks.h"
 #include "ev-bookmark-action.h"
 #include "ev-toolbar.h"
+#include "ev-recent-view.h"
 
 #ifdef ENABLE_DBUS
 #include "ev-gdbus-generated.h"
@@ -104,13 +106,13 @@ typedef enum {
 } EvWindowPageMode;
 
 typedef enum {
-    EV_CHROME_MENUBAR    = 1 << 0,
-    EV_CHROME_TOOLBAR    = 1 << 1,
-    EV_CHROME_FINDBAR    = 1 << 2,
-    EV_CHROME_RAISE_TOOLBAR    = 1 << 3,
-    EV_CHROME_FULLSCREEN_TOOLBAR    = 1 << 4,
-    EV_CHROME_SIDEBAR    = 1 << 5,
-    EV_CHROME_NORMAL    = EV_CHROME_MENUBAR | EV_CHROME_TOOLBAR | EV_CHROME_SIDEBAR
+    EV_CHROME_MENUBAR             = 1 << 0,
+    EV_CHROME_TOOLBAR             = 1 << 1,
+    EV_CHROME_FINDBAR             = 1 << 2,
+    EV_CHROME_RAISE_TOOLBAR       = 1 << 3,
+    EV_CHROME_FULLSCREEN_TOOLBAR  = 1 << 4,
+    EV_CHROME_SIDEBAR             = 1 << 5,
+    EV_CHROME_NORMAL              = EV_CHROME_MENUBAR | EV_CHROME_TOOLBAR | EV_CHROME_SIDEBAR
 } EvChrome;
 
 typedef enum {
@@ -182,6 +184,9 @@ struct _EvWindowPrivate {
     GtkWidget    *attachment_popup;
     GList        *attach_list;
 
+    /* Recent view */
+    EvRecentView *recent_view;
+
     /* Document */
     EvDocumentModel *model;
     char            *uri;
@@ -235,13 +240,6 @@ struct _EvWindowPrivate {
 #define EV_WINDOW_DBUS_INTERFACE        "org.x.reader.Window"
 #endif
 
-#define GS_SCHEMA_NAME                  "org.x.reader"
-#define GS_OVERRIDE_RESTRICTIONS        "override-restrictions"
-#define GS_PAGE_CACHE_SIZE              "page-cache-size"
-#define GS_AUTO_RELOAD                  "auto-reload"
-#define GS_LAST_DOCUMENT_DIRECTORY      "document-directory"
-#define GS_LAST_PICTURES_DIRECTORY      "pictures-directory"
-
 #define SIDEBAR_DEFAULT_SIZE            132
 #define LINKS_SIDEBAR_ID                "links"
 #define THUMBNAILS_SIDEBAR_ID           "thumbnails"
@@ -270,78 +268,81 @@ static const gchar *document_print_settings[] = {
         GTK_PRINT_SETTINGS_OUTPUT_URI
 };
 
-static void     ev_window_update_actions                     (EvWindow         *ev_window);
-static void     ev_window_sidebar_visibility_changed_cb      (EvSidebar        *ev_sidebar,
-                                                              GParamSpec       *pspec,
-                                                              EvWindow         *ev_window);
-static void     ev_window_view_toolbar_cb                    (GtkAction        *action,
-                                                              EvWindow         *ev_window);
-static void     ev_window_set_page_mode                      (EvWindow         *window,
-                                                              EvWindowPageMode  page_mode);
-static void    ev_window_load_job_cb                         (EvJob            *job,
-                                                              gpointer          data);
-static void     ev_window_reload_document                    (EvWindow         *window,
-                                                              EvLinkDest *dest);
-static void     ev_window_reload_job_cb                      (EvJob            *job,
-                                                              EvWindow         *window);
-static void     ev_window_set_icon_from_thumbnail            (EvJobThumbnail   *job,
-                                                              EvWindow         *ev_window);
-static void     ev_window_save_job_cb                        (EvJob            *save,
-                                                              EvWindow         *window);
-static void     ev_window_sizing_mode_changed_cb             (EvDocumentModel  *model,
-                                                              GParamSpec       *pspec,
-                                                              EvWindow         *ev_window);
-static void     ev_window_zoom_changed_cb                    (EvDocumentModel  *model,
-                                                              GParamSpec       *pspec,
-                                                              EvWindow         *ev_window);
-static void     ev_window_add_recent                         (EvWindow         *window,
-                                                              const char       *filename);
-static void     ev_window_run_fullscreen                     (EvWindow         *window);
-static void     ev_window_stop_fullscreen                    (EvWindow         *window,
-                                                              gboolean          unfullscreen_window);
-static void     ev_window_cmd_view_fullscreen                (GtkAction        *action,
-                                                              EvWindow         *window);
-static void     ev_window_run_presentation                   (EvWindow         *window);
-static void     ev_window_stop_presentation                  (EvWindow         *window,
-                                                              gboolean          unfullscreen_window);
-static void     ev_window_cmd_view_presentation              (GtkAction        *action,
-                                                              EvWindow         *window);
-static void     ev_view_popup_cmd_open_link                  (GtkAction        *action,
-                                                              EvWindow         *window);
-static void     ev_view_popup_cmd_open_link_new_window       (GtkAction        *action,
-                                                              EvWindow         *window);
-static void     ev_view_popup_cmd_copy_link_address          (GtkAction        *action,
-                                                              EvWindow         *window);
-static void     ev_view_popup_cmd_save_image_as              (GtkAction        *action,
-                                                              EvWindow         *window);
-static void     ev_view_popup_cmd_copy_image                 (GtkAction        *action,
-                                                             EvWindow         *window);
-static void     ev_view_popup_cmd_annot_properties           (GtkAction        *action,
-                                                              EvWindow         *window);
-static void    ev_attachment_popup_cmd_open_attachment       (GtkAction        *action,
-                                                              EvWindow         *window);
-static void    ev_attachment_popup_cmd_save_attachment_as    (GtkAction     *action,
-                                                              EvWindow         *window);
-static void    ev_window_cmd_view_best_fit                   (GtkAction       *action,
-                                                              EvWindow       *ev_window);
-static void    ev_window_cmd_view_page_width                 (GtkAction       *action,
-                                                              EvWindow       *ev_window);
-static void    ev_window_cmd_view_expand_window              (GtkAction *action,
-                                                              EvWindow *ev_window);
-static void    view_handle_link_cb                           (EvView           *view,
-                                                              EvLink           *link,
-                                                              EvWindow         *window);
-static void     ev_window_update_find_status_message         (EvWindow         *ev_window);
-static void     ev_window_cmd_edit_find                      (GtkAction        *action,
-                                                              EvWindow         *ev_window);
-static void     find_bar_search_changed_cb                   (EggFindBar       *find_bar,
-                                                              GParamSpec       *param,
-                                                              EvWindow         *ev_window);
-static void     view_external_link_cb                        (EvWindow         *window,
-                                                              EvLinkAction     *action);
-static void     ev_window_load_file_remote                   (EvWindow         *ev_window,
-                                                              GFile            *source_file);
-static void     ev_window_update_max_min_scale               (EvWindow         *window);
+static void	ev_window_update_actions	 	(EvWindow         *ev_window);
+static void     ev_window_sidebar_visibility_changed_cb (EvSidebar        *ev_sidebar,
+							 GParamSpec       *pspec,
+							 EvWindow         *ev_window);
+static void     ev_window_view_toolbar_cb               (GtkAction        *action,
+							 EvWindow         *ev_window);
+static void     ev_window_set_page_mode                 (EvWindow         *window,
+							 EvWindowPageMode  page_mode);
+static void	ev_window_load_job_cb  			(EvJob            *job,
+							 gpointer          data);
+static void     ev_window_reload_document               (EvWindow         *window,
+							 EvLinkDest *dest);
+static void     ev_window_reload_job_cb                 (EvJob            *job,
+							 EvWindow         *window);
+static void     ev_window_set_icon_from_thumbnail       (EvJobThumbnail   *job,
+							 EvWindow         *ev_window);
+static void     ev_window_save_job_cb                   (EvJob            *save,
+							 EvWindow         *window);
+static void     ev_window_sizing_mode_changed_cb        (EvDocumentModel  *model,
+							 GParamSpec       *pspec,
+							 EvWindow         *ev_window);
+static void     ev_window_zoom_changed_cb 	        (EvDocumentModel  *model,
+							 GParamSpec       *pspec,
+							 EvWindow         *ev_window);
+static void     ev_window_add_recent                    (EvWindow         *window,
+							 const char       *filename);
+static void     ev_window_run_fullscreen                (EvWindow         *window);
+static void     ev_window_stop_fullscreen               (EvWindow         *window,
+							 gboolean          unfullscreen_window);
+static void     ev_window_cmd_view_fullscreen           (GtkAction        *action,
+							 EvWindow         *window);
+static void     ev_window_run_presentation              (EvWindow         *window);
+static void     ev_window_stop_presentation             (EvWindow         *window,
+							 gboolean          unfullscreen_window);
+static void     ev_window_cmd_view_presentation         (GtkAction        *action,
+							 EvWindow         *window);
+static void     ev_view_popup_cmd_open_link             (GtkAction        *action,
+							 EvWindow         *window);
+static void     ev_view_popup_cmd_open_link_new_window  (GtkAction        *action,
+							 EvWindow         *window);
+static void     ev_view_popup_cmd_copy_link_address     (GtkAction        *action,
+							 EvWindow         *window);
+static void     ev_view_popup_cmd_save_image_as         (GtkAction        *action,
+							 EvWindow         *window);
+static void     ev_view_popup_cmd_copy_image            (GtkAction        *action,
+							 EvWindow         *window);
+static void     ev_view_popup_cmd_remove_annotation     (GtkAction        *action,
+							 EvWindow         *window);
+static void     ev_view_popup_cmd_annot_properties      (GtkAction        *action,
+							 EvWindow         *window);
+static void	ev_attachment_popup_cmd_open_attachment (GtkAction        *action,
+							 EvWindow         *window);
+static void	ev_attachment_popup_cmd_save_attachment_as (GtkAction     *action, 
+							 EvWindow         *window);
+static void	ev_window_cmd_view_best_fit 		(GtkAction 	  *action, 
+							 EvWindow 	  *ev_window);
+static void	ev_window_cmd_view_page_width 		(GtkAction 	  *action, 
+							 EvWindow 	  *ev_window);
+static void	ev_window_cmd_view_expand_window       (GtkAction *action, 
+                                                        EvWindow *ev_window);
+static void	view_handle_link_cb 			(EvView           *view, 
+							 EvLink           *link, 
+							 EvWindow         *window);
+static void     ev_window_update_find_status_message    (EvWindow         *ev_window);
+static void     ev_window_cmd_edit_find                 (GtkAction        *action,
+							 EvWindow         *ev_window);
+static void     find_bar_search_changed_cb              (EggFindBar       *find_bar,
+							 GParamSpec       *param,
+							 EvWindow         *ev_window);
+static void     view_external_link_cb                   (EvWindow         *window,
+							 EvLinkAction     *action);
+
+static void     ev_window_load_file_remote              (EvWindow         *ev_window,
+							 GFile            *source_file);
+static void     ev_window_update_max_min_scale          (EvWindow         *window);
 #ifdef ENABLE_DBUS
 static void     ev_window_emit_closed                       (EvWindow         *window);
 static void     ev_window_emit_doc_loaded                    (EvWindow      *window);
@@ -351,6 +352,12 @@ static void     ev_window_setup_bookmarks                    (EvWindow         *
 static void    zoom_control_changed_cb                       (EphyZoomAction *action,
                                                               float           zoom,
                                                               EvWindow       *ev_window);
+static gint    compare_recent_items                          (GtkRecentInfo  *a, 
+							      GtkRecentInfo  *b);
+static void    ev_window_destroy_recent_view                 (EvWindow       *ev_window);
+static void    recent_view_item_activated_cb                 (EvRecentView   *recent_view,
+							 const char       *uri,
+							 EvWindow         *ev_window);
 
 G_DEFINE_TYPE (EvWindow, ev_window, GTK_TYPE_APPLICATION_WINDOW)
 
@@ -491,7 +498,6 @@ ev_window_update_actions (EvWindow *ev_window)
     {
         view = EV_VIEW (ev_window->priv->view);
     }
-
     can_find_in_page = (ev_window->priv->find_job && ev_job_find_has_results (EV_JOB_FIND (ev_window->priv->find_job)));
     if (view) {
         ev_window_set_action_sensitive (ev_window, "EditCopy", has_pages && ev_view_get_has_selection (view));
@@ -767,7 +773,6 @@ ev_window_warning_message (EvWindow    *window,
                                 GTK_RESPONSE_CLOSE,
                                 NULL);
     g_free (msg);
-
     g_signal_connect (area, "response", G_CALLBACK (ev_window_message_area_response_cb), window);
     gtk_widget_show (area);
     ev_window_set_message_area (window, area);
@@ -1456,6 +1461,8 @@ ev_window_set_document (EvWindow *ev_window,
     } else if (!ev_document_check_dimensions (document) && document->iswebdocument == FALSE) {
         ev_window_warning_message (ev_window, "%s", _("The document contains only empty pages"));
     }
+
+    ev_window_destroy_recent_view (ev_window);
 
 #if ENABLE_EPUB
     if (document->iswebdocument == TRUE && ev_window->priv->view != NULL)
@@ -2160,6 +2167,39 @@ ev_window_open_document (EvWindow       *ev_window,
             ev_window);
 }
 
+void
+ev_window_open_recent_view (EvWindow *ev_window)
+{
+    if (ev_window->priv->recent_view)
+        return;
+
+    gtk_widget_hide (ev_window->priv->hpaned);
+
+    ev_window->priv->recent_view = ev_recent_view_new();
+    g_signal_connect_object (ev_window->priv->recent_view,
+                             "item-activated",
+                             G_CALLBACK (recent_view_item_activated_cb),
+                             ev_window, 0);
+    gtk_box_pack_start (GTK_BOX (ev_window->priv->main_box), 
+                        GTK_WIDGET (ev_window->priv->recent_view), 
+                        TRUE, TRUE, 0);
+	
+    ev_window_title_set_type (ev_window->priv->title, EV_WINDOW_TITLE_RECENT);
+    ev_window_update_actions (ev_window);
+    gtk_widget_show (ev_window->priv->recent_view);
+}
+
+static void
+ev_window_destroy_recent_view (EvWindow *ev_window)
+{
+    if (!ev_window->priv->recent_view)
+        return;
+
+    gtk_widget_destroy (GTK_WIDGET (ev_window->priv->recent_view));
+    ev_window->priv->recent_view = NULL;
+    gtk_widget_show (ev_window->priv->hpaned);
+}
+
 static void
 ev_window_reload_local (EvWindow *ev_window)
 {
@@ -2459,6 +2499,7 @@ ev_window_open_copy_at_dest (EvWindow   *window,
                              EvLinkDest *dest)
 {
     EvWindow *new_window = EV_WINDOW (ev_window_new ());
+
 
     if (window->priv->metadata)
         new_window->priv->metadata = g_object_ref (window->priv->metadata);
@@ -3440,6 +3481,13 @@ ev_window_cmd_file_properties (GtkAction *action,
     ev_document_fc_mutex_lock ();
     gtk_widget_show (ev_window->priv->properties);
     ev_document_fc_mutex_unlock ();
+}
+
+static void
+ev_window_cmd_edit_preferences (GtkAction *action,
+                                EvWindow *ev_window)
+{
+    ev_preferences_dialog_show(ev_window);
 }
 
 static void
@@ -4611,18 +4659,25 @@ ev_window_cmd_view_autoscroll (GtkAction *action,
 #define EV_HELP "help:xreader"
 
 static void
-ev_window_cmd_help_contents (GtkAction *action,
-                             EvWindow  *ev_window)
+ev_window_cmd_help_contents (GtkAction *action, 
+                             EvWindow *ev_window)
 {
-    GError  *error = NULL;
+	ev_window_show_help(ev_window, NULL);
+}
 
-    gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (ev_window)),
-            EV_HELP,
-            gtk_get_current_event_time (),
-            &error);
+void
+ev_window_show_help (EvWindow *ev_window, 
+                     const gchar *uri)
+{
+    GError  *error       = NULL;
+    gchar   *help_page   = EV_HELP;
+
+    if (uri) {
+        help_page = g_strdup_printf ("%s:%s", EV_HELP, uri);
+    }
+    gtk_show_uri(gtk_window_get_screen(GTK_WINDOW(ev_window)), help_page, gtk_get_current_event_time(), &error);
     if (error) {
-        ev_window_error_message (ev_window, error,
-                "%s", _("There was an error displaying help"));
+        ev_window_error_message(ev_window, error, "%s", _("There was an error displaying help"));
         g_error_free (error);
     }
 }
@@ -5059,6 +5114,10 @@ view_menu_annot_popup (EvWindow     *ev_window,
 
     action = gtk_action_group_get_action (ev_window->priv->view_popup_action_group,
             "AnnotProperties");
+    gtk_action_set_visible (action, (annot != NULL && EV_IS_ANNOTATION_MARKUP (annot)));
+
+    action = gtk_action_group_get_action (ev_window->priv->view_popup_action_group,
+                                          "RemoveAnnotation");
     gtk_action_set_visible (action, (annot != NULL && EV_IS_ANNOTATION_MARKUP (annot)));
 
     if (annot && EV_IS_ANNOTATION_ATTACHMENT (annot)) {
@@ -5861,6 +5920,10 @@ static const GtkActionEntry entries[] = {
                 "<control>T",
                 NULL,
                 G_CALLBACK (ev_window_cmd_edit_save_settings) },
+        { "EditPreferences", "preferences-other-symbolic", N_("Preferences"),
+                "<shift><control>P",
+                NULL,
+                G_CALLBACK (ev_window_cmd_edit_preferences) },
 
 
         /* View menu */
@@ -5884,6 +5947,7 @@ static const GtkActionEntry entries[] = {
                 "<control>e",
                 N_("Expand Window to Fit"),
                 G_CALLBACK (ev_window_cmd_view_expand_window) },
+
         { "ViewAutoscroll", "media-playback-start-symbolic", N_("Auto_scroll"),
                 NULL,
                 NULL,
@@ -5906,11 +5970,11 @@ static const GtkActionEntry entries[] = {
                 "<control>End",
                 N_("Go to the last page"),
                 G_CALLBACK (ev_window_cmd_go_last_page) },
-        { "GoPreviousHistory", NULL, N_("Previous History Item"),
+        { "GoPreviousHistory", "xapp-go-history-previous-symbolic", N_("Previous History Item"),
                 NULL,
                 N_("Go to previous history item"),
                 G_CALLBACK (ev_window_cmd_go_previous_history) },
-        { "GoNextHistory", NULL, N_("Next History Item"),
+        { "GoNextHistory", "xapp-go-history-next-symbolic", N_("Next History Item"),
                 NULL,
                 N_("Go to next history item"),
                 G_CALLBACK (ev_window_cmd_go_next_history) },
@@ -6096,25 +6160,28 @@ static const GtkToggleActionEntry toggle_entries[] = {
                  "<control>I",
                  N_("Show page contents with the colors inverted"),
                  G_CALLBACK (ev_window_cmd_view_inverted_colors) },
+
 };
 
 /* Popups specific items */
 static const GtkActionEntry view_popup_entries [] = {
-        /* Links */
-        { "OpenLink", "document-open-symbolic", N_("_Open Link"), NULL,
-                NULL, G_CALLBACK (ev_view_popup_cmd_open_link) },
-        { "GoLink", "go-next-symbolic", N_("_Go To"), NULL,
-                NULL, G_CALLBACK (ev_view_popup_cmd_open_link) },
-        { "OpenLinkNewWindow", NULL, N_("Open in New _Window"), NULL,
-                NULL, G_CALLBACK (ev_view_popup_cmd_open_link_new_window) },
-        { "CopyLinkAddress", NULL, N_("_Copy Link Address"), NULL,
-                NULL, G_CALLBACK (ev_view_popup_cmd_copy_link_address) },
-        { "SaveImageAs", NULL, N_("_Save Image As…"), NULL,
-                NULL, G_CALLBACK (ev_view_popup_cmd_save_image_as) },
-        { "CopyImage", NULL, N_("Copy _Image"), NULL,
-                NULL, G_CALLBACK (ev_view_popup_cmd_copy_image) },
-        { "AnnotProperties", NULL, N_("Annotation Properties…"), NULL,
-                NULL, G_CALLBACK (ev_view_popup_cmd_annot_properties) }
+	/* Links */
+	{ "OpenLink", "document-open-symbolic", N_("_Open Link"), NULL,
+	  NULL, G_CALLBACK (ev_view_popup_cmd_open_link) },
+	{ "GoLink", "go-next-symbolic", N_("_Go To"), NULL,
+	  NULL, G_CALLBACK (ev_view_popup_cmd_open_link) },
+	{ "OpenLinkNewWindow", NULL, N_("Open in New _Window"), NULL,
+	  NULL, G_CALLBACK (ev_view_popup_cmd_open_link_new_window) },
+	{ "CopyLinkAddress", NULL, N_("_Copy Link Address"), NULL,
+	  NULL, G_CALLBACK (ev_view_popup_cmd_copy_link_address) },
+	{ "SaveImageAs", NULL, N_("_Save Image As…"), NULL,
+	  NULL, G_CALLBACK (ev_view_popup_cmd_save_image_as) },
+	{ "CopyImage", NULL, N_("Copy _Image"), NULL,
+	  NULL, G_CALLBACK (ev_view_popup_cmd_copy_image) },
+	{ "AnnotProperties", NULL, N_("Annotation Properties…"), NULL,
+	  NULL, G_CALLBACK (ev_view_popup_cmd_annot_properties) },
+	{ "RemoveAnnotation", NULL, N_("Remove Annotation"), NULL,
+	  NULL, G_CALLBACK (ev_view_popup_cmd_remove_annotation) }
 };
 
 static const GtkActionEntry attachment_popup_entries [] = {
@@ -6164,6 +6231,16 @@ activate_link_cb (GObject  *object,
 }
 
 static void
+recent_view_item_activated_cb (EvRecentView *recent_view,
+                               const char   *uri,
+                               EvWindow     *ev_window)
+{
+    ev_application_open_uri_at_dest (EV_APP, uri,
+                                     gtk_window_get_screen (GTK_WINDOW (ev_window)),
+                                     NULL, 0, NULL, gtk_get_current_event_time ());
+}
+
+static void
 sidebar_layers_visibility_changed (EvSidebarLayers *layers,
                                    EvWindow        *window)
 {
@@ -6202,7 +6279,16 @@ view_annot_added (EvView       *view,
                   EvWindow     *window)
 {
     ev_sidebar_annotations_annot_added (EV_SIDEBAR_ANNOTATIONS (window->priv->sidebar_annots),
-            annot);
+                                        annot);
+}
+
+static void
+view_annot_removed (EvView       *view,
+                    EvAnnotation *annot,
+                    EvWindow     *window)
+{
+    ev_sidebar_annotations_annot_removed (EV_SIDEBAR_ANNOTATIONS (window->priv->sidebar_annots),
+                                          annot);
 }
 
 static void
@@ -6768,7 +6854,6 @@ image_save_dialog_response_cb (GtkWidget *fc,
     gdk_pixbuf_save (pixbuf, filename, file_format, &error, NULL);
     g_free (file_format);
     g_object_unref (pixbuf);
-
     has_error:
     if (error) {
         ev_window_error_message (ev_window, error,
@@ -6851,6 +6936,14 @@ ev_view_popup_cmd_copy_image (GtkAction *action,
 
     gtk_clipboard_set_image (clipboard, pixbuf);
     g_object_unref (pixbuf);
+}
+
+static void
+ev_view_popup_cmd_remove_annotation (GtkAction *action,
+                                     EvWindow  *window)
+{
+    ev_view_remove_annotation (EV_VIEW (window->priv->view),
+                               window->priv->annot);
 }
 
 static void
@@ -7458,35 +7551,38 @@ ev_window_init (EvWindow *ev_window)
             page_cache_mb * 1024 * 1024);
     ev_view_set_model (EV_VIEW (ev_window->priv->view), ev_window->priv->model);
 
-    ev_window->priv->password_view = ev_password_view_new (GTK_WINDOW (ev_window));
-    g_signal_connect_swapped (ev_window->priv->password_view,
-            "unlock",
-            G_CALLBACK (ev_window_password_view_unlock),
-            ev_window);
-    g_signal_connect_object (ev_window->priv->view, "focus_in_event",
-            G_CALLBACK (view_actions_focus_in_cb),
-            ev_window, 0);
-    g_signal_connect_object (ev_window->priv->view, "focus_out_event",
-            G_CALLBACK (view_actions_focus_out_cb),
-            ev_window, 0);
-    g_signal_connect_swapped (ev_window->priv->view, "external-link",
-            G_CALLBACK (view_external_link_cb),
-            ev_window);
-    g_signal_connect_object (ev_window->priv->view, "handle-link",
-            G_CALLBACK (view_handle_link_cb),
-            ev_window, 0);
-    g_signal_connect_object (ev_window->priv->view, "popup",
-            G_CALLBACK (view_menu_popup_cb),
-            ev_window, 0);
-    g_signal_connect_object (ev_window->priv->view, "selection-changed",
-            G_CALLBACK (view_selection_changed_cb),
-            ev_window, 0);
-    g_signal_connect_object (ev_window->priv->view, "annot-added",
-            G_CALLBACK (view_annot_added),
-            ev_window, 0);
-    g_signal_connect_object (ev_window->priv->view, "layers-changed",
-            G_CALLBACK (view_layers_changed_cb),
-            ev_window, 0);
+	ev_window->priv->password_view = ev_password_view_new (GTK_WINDOW (ev_window));
+	g_signal_connect_swapped (ev_window->priv->password_view,
+				  "unlock",
+				  G_CALLBACK (ev_window_password_view_unlock),
+				  ev_window);
+	g_signal_connect_object (ev_window->priv->view, "focus_in_event",
+			         G_CALLBACK (view_actions_focus_in_cb),
+				 ev_window, 0);
+	g_signal_connect_object (ev_window->priv->view, "focus_out_event",
+			         G_CALLBACK (view_actions_focus_out_cb),
+			         ev_window, 0);
+	g_signal_connect_swapped (ev_window->priv->view, "external-link",
+				  G_CALLBACK (view_external_link_cb),
+				  ev_window);
+	g_signal_connect_object (ev_window->priv->view, "handle-link",
+			         G_CALLBACK (view_handle_link_cb),
+			         ev_window, 0);
+	g_signal_connect_object (ev_window->priv->view, "popup",
+				 G_CALLBACK (view_menu_popup_cb),
+				 ev_window, 0);
+	g_signal_connect_object (ev_window->priv->view, "selection-changed",
+				 G_CALLBACK (view_selection_changed_cb),
+				 ev_window, 0);
+	g_signal_connect_object (ev_window->priv->view, "annot-added",
+				 G_CALLBACK (view_annot_added),
+				 ev_window, 0);
+	g_signal_connect_object (ev_window->priv->view, "annot-removed",
+				 G_CALLBACK (view_annot_removed),
+				 ev_window, 0);
+	g_signal_connect_object (ev_window->priv->view, "layers-changed",
+				 G_CALLBACK (view_layers_changed_cb),
+				 ev_window, 0);
 #ifdef ENABLE_DBUS
     g_signal_connect_swapped (ev_window->priv->view, "sync-source",
             G_CALLBACK (ev_window_sync_source),
@@ -7598,7 +7694,7 @@ ev_window_init (EvWindow *ev_window)
     /* Give focus to the document view */
     gtk_widget_grab_focus (ev_window->priv->view);
 
-    ev_window->priv->default_settings = g_settings_new (GS_SCHEMA_NAME".Default");
+    ev_window->priv->default_settings = g_settings_new (GS_SCHEMA_NAME_DEFAULT);
     g_settings_delay (ev_window->priv->default_settings);
     ev_window_setup_default (ev_window);
     update_chrome_actions (ev_window);
