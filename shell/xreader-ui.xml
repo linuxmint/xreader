@@ -97,6 +97,7 @@
     <menuitem name="SaveAttachmentAs" action="SaveAttachmentAs"/>
     <separator/>
     <menuitem name="AnnotProperties" action="AnnotProperties"/>
+    <menuitem name="RemoveAnnotation" action="RemoveAnnotation"/>
   </popup>
 
   <popup name="AttachmentPopup" action="AttachmentPopupAction">
