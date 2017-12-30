@@ -5113,6 +5113,10 @@ view_menu_annot_popup (EvWindow     *ev_window,
             "AnnotProperties");
     gtk_action_set_visible (action, (annot != NULL && EV_IS_ANNOTATION_MARKUP (annot)));
 
+    action = gtk_action_group_get_action (ev_window->priv->view_popup_action_group,
+                                          "RemoveAnnotation");
+    gtk_action_set_visible (action, (annot != NULL && EV_IS_ANNOTATION_MARKUP (annot)));
+
     if (annot && EV_IS_ANNOTATION_ATTACHMENT (annot)) {
         EvAttachment *attachment;
 
@@ -5918,6 +5922,7 @@ static const GtkActionEntry entries[] = {
                 NULL,
                 G_CALLBACK (ev_window_cmd_edit_preferences) },
 
+
         /* View menu */
         { "ViewZoomReset", "zoom-original-symbolic", N_("_Original size"),
                 "<control>0",
@@ -6157,21 +6162,23 @@ static const GtkToggleActionEntry toggle_entries[] = {
 
 /* Popups specific items */
 static const GtkActionEntry view_popup_entries [] = {
-        /* Links */
-        { "OpenLink", "document-open-symbolic", N_("_Open Link"), NULL,
-                NULL, G_CALLBACK (ev_view_popup_cmd_open_link) },
-        { "GoLink", "go-next-symbolic", N_("_Go To"), NULL,
-                NULL, G_CALLBACK (ev_view_popup_cmd_open_link) },
-        { "OpenLinkNewWindow", NULL, N_("Open in New _Window"), NULL,
-                NULL, G_CALLBACK (ev_view_popup_cmd_open_link_new_window) },
-        { "CopyLinkAddress", NULL, N_("_Copy Link Address"), NULL,
-                NULL, G_CALLBACK (ev_view_popup_cmd_copy_link_address) },
-        { "SaveImageAs", NULL, N_("_Save Image As…"), NULL,
-                NULL, G_CALLBACK (ev_view_popup_cmd_save_image_as) },
-        { "CopyImage", NULL, N_("Copy _Image"), NULL,
-                NULL, G_CALLBACK (ev_view_popup_cmd_copy_image) },
-        { "AnnotProperties", NULL, N_("Annotation Properties…"), NULL,
-                NULL, G_CALLBACK (ev_view_popup_cmd_annot_properties) }
+	/* Links */
+	{ "OpenLink", "document-open-symbolic", N_("_Open Link"), NULL,
+	  NULL, G_CALLBACK (ev_view_popup_cmd_open_link) },
+	{ "GoLink", "go-next-symbolic", N_("_Go To"), NULL,
+	  NULL, G_CALLBACK (ev_view_popup_cmd_open_link) },
+	{ "OpenLinkNewWindow", NULL, N_("Open in New _Window"), NULL,
+	  NULL, G_CALLBACK (ev_view_popup_cmd_open_link_new_window) },
+	{ "CopyLinkAddress", NULL, N_("_Copy Link Address"), NULL,
+	  NULL, G_CALLBACK (ev_view_popup_cmd_copy_link_address) },
+	{ "SaveImageAs", NULL, N_("_Save Image As…"), NULL,
+	  NULL, G_CALLBACK (ev_view_popup_cmd_save_image_as) },
+	{ "CopyImage", NULL, N_("Copy _Image"), NULL,
+	  NULL, G_CALLBACK (ev_view_popup_cmd_copy_image) },
+	{ "AnnotProperties", NULL, N_("Annotation Properties…"), NULL,
+	  NULL, G_CALLBACK (ev_view_popup_cmd_annot_properties) },
+	{ "RemoveAnnotation", NULL, N_("Remove Annotation"), NULL,
+	  NULL, G_CALLBACK (ev_view_popup_cmd_remove_annotation) }
 };
 
 static const GtkActionEntry attachment_popup_entries [] = {
@@ -6269,7 +6276,16 @@ view_annot_added (EvView       *view,
                   EvWindow     *window)
 {
     ev_sidebar_annotations_annot_added (EV_SIDEBAR_ANNOTATIONS (window->priv->sidebar_annots),
-            annot);
+                                        annot);
+}
+
+static void
+view_annot_removed (EvView       *view,
+                    EvAnnotation *annot,
+                    EvWindow     *window)
+{
+    ev_sidebar_annotations_annot_removed (EV_SIDEBAR_ANNOTATIONS (window->priv->sidebar_annots),
+                                          annot);
 }
 
 static void
@@ -6920,6 +6936,14 @@ ev_view_popup_cmd_copy_image (GtkAction *action,
 }
 
 static void
+ev_view_popup_cmd_remove_annotation (GtkAction *action,
+                                     EvWindow  *window)
+{
+    ev_view_remove_annotation (EV_VIEW (window->priv->view),
+                               window->priv->annot);
+}
+
+static void
 ev_view_popup_cmd_annot_properties (GtkAction *action,
                                     EvWindow  *window)
 {
@@ -7524,35 +7548,38 @@ ev_window_init (EvWindow *ev_window)
             page_cache_mb * 1024 * 1024);
     ev_view_set_model (EV_VIEW (ev_window->priv->view), ev_window->priv->model);
 
-    ev_window->priv->password_view = ev_password_view_new (GTK_WINDOW (ev_window));
-    g_signal_connect_swapped (ev_window->priv->password_view,
-            "unlock",
-            G_CALLBACK (ev_window_password_view_unlock),
-            ev_window);
-    g_signal_connect_object (ev_window->priv->view, "focus_in_event",
-            G_CALLBACK (view_actions_focus_in_cb),
-            ev_window, 0);
-    g_signal_connect_object (ev_window->priv->view, "focus_out_event",
-            G_CALLBACK (view_actions_focus_out_cb),
-            ev_window, 0);
-    g_signal_connect_swapped (ev_window->priv->view, "external-link",
-            G_CALLBACK (view_external_link_cb),
-            ev_window);
-    g_signal_connect_object (ev_window->priv->view, "handle-link",
-            G_CALLBACK (view_handle_link_cb),
-            ev_window, 0);
-    g_signal_connect_object (ev_window->priv->view, "popup",
-            G_CALLBACK (view_menu_popup_cb),
-            ev_window, 0);
-    g_signal_connect_object (ev_window->priv->view, "selection-changed",
-            G_CALLBACK (view_selection_changed_cb),
-            ev_window, 0);
-    g_signal_connect_object (ev_window->priv->view, "annot-added",
-            G_CALLBACK (view_annot_added),
-            ev_window, 0);
-    g_signal_connect_object (ev_window->priv->view, "layers-changed",
-            G_CALLBACK (view_layers_changed_cb),
-            ev_window, 0);
+	ev_window->priv->password_view = ev_password_view_new (GTK_WINDOW (ev_window));
+	g_signal_connect_swapped (ev_window->priv->password_view,
+				  "unlock",
+				  G_CALLBACK (ev_window_password_view_unlock),
+				  ev_window);
+	g_signal_connect_object (ev_window->priv->view, "focus_in_event",
+			         G_CALLBACK (view_actions_focus_in_cb),
+				 ev_window, 0);
+	g_signal_connect_object (ev_window->priv->view, "focus_out_event",
+			         G_CALLBACK (view_actions_focus_out_cb),
+			         ev_window, 0);
+	g_signal_connect_swapped (ev_window->priv->view, "external-link",
+				  G_CALLBACK (view_external_link_cb),
+				  ev_window);
+	g_signal_connect_object (ev_window->priv->view, "handle-link",
+			         G_CALLBACK (view_handle_link_cb),
+			         ev_window, 0);
+	g_signal_connect_object (ev_window->priv->view, "popup",
+				 G_CALLBACK (view_menu_popup_cb),
+				 ev_window, 0);
+	g_signal_connect_object (ev_window->priv->view, "selection-changed",
+				 G_CALLBACK (view_selection_changed_cb),
+				 ev_window, 0);
+	g_signal_connect_object (ev_window->priv->view, "annot-added",
+				 G_CALLBACK (view_annot_added),
+				 ev_window, 0);
+	g_signal_connect_object (ev_window->priv->view, "annot-removed",
+				 G_CALLBACK (view_annot_removed),
+				 ev_window, 0);
+	g_signal_connect_object (ev_window->priv->view, "layers-changed",
+				 G_CALLBACK (view_layers_changed_cb),
+				 ev_window, 0);
 #ifdef ENABLE_DBUS
     g_signal_connect_swapped (ev_window->priv->view, "sync-source",
             G_CALLBACK (ev_window_sync_source),

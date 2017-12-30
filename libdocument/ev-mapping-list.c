@@ -144,3 +144,21 @@ ev_mapping_list_unref (EvMappingList *mapping_list)
 		g_slice_free (EvMappingList, mapping_list);
 	}
 }
+
+void
+ev_mapping_list_remove (EvMappingList *mapping_list,
+			EvMapping     *mapping)
+{
+	mapping_list->list = g_list_remove (mapping_list->list, mapping);
+        mapping_list->data_destroy_func (mapping->data);
+        g_free (mapping);
+}
+
+guint
+ev_mapping_list_length (EvMappingList *mapping_list)
+{
+        g_return_val_if_fail (mapping_list != NULL, 0);
+
+        return g_list_length (mapping_list->list);
+}
+
