@@ -363,18 +363,15 @@ ev_sidebar_thumbnails_scroll_event (GtkWidget           *widget,
 	guint state = event->state & gtk_accelerator_get_default_mod_mask ();
 
 	if (state == GDK_CONTROL_MASK) {
-        gdouble x = 0;
-        gdouble y = 0;
-        if (gdk_event_get_scroll_deltas (event, &x, &y)) {
-            if ((y < 0 || x > 0) && ev_sidebar_thumbnails_can_zoom_in (sidebar_thumbnails)) {
-                ev_sidebar_thumbnails_zoom_in (sidebar_thumbnails);
-                return TRUE;
-            } else if ((y > 0 || x < 0) && ev_sidebar_thumbnails_can_zoom_out (sidebar_thumbnails)) {
-                ev_sidebar_thumbnails_zoom_out (sidebar_thumbnails);
-                return TRUE;
-            } 
+        if ((event->delta_y < 0 || event->delta_x > 0) 
+          && ev_sidebar_thumbnails_can_zoom_in (sidebar_thumbnails)) {
+            ev_sidebar_thumbnails_zoom_in (sidebar_thumbnails);
+            return TRUE;
+        } else if ((event->delta_y > 0 || event->delta_x < 0) 
+                 && ev_sidebar_thumbnails_can_zoom_out (sidebar_thumbnails)) {
+            ev_sidebar_thumbnails_zoom_out (sidebar_thumbnails);
+            return TRUE;
         }
-
 	}
 
 	return FALSE;
