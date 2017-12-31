@@ -330,13 +330,8 @@ ev_sidebar_thumbnails_zoom_in (EvSidebarThumbnails *sidebar_thumbnails)
 {
     EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
     
-    priv->thumbnail_width += THUMBNAIL_STEP_WIDTH;
-    if (priv->thumbnail_width > THUMBNAIL_MAX_WIDTH)
-        priv->thumbnail_width = THUMBNAIL_MAX_WIDTH;
-      
-    if (priv->icon_view)
-        gtk_icon_view_set_item_width (priv->icon_view, priv->thumbnail_width);
-        
+    ev_sidebar_thumbnails_set_size (sidebar_thumbnails, 
+                                    priv->thumbnail_width + THUMBNAIL_STEP_WIDTH);
     ev_sidebar_thumbnails_reload (sidebar_thumbnails);
 }
 
@@ -345,14 +340,25 @@ ev_sidebar_thumbnails_zoom_out (EvSidebarThumbnails *sidebar_thumbnails)
 {
     EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
     
-    priv->thumbnail_width -= THUMBNAIL_STEP_WIDTH;
+    ev_sidebar_thumbnails_set_size (sidebar_thumbnails, 
+                                    priv->thumbnail_width - THUMBNAIL_STEP_WIDTH);
+    ev_sidebar_thumbnails_reload (sidebar_thumbnails);
+}
+
+void       
+ev_sidebar_thumbnails_set_size (EvSidebarThumbnails *sidebar_thumbnails, gint size)
+{
+    EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
+    priv->thumbnail_width = size;
+  
+    if (priv->thumbnail_width > THUMBNAIL_MAX_WIDTH)
+        priv->thumbnail_width = THUMBNAIL_MAX_WIDTH;
+        
     if (priv->thumbnail_width < THUMBNAIL_MIN_WIDTH)
         priv->thumbnail_width = THUMBNAIL_MIN_WIDTH;
         
     if (priv->icon_view)
         gtk_icon_view_set_item_width (priv->icon_view, priv->thumbnail_width);
-        
-    ev_sidebar_thumbnails_reload (sidebar_thumbnails);
 }
 
 static gboolean

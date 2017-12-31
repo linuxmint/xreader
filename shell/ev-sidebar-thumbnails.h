@@ -55,6 +55,7 @@ gboolean   ev_sidebar_thumbnails_can_zoom_in  (EvSidebarThumbnails *sidebar_thum
 gboolean   ev_sidebar_thumbnails_can_zoom_out (EvSidebarThumbnails *sidebar_thumbnails);
 void       ev_sidebar_thumbnails_zoom_in      (EvSidebarThumbnails *sidebar_thumbnails);
 void       ev_sidebar_thumbnails_zoom_out     (EvSidebarThumbnails *sidebar_thumbnails);
+void       ev_sidebar_thumbnails_set_size     (EvSidebarThumbnails *sidebar_thumbnails, gint size);
 
 G_END_DECLS
 
