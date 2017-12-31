@@ -268,83 +268,82 @@ static const gchar *document_print_settings[] = {
         GTK_PRINT_SETTINGS_OUTPUT_URI
 };
 
-static void	ev_window_update_actions	 	(EvWindow         *ev_window);
-static void     ev_window_sidebar_visibility_changed_cb (EvSidebar        *ev_sidebar,
-							 GParamSpec       *pspec,
-							 EvWindow         *ev_window);
-static void     ev_window_view_toolbar_cb               (GtkAction        *action,
-							 EvWindow         *ev_window);
-static void     ev_window_set_page_mode                 (EvWindow         *window,
-							 EvWindowPageMode  page_mode);
-static void	ev_window_load_job_cb  			(EvJob            *job,
-							 gpointer          data);
-static void     ev_window_reload_document               (EvWindow         *window,
-							 EvLinkDest *dest);
-static void     ev_window_reload_job_cb                 (EvJob            *job,
-							 EvWindow         *window);
-static void     ev_window_set_icon_from_thumbnail       (EvJobThumbnail   *job,
-							 EvWindow         *ev_window);
-static void     ev_window_save_job_cb                   (EvJob            *save,
-							 EvWindow         *window);
-static void     ev_window_sizing_mode_changed_cb        (EvDocumentModel  *model,
-							 GParamSpec       *pspec,
-							 EvWindow         *ev_window);
-static void     ev_window_zoom_changed_cb 	        (EvDocumentModel  *model,
-							 GParamSpec       *pspec,
-							 EvWindow         *ev_window);
-static void     ev_window_add_recent                    (EvWindow         *window,
-							 const char       *filename);
-static void     ev_window_run_fullscreen                (EvWindow         *window);
-static void     ev_window_stop_fullscreen               (EvWindow         *window,
-							 gboolean          unfullscreen_window);
-static void     ev_window_cmd_view_fullscreen           (GtkAction        *action,
-							 EvWindow         *window);
-static void     ev_window_run_presentation              (EvWindow         *window);
-static void     ev_window_stop_presentation             (EvWindow         *window,
-							 gboolean          unfullscreen_window);
-static void     ev_window_cmd_view_presentation         (GtkAction        *action,
-							 EvWindow         *window);
-static void     ev_view_popup_cmd_open_link             (GtkAction        *action,
-							 EvWindow         *window);
-static void     ev_view_popup_cmd_open_link_new_window  (GtkAction        *action,
-							 EvWindow         *window);
-static void     ev_view_popup_cmd_copy_link_address     (GtkAction        *action,
-							 EvWindow         *window);
-static void     ev_view_popup_cmd_save_image_as         (GtkAction        *action,
-							 EvWindow         *window);
-static void     ev_view_popup_cmd_copy_image            (GtkAction        *action,
-							 EvWindow         *window);
-static void     ev_view_popup_cmd_remove_annotation     (GtkAction        *action,
-							 EvWindow         *window);
-static void     ev_view_popup_cmd_annot_properties      (GtkAction        *action,
-							 EvWindow         *window);
-static void	ev_attachment_popup_cmd_open_attachment (GtkAction        *action,
-							 EvWindow         *window);
-static void	ev_attachment_popup_cmd_save_attachment_as (GtkAction     *action, 
-							 EvWindow         *window);
-static void	ev_window_cmd_view_best_fit 		(GtkAction 	  *action, 
-							 EvWindow 	  *ev_window);
-static void	ev_window_cmd_view_page_width 		(GtkAction 	  *action, 
-							 EvWindow 	  *ev_window);
-static void	ev_window_cmd_view_expand_window       (GtkAction *action, 
-                                                        EvWindow *ev_window);
-static void	view_handle_link_cb 			(EvView           *view, 
-							 EvLink           *link, 
-							 EvWindow         *window);
-static void     ev_window_update_find_status_message    (EvWindow         *ev_window);
-static void     ev_window_cmd_edit_find                 (GtkAction        *action,
-							 EvWindow         *ev_window);
-static void     find_bar_search_changed_cb              (EggFindBar       *find_bar,
-							 GParamSpec       *param,
-							 EvWindow         *ev_window);
-static void     view_external_link_cb                   (EvWindow         *window,
-							 EvLinkAction     *action);
-
-static void     ev_window_load_file_remote              (EvWindow         *ev_window,
-							 GFile            *source_file);
-static void     ev_window_update_max_min_scale          (EvWindow         *window);
+static void     ev_window_update_actions                     (EvWindow         *ev_window);
+static void     ev_window_sidebar_visibility_changed_cb      (EvSidebar        *ev_sidebar,
+                                                              GParamSpec       *pspec,
+                                                              EvWindow         *ev_window);
+static void     ev_window_view_toolbar_cb                    (GtkAction        *action,
+                                                              EvWindow         *ev_window);
+static void     ev_window_set_page_mode                      (EvWindow         *window,
+                                                              EvWindowPageMode  page_mode);
+static void     ev_window_load_job_cb                        (EvJob            *job,
+                                                              gpointer          data);
+static void     ev_window_reload_document                    (EvWindow         *window,
+                                                              EvLinkDest *dest);
+static void     ev_window_reload_job_cb                      (EvJob            *job,
+                                                              EvWindow         *window);
+static void     ev_window_set_icon_from_thumbnail            (EvJobThumbnail   *job,
+                                                              EvWindow         *ev_window);
+static void     ev_window_save_job_cb                        (EvJob            *save,
+                                                              EvWindow         *window);
+static void     ev_window_sizing_mode_changed_cb             (EvDocumentModel  *model,
+                                                              GParamSpec       *pspec,
+                                                              EvWindow         *ev_window);
+static void     ev_window_zoom_changed_cb                    (EvDocumentModel  *model,
+                                                              GParamSpec       *pspec,
+                                                              EvWindow         *ev_window);
+static void     ev_window_add_recent                         (EvWindow         *window,
+                                                              const char       *filename);
+static void     ev_window_run_fullscreen                     (EvWindow         *window);
+static void     ev_window_stop_fullscreen                    (EvWindow         *window,
+                                                              gboolean          unfullscreen_window);
+static void     ev_window_cmd_view_fullscreen                (GtkAction        *action,
+                                                              EvWindow         *window);
+static void     ev_window_run_presentation                   (EvWindow         *window);
+static void     ev_window_stop_presentation                  (EvWindow         *window,
+                                                              gboolean          unfullscreen_window);
+static void     ev_window_cmd_view_presentation              (GtkAction        *action,
+                                                              EvWindow         *window);
+static void     ev_view_popup_cmd_open_link                  (GtkAction        *action,
+                                                              EvWindow         *window);
+static void     ev_view_popup_cmd_open_link_new_window       (GtkAction        *action,
+                                                              EvWindow         *window);
+static void     ev_view_popup_cmd_copy_link_address          (GtkAction        *action,
+                                                              EvWindow         *window);
+static void     ev_view_popup_cmd_save_image_as              (GtkAction        *action,
+                                                              EvWindow         *window);
+static void     ev_view_popup_cmd_copy_image                 (GtkAction        *action,
+                                                              EvWindow         *window);
+static void     ev_view_popup_cmd_remove_annotation          (GtkAction *action,
+                                                              EvWindow  *window);
+static void     ev_view_popup_cmd_annot_properties           (GtkAction        *action,
+                                                              EvWindow         *window);
+static void    ev_attachment_popup_cmd_open_attachment       (GtkAction        *action,
+                                                              EvWindow         *window);
+static void    ev_attachment_popup_cmd_save_attachment_as    (GtkAction     *action,
+                                                              EvWindow         *window);
+static void    ev_window_cmd_view_best_fit                   (GtkAction       *action,
+                                                              EvWindow       *ev_window);
+static void    ev_window_cmd_view_page_width                 (GtkAction       *action,
+                                                              EvWindow       *ev_window);
+static void    ev_window_cmd_view_expand_window              (GtkAction *action,
+                                                              EvWindow *ev_window);
+static void    view_handle_link_cb                           (EvView           *view,
+                                                              EvLink           *link,
+                                                              EvWindow         *window);
+static void     ev_window_update_find_status_message         (EvWindow         *ev_window);
+static void     ev_window_cmd_edit_find                      (GtkAction        *action,
+                                                              EvWindow         *ev_window);
+static void     find_bar_search_changed_cb                   (EggFindBar       *find_bar,
+                                                              GParamSpec       *param,
+                                                              EvWindow         *ev_window);
+static void     view_external_link_cb                        (EvWindow         *window,
+                                                              EvLinkAction     *action);
+static void     ev_window_load_file_remote                   (EvWindow         *ev_window,
+                                                              GFile            *source_file);
+static void     ev_window_update_max_min_scale               (EvWindow         *window);
 #ifdef ENABLE_DBUS
-static void     ev_window_emit_closed                       (EvWindow         *window);
+static void     ev_window_emit_closed                        (EvWindow         *window);
 static void     ev_window_emit_doc_loaded                    (EvWindow      *window);
 #endif
 static void     ev_window_setup_bookmarks                    (EvWindow         *window);
@@ -352,12 +351,12 @@ static void     ev_window_setup_bookmarks                    (EvWindow         *
 static void    zoom_control_changed_cb                       (EphyZoomAction *action,
                                                               float           zoom,
                                                               EvWindow       *ev_window);
-static gint    compare_recent_items                          (GtkRecentInfo  *a, 
-							      GtkRecentInfo  *b);
+static gint    compare_recent_items                          (GtkRecentInfo  *a,
+                                                              GtkRecentInfo  *b);
 static void    ev_window_destroy_recent_view                 (EvWindow       *ev_window);
 static void    recent_view_item_activated_cb                 (EvRecentView   *recent_view,
-							 const char       *uri,
-							 EvWindow         *ev_window);
+                                                              const char       *uri,
+                                                              EvWindow         *ev_window);
 
 G_DEFINE_TYPE (EvWindow, ev_window, GTK_TYPE_APPLICATION_WINDOW)
 
@@ -2180,10 +2179,10 @@ ev_window_open_recent_view (EvWindow *ev_window)
                              "item-activated",
                              G_CALLBACK (recent_view_item_activated_cb),
                              ev_window, 0);
-    gtk_box_pack_start (GTK_BOX (ev_window->priv->main_box), 
-                        GTK_WIDGET (ev_window->priv->recent_view), 
+    gtk_box_pack_start (GTK_BOX (ev_window->priv->main_box),
+                        GTK_WIDGET (ev_window->priv->recent_view),
                         TRUE, TRUE, 0);
-	
+
     ev_window_title_set_type (ev_window->priv->title, EV_WINDOW_TITLE_RECENT);
     ev_window_update_actions (ev_window);
     gtk_widget_show (ev_window->priv->recent_view);
@@ -2213,7 +2212,7 @@ ev_window_reload_local (EvWindow *ev_window)
     ev_job_scheduler_push_job (ev_window->priv->reload_job, EV_JOB_PRIORITY_NONE);
 }
 
-static gboolean 
+static gboolean
 show_reloading_progress (EvWindow *ev_window)
 {
     GtkWidget *area;

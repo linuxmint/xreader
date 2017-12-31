@@ -90,7 +90,7 @@ launch_previewer (void)
 	 * the first path given
 	 */
 	cmd_str = g_string_new ("xreader-previewer");
-		
+
 	if (print_settings) {
 		gchar *quoted;
 
@@ -104,14 +104,14 @@ launch_previewer (void)
 
 	if (file_arguments) {
 		gchar *quoted;
-		
+
 		quoted = g_shell_quote (file_arguments[0]);
 		g_string_append_printf (cmd_str, " %s", quoted);
 		g_free (quoted);
 	}
 
 	cmd = g_string_free (cmd_str, FALSE);
-	
+
 	if (!error) {
 		GAppInfo *app;
 
@@ -255,9 +255,9 @@ main (int argc, char *argv[])
 
 	if (preview_mode) {
 		gboolean retval;
-		
+
 		retval = launch_previewer ();
-		
+
 		return retval ? 0 : 1;
 	}
 
