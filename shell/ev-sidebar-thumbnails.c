@@ -91,9 +91,16 @@ enum {
 };
 
 enum {
+	SIZE_CHANGED,
+	NUM_SIGNALS
+};
+
+enum {
 	PROP_0,
 	PROP_WIDGET,
 };
+
+static guint signals[NUM_SIGNALS] = { 0 };
 
 static void         ev_sidebar_thumbnails_clear_model      (EvSidebarThumbnails     *sidebar);
 static gboolean     ev_sidebar_thumbnails_support_document (EvSidebarPage           *sidebar_page,
@@ -333,6 +340,8 @@ ev_sidebar_thumbnails_zoom_in (EvSidebarThumbnails *sidebar_thumbnails)
     ev_sidebar_thumbnails_set_size (sidebar_thumbnails, 
                                     priv->thumbnail_width + THUMBNAIL_STEP_WIDTH);
     ev_sidebar_thumbnails_reload (sidebar_thumbnails);
+    
+    g_signal_emit (sidebar_thumbnails, signals[SIZE_CHANGED], 0, priv->thumbnail_width);
 }
 
 void
@@ -343,6 +352,8 @@ ev_sidebar_thumbnails_zoom_out (EvSidebarThumbnails *sidebar_thumbnails)
     ev_sidebar_thumbnails_set_size (sidebar_thumbnails, 
                                     priv->thumbnail_width - THUMBNAIL_STEP_WIDTH);
     ev_sidebar_thumbnails_reload (sidebar_thumbnails);
+    
+    g_signal_emit (sidebar_thumbnails, signals[SIZE_CHANGED], 0, priv->thumbnail_width);
 }
 
 void       
@@ -352,9 +363,8 @@ ev_sidebar_thumbnails_set_size (EvSidebarThumbnails *sidebar_thumbnails, gint si
     priv->thumbnail_width = size;
   
     if (priv->thumbnail_width > THUMBNAIL_MAX_WIDTH)
-        priv->thumbnail_width = THUMBNAIL_MAX_WIDTH;
-        
-    if (priv->thumbnail_width < THUMBNAIL_MIN_WIDTH)
+        priv->thumbnail_width = THUMBNAIL_MAX_WIDTH;  
+    else if (priv->thumbnail_width < THUMBNAIL_MIN_WIDTH)
         priv->thumbnail_width = THUMBNAIL_MIN_WIDTH;
         
     if (priv->icon_view)
@@ -400,8 +410,18 @@ ev_sidebar_thumbnails_class_init (EvSidebarThumbnailsClass *ev_sidebar_thumbnail
 	g_object_class_override_property (g_object_class,
 					  PROP_WIDGET,
 					  "main-widget");
-
+					  
 	g_type_class_add_private (g_object_class, sizeof (EvSidebarThumbnailsPrivate));
+	
+	signals[SIZE_CHANGED] =
+		g_signal_new ("size-changed",
+			      G_TYPE_FROM_CLASS (g_object_class),
+			      G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
+			      G_STRUCT_OFFSET (EvSidebarThumbnailsClass, size_changed),
+			      NULL, NULL,
+			      g_cclosure_marshal_VOID__POINTER,
+			      G_TYPE_NONE, 1,
+			      G_TYPE_POINTER);
 }
 
 GtkWidget *

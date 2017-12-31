@@ -47,6 +47,9 @@ struct _EvSidebarThumbnails {
 
 struct _EvSidebarThumbnailsClass {
 	GtkBoxClass base_class;
+	
+	void    (* size_changed)     (EvSidebarThumbnails *sidebar_thumbnails,
+					              gint                 new_size);
 };
 
 GType      ev_sidebar_thumbnails_get_type     (void) G_GNUC_CONST;
