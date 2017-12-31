@@ -3331,12 +3331,10 @@ ev_view_scroll_event (GtkWidget *widget, GdkEventScroll *event)
 	}
 
 	if (state == 0 && view->sizing_mode == EV_SIZING_BEST_FIT && !view->continuous) {
-		
 		if (event->delta_x > 0 || event->delta_y < 0) 
 			ev_view_previous_page (view);
 		else
 			ev_view_next_page (view);
-
 		return TRUE;
 	}
 
