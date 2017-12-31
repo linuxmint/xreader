@@ -66,7 +66,7 @@ xreader_SOURCES=				\
 	ev-properties-fonts.h		\
 	ev-properties-license.c		\
 	ev-properties-license.h		\
-    ev-properties-view.c        \
+	ev-properties-view.c		\
 	ev-properties-view.h		\
 	ev-preferences-dialog.c		\
 	ev-preferences-dialog.h		\
@@ -122,11 +122,11 @@ xreader_LDADD=										\
 	$(MATE_DESKTOP_LIBS)
 
 if ENABLE_CAJA
-    xreader_LDADD+=$(top_builddir)/properties-caja/libevproperties.la
+xreader_LDADD+=$(top_builddir)/properties-caja/libevproperties.la
 endif
 
 if ENABLE_NEMO
-    xreader_LDADD+=$(top_builddir)/properties-nemo/libevproperties.la
+xreader_LDADD+=$(top_builddir)/properties-nemo/libevproperties.la
 endif
 
 
