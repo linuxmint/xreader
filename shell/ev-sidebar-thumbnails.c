@@ -365,7 +365,7 @@ ev_sidebar_thumbnails_zoom_reset (EvSidebarThumbnails *sidebar_thumbnails)
 void 
 ev_sidebar_thumbnails_cmd_zoom_in (GtkWidget *widget,
                                    EvSidebarThumbnails *sidebar_thumbnails)
-{g_printf("coucou");
+{
     if (ev_sidebar_thumbnails_can_zoom_in (sidebar_thumbnails))
         ev_sidebar_thumbnails_zoom_in (sidebar_thumbnails);
 }
