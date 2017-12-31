@@ -41,6 +41,7 @@ struct _EvDocumentPrivate
 	gchar          *uri;
 
 	gint            n_pages;
+	gboolean        modified;
 
 	gboolean        uniform;
 	gdouble         uniform_width;
@@ -158,6 +159,25 @@ ev_document_class_init (EvDocumentClass *klass)
 	klass->get_backend_info = NULL;
 
 	g_object_class->finalize = ev_document_finalize;
+}
+
+gboolean
+ev_document_get_modified (EvDocument *document)
+{
+	g_return_val_if_fail (EV_IS_DOCUMENT (document), FALSE);
+
+	return document->priv->modified;
+}
+
+void
+ev_document_set_modified (EvDocument *document,
+			  gboolean    modified)
+{
+	g_return_if_fail (EV_IS_DOCUMENT (document));
+
+	if (document->priv->modified != modified) {
+		document->priv->modified = modified;
+	}
 }
 
 void

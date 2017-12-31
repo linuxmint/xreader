@@ -1,5 +1,4 @@
-/* this file is part of xreader, a mate document viewer
- *
+/*
  *  Copyright (C) 2017 Mickael Albertus
  *
  * Xreader is free software; you can redistribute it and/or modify it
