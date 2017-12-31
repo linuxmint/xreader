@@ -339,8 +339,6 @@ ev_sidebar_thumbnails_zoom_in (EvSidebarThumbnails *sidebar_thumbnails)
     
     ev_sidebar_thumbnails_set_size (sidebar_thumbnails, 
                                     priv->thumbnail_width + THUMBNAIL_STEP_WIDTH);
-    ev_sidebar_thumbnails_reload (sidebar_thumbnails);
-    
     g_signal_emit (sidebar_thumbnails, signals[SIZE_CHANGED], 0, priv->thumbnail_width);
 }
 
@@ -351,9 +349,40 @@ ev_sidebar_thumbnails_zoom_out (EvSidebarThumbnails *sidebar_thumbnails)
     
     ev_sidebar_thumbnails_set_size (sidebar_thumbnails, 
                                     priv->thumbnail_width - THUMBNAIL_STEP_WIDTH);
-    ev_sidebar_thumbnails_reload (sidebar_thumbnails);
-    
     g_signal_emit (sidebar_thumbnails, signals[SIZE_CHANGED], 0, priv->thumbnail_width);
+}
+
+void   
+ev_sidebar_thumbnails_zoom_reset (EvSidebarThumbnails *sidebar_thumbnails)
+{
+    EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
+    
+    ev_sidebar_thumbnails_set_size (sidebar_thumbnails, 
+                                    THUMBNAIL_DEFAULT_WIDTH);
+    g_signal_emit (sidebar_thumbnails, signals[SIZE_CHANGED], 0, priv->thumbnail_width);
+}
+
+void 
+ev_sidebar_thumbnails_cmd_zoom_in (GtkWidget *widget,
+                                   EvSidebarThumbnails *sidebar_thumbnails)
+{g_printf("coucou");
+    if (ev_sidebar_thumbnails_can_zoom_in (sidebar_thumbnails))
+        ev_sidebar_thumbnails_zoom_in (sidebar_thumbnails);
+}
+
+void 
+ev_sidebar_thumbnails_cmd_zoom_out (GtkWidget *widget,
+                                    EvSidebarThumbnails *sidebar_thumbnails)
+{
+    if (ev_sidebar_thumbnails_can_zoom_out (sidebar_thumbnails))
+        ev_sidebar_thumbnails_zoom_out (sidebar_thumbnails);
+}
+void 
+ev_sidebar_thumbnails_cmd_zoom_reset (GtkWidget *widget,
+                                   EvSidebarThumbnails *sidebar_thumbnails)
+{
+    if (sidebar_thumbnails->priv->thumbnail_width != THUMBNAIL_DEFAULT_WIDTH)
+        ev_sidebar_thumbnails_zoom_reset (sidebar_thumbnails);
 }
 
 void       
@@ -362,13 +391,15 @@ ev_sidebar_thumbnails_set_size (EvSidebarThumbnails *sidebar_thumbnails, gint si
     EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
     priv->thumbnail_width = size;
   
-    if (priv->thumbnail_width > THUMBNAIL_MAX_WIDTH)
+    if (priv->thumbnail_width >= THUMBNAIL_MAX_WIDTH)
         priv->thumbnail_width = THUMBNAIL_MAX_WIDTH;  
-    else if (priv->thumbnail_width < THUMBNAIL_MIN_WIDTH)
+    else if (priv->thumbnail_width <= THUMBNAIL_MIN_WIDTH)
         priv->thumbnail_width = THUMBNAIL_MIN_WIDTH;
         
     if (priv->icon_view)
         gtk_icon_view_set_item_width (priv->icon_view, priv->thumbnail_width);
+        
+    ev_sidebar_thumbnails_reload (sidebar_thumbnails);
 }
 
 static gboolean
@@ -842,8 +873,15 @@ static void
 ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 {
 	EvSidebarThumbnailsPrivate *priv;
+	GtkWidget *toolbar;
+	GtkWidget *toolitem;
+	GtkWidget *button;
+	GtkWidget *hbox;
+	GtkWidget *image;
 
 	priv = ev_sidebar_thumbnails->priv = EV_SIDEBAR_THUMBNAILS_GET_PRIVATE (ev_sidebar_thumbnails);
+	
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_sidebar_thumbnails), GTK_ORIENTATION_VERTICAL);
 
 	priv->list_store = gtk_list_store_new (NUM_COLUMNS,
 					       G_TYPE_STRING,
@@ -871,8 +909,59 @@ ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 				  G_CALLBACK (adjustment_changed_cb),
 				  ev_sidebar_thumbnails);
 	gtk_box_pack_start (GTK_BOX (ev_sidebar_thumbnails), priv->swindow, TRUE, TRUE, 0);
+	
+	toolbar = gtk_toolbar_new ();
+	gtk_widget_show (toolbar);
 
+	toolitem = GTK_WIDGET (gtk_tool_item_new ());
+	gtk_toolbar_insert (GTK_TOOLBAR (toolbar), GTK_TOOL_ITEM (toolitem), 0);
+	gtk_widget_show (toolitem);
+	
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+	gtk_container_add (GTK_CONTAINER (toolitem), hbox);
+	gtk_widget_show (hbox);
+
+    button = gtk_button_new ();
+    gtk_button_set_relief (button, GTK_RELIEF_NONE);
+	image = gtk_image_new_from_icon_name ("zoom-in", GTK_ICON_SIZE_BUTTON);
+	gtk_container_add (GTK_CONTAINER (button), image);
+	gtk_widget_show (image);
+
+	gtk_box_pack_start (GTK_BOX (hbox), button, FALSE, FALSE, 0);
+	gtk_widget_set_tooltip_text (GTK_WIDGET (button), _("Zoom in the thumbnails"));
+	g_signal_connect (button, "clicked",
+			  G_CALLBACK (ev_sidebar_thumbnails_cmd_zoom_in),
+			  ev_sidebar_thumbnails);
+	gtk_widget_show (GTK_WIDGET (button));
+	
+    button = gtk_button_new ();
+    gtk_button_set_relief (button, GTK_RELIEF_NONE);
+	image = gtk_image_new_from_icon_name ("zoom-out", GTK_ICON_SIZE_BUTTON);
+	gtk_container_add (GTK_CONTAINER (button), image);
+	gtk_widget_show (image);
+	
+	gtk_box_pack_start (GTK_BOX (hbox), button, FALSE, FALSE, 0);
+	gtk_widget_set_tooltip_text (GTK_WIDGET (button), _("Zoom out the thumbnails"));
+	g_signal_connect (button, "clicked",
+			  G_CALLBACK (ev_sidebar_thumbnails_cmd_zoom_out),
+			  ev_sidebar_thumbnails);
+	gtk_widget_show (GTK_WIDGET (button));
+	
+    button = gtk_button_new ();
+    gtk_button_set_relief (button, GTK_RELIEF_NONE);
+	image = gtk_image_new_from_icon_name ("zoom-original", GTK_ICON_SIZE_BUTTON);
+	gtk_container_add (GTK_CONTAINER (button), image);
+	gtk_widget_show (image);
+	
+	gtk_box_pack_start (GTK_BOX (hbox), button, FALSE, FALSE, 0);
+	gtk_widget_set_tooltip_text (GTK_WIDGET (button), _("Original zoom of the thumbnails"));
+	g_signal_connect (button, "clicked",
+			  G_CALLBACK (ev_sidebar_thumbnails_cmd_zoom_reset),
+			  ev_sidebar_thumbnails);
+	gtk_widget_show (GTK_WIDGET (button));
+	
 	/* Put it all together */
+	gtk_box_pack_end (GTK_BOX (ev_sidebar_thumbnails), toolbar, FALSE, TRUE, 0);
 	gtk_widget_show_all (priv->swindow);
 }
 
