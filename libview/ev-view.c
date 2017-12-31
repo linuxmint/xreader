@@ -57,6 +57,7 @@ enum {
 	SIGNAL_SELECTION_CHANGED,
 	SIGNAL_SYNC_SOURCE,
 	SIGNAL_ANNOT_ADDED,
+	SIGNAL_ANNOT_REMOVED,
 	SIGNAL_LAYERS_CHANGED,
 	N_SIGNALS
 };
@@ -185,6 +186,7 @@ static gboolean   ev_view_leave_notify_event                 (GtkWidget         
 							      GdkEventCrossing   *event);
 static void       ev_view_style_updated                      (GtkWidget          *widget);
 static void       ev_view_remove_all                         (EvView             *view);
+static void       ev_view_remove_all_form_fields             (EvView             *view);
 
 static AtkObject *ev_view_get_accessible                     (GtkWidget *widget);
 
@@ -1974,6 +1976,58 @@ ev_view_get_image_at_location (EvView  *view,
 		return NULL;
 }
 
+/*** Focus ***/
+static gboolean
+ev_view_get_focused_area (EvView       *view,
+			  GdkRectangle *area)
+{
+	if (!view->focused_element)
+		return FALSE;
+
+	doc_rect_to_view_rect (view,
+						  view->focused_element_page,
+						  &view->focused_element->area,
+						  area);
+	area->x -= view->scroll_x + 1;
+	area->y -= view->scroll_y + 1;
+	area->width += 1;
+	area->height += 1;
+
+	return TRUE;
+}
+
+void
+ev_view_set_focused_element (EvView *view,
+			     EvMapping *element_mapping,
+			     gint page)
+{
+	GdkRectangle    view_rect;
+	cairo_region_t *region = NULL;
+
+	if (ev_view_get_focused_area (view, &view_rect))
+		region = cairo_region_create_rectangle (&view_rect);
+
+	view->focused_element = element_mapping;
+	view->focused_element_page = page;
+
+	if (ev_view_get_focused_area (view, &view_rect)) {
+		if (!region)
+			region = cairo_region_create_rectangle (&view_rect);
+		else
+			cairo_region_union_rectangle (region, &view_rect);
+
+		ev_document_model_set_page (view->model, page);
+		view_rect.x += view->scroll_x;
+		view_rect.y += view->scroll_y;
+		ensure_rectangle_is_visible (view, &view_rect);
+	}
+
+	if (region) {
+		gdk_window_invalidate_region (gtk_widget_get_window (GTK_WIDGET (view)),
+					      region, TRUE);
+		cairo_region_destroy (region);
+	}
+}
 /*** Forms ***/
 static EvFormField *
 ev_view_get_form_field_at_location (EvView  *view,
@@ -1994,8 +2048,7 @@ ev_view_get_form_field_at_location (EvView  *view,
 
 	if (forms_mapping)
 		return ev_mapping_list_get_data (forms_mapping, x_new, y_new);
-	else
-		return NULL;
+	return NULL;
 }
 
 static cairo_region_t *
@@ -2017,9 +2070,22 @@ ev_view_form_field_get_region (EvView      *view,
 static gboolean
 ev_view_forms_remove_widgets (EvView *view)
 {
-	ev_view_remove_all (view);
+	ev_view_remove_all_form_fields (view);
 
 	return FALSE;
+}
+
+static void
+destroy_child_if_form_widget (GtkWidget *widget)
+{
+	if (g_object_get_data (G_OBJECT (widget), "form-field"))
+		gtk_widget_destroy (widget);
+}
+
+static void
+ev_view_remove_all_form_fields (EvView *view)
+{
+	gtk_container_foreach (GTK_CONTAINER (view), (GtkCallback)destroy_child_if_form_widget, NULL);
 }
 
 static void
@@ -2033,60 +2099,17 @@ static GtkWidget *
 ev_view_form_field_button_create_widget (EvView      *view,
 					 EvFormField *field)
 {
-	EvFormFieldButton *field_button = EV_FORM_FIELD_BUTTON (field);
-	cairo_region_t    *field_region = NULL;
+	EvMappingList *form_mapping;
+	EvMapping     *mapping;
 	
-	switch (field_button->type) {
-	        case EV_FORM_FIELD_BUTTON_PUSH:
-			return NULL;
-	        case EV_FORM_FIELD_BUTTON_CHECK:
-  	        case EV_FORM_FIELD_BUTTON_RADIO: {
-			gboolean       state;
-			EvMappingList *forms_mapping;
-			GList         *l;
+	/* We need to do this focus grab prior to setting the focused element for accessibility */
+	if (!gtk_widget_has_focus (GTK_WIDGET (view)))
+		gtk_widget_grab_focus (GTK_WIDGET (view));
 
-			state = ev_document_forms_form_field_button_get_state (EV_DOCUMENT_FORMS (view->document),
-									       field);
-
-			/* FIXME: it actually depends on NoToggleToOff flags */
-			if (field_button->type == EV_FORM_FIELD_BUTTON_RADIO &&
-			    state && field_button->state)
-				return NULL;
-			
-			field_region = ev_view_form_field_get_region (view, field);
-
-			/* For radio buttons and checkbox buttons that are in a set
-			 * we need to update also the region for the current selected item
-			 */
-			forms_mapping = ev_page_cache_get_form_field_mapping (view->page_cache,
+	form_mapping = ev_page_cache_get_form_field_mapping (view->page_cache,
 									      field->page->index);
-			for (l = ev_mapping_list_get_list (forms_mapping); l; l = g_list_next (l)) {
-				EvFormField *button = ((EvMapping *)(l->data))->data;
-				cairo_region_t *button_region;
-
-				if (button->id == field->id)
-					continue;
-
-				/* FIXME: only buttons in the same group should be updated */
-				if (!EV_IS_FORM_FIELD_BUTTON (button) ||
-				    EV_FORM_FIELD_BUTTON (button)->type != field_button->type ||
-				    EV_FORM_FIELD_BUTTON (button)->state != TRUE)
-					continue;
-
-				button_region = ev_view_form_field_get_region (view, button);
-				cairo_region_union (field_region, button_region);
-				cairo_region_destroy (button_region);
-			}
-			
-			ev_document_forms_form_field_button_set_state (EV_DOCUMENT_FORMS (view->document),
-								       field, !state);
-			field_button->state = !state;
-		}
-			break;
-	}
-
-	ev_view_reload_page (view, field->page->index, field_region);
-	cairo_region_destroy (field_region);
+	mapping = ev_mapping_list_find (form_mapping, field);
+	ev_view_set_focused_element (view, mapping, field->page->index);
 	
 	return NULL;
 }
@@ -2428,14 +2451,13 @@ ev_view_form_field_choice_create_widget (EvView      *view,
 
 static void
 ev_view_handle_form_field (EvView      *view,
-			   EvFormField *field,
-			   gdouble      x,
-			   gdouble      y)
+			   EvFormField *field)
 {
 	GtkWidget     *field_widget = NULL;
 	EvMappingList *form_field_mapping;
 	EvMapping     *mapping;
 
+	ev_view_set_focused_element (view, NULL, -1);
 	if (field->is_read_only)
 		return;
 	
@@ -2450,8 +2472,11 @@ ev_view_handle_form_field (EvView      *view,
 	}
 
 	/* Form field doesn't require a widget */
-	if (!field_widget)
+	if (!field_widget) {
+		if (!gtk_widget_has_focus (GTK_WIDGET (view)))
+			gtk_widget_grab_focus (GTK_WIDGET (view));
 		return;
+	}
 
 	g_object_set_data_full (G_OBJECT (field_widget), "form-field",
 				g_object_ref (field),
@@ -2462,6 +2487,7 @@ ev_view_handle_form_field (EvView      *view,
 
 	mapping = ev_mapping_list_find (form_field_mapping, field);
 
+	ev_view_set_focused_element (view, mapping, field->page->index);
 	ev_view_put_to_doc_rect (view,
 			field_widget,
 			field->page->index,
@@ -2594,6 +2620,33 @@ ev_view_find_window_child_for_annot (EvView       *view,
 	return NULL;
 }
 
+static EvViewWindowChild *
+ev_view_remove_window_child_for_annot (EvView       *view,
+				     guint         page,
+				     EvAnnotation *annot)
+{
+	GList *children = view->window_children;
+
+	while (children) {
+		EvViewWindowChild *child;
+		EvAnnotation      *wannot;
+
+		child = (EvViewWindowChild *)children->data;
+
+		if (child->page != page) {
+			children = children->next;
+			continue;
+		}
+
+		wannot = ev_annotation_window_get_annotation (EV_ANNOTATION_WINDOW (child->window));
+		if (ev_annotation_equal (wannot, annot)) {
+			gtk_widget_destroy (child->window);
+			view->window_children = g_list_delete_link (view->window_children, children);
+			break;
+		}
+		children = children->next;
+	}
+}
 static void
 ev_view_window_children_free (EvView *view)
 {
@@ -3001,6 +3054,35 @@ ev_view_cancel_add_annotation (EvView *view)
 	ev_view_handle_cursor_over_xy (view, x, y);
 }
 
+void
+ev_view_remove_annotation (EvView       *view,
+                           EvAnnotation *annot)
+{
+	guint page;
+
+	g_return_if_fail (EV_IS_VIEW (view));
+	g_return_if_fail (EV_IS_ANNOTATION (annot));
+
+	g_object_ref (annot);
+
+	page = ev_annotation_get_page_index (annot);
+
+	if (EV_IS_ANNOTATION_MARKUP (annot))
+		ev_view_remove_window_child_for_annot (view, page, annot);
+
+	ev_document_doc_mutex_lock ();
+	ev_document_annotations_remove_annotation (EV_DOCUMENT_ANNOTATIONS (view->document),
+							annot);
+	ev_document_doc_mutex_unlock ();
+
+	ev_page_cache_mark_dirty (view->page_cache, page);
+
+	/* FIXME: only redraw the annot area */
+	ev_view_reload_page (view, page, NULL);
+
+	g_signal_emit (view, signals[SIGNAL_ANNOT_REMOVED], 0, annot);
+	g_object_unref (annot);
+}
 static gboolean
 ev_view_synctex_backward_search (EvView *view,
 				 gdouble x,
@@ -3661,8 +3743,8 @@ ev_view_button_press_event (GtkWidget      *widget,
 			} else if ((annot = ev_view_get_annotation_at_location (view, event->x, event->y))) {
 				ev_view_handle_annotation (view, annot, event->x, event->y, event->time);
 			} else if ((field = ev_view_get_form_field_at_location (view, event->x, event->y))) {
-				ev_view_remove_all (view);
-				ev_view_handle_form_field (view, field, event->x, event->y);
+				ev_view_remove_all_form_fields (view);
+				ev_view_handle_form_field (view, field);
 			} else if (!location_in_text (view, event->x + view->scroll_x, event->y + view->scroll_y) &&
 				   (image = ev_view_get_image_at_location (view, event->x, event->y))) {
 				if (view->image_dnd_info.image)
@@ -3673,7 +3755,8 @@ ev_view_button_press_event (GtkWidget      *widget,
 				view->image_dnd_info.start.x = event->x + view->scroll_x;
 				view->image_dnd_info.start.y = event->y + view->scroll_y;
 			} else {
-				ev_view_remove_all (view);
+				ev_view_remove_all_form_fields (view);
+				ev_view_set_focused_element (view, NULL, -1);
 
 				if (view->synctex_result) {
 					g_free (view->synctex_result);
@@ -4182,24 +4265,30 @@ ev_view_key_press_event (GtkWidget   *widget,
 
 	if (!gtk_widget_has_focus (widget)) {
 		/* Forward key events to current focused window child */
+		GtkWidget   *child_widget = NULL;
 		if (view->window_child_focus) {
+			child_widget = view->window_child_focus->window;
+		} else if (view->children) {
+			EvViewChild *child = (EvViewChild *)view->children->data;
+			child_widget = child->widget;
+		} else {
+			return FALSE;
+		}
 			GdkEventKey *new_event;
 			gboolean     handled;
 
 			new_event = (GdkEventKey *) gdk_event_copy ((GdkEvent *)event);
 			g_object_unref (new_event->window);
-			new_event->window = gtk_widget_get_window (view->window_child_focus->window);
+		new_event->window = gtk_widget_get_window (child_widget);
 			if (new_event->window)
 				g_object_ref (new_event->window);
-			gtk_widget_realize (view->window_child_focus->window);
-			handled = gtk_widget_event (view->window_child_focus->window, (GdkEvent *)new_event);
+		gtk_widget_realize (child_widget);
+		handled = gtk_widget_event (child_widget, (GdkEvent *)new_event);
 			gdk_event_free ((GdkEvent *)new_event);
 
 			return handled;
 		}
 
-		return FALSE;
-	}
 
 	return gtk_bindings_activate_event (G_OBJECT (widget), event);
 }
@@ -4854,6 +4943,163 @@ ev_view_hierarchy_changed (GtkWidget *widget,
 	}
 }
 
+static gint
+ev_view_mapping_compare (const EvMapping *a,
+			 const EvMapping *b,
+			 gpointer         user_data)
+{
+	GtkTextDirection text_direction = GPOINTER_TO_INT (user_data);
+	gint y1 = a->area.y1 + (a->area.y2 - a->area.y1) / 2;
+	gint y2 = b->area.y1 + (b->area.y2 - b->area.y1) / 2;
+
+	if (y1 == y2) {
+		gint x1 = a->area.x1 + (a->area.x2 - a->area.x1) / 2;
+		gint x2 = b->area.x1 + (b->area.x2 - b->area.x1) / 2;
+
+		if (text_direction == GTK_TEXT_DIR_RTL)
+			return (x1 < x2) ? 1 : ((x1 == x2) ? 0 : -1);
+
+		return (x1 < x2) ? -1 : ((x1 == x2) ? 0 : 1);
+	}
+
+	return (y1 < y2) ? -1 : 1;
+}
+
+static GList *
+ev_view_get_sorted_mapping_list (EvView          *view,
+				 GtkDirectionType direction,
+				 gint             page)
+{
+	GList         *mapping_list = NULL, *l;
+	EvMappingList *forms_mapping;
+
+	forms_mapping = ev_page_cache_get_form_field_mapping (view->page_cache, page);
+
+	for (l = ev_mapping_list_get_list (forms_mapping); l; l = g_list_next (l)) {
+		EvMapping   *mapping = (EvMapping *)l->data;
+		EvFormField *field = (EvFormField *)mapping->data;
+
+		if (field->is_read_only || EV_IS_FORM_FIELD_SIGNATURE (field))
+			continue;
+
+		mapping_list = g_list_prepend (mapping_list, mapping);
+	}
+
+	if (!mapping_list)
+		return NULL;
+
+	mapping_list = g_list_sort_with_data (g_list_reverse (mapping_list),
+					      (GCompareDataFunc)ev_view_mapping_compare,
+					      GINT_TO_POINTER (gtk_widget_get_direction (GTK_WIDGET (view))));
+
+	if (direction == GTK_DIR_TAB_BACKWARD)
+		mapping_list = g_list_reverse (mapping_list);
+	return mapping_list;
+}
+
+static gboolean
+child_focus_forward_idle_cb (gpointer user_data)
+{
+	EvView *view = EV_VIEW (user_data);
+
+	view->child_focus_idle_id = 0;
+	gtk_widget_child_focus (GTK_WIDGET (view), GTK_DIR_TAB_FORWARD);
+
+	return G_SOURCE_REMOVE;
+}
+
+static gboolean
+child_focus_backward_idle_cb (gpointer user_data)
+{
+	EvView *view = EV_VIEW (user_data);
+
+	view->child_focus_idle_id = 0;
+	gtk_widget_child_focus (GTK_WIDGET (view), GTK_DIR_TAB_BACKWARD);
+
+	return G_SOURCE_REMOVE;
+}
+
+static void
+schedule_child_focus_in_idle (EvView           *view,
+			      GtkDirectionType  direction)
+{
+	if (view->child_focus_idle_id)
+		g_source_remove (view->child_focus_idle_id);
+	view->child_focus_idle_id =
+		g_idle_add (direction == GTK_DIR_TAB_FORWARD ? child_focus_forward_idle_cb : child_focus_backward_idle_cb,
+			    view);
+}
+
+static gboolean
+ev_view_focus_next (EvView           *view,
+		    GtkDirectionType  direction)
+{
+	EvMapping *focus_element;
+	GList     *elements;
+	gboolean   had_focused_element;
+
+	if (view->focused_element) {
+		GList *l;
+
+		elements = ev_view_get_sorted_mapping_list (view, direction, view->focused_element_page);
+		l = g_list_find (elements, view->focused_element);
+		l = g_list_next (l);
+		focus_element = l ? l->data : NULL;
+		had_focused_element = TRUE;
+	} else {
+		elements = ev_view_get_sorted_mapping_list (view, direction, view->current_page);
+		focus_element = elements ? elements->data : NULL;
+		had_focused_element = FALSE;
+	}
+
+	g_list_free (elements);
+
+	if (focus_element) {
+		ev_view_remove_all_form_fields (view);
+		ev_view_handle_form_field (view, EV_FORM_FIELD (focus_element->data));
+
+		return TRUE;
+	}
+
+	ev_view_remove_all_form_fields (view);
+	ev_view_set_focused_element (view, NULL, -1);
+
+	/* Only try to move the focus to next/previous pages when the current page had
+	 * a focused element. This prevents the view from jumping to the first/last page
+	 * when there are not focusable elements.
+	 */
+	if (!had_focused_element)
+		return FALSE;
+
+	/* FIXME: this doesn't work if the next/previous page doesn't have form fields */
+	if (direction == GTK_DIR_TAB_FORWARD) {
+		if (ev_view_next_page (view)) {
+			schedule_child_focus_in_idle (view, direction);
+			return TRUE;
+		}
+	} else if (direction == GTK_DIR_TAB_BACKWARD) {
+		if (ev_view_previous_page (view)) {
+			schedule_child_focus_in_idle (view, direction);
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}
+
+static gboolean
+ev_view_focus (GtkWidget        *widget,
+	       GtkDirectionType  direction)
+{
+	EvView *view = EV_VIEW (widget);
+
+	if (view->document) {
+		if (direction == GTK_DIR_TAB_FORWARD || direction == GTK_DIR_TAB_BACKWARD)
+			return ev_view_focus_next (view, direction);
+	}
+
+	return GTK_WIDGET_CLASS (ev_view_parent_class)->focus (widget, direction);
+}
 static void
 ev_view_parent_set (GtkWidget *widget,
 		    GtkWidget *previous_parent)
@@ -4885,6 +5131,7 @@ ev_view_class_init (EvViewClass *class)
 	widget_class->key_press_event = ev_view_key_press_event;
 	widget_class->focus_in_event = ev_view_focus_in;
 	widget_class->focus_out_event = ev_view_focus_out;
+	widget_class->focus = ev_view_focus;
 	widget_class->get_accessible = ev_view_get_accessible;
 	widget_class->get_preferred_width = ev_view_get_preferred_width;
 	widget_class->get_preferred_height = ev_view_get_preferred_height;
@@ -4965,6 +5212,14 @@ ev_view_class_init (EvViewClass *class)
 		         G_TYPE_NONE, 1,
 			 G_TYPE_POINTER);
 	signals[SIGNAL_ANNOT_ADDED] = g_signal_new ("annot-added",
+	  	         G_TYPE_FROM_CLASS (object_class),
+		         G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
+		         G_STRUCT_OFFSET (EvViewClass, annot_added),
+		         NULL, NULL,
+		         g_cclosure_marshal_VOID__OBJECT,
+		         G_TYPE_NONE, 1,
+			 EV_TYPE_ANNOTATION);
+	signals[SIGNAL_ANNOT_REMOVED] = g_signal_new ("annot-removed",
 	  	         G_TYPE_FROM_CLASS (object_class),
 		         G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
 		         G_STRUCT_OFFSET (EvViewClass, annot_added),
@@ -5058,6 +5313,7 @@ ev_view_init (EvView *view)
 			       GDK_BUTTON_PRESS_MASK |
 			       GDK_BUTTON_RELEASE_MASK |
 			       GDK_SCROLL_MASK |
+			       GDK_SMOOTH_SCROLL_MASK |
 			       GDK_KEY_PRESS_MASK |
 			       GDK_POINTER_MOTION_MASK |
 			       GDK_POINTER_MOTION_HINT_MASK |
