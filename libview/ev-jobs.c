@@ -92,11 +92,6 @@ enum {
 	FIND_LAST_SIGNAL
 };
 
-#if ENABLE_EPUB
-static GtkWidget* webview;
-static GtkWidget* offscreenwindow;
-#endif
-
 static guint job_signals[LAST_SIGNAL] = { 0 };
 static guint job_fonts_signals[FONTS_LAST_SIGNAL] = { 0 };
 static guint job_find_signals[FIND_LAST_SIGNAL] = { 0 };
@@ -827,6 +822,7 @@ ev_job_thumbnail_dispose (GObject *object)
 }
 
 #if ENABLE_EPUB
+
 static void
 snapshot_callback(WebKitWebView *webview,
                   GAsyncResult  *results,
@@ -859,7 +855,11 @@ snapshot_callback(WebKitWebView *webview,
 
 	ev_document_doc_mutex_unlock ();
 	ev_job_succeeded (EV_JOB(job_thumb));
+    
+	gtk_widget_destroy (gtk_widget_get_toplevel (webview));
 }
+
+#endif  /* ENABLE_EPUB */
 
 static void
 web_thumbnail_get_screenshot_cb (WebKitWebView  *webview,
@@ -869,7 +869,7 @@ web_thumbnail_get_screenshot_cb (WebKitWebView  *webview,
 	if (event != WEBKIT_LOAD_FINISHED || ev_job_is_failed (EV_JOB(job_thumb))) {
 		return;
 	}
-
+	
 	webkit_web_view_get_snapshot (webview,
 	                              WEBKIT_SNAPSHOT_REGION_VISIBLE,
 	                              WEBKIT_SNAPSHOT_OPTIONS_NONE,
@@ -888,9 +888,11 @@ webview_load_failed_cb (WebKitWebView  *webview,
 	GError *e = (GError *) error;
 	g_warning ("Error loading data from %s: %s", failing_uri, e->message);
 	ev_job_failed_from_error (EV_JOB(job_thumb), e);
+	
+	gtk_widget_destroy (gtk_widget_get_toplevel (webview));
+	
 	return TRUE;
 }
-#endif  /* ENABLE_EPUB */
 
 static gboolean
 ev_job_thumbnail_run (EvJob *job)
@@ -921,24 +923,24 @@ ev_job_thumbnail_run (EvJob *job)
 
 #if ENABLE_EPUB
 	if (job->document->iswebdocument == TRUE) {
-		if (!webview) {
-			webview = webkit_web_view_new();
-			g_signal_connect(WEBKIT_WEB_VIEW(webview),"load-changed",
-			                 G_CALLBACK(web_thumbnail_get_screenshot_cb),
-			                 g_object_ref (job_thumb));
-			g_signal_connect(WEBKIT_WEB_VIEW(webview),"load-failed",
-			                 G_CALLBACK(webview_load_failed_cb),
-			                 g_object_ref (job_thumb));
-		}
-
-		if (!offscreenwindow) {
-			offscreenwindow = gtk_offscreen_window_new();
-			gtk_container_add(GTK_CONTAINER(offscreenwindow),GTK_WIDGET(webview));
-			gtk_window_set_default_size (GTK_WINDOW(offscreenwindow),800,1080);
-			gtk_widget_show_all(offscreenwindow);
-		}
-
-		webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),(gchar*)rc->page->backend_page);
+	
+		GtkWidget *webview;
+		GtkWidget *offscreenwindow;
+		
+		webview = webkit_web_view_new ();
+		offscreenwindow = gtk_offscreen_window_new ();
+		
+		gtk_container_add (GTK_CONTAINER(offscreenwindow), GTK_WIDGET (webview));
+		gtk_window_set_default_size (GTK_WINDOW(offscreenwindow), 800, 1080);
+		gtk_widget_show_all (offscreenwindow);
+        
+		g_signal_connect (WEBKIT_WEB_VIEW (webview), "load-changed",
+		                 G_CALLBACK (web_thumbnail_get_screenshot_cb),
+		                 g_object_ref (job_thumb));
+		g_signal_connect (WEBKIT_WEB_VIEW(webview), "load-failed",
+		                 G_CALLBACK(webview_load_failed_cb),
+		                 g_object_ref (job_thumb));
+        webkit_web_view_load_uri (webview, (gchar*) rc->page->backend_page);
 	}
 	else 
 #endif  /* ENABLE_EPUB */
