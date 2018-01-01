@@ -720,6 +720,10 @@ ev_sidebar_thumbnails_fill_model (EvSidebarThumbnails *sidebar_thumbnails)
 		ev_thumbnails_size_cache_get_size (sidebar_thumbnails->priv->size_cache, i,
 						  sidebar_thumbnails->priv->rotation,
 						  &width, &height);
+						  
+        height = (gint) (height*priv->thumbnail_width/width);
+        width = priv->thumbnail_width;
+		
 		if (!loading_icon || (width != prev_width && height != prev_height)) {
 			loading_icon =
 				ev_sidebar_thumbnails_get_loading_icon (sidebar_thumbnails,
