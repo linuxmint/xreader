@@ -350,8 +350,12 @@ epub_document_save (EvDocument *document,
                     GError    **error)
 {
 	EpubDocument *epub_document = EPUB_DOCUMENT (document);
-
-	return ev_xfer_uri_simple (epub_document->archivename, uri, error);
+	
+	gchar *source_uri = g_filename_to_uri (epub_document->archivename, NULL, &error);
+    if (source_uri == NULL) 
+        return FALSE;
+        
+    return ev_xfer_uri_simple (source_uri, uri, error);
 }
 
 static int
