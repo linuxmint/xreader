@@ -271,6 +271,15 @@ ev_sidebar_select_button_key_press_cb (GtkWidget   *widget,
 }
 
 static void
+ev_sidebar_close_clicked_cb (GtkWidget *widget,
+			     gpointer   user_data)
+{
+	EvSidebar *ev_sidebar = EV_SIDEBAR (user_data);
+
+	gtk_widget_hide (GTK_WIDGET (ev_sidebar));
+}
+
+static void
 ev_sidebar_menu_deactivate_cb (GtkWidget *widget,
 			       gpointer   user_data)
 {
@@ -323,6 +332,7 @@ static void
 ev_sidebar_init (EvSidebar *ev_sidebar)
 {
 	GtkWidget *hbox;
+	GtkWidget *close_button;
 	GtkWidget *select_hbox;
 	GtkWidget *arrow;
 
@@ -372,7 +382,15 @@ ev_sidebar_init (EvSidebar *ev_sidebar)
 	gtk_box_pack_start (GTK_BOX (hbox), ev_sidebar->priv->select_button, TRUE, TRUE, 0);
 	gtk_widget_set_halign (ev_sidebar->priv->select_button, GTK_ALIGN_CENTER);
 	gtk_widget_show (ev_sidebar->priv->select_button);
-
+	
+    close_button = gtk_button_new_from_icon_name ("window-close-symbolic", GTK_ICON_SIZE_BUTTON);
+    gtk_button_set_relief (GTK_BUTTON (close_button), GTK_RELIEF_NONE);
+    g_signal_connect (close_button, "clicked",
+		      G_CALLBACK (ev_sidebar_close_clicked_cb),
+		      ev_sidebar);
+    gtk_box_pack_end (GTK_BOX (hbox), close_button, FALSE, FALSE, 0);
+    gtk_widget_show (close_button);
+	
 	ev_sidebar->priv->menu = gtk_menu_new ();
 	g_signal_connect (ev_sidebar->priv->menu, "deactivate",
 			  G_CALLBACK (ev_sidebar_menu_deactivate_cb),
