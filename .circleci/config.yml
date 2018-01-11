@@ -6,7 +6,7 @@ jobs:
     docker:
       - image: linuxmintd/linuxmint-sylvia
     steps:
-      - run: mint-build -i xapp
+      - run: mint-build xapps -i
       - checkout
       - run: mint-build -i
 
