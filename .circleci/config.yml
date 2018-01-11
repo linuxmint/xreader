@@ -1,0 +1,17 @@
+version: 2.0
+
+jobs:
+
+  "mint-18":
+    docker:
+      - image: linuxmintd/linuxmint-sylvia
+    steps:
+      - run: mint-build -i xapp
+      - checkout
+      - run: mint-build -i
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - "mint-18"
