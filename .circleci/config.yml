@@ -6,8 +6,13 @@ jobs:
     docker:
       - image: linuxmintd/linuxmint-sylvia
     steps:
-      - run: mint-build xapps -i
-      - run: mint-build xreader -i
+      - checkout
+      - run:
+          name: Build Xapps
+          command: mkdir -p /dependencies && cd /dependencies && mint-build xapps -i
+      - run:
+          name: Build Xreader
+          command: mint-build -i
 
 workflows:
   version: 2
