@@ -50,7 +50,7 @@ struct _EvSidebarBookmarksPrivate {
         EvDocumentModel *model;
         EvBookmarks     *bookmarks;
 
-        GtkWidget       *tree_view;
+        GtkWiet       *tree_view;
         GtkWidget       *del_button;
         GtkWidget       *add_button;
 
