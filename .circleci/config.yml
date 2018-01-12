@@ -40,8 +40,86 @@ jobs:
               ./ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME -recreate -b "Latest unstable packages" $TAG /${RELEASE}.tar.gz
             fi
 
+ "mint-19":
+    docker:
+      - image: linuxmintd/linuxmint-tara
+    steps:
+      - checkout
+
+      - run:
+          name: Build Dependency Xapps
+          command: mkdir -p /dependencies && cd /dependencies && mint-build xapps -i
+
+      - run:
+          name: Build Project
+          command: mint-build -i
+
+      - run:
+          name: Prepare Packages
+          command: |
+            RELEASE="${CIRCLE_PROJECT_REPONAME}_${CIRCLE_JOB}_${CIRCLE_SHA1}"
+            mkdir /${RELEASE}
+            mv /root/*.deb /${RELEASE}/
+            mv /dependencies/*/*.deb /${RELEASE}/
+            git log > /${RELEASE}/git.log
+            cd /
+            tar cvf ${RELEASE}.tar ${RELEASE}
+            gzip ${RELEASE}.tar
+
+      - run:
+          name: Deploy to Github
+          command: |
+            if [ -z $CI_PULL_REQUEST ]; then
+              wget https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_linux_amd64.zip
+              unzip ghr_v0.5.4_linux_amd64.zip
+              TAG=`git rev-parse --abbrev-ref HEAD`.$CIRCLE_JOB
+              RELEASE="${CIRCLE_PROJECT_REPONAME}_${CIRCLE_JOB}_${CIRCLE_SHA1}"
+              ./ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME -replace $TAG /${RELEASE}.tar.gz
+              ./ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME -recreate -b "Latest unstable packages" $TAG /${RELEASE}.tar.gz
+            fi
+
+ "lmde-3":
+    docker:
+      - image: linuxmintd/linuxmint-cindy
+    steps:
+      - checkout
+
+      - run:
+          name: Build Dependency Xapps
+          command: mkdir -p /dependencies && cd /dependencies && mint-build xapps -i
+
+      - run:
+          name: Build Project
+          command: mint-build -i
+
+      - run:
+          name: Prepare Packages
+          command: |
+            RELEASE="${CIRCLE_PROJECT_REPONAME}_${CIRCLE_JOB}_${CIRCLE_SHA1}"
+            mkdir /${RELEASE}
+            mv /root/*.deb /${RELEASE}/
+            mv /dependencies/*/*.deb /${RELEASE}/
+            git log > /${RELEASE}/git.log
+            cd /
+            tar cvf ${RELEASE}.tar ${RELEASE}
+            gzip ${RELEASE}.tar
+
+      - run:
+          name: Deploy to Github
+          command: |
+            if [ -z $CI_PULL_REQUEST ]; then
+              wget https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_linux_amd64.zip
+              unzip ghr_v0.5.4_linux_amd64.zip
+              TAG=`git rev-parse --abbrev-ref HEAD`.$CIRCLE_JOB
+              RELEASE="${CIRCLE_PROJECT_REPONAME}_${CIRCLE_JOB}_${CIRCLE_SHA1}"
+              ./ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME -replace $TAG /${RELEASE}.tar.gz
+              ./ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME -recreate -b "Latest unstable packages" $TAG /${RELEASE}.tar.gz
+            fi
+
 workflows:
   version: 2
   build:
     jobs:
       - "mint-18"
+      - "mint-19"
+      - "lmde-3"
