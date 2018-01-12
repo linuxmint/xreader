@@ -7,22 +7,38 @@ jobs:
       - image: linuxmintd/linuxmint-sylvia
     steps:
       - checkout
+
       - run:
-          name: Build Xapps
+          name: Build Dependency Xapps
           command: mkdir -p /dependencies && cd /dependencies && mint-build xapps -i
+
       - run:
-          name: Build Xreader
+          name: Build Project
           command: mint-build -i
 
       - run:
-          name: Prepare Artifacts
+          name: Prepare Packages
           command: |
-            mkdir /artifacts;
-            mv /dependencies/*/*.deb /artifacts/;
-            mv /root/project/*.deb /artifacts/;
+            RELEASE="${CIRCLE_PROJECT_REPONAME}_${CIRCLE_JOB}_${CIRCLE_SHA1}"
+            mkdir /${RELEASE}
+            mv /root/*.deb /${RELEASE}/
+            mv /dependencies/*/*.deb /${RELEASE}/
+            git log > /${RELEASE}/git.log
+            cd /
+            tar cvf ${RELEASE}.tar ${RELEASE}
+            gzip ${RELEASE}.tar
 
-      - store_artifacts:
-          path: /artifacts
+      - run:
+          name: Deploy to Github
+          command: |
+            if [ -z $CI_PULL_REQUEST ]; then
+              wget https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_linux_amd64.zip
+              unzip ghr_v0.5.4_linux_amd64.zip
+              TAG=`git rev-parse --abbrev-ref HEAD`.$CIRCLE_JOB
+              RELEASE="${CIRCLE_PROJECT_REPONAME}_${CIRCLE_JOB}_${CIRCLE_SHA1}"
+              ./ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME -replace $TAG /${RELEASE}.tar.gz
+              ./ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME -recreate -b "Latest unstable packages" $TAG /${RELEASE}.tar.gz
+            fi
 
 workflows:
   version: 2
