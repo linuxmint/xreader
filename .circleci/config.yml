@@ -18,8 +18,8 @@ jobs:
           name: Prepare Artifacts
           command: |
             mkdir /artifacts;
-            mv /dependencies/*/*.deb > /artifacts/;
-            mv /root/project/*.deb > /artifacts/;
+            mv /dependencies/*/*.deb /artifacts/;
+            mv /root/project/*.deb /artifacts/;
 
       - store_artifacts:
           path: /artifacts
