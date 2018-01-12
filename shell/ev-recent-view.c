@@ -112,7 +112,6 @@ on_item_activated (GtkButton *button,
 {
     gchar *uri = (gchar *) g_object_get_data (G_OBJECT (button), "uri");
     g_signal_emit (ev_recent_view, signals[ITEM_ACTIVATED], 0, uri);
-    g_free (uri);
 }
 
 static void
