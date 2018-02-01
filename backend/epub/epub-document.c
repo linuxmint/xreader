@@ -361,12 +361,12 @@ epub_document_save (EvDocument *document,
 static int
 epub_document_get_n_pages (EvDocument *document)
 {   
-	EpubDocument *epub_document = EPUB_DOCUMENT (document);
+    EpubDocument *epub_document = EPUB_DOCUMENT (document);
 
-        if (epub_document-> contentList == NULL)
-                return 0;
-            
-	return g_list_length(epub_document->contentList);
+    if (epub_document-> contentList == NULL)
+        return 0;
+
+    return g_list_length(epub_document->contentList);
 }
 
 /**
