@@ -75,7 +75,7 @@ struct _EvSidebarThumbnailsPrivate {
 
 	int rotation;
 	gboolean inverted_colors;
-	
+
 	int thumbnail_width;
 
 	/* Visible pages */
@@ -115,11 +115,11 @@ static void         adjustment_changed_cb                  (EvSidebarThumbnails 
 static void         ev_sidebar_thumbnails_reload           (EvSidebarThumbnails     *sidebar_thumbnails);
 static gboolean     refresh                                (EvSidebarThumbnails     *sidebar_thumbnails);
 
-G_DEFINE_TYPE_EXTENDED (EvSidebarThumbnails, 
-                        ev_sidebar_thumbnails, 
+G_DEFINE_TYPE_EXTENDED (EvSidebarThumbnails,
+                        ev_sidebar_thumbnails,
                         GTK_TYPE_BOX,
-                        0, 
-                        G_IMPLEMENT_INTERFACE (EV_TYPE_SIDEBAR_PAGE, 
+                        0,
+                        G_IMPLEMENT_INTERFACE (EV_TYPE_SIDEBAR_PAGE,
 					       ev_sidebar_thumbnails_page_iface_init))
 
 #define EV_SIDEBAR_THUMBNAILS_GET_PRIVATE(object) \
@@ -268,12 +268,12 @@ static void
 ev_sidebar_thumbnails_dispose (GObject *object)
 {
 	EvSidebarThumbnails *sidebar_thumbnails = EV_SIDEBAR_THUMBNAILS (object);
-	
+
 	if (sidebar_thumbnails->priv->loading_icons) {
 		g_hash_table_destroy (sidebar_thumbnails->priv->loading_icons);
 		sidebar_thumbnails->priv->loading_icons = NULL;
 	}
-	
+
 	if (sidebar_thumbnails->priv->list_store) {
 		ev_sidebar_thumbnails_clear_model (sidebar_thumbnails);
 		g_object_unref (sidebar_thumbnails->priv->list_store);
@@ -312,7 +312,7 @@ ev_sidebar_thumbnails_map (GtkWidget *widget)
 	sidebar = EV_SIDEBAR_THUMBNAILS (widget);
 
 	GTK_WIDGET_CLASS (ev_sidebar_thumbnails_parent_class)->map (widget);
-	
+
 	adjustment_changed_cb (sidebar);
 }
 
@@ -320,7 +320,7 @@ gboolean
 ev_sidebar_thumbnails_can_zoom_in  (EvSidebarThumbnails *sidebar_thumbnails)
 {
     EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
-    
+
     return priv->thumbnail_width < THUMBNAIL_MAX_WIDTH;
 }
 
@@ -328,7 +328,7 @@ gboolean
 ev_sidebar_thumbnails_can_zoom_out (EvSidebarThumbnails *sidebar_thumbnails)
 {
     EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
-    
+
     return priv->thumbnail_width > THUMBNAIL_MIN_WIDTH;
 }
 
@@ -336,8 +336,8 @@ void
 ev_sidebar_thumbnails_zoom_in (EvSidebarThumbnails *sidebar_thumbnails)
 {
     EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
-    
-    ev_sidebar_thumbnails_set_size (sidebar_thumbnails, 
+
+    ev_sidebar_thumbnails_set_size (sidebar_thumbnails,
                                     priv->thumbnail_width + THUMBNAIL_STEP_WIDTH);
     g_signal_emit (sidebar_thumbnails, signals[SIZE_CHANGED], 0, priv->thumbnail_width);
 }
@@ -346,23 +346,23 @@ void
 ev_sidebar_thumbnails_zoom_out (EvSidebarThumbnails *sidebar_thumbnails)
 {
     EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
-    
-    ev_sidebar_thumbnails_set_size (sidebar_thumbnails, 
+
+    ev_sidebar_thumbnails_set_size (sidebar_thumbnails,
                                     priv->thumbnail_width - THUMBNAIL_STEP_WIDTH);
     g_signal_emit (sidebar_thumbnails, signals[SIZE_CHANGED], 0, priv->thumbnail_width);
 }
 
-void   
+void
 ev_sidebar_thumbnails_zoom_reset (EvSidebarThumbnails *sidebar_thumbnails)
 {
     EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
-    
-    ev_sidebar_thumbnails_set_size (sidebar_thumbnails, 
+
+    ev_sidebar_thumbnails_set_size (sidebar_thumbnails,
                                     THUMBNAIL_DEFAULT_WIDTH);
     g_signal_emit (sidebar_thumbnails, signals[SIZE_CHANGED], 0, priv->thumbnail_width);
 }
 
-void 
+void
 ev_sidebar_thumbnails_cmd_zoom_in (GtkWidget *widget,
                                    EvSidebarThumbnails *sidebar_thumbnails)
 {
@@ -370,14 +370,14 @@ ev_sidebar_thumbnails_cmd_zoom_in (GtkWidget *widget,
         ev_sidebar_thumbnails_zoom_in (sidebar_thumbnails);
 }
 
-void 
+void
 ev_sidebar_thumbnails_cmd_zoom_out (GtkWidget *widget,
                                     EvSidebarThumbnails *sidebar_thumbnails)
 {
     if (ev_sidebar_thumbnails_can_zoom_out (sidebar_thumbnails))
         ev_sidebar_thumbnails_zoom_out (sidebar_thumbnails);
 }
-void 
+void
 ev_sidebar_thumbnails_cmd_zoom_reset (GtkWidget *widget,
                                    EvSidebarThumbnails *sidebar_thumbnails)
 {
@@ -385,20 +385,20 @@ ev_sidebar_thumbnails_cmd_zoom_reset (GtkWidget *widget,
         ev_sidebar_thumbnails_zoom_reset (sidebar_thumbnails);
 }
 
-void       
+void
 ev_sidebar_thumbnails_set_size (EvSidebarThumbnails *sidebar_thumbnails, gint size)
 {
     EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
     priv->thumbnail_width = size;
-  
+
     if (priv->thumbnail_width >= THUMBNAIL_MAX_WIDTH)
-        priv->thumbnail_width = THUMBNAIL_MAX_WIDTH;  
+        priv->thumbnail_width = THUMBNAIL_MAX_WIDTH;
     else if (priv->thumbnail_width <= THUMBNAIL_MIN_WIDTH)
         priv->thumbnail_width = THUMBNAIL_MIN_WIDTH;
-        
+
     if (priv->icon_view)
         gtk_icon_view_set_item_width (priv->icon_view, priv->thumbnail_width);
-        
+
     ev_sidebar_thumbnails_reload (sidebar_thumbnails);
 }
 
@@ -407,21 +407,21 @@ ev_sidebar_thumbnails_scroll_event (GtkWidget           *widget,
                                     GdkEventScroll      *event,
                                     EvSidebarThumbnails *sidebar_thumbnails)
 {
-	guint state = event->state & gtk_accelerator_get_default_mod_mask ();
+    guint state = event->state & gtk_accelerator_get_default_mod_mask ();
 
-	if (state == GDK_CONTROL_MASK) {
-        if ((event->delta_y < 0 || event->delta_x > 0) 
+    if (state == GDK_CONTROL_MASK) {
+        if ((event->delta_y < 0 || event->delta_x > 0)
           && ev_sidebar_thumbnails_can_zoom_in (sidebar_thumbnails)) {
             ev_sidebar_thumbnails_zoom_in (sidebar_thumbnails);
             return TRUE;
-        } else if ((event->delta_y > 0 || event->delta_x < 0) 
+        } else if ((event->delta_y > 0 || event->delta_x < 0)
                  && ev_sidebar_thumbnails_can_zoom_out (sidebar_thumbnails)) {
             ev_sidebar_thumbnails_zoom_out (sidebar_thumbnails);
             return TRUE;
         }
-	}
+    }
 
-	return FALSE;
+    return FALSE;
 }
 
 static void
@@ -435,15 +435,15 @@ ev_sidebar_thumbnails_class_init (EvSidebarThumbnailsClass *ev_sidebar_thumbnail
 
 	g_object_class->dispose = ev_sidebar_thumbnails_dispose;
 	g_object_class->get_property = ev_sidebar_thumbnails_get_property;
-	
-	widget_class->map = ev_sidebar_thumbnails_map;	
+
+	widget_class->map = ev_sidebar_thumbnails_map;
 
 	g_object_class_override_property (g_object_class,
 					  PROP_WIDGET,
 					  "main-widget");
-					  
+
 	g_type_class_add_private (g_object_class, sizeof (EvSidebarThumbnailsPrivate));
-	
+
 	signals[SIZE_CHANGED] =
 		g_signal_new ("size-changed",
 			      G_TYPE_FROM_CLASS (g_object_class),
@@ -485,7 +485,7 @@ ev_sidebar_thumbnails_get_loading_icon (EvSidebarThumbnails *sidebar_thumbnails,
 	} else {
 		g_free (key);
 	}
-	
+
 	return icon;
 }
 
@@ -633,12 +633,12 @@ update_visible_range (EvSidebarThumbnails *sidebar_thumbnails,
 	/* Clear the areas we no longer display */
 	if (old_start_page >= 0 && old_start_page < start_page)
 		clear_range (sidebar_thumbnails, old_start_page, MIN (start_page - 1, old_end_page));
-	
+
 	if (old_end_page > 0 && old_end_page > end_page)
 		clear_range (sidebar_thumbnails, MAX (end_page + 1, old_start_page), old_end_page);
 
 	add_range (sidebar_thumbnails, start_page, end_page);
-	
+
 	priv->start_page = start_page;
 	priv->end_page = end_page;
 }
@@ -664,7 +664,7 @@ adjustment_changed_cb (EvSidebarThumbnails *sidebar_thumbnails)
 		return;
 
 	value = gtk_adjustment_get_value (priv->vadjustment);
-	
+
 	if (priv->tree_view) {
 		if (! gtk_widget_get_realized (priv->tree_view))
 			return;
@@ -720,10 +720,10 @@ ev_sidebar_thumbnails_fill_model (EvSidebarThumbnails *sidebar_thumbnails)
 		ev_thumbnails_size_cache_get_size (sidebar_thumbnails->priv->size_cache, i,
 						  sidebar_thumbnails->priv->rotation,
 						  &width, &height);
-						  
-        height = (gint) (height*priv->thumbnail_width/width);
-        width = priv->thumbnail_width;
-		
+
+		height = (gint) (height*priv->thumbnail_width/width);
+		width = priv->thumbnail_width;
+
 		if (!loading_icon || (width != prev_width && height != prev_height)) {
 			loading_icon =
 				ev_sidebar_thumbnails_get_loading_icon (sidebar_thumbnails,
@@ -732,7 +732,7 @@ ev_sidebar_thumbnails_fill_model (EvSidebarThumbnails *sidebar_thumbnails)
 
 		prev_width = width;
 		prev_height = height;
-		
+
 		gtk_list_store_append (priv->list_store, &iter);
 		gtk_list_store_set (priv->list_store, &iter,
 				    COLUMN_PAGE_STRING, page_string,
@@ -816,10 +816,10 @@ ev_sidebar_init_tree_view (EvSidebarThumbnails *ev_sidebar_thumbnails)
 	gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (priv->tree_view), -1,
 						     NULL, gtk_cell_renderer_text_new (),
 						     "markup", 0, NULL);
-						     
+
 	g_signal_connect (priv->tree_view, "scroll-event",
 			  G_CALLBACK (ev_sidebar_thumbnails_scroll_event), ev_sidebar_thumbnails);
-			  
+
 	gtk_container_add (GTK_CONTAINER (priv->swindow), priv->tree_view);
 	gtk_widget_show (priv->tree_view);
 }
@@ -854,10 +854,10 @@ ev_sidebar_init_icon_view (EvSidebarThumbnails *ev_sidebar_thumbnails)
 					renderer, "markup", 0, NULL);
 	g_signal_connect (priv->icon_view, "selection-changed",
 			  G_CALLBACK (ev_sidebar_icon_selection_changed), ev_sidebar_thumbnails);
-			  
+
 	g_signal_connect (priv->icon_view, "selection-changed",
 			  G_CALLBACK (ev_sidebar_icon_selection_changed), ev_sidebar_thumbnails);
-  
+
 	g_signal_connect (priv->icon_view, "scroll-event",
 			  G_CALLBACK (ev_sidebar_thumbnails_scroll_event), ev_sidebar_thumbnails);
 
@@ -884,7 +884,7 @@ ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 	GtkWidget *image;
 
 	priv = ev_sidebar_thumbnails->priv = EV_SIDEBAR_THUMBNAILS_GET_PRIVATE (ev_sidebar_thumbnails);
-	
+
 	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_sidebar_thumbnails), GTK_ORIENTATION_VERTICAL);
 
 	priv->list_store = gtk_list_store_new (NUM_COLUMNS,
@@ -894,9 +894,9 @@ ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 					       EV_TYPE_JOB_THUMBNAIL);
 
 	priv->swindow = gtk_scrolled_window_new (NULL, NULL);
-	
+
 	priv->thumbnail_width = THUMBNAIL_DEFAULT_WIDTH;
-	
+
 	/* We actually don't want GTK_POLICY_AUTOMATIC for horizontal scrollbar here
 	 * it's just a workaround for bug #449462 (GTK2 only)
 	 */
@@ -913,20 +913,20 @@ ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 				  G_CALLBACK (adjustment_changed_cb),
 				  ev_sidebar_thumbnails);
 	gtk_box_pack_start (GTK_BOX (ev_sidebar_thumbnails), priv->swindow, TRUE, TRUE, 0);
-	
+
 	toolbar = gtk_toolbar_new ();
 	gtk_widget_show (toolbar);
 
 	toolitem = GTK_WIDGET (gtk_tool_item_new ());
 	gtk_toolbar_insert (GTK_TOOLBAR (toolbar), GTK_TOOL_ITEM (toolitem), 0);
 	gtk_widget_show (toolitem);
-	
+
 	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
 	gtk_container_add (GTK_CONTAINER (toolitem), hbox);
 	gtk_widget_show (hbox);
 
-    button = gtk_button_new ();
-    gtk_button_set_relief (button, GTK_RELIEF_NONE);
+	button = gtk_button_new ();
+	gtk_button_set_relief (button, GTK_RELIEF_NONE);
 	image = gtk_image_new_from_icon_name ("zoom-in", GTK_ICON_SIZE_BUTTON);
 	gtk_container_add (GTK_CONTAINER (button), image);
 	gtk_widget_show (image);
@@ -937,33 +937,33 @@ ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 			  G_CALLBACK (ev_sidebar_thumbnails_cmd_zoom_in),
 			  ev_sidebar_thumbnails);
 	gtk_widget_show (GTK_WIDGET (button));
-	
-    button = gtk_button_new ();
-    gtk_button_set_relief (button, GTK_RELIEF_NONE);
+
+	button = gtk_button_new ();
+	gtk_button_set_relief (button, GTK_RELIEF_NONE);
 	image = gtk_image_new_from_icon_name ("zoom-out", GTK_ICON_SIZE_BUTTON);
 	gtk_container_add (GTK_CONTAINER (button), image);
 	gtk_widget_show (image);
-	
+
 	gtk_box_pack_start (GTK_BOX (hbox), button, FALSE, FALSE, 0);
 	gtk_widget_set_tooltip_text (GTK_WIDGET (button), _("Zoom out the thumbnails"));
 	g_signal_connect (button, "clicked",
 			  G_CALLBACK (ev_sidebar_thumbnails_cmd_zoom_out),
 			  ev_sidebar_thumbnails);
 	gtk_widget_show (GTK_WIDGET (button));
-	
-    button = gtk_button_new ();
-    gtk_button_set_relief (button, GTK_RELIEF_NONE);
+
+	button = gtk_button_new ();
+	gtk_button_set_relief (button, GTK_RELIEF_NONE);
 	image = gtk_image_new_from_icon_name ("zoom-original", GTK_ICON_SIZE_BUTTON);
 	gtk_container_add (GTK_CONTAINER (button), image);
 	gtk_widget_show (image);
-	
+
 	gtk_box_pack_start (GTK_BOX (hbox), button, FALSE, FALSE, 0);
 	gtk_widget_set_tooltip_text (GTK_WIDGET (button), _("Original zoom of the thumbnails"));
 	g_signal_connect (button, "clicked",
 			  G_CALLBACK (ev_sidebar_thumbnails_cmd_zoom_reset),
 			  ev_sidebar_thumbnails);
 	gtk_widget_show (GTK_WIDGET (button));
-	
+
 	/* Put it all together */
 	gtk_box_pack_end (GTK_BOX (ev_sidebar_thumbnails), toolbar, FALSE, TRUE, 0);
 	gtk_widget_show_all (priv->swindow);
@@ -1037,7 +1037,7 @@ ev_sidebar_thumbnails_reload (EvSidebarThumbnails *sidebar_thumbnails)
 	sidebar_thumbnails->priv->end_page = -1;
 	ev_sidebar_thumbnails_set_current_page (sidebar_thumbnails,
 						ev_document_model_get_page (model));
-						
+
 	g_idle_add ((GSourceFunc)refresh, sidebar_thumbnails);
 }
 
@@ -1167,29 +1167,29 @@ ev_sidebar_thumbnails_set_model (EvSidebarPage   *sidebar_page,
 }
 
 static gboolean
-ev_sidebar_thumbnails_clear_job (GtkTreeModel *model,                                             
+ev_sidebar_thumbnails_clear_job (GtkTreeModel *model,
 			         GtkTreePath *path,
 			         GtkTreeIter *iter,
 				 gpointer data)
 {
 	EvJob *job;
-	
+
 	gtk_tree_model_get (model, iter, COLUMN_JOB, &job, -1);
-	
+
 	if (job != NULL) {
 		ev_job_cancel (job);
 		g_signal_handlers_disconnect_by_func (job, thumbnail_job_completed_callback, data);
 		g_object_unref (job);
 	}
-	
-	return FALSE;    
+
+	return FALSE;
 }
 
-static void 
+static void
 ev_sidebar_thumbnails_clear_model (EvSidebarThumbnails *sidebar_thumbnails)
 {
 	EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
-	
+
 	gtk_tree_model_foreach (GTK_TREE_MODEL (priv->list_store), ev_sidebar_thumbnails_clear_job, sidebar_thumbnails);
 	gtk_list_store_clear (priv->list_store);
 }
