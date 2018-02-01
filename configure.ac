@@ -291,7 +291,7 @@ AC_ARG_ENABLE([caja],
   [enable_caja=yes])
 
 if test "$enable_caja" = "yes" ; then
-  PKG_CHECK_MODULES([CAJA],[$MM gthread-2.0 libcaja-extension >= 1.17.1],
+  PKG_CHECK_MODULES([CAJA],[$MM gthread-2.0 libcaja-extension],
                     [],[AC_MSG_ERROR([libcaja-extension not found; use --disable-caja to disable the caja extensions])])
   CAJA_EXTENSION_DIR=`$PKG_CONFIG --variable=extensiondir libcaja-extension`
   AC_SUBST([cajaextensiondir],[$CAJA_EXTENSION_DIR])
