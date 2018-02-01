@@ -88,7 +88,7 @@ ev_sidebar_select_page (EvSidebar *ev_sidebar,  GtkTreeIter *iter)
 	int index;
 
 	gtk_tree_model_get (ev_sidebar->priv->page_model, iter,
-			    PAGE_COLUMN_TITLE, &title, 
+			    PAGE_COLUMN_TITLE, &title,
 			    PAGE_COLUMN_NOTEBOOK_INDEX, &index,
 			    -1);
 
@@ -106,14 +106,14 @@ ev_sidebar_set_page (EvSidebar   *ev_sidebar,
 	gboolean valid;
 
 	valid = gtk_tree_model_get_iter_first (ev_sidebar->priv->page_model, &iter);
-	   
+
 	while (valid) {
 		GtkWidget *widget;
 
 		gtk_tree_model_get (ev_sidebar->priv->page_model, &iter,
 				    PAGE_COLUMN_MAIN_WIDGET, &widget,
 				    -1);
-			 
+
 		if (widget == main_widget) {
 			ev_sidebar_select_page (ev_sidebar, &iter);
 			valid = FALSE;
@@ -137,7 +137,7 @@ ev_sidebar_set_property (GObject      *object,
 	switch (prop_id)
 	{
 	case PROP_CURRENT_PAGE:
-		ev_sidebar_set_page (sidebar, g_value_get_object (value));	
+		ev_sidebar_set_page (sidebar, g_value_get_object (value));
 		break;
 	default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -178,7 +178,7 @@ ev_sidebar_class_init (EvSidebarClass *ev_sidebar_class)
 
 	g_object_class = G_OBJECT_CLASS (ev_sidebar_class);
 	g_type_class_add_private (g_object_class, sizeof (EvSidebarPrivate));
-	   
+
 	g_object_class->dispose = ev_sidebar_dispose;
 	g_object_class->get_property = ev_sidebar_get_property;
 	g_object_class->set_property = ev_sidebar_set_property;
@@ -206,13 +206,13 @@ ev_sidebar_menu_position_under (GtkMenu  *menu,
 	g_return_if_fail (!gtk_widget_get_has_window (GTK_WIDGET (user_data)));
 
 	widget = GTK_WIDGET (user_data);
-	   
+
 	gdk_window_get_origin (gtk_widget_get_window (widget), x, y);
 	gtk_widget_get_allocation (widget, &allocation);
-	   
+
 	*x += allocation.x;
 	*y += allocation.y + allocation.height;
-	   
+
 	*push_in = FALSE;
 }
 
@@ -232,12 +232,12 @@ ev_sidebar_select_button_press_cb (GtkWidget      *widget,
 		width = allocation.width;
 		gtk_widget_set_size_request (ev_sidebar->priv->menu, -1, -1);
 		gtk_widget_get_preferred_size (ev_sidebar->priv->menu, &requisition, NULL);
-  
+
 		gtk_widget_set_size_request (ev_sidebar->priv->menu,
 					     MAX (width, requisition.width), -1);
-		
+
 		gtk_widget_grab_focus (widget);
-			 
+
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
 		gtk_menu_popup (GTK_MENU (ev_sidebar->priv->menu),
 				NULL, NULL, ev_sidebar_menu_position_under, widget,
@@ -255,7 +255,7 @@ ev_sidebar_select_button_key_press_cb (GtkWidget   *widget,
 				       gpointer     user_data)
 {
 	EvSidebar *ev_sidebar = EV_SIDEBAR (user_data);
-	   
+
 	if (event->keyval == GDK_KEY_space ||
 	    event->keyval == GDK_KEY_KP_Space ||
 	    event->keyval == GDK_KEY_Return ||
@@ -271,13 +271,22 @@ ev_sidebar_select_button_key_press_cb (GtkWidget   *widget,
 }
 
 static void
+ev_sidebar_close_clicked_cb (GtkWidget *widget,
+                             gpointer   user_data)
+{
+	EvSidebar *ev_sidebar = EV_SIDEBAR (user_data);
+
+	gtk_widget_hide (GTK_WIDGET (ev_sidebar));
+}
+
+static void
 ev_sidebar_menu_deactivate_cb (GtkWidget *widget,
-			       gpointer   user_data)
+                               gpointer   user_data)
 {
 	GtkWidget *menu_button;
 
 	menu_button = GTK_WIDGET (user_data);
-	   
+
 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (menu_button), FALSE);
 }
 
@@ -286,7 +295,7 @@ ev_sidebar_menu_detach_cb (GtkWidget *widget,
 			   GtkMenu   *menu)
 {
 	EvSidebar *ev_sidebar = EV_SIDEBAR (widget);
-	   
+
 	ev_sidebar->priv->menu = NULL;
 }
 
@@ -301,12 +310,12 @@ ev_sidebar_menu_item_activate_cb (GtkWidget *widget,
 
 	menu_item = gtk_menu_get_active (GTK_MENU (ev_sidebar->priv->menu));
 	valid = gtk_tree_model_get_iter_first (ev_sidebar->priv->page_model, &iter);
-	   
+
 	while (valid) {
 		gtk_tree_model_get (ev_sidebar->priv->page_model, &iter,
 				    PAGE_COLUMN_MENU_ITEM, &item,
 				    -1);
-			 
+
 		if (item == menu_item) {
 			ev_sidebar_select_page (ev_sidebar, &iter);
 			valid = FALSE;
@@ -323,6 +332,7 @@ static void
 ev_sidebar_init (EvSidebar *ev_sidebar)
 {
 	GtkWidget *hbox;
+	GtkWidget *close_button;
 	GtkWidget *select_hbox;
 	GtkWidget *arrow;
 
@@ -373,6 +383,14 @@ ev_sidebar_init (EvSidebar *ev_sidebar)
 	gtk_widget_set_halign (ev_sidebar->priv->select_button, GTK_ALIGN_CENTER);
 	gtk_widget_show (ev_sidebar->priv->select_button);
 
+	close_button = gtk_button_new_from_icon_name ("window-close-symbolic", GTK_ICON_SIZE_BUTTON);
+	gtk_button_set_relief (GTK_BUTTON (close_button), GTK_RELIEF_NONE);
+	g_signal_connect (close_button, "clicked",
+		               G_CALLBACK (ev_sidebar_close_clicked_cb),
+		               ev_sidebar);
+	gtk_box_pack_end (GTK_BOX (hbox), close_button, FALSE, FALSE, 0);
+	gtk_widget_show (close_button);
+
 	ev_sidebar->priv->menu = gtk_menu_new ();
 	g_signal_connect (ev_sidebar->priv->menu, "deactivate",
 			  G_CALLBACK (ev_sidebar_menu_deactivate_cb),
@@ -414,7 +432,7 @@ ev_sidebar_add_page (EvSidebar   *ev_sidebar,
 	gchar *label_title;
 	const gchar *title;
 	int index;
-	   
+
 	g_return_if_fail (EV_IS_SIDEBAR (ev_sidebar));
 	g_return_if_fail (EV_IS_SIDEBAR_PAGE (main_widget));
 	g_return_if_fail (GTK_IS_WIDGET (main_widget));
@@ -422,10 +440,10 @@ ev_sidebar_add_page (EvSidebar   *ev_sidebar,
 	ev_sidebar_page_set_model (EV_SIDEBAR_PAGE (main_widget),
 				   ev_sidebar->priv->model);
 	title = ev_sidebar_page_get_label (EV_SIDEBAR_PAGE (main_widget));
-	   
+
 	index = gtk_notebook_append_page (GTK_NOTEBOOK (ev_sidebar->priv->notebook),
 					  main_widget, NULL);
-	   
+
 	menu_item = gtk_image_menu_item_new_with_label (title);
 	g_signal_connect (menu_item, "activate",
 			  G_CALLBACK (ev_sidebar_menu_item_activate_cb),
