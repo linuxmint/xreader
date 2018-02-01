@@ -869,7 +869,7 @@ web_thumbnail_get_screenshot_cb (WebKitWebView  *webview,
 	if (event != WEBKIT_LOAD_FINISHED || ev_job_is_failed (EV_JOB(job_thumb))) {
 		return;
 	}
-	
+
 	webkit_web_view_get_snapshot (webview,
 	                              WEBKIT_SNAPSHOT_REGION_VISIBLE,
 	                              WEBKIT_SNAPSHOT_OPTIONS_NONE,
@@ -933,14 +933,14 @@ ev_job_thumbnail_run (EvJob *job)
 		gtk_container_add (GTK_CONTAINER(offscreenwindow), GTK_WIDGET (webview));
 		gtk_window_set_default_size (GTK_WINDOW(offscreenwindow), 800, 1080);
 		gtk_widget_show_all (offscreenwindow);
-        
+
 		g_signal_connect (WEBKIT_WEB_VIEW (webview), "load-changed",
-		                 G_CALLBACK (web_thumbnail_get_screenshot_cb),
-		                 g_object_ref (job_thumb));
+		                  G_CALLBACK (web_thumbnail_get_screenshot_cb),
+		                  g_object_ref (job_thumb));
 		g_signal_connect (WEBKIT_WEB_VIEW(webview), "load-failed",
-		                 G_CALLBACK(webview_load_failed_cb),
-		                 g_object_ref (job_thumb));
-        webkit_web_view_load_uri (webview, (gchar*) rc->page->backend_page);
+		                  G_CALLBACK(webview_load_failed_cb),
+		                  g_object_ref (job_thumb));
+		webkit_web_view_load_uri (webview, (gchar*) rc->page->backend_page);
 	}
 	else 
 #endif  /* ENABLE_EPUB */
