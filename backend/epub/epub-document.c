@@ -124,9 +124,10 @@ epub_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 	cairo_surface_t *webpage;
 	GdkPixbuf *thumbnailpix = NULL ;
 	gint width,height;
-	epub_document_thumbnails_get_dimensions(document,rc,&width,&height);
-	webpage = ev_document_misc_surface_rotate_and_scale(rc->page->backend_page,width,height,0);
-	thumbnailpix = ev_document_misc_pixbuf_from_surface(webpage);
+	epub_document_thumbnails_get_dimensions (document, rc, &width, &height);
+	webpage = ev_document_misc_surface_rotate_and_scale (rc->page->backend_page,
+	                                                     width, height, 0);
+	thumbnailpix = ev_document_misc_pixbuf_from_surface (webpage);
 	return thumbnailpix;
 }
 
