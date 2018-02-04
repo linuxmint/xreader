@@ -1737,7 +1737,7 @@ ev_view_goto_dest (EvView *view, EvLinkDest *dest)
 	type = ev_link_dest_get_dest_type (dest);
 
 	if (type == EV_LINK_DEST_TYPE_NAMED) {
-		EvLinkDest  *dest2;	
+		EvLinkDest  *dest2;
 		const gchar *named_dest;
 
 		named_dest = ev_link_dest_get_named_dest (dest);
@@ -2228,7 +2228,7 @@ ev_view_form_field_text_create_widget (EvView      *view,
 					  field);
 		}
 			break;
-	}			
+	}
 
 	g_object_weak_ref (G_OBJECT (text),
 			   (GWeakNotify)ev_view_form_field_text_save,
@@ -3770,7 +3770,7 @@ ev_view_button_press_event (GtkWidget      *widget,
 				if (EV_IS_SELECTION (view->document))
 					start_selection_for_event (view, event);
 			}
-		}			
+		}
 			return TRUE;
 		case 2:
 			/* use root coordinates as reference point because
@@ -3882,7 +3882,7 @@ selection_update_idle_cb (EvView *view)
 
 static gboolean
 selection_scroll_timeout_cb (EvView *view)
-{	
+{
 	gint x, y, shift = 0;
 	GtkWidget *widget = GTK_WIDGET (view);
 	GtkAllocation allocation;
@@ -4086,10 +4086,10 @@ ev_view_motion_notify_event (GtkWidget      *widget,
 		view->motion.x = x + view->scroll_x;
 		view->motion.y = y + view->scroll_y;
 
-		/* Queue an idle to handle the motion.  We do this because	
-		 * handling any selection events in the motion could be slower	
-		 * than new motion events reach us.  We always put it in the	
-		 * idle to make sure we catch up and don't visibly lag the	
+		/* Queue an idle to handle the motion.  We do this because
+		 * handling any selection events in the motion could be slower
+		 * than new motion events reach us.  We always put it in the
+		 * idle to make sure we catch up and don't visibly lag the
 		 * mouse. */
 		if (!view->selection_update_id)
 			view->selection_update_id = g_idle_add ((GSourceFunc)selection_update_idle_cb, view);
@@ -6146,7 +6146,7 @@ jump_to_find_page (EvView *view, EvViewFindDirection direction, gint shift)
 		if (direction == EV_VIEW_FIND_NEXT)
 			page = view->current_page + i;
 		else
-			page = view->current_page - i;		
+			page = view->current_page - i;
 		page += shift;
 
 		if (page >= n_pages) {
@@ -6849,7 +6849,7 @@ ev_view_previous_page (EvView *view)
 	} else if (view->dual_page && page == -1) {
 		ev_document_model_set_page (view->model, 0);
 		return TRUE;
-	} else {	
+	} else {
 		return FALSE;
 	}
 }
