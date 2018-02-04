@@ -2107,7 +2107,7 @@ ev_view_form_field_button_create_widget (EvView      *view,
 		gtk_widget_grab_focus (GTK_WIDGET (view));
 
 	form_mapping = ev_page_cache_get_form_field_mapping (view->page_cache,
-									      field->page->index);
+							     field->page->index);
 	mapping = ev_mapping_list_find (form_mapping, field);
 	ev_view_set_focused_element (view, mapping, field->page->index);
 
@@ -4274,14 +4274,14 @@ ev_view_key_press_event (GtkWidget   *widget,
 		} else {
 			return FALSE;
 		}
-			GdkEventKey *new_event;
-			gboolean     handled;
+		GdkEventKey *new_event;
+		gboolean     handled;
 
-			new_event = (GdkEventKey *) gdk_event_copy ((GdkEvent *)event);
-			g_object_unref (new_event->window);
+		new_event = (GdkEventKey *) gdk_event_copy ((GdkEvent *)event);
+		g_object_unref (new_event->window);
 		new_event->window = gtk_widget_get_window (child_widget);
-			if (new_event->window)
-				g_object_ref (new_event->window);
+		if (new_event->window)
+			g_object_ref (new_event->window);
 		gtk_widget_realize (child_widget);
 		handled = gtk_widget_event (child_widget, (GdkEvent *)new_event);
 			gdk_event_free ((GdkEvent *)new_event);
