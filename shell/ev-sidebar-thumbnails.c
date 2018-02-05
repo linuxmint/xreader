@@ -927,25 +927,12 @@ ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 
 	button = gtk_button_new ();
 	gtk_button_set_relief (button, GTK_RELIEF_NONE);
-	image = gtk_image_new_from_icon_name ("zoom-in", GTK_ICON_SIZE_BUTTON);
+	image = gtk_image_new_from_icon_name ("zoom-out-symbolic", GTK_ICON_SIZE_BUTTON);
 	gtk_container_add (GTK_CONTAINER (button), image);
 	gtk_widget_show (image);
 
 	gtk_box_pack_start (GTK_BOX (hbox), button, FALSE, FALSE, 0);
-	gtk_widget_set_tooltip_text (GTK_WIDGET (button), _("Zoom in the thumbnails"));
-	g_signal_connect (button, "clicked",
-			  G_CALLBACK (ev_sidebar_thumbnails_cmd_zoom_in),
-			  ev_sidebar_thumbnails);
-	gtk_widget_show (GTK_WIDGET (button));
-
-	button = gtk_button_new ();
-	gtk_button_set_relief (button, GTK_RELIEF_NONE);
-	image = gtk_image_new_from_icon_name ("zoom-out", GTK_ICON_SIZE_BUTTON);
-	gtk_container_add (GTK_CONTAINER (button), image);
-	gtk_widget_show (image);
-
-	gtk_box_pack_start (GTK_BOX (hbox), button, FALSE, FALSE, 0);
-	gtk_widget_set_tooltip_text (GTK_WIDGET (button), _("Zoom out the thumbnails"));
+	gtk_widget_set_tooltip_text (GTK_WIDGET (button), _("Shrink the thumbnails"));
 	g_signal_connect (button, "clicked",
 			  G_CALLBACK (ev_sidebar_thumbnails_cmd_zoom_out),
 			  ev_sidebar_thumbnails);
@@ -953,12 +940,25 @@ ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 
 	button = gtk_button_new ();
 	gtk_button_set_relief (button, GTK_RELIEF_NONE);
-	image = gtk_image_new_from_icon_name ("zoom-original", GTK_ICON_SIZE_BUTTON);
+	image = gtk_image_new_from_icon_name ("zoom-in-symbolic", GTK_ICON_SIZE_BUTTON);
 	gtk_container_add (GTK_CONTAINER (button), image);
 	gtk_widget_show (image);
 
 	gtk_box_pack_start (GTK_BOX (hbox), button, FALSE, FALSE, 0);
-	gtk_widget_set_tooltip_text (GTK_WIDGET (button), _("Original zoom of the thumbnails"));
+	gtk_widget_set_tooltip_text (GTK_WIDGET (button), _("Enlarge the thumbnails"));
+	g_signal_connect (button, "clicked",
+			  G_CALLBACK (ev_sidebar_thumbnails_cmd_zoom_in),
+			  ev_sidebar_thumbnails);
+	gtk_widget_show (GTK_WIDGET (button));
+
+	button = gtk_button_new ();
+	gtk_button_set_relief (button, GTK_RELIEF_NONE);
+	image = gtk_image_new_from_icon_name ("zoom-original-symbolic", GTK_ICON_SIZE_BUTTON);
+	gtk_container_add (GTK_CONTAINER (button), image);
+	gtk_widget_show (image);
+
+	gtk_box_pack_start (GTK_BOX (hbox), button, FALSE, FALSE, 0);
+	gtk_widget_set_tooltip_text (GTK_WIDGET (button), _("View the thumbnails at their original size"));
 	g_signal_connect (button, "clicked",
 			  G_CALLBACK (ev_sidebar_thumbnails_cmd_zoom_reset),
 			  ev_sidebar_thumbnails);
