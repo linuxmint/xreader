@@ -1013,6 +1013,10 @@ ev_window_init_metadata_with_default_values (EvWindow *window)
         ev_metadata_set_int (metadata, "sidebar_size",
                 g_settings_get_int (settings, "sidebar-size"));
     }
+    if (!ev_metadata_has_key (metadata, "thumbnails_size")) {
+        ev_metadata_set_int (metadata, "thumbnails_size",
+                g_settings_get_int (settings, "thumbnails-size"));
+    }
     if (!ev_metadata_has_key (metadata, "sidebar_page")) {
         gchar *sidebar_page_id = g_settings_get_string (settings, "sidebar-page");
 
@@ -1071,12 +1075,16 @@ setup_sidebar_from_metadata (EvWindow *window)
 {
     gchar *page_id;
     gint   sidebar_size;
+    gint   thumbnails_size;
 
     if (!window->priv->metadata)
         return;
 
     if (ev_metadata_get_int (window->priv->metadata, "sidebar_size", &sidebar_size))
         gtk_paned_set_position (GTK_PANED (window->priv->hpaned), sidebar_size);
+
+    if (ev_metadata_get_int (window->priv->metadata, "thumbnails_size", &thumbnails_size))
+        ev_sidebar_thumbnails_set_size (EV_SIDEBAR_THUMBNAILS (window->priv->sidebar_thumbs), thumbnails_size);
 
     if (ev_metadata_get_string (window->priv->metadata, "sidebar_page", &page_id))
         ev_window_sidebar_set_current_page (window, page_id);
@@ -1799,7 +1807,7 @@ ev_window_progress_response_cb (EvProgressMessageArea *area,
     ev_window_set_message_area (ev_window, NULL);
 }
 
-static gboolean 
+static gboolean
 show_loading_progress (EvWindow *ev_window)
 {
     GtkWidget *area;
@@ -2578,7 +2586,7 @@ compare_recent_items (GtkRecentInfo *a,
 /*
  * Doubles underscore to avoid spurious menu accels.
  */
-static gchar * 
+static gchar *
 ev_window_get_recent_file_label (gint index,
                                  const gchar *filename)
 {
@@ -2731,7 +2739,7 @@ ev_window_setup_recent (EvWindow *ev_window)
     g_list_free (items);
 }
 
-static gboolean 
+static gboolean
 show_saving_progress (GFile *dst)
 {
     EvWindow  *ev_window;
@@ -4658,14 +4666,14 @@ ev_window_cmd_view_autoscroll (GtkAction *action,
 #define EV_HELP "help:xreader"
 
 static void
-ev_window_cmd_help_contents (GtkAction *action, 
+ev_window_cmd_help_contents (GtkAction *action,
                              EvWindow *ev_window)
 {
 	ev_window_show_help(ev_window, NULL);
 }
 
 void
-ev_window_show_help (EvWindow *ev_window, 
+ev_window_show_help (EvWindow *ev_window,
                      const gchar *uri)
 {
     GError  *error       = NULL;
@@ -6255,6 +6263,15 @@ sidebar_layers_visibility_changed (EvSidebarLayers *layers,
 }
 
 static void
+sidebar_thumbnails_size_changed   (EvSidebarThumbnails  *sidebar_thumbnails,
+                                   gint                  new_size,
+                                   EvWindow             *window)
+{
+	if (window->priv->metadata)
+		ev_metadata_set_int (window->priv->metadata, "thumbnails_size", new_size);
+}
+
+static void
 sidebar_annots_annot_activated_cb (EvSidebarAnnotations *sidebar_annots,
                                    EvMapping            *annot_mapping,
                                    EvWindow             *window)
@@ -7455,6 +7472,10 @@ ev_window_init (EvWindow *ev_window)
     g_signal_connect (sidebar_widget,
             "notify::main-widget",
             G_CALLBACK (sidebar_page_main_widget_update_cb),
+            ev_window);
+    g_signal_connect (sidebar_widget,
+            "size_changed",
+            G_CALLBACK (sidebar_thumbnails_size_changed),
             ev_window);
     sidebar_page_main_widget_update_cb (G_OBJECT (sidebar_widget), NULL, ev_window);
     gtk_widget_show (sidebar_widget);

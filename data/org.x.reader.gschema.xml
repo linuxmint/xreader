@@ -71,6 +71,9 @@
     <key name="sidebar-size" type="i">
       <default>132</default>
     </key>
+    <key name="thumbnails-size" type="i">
+      <default>100</default>
+    </key>
   </schema>
 
   <schema id="org.x.reader.toolbar" path="/org/x/reader/toolbar/" gettext-domain="xreader">

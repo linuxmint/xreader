@@ -1,6 +1,6 @@
 /* ev-sidebar-thumbnails.h
  *  this file is part of xreader, a mate document viewer
- * 
+ *
  * Copyright (C) 2004 Red Hat, Inc.
  *
  * Author:
@@ -47,13 +47,21 @@ struct _EvSidebarThumbnails {
 
 struct _EvSidebarThumbnailsClass {
 	GtkBoxClass base_class;
+
+	void    (* size_changed)     (EvSidebarThumbnails *sidebar_thumbnails,
+	                              gint                 new_size);
 };
 
 GType      ev_sidebar_thumbnails_get_type     (void) G_GNUC_CONST;
 GtkWidget *ev_sidebar_thumbnails_new          (void);
+gboolean   ev_sidebar_thumbnails_can_zoom_in  (EvSidebarThumbnails *sidebar_thumbnails);
+gboolean   ev_sidebar_thumbnails_can_zoom_out (EvSidebarThumbnails *sidebar_thumbnails);
+void       ev_sidebar_thumbnails_zoom_in      (EvSidebarThumbnails *sidebar_thumbnails);
+void       ev_sidebar_thumbnails_zoom_out     (EvSidebarThumbnails *sidebar_thumbnails);
+void       ev_sidebar_thumbnails_zoom_reset   (EvSidebarThumbnails *sidebar_thumbnails);
+void       ev_sidebar_thumbnails_set_size     (EvSidebarThumbnails *sidebar_thumbnails, gint size);
 
 G_END_DECLS
 
 #endif /* __EV_SIDEBAR_THUMBNAILS_H__ */
-
 
