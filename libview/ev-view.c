@@ -2028,7 +2028,6 @@ ev_view_set_focused_element (EvView *view,
 		cairo_region_destroy (region);
 	}
 }
-
 /*** Forms ***/
 static EvFormField *
 ev_view_get_form_field_at_location (EvView  *view,
@@ -2088,7 +2087,6 @@ ev_view_remove_all_form_fields (EvView *view)
 {
 	gtk_container_foreach (GTK_CONTAINER (view), (GtkCallback)destroy_child_if_form_widget, NULL);
 }
-
 
 static void
 ev_view_form_field_destroy (GtkWidget *widget,
@@ -2460,7 +2458,6 @@ ev_view_handle_form_field (EvView      *view,
 	EvMapping     *mapping;
 
 	ev_view_set_focused_element (view, NULL, -1);
-	
 	if (field->is_read_only)
 		return;
 
@@ -2495,6 +2492,7 @@ ev_view_handle_form_field (EvView      *view,
 			field_widget,
 			field->page->index,
 			&mapping->area);
+
 	gtk_widget_show (field_widget);
 	gtk_widget_grab_focus (field_widget);
 }
@@ -2649,7 +2647,6 @@ ev_view_remove_window_child_for_annot (EvView       *view,
 		children = children->next;
 	}
 }
-
 static void
 ev_view_window_children_free (EvView *view)
 {
@@ -3086,7 +3083,6 @@ ev_view_remove_annotation (EvView       *view,
 	g_signal_emit (view, signals[SIGNAL_ANNOT_REMOVED], 0, annot);
 	g_object_unref (annot);
 }
-
 static gboolean
 ev_view_synctex_backward_search (EvView *view,
 				 gdouble x,
@@ -3387,24 +3383,19 @@ ev_view_scroll_event (GtkWidget *widget, GdkEventScroll *event)
 	EvView *view = EV_VIEW (widget);
 	guint state;
 
-	if (event->direction == GDK_SCROLL_SMOOTH)
-		return FALSE;
-
 	state = event->state & gtk_accelerator_get_default_mod_mask ();
 
 	if (state == GDK_CONTROL_MASK) {
 		ev_document_model_set_sizing_mode (view->model, EV_SIZING_FREE);
 		view->zoom_center_x = event->x;
 		view->zoom_center_y = event->y;
-		if (event->direction == GDK_SCROLL_UP ||
-		    event->direction == GDK_SCROLL_LEFT) {
-			if (ev_view_can_zoom_in (view)) {
+
+		if (event->delta_x > 0 || event->delta_y < 0) {
+			if (ev_view_can_zoom_in (view))
 				ev_view_zoom_in (view);
-			}
 		} else {
-			if (ev_view_can_zoom_out (view)) {
+			if (ev_view_can_zoom_out (view))
 				ev_view_zoom_out (view);
-			}
 		}
 
 		return TRUE;
@@ -3414,33 +3405,18 @@ ev_view_scroll_event (GtkWidget *widget, GdkEventScroll *event)
 
 	/* Shift+Wheel scrolls the in the perpendicular direction */
 	if (state & GDK_SHIFT_MASK) {
-		if (event->direction == GDK_SCROLL_UP)
-			event->direction = GDK_SCROLL_LEFT;
-		else if (event->direction == GDK_SCROLL_LEFT)
-			event->direction = GDK_SCROLL_UP;
-		else if (event->direction == GDK_SCROLL_DOWN)
-			event->direction = GDK_SCROLL_RIGHT;
-		else if (event->direction == GDK_SCROLL_RIGHT)
-			event->direction = GDK_SCROLL_DOWN;
+		event->delta_x = -event->delta_x;
+		event->delta_y = -event->delta_y;
 
 		event->state &= ~GDK_SHIFT_MASK;
 		state &= ~GDK_SHIFT_MASK;
 	}
 
 	if (state == 0 && view->sizing_mode == EV_SIZING_BEST_FIT && !view->continuous) {
-		switch (event->direction) {
-		        case GDK_SCROLL_DOWN:
-		        case GDK_SCROLL_RIGHT:
-				ev_view_next_page (view);
-				break;
-		        case GDK_SCROLL_UP:
-		        case GDK_SCROLL_LEFT:
-				ev_view_previous_page (view);
-				break;
-		        case GDK_SCROLL_SMOOTH:
-					g_assert_not_reached ();
-		}
-
+		if (event->delta_x > 0 || event->delta_y < 0)
+			ev_view_previous_page (view);
+		else
+			ev_view_next_page (view);
 		return TRUE;
 	}
 
@@ -4290,7 +4266,6 @@ ev_view_key_press_event (GtkWidget   *widget,
 	if (!gtk_widget_has_focus (widget)) {
 		/* Forward key events to current focused window child */
 		GtkWidget   *child_widget = NULL;
-		
 		if (view->window_child_focus) {
 			child_widget = view->window_child_focus->window;
 		} else if (view->children) {
@@ -4299,7 +4274,6 @@ ev_view_key_press_event (GtkWidget   *widget,
 		} else {
 			return FALSE;
 		}
-		
 		GdkEventKey *new_event;
 		gboolean     handled;
 
@@ -4310,10 +4284,11 @@ ev_view_key_press_event (GtkWidget   *widget,
 			g_object_ref (new_event->window);
 		gtk_widget_realize (child_widget);
 		handled = gtk_widget_event (child_widget, (GdkEvent *)new_event);
-		gdk_event_free ((GdkEvent *)new_event);
+			gdk_event_free ((GdkEvent *)new_event);
 
-		return handled;
-	}
+			return handled;
+		}
+
 
 	return gtk_bindings_activate_event (G_OBJECT (widget), event);
 }
@@ -5125,7 +5100,6 @@ ev_view_focus (GtkWidget        *widget,
 
 	return GTK_WIDGET_CLASS (ev_view_parent_class)->focus (widget, direction);
 }
-
 static void
 ev_view_parent_set (GtkWidget *widget,
 		    GtkWidget *previous_parent)
@@ -5339,6 +5313,7 @@ ev_view_init (EvView *view)
 			       GDK_BUTTON_PRESS_MASK |
 			       GDK_BUTTON_RELEASE_MASK |
 			       GDK_SCROLL_MASK |
+			       GDK_SMOOTH_SCROLL_MASK |
 			       GDK_KEY_PRESS_MASK |
 			       GDK_POINTER_MOTION_MASK |
 			       GDK_POINTER_MOTION_HINT_MASK |
