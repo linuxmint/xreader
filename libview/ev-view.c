@@ -157,6 +157,10 @@ static void          show_annotation_windows                 (EvView            
 static void          hide_annotation_windows                 (EvView             *view,
 							      gint                page);
 /*** GtkWidget implementation ***/
+static void       ev_view_get_page_size                      (EvView             *view,
+		                                              gint                page,
+		                                              gint               *page_width,
+		                                              gint               *page_height);
 static void       ev_view_size_request_continuous_dual_page  (EvView             *view,
 							      GtkRequisition     *requisition);
 static void       ev_view_size_request_continuous            (EvView             *view,
@@ -889,16 +893,24 @@ ev_view_scroll (EvView        *view,
 		gboolean       horizontal)
 {
 	GtkAdjustment *adjustment;
+	GtkWidget *widget;
 	double value, increment;
 	gdouble upper, lower;
 	gdouble page_size;
 	gdouble step_increment;
 	gboolean first_page = FALSE;
 	gboolean last_page = FALSE;
+	gint width, height;
+	GtkAllocation allocation;
 
 	view->jump_to_find_result = FALSE;
 
-	if (view->sizing_mode == EV_SIZING_BEST_FIT) {
+	widget = GTK_WIDGET (view);
+	ev_view_get_page_size (view, view->current_page, &width, &height);
+	gtk_widget_get_allocation (widget, &allocation);
+
+	if (view->sizing_mode == EV_SIZING_BEST_FIT
+			|| (!view->continuous && height <= allocation.height)) {
 		switch (scroll) {
 			case GTK_SCROLL_PAGE_BACKWARD:
 			case GTK_SCROLL_STEP_BACKWARD:
@@ -3412,7 +3424,14 @@ ev_view_scroll_event (GtkWidget *widget, GdkEventScroll *event)
 		state &= ~GDK_SHIFT_MASK;
 	}
 
-	if (state == 0 && view->sizing_mode == EV_SIZING_BEST_FIT && !view->continuous) {
+	gint width, height;
+	GtkAllocation allocation;
+
+	ev_view_get_page_size (view, view->current_page, &width, &height);
+	gtk_widget_get_allocation (widget, &allocation);
+
+	if (state == 0 && !view->continuous
+			&& (view->sizing_mode == EV_SIZING_BEST_FIT || height <= allocation.height)) {
 		if (event->delta_x > 0 || event->delta_y < 0)
 			ev_view_previous_page (view);
 		else
