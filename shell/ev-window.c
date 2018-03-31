@@ -6136,7 +6136,7 @@ static const GtkToggleActionEntry toggle_entries[] = {
                 N_("Show or hide the side pane"),
                 G_CALLBACK (ev_window_view_sidebar_cb), TRUE },
          { "ViewContinuous", EV_STOCK_VIEW_CONTINUOUS, N_("_Continuous"),
-                 NULL,
+                 "<shift><ctrl>C",
                  N_("Show the entire document"),
                  G_CALLBACK (ev_window_cmd_continuous), TRUE },
          { "ViewDual", EV_STOCK_VIEW_DUAL, N_("_Dual (Even pages left)"),
