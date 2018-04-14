@@ -185,6 +185,7 @@ ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 	gtk_widget_show (toolbar);
 
 	toolitem = GTK_WIDGET (gtk_tool_item_new ());
+	gtk_tool_item_set_expand (toolitem, TRUE);
 	gtk_toolbar_insert (GTK_TOOLBAR (toolbar), GTK_TOOL_ITEM (toolitem), 0);
 	gtk_widget_show (toolitem);
 
@@ -192,7 +193,7 @@ ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 	gtk_container_add (GTK_CONTAINER (toolitem), hbox);
 	gtk_widget_show (hbox);
 
-	ev_annots->priv->annot_text_item = gtk_toggle_button_new ();
+	/*ev_annots->priv->annot_text_item = gtk_toggle_button_new ();
 	image = gtk_image_new_from_icon_name ("list-add-symbolic", GTK_ICON_SIZE_BUTTON);
 	gtk_container_add (GTK_CONTAINER (ev_annots->priv->annot_text_item), image);
 	gtk_widget_show (image);
@@ -202,7 +203,104 @@ ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 	g_signal_connect (ev_annots->priv->annot_text_item, "toggled",
 			  G_CALLBACK (ev_sidebar_annotations_text_annot_button_toggled),
 			  ev_annots);
-	gtk_widget_show (GTK_WIDGET (ev_annots->priv->annot_text_item));
+	gtk_widget_show (GTK_WIDGET (ev_annots->priv->annot_text_item));*/
+
+	GtkWidget *frame = gtk_frame_new (_("Annotations"));
+	gtk_box_pack_start (GTK_BOX (hbox), frame, TRUE, TRUE, 2);
+
+	GtkWidget *flow = gtk_flow_box_new ();
+    gtk_widget_set_valign (flow, GTK_ALIGN_START);
+    gtk_flow_box_set_activate_on_single_click (GTK_FLOW_BOX (flow), TRUE);
+    gtk_flow_box_set_selection_mode (GTK_FLOW_BOX (flow), GTK_SELECTION_NONE);
+
+    gtk_container_add (GTK_CONTAINER (frame), flow);
+
+    GtkWidget *button;
+    image = gtk_image_new_from_icon_name ("accessories-text-editor", GTK_ICON_SIZE_BUTTON);
+
+    button = gtk_button_new ();
+    gtk_style_context_add_class (gtk_widget_get_style_context (button), GTK_STYLE_CLASS_FLAT);
+
+    gtk_button_set_always_show_image (GTK_BUTTON (button), TRUE);
+    gtk_button_set_image (GTK_BUTTON (button), image);
+    gtk_button_set_image_position (GTK_BUTTON (button), GTK_POS_TOP);
+
+    gtk_container_add (GTK_CONTAINER (flow), button);
+    gtk_widget_show (button);
+    button = gtk_button_new ();
+    image = gtk_image_new_from_icon_name ("list-add-symbolic", GTK_ICON_SIZE_BUTTON);
+    gtk_style_context_add_class (gtk_widget_get_style_context (button), GTK_STYLE_CLASS_FLAT);
+
+    gtk_button_set_always_show_image (GTK_BUTTON (button), TRUE);
+    gtk_button_set_image (GTK_BUTTON (button), image);
+    gtk_button_set_image_position (GTK_BUTTON (button), GTK_POS_TOP);
+
+    gtk_container_add (GTK_CONTAINER (flow), button);
+    gtk_widget_show (button);
+    button = gtk_button_new ();
+    image = gtk_image_new_from_icon_name ("list-add-symbolic", GTK_ICON_SIZE_BUTTON);
+    gtk_style_context_add_class (gtk_widget_get_style_context (button), GTK_STYLE_CLASS_FLAT);
+
+    gtk_button_set_always_show_image (GTK_BUTTON (button), TRUE);
+    gtk_button_set_image (GTK_BUTTON (button), image);
+    gtk_button_set_image_position (GTK_BUTTON (button), GTK_POS_TOP);
+
+    gtk_container_add (GTK_CONTAINER (flow), button);
+    gtk_widget_show (button);
+
+    gtk_widget_show (frame);
+    gtk_widget_show (flow);
+
+
+
+
+
+	frame = gtk_frame_new (_("Markup"));
+	gtk_box_pack_start (GTK_BOX (hbox), frame, TRUE, TRUE, 2);
+
+	flow = gtk_flow_box_new ();
+    gtk_widget_set_valign (flow, GTK_ALIGN_START);
+    gtk_flow_box_set_activate_on_single_click (GTK_FLOW_BOX (flow), TRUE);
+    gtk_flow_box_set_selection_mode (GTK_FLOW_BOX (flow), GTK_SELECTION_NONE);
+
+    gtk_container_add (GTK_CONTAINER (frame), flow);
+
+    image = gtk_image_new_from_icon_name ("list-add-symbolic", GTK_ICON_SIZE_BUTTON);
+
+    button = gtk_button_new ();
+    gtk_style_context_add_class (gtk_widget_get_style_context (button), GTK_STYLE_CLASS_FLAT);
+
+    gtk_button_set_always_show_image (GTK_BUTTON (button), TRUE);
+    gtk_button_set_image (GTK_BUTTON (button), image);
+    gtk_button_set_image_position (GTK_BUTTON (button), GTK_POS_TOP);
+
+    gtk_container_add (GTK_CONTAINER (flow), button);
+    gtk_widget_show (button);
+    button = gtk_button_new ();
+    image = gtk_image_new_from_icon_name ("list-add-symbolic", GTK_ICON_SIZE_BUTTON);
+    gtk_style_context_add_class (gtk_widget_get_style_context (button), GTK_STYLE_CLASS_FLAT);
+
+    gtk_button_set_always_show_image (GTK_BUTTON (button), TRUE);
+    gtk_button_set_image (GTK_BUTTON (button), image);
+    gtk_button_set_image_position (GTK_BUTTON (button), GTK_POS_TOP);
+
+    gtk_container_add (GTK_CONTAINER (flow), button);
+    gtk_widget_show (button);
+    button = gtk_button_new ();
+    image = gtk_image_new_from_icon_name ("list-add-symbolic", GTK_ICON_SIZE_BUTTON);
+    gtk_style_context_add_class (gtk_widget_get_style_context (button), GTK_STYLE_CLASS_FLAT);
+
+    gtk_button_set_always_show_image (GTK_BUTTON (button), TRUE);
+    gtk_button_set_image (GTK_BUTTON (button), image);
+    gtk_button_set_image_position (GTK_BUTTON (button), GTK_POS_TOP);
+
+    gtk_container_add (GTK_CONTAINER (flow), button);
+    gtk_widget_show (button);
+
+    gtk_widget_show (frame);
+    gtk_widget_show (flow);
+
+
 
 	gtk_box_pack_end (GTK_BOX (ev_annots), toolbar, FALSE, TRUE, 0);
 	gtk_widget_show (GTK_WIDGET (ev_annots));
