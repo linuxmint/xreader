@@ -54,7 +54,7 @@ typedef struct {
 	gboolean autoscrolling;
 	guint last_y;
 	guint start_y;
-	guint timeout_id;	
+	guint timeout_id;
 } AutoScrollInfo;
 
 /* Information for handling selection */
@@ -114,6 +114,23 @@ typedef struct _EvHeightToPageCache {
 	gdouble *dual_height_to_page;
 } EvHeightToPageCache;
 
+/* Information for handling annotations */
+typedef struct {
+	GdkPoint         start;
+	GdkPoint         stop;
+	gboolean         adding_annot;
+	EvAnnotationInfo info;
+	EvAnnotation    *annot;
+} AddingAnnotInfo;
+
+typedef struct {
+	GdkPoint      start;
+	EvPoint       cursor_offset;
+	gboolean      annot_clicked;
+	gboolean      moving_annot;
+	EvAnnotation *annot;
+} MovingAnnotInfo;
+
 struct _EvView {
 	GtkLayout layout;
 
@@ -148,14 +165,14 @@ struct _EvView {
 	guint vscroll_policy : 1;
 
 	gint scroll_x;
-	gint scroll_y;	
+	gint scroll_y;
 
 	PendingScroll pending_scroll;
 	gboolean      pending_resize;
 	EvPoint       pending_point;
 
 	/* Current geometry */
-    
+
 	gint start_page;
 	gint end_page;
 	gint current_page;
@@ -178,7 +195,7 @@ struct _EvView {
 
 	/* Information for middle clicking and dragging around. */
 	DragInfo drag_info;
-	
+
 	/* Autoscrolling */
 	AutoScrollInfo scroll_info;
 
@@ -200,9 +217,9 @@ struct _EvView {
 	GList             *window_children;
 	EvViewWindowChild *window_child_focus;
 	EvMapping         *focus_annotation;
-	gboolean           adding_annot;
-	EvAnnotationType   adding_annot_type;
-	
+	AddingAnnotInfo    adding_annot_info;
+	MovingAnnotInfo    moving_annot_info;
+
 	/* Focus */
 	EvMapping *focused_element;
 	guint focused_element_page;

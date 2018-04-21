@@ -253,6 +253,7 @@ struct _EvWindowPrivate {
 #define EV_PAGE_SETUP_GROUP             "Page Setup"
 
 #define MIN_SCALE 0.05409
+#define MIN_WIDTH_SIDEBAR 220
 
 #define MAX_RECENT_ITEM_LEN (40)
 
@@ -6282,11 +6283,13 @@ sidebar_annots_annot_activated_cb (EvSidebarAnnotations *sidebar_annots,
 
 static void
 sidebar_annots_begin_annot_add (EvSidebarAnnotations *sidebar_annots,
-                                EvAnnotationType      annot_type,
+                                gpointer              data,
                                 EvWindow             *window)
 {
     if (window->priv->document->iswebdocument == TRUE ) return;
-    ev_view_begin_add_annotation (EV_VIEW (window->priv->view), annot_type);
+
+    EvAnnotationInfo *annot_info = (EvAnnotationInfo *) data;
+    ev_view_begin_add_annotation (EV_VIEW (window->priv->view), *annot_info);
 }
 
 static void
@@ -7464,6 +7467,9 @@ ev_window_init (EvWindow *ev_window)
     gtk_paned_pack1 (GTK_PANED (ev_window->priv->hpaned),
             ev_window->priv->sidebar, FALSE, FALSE);
     gtk_widget_show (ev_window->priv->sidebar);
+
+    /* To ensure the display of toolbars */
+    gtk_widget_set_size_request (ev_window->priv->sidebar, MIN_WIDTH_SIDEBAR, -1);
 
     /* Stub sidebar, for now */
 

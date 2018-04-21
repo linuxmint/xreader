@@ -53,7 +53,12 @@ struct _EvSidebarAnnotationsPrivate {
 
 	GtkWidget *notebook;
 	GtkWidget *tree_view;
-	GtkWidget *annot_text_item;
+	GtkWidget *annot_note;
+	GtkWidget *annot_highlight;
+	GtkWidget *annot_underline;
+	GtkWidget *annot_strike_out;
+	GtkWidget *annot_squiggly;
+	GtkWidget *color_button;
 
 	EvJob *job;
 	guint selection_changed_id;
@@ -113,22 +118,50 @@ ev_sidebar_annotations_create_simple_model (const gchar *message)
 }
 
 static void
-ev_sidebar_annotations_text_annot_button_toggled (GtkWidget  *button,
-						  EvSidebarAnnotations *sidebar_annots)
+ev_sidebar_annotations_button_toggled (GtkWidget            *button,
+                                       EvSidebarAnnotations *sidebar_annots)
 {
-	EvAnnotationType annot_type;
+	EvAnnotationInfo             annot_info;
+	EvSidebarAnnotationsPrivate *priv = sidebar_annots->priv;
 
 	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button))) {
 		g_signal_emit (sidebar_annots, signals[ANNOT_ADD_CANCELLED], 0, NULL);
 		return;
 	}
 
-	if (button == sidebar_annots->priv->annot_text_item)
-		annot_type = EV_ANNOTATION_TYPE_TEXT;
-	else
-		annot_type = EV_ANNOTATION_TYPE_UNKNOWN;
+	/* When an another button was activated before */
+	if (priv->annot_note != button && gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->annot_note)))
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (sidebar_annots->priv->annot_note), FALSE);
+	else if (priv->annot_highlight != button && gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->annot_highlight)))
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (sidebar_annots->priv->annot_highlight), FALSE);
+	else if (priv->annot_underline != button && gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->annot_underline)))
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (sidebar_annots->priv->annot_underline), FALSE);
+	else if (priv->annot_squiggly != button && gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->annot_squiggly)))
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (sidebar_annots->priv->annot_squiggly), FALSE);
+	else if (priv->annot_strike_out != button && gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->annot_strike_out)))
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (sidebar_annots->priv->annot_strike_out), FALSE);
 
-	g_signal_emit (sidebar_annots, signals[BEGIN_ANNOT_ADD], 0, annot_type);
+	if (button == sidebar_annots->priv->annot_note) {
+		annot_info.type = EV_ANNOTATION_TYPE_TEXT;
+		annot_info.icon = EV_ANNOTATION_TEXT_ICON_NOTE;
+	} else {
+		annot_info.type = EV_ANNOTATION_TYPE_TEXT_MARKUP;
+
+		if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->annot_highlight)))
+			annot_info.markup_type = EV_ANNOTATION_TEXT_MARKUP_HIGHLIGHT;
+		else if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->annot_strike_out)))
+			annot_info.markup_type = EV_ANNOTATION_TEXT_MARKUP_STRIKE_OUT;
+		else if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->annot_squiggly)))
+			annot_info.markup_type = EV_ANNOTATION_TEXT_MARKUP_SQUIGGLY;
+		else if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->annot_underline)))
+			annot_info.markup_type = EV_ANNOTATION_TEXT_MARKUP_UNDERLINE;
+		else {
+			annot_info.type = EV_ANNOTATION_TYPE_UNKNOWN;
+		}
+	}
+
+	gtk_color_button_get_color (priv->color_button, &annot_info.color);
+	g_signal_emit (sidebar_annots, signals[BEGIN_ANNOT_ADD], 0, &annot_info);
 }
 
 static void
@@ -181,11 +214,12 @@ ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 	gtk_container_add (GTK_CONTAINER (swindow), ev_annots->priv->tree_view);
 	gtk_widget_show (ev_annots->priv->tree_view);
 
+	/* Create toolbar */
 	toolbar = gtk_toolbar_new ();
 	gtk_widget_show (toolbar);
 
 	toolitem = GTK_WIDGET (gtk_tool_item_new ());
-	gtk_tool_item_set_expand (toolitem, TRUE);
+	gtk_tool_item_set_expand (GTK_TOOL_ITEM (toolitem), TRUE);
 	gtk_toolbar_insert (GTK_TOOLBAR (toolbar), GTK_TOOL_ITEM (toolitem), 0);
 	gtk_widget_show (toolitem);
 
@@ -193,114 +227,87 @@ ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 	gtk_container_add (GTK_CONTAINER (toolitem), hbox);
 	gtk_widget_show (hbox);
 
-	/*ev_annots->priv->annot_text_item = gtk_toggle_button_new ();
-	image = gtk_image_new_from_icon_name ("list-add-symbolic", GTK_ICON_SIZE_BUTTON);
-	gtk_container_add (GTK_CONTAINER (ev_annots->priv->annot_text_item), image);
+	/* Note annotation button */
+	ev_annots->priv->annot_note = gtk_toggle_button_new ();
+	gtk_button_set_relief (GTK_BUTTON (ev_annots->priv->annot_note), GTK_RELIEF_NONE);
+	image = gtk_image_new_from_icon_name ("document-new", GTK_ICON_SIZE_BUTTON);
+	gtk_container_add (GTK_CONTAINER (ev_annots->priv->annot_note), image);
 	gtk_widget_show (image);
 
-	gtk_box_pack_start (GTK_BOX (hbox), ev_annots->priv->annot_text_item, FALSE, FALSE, 0);
-	gtk_widget_set_tooltip_text (GTK_WIDGET (ev_annots->priv->annot_text_item), _("Add text annotation"));
-	g_signal_connect (ev_annots->priv->annot_text_item, "toggled",
-			  G_CALLBACK (ev_sidebar_annotations_text_annot_button_toggled),
-			  ev_annots);
-	gtk_widget_show (GTK_WIDGET (ev_annots->priv->annot_text_item));*/
-
-	GtkWidget *frame = gtk_frame_new (_("Annotations"));
-	gtk_box_pack_start (GTK_BOX (hbox), frame, TRUE, TRUE, 2);
-
-	GtkWidget *flow = gtk_flow_box_new ();
-    gtk_widget_set_valign (flow, GTK_ALIGN_START);
-    gtk_flow_box_set_activate_on_single_click (GTK_FLOW_BOX (flow), TRUE);
-    gtk_flow_box_set_selection_mode (GTK_FLOW_BOX (flow), GTK_SELECTION_NONE);
-
-    gtk_container_add (GTK_CONTAINER (frame), flow);
-
-    GtkWidget *button;
-    image = gtk_image_new_from_icon_name ("accessories-text-editor", GTK_ICON_SIZE_BUTTON);
-
-    button = gtk_button_new ();
-    gtk_style_context_add_class (gtk_widget_get_style_context (button), GTK_STYLE_CLASS_FLAT);
-
-    gtk_button_set_always_show_image (GTK_BUTTON (button), TRUE);
-    gtk_button_set_image (GTK_BUTTON (button), image);
-    gtk_button_set_image_position (GTK_BUTTON (button), GTK_POS_TOP);
-
-    gtk_container_add (GTK_CONTAINER (flow), button);
-    gtk_widget_show (button);
-    button = gtk_button_new ();
-    image = gtk_image_new_from_icon_name ("list-add-symbolic", GTK_ICON_SIZE_BUTTON);
-    gtk_style_context_add_class (gtk_widget_get_style_context (button), GTK_STYLE_CLASS_FLAT);
-
-    gtk_button_set_always_show_image (GTK_BUTTON (button), TRUE);
-    gtk_button_set_image (GTK_BUTTON (button), image);
-    gtk_button_set_image_position (GTK_BUTTON (button), GTK_POS_TOP);
-
-    gtk_container_add (GTK_CONTAINER (flow), button);
-    gtk_widget_show (button);
-    button = gtk_button_new ();
-    image = gtk_image_new_from_icon_name ("list-add-symbolic", GTK_ICON_SIZE_BUTTON);
-    gtk_style_context_add_class (gtk_widget_get_style_context (button), GTK_STYLE_CLASS_FLAT);
-
-    gtk_button_set_always_show_image (GTK_BUTTON (button), TRUE);
-    gtk_button_set_image (GTK_BUTTON (button), image);
-    gtk_button_set_image_position (GTK_BUTTON (button), GTK_POS_TOP);
-
-    gtk_container_add (GTK_CONTAINER (flow), button);
-    gtk_widget_show (button);
-
-    gtk_widget_show (frame);
-    gtk_widget_show (flow);
+	gtk_box_pack_start (GTK_BOX (hbox), ev_annots->priv->annot_note, FALSE, FALSE, 0);
+	gtk_widget_set_tooltip_text (GTK_WIDGET (ev_annots->priv->annot_note), _("Add text annotation"));
+	g_signal_connect (ev_annots->priv->annot_note, "toggled",
+					  G_CALLBACK (ev_sidebar_annotations_button_toggled),
+					  ev_annots);
+	gtk_widget_show (GTK_WIDGET (ev_annots->priv->annot_note));
 
 
+	/* Highlight markup button */
+	ev_annots->priv->annot_highlight = gtk_toggle_button_new ();
+	gtk_button_set_relief (GTK_BUTTON (ev_annots->priv->annot_highlight), GTK_RELIEF_NONE);
+	image = gtk_image_new_from_icon_name ("edit-select-all", GTK_ICON_SIZE_BUTTON);
+	gtk_container_add (GTK_CONTAINER (ev_annots->priv->annot_highlight), image);
+	gtk_widget_show (image);
+
+	gtk_box_pack_start (GTK_BOX (hbox), ev_annots->priv->annot_highlight, FALSE, FALSE, 0);
+	gtk_widget_set_tooltip_text (GTK_WIDGET (ev_annots->priv->annot_highlight), _("Highlight annotation"));
+	g_signal_connect (ev_annots->priv->annot_highlight, "toggled",
+					  G_CALLBACK (ev_sidebar_annotations_button_toggled),
+					  ev_annots);
+	gtk_widget_show (GTK_WIDGET (ev_annots->priv->annot_highlight));
 
 
+	/* Underline markup button */
+	ev_annots->priv->annot_underline = gtk_toggle_button_new ();
+	gtk_button_set_relief (GTK_BUTTON (ev_annots->priv->annot_underline), GTK_RELIEF_NONE);
+	image = gtk_image_new_from_icon_name ("format-text-underline", GTK_ICON_SIZE_BUTTON);
+	gtk_container_add (GTK_CONTAINER (ev_annots->priv->annot_underline), image);
+	gtk_widget_show (image);
 
-	frame = gtk_frame_new (_("Markup"));
-	gtk_box_pack_start (GTK_BOX (hbox), frame, TRUE, TRUE, 2);
+	gtk_box_pack_start (GTK_BOX (hbox), ev_annots->priv->annot_underline, FALSE, FALSE, 0);
+	gtk_widget_set_tooltip_text (GTK_WIDGET (ev_annots->priv->annot_underline), _("Underline annotation"));
+	g_signal_connect (ev_annots->priv->annot_underline, "toggled",
+					  G_CALLBACK (ev_sidebar_annotations_button_toggled),
+					  ev_annots);
+	gtk_widget_show (GTK_WIDGET (ev_annots->priv->annot_underline));
 
-	flow = gtk_flow_box_new ();
-    gtk_widget_set_valign (flow, GTK_ALIGN_START);
-    gtk_flow_box_set_activate_on_single_click (GTK_FLOW_BOX (flow), TRUE);
-    gtk_flow_box_set_selection_mode (GTK_FLOW_BOX (flow), GTK_SELECTION_NONE);
+	/* strike_out markup button */
+	ev_annots->priv->annot_strike_out = gtk_toggle_button_new ();
+	gtk_button_set_relief (GTK_BUTTON (ev_annots->priv->annot_strike_out), GTK_RELIEF_NONE);
+	image = gtk_image_new_from_icon_name ("format-text-strikethrough", GTK_ICON_SIZE_BUTTON);
+	gtk_container_add (GTK_CONTAINER (ev_annots->priv->annot_strike_out), image);
+	gtk_widget_show (image);
 
-    gtk_container_add (GTK_CONTAINER (frame), flow);
+	gtk_box_pack_start (GTK_BOX (hbox), ev_annots->priv->annot_strike_out, FALSE, FALSE, 0);
+	gtk_widget_set_tooltip_text (GTK_WIDGET (ev_annots->priv->annot_strike_out), _("Strike out annotation"));
+	g_signal_connect (ev_annots->priv->annot_strike_out, "toggled",
+					  G_CALLBACK (ev_sidebar_annotations_button_toggled),
+					  ev_annots);
+	gtk_widget_show (GTK_WIDGET (ev_annots->priv->annot_strike_out));
 
-    image = gtk_image_new_from_icon_name ("list-add-symbolic", GTK_ICON_SIZE_BUTTON);
+	/* squiggly markup button */
+	ev_annots->priv->annot_squiggly = gtk_toggle_button_new ();
+	gtk_button_set_relief (GTK_BUTTON (ev_annots->priv->annot_squiggly), GTK_RELIEF_NONE);
+	image = gtk_image_new_from_icon_name ("tools-check-spelling", GTK_ICON_SIZE_BUTTON);
+	gtk_container_add (GTK_CONTAINER (ev_annots->priv->annot_squiggly), image);
+	gtk_widget_show (image);
 
-    button = gtk_button_new ();
-    gtk_style_context_add_class (gtk_widget_get_style_context (button), GTK_STYLE_CLASS_FLAT);
-
-    gtk_button_set_always_show_image (GTK_BUTTON (button), TRUE);
-    gtk_button_set_image (GTK_BUTTON (button), image);
-    gtk_button_set_image_position (GTK_BUTTON (button), GTK_POS_TOP);
-
-    gtk_container_add (GTK_CONTAINER (flow), button);
-    gtk_widget_show (button);
-    button = gtk_button_new ();
-    image = gtk_image_new_from_icon_name ("list-add-symbolic", GTK_ICON_SIZE_BUTTON);
-    gtk_style_context_add_class (gtk_widget_get_style_context (button), GTK_STYLE_CLASS_FLAT);
-
-    gtk_button_set_always_show_image (GTK_BUTTON (button), TRUE);
-    gtk_button_set_image (GTK_BUTTON (button), image);
-    gtk_button_set_image_position (GTK_BUTTON (button), GTK_POS_TOP);
-
-    gtk_container_add (GTK_CONTAINER (flow), button);
-    gtk_widget_show (button);
-    button = gtk_button_new ();
-    image = gtk_image_new_from_icon_name ("list-add-symbolic", GTK_ICON_SIZE_BUTTON);
-    gtk_style_context_add_class (gtk_widget_get_style_context (button), GTK_STYLE_CLASS_FLAT);
-
-    gtk_button_set_always_show_image (GTK_BUTTON (button), TRUE);
-    gtk_button_set_image (GTK_BUTTON (button), image);
-    gtk_button_set_image_position (GTK_BUTTON (button), GTK_POS_TOP);
-
-    gtk_container_add (GTK_CONTAINER (flow), button);
-    gtk_widget_show (button);
-
-    gtk_widget_show (frame);
-    gtk_widget_show (flow);
+	gtk_box_pack_start (GTK_BOX (hbox), ev_annots->priv->annot_squiggly, FALSE, FALSE, 0);
+	gtk_widget_set_tooltip_text (GTK_WIDGET (ev_annots->priv->annot_squiggly), _("Squiggly annotation"));
+	g_signal_connect (ev_annots->priv->annot_squiggly, "toggled",
+					  G_CALLBACK (ev_sidebar_annotations_button_toggled),
+					  ev_annots);
+	gtk_widget_show (GTK_WIDGET (ev_annots->priv->annot_squiggly));
 
 
+	/* color button */
+	GdkColor color = { 0, 65535, 65535, 0 };
+	ev_annots->priv->color_button = gtk_color_button_new_with_color (&color);
+	gtk_button_set_relief (GTK_BUTTON (ev_annots->priv->color_button), GTK_RELIEF_NONE);
+
+	gtk_box_pack_start (GTK_BOX (hbox), ev_annots->priv->color_button, FALSE, FALSE, 0);
+	gtk_widget_set_tooltip_text (GTK_WIDGET (ev_annots->priv->annot_squiggly), _("Change color annotation"));
+	gtk_widget_show (GTK_WIDGET (ev_annots->priv->color_button));
 
 	gtk_box_pack_end (GTK_BOX (ev_annots), toolbar, FALSE, TRUE, 0);
 	gtk_widget_show (GTK_WIDGET (ev_annots));
@@ -355,7 +362,7 @@ ev_sidebar_annotations_class_init (EvSidebarAnnotationsClass *klass)
 			      NULL, NULL,
 			      g_cclosure_marshal_VOID__ENUM,
 			      G_TYPE_NONE, 1,
-			      EV_TYPE_ANNOTATION_TYPE);
+			      G_TYPE_POINTER);
 	signals[ANNOT_ADD_CANCELLED] =
 		g_signal_new ("annot-add-cancelled",
 			      G_TYPE_FROM_CLASS (g_object_class),
@@ -375,21 +382,28 @@ ev_sidebar_annotations_new (void)
 
 void
 ev_sidebar_annotations_annot_added (EvSidebarAnnotations *sidebar_annots,
-				    EvAnnotation         *annot)
+                                    EvAnnotation         *annot)
 {
+	EvSidebarAnnotationsPrivate *priv = sidebar_annots->priv;
+
 	ev_sidebar_annotations_load (sidebar_annots);
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (priv->annot_note), FALSE);
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (priv->annot_highlight), FALSE);
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (priv->annot_underline), FALSE);
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (priv->annot_strike_out), FALSE);
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (priv->annot_squiggly), FALSE);
 }
 
 void
 ev_sidebar_annotations_annot_removed (EvSidebarAnnotations *sidebar_annots,
-				    EvAnnotation         *annot)
+                                      EvAnnotation         *annot)
 {
 	ev_sidebar_annotations_load (sidebar_annots);
 }
 
 static void
 selection_changed_cb (GtkTreeSelection     *selection,
-		      EvSidebarAnnotations *sidebar_annots)
+                      EvSidebarAnnotations *sidebar_annots)
 {
 	GtkTreeModel *model;
 	GtkTreeIter   iter;
@@ -407,7 +421,7 @@ selection_changed_cb (GtkTreeSelection     *selection,
 
 static void
 job_finished_callback (EvJobAnnots          *job,
-		       EvSidebarAnnotations *sidebar_annots)
+                       EvSidebarAnnotations *sidebar_annots)
 {
 	EvSidebarAnnotationsPrivate *priv;
 	GtkTreeStore *model;
@@ -415,7 +429,11 @@ job_finished_callback (EvJobAnnots          *job,
 	GList *l;
 	GtkIconTheme *icon_theme;
 	GdkScreen *screen;
-	GdkPixbuf *text_icon = NULL;
+	GdkPixbuf *text_icon       = NULL;
+	GdkPixbuf *highlight_icon  = NULL;
+	GdkPixbuf *underline_icon  = NULL;
+	GdkPixbuf *strike_out_icon = NULL;
+	GdkPixbuf *squiggly_icon   = NULL;
 	GdkPixbuf *attachment_icon = NULL;
 
 	priv = sidebar_annots->priv;
@@ -489,21 +507,52 @@ job_finished_callback (EvJobAnnots          *job,
 
 			if (EV_IS_ANNOTATION_TEXT (annot)) {
 				if (!text_icon) {
-					/* FIXME: use a better icon than EDIT */
-					text_icon = gtk_icon_theme_load_icon (icon_theme,
-														  "starred",
-														  16,
-														  GTK_ICON_LOOKUP_FORCE_REGULAR,
-														  NULL);
+					text_icon =  gtk_widget_render_icon_pixbuf (priv->tree_view,
+																GTK_STOCK_EDIT,
+																GTK_ICON_SIZE_BUTTON);
 				}
 				pixbuf = text_icon;
+			} else if (EV_IS_ANNOTATION_TEXT_MARKUP (annot)) {
+
+				switch (ev_annotation_text_markup_get_markup_type (annot)) {
+					case EV_ANNOTATION_TEXT_MARKUP_HIGHLIGHT:
+						if (!highlight_icon) {
+							highlight_icon = gtk_widget_render_icon_pixbuf (priv->tree_view,
+																			GTK_STOCK_SELECT_ALL,
+																			GTK_ICON_SIZE_BUTTON);
+						}
+						pixbuf = highlight_icon;
+					break;
+					case EV_ANNOTATION_TEXT_MARKUP_UNDERLINE:
+						if (!underline_icon) {
+							underline_icon = gtk_widget_render_icon_pixbuf (priv->tree_view,
+																			GTK_STOCK_UNDERLINE,
+																			GTK_ICON_SIZE_BUTTON);
+						}
+						pixbuf = underline_icon;
+					break;
+					case EV_ANNOTATION_TEXT_MARKUP_STRIKE_OUT:
+						if (!strike_out_icon) {
+							strike_out_icon = gtk_widget_render_icon_pixbuf (priv->tree_view,
+																			GTK_STOCK_STRIKETHROUGH,
+																			GTK_ICON_SIZE_BUTTON);
+						}
+						pixbuf = strike_out_icon;
+					break;
+					case EV_ANNOTATION_TEXT_MARKUP_SQUIGGLY:
+						if (!squiggly_icon) {
+							squiggly_icon = gtk_widget_render_icon_pixbuf (priv->tree_view,
+																			GTK_STOCK_SPELL_CHECK,
+																			GTK_ICON_SIZE_BUTTON);
+						}
+						pixbuf = squiggly_icon;
+					break;
+				}
 			} else if (EV_IS_ANNOTATION_ATTACHMENT (annot)) {
 				if (!attachment_icon) {
-					attachment_icon = gtk_icon_theme_load_icon (icon_theme,
-																"mail-attachment",
-																16,
-																GTK_ICON_LOOKUP_FORCE_REGULAR,
-																NULL);
+					attachment_icon = gtk_widget_render_icon_pixbuf (priv->tree_view,
+																	EV_STOCK_ATTACHMENT,
+																	GTK_ICON_SIZE_BUTTON);
 				}
 				pixbuf = attachment_icon;
 			}
@@ -528,6 +577,14 @@ job_finished_callback (EvJobAnnots          *job,
 
 	if (text_icon)
 		g_object_unref (text_icon);
+	if (highlight_icon)
+		g_object_unref (highlight_icon);
+	if (underline_icon)
+		g_object_unref (underline_icon);
+	if (strike_out_icon)
+		g_object_unref (strike_out_icon);
+	if (squiggly_icon)
+		g_object_unref (squiggly_icon);
 	if (attachment_icon)
 		g_object_unref (attachment_icon);
 
@@ -572,7 +629,11 @@ ev_sidebar_annotations_document_changed_cb (EvDocumentModel      *model,
 	priv->document = g_object_ref (document);
 
 	enable_add = ev_document_annotations_can_add_annotation (EV_DOCUMENT_ANNOTATIONS (document));
-	gtk_widget_set_sensitive (priv->annot_text_item, enable_add);
+	gtk_widget_set_sensitive (priv->annot_note, enable_add);
+	gtk_widget_set_sensitive (priv->annot_highlight, enable_add);
+	gtk_widget_set_sensitive (priv->annot_underline, enable_add);
+	gtk_widget_set_sensitive (priv->annot_strike_out, enable_add);
+	gtk_widget_set_sensitive (priv->annot_squiggly, enable_add);
 
 	ev_sidebar_annotations_load (sidebar_annots);
 }
@@ -607,3 +668,4 @@ ev_sidebar_annotations_page_iface_init (EvSidebarPageInterface *iface)
 	iface->set_model = ev_sidebar_annotations_set_model;
 	iface->get_label = ev_sidebar_annotations_get_label;
 }
+

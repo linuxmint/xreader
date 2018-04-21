@@ -67,6 +67,14 @@ G_BEGIN_DECLS
 #define EV_IS_ANNOTATION_ATTACHMENT_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE((klass), EV_TYPE_ANNOTATION_ATTACHMENT))
 #define EV_ANNOTATION_ATTACHMENT_GET_CLASS(object) (G_TYPE_INSTANCE_GET_CLASS((object), EV_TYPE_ANNOTATION_ATTACHMENT, EvAnnotationAttachmentClass))
 
+/* EvAnnotationTextMarkup */
+#define EV_TYPE_ANNOTATION_TEXT_MARKUP              (ev_annotation_text_markup_get_type ())
+#define EV_ANNOTATION_TEXT_MARKUP(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), EV_TYPE_ANNOTATION_TEXT_MARKUP, EvAnnotationTextMarkup))
+#define EV_ANNOTATION_TEXT_MARKUP_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), EV_TYPE_ANNOTATION_TEXT_MARKUP, EvAnnotationTextMarkupClass))
+#define EV_IS_ANNOTATION_TEXT_MARKUP(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), EV_TYPE_ANNOTATION_TEXT_MARKUP))
+#define EV_IS_ANNOTATION_TEXT_MARKUP_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), EV_TYPE_ANNOTATION_TEXT_MARKUP))
+#define EV_ANNOTATION_TEXT_MARKUP_GET_CLASS(object) (G_TYPE_INSTANCE_GET_CLASS ((object), EV_TYPE_ANNOTATION_TEXT_MARKUP, EvAnnotationTextMarkupClass))
+
 typedef struct _EvAnnotation                EvAnnotation;
 typedef struct _EvAnnotationClass           EvAnnotationClass;
 
@@ -79,10 +87,15 @@ typedef struct _EvAnnotationTextClass       EvAnnotationTextClass;
 typedef struct _EvAnnotationAttachment      EvAnnotationAttachment;
 typedef struct _EvAnnotationAttachmentClass EvAnnotationAttachmentClass;
 
+typedef struct _EvAnnotationTextMarkup      EvAnnotationTextMarkup;
+typedef struct _EvAnnotationTextMarkupClass EvAnnotationTextMarkupClass;
+
+
 typedef enum {
 	EV_ANNOTATION_TYPE_UNKNOWN,
 	EV_ANNOTATION_TYPE_TEXT,
-	EV_ANNOTATION_TYPE_ATTACHMENT
+	EV_ANNOTATION_TYPE_ATTACHMENT,
+	EV_ANNOTATION_TYPE_TEXT_MARKUP
 } EvAnnotationType;
 
 typedef enum {
@@ -97,6 +110,21 @@ typedef enum {
 	EV_ANNOTATION_TEXT_ICON_CIRCLE,
 	EV_ANNOTATION_TEXT_ICON_UNKNOWN
 } EvAnnotationTextIcon;
+
+typedef enum {
+	EV_ANNOTATION_TEXT_MARKUP_HIGHLIGHT,
+	EV_ANNOTATION_TEXT_MARKUP_STRIKE_OUT,
+	EV_ANNOTATION_TEXT_MARKUP_UNDERLINE,
+	EV_ANNOTATION_TEXT_MARKUP_SQUIGGLY
+} EvAnnotationTextMarkupType;
+
+typedef struct _EvAnnotationInfo {
+	GdkColor                     color;
+	EvAnnotationType             type;
+	EvAnnotationTextIcon         icon;
+	EvAnnotationTextMarkupType   markup_type;
+} EvAnnotationInfo;
+
 
 /* EvAnnotation */
 GType                ev_annotation_get_type                  (void) G_GNUC_CONST;
@@ -133,6 +161,10 @@ void                 ev_annotation_get_rgba                  (EvAnnotation      
 gboolean             ev_annotation_set_rgba                  (EvAnnotation           *annot,
                                                               const GdkRGBA          *rgba);
 #endif
+void                 ev_annotation_get_area                  (EvAnnotation           *annot,
+                                                              EvRectangle            *area);
+gboolean             ev_annotation_set_area                  (EvAnnotation           *annot,
+                                                              const EvRectangle      *area);
 
 /* EvAnnotationMarkup */
 GType                ev_annotation_markup_get_type           (void) G_GNUC_CONST;
@@ -142,6 +174,7 @@ gboolean             ev_annotation_markup_set_label          (EvAnnotationMarkup
 gdouble              ev_annotation_markup_get_opacity        (EvAnnotationMarkup     *markup);
 gboolean             ev_annotation_markup_set_opacity        (EvAnnotationMarkup     *markup,
 							      gdouble                 opacity);
+gboolean             ev_annotation_markup_can_have_popup     (EvAnnotationMarkup     *markup);
 gboolean             ev_annotation_markup_has_popup          (EvAnnotationMarkup     *markup);
 gboolean             ev_annotation_markup_set_has_popup      (EvAnnotationMarkup     *markup,
 							      gboolean                has_popup);
@@ -170,6 +203,16 @@ EvAnnotation        *ev_annotation_attachment_new            (EvPage            
 EvAttachment        *ev_annotation_attachment_get_attachment (EvAnnotationAttachment *annot);
 gboolean             ev_annotation_attachment_set_attachment (EvAnnotationAttachment *annot,
 							      EvAttachment           *attachment);
+
+/* EvAnnotationTextMarkup */
+GType                      ev_annotation_text_markup_get_type        (void) G_GNUC_CONST;
+EvAnnotation              *ev_annotation_text_markup_highlight_new   (EvPage                    *page);
+EvAnnotation              *ev_annotation_text_markup_strike_out_new  (EvPage                    *page);
+EvAnnotation              *ev_annotation_text_markup_underline_new   (EvPage                    *page);
+EvAnnotation              *ev_annotation_text_markup_squiggly_new    (EvPage                    *page);
+EvAnnotationTextMarkupType ev_annotation_text_markup_get_markup_type (EvAnnotationTextMarkup    *annot);
+gboolean                   ev_annotation_text_markup_set_markup_type (EvAnnotationTextMarkup    *annot,
+                                                                      EvAnnotationTextMarkupType markup_type);
 
 G_END_DECLS
 
