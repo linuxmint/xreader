@@ -4404,8 +4404,6 @@ ev_view_button_release_event (GtkWidget      *widget,
 		g_assert (view->adding_annot_info.annot);
 
 		if (EV_IS_ANNOTATION_MARKUP (view->adding_annot_info.annot)) {
-			GtkWindow  *parent;
-			GtkWidget  *window;
 			EvRectangle area;
 			EvRectangle popup_rect;
 
@@ -4437,10 +4435,10 @@ ev_view_button_release_event (GtkWidget      *widget,
 					ev_document_doc_mutex_unlock ();
 				}
 				/* the annotation window might already exist */
-				window = g_object_get_data (G_OBJECT (view->adding_annot_info.annot), "popup");
+				GtkWidget *window = g_object_get_data (G_OBJECT (view->adding_annot_info.annot), "popup");
 
 				if (window == NULL) {
-					parent = GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (view)));
+					GtkWindow *parent = GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (view)));
 					window = ev_view_create_annotation_window (view, view->adding_annot_info.annot, parent);
 				}
 				/* Show the annot window the first time for text annotations */
