@@ -356,7 +356,6 @@ ev_sidebar_init (EvSidebar *ev_sidebar)
 	gtk_widget_show (hbox);
 
 	ev_sidebar->priv->select_button = gtk_toggle_button_new ();
-	gtk_button_set_relief (GTK_BUTTON (ev_sidebar->priv->select_button), GTK_RELIEF_NONE);
 	g_signal_connect (ev_sidebar->priv->select_button, "button_press_event",
 			  G_CALLBACK (ev_sidebar_select_button_press_cb),
 			  ev_sidebar);
