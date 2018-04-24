@@ -2015,7 +2015,7 @@ ev_view_get_focused_area (EvView       *view,
 	return TRUE;
 }
 
-void
+static void
 ev_view_set_focused_element (EvView *view,
 			     EvMapping *element_mapping,
 			     gint page)
@@ -2639,10 +2639,10 @@ ev_view_find_window_child_for_annot (EvView       *view,
 	return NULL;
 }
 
-static EvViewWindowChild *
+static void
 ev_view_remove_window_child_for_annot (EvView       *view,
-				     guint         page,
-				     EvAnnotation *annot)
+                                       guint         page,
+                                       EvAnnotation *annot)
 {
 	GList *children = view->window_children;
 
@@ -2666,6 +2666,7 @@ ev_view_remove_window_child_for_annot (EvView       *view,
 		children = children->next;
 	}
 }
+
 static void
 ev_view_window_children_free (EvView *view)
 {
@@ -2994,7 +2995,8 @@ ev_view_create_annotation (EvView          *view)
 		doc_rect.y2 = end.y;
 		annot = ev_annotation_text_markup_highlight_new (page);
 
-		ev_annotation_text_markup_set_markup_type (annot, view->adding_annot_info.info.markup_type);
+		ev_annotation_text_markup_set_markup_type (EV_ANNOTATION_TEXT_MARKUP (annot),
+							   view->adding_annot_info.info.markup_type);
 
 		break;
 	case EV_ANNOTATION_TYPE_ATTACHMENT:

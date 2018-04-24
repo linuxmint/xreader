@@ -144,23 +144,18 @@ gboolean             ev_annotation_set_modified              (EvAnnotation      
 							      const gchar            *modified);
 gboolean             ev_annotation_set_modified_from_time    (EvAnnotation           *annot,
 							      GTime                   utime);
-#ifndef HAVE_CAJA
-EV_DEPRECATED_FOR(ev_annotaion_get_rgba)
-#endif
+
 void                 ev_annotation_get_color                 (EvAnnotation           *annot,
 							      GdkColor               *color);
-#ifndef HAVE_CAJA
-EV_DEPRECATED_FOR(ev_annotaion_set_rgba)
-#endif
+
 gboolean             ev_annotation_set_color                 (EvAnnotation           *annot,
 							      const GdkColor         *color);
 
-#ifndef HAVE_CAJA
 void                 ev_annotation_get_rgba                  (EvAnnotation           *annot,
                                                               GdkRGBA                *rgba);
 gboolean             ev_annotation_set_rgba                  (EvAnnotation           *annot,
                                                               const GdkRGBA          *rgba);
-#endif
+
 void                 ev_annotation_get_area                  (EvAnnotation           *annot,
                                                               EvRectangle            *area);
 gboolean             ev_annotation_set_area                  (EvAnnotation           *annot,
