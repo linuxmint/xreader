@@ -7,3 +7,12 @@ evview {
     color: @theme_selected_fg_color;
 }
 
+evsidebarthumbnails.page-thumbnail {
+    background-color: white;
+    border: 1px solid black;
+    padding: 0;
+}
+
+evsidebarthumbnails.page-thumbnail.inverted {
+    background-color: black;
+}

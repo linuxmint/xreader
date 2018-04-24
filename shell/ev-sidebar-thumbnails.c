@@ -438,6 +438,10 @@ ev_sidebar_thumbnails_class_init (EvSidebarThumbnailsClass *ev_sidebar_thumbnail
 
 	widget_class->map = ev_sidebar_thumbnails_map;
 
+#if GTK_CHECK_VERSION(3, 20, 0)
+	gtk_widget_class_set_css_name (widget_class, "evsidebarthumbnails");
+#endif
+
 	g_object_class_override_property (g_object_class,
 					  PROP_WIDGET,
 					  "main-widget");
@@ -480,7 +484,8 @@ ev_sidebar_thumbnails_get_loading_icon (EvSidebarThumbnails *sidebar_thumbnails,
 		gboolean inverted_colors;
 
 		inverted_colors = ev_document_model_get_inverted_colors (priv->model);
-		icon = ev_document_misc_get_loading_thumbnail (width, height, inverted_colors);
+        icon = ev_document_misc_render_loading_thumbnail (GTK_WIDGET (sidebar_thumbnails),
+                                                          width, height, inverted_colors);
 		g_hash_table_insert (priv->loading_icons, key, icon);
 	} else {
 		g_free (key);
@@ -1072,19 +1077,23 @@ thumbnail_job_completed_callback (EvJobThumbnail      *job,
 				  EvSidebarThumbnails *sidebar_thumbnails)
 {
 	EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
-	GtkTreeIter *iter;
+	GtkTreeIter   *iter;
+    GdkPixbuf     *pixbuf;
+
+    pixbuf = ev_document_misc_render_thumbnail_with_frame (GTK_WIDGET (sidebar_thumbnails), job->thumbnail);
 
 	iter = (GtkTreeIter *) g_object_get_data (G_OBJECT (job), "tree_iter");
 	if (priv->inverted_colors && priv->document->iswebdocument == FALSE)
-		ev_document_misc_invert_pixbuf (job->thumbnail);
+		ev_document_misc_invert_pixbuf (pixbuf);
 	gtk_list_store_set (priv->list_store,
 			    iter,
-			    COLUMN_PIXBUF, job->thumbnail,
+			    COLUMN_PIXBUF, pixbuf,
 			    COLUMN_THUMBNAIL_SET, TRUE,
 			    COLUMN_JOB, NULL,
 			    -1);
 
 	gtk_widget_queue_draw (priv->icon_view);
+    g_object_unref (pixbuf);
 }
 
 static void
