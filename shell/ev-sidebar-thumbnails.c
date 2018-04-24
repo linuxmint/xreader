@@ -904,9 +904,6 @@ ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 
 	priv->thumbnail_width = THUMBNAIL_DEFAULT_WIDTH;
 
-	/* We actually don't want GTK_POLICY_AUTOMATIC for horizontal scrollbar here
-	 * it's just a workaround for bug #449462 (GTK2 only)
-	 */
 	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (priv->swindow),
 					GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
 	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (priv->swindow),
