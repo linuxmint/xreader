@@ -122,8 +122,7 @@ ev_sidebar_annotations_color_changed (GtkWidget            *button,
                                       EvSidebarAnnotations *sidebar_annots)
 {
 	EvAnnotationInfo             annot_info;
-	EvSidebarAnnotationsPrivate *priv    = sidebar_annots->priv;
-	gboolean                     toogled = FALSE;
+	EvSidebarAnnotationsPrivate *priv = sidebar_annots->priv;
 
 	g_signal_emit (sidebar_annots, signals[ANNOT_ADD_CANCELLED], 0, NULL);
 	gtk_color_button_get_color (GTK_COLOR_BUTTON (priv->color_button), &annot_info.color);
