@@ -118,6 +118,40 @@ ev_sidebar_annotations_create_simple_model (const gchar *message)
 }
 
 static void
+ev_sidebar_annotations_color_changed (GtkWidget            *button,
+                                      EvSidebarAnnotations *sidebar_annots)
+{
+	EvAnnotationInfo             annot_info;
+	EvSidebarAnnotationsPrivate *priv    = sidebar_annots->priv;
+	gboolean                     toogled = FALSE;
+
+	g_signal_emit (sidebar_annots, signals[ANNOT_ADD_CANCELLED], 0, NULL);
+	gtk_color_button_get_color (GTK_COLOR_BUTTON (priv->color_button), &annot_info.color);
+
+	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->annot_highlight))) {
+		annot_info.type = EV_ANNOTATION_TYPE_TEXT_MARKUP;
+		annot_info.markup_type = EV_ANNOTATION_TEXT_MARKUP_HIGHLIGHT;
+		g_signal_emit (sidebar_annots, signals[BEGIN_ANNOT_ADD], 0, &annot_info);
+	} else if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->annot_underline))) {
+		annot_info.type = EV_ANNOTATION_TYPE_TEXT_MARKUP;
+		annot_info.markup_type = EV_ANNOTATION_TEXT_MARKUP_UNDERLINE;
+		g_signal_emit (sidebar_annots, signals[BEGIN_ANNOT_ADD], 0, &annot_info);
+	} else if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->annot_squiggly))) {
+		annot_info.type = EV_ANNOTATION_TYPE_TEXT_MARKUP;
+		annot_info.markup_type = EV_ANNOTATION_TEXT_MARKUP_SQUIGGLY;
+		g_signal_emit (sidebar_annots, signals[BEGIN_ANNOT_ADD], 0, &annot_info);
+	} else if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->annot_strike_out))) {
+		annot_info.type = EV_ANNOTATION_TYPE_TEXT_MARKUP;
+		annot_info.markup_type = EV_ANNOTATION_TEXT_MARKUP_STRIKE_OUT;
+		g_signal_emit (sidebar_annots, signals[BEGIN_ANNOT_ADD], 0, &annot_info);
+	} else if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->annot_note))) {
+		annot_info.type = EV_ANNOTATION_TYPE_TEXT;
+		annot_info.markup_type = EV_ANNOTATION_TEXT_ICON_NOTE;
+		g_signal_emit (sidebar_annots, signals[BEGIN_ANNOT_ADD], 0, &annot_info);
+	}
+}
+
+static void
 ev_sidebar_annotations_button_toggled (GtkWidget            *button,
                                        EvSidebarAnnotations *sidebar_annots)
 {
@@ -307,6 +341,9 @@ ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 
 	gtk_box_pack_start (GTK_BOX (hbox), ev_annots->priv->color_button, FALSE, FALSE, 0);
 	gtk_widget_set_tooltip_text (GTK_WIDGET (ev_annots->priv->annot_squiggly), _("Change color annotation"));
+	g_signal_connect (ev_annots->priv->color_button, "color-set",
+					  G_CALLBACK (ev_sidebar_annotations_color_changed),
+					  ev_annots);
 	gtk_widget_show (GTK_WIDGET (ev_annots->priv->color_button));
 
 	gtk_box_pack_end (GTK_BOX (ev_annots), toolbar, FALSE, TRUE, 0);
@@ -516,7 +553,7 @@ job_finished_callback (EvJobAnnots          *job,
 				pixbuf = text_icon;
 			} else if (EV_IS_ANNOTATION_TEXT_MARKUP (annot)) {
 
-				switch (ev_annotation_text_markup_get_markup_type (annot)) {
+				switch (ev_annotation_text_markup_get_markup_type (EV_ANNOTATION_TEXT_MARKUP (annot))) {
 					case EV_ANNOTATION_TEXT_MARKUP_HIGHLIGHT:
 						if (!highlight_icon) {
 							highlight_icon = gtk_icon_theme_load_icon (icon_theme,
