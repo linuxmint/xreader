@@ -2111,17 +2111,60 @@ static GtkWidget *
 ev_view_form_field_button_create_widget (EvView      *view,
 					 EvFormField *field)
 {
-	EvMappingList *form_mapping;
-	EvMapping     *mapping;
+	EvFormFieldButton *field_button = EV_FORM_FIELD_BUTTON (field);
+	cairo_region_t    *field_region = NULL;
 
-	/* We need to do this focus grab prior to setting the focused element for accessibility */
-	if (!gtk_widget_has_focus (GTK_WIDGET (view)))
-		gtk_widget_grab_focus (GTK_WIDGET (view));
+	switch (field_button->type) {
+	        case EV_FORM_FIELD_BUTTON_PUSH:
+			return NULL;
+	        case EV_FORM_FIELD_BUTTON_CHECK:
+  	        case EV_FORM_FIELD_BUTTON_RADIO: {
+			gboolean       state;
+			EvMappingList *forms_mapping;
+			GList         *l;
 
-	form_mapping = ev_page_cache_get_form_field_mapping (view->page_cache,
-							     field->page->index);
-	mapping = ev_mapping_list_find (form_mapping, field);
-	ev_view_set_focused_element (view, mapping, field->page->index);
+			state = ev_document_forms_form_field_button_get_state (EV_DOCUMENT_FORMS (view->document),
+									       field);
+
+			/* FIXME: it actually depends on NoToggleToOff flags */
+			if (field_button->type == EV_FORM_FIELD_BUTTON_RADIO &&
+			    state && field_button->state)
+				return NULL;
+
+			field_region = ev_view_form_field_get_region (view, field);
+
+			/* For radio buttons and checkbox buttons that are in a set
+			 * we need to update also the region for the current selected item
+			 */
+			forms_mapping = ev_page_cache_get_form_field_mapping (view->page_cache,
+									      field->page->index);
+			for (l = ev_mapping_list_get_list (forms_mapping); l; l = g_list_next (l)) {
+				EvFormField *button = ((EvMapping *)(l->data))->data;
+				cairo_region_t *button_region;
+
+				if (button->id == field->id)
+					continue;
+
+				/* FIXME: only buttons in the same group should be updated */
+				if (!EV_IS_FORM_FIELD_BUTTON (button) ||
+				    EV_FORM_FIELD_BUTTON (button)->type != field_button->type ||
+				    EV_FORM_FIELD_BUTTON (button)->state != TRUE)
+					continue;
+
+				button_region = ev_view_form_field_get_region (view, button);
+				cairo_region_union (field_region, button_region);
+				cairo_region_destroy (button_region);
+			}
+
+			ev_document_forms_form_field_button_set_state (EV_DOCUMENT_FORMS (view->document),
+								       field, !state);
+			field_button->state = !state;
+		}
+			break;
+	}
+
+	ev_view_reload_page (view, field->page->index, field_region);
+	cairo_region_destroy (field_region);
 
 	return NULL;
 }
