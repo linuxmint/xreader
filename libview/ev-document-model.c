@@ -339,7 +339,7 @@ ev_document_model_get_document (EvDocumentModel *model)
 
 void
 ev_document_model_set_page (EvDocumentModel *model,
-			    gint             page)
+                            gint             page)
 {
 	gint old_page;
 

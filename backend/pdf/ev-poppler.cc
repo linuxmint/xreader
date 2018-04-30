@@ -82,7 +82,7 @@ typedef struct {
 	gint pages_y;
 	gdouble paper_width;
 	gdouble paper_height;
-	
+
 #ifdef HAVE_CAIRO_PRINT
 	cairo_t *cr;
 #else
@@ -197,7 +197,7 @@ pdf_document_dispose (GObject *object)
 		g_object_unref (pdf_document->document);
 	}
 
-	if (pdf_document->font_info) { 
+	if (pdf_document->font_info) {
 		poppler_font_info_free (pdf_document->font_info);
 	}
 
@@ -228,7 +228,7 @@ convert_error (GError  *poppler_error,
 			code = EV_DOCUMENT_ERROR_INVALID;
 		else if (poppler_error->code == POPPLER_ERROR_ENCRYPTED)
 			code = EV_DOCUMENT_ERROR_ENCRYPTED;
-			
+
 		g_set_error_literal (error,
                                      EV_DOCUMENT_ERROR,
                                      code,
@@ -262,7 +262,7 @@ pdf_document_save (EvDocument  *document,
 		retval = poppler_document_save_a_copy (pdf_document->document,
 						       uri, &poppler_error);
 	}
-						       
+
 	if (! retval)
 		convert_error (poppler_error, error);
 
@@ -318,7 +318,7 @@ pdf_document_get_page_size (EvDocument *document,
 			    double     *height)
 {
 	g_return_if_fail (POPPLER_IS_PAGE (page->backend_page));
-	
+
 	poppler_page_get_size (POPPLER_PAGE (page->backend_page), width, height);
 }
 
@@ -387,7 +387,7 @@ pdf_document_render (EvDocument      *document,
 
 	poppler_page_get_size (poppler_page,
 			       &width_points, &height_points);
-	
+
 	if (rc->rotation == 90 || rc->rotation == 270) {
 		width = (int) ((height_points * rc->scale) + 0.5);
 		height = (int) ((width_points * rc->scale) + 0.5);
@@ -395,7 +395,7 @@ pdf_document_render (EvDocument      *document,
 		width = (int) ((width_points * rc->scale) + 0.5);
 		height = (int) ((height_points * rc->scale) + 0.5);
 	}
-	
+
 	return pdf_page_render (poppler_page,
 				width, height, rc);
 }
@@ -651,7 +651,7 @@ pdf_document_get_info (EvDocument *document)
 			    EV_DOCUMENT_INFO_MOD_DATE |
 			    EV_DOCUMENT_INFO_LINEARIZED |
 			    EV_DOCUMENT_INFO_N_PAGES |
-			    EV_DOCUMENT_INFO_SECURITY | 
+			    EV_DOCUMENT_INFO_SECURITY |
 		            EV_DOCUMENT_INFO_PAPER_SIZE |
 			    EV_DOCUMENT_INFO_LICENSE;
 
@@ -876,7 +876,7 @@ pdf_document_fonts_scan (EvDocumentFonts *document_fonts,
 
 	g_return_val_if_fail (PDF_IS_DOCUMENT (document_fonts), FALSE);
 
-	if (pdf_document->font_info == NULL) { 
+	if (pdf_document->font_info == NULL) {
 		pdf_document->font_info = poppler_font_info_new (pdf_document->document);
 	}
 
@@ -891,7 +891,7 @@ pdf_document_fonts_scan (EvDocumentFonts *document_fonts,
 	if (!result) {
 		pdf_document->fonts_scanned_pages = 0;
 		poppler_font_info_free (pdf_document->font_info);
-		pdf_document->font_info = NULL;	
+		pdf_document->font_info = NULL;
 	}
 
 	return result;
@@ -938,7 +938,7 @@ pdf_document_fonts_fill_model (EvDocumentFonts *document_fonts,
 		const char *type;
 		const char *embedded;
 		char *details;
-		
+
 		name = poppler_fonts_iter_get_name (iter);
 
 		if (name == NULL) {
@@ -1076,7 +1076,7 @@ ev_link_dest_from_dest (PdfDocument *pdf_document,
 
 	if (!ev_dest)
 		ev_dest = ev_link_dest_new_page (dest->page_num - 1);
-	
+
 	return ev_dest;
 }
 
@@ -1093,7 +1093,7 @@ ev_link_from_action (PdfDocument   *pdf_document,
 			break;
 	        case POPPLER_ACTION_GOTO_DEST: {
 			EvLinkDest *dest;
-			
+
 			dest = ev_link_dest_from_dest (pdf_document, action->goto_dest.dest);
 			ev_action = ev_link_action_new_dest (dest);
 			g_object_unref (dest);
@@ -1101,12 +1101,12 @@ ev_link_from_action (PdfDocument   *pdf_document,
 			break;
 	        case POPPLER_ACTION_GOTO_REMOTE: {
 			EvLinkDest *dest;
-			
+
 			dest = ev_link_dest_from_dest (pdf_document, action->goto_remote.dest);
-			ev_action = ev_link_action_new_remote (dest, 
+			ev_action = ev_link_action_new_remote (dest,
 							       action->goto_remote.file_name);
 			g_object_unref (dest);
-			
+
 		}
 			break;
 	        case POPPLER_ACTION_LAUNCH:
@@ -1173,18 +1173,18 @@ ev_link_from_action (PdfDocument   *pdf_document,
 	        case POPPLER_ACTION_UNKNOWN:
 			unimplemented_action = "POPPLER_ACTION_UNKNOWN";
 	}
-	
+
 	if (unimplemented_action) {
 		g_warning ("Unimplemented action: %s, please post a bug report "
 			   "on Xreader bug tracker (https://github.com/linuxmint/xreader/issues) "
 			   "with a testcase.", unimplemented_action);
 	}
-	
+
 	link = ev_link_new (action->any.title, ev_action);
 
 	g_object_unref (ev_action);
 
-	return link;	
+	return link;
 }
 
 static void
@@ -1193,7 +1193,7 @@ build_tree (PdfDocument      *pdf_document,
 	    GtkTreeIter      *parent,
 	    PopplerIndexIter *iter)
 {
-	
+
 	do {
 		GtkTreeIter tree_iter;
 		PopplerIndexIter *child;
@@ -1201,40 +1201,43 @@ build_tree (PdfDocument      *pdf_document,
 		EvLink *link = NULL;
 		gboolean expand;
 		char *title_markup;
-		
+
 		action = poppler_index_iter_get_action (iter);
 		expand = poppler_index_iter_is_open (iter);
 
 		if (!action)
 			continue;
 
+		/* Block zoom change when action link is pressed (bug fix #175) */
+		action->goto_dest.dest->change_zoom = 0;
+
 		link = ev_link_from_action (pdf_document, action);
 		if (!link || strlen (ev_link_get_title (link)) <= 0) {
 			poppler_action_free (action);
 			if (link)
 				g_object_unref (link);
-			
+
 			continue;
 		}
 
 		gtk_tree_store_append (GTK_TREE_STORE (model), &tree_iter, parent);
 		title_markup = g_markup_escape_text (ev_link_get_title (link), -1);
-		
+
 		gtk_tree_store_set (GTK_TREE_STORE (model), &tree_iter,
 				    EV_DOCUMENT_LINKS_COLUMN_MARKUP, title_markup,
 				    EV_DOCUMENT_LINKS_COLUMN_LINK, link,
 				    EV_DOCUMENT_LINKS_COLUMN_EXPAND, expand,
 				    -1);
-		
+
 		g_free (title_markup);
 		g_object_unref (link);
-		
+
 		child = poppler_index_iter_get_child (iter);
 		if (child)
 			build_tree (pdf_document, model, &tree_iter, child);
 		poppler_index_iter_free (child);
 		poppler_action_free (action);
-		
+
 	} while (poppler_index_iter_next (iter));
 }
 
@@ -1244,7 +1247,7 @@ pdf_document_links_get_links_model (EvDocumentLinks *document_links)
 	PdfDocument *pdf_document = PDF_DOCUMENT (document_links);
 	GtkTreeModel *model = NULL;
 	PopplerIndexIter *iter;
-	
+
 	g_return_val_if_fail (PDF_IS_DOCUMENT (document_links), NULL);
 
 	iter = poppler_index_iter_new (pdf_document->document);
@@ -1258,7 +1261,7 @@ pdf_document_links_get_links_model (EvDocumentLinks *document_links)
 		build_tree (pdf_document, model, NULL, iter);
 		poppler_index_iter_free (iter);
 	}
-	
+
 	return model;
 }
 
@@ -1367,7 +1370,7 @@ pdf_document_images_get_image_mapping (EvDocumentImages *document_images,
 		image_mapping = (PopplerImageMapping *)list->data;
 
 		ev_image_mapping = g_new (EvMapping, 1);
-		
+
 		ev_image_mapping->data = ev_image_new (page->index, image_mapping->image_id);
 		ev_image_mapping->area.x1 = image_mapping->area.x1;
 		ev_image_mapping->area.y1 = image_mapping->area.y1;
@@ -1425,7 +1428,7 @@ make_thumbnail_for_page (PopplerPage     *poppler_page,
 	ev_document_fc_mutex_lock ();
 	surface = pdf_page_render (poppler_page, width, height, rc);
 	ev_document_fc_mutex_unlock ();
-	
+
 	pixbuf = ev_document_misc_pixbuf_from_surface (surface);
 	cairo_surface_destroy (surface);
 
@@ -1434,7 +1437,7 @@ make_thumbnail_for_page (PopplerPage     *poppler_page,
 
 static GdkPixbuf *
 pdf_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document_thumbnails,
-				       EvRenderContext      *rc, 
+				       EvRenderContext      *rc,
 				       gboolean              border)
 {
 	PdfDocument *pdf_document = PDF_DOCUMENT (document_thumbnails);
@@ -1448,7 +1451,7 @@ pdf_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document_thumbnails
 
 	pdf_document_thumbnails_get_dimensions (EV_DOCUMENT_THUMBNAILS (pdf_document),
 						rc, &width, &height);
-	
+
 	surface = poppler_page_get_thumbnail (poppler_page);
 	if (surface) {
 		pixbuf = ev_document_misc_pixbuf_from_surface (surface);
@@ -1481,7 +1484,7 @@ pdf_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document_thumbnails
 		border_pixbuf = ev_document_misc_get_thumbnail_frame (-1, -1, pixbuf);
 		g_object_unref (pixbuf);
 		pixbuf = border_pixbuf;
-	}		
+	}
 
 	return pixbuf;
 }
@@ -1493,10 +1496,10 @@ pdf_document_thumbnails_get_dimensions (EvDocumentThumbnails *document_thumbnail
 					gint                 *height)
 {
 	double page_width, page_height;
-	
+
 	poppler_page_get_size (POPPLER_PAGE (rc->page->backend_page),
 			       &page_width, &page_height);
-	
+
 	*width = MAX ((gint)(page_width * rc->scale + 0.5), 1);
 	*height = MAX ((gint)(page_height * rc->scale + 0.5), 1);
 
@@ -1533,7 +1536,7 @@ pdf_document_find_find_text (EvDocumentFind *document_find,
 	g_return_val_if_fail (text != NULL, NULL);
 
 	poppler_page = POPPLER_PAGE (page->backend_page);
-	
+
 	if (case_sensitive)
 		options = POPPLER_FIND_CASE_SENSITIVE;
 
@@ -1597,19 +1600,19 @@ pdf_document_file_exporter_begin (EvFileExporter        *exporter,
 #ifdef HAVE_CAIRO_PRINT
 	cairo_surface_t *surface = NULL;
 #endif
-	
+
 	if (pdf_document->print_ctx)
 		pdf_print_context_free (pdf_document->print_ctx);
 	pdf_document->print_ctx = g_new0 (PdfPrintContext, 1);
 	ctx = pdf_document->print_ctx;
 	ctx->format = fc->format;
-	
+
 #ifdef HAVE_CAIRO_PRINT
 	ctx->pages_per_sheet = CLAMP (fc->pages_per_sheet, 1, 16);
 
 	ctx->paper_width = fc->paper_width;
 	ctx->paper_height = fc->paper_height;
-	
+
 	switch (fc->pages_per_sheet) {
 	        default:
 	        case 1:
@@ -1639,7 +1642,7 @@ pdf_document_file_exporter_begin (EvFileExporter        *exporter,
 	}
 
 	ctx->pages_printed = 0;
-	
+
 	switch (fc->format) {
 	        case EV_FILE_FORMAT_PS:
 #ifdef HAVE_CAIRO_PS
@@ -1674,11 +1677,11 @@ pdf_document_file_exporter_begin_page (EvFileExporter *exporter)
 {
 	PdfDocument *pdf_document = PDF_DOCUMENT (exporter);
 	PdfPrintContext *ctx = pdf_document->print_ctx;
-	
+
 	g_return_if_fail (pdf_document->print_ctx != NULL);
 
 	ctx->pages_printed = 0;
-	
+
 #ifdef HAVE_CAIRO_PRINT
 	if (ctx->paper_width > ctx->paper_height) {
 		if (ctx->format == EV_FILE_FORMAT_PS) {
@@ -1713,7 +1716,7 @@ pdf_document_file_exporter_do_page (EvFileExporter  *exporter,
 	g_return_if_fail (pdf_document->print_ctx != NULL);
 
 	poppler_page = POPPLER_PAGE (rc->page->backend_page);
-	
+
 #ifdef HAVE_CAIRO_PRINT
 	x = (ctx->pages_printed % ctx->pages_per_sheet) % ctx->pages_x;
 	y = (ctx->pages_printed % ctx->pages_per_sheet) / ctx->pages_x;
@@ -1737,7 +1740,7 @@ pdf_document_file_exporter_do_page (EvFileExporter  *exporter,
 
 	if (ctx->pages_per_sheet == 2 || ctx->pages_per_sheet == 6) {
 		rotate = !rotate;
-	}	
+	}
 
 	if (rotate) {
 		gint tmp1;
@@ -1759,14 +1762,14 @@ pdf_document_file_exporter_do_page (EvFileExporter  *exporter,
 	    (page_width < pwidth && page_height < pheight)) {
 		xscale = pwidth / page_width;
 		yscale = pheight / page_height;
-		
+
 		if (yscale < xscale) {
 			xscale = yscale;
 		} else {
 			yscale = xscale;
 		}
-		
-	} else {	
+
+	} else {
 		xscale = yscale = 1;
 	}
 
@@ -1775,7 +1778,7 @@ pdf_document_file_exporter_do_page (EvFileExporter  *exporter,
 	cairo_save (ctx->cr);
 	if (rotate) {
 		cairo_matrix_t matrix;
-		
+
 		cairo_translate (ctx->cr, (2 * y + 1) * pwidth, 0);
 		cairo_matrix_init (&matrix,
 				   0,  1,
@@ -1783,7 +1786,7 @@ pdf_document_file_exporter_do_page (EvFileExporter  *exporter,
 				   0,  0);
 		cairo_transform (ctx->cr, &matrix);
 	}
-	
+
 	cairo_translate (ctx->cr,
 			 x * (rotate ? pheight : pwidth),
 			 y * (rotate ? pwidth : pheight));
@@ -1792,7 +1795,7 @@ pdf_document_file_exporter_do_page (EvFileExporter  *exporter,
 	poppler_page_render_for_printing (poppler_page, ctx->cr);
 
 	ctx->pages_printed++;
-			
+
 	cairo_restore (ctx->cr);
 #else /* HAVE_CAIRO_PRINT */
 	if (ctx->format == EV_FILE_FORMAT_PS)
@@ -1805,7 +1808,7 @@ pdf_document_file_exporter_end_page (EvFileExporter *exporter)
 {
 	PdfDocument *pdf_document = PDF_DOCUMENT (exporter);
 	PdfPrintContext *ctx = pdf_document->print_ctx;
-	
+
 	g_return_if_fail (pdf_document->print_ctx != NULL);
 
 #ifdef HAVE_CAIRO_PRINT
@@ -1834,7 +1837,7 @@ pdf_document_file_exporter_get_capabilities (EvFileExporter *exporter)
 #ifdef HAVE_CAIRO_PRINT
 		EV_FILE_EXPORTER_CAN_NUMBER_UP |
 #endif
-		
+
 #ifdef HAVE_CAIRO_PDF
 		EV_FILE_EXPORTER_CAN_GENERATE_PDF |
 #endif
@@ -1901,7 +1904,7 @@ pdf_selection_render_selection (EvSelection      *selection,
 	if (*surface == NULL) {
 		*surface = cairo_image_surface_create (CAIRO_FORMAT_ARGB32,
 						       width, height);
-		
+
 	}
 
 	cr = cairo_create (*surface);
@@ -1976,7 +1979,7 @@ pdf_selection_get_selection_region (EvSelection     *selection,
 						    (PopplerRectangle *) points);
 	retval = create_region_from_poppler_region (region, rc->scale);
 	g_list_free (region);
-	
+
 	return retval;
 }
 
@@ -2113,8 +2116,8 @@ pdf_document_page_transition_iface_init (EvDocumentTransitionInterface *iface)
 /* Forms */
 #if 0
 static void
-pdf_document_get_crop_box (EvDocument  *document, 
-			   int          page, 
+pdf_document_get_crop_box (EvDocument  *document,
+			   int          page,
 			   EvRectangle *rect)
 {
 	PdfDocument *pdf_document;
@@ -2159,7 +2162,7 @@ ev_form_field_from_poppler_field (PopplerFormField *poppler_field)
 					ev_text_type = EV_FORM_FIELD_TEXT_FILE_SELECT;
 					break;
 			}
-			
+
 			ev_field = ev_form_field_text_new (id, ev_text_type);
 			field_text = EV_FORM_FIELD_TEXT (ev_field);
 
@@ -2190,7 +2193,7 @@ ev_form_field_from_poppler_field (PopplerFormField *poppler_field)
 
 			ev_field = ev_form_field_button_new (id, ev_button_type);
 			field_button = EV_FORM_FIELD_BUTTON (ev_field);
-			
+
 			field_button->state = poppler_form_field_button_get_state (poppler_field);
 		}
 			break;
@@ -2215,7 +2218,7 @@ ev_form_field_from_poppler_field (PopplerFormField *poppler_field)
 			field_choice->do_spell_check = poppler_form_field_choice_do_spell_check (poppler_field);
 			field_choice->commit_on_sel_change = poppler_form_field_choice_commit_on_change (poppler_field);
 
-			/* TODO: we need poppler_form_field_choice_get_selected_items in poppler 
+			/* TODO: we need poppler_form_field_choice_get_selected_items in poppler
 			field_choice->selected_items = poppler_form_field_choice_get_selected_items (poppler_field);*/
 			if (field_choice->is_editable)
 				field_choice->text = poppler_form_field_choice_get_text (poppler_field);
@@ -2236,7 +2239,7 @@ ev_form_field_from_poppler_field (PopplerFormField *poppler_field)
 }
 
 static EvMappingList *
-pdf_document_forms_get_form_fields (EvDocumentForms *document, 
+pdf_document_forms_get_form_fields (EvDocumentForms *document,
 				    EvPage          *page)
 {
  	PopplerPage *poppler_page;
@@ -2246,7 +2249,7 @@ pdf_document_forms_get_form_fields (EvDocumentForms *document,
  	double height;
 
 	g_return_val_if_fail (POPPLER_IS_PAGE (page->backend_page), NULL);
-	
+
  	poppler_page = POPPLER_PAGE (page->backend_page);
  	fields = poppler_page_get_form_field_mapping (poppler_page);
  	poppler_page_get_size (poppler_page, NULL, &height);
@@ -2274,10 +2277,10 @@ pdf_document_forms_get_form_fields (EvDocumentForms *document,
 					"poppler-field",
 					g_object_ref (mapping->field),
 					(GDestroyNotify) g_object_unref);
-		
+
 		retval = g_list_prepend (retval, field_mapping);
 	}
-	
+
 	poppler_page_free_form_field_mapping (fields);
 
 	return retval ? ev_mapping_list_new (page->index,
@@ -2294,7 +2297,7 @@ pdf_document_forms_document_is_modified (EvDocumentForms *document)
 static gchar *
 pdf_document_forms_form_field_text_get_text (EvDocumentForms *document,
 					     EvFormField     *field)
-	
+
 {
 	PopplerFormField *poppler_field;
 	gchar *text;
@@ -2302,14 +2305,14 @@ pdf_document_forms_form_field_text_get_text (EvDocumentForms *document,
 	poppler_field = POPPLER_FORM_FIELD (g_object_get_data (G_OBJECT (field), "poppler-field"));
 	if (!poppler_field)
 		return NULL;
-	
+
 	text = poppler_form_field_text_get_text (poppler_field);
 
 	return text;
 }
 
 static void
-pdf_document_forms_form_field_text_set_text (EvDocumentForms *document, 
+pdf_document_forms_form_field_text_set_text (EvDocumentForms *document,
 					     EvFormField     *field,
 					     const gchar     *text)
 {
@@ -2318,13 +2321,13 @@ pdf_document_forms_form_field_text_set_text (EvDocumentForms *document,
 	poppler_field = POPPLER_FORM_FIELD (g_object_get_data (G_OBJECT (field), "poppler-field"));
 	if (!poppler_field)
 		return;
-	
+
 	poppler_form_field_text_set_text (poppler_field, text);
 	PDF_DOCUMENT (document)->forms_modified = TRUE;
 }
 
 static void
-pdf_document_forms_form_field_button_set_state (EvDocumentForms *document, 
+pdf_document_forms_form_field_button_set_state (EvDocumentForms *document,
 						EvFormField     *field,
 						gboolean         state)
 {
@@ -2333,13 +2336,13 @@ pdf_document_forms_form_field_button_set_state (EvDocumentForms *document,
 	poppler_field = POPPLER_FORM_FIELD (g_object_get_data (G_OBJECT (field), "poppler-field"));
 	if (!poppler_field)
 		return;
-	
+
 	poppler_form_field_button_set_state (poppler_field, state);
 	PDF_DOCUMENT (document)->forms_modified = TRUE;
 }
 
 static gboolean
-pdf_document_forms_form_field_button_get_state (EvDocumentForms *document, 
+pdf_document_forms_form_field_button_get_state (EvDocumentForms *document,
 						EvFormField     *field)
 {
 	PopplerFormField *poppler_field;
@@ -2355,7 +2358,7 @@ pdf_document_forms_form_field_button_get_state (EvDocumentForms *document,
 }
 
 static gchar *
-pdf_document_forms_form_field_choice_get_item (EvDocumentForms *document, 
+pdf_document_forms_form_field_choice_get_item (EvDocumentForms *document,
 					       EvFormField     *field,
 					       gint             index)
 {
@@ -2372,7 +2375,7 @@ pdf_document_forms_form_field_choice_get_item (EvDocumentForms *document,
 }
 
 static int
-pdf_document_forms_form_field_choice_get_n_items (EvDocumentForms *document, 
+pdf_document_forms_form_field_choice_get_n_items (EvDocumentForms *document,
 						  EvFormField     *field)
 {
 	PopplerFormField *poppler_field;
@@ -2381,14 +2384,14 @@ pdf_document_forms_form_field_choice_get_n_items (EvDocumentForms *document,
 	poppler_field = POPPLER_FORM_FIELD (g_object_get_data (G_OBJECT (field), "poppler-field"));
 	if (!poppler_field)
 		return -1;
-	
+
 	n_items = poppler_form_field_choice_get_n_items (poppler_field);
 
 	return n_items;
 }
 
 static gboolean
-pdf_document_forms_form_field_choice_is_item_selected (EvDocumentForms *document, 
+pdf_document_forms_form_field_choice_is_item_selected (EvDocumentForms *document,
 						       EvFormField     *field,
 						       gint             index)
 {
@@ -2405,7 +2408,7 @@ pdf_document_forms_form_field_choice_is_item_selected (EvDocumentForms *document
 }
 
 static void
-pdf_document_forms_form_field_choice_select_item (EvDocumentForms *document, 
+pdf_document_forms_form_field_choice_select_item (EvDocumentForms *document,
 						  EvFormField     *field,
 						  gint             index)
 {
@@ -2420,7 +2423,7 @@ pdf_document_forms_form_field_choice_select_item (EvDocumentForms *document,
 }
 
 static void
-pdf_document_forms_form_field_choice_toggle_item (EvDocumentForms *document, 
+pdf_document_forms_form_field_choice_toggle_item (EvDocumentForms *document,
 						  EvFormField     *field,
 						  gint             index)
 {
@@ -2435,7 +2438,7 @@ pdf_document_forms_form_field_choice_toggle_item (EvDocumentForms *document,
 }
 
 static void
-pdf_document_forms_form_field_choice_unselect_all (EvDocumentForms *document, 
+pdf_document_forms_form_field_choice_unselect_all (EvDocumentForms *document,
 						   EvFormField     *field)
 {
 	PopplerFormField *poppler_field;
@@ -2443,7 +2446,7 @@ pdf_document_forms_form_field_choice_unselect_all (EvDocumentForms *document,
 	poppler_field = POPPLER_FORM_FIELD (g_object_get_data (G_OBJECT (field), "poppler-field"));
 	if (!poppler_field)
 		return;
-	
+
 	poppler_form_field_choice_unselect_all (poppler_field);
 	PDF_DOCUMENT (document)->forms_modified = TRUE;
 }
@@ -2458,7 +2461,7 @@ pdf_document_forms_form_field_choice_set_text (EvDocumentForms *document,
 	poppler_field = POPPLER_FORM_FIELD (g_object_get_data (G_OBJECT (field), "poppler-field"));
 	if (!poppler_field)
 		return;
-	
+
 	poppler_form_field_choice_set_text (poppler_field, text);
 	PDF_DOCUMENT (document)->forms_modified = TRUE;
 }
