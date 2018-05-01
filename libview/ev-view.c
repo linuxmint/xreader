@@ -2879,10 +2879,11 @@ ev_view_get_annotation_at_location (EvView  *view,
 
 	annotations_mapping = ev_page_cache_get_annot_mapping (view->page_cache, page);
 
-	if (annotations_mapping)
-		return ev_mapping_list_get_data (annotations_mapping, x_new, y_new);
-	else
+	if (!annotations_mapping)
 		return NULL;
+
+	EvAnnotation *annot = ev_mapping_list_get_data (annotations_mapping, x_new, y_new);
+	return EV_IS_ANNOTATION (annot) ? annot : NULL;
 }
 
 static void

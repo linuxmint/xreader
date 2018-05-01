@@ -69,7 +69,6 @@ struct _EvAnnotationAttachmentClass {
 
 struct _EvAnnotationTextMarkup {
 	EvAnnotation parent;
-
 	EvAnnotationTextMarkupType type;
 };
 
@@ -77,10 +76,29 @@ struct _EvAnnotationTextMarkupClass {
 	EvAnnotationClass parent_class;
 };
 
-static void ev_annotation_markup_default_init          (EvAnnotationMarkupInterface *iface);
-static void ev_annotation_text_markup_iface_init       (EvAnnotationMarkupInterface *iface);
-static void ev_annotation_attachment_markup_iface_init (EvAnnotationMarkupInterface *iface);
+struct _EvAnnotationCircle {
+	EvAnnotation parent;
+};
+
+struct _EvAnnotationCircleClass {
+	EvAnnotationClass parent_class;
+};
+
+struct _EvAnnotationLine {
+	EvAnnotation parent;
+};
+
+struct _EvAnnotationLineClass {
+	EvAnnotationClass parent_class;
+};
+
+
+static void ev_annotation_markup_default_init           (EvAnnotationMarkupInterface *iface);
+static void ev_annotation_text_markup_iface_init        (EvAnnotationMarkupInterface *iface);
+static void ev_annotation_attachment_markup_iface_init  (EvAnnotationMarkupInterface *iface);
 static void ev_annotation_text_markup_markup_iface_init (EvAnnotationMarkupInterface *iface);
+static void ev_annotation_circle_markup_iface_init      (EvAnnotationMarkupInterface *iface);
+static void ev_annotation_line_markup_iface_init        (EvAnnotationMarkupInterface *iface);
 
 /* EvAnnotation */
 enum {
@@ -136,6 +154,16 @@ G_DEFINE_TYPE_WITH_CODE (EvAnnotationTextMarkup, ev_annotation_text_markup, EV_T
 	 {
 		 G_IMPLEMENT_INTERFACE (EV_TYPE_ANNOTATION_MARKUP,
 					ev_annotation_text_markup_markup_iface_init);
+	 });
+G_DEFINE_TYPE_WITH_CODE (EvAnnotationCircle, ev_annotation_circle, EV_TYPE_ANNOTATION,
+	 {
+		 G_IMPLEMENT_INTERFACE (EV_TYPE_ANNOTATION_MARKUP,
+					ev_annotation_circle_markup_iface_init);
+	 });
+G_DEFINE_TYPE_WITH_CODE (EvAnnotationLine, ev_annotation_line, EV_TYPE_ANNOTATION,
+	 {
+		 G_IMPLEMENT_INTERFACE (EV_TYPE_ANNOTATION_MARKUP,
+					ev_annotation_line_markup_iface_init);
 	 });
 
 /* EvAnnotation */
@@ -1419,10 +1447,10 @@ ev_annotation_text_markup_class_init (EvAnnotationTextMarkupClass *class)
 
 	ev_annotation_markup_class_install_properties (g_object_class);
 
-        g_object_class->get_property = ev_annotation_text_markup_get_property;
-        g_object_class->set_property = ev_annotation_text_markup_set_property;
+	g_object_class->get_property = ev_annotation_text_markup_get_property;
+	g_object_class->set_property = ev_annotation_text_markup_set_property;
 
-        g_object_class_install_property (g_object_class,
+	g_object_class_install_property (g_object_class,
 					 PROP_TEXT_MARKUP_TYPE,
 					 g_param_spec_enum ("type",
 							    "Type",
@@ -1430,8 +1458,8 @@ ev_annotation_text_markup_class_init (EvAnnotationTextMarkupClass *class)
 							    EV_TYPE_ANNOTATION_TEXT_MARKUP_TYPE,
 							    EV_ANNOTATION_TEXT_MARKUP_HIGHLIGHT,
 							    G_PARAM_READWRITE |
-                                                            G_PARAM_CONSTRUCT |
-                                                            G_PARAM_STATIC_STRINGS));
+							    G_PARAM_CONSTRUCT |
+							    G_PARAM_STATIC_STRINGS));
 }
 
 static void
@@ -1501,3 +1529,114 @@ ev_annotation_text_markup_set_markup_type (EvAnnotationTextMarkup    *annot,
 
 	return TRUE;
 }
+
+/* EvAnnotationCircle */
+static void
+ev_annotation_circle_get_property (GObject    *object,
+                                   guint       prop_id,
+                                   GValue     *value,
+                                   GParamSpec *pspec)
+{
+	if (prop_id < PROP_TEXT_MARKUP_TYPE) {
+		ev_annotation_markup_get_property (object, prop_id, value, pspec);
+		return;
+	}
+}
+
+static void
+ev_annotation_circle_set_property (GObject      *object,
+                                   guint         prop_id,
+                                   const GValue *value,
+                                   GParamSpec   *pspec)
+{
+	if (prop_id < PROP_TEXT_MARKUP_TYPE) {
+		ev_annotation_markup_set_property (object, prop_id, value, pspec);
+		return;
+	}
+}
+
+static void
+ev_annotation_circle_init (EvAnnotationCircle *annot)
+{
+	EV_ANNOTATION (annot)->type = EV_ANNOTATION_TYPE_CIRCLE;
+}
+
+static void
+ev_annotation_circle_class_init (EvAnnotationCircleClass *class)
+{
+	GObjectClass *g_object_class = G_OBJECT_CLASS (class);
+
+	ev_annotation_markup_class_install_properties (g_object_class);
+
+	g_object_class->get_property = ev_annotation_circle_get_property;
+	g_object_class->set_property = ev_annotation_circle_set_property;
+}
+
+static void
+ev_annotation_circle_markup_iface_init (EvAnnotationMarkupInterface *iface)
+{
+}
+
+EvAnnotation *
+ev_annotation_circle_new (EvPage *page)
+{
+	return EV_ANNOTATION (g_object_new (EV_TYPE_ANNOTATION_CIRCLE,
+					    "page", page,
+					    NULL));
+}
+
+/* EvAnnotationLine */
+static void
+ev_annotation_line_get_property (GObject    *object,
+                                 guint       prop_id,
+                                 GValue     *value,
+                                 GParamSpec *pspec)
+{
+	if (prop_id < PROP_TEXT_MARKUP_TYPE) {
+		ev_annotation_markup_get_property (object, prop_id, value, pspec);
+		return;
+	}
+}
+
+static void
+ev_annotation_line_set_property (GObject      *object,
+                                 guint         prop_id,
+                                 const GValue *value,
+                                 GParamSpec   *pspec)
+{
+	if (prop_id < PROP_TEXT_MARKUP_TYPE) {
+		ev_annotation_markup_set_property (object, prop_id, value, pspec);
+		return;
+	}
+}
+
+static void
+ev_annotation_line_init (EvAnnotationLine *annot)
+{
+	EV_ANNOTATION (annot)->type = EV_ANNOTATION_TYPE_LINE;
+}
+
+static void
+ev_annotation_line_class_init (EvAnnotationLineClass *class)
+{
+	GObjectClass *g_object_class = G_OBJECT_CLASS (class);
+
+	ev_annotation_markup_class_install_properties (g_object_class);
+
+	g_object_class->get_property = ev_annotation_line_get_property;
+	g_object_class->set_property = ev_annotation_line_set_property;
+}
+
+static void
+ev_annotation_line_markup_iface_init (EvAnnotationMarkupInterface *iface)
+{
+}
+
+EvAnnotation *
+ev_annotation_line_new (EvPage *page)
+{
+	return EV_ANNOTATION (g_object_new (EV_TYPE_ANNOTATION_LINE,
+					    "page", page,
+					    NULL));
+}
+
