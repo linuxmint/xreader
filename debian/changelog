@@ -1,3 +1,81 @@
+xreader (1.8.0) tara; urgency=medium
+
+  [ Mickael Albertus ]
+  * Add Remove Annotation
+  * Add Remove Annotation: update *.po
+  * Correct Sidebar refresh
+  * Revert "Correct Sidebar refresh"
+  * Correct sidebar refresh after removing annotation
+  * Revert "Add Remove Annotation: update *.po"
+
+  [ Moser Peter ]
+  * Code style: Fix ev-application and ev-window
+  * EVINCE BACKPORTS: shell: Use g_printerr instead of g_warning
+  * EVINCE BACKPORTS: shell: Port to GtkApplication
+
+  [ Piiit ]
+  * EVINCE BACKPORTS: daemon: Port to GApplication (#191)
+
+  [ Mickael Albertus ]
+  * Recent view (#183)
+
+  [ Piiit ]
+  * Add a preferences dialog and optional toolbar buttons (#178)
+
+  [ Clement Lefebvre ]
+  * Bump xapp requirement to 1.1.0
+  * Fix indentation in recently merged PRs
+  * Fix merge conflict
+
+  [ Mickael Albertus ]
+  * Fix Ctrl+A selecting the entire document when focus is on a text entry
+  * Fix crash when removing annotations (#199)
+
+  [ Clement Lefebvre ]
+  * CI: Add configuration for CircleCI
+  * CI: Fix mint-build call
+  * CI: Fix build
+  * CI: Fix build
+  * CI: Fix build
+  * CI: Store debs as artifacts
+  * CI: Fix typo
+  * CI: Deploy debs to Github
+  * CI: Build against Mint 18, 19 and LMDE 3
+  * CI: Fix indentation
+  * Configure.ac: Remove version on libcaja-extension dependency
+  * Update CI configuration
+
+  [ JosephMcc ]
+  * preferences-dialog: Fix a couple of margins (#207)
+  * ev-recent-view: General cleanup (#206)
+
+  [ Mickael Albertus ]
+  * Sidebar: Add a close button (#203)
+  * Fix crash when opening an already open document twice (#205)
+  * Fix Epub thumbnails (#200)
+  * Allow to save epub documents (#202)
+  * Add the ability to zoom in/out thumbnails (#195)
+  * Add smooth scrolling (#196)
+
+  [ Clement Lefebvre ]
+  * Thumbnail zoom buttons: Reorder, use symbolic and rename the tooltips
+
+  [ Mickael Albertus ]
+  * Fix changing page in Page View after zooming out (#211)
+
+  [ JosephMcc ]
+  * ev-sidebar: Don't set the relief on the select button to NONE (#224)
+
+  [ Mickael Albertus ]
+  * Bug fix of form elements (#221)
+  * Bug fix + Trailing space fix (#217)
+  * functionnality (#218)
+
+  [ Clement Lefebvre ]
+  * l10n: Update POT file
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 07 May 2018 11:18:33 +0100
+
 xreader (1.6.2) sylvia; urgency=medium
 
   [ Michael Webster ]
