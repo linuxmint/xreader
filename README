@@ -27,8 +27,6 @@ enabled during build:
     - Keyring Support
     - DBUS Support
     - SM client support
-    - Nemo Plugin
-    - Caja Plugin
     - Thumbnailer
     - Previewer
     - Gtk-Doc Support
@@ -50,8 +48,7 @@ Building Xreader from source
 1) Install prerequisites:
 
     apt install git dpkg-dev
-    apt install gobject-introspection libcaja-extension-dev                   \
-                libnemo-extension-dev libdjvulibre-dev libgail-3-dev          \
+    apt install gobject-introspection libdjvulibre-dev libgail-3-dev          \
                 libgirepository1.0-dev libgtk-3-dev libgxps-dev               \
                 libkpathsea-dev libpoppler-glib-dev libsecret-1-dev           \
                 libspectre-dev libwebkit2gtk-4.0-dev mate-common xsltproc     \
@@ -74,8 +71,6 @@ Building Xreader from source
         --exec-prefix=$PWD/install/ \
         --enable-debug              \
         --enable-tests              \
-        --enable-caja               \
-        --enable-nemo               \
         --enable-pixbuf             \
         --enable-introspection      \
         --enable-gtk-doc

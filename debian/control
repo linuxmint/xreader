@@ -5,8 +5,6 @@ Maintainer: Linux Mint <root@linuxmint.com>
 Build-Depends: debhelper (>= 9),
                gobject-introspection,
                intltool,
-               libcaja-extension-dev (>= 1.12),
-               libnemo-extension-dev,
                libdjvulibre-dev,
                libgail-3-dev,
                libgirepository1.0-dev,

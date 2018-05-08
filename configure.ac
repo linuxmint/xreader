@@ -283,46 +283,6 @@ EV_DAEMON_CFLAGS="$EV_DAEMON_CFLAGS $DEBUG_FLAGS"
 AC_SUBST([EV_DAEMON_CFLAGS])
 AC_SUBST([EV_DAEMON_LIBS])
 
-# Check for Caja property page build
-AC_ARG_ENABLE([caja],
-  [AS_HELP_STRING([--disable-caja],
-                  [Disable build of caja extensions])],
-  [],
-  [enable_caja=yes])
-
-if test "$enable_caja" = "yes" ; then
-  PKG_CHECK_MODULES([CAJA],[$MM gthread-2.0 libcaja-extension],
-                    [],[AC_MSG_ERROR([libcaja-extension not found; use --disable-caja to disable the caja extensions])])
-  CAJA_EXTENSION_DIR=`$PKG_CONFIG --variable=extensiondir libcaja-extension`
-  AC_SUBST([cajaextensiondir],[$CAJA_EXTENSION_DIR])
-  AC_SUBST(CAJA_CFLAGS)
-  AC_SUBST(CAJA_LIBS)
-
-  AC_DEFINE([HAVE_CAJA],[1], [defined if you build the caja plugin])
-fi
-
-AM_CONDITIONAL([ENABLE_CAJA],[test "$enable_caja" = "yes"])
-
-# Check for Nemo property page build
-AC_ARG_ENABLE([nemo],
-  [AS_HELP_STRING([--disable-nemo],
-                  [Disable build of nemo extensions])],
-  [],
-  [enable_nemo=yes])
-
-if test "$enable_nemo" = "yes" ; then
-  PKG_CHECK_MODULES([NEMO],[$MM gthread-2.0 libnemo-extension],
-                    [],[AC_MSG_ERROR([libnemo-extension not found; use --disable-nemo to disable the nemo extensions])])
-  NEMO_EXTENSION_DIR=`$PKG_CONFIG --variable=extensiondir libnemo-extension`
-  AC_SUBST([nemoextensiondir],[$NEMO_EXTENSION_DIR])
-  AC_SUBST(NEMO_CFLAGS)
-  AC_SUBST(NEMO_LIBS)
-
-  AC_DEFINE([HAVE_NEMO],[1], [defined if you build the nemo plugin])
-fi
-
-AM_CONDITIONAL([ENABLE_NEMO],[test "$enable_nemo" = "yes"])
-
 # Check for thumbnailer build
 
 AC_ARG_ENABLE([thumbnailer],
@@ -771,10 +731,6 @@ libview/Makefile
 Makefile
 po/Makefile.in
 previewer/Makefile
-properties-caja/libxreader-properties-page.caja-extension.in
-properties-caja/Makefile
-properties-nemo/libxreader-properties-page.nemo-extension.in
-properties-nemo/Makefile
 shell/Makefile
 test/Makefile
 thumbnailer/Makefile
@@ -791,8 +747,6 @@ Configure summary:
     GTK+ Unix Print.....:    $with_gtk_unix_print
     Keyring Support.....:    $with_keyring
     DBUS Support........:    $enable_dbus
-    Caja Plugin.........:    $enable_caja
-    Nemo Plugin.........:    $enable_nemo
     Thumbnailer.........:    $enable_thumbnailer
     Previewer...........:    $enable_previewer
     Gtk-Doc Support.....:    $enable_gtk_doc

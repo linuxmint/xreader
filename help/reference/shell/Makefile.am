@@ -125,16 +125,6 @@ GTKDOC_LIBS = \
 	$(MATE_DESKTOP_LIBS)						\
 	$(filter-out $(FILTER_OUT),$(wildcard $(top_builddir)/shell/*.o))
 
-if ENABLE_CAJA
-    GTKDOC_CFLAGS+=-I$(top_srcdir)/properties-caja
-    GTKDOC_LIBS+=$(top_builddir)/properties-caja/libevproperties.la
-endif
-
-if ENABLE_NEMO
-    GTKDOC_CFLAGS+=-I$(top_srcdir)/properties-nemo
-    GTKDOC_LIBS+=$(top_builddir)/properties-nemo/libevproperties.la
-endif
-
 # This includes the standard gtk-doc make rules, copied by gtkdocize.
 include $(top_srcdir)/gtk-doc.make
 

@@ -1,6 +1,0 @@
-# xreader ships a caja extension and those extensions are known to erroneously
-# trigger debhelper's makeshlibs script
-xreader: pkg-has-shlibs-control-file-but-no-actual-shared-libs
-xreader: postinst-has-useless-call-to-ldconfig
-xreader: postrm-has-useless-call-to-ldconfig
-

@@ -8,15 +8,6 @@ SUBDIRS =       \
     libview     \
     libmisc
 
-
-if ENABLE_CAJA
-    SUBDIRS += properties-caja
-endif
-
-if ENABLE_NEMO
-    SUBDIRS += properties-nemo
-endif
-
 if ENABLE_TESTS
     SUBDIRS += test
 endif
@@ -29,10 +20,7 @@ if ENABLE_PREVIEWER
     SUBDIRS += previewer
 endif
 
-# dpkg-buildpackage: Building shell, po and help is dependent of properties-nemo
-# and properties-caja, which must be build before.
 SUBDIRS += shell po help
-
 
 NULL =
 
@@ -90,8 +78,6 @@ MAINTAINERCLEANFILES =       \
 DISTCHECK_CONFIGURE_FLAGS =   \
     --disable-schemas-compile \
     --enable-gtk-doc          \
-    --disable-caja            \
-    --disable-nemo            \
     --disable-tests           \
     --disable-silent-rules    \
     --with-gtk=$(GTK_API_VERSION)
