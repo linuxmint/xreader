@@ -62,8 +62,8 @@ ev_mapping_list_find_custom (EvMappingList *mapping_list,
 
 gpointer
 ev_mapping_list_get_data (EvMappingList *mapping_list,
-			  gdouble        x,
-			  gdouble        y)
+                          gdouble        x,
+                          gdouble        y)
 {
 	GList *list;
 

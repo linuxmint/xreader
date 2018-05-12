@@ -42,29 +42,30 @@ GType              ev_page_cache_get_type               (void) G_GNUC_CONST;
 EvPageCache       *ev_page_cache_new                    (EvDocument        *document);
 
 void               ev_page_cache_set_page_range         (EvPageCache       *cache,
-							 gint               start,
-							 gint               end);
+                                                         gint               start,
+                                                         gint               end);
 EvJobPageDataFlags ev_page_cache_get_flags              (EvPageCache       *cache);
 void               ev_page_cache_set_flags              (EvPageCache       *cache,
-							 EvJobPageDataFlags flags);
+                                                         EvJobPageDataFlags flags);
 void               ev_page_cache_mark_dirty             (EvPageCache       *cache,
-							 gint               page);
+                                                         gint               page,
+                                                         EvJobPageDataFlags flags);
 EvMappingList     *ev_page_cache_get_link_mapping       (EvPageCache       *cache,
-							 gint               page);
+                                                         gint               page);
 EvMappingList     *ev_page_cache_get_image_mapping      (EvPageCache       *cache,
-							 gint               page);
+                                                         gint               page);
 EvMappingList     *ev_page_cache_get_form_field_mapping (EvPageCache       *cache,
-							 gint               page);
+                                                         gint               page);
 EvMappingList     *ev_page_cache_get_annot_mapping      (EvPageCache       *cache,
-							 gint               page);
+                                                         gint               page);
 cairo_region_t    *ev_page_cache_get_text_mapping       (EvPageCache       *cache,
-							 gint               page);
+                                                         gint               page);
 const gchar       *ev_page_cache_get_text               (EvPageCache       *cache,
-							 gint               page);
+                                                         gint               page);
 gboolean           ev_page_cache_get_text_layout        (EvPageCache       *cache,
-							 gint               page,
-							 EvRectangle      **areas,
-							 guint             *n_areas);
+                                                         gint               page,
+                                                         EvRectangle      **areas,
+                                                         guint             *n_areas);
 
 G_END_DECLS
 

@@ -47,10 +47,12 @@ struct _EvSidebarAnnotationsClass {
 	GtkBoxClass base_class;
 
 	void    (* annot_activated)     (EvSidebarAnnotations *sidebar_annots,
-					 EvMapping            *mapping);
+                                     EvMapping            *mapping);
 	void    (* begin_annot_add)     (EvSidebarAnnotations *sidebar_annots,
-					 EvAnnotationType      annot_type);
+                                     EvAnnotationInfo     *annot_info);
 	void    (* annot_add_cancelled) (EvSidebarAnnotations *sidebar_annots);
+	void    (* annot_menu_popup)    (EvSidebarAnnotations *sidebar_annots,
+	                                 EvMapping            *mapping);
 };
 
 GType      ev_sidebar_annotations_get_type    (void) G_GNUC_CONST;

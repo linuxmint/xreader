@@ -176,14 +176,14 @@ emit_finished (EvJob *job)
 	ev_debug_message (DEBUG_JOBS, "%s (%p)", EV_GET_TYPE_NAME (job), job);
 
 	job->idle_finished_id = 0;
-	
+
 	if (job->cancelled) {
 		ev_debug_message (DEBUG_JOBS, "%s (%p) job was cancelled, do not emit finished", EV_GET_TYPE_NAME (job), job);
 	} else {
 		ev_profiler_stop (EV_PROFILE_JOBS, "%s (%p)", EV_GET_TYPE_NAME (job), job);
 		g_signal_emit (job, job_signals[FINISHED], 0);
 	}
-	
+
 	return FALSE;
 }
 
@@ -196,9 +196,9 @@ ev_job_emit_finished (EvJob *job)
 		ev_debug_message (DEBUG_JOBS, "%s (%p) job was cancelled, returning", EV_GET_TYPE_NAME (job), job);
 		return;
 	}
-	
+
 	job->finished = TRUE;
-	
+
 	if (job->run_mode == EV_JOB_RUN_THREAD) {
 		job->idle_finished_id =
 			g_idle_add_full (G_PRIORITY_DEFAULT_IDLE,
@@ -215,7 +215,7 @@ gboolean
 ev_job_run (EvJob *job)
 {
 	EvJobClass *class = EV_JOB_GET_CLASS (job);
-	
+
 	return class->  run (job);
 }
 
@@ -227,7 +227,7 @@ ev_job_cancel (EvJob *job)
 
 	ev_debug_message (DEBUG_JOBS, "job %s (%p) cancelled", EV_GET_TYPE_NAME (job), job);
 	ev_profiler_stop (EV_PROFILE_JOBS, "%s (%p)", EV_GET_TYPE_NAME (job), job);
-	
+
 	/* This should never be called from a thread */
 	job->cancelled = TRUE;
 	g_cancellable_cancel (job->cancellable);
@@ -247,22 +247,22 @@ ev_job_failed (EvJob       *job,
 {
 	va_list args;
 	gchar  *message;
-	
+
 	if (job->failed || job->finished)
 		return;
 
 	ev_debug_message (DEBUG_JOBS, "job %s (%p) failed", EV_GET_TYPE_NAME (job), job);
-	
+
 	job->failed = TRUE;
-	
+
 	va_start (args, format);
 	message = g_strdup_vprintf (format, args);
 	va_end (args);
-	
+
 	job->error = g_error_new_literal (domain, code, message);
 	g_free (message);
-	
-	ev_job_emit_finished (job);                                                                                                               
+
+	ev_job_emit_finished (job);
 }
 
 void
@@ -271,7 +271,7 @@ ev_job_failed_from_error (EvJob  *job,
 {
 	if (job->failed || job->finished)
 		return;
-	
+
 	ev_debug_message (DEBUG_JOBS, "job %s (%p) failed", EV_GET_TYPE_NAME (job), job);
 
 	job->failed = TRUE;
@@ -287,7 +287,7 @@ ev_job_succeeded (EvJob *job)
 		return;
 
 	ev_debug_message (DEBUG_JOBS, "job %s (%p) succeeded", EV_GET_TYPE_NAME (job), job);
-	
+
 	job->failed = FALSE;
 	ev_job_emit_finished (job);
 }
@@ -330,7 +330,7 @@ ev_job_links_dispose (GObject *object)
 	EvJobLinks *job;
 
 	ev_debug_message (DEBUG_JOBS, NULL);
-	
+
 	job = EV_JOB_LINKS (object);
 
 	if (job->model) {
@@ -380,7 +380,7 @@ ev_job_links_run (EvJob *job)
 
 	ev_debug_message (DEBUG_JOBS, NULL);
 	ev_profiler_start (EV_PROFILE_JOBS, "%s (%p)", EV_GET_TYPE_NAME (job), job);
-	
+
 	ev_document_doc_mutex_lock ();
 	job_links->model = ev_document_links_get_links_model (EV_DOCUMENT_LINKS (job->document));
 	ev_document_doc_mutex_unlock ();
@@ -388,7 +388,7 @@ ev_job_links_run (EvJob *job)
 	gtk_tree_model_foreach (job_links->model, (GtkTreeModelForeachFunc)fill_page_labels, job);
 
 	ev_job_succeeded (job);
-	
+
 	return FALSE;
 }
 
@@ -411,7 +411,7 @@ ev_job_links_new (EvDocument *document)
 
 	job = g_object_new (EV_TYPE_JOB_LINKS, NULL);
 	job->document = g_object_ref (document);
-	
+
 	return job;
 }
 
@@ -428,7 +428,7 @@ ev_job_attachments_dispose (GObject *object)
 	EvJobAttachments *job;
 
 	ev_debug_message (DEBUG_JOBS, NULL);
-	
+
 	job = EV_JOB_ATTACHMENTS (object);
 
 	if (job->attachments) {
@@ -477,7 +477,7 @@ ev_job_attachments_new (EvDocument *document)
 
 	job = g_object_new (EV_TYPE_JOB_ATTACHMENTS, NULL);
 	job->document = g_object_ref (document);
-	
+
 	return job;
 }
 
@@ -603,11 +603,11 @@ ev_job_render_run (EvJob *job)
 
 	ev_debug_message (DEBUG_JOBS, "page: %d (%p)", job_render->page, job);
 	ev_profiler_start (EV_PROFILE_JOBS, "%s (%p)", EV_GET_TYPE_NAME (job), job);
-	
+
 	ev_document_doc_mutex_lock ();
 
 	ev_profiler_start (EV_PROFILE_JOBS, "Rendering page %d", job_render->page);
-		
+
 	ev_document_fc_mutex_lock ();
 
 	ev_page = ev_document_get_page (job->document, job_render->page);
@@ -615,7 +615,7 @@ ev_job_render_run (EvJob *job)
 	if ( job->document->iswebdocument == TRUE )
 	{
 		return TRUE;
-		
+
 		if (g_cancellable_is_cancelled (job->cancellable)) {
 		ev_document_fc_mutex_unlock ();
 		ev_document_doc_mutex_unlock ();
@@ -623,7 +623,7 @@ ev_job_render_run (EvJob *job)
 
 		return FALSE;
 		}
-		
+
 		ev_document_fc_mutex_unlock ();
 		ev_document_doc_mutex_unlock ();
 		ev_job_succeeded (job);
@@ -663,9 +663,9 @@ ev_job_render_run (EvJob *job)
 
 	ev_document_fc_mutex_unlock ();
 	ev_document_doc_mutex_unlock ();
-	
+
 	ev_job_succeeded (job);
-	
+
 	return FALSE;
 }
 
@@ -690,7 +690,7 @@ ev_job_render_new (EvDocument   *document,
 	EvJobRender *job;
 
 	ev_debug_message (DEBUG_JOBS, "page: %d", page);
-	
+
 	job = g_object_new (EV_TYPE_JOB_RENDER, NULL);
 
 	EV_JOB (job)->document = g_object_ref (document);
@@ -812,7 +812,7 @@ ev_job_thumbnail_dispose (GObject *object)
 	job = EV_JOB_THUMBNAIL (object);
 
 	ev_debug_message (DEBUG_JOBS, "%d (%p)", job->page, job);
-	
+
 	if (job->thumbnail) {
 		g_object_unref (job->thumbnail);
 		job->thumbnail = NULL;
@@ -855,7 +855,7 @@ snapshot_callback(WebKitWebView *webview,
 
 	ev_document_doc_mutex_unlock ();
 	ev_job_succeeded (EV_JOB(job_thumb));
-    
+
 	gtk_widget_destroy (gtk_widget_get_toplevel (webview));
 }
 
@@ -888,9 +888,9 @@ webview_load_failed_cb (WebKitWebView  *webview,
 	GError *e = (GError *) error;
 	g_warning ("Error loading data from %s: %s", failing_uri, e->message);
 	ev_job_failed_from_error (EV_JOB(job_thumb), e);
-	
+
 	gtk_widget_destroy (gtk_widget_get_toplevel (webview));
-	
+
 	return TRUE;
 }
 
@@ -923,13 +923,13 @@ ev_job_thumbnail_run (EvJob *job)
 
 #if ENABLE_EPUB
 	if (job->document->iswebdocument == TRUE) {
-	
+
 		GtkWidget *webview;
 		GtkWidget *offscreenwindow;
-		
+
 		webview = webkit_web_view_new ();
 		offscreenwindow = gtk_offscreen_window_new ();
-		
+
 		gtk_container_add (GTK_CONTAINER(offscreenwindow), GTK_WIDGET (webview));
 		gtk_window_set_default_size (GTK_WINDOW(offscreenwindow), 800, 1080);
 		gtk_widget_show_all (offscreenwindow);
@@ -942,7 +942,7 @@ ev_job_thumbnail_run (EvJob *job)
 		                  g_object_ref (job_thumb));
 		webkit_web_view_load_uri (webview, (gchar*) rc->page->backend_page);
 	}
-	else 
+	else
 #endif  /* ENABLE_EPUB */
 	{
 		ev_document_doc_mutex_lock ();
@@ -952,7 +952,7 @@ ev_job_thumbnail_run (EvJob *job)
 		ev_job_succeeded (job);
 	}
 	g_object_unref (rc);
-	
+
 	return FALSE;
 }
 
@@ -975,7 +975,7 @@ ev_job_thumbnail_new (EvDocument *document,
 	EvJobThumbnail *job;
 
 	ev_debug_message (DEBUG_JOBS, "%d", page);
-	
+
 	job = g_object_new (EV_TYPE_JOB_THUMBNAIL, NULL);
 
 	EV_JOB (job)->document = g_object_ref (document);
@@ -1000,11 +1000,11 @@ ev_job_fonts_run (EvJob *job)
 	EvDocumentFonts *fonts = EV_DOCUMENT_FONTS (job->document);
 
 	ev_debug_message (DEBUG_JOBS, NULL);
-	
+
 	/* Do not block the main loop */
 	if (!ev_document_doc_mutex_trylock ())
 		return TRUE;
-	
+
 	if (!ev_document_fc_mutex_trylock ()) {
 		ev_document_doc_mutex_unlock ();
 		return TRUE;
@@ -1025,7 +1025,7 @@ ev_job_fonts_run (EvJob *job)
 
 	if (job_fonts->scan_completed)
 		ev_job_succeeded (job);
-	
+
 	return !job_fonts->scan_completed;
 }
 
@@ -1033,9 +1033,9 @@ static void
 ev_job_fonts_class_init (EvJobFontsClass *class)
 {
 	EvJobClass *job_class = EV_JOB_CLASS (class);
-	
+
 	job_class->run = ev_job_fonts_run;
-	
+
 	job_fonts_signals[FONTS_UPDATED] =
 		g_signal_new ("updated",
 			      EV_TYPE_JOB_FONTS,
@@ -1053,7 +1053,7 @@ ev_job_fonts_new (EvDocument *document)
 	EvJobFonts *job;
 
 	ev_debug_message (DEBUG_JOBS, NULL);
-	
+
 	job = g_object_new (EV_TYPE_JOB_FONTS, NULL);
 
 	EV_JOB (job)->document = g_object_ref (document);
@@ -1074,7 +1074,7 @@ ev_job_load_dispose (GObject *object)
 	EvJobLoad *job = EV_JOB_LOAD (object);
 
 	ev_debug_message (DEBUG_JOBS, "%s", job->uri);
-	
+
 	if (job->uri) {
 		g_free (job->uri);
 		job->uri = NULL;
@@ -1093,10 +1093,10 @@ ev_job_load_run (EvJob *job)
 {
 	EvJobLoad *job_load = EV_JOB_LOAD (job);
 	GError    *error = NULL;
-	
+
 	ev_debug_message (DEBUG_JOBS, "%s", job_load->uri);
 	ev_profiler_start (EV_PROFILE_JOBS, "%s (%p)", EV_GET_TYPE_NAME (job), job);
-	
+
 	ev_document_fc_mutex_lock ();
 
 	/* This job may already have a document even if the job didn't complete
@@ -1109,7 +1109,7 @@ ev_job_load_run (EvJob *job)
 			ev_document_security_set_password (EV_DOCUMENT_SECURITY (job->document),
 							   job_load->password);
 		}
-		
+
 		job->failed = FALSE;
 		job->finished = FALSE;
 		g_clear_error (&job->error);
@@ -1152,7 +1152,7 @@ ev_job_load_new (const gchar *uri)
 	EvJobLoad *job;
 
 	ev_debug_message (DEBUG_JOBS, "%s", uri);
-	
+
 	job = g_object_new (EV_TYPE_JOB_LOAD, NULL);
 	job->uri = g_strdup (uri);
 
@@ -1163,7 +1163,7 @@ void
 ev_job_load_set_uri (EvJobLoad *job, const gchar *uri)
 {
 	ev_debug_message (DEBUG_JOBS, "%s", uri);
-	
+
 	if (job->uri)
 		g_free (job->uri);
 	job->uri = g_strdup (uri);
@@ -1192,7 +1192,7 @@ ev_job_save_dispose (GObject *object)
 	EvJobSave *job = EV_JOB_SAVE (object);
 
 	ev_debug_message (DEBUG_JOBS, "%s", job->uri);
-	
+
 	if (job->uri) {
 		g_free (job->uri);
 		job->uri = NULL;
@@ -1214,7 +1214,7 @@ ev_job_save_run (EvJob *job)
 	gchar     *tmp_filename = NULL;
 	gchar     *local_uri;
 	GError    *error = NULL;
-	
+
 	ev_debug_message (DEBUG_JOBS, "uri: %s, document_uri: %s", job_save->uri, job_save->document_uri);
 	ev_profiler_start (EV_PROFILE_JOBS, "%s (%p)", EV_GET_TYPE_NAME (job), job);
 
@@ -1242,7 +1242,7 @@ ev_job_save_run (EvJob *job)
 		g_free (local_uri);
 		ev_job_failed_from_error (job, error);
 		g_error_free (error);
-		
+
 		return FALSE;
 	}
 
@@ -1253,11 +1253,11 @@ ev_job_save_run (EvJob *job)
 		EvCompressionType ctype = EV_COMPRESSION_NONE;
 		const gchar      *ext;
 		gchar            *uri_comp;
-		
+
 		ext = g_strrstr (job_save->document_uri, ".gz");
 		if (ext && g_ascii_strcasecmp (ext, ".gz") == 0)
 			ctype = EV_COMPRESSION_GZIP;
-		
+
 		ext = g_strrstr (job_save->document_uri, ".bz2");
 		if (ext && g_ascii_strcasecmp (ext, ".bz2") == 0)
 			ctype = EV_COMPRESSION_BZIP2;
@@ -1279,7 +1279,7 @@ ev_job_save_run (EvJob *job)
 		g_free (local_uri);
 		ev_job_failed_from_error (job, error);
 		g_error_free (error);
-		
+
 		return FALSE;
 	}
 
@@ -1295,7 +1295,7 @@ ev_job_save_run (EvJob *job)
 	} else {
 		ev_job_succeeded (job);
 	}
-	
+
 	return FALSE;
 }
 
@@ -1361,7 +1361,7 @@ ev_job_find_dispose (GObject *object)
 	if (job->results) {
 		g_free(job->results);
 	}
-	
+
 	(* G_OBJECT_CLASS (ev_job_find_parent_class)->dispose) (object);
 }
 
@@ -1373,11 +1373,11 @@ ev_job_find_run (EvJob *job)
 	EvPage         *ev_page;
 	GList          *matches;
 	ev_debug_message (DEBUG_JOBS, NULL);
-	
+
 	/* Do not block the main loop */
 	if (!ev_document_doc_mutex_trylock ())
 		return TRUE;
-	
+
 #ifdef EV_ENABLE_DEBUG
 	/* We use the #ifdef in this case because of the if */
 	if (job_find->current_page == job_find->start_page)
@@ -1391,11 +1391,11 @@ ev_job_find_run (EvJob *job)
 		                                                        job_find->case_sensitive);
 	}else {
 		matches = ev_document_find_find_text (find, ev_page, job_find->text,
-					      job_find->case_sensitive);	
+					      job_find->case_sensitive);
 	}
-	
+
 	g_object_unref (ev_page);
-	
+
 	ev_document_doc_mutex_unlock ();
 
 	if (!job_find->has_results && !job->document->iswebdocument) {
@@ -1410,7 +1410,7 @@ ev_job_find_run (EvJob *job)
 	}
 
 	g_signal_emit (job_find, job_find_signals[FIND_UPDATED], 0, job_find->current_page);
-		       
+
 	job_find->current_page = (job_find->current_page + 1) % job_find->n_pages;
 	if (job_find->current_page == job_find->start_page) {
 		ev_job_succeeded (job);
@@ -1426,10 +1426,10 @@ ev_job_find_class_init (EvJobFindClass *class)
 {
 	EvJobClass   *job_class = EV_JOB_CLASS (class);
 	GObjectClass *gobject_class = G_OBJECT_CLASS (class);
-	
+
 	job_class->run = ev_job_find_run;
 	gobject_class->dispose = ev_job_find_dispose;
-	
+
 	job_find_signals[FIND_UPDATED] =
 		g_signal_new ("updated",
 			      EV_TYPE_JOB_FIND,
@@ -1449,9 +1449,9 @@ ev_job_find_new (EvDocument  *document,
 		 gboolean     case_sensitive)
 {
 	EvJobFind *job;
-	
+
 	ev_debug_message (DEBUG_JOBS, NULL);
-	
+
 	job = g_object_new (EV_TYPE_JOB_FIND, NULL);
 
 	EV_JOB (job)->document = g_object_ref (document);
@@ -1497,7 +1497,7 @@ ev_job_find_get_progress (EvJobFind *job)
 
 	if (ev_job_is_finished (EV_JOB (job)))
 		return 1.0;
-	
+
 	if (job->current_page > job->start_page) {
 		pages_done = job->current_page - job->start_page + 1;
 	} else if (job->current_page == job->start_page) {
@@ -1534,7 +1534,7 @@ ev_job_layers_dispose (GObject *object)
 	EvJobLayers *job;
 
 	ev_debug_message (DEBUG_JOBS, NULL);
-	
+
 	job = EV_JOB_LAYERS (object);
 
 	if (job->model) {
@@ -1552,13 +1552,13 @@ ev_job_layers_run (EvJob *job)
 
 	ev_debug_message (DEBUG_JOBS, NULL);
 	ev_profiler_start (EV_PROFILE_JOBS, "%s (%p)", EV_GET_TYPE_NAME (job), job);
-	
+
 	ev_document_doc_mutex_lock ();
 	job_layers->model = ev_document_layers_get_layers (EV_DOCUMENT_LAYERS (job->document));
 	ev_document_doc_mutex_unlock ();
-	
+
 	ev_job_succeeded (job);
-	
+
 	return FALSE;
 }
 
@@ -1581,7 +1581,7 @@ ev_job_layers_new (EvDocument *document)
 
 	job = g_object_new (EV_TYPE_JOB_LAYERS, NULL);
 	job->document = g_object_ref (document);
-	
+
 	return job;
 }
 
@@ -1599,7 +1599,7 @@ ev_job_export_dispose (GObject *object)
 	EvJobExport *job;
 
 	ev_debug_message (DEBUG_JOBS, NULL);
-	
+
 	job = EV_JOB_EXPORT (object);
 
 	if (job->rc) {
@@ -1620,27 +1620,27 @@ ev_job_export_run (EvJob *job)
 
 	ev_debug_message (DEBUG_JOBS, NULL);
 	ev_profiler_start (EV_PROFILE_JOBS, "%s (%p)", EV_GET_TYPE_NAME (job), job);
-	
+
 	ev_document_doc_mutex_lock ();
-	
+
 	ev_page = ev_document_get_page (job->document, job_export->page);
 	if (job_export->rc) {
 		job->failed = FALSE;
 		job->finished = FALSE;
 		g_clear_error (&job->error);
-		
+
 		ev_render_context_set_page (job_export->rc, ev_page);
 	} else {
 		job_export->rc = ev_render_context_new (ev_page, 0, 1.0);
 	}
 	g_object_unref (ev_page);
-	
+
 	ev_file_exporter_do_page (EV_FILE_EXPORTER (job->document), job_export->rc);
-	
+
 	ev_document_doc_mutex_unlock ();
-	
+
 	ev_job_succeeded (job);
-	
+
 	return FALSE;
 }
 
@@ -1663,7 +1663,7 @@ ev_job_export_new (EvDocument *document)
 
 	job = g_object_new (EV_TYPE_JOB_EXPORT, NULL);
 	job->document = g_object_ref (document);
-	
+
 	return job;
 }
 

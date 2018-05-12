@@ -45,6 +45,7 @@ enum {
 	ANNOT_ACTIVATED,
 	BEGIN_ANNOT_ADD,
 	ANNOT_ADD_CANCELLED,
+	POPUP_MENU,
 	N_SIGNALS
 };
 
@@ -64,8 +65,9 @@ struct _EvSidebarAnnotationsPrivate {
 	guint selection_changed_id;
 };
 
-static void ev_sidebar_annotations_page_iface_init (EvSidebarPageInterface *iface);
-static void ev_sidebar_annotations_load            (EvSidebarAnnotations   *sidebar_annots);
+static void       ev_sidebar_annotations_dispose          (GObject        *object);
+static void       ev_sidebar_annotations_page_iface_init  (EvSidebarPageInterface *iface);
+static void       ev_sidebar_annotations_load             (EvSidebarAnnotations   *sidebar_annots);
 
 static guint signals[N_SIGNALS] = { 0 };
 
@@ -78,6 +80,48 @@ G_DEFINE_TYPE_EXTENDED (EvSidebarAnnotations,
 
 #define EV_SIDEBAR_ANNOTATIONS_GET_PRIVATE(object) \
 	(G_TYPE_INSTANCE_GET_PRIVATE ((object), EV_TYPE_SIDEBAR_ANNOTATIONS, EvSidebarAnnotationsPrivate))
+
+static gboolean
+ev_sidebar_annotations_tree_view_button_pressed_cb (GtkWidget            *tree_view,
+                                                    GdkEventButton       *event,
+                                                    EvSidebarAnnotations *sidebar_annots)
+{
+	GtkTreePath         *path;
+	GtkTreeIter          iter;
+	GtkTreeModel        *model;
+	GtkTreeSelection    *selection;
+	EvMapping           *mapping;
+
+	if (event->type == GDK_BUTTON_PRESS && event->button == 3)
+	{
+		if (gtk_tree_view_get_path_at_pos (GTK_TREE_VIEW (tree_view),
+										   event->x, event->y,
+										   &path, NULL, NULL, NULL))
+		{
+			selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (tree_view));
+			//gtk_tree_selection_unselect_all (selection);
+
+			model = gtk_tree_view_get_model (GTK_TREE_VIEW (tree_view));
+			g_return_val_if_fail (gtk_tree_model_get_iter (model, &iter, path), FALSE);
+
+			gtk_tree_path_free (path);
+
+			if (!gtk_tree_model_iter_has_child (model, &iter)) {
+
+				gtk_tree_model_get (model, &iter,
+				    COLUMN_ANNOT_MAPPING, &mapping,
+				    -1);
+
+				if (mapping) {
+					g_signal_emit (sidebar_annots, signals[POPUP_MENU], 0, mapping);
+					return TRUE;
+				}
+			}
+		}
+	}
+
+	return FALSE;
+}
 
 static void
 ev_sidebar_annotations_dispose (GObject *object)
@@ -224,6 +268,10 @@ ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 	loading_model = ev_sidebar_annotations_create_simple_model (_("Loading…"));
 	ev_annots->priv->tree_view = gtk_tree_view_new_with_model (loading_model);
 	g_object_unref (loading_model);
+
+	g_signal_connect(ev_annots->priv->tree_view, "button-press-event",
+	                 (GCallback) ev_sidebar_annotations_tree_view_button_pressed_cb,
+	                 ev_annots);
 
 	gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (ev_annots->priv->tree_view), FALSE);
 	selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (ev_annots->priv->tree_view));
@@ -396,7 +444,7 @@ ev_sidebar_annotations_class_init (EvSidebarAnnotationsClass *klass)
 			      G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
 			      G_STRUCT_OFFSET (EvSidebarAnnotationsClass, begin_annot_add),
 			      NULL, NULL,
-			      g_cclosure_marshal_VOID__ENUM,
+			      g_cclosure_marshal_VOID__POINTER,
 			      G_TYPE_NONE, 1,
 			      G_TYPE_POINTER);
 	signals[ANNOT_ADD_CANCELLED] =
@@ -408,6 +456,15 @@ ev_sidebar_annotations_class_init (EvSidebarAnnotationsClass *klass)
 			      g_cclosure_marshal_VOID__VOID,
 			      G_TYPE_NONE, 0,
 			      G_TYPE_NONE);
+	signals[POPUP_MENU] =
+		g_signal_new ("annot-menu-popup",
+	  	          G_TYPE_FROM_CLASS (g_object_class),
+		          G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
+		          G_STRUCT_OFFSET (EvSidebarAnnotationsClass, annot_menu_popup),
+		          NULL, NULL,
+			      g_cclosure_marshal_VOID__POINTER,
+			      G_TYPE_NONE, 1,
+			      G_TYPE_POINTER);
 }
 
 GtkWidget *
@@ -460,10 +517,12 @@ job_finished_callback (EvJobAnnots          *job,
                        EvSidebarAnnotations *sidebar_annots)
 {
 	EvSidebarAnnotationsPrivate *priv;
-	GtkTreeStore *model;
-	GtkTreeSelection *selection;
-	GList *l;
-	GdkScreen *screen;
+	GtkTreeStore                *model;
+	GtkTreeSelection            *selection;
+	GtkIconTheme                *icon_theme;
+	GList                       *l;
+	GdkScreen                   *screen;
+
 	GdkPixbuf *text_icon       = NULL;
 	GdkPixbuf *highlight_icon  = NULL;
 	GdkPixbuf *underline_icon  = NULL;
@@ -500,8 +559,10 @@ job_finished_callback (EvJobAnnots          *job,
 				    GDK_TYPE_PIXBUF,
 				    G_TYPE_POINTER);
 
+	screen = gdk_screen_get_default ();
+	icon_theme = gtk_icon_theme_get_for_screen (screen);
+
 	for (l = job->annots; l; l = g_list_next (l)) {
-		GtkIconTheme  *icon_theme;
 		EvMappingList *mapping_list;
 		GList         *ll;
 		gchar         *page_label;
@@ -516,9 +577,6 @@ job_finished_callback (EvJobAnnots          *job,
 				    COLUMN_MARKUP, page_label,
 				    -1);
 		g_free (page_label);
-
-		screen = gdk_screen_get_default ();
-		icon_theme = gtk_icon_theme_get_for_screen (screen);
 
 		for (ll = ev_mapping_list_get_list (mapping_list); ll; ll = g_list_next (ll)) {
 			EvAnnotation *annot;

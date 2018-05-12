@@ -181,7 +181,7 @@ static gboolean   ev_view_scroll_event                       (GtkWidget         
 							      GdkEventScroll     *event);
 static gboolean   ev_view_draw                               (GtkWidget          *widget,
 							      cairo_t            *cr);
-static gboolean   ev_view_popup_menu                         (GtkWidget 	 *widget);
+static gboolean   ev_view_popup_menu                         (GtkWidget          *widget);
 static gboolean   ev_view_button_press_event                 (GtkWidget          *widget,
 							      GdkEventButton     *event);
 static gboolean   ev_view_motion_notify_event                (GtkWidget          *widget,
@@ -3032,7 +3032,7 @@ ev_view_create_annotation (EvView          *view)
 
 	/* If the page didn't have annots, mark the cache as dirty */
 	if (!ev_page_cache_get_annot_mapping (view->page_cache, view->current_page))
-		ev_page_cache_mark_dirty (view->page_cache, view->current_page);
+		ev_page_cache_mark_dirty (view->page_cache, view->current_page, EV_PAGE_DATA_INCLUDE_ANNOTS);
 
 	doc_rect_to_view_rect (view, view->current_page, &doc_rect, &view_rect);
 	view_rect.x -= view->scroll_x;
@@ -3114,12 +3114,14 @@ ev_view_remove_annotation (EvView       *view,
 	if (EV_IS_ANNOTATION_MARKUP (annot))
 		ev_view_remove_window_child_for_annot (view, page, annot);
 
+	ev_view_set_focused_element (view, NULL, -1);
+
 	ev_document_doc_mutex_lock ();
 	ev_document_annotations_remove_annotation (EV_DOCUMENT_ANNOTATIONS (view->document),
 							annot);
 	ev_document_doc_mutex_unlock ();
 
-	ev_page_cache_mark_dirty (view->page_cache, page);
+	ev_page_cache_mark_dirty (view->page_cache, page, EV_PAGE_DATA_INCLUDE_ANNOTS);
 
 	/* FIXME: only redraw the annot area */
 	ev_view_reload_page (view, page, NULL);
@@ -3127,6 +3129,7 @@ ev_view_remove_annotation (EvView       *view,
 	g_signal_emit (view, signals[SIGNAL_ANNOT_REMOVED], 0, annot);
 	g_object_unref (annot);
 }
+
 static gboolean
 ev_view_synctex_backward_search (EvView *view,
 				 gdouble x,
@@ -3590,6 +3593,9 @@ ev_view_do_popup_menu (EvView *view,
 	EvImage      *image;
 	EvAnnotation *annot;
 
+	g_object_ref (view);
+	items = g_list_prepend (items, view);
+
 	image = ev_view_get_image_at_location (view, x, y);
 	if (image)
 		items = g_list_prepend (items, image);
@@ -3603,7 +3609,6 @@ ev_view_do_popup_menu (EvView *view,
 		items = g_list_prepend (items, annot);
 
 	g_signal_emit (view, signals[SIGNAL_POPUP_MENU], 0, items);
-
 	g_list_free (items);
 
 	return TRUE;
@@ -4422,7 +4427,8 @@ ev_view_button_release_event (GtkWidget      *widget,
 				ev_document_doc_mutex_unlock ();
 
 				ev_page_cache_mark_dirty (view->page_cache,
-							  ev_annotation_get_page_index (view->adding_annot_info.annot));
+							  ev_annotation_get_page_index (view->adding_annot_info.annot),
+							  EV_PAGE_DATA_INCLUDE_ANNOTS);
 			} else {
 				popup_rect.x1 = area.x2;
 				popup_rect.x2 = popup_rect.x1 + ANNOT_POPUP_WINDOW_DEFAULT_WIDTH;

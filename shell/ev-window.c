@@ -356,8 +356,10 @@ static gint    compare_recent_items                          (GtkRecentInfo  *a,
                                                               GtkRecentInfo  *b);
 static void    ev_window_destroy_recent_view                 (EvWindow       *ev_window);
 static void    recent_view_item_activated_cb                 (EvRecentView   *recent_view,
-                                                              const char       *uri,
-                                                              EvWindow         *ev_window);
+                                                              const char     *uri,
+                                                              EvWindow       *ev_window);
+static void    ev_window_menu_popup                       (EvWindow          *ev_window,
+                                                           GList             *items);
 
 G_DEFINE_TYPE (EvWindow, ev_window, GTK_TYPE_APPLICATION_WINDOW)
 
@@ -3823,7 +3825,7 @@ ev_window_cmd_edit_select_all (GtkAction *action,
     }
 #if ENABLE_EPUB
     else {
-        ev_web_view_select_all(EV_WEB_VIEW(ev_window->priv->webview));
+        ev_web_view_select_all (EV_WEB_VIEW(ev_window->priv->webview));
     }
 #endif
 }
@@ -3860,7 +3862,7 @@ ev_window_cmd_edit_find_next (GtkAction *action,
     }
 #if ENABLE_EPUB
     else {
-        ev_web_view_find_next(EV_WEB_VIEW(ev_window->priv->webview));
+        ev_web_view_find_next (EV_WEB_VIEW(ev_window->priv->webview));
     }
 #endif
 }
@@ -3880,7 +3882,7 @@ ev_window_cmd_edit_find_previous (GtkAction *action,
     }
 #if ENABLE_EPUB
     else {
-        ev_web_view_find_previous(EV_WEB_VIEW(ev_window->priv->webview));
+        ev_web_view_find_previous (EV_WEB_VIEW (ev_window->priv->webview));
     }
 #endif
 }
@@ -3892,7 +3894,7 @@ ev_window_cmd_edit_copy (GtkAction *action,
     g_return_if_fail (EV_IS_WINDOW (ev_window));
 #if ENABLE_EPUB
     if (ev_window->priv->document->iswebdocument) {
-        ev_web_view_copy(EV_WEB_VIEW(ev_window->priv->webview));
+        ev_web_view_copy (EV_WEB_VIEW (ev_window->priv->webview));
     } else
 #endif
     {
@@ -4392,7 +4394,7 @@ ev_window_cmd_view_zoom_in (GtkAction *action,
     ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FREE);
 #if ENABLE_EPUB
     if (ev_window->priv->document->iswebdocument) {
-        ev_web_view_zoom_in(EV_WEB_VIEW(ev_window->priv->webview));
+        ev_web_view_zoom_in (EV_WEB_VIEW (ev_window->priv->webview));
     }
     else
 #endif
@@ -4409,8 +4411,8 @@ ev_window_cmd_view_zoom_out (GtkAction *action,
 
     ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FREE);
 #if ENABLE_EPUB
-    if ( ev_window->priv->document->iswebdocument)  {
-        ev_web_view_zoom_out(EV_WEB_VIEW(ev_window->priv->webview));
+    if (ev_window->priv->document->iswebdocument)  {
+        ev_web_view_zoom_out (EV_WEB_VIEW (ev_window->priv->webview));
     }
     else
 #endif
@@ -4427,8 +4429,8 @@ ev_window_cmd_view_zoom_reset (GtkAction *action,
 
     ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FREE);
 #if ENABLE_EPUB
-    if ( ev_window->priv->document->iswebdocument)  {
-        ev_web_view_zoom_reset(EV_WEB_VIEW(ev_window->priv->webview));
+    if (ev_window->priv->document->iswebdocument)  {
+        ev_web_view_zoom_reset (EV_WEB_VIEW (ev_window->priv->webview));
     }
     else
 #endif
@@ -4460,7 +4462,7 @@ ev_window_cmd_go_previous_page (GtkAction *action,
     g_return_if_fail (EV_IS_WINDOW (ev_window));
 #if ENABLE_EPUB
     if ( ev_window->priv->document->iswebdocument == TRUE ) {
-        ev_web_view_previous_page(EV_WEB_VIEW(ev_window->priv->webview));
+        ev_web_view_previous_page (EV_WEB_VIEW (ev_window->priv->webview));
     }
     else
 #endif
@@ -4476,7 +4478,7 @@ ev_window_cmd_go_next_page (GtkAction *action,
     g_return_if_fail (EV_IS_WINDOW (ev_window));
 #if ENABLE_EPUB
     if ( ev_window->priv->document->iswebdocument == TRUE ) {
-        ev_web_view_next_page(EV_WEB_VIEW(ev_window->priv->webview));
+        ev_web_view_next_page (EV_WEB_VIEW (ev_window->priv->webview));
     } else
 #endif
     {
@@ -5028,6 +5030,41 @@ ev_window_sidebar_visibility_changed_cb (EvSidebar  *ev_sidebar,
 }
 
 static void
+view_menu_view_popup (EvWindow  *ev_window,
+                      EvView    *ev_view)
+{
+    GtkWidget *menuitem;
+    gboolean   visible = (ev_view != NULL);
+
+    if (ev_window->priv->document->iswebdocument == TRUE) return ;
+
+    menuitem = gtk_ui_manager_get_widget (ev_window->priv->ui_manager,
+           "/DocumentPopup/GoPreviousPage");
+    gtk_widget_set_visible (menuitem, visible);
+
+    menuitem = gtk_ui_manager_get_widget (ev_window->priv->ui_manager,
+               "/DocumentPopup/GoNextPage");
+    gtk_widget_set_visible (menuitem, visible);
+
+    menuitem = gtk_ui_manager_get_widget (ev_window->priv->ui_manager,
+           "/DocumentPopup/ViewReload");
+    gtk_widget_set_visible (menuitem, visible);
+
+    menuitem = gtk_ui_manager_get_widget (ev_window->priv->ui_manager,
+               "/DocumentPopup/ViewAutoscroll");
+    gtk_widget_set_visible (menuitem, visible);
+
+    menuitem = gtk_ui_manager_get_widget (ev_window->priv->ui_manager,
+           "/DocumentPopup/EditCopy");
+    gtk_widget_set_visible (menuitem, visible);
+
+        menuitem = gtk_ui_manager_get_widget (ev_window->priv->ui_manager,
+           "/DocumentPopup/EditSelectAllPopup");
+    gtk_widget_set_visible (menuitem, visible);
+
+}
+
+static void
 view_menu_link_popup (EvWindow *ev_window,
                       EvLink   *link)
 {
@@ -5035,7 +5072,7 @@ view_menu_link_popup (EvWindow *ev_window,
     gboolean   show_internal = FALSE;
     GtkAction *action;
 
-    if ( ev_window->priv->document->iswebdocument == TRUE ) return ;
+    if (ev_window->priv->document->iswebdocument == TRUE) return ;
 
     if (ev_window->priv->link)
         g_object_unref (ev_window->priv->link);
@@ -5160,34 +5197,7 @@ view_menu_popup_cb (EvView   *view,
                     GList    *items,
                     EvWindow *ev_window)
 {
-    GList   *l;
-    gboolean has_link = FALSE;
-    gboolean has_image = FALSE;
-    gboolean has_annot = FALSE;
-
-    for (l = items; l; l = g_list_next (l)) {
-        if (EV_IS_LINK (l->data)) {
-            view_menu_link_popup (ev_window, EV_LINK (l->data));
-            has_link = TRUE;
-        } else if (EV_IS_IMAGE (l->data)) {
-            view_menu_image_popup (ev_window, EV_IMAGE (l->data));
-            has_image = TRUE;
-        } else if (EV_IS_ANNOTATION (l->data)) {
-            view_menu_annot_popup (ev_window, EV_ANNOTATION (l->data));
-            has_annot = TRUE;
-        }
-    }
-
-    if (!has_link)
-        view_menu_link_popup (ev_window, NULL);
-    if (!has_image)
-        view_menu_image_popup (ev_window, NULL);
-    if (!has_annot)
-        view_menu_annot_popup (ev_window, NULL);
-
-    gtk_menu_popup (GTK_MENU (ev_window->priv->view_popup),
-            NULL, NULL, NULL, NULL,
-            3, gtk_get_current_event_time ());
+    ev_window_menu_popup (ev_window, items);
     return TRUE;
 }
 
@@ -5215,6 +5225,48 @@ attachment_bar_menu_popup_cb (EvSidebarAttachments *attachbar,
             3, gtk_get_current_event_time ());
 
     return TRUE;
+}
+
+
+
+static void
+ev_window_menu_popup (EvWindow *ev_window,
+                      GList    *items)
+{
+    GList   *l;
+    gboolean is_view = FALSE;
+    gboolean has_link = FALSE;
+    gboolean has_image = FALSE;
+    gboolean has_annot = FALSE;
+
+    for (l = items; l; l = g_list_next (l)) {
+        if (EV_IS_VIEW (l->data)) {
+            view_menu_view_popup (ev_window, EV_VIEW (ev_window->priv->view));
+            is_view = TRUE;
+        } else if (EV_IS_LINK (l->data)) {
+            view_menu_link_popup (ev_window, EV_LINK (l->data));
+            has_link = TRUE;
+        } else if (EV_IS_IMAGE (l->data)) {
+            view_menu_image_popup (ev_window, EV_IMAGE (l->data));
+            has_image = TRUE;
+        } else if (EV_IS_ANNOTATION (l->data)) {
+            view_menu_annot_popup (ev_window, EV_ANNOTATION (l->data));
+            has_annot = TRUE;
+        }
+    }
+
+    if (!is_view)
+        view_menu_view_popup (ev_window, NULL);
+    if (!has_link)
+        view_menu_link_popup (ev_window, NULL);
+    if (!has_image)
+        view_menu_image_popup (ev_window, NULL);
+    if (!has_annot)
+        view_menu_annot_popup (ev_window, NULL);
+
+    gtk_menu_popup (GTK_MENU (ev_window->priv->view_popup),
+            NULL, NULL, NULL, NULL,
+            3, gtk_get_current_event_time ());
 }
 
 static void
@@ -6171,7 +6223,7 @@ static const GtkToggleActionEntry toggle_entries[] = {
 
 };
 
-/* Popups specific items */
+/* Popups items */
 static const GtkActionEntry view_popup_entries [] = {
 	/* Links */
 	{ "OpenLink", "document-open-symbolic", N_("_Open Link"), NULL,
@@ -6182,10 +6234,12 @@ static const GtkActionEntry view_popup_entries [] = {
 	  NULL, G_CALLBACK (ev_view_popup_cmd_open_link_new_window) },
 	{ "CopyLinkAddress", NULL, N_("_Copy Link Address"), NULL,
 	  NULL, G_CALLBACK (ev_view_popup_cmd_copy_link_address) },
+	/* Images */
 	{ "SaveImageAs", NULL, N_("_Save Image As…"), NULL,
 	  NULL, G_CALLBACK (ev_view_popup_cmd_save_image_as) },
 	{ "CopyImage", NULL, N_("Copy _Image"), NULL,
 	  NULL, G_CALLBACK (ev_view_popup_cmd_copy_image) },
+	/* Annotations */
 	{ "AnnotProperties", NULL, N_("Annotation Properties…"), NULL,
 	  NULL, G_CALLBACK (ev_view_popup_cmd_annot_properties) },
 	{ "RemoveAnnotation", NULL, N_("Remove Annotation"), NULL,
@@ -6283,13 +6337,26 @@ sidebar_annots_annot_activated_cb (EvSidebarAnnotations *sidebar_annots,
 
 static void
 sidebar_annots_begin_annot_add (EvSidebarAnnotations *sidebar_annots,
-                                gpointer              data,
+                                EvAnnotationInfo     *annot_info,
                                 EvWindow             *window)
 {
     if (window->priv->document->iswebdocument == TRUE ) return;
 
-    EvAnnotationInfo *annot_info = (EvAnnotationInfo *) data;
     ev_view_begin_add_annotation (EV_VIEW (window->priv->view), *annot_info);
+}
+
+static void
+sidebar_annots_menu_popup_cb (EvSidebarAnnotations *sidebar_annots,
+                              EvMapping            *mapping,
+                              EvWindow             *ev_window)
+{
+    GList *items = NULL;
+
+    g_return_if_fail (mapping || !EV_IS_ANNOTATION (mapping->data));
+
+    items = g_list_prepend (items, mapping->data);
+    ev_window_menu_popup (ev_window, items);
+    g_list_free (items);
 }
 
 static void
@@ -7536,6 +7603,9 @@ ev_window_init (EvWindow *ev_window)
     g_signal_connect (sidebar_widget,
             "annot_add_cancelled",
             G_CALLBACK (sidebar_annots_annot_add_cancelled),
+            ev_window);
+    g_signal_connect (sidebar_widget, "annot_menu_popup",
+            G_CALLBACK (sidebar_annots_menu_popup_cb),
             ev_window);
     gtk_widget_show (sidebar_widget);
     ev_sidebar_add_page (EV_SIDEBAR (ev_window->priv->sidebar),
