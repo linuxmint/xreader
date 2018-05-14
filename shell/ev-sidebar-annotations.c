@@ -88,8 +88,6 @@ ev_sidebar_annotations_tree_view_button_pressed_cb (GtkWidget            *tree_v
 {
 	GtkTreePath         *path;
 	GtkTreeIter          iter;
-	GtkTreeModel        *model;
-	GtkTreeSelection    *selection;
 	EvMapping           *mapping;
 
 	if (event->type == GDK_BUTTON_PRESS && event->button == 3)
@@ -98,8 +96,7 @@ ev_sidebar_annotations_tree_view_button_pressed_cb (GtkWidget            *tree_v
 										   event->x, event->y,
 										   &path, NULL, NULL, NULL))
 		{
-			selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (tree_view));
-			//gtk_tree_selection_unselect_all (selection);
+			GtkTreeModel *model;
 
 			model = gtk_tree_view_get_model (GTK_TREE_VIEW (tree_view));
 			g_return_val_if_fail (gtk_tree_model_get_iter (model, &iter, path), FALSE);
