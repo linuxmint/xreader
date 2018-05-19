@@ -3806,7 +3806,7 @@ ev_view_button_press_event (GtkWidget      *widget,
 
 				gtk_widget_queue_draw (widget);
 			} else if ((annot = ev_view_get_annotation_at_location (view, event->x, event->y))
-						&& EV_IS_ANNOTATION_TEXT (annot)) {
+						&& !EV_IS_ANNOTATION_TEXT_MARKUP (annot)) {
 				EvRectangle  current_area;
 					GdkPoint     view_point;
 					EvPoint      doc_point;
