@@ -6352,7 +6352,8 @@ sidebar_annots_menu_popup_cb (EvSidebarAnnotations *sidebar_annots,
 {
     GList *items = NULL;
 
-    g_return_if_fail (mapping || !EV_IS_ANNOTATION (mapping->data));
+    g_return_if_fail (mapping);
+    g_return_if_fail (!EV_IS_ANNOTATION (mapping->data));
 
     items = g_list_prepend (items, mapping->data);
     ev_window_menu_popup (ev_window, items);
