@@ -2921,6 +2921,23 @@ ev_window_save_job_cb (EvJob     *job,
 }
 
 static void
+ev_window_file_save (EvWindow *ev_window, const gchar *uri)
+{
+    /* FIXME: remote copy should be done here rather than in the save job,
+     * so that we can track progress and cancel the operation
+     */
+
+    ev_window_clear_save_job (ev_window);
+    ev_window->priv->save_job = ev_job_save_new (ev_window->priv->document,
+            uri, ev_window->priv->uri);
+    g_signal_connect (ev_window->priv->save_job, "finished",
+            G_CALLBACK (ev_window_save_job_cb),
+            ev_window);
+    /* The priority doesn't matter for this job */
+    ev_job_scheduler_push_job (ev_window->priv->save_job, EV_JOB_PRIORITY_NONE);
+}
+
+static void
 file_save_dialog_response_cb (GtkWidget *fc,
                               gint       response_id,
                               EvWindow  *ev_window)
@@ -2937,19 +2954,7 @@ file_save_dialog_response_cb (GtkWidget *fc,
             G_USER_DIRECTORY_DOCUMENTS);
 
     uri = gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (fc));
-
-    /* FIXME: remote copy should be done here rather than in the save job,
-     * so that we can track progress and cancel the operation
-     */
-
-    ev_window_clear_save_job (ev_window);
-    ev_window->priv->save_job = ev_job_save_new (ev_window->priv->document,
-            uri, ev_window->priv->uri);
-    g_signal_connect (ev_window->priv->save_job, "finished",
-            G_CALLBACK (ev_window_save_job_cb),
-            ev_window);
-    /* The priority doesn't matter for this job */
-    ev_job_scheduler_push_job (ev_window->priv->save_job, EV_JOB_PRIORITY_NONE);
+    ev_window_file_save (ev_window, uri);
 
     g_free (uri);
     gtk_widget_destroy (fc);
@@ -3510,6 +3515,11 @@ document_modified_confirmation_dialog_response (GtkDialog *dialog,
     switch (response) {
     case GTK_RESPONSE_YES:
         ev_window_cmd_save_as (NULL, ev_window);
+        gtk_widget_destroy (GTK_WIDGET (ev_window));
+        break;
+    case GTK_RESPONSE_APPLY:
+        ev_window_file_save (ev_window, ev_window->priv->uri);
+        gtk_widget_destroy (GTK_WIDGET (ev_window));
         break;
     case GTK_RESPONSE_NO:
         gtk_widget_destroy (GTK_WIDGET (ev_window));
@@ -3567,6 +3577,8 @@ ev_window_check_document_modified (EvWindow *ev_window)
             GTK_RESPONSE_NO,
             GTK_STOCK_CANCEL,
             GTK_RESPONSE_CANCEL,
+            _("_Save"),
+            GTK_RESPONSE_APPLY,
             _("Save a _Copy"),
             GTK_RESPONSE_YES,
             NULL);
