@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xreader\n"
 "Report-Msgid-Bugs-To: "
 "http://bugzilla.mate.org/enter_bug.cgi?product=xreader&component=general\n"
-"POT-Creation-Date: 2017-10-26 12:04+0100\n"
+"POT-Creation-Date: 2018-05-08 10:36+0100\n"
 "PO-Revision-Date: 2016-02-09 17:30+0000\n"
 "Last-Translator: Thomas Thurman <Unknown>\n"
 "Language-Team: Shavian <ubuntu-l10n-en-shaw@launchpad.net>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2017-11-23 10:44+0000\n"
-"X-Generator: Launchpad (build 18509)\n"
+"X-Launchpad-Export-Date: 2018-05-22 09:23+0000\n"
+"X-Generator: Launchpad (build 18658)\n"
 
 #: ../backend/comics/comics-document.c:208
 #, c-format
@@ -44,7 +44,7 @@ msgid ""
 "Can't find an appropriate command to decompress this type of comic book"
 msgstr ""
 
-#: ../backend/comics/comics-document.c:540 ../backend/epub/epub-document.c:627
+#: ../backend/comics/comics-document.c:540 ../backend/epub/epub-document.c:632
 #: ../libdocument/ev-document-factory.c:145
 #: ../libdocument/ev-document-factory.c:288
 msgid "Unknown MIME Type"
@@ -63,7 +63,7 @@ msgstr "𐑯𐑴 𐑓𐑲𐑤𐑟 𐑦𐑯 𐑸𐑒𐑲𐑝"
 msgid "No images found in archive %s"
 msgstr "𐑯𐑴 𐑦𐑥𐑦𐑡𐑩𐑟 𐑓𐑬𐑯𐑛 𐑦𐑯 𐑸𐑒𐑲𐑝 %s"
 
-#: ../backend/comics/comics-document.c:866 ../backend/epub/epub-document.c:1777
+#: ../backend/comics/comics-document.c:866 ../backend/epub/epub-document.c:1782
 #, c-format
 msgid "There was an error deleting “%s”."
 msgstr "𐑞𐑺 𐑢𐑪𐑟 𐑩𐑯 𐑻𐑼 𐑛𐑦𐑤𐑰𐑑𐑦𐑙 “%s”."
@@ -100,59 +100,59 @@ msgstr "DVI 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 𐑣𐑨𐑟 𐑦𐑯𐑒𐑩𐑮�
 msgid "DVI Documents"
 msgstr "DVI 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑𐑕"
 
-#: ../backend/epub/epub-document.c:644
+#: ../backend/epub/epub-document.c:649
 msgid "Not an ePub document"
 msgstr ""
 
-#: ../backend/epub/epub-document.c:745
+#: ../backend/epub/epub-document.c:750
 msgid "could not retrieve filename"
 msgstr ""
 
-#: ../backend/epub/epub-document.c:773
+#: ../backend/epub/epub-document.c:778
 msgid "could not open archive"
 msgstr ""
 
-#: ../backend/epub/epub-document.c:789 ../backend/epub/epub-document.c:805
+#: ../backend/epub/epub-document.c:794 ../backend/epub/epub-document.c:810
 msgid "could not extract archive"
 msgstr ""
 
-#: ../backend/epub/epub-document.c:837 ../backend/epub/epub-document.c:920
+#: ../backend/epub/epub-document.c:842 ../backend/epub/epub-document.c:925
 msgid "could not retrieve container file"
 msgstr ""
 
-#: ../backend/epub/epub-document.c:849
+#: ../backend/epub/epub-document.c:854
 msgid "could not open container file"
 msgstr ""
 
-#: ../backend/epub/epub-document.c:859
+#: ../backend/epub/epub-document.c:864
 msgid "container file is corrupt"
 msgstr ""
 
-#: ../backend/epub/epub-document.c:869
+#: ../backend/epub/epub-document.c:874
 msgid "epub file is invalid or corrupt"
 msgstr ""
 
-#: ../backend/epub/epub-document.c:879
+#: ../backend/epub/epub-document.c:884
 msgid "epub file is corrupt, no container"
 msgstr ""
 
-#: ../backend/epub/epub-document.c:964
+#: ../backend/epub/epub-document.c:969
 msgid "could not parse content manifest"
 msgstr ""
 
-#: ../backend/epub/epub-document.c:973
+#: ../backend/epub/epub-document.c:978
 msgid "content file is invalid"
 msgstr ""
 
-#: ../backend/epub/epub-document.c:982
+#: ../backend/epub/epub-document.c:987
 msgid "epub file has no spine"
 msgstr ""
 
-#: ../backend/epub/epub-document.c:991
+#: ../backend/epub/epub-document.c:996
 msgid "epub file has no manifest"
 msgstr ""
 
-#: ../backend/epub/epub-document.c:1077
+#: ../backend/epub/epub-document.c:1082
 msgid "Could not set up document tree for loading, some files missing"
 msgstr ""
 
@@ -166,13 +166,11 @@ msgstr "𐑞𐑦𐑕 𐑢𐑻𐑒 𐑦𐑟 𐑦𐑯 𐑞 𐑐𐑳𐑚𐑤𐑦�
 
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:772 ../backend/pdf/ev-poppler.cc:778
-#: ../properties-caja/ev-properties-view.c:367
 msgid "Yes"
 msgstr "𐑘𐑧𐑕"
 
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:775 ../backend/pdf/ev-poppler.cc:778
-#: ../properties-caja/ev-properties-view.c:371
 msgid "No"
 msgstr "𐑯𐑴"
 
@@ -349,7 +347,7 @@ msgid "Show session management options"
 msgstr "𐑖𐑴 𐑕𐑧𐑖𐑩𐑯 𐑥𐑨𐑯𐑩𐑡𐑥𐑩𐑯𐑑 𐑪𐑐𐑖𐑩𐑯𐑟"
 
 #. translators: this is the label for toolbar button
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6180
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6389
 msgid "Best Fit"
 msgstr "𐑚𐑧𐑕𐑑 𐑓𐑦𐑑"
 
@@ -357,7 +355,7 @@ msgstr "𐑚𐑧𐑕𐑑 𐑓𐑦𐑑"
 msgid "Fit Page Width"
 msgstr "𐑓𐑦𐑑 𐑐𐑱𐑡 𐑢𐑦𐑛𐑔"
 
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:5861
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:5955
 msgid "Expand Window to Fit"
 msgstr ""
 
@@ -430,8 +428,8 @@ msgid ""
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
 msgstr ""
 
-#: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
-#: ../shell/main.c:239 ../shell/main.c:268
+#: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:162
+#: ../shell/main.c:241 ../shell/main.c:270
 msgid "Document Viewer"
 msgstr "𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 𐑝𐑿𐑼"
 
@@ -485,7 +483,7 @@ msgstr "𐑐𐑮𐑦𐑯𐑑 𐑕𐑧𐑑𐑦𐑙𐑟 𐑓𐑲𐑤"
 msgid "MATE Document Previewer"
 msgstr ""
 
-#: ../previewer/ev-previewer-window.c:93 ../shell/ev-window.c:3296
+#: ../previewer/ev-previewer-window.c:93 ../shell/ev-window.c:3295
 msgid "Failed to print document"
 msgstr "𐑓𐑱𐑤𐑛 𐑑 𐑐𐑮𐑦𐑯𐑑 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑"
 
@@ -495,32 +493,32 @@ msgid "The selected printer '%s' could not be found"
 msgstr "𐑞 𐑕𐑩𐑤𐑧𐑒𐑑𐑩𐑛 𐑐𐑮𐑦𐑯𐑑𐑼 '%s' 𐑒𐑫𐑛 𐑯𐑪𐑑 𐑚𐑰 𐑓𐑬𐑯𐑛"
 
 #. Go menu
-#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:5868
+#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:5964
 msgid "_Previous Page"
 msgstr "_𐑐𐑮𐑰𐑝𐑦𐑩𐑕 𐑐𐑱𐑡"
 
-#: ../previewer/ev-previewer-window.c:295 ../shell/ev-window.c:5869
+#: ../previewer/ev-previewer-window.c:295 ../shell/ev-window.c:5966
 msgid "Go to the previous page"
 msgstr "𐑜𐑴 𐑑 𐑞 𐑐𐑮𐑰𐑝𐑦𐑩𐑕 𐑐𐑱𐑡"
 
-#: ../previewer/ev-previewer-window.c:297 ../shell/ev-window.c:5871
+#: ../previewer/ev-previewer-window.c:297 ../shell/ev-window.c:5968
 msgid "_Next Page"
 msgstr "_𐑯𐑧𐑒𐑕𐑑 𐑐𐑱𐑡"
 
-#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:5872
+#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:5970
 msgid "Go to the next page"
 msgstr "𐑜𐑴 𐑑 𐑞 𐑯𐑧𐑒𐑕𐑑 𐑐𐑱𐑡"
 
-#: ../previewer/ev-previewer-window.c:301 ../shell/ev-window.c:5852
+#: ../previewer/ev-previewer-window.c:301 ../shell/ev-window.c:5943
 msgid "Enlarge the document"
 msgstr "𐑧𐑯𐑤𐑸𐑡 𐑞 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑"
 
-#: ../previewer/ev-previewer-window.c:304 ../shell/ev-window.c:5855
+#: ../previewer/ev-previewer-window.c:304 ../shell/ev-window.c:5947
 msgid "Shrink the document"
 msgstr "𐑖𐑮𐑰𐑙𐑒 𐑞 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑"
 
 #. translators: this is the label for toolbar button
-#: ../previewer/ev-previewer-window.c:307 ../shell/ev-window.c:6176
+#: ../previewer/ev-previewer-window.c:307 ../shell/ev-window.c:6385
 msgid "Original size"
 msgstr ""
 
@@ -530,170 +528,33 @@ msgstr ""
 msgid "Print"
 msgstr "𐑐𐑮𐑦𐑯𐑑"
 
-#: ../previewer/ev-previewer-window.c:312 ../shell/ev-window.c:5820
+#: ../previewer/ev-previewer-window.c:312 ../shell/ev-window.c:5886
 msgid "Print this document"
 msgstr "𐑐𐑮𐑦𐑯𐑑 𐑞𐑦𐑕 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑"
 
-#: ../previewer/ev-previewer-window.c:356 ../shell/ev-window.c:5988
+#: ../previewer/ev-previewer-window.c:356 ../shell/ev-window.c:6158
 msgid "_Best Fit"
 msgstr "_𐑚𐑧𐑕𐑑 𐑓𐑦𐑑"
 
-#: ../previewer/ev-previewer-window.c:357 ../shell/ev-window.c:5989
+#: ../previewer/ev-previewer-window.c:357 ../shell/ev-window.c:6160
 msgid "Make the current document fill the window"
 msgstr "𐑥𐑱𐑒 𐑞 𐑒𐑳𐑮𐑩𐑯𐑑 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 𐑓𐑦𐑤 𐑞 𐑢𐑦𐑯𐑛𐑴"
 
-#: ../previewer/ev-previewer-window.c:359 ../shell/ev-window.c:5991
+#: ../previewer/ev-previewer-window.c:359 ../shell/ev-window.c:6162
 msgid "Fit Page _Width"
 msgstr "𐑓𐑦𐑑 𐑐𐑱𐑡 _𐑢𐑦𐑛𐑔"
 
-#: ../previewer/ev-previewer-window.c:360 ../shell/ev-window.c:5992
+#: ../previewer/ev-previewer-window.c:360 ../shell/ev-window.c:6164
 msgid "Make the current document fill the window width"
 msgstr "𐑥𐑱𐑒 𐑞 𐑒𐑳𐑮𐑩𐑯𐑑 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 𐑓𐑦𐑤 𐑞 𐑢𐑦𐑯𐑛𐑴 𐑢𐑦𐑛𐑔"
 
-#: ../previewer/ev-previewer-window.c:556 ../shell/ev-window.c:6124
+#: ../previewer/ev-previewer-window.c:556 ../shell/ev-window.c:6333
 msgid "Page"
 msgstr "𐑐𐑱𐑡"
 
-#: ../previewer/ev-previewer-window.c:557 ../shell/ev-window.c:6125
+#: ../previewer/ev-previewer-window.c:557 ../shell/ev-window.c:6334
 msgid "Select Page"
 msgstr "𐑕𐑩𐑤𐑧𐑒𐑑 𐑐𐑱𐑡"
-
-#: ../properties-caja/ev-properties-main.c:116
-#: ../properties-nemo/ev-properties-main.c:116
-msgid "Document"
-msgstr "𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑"
-
-#: ../properties-caja/ev-properties-view.c:60
-#: ../properties-nemo/ev-properties-view.c:60
-msgid "Title:"
-msgstr "𐑑𐑲𐑑𐑩𐑤:"
-
-#: ../properties-caja/ev-properties-view.c:61
-#: ../properties-nemo/ev-properties-view.c:61
-msgid "Location:"
-msgstr "𐑤𐑴𐑒𐑱𐑖𐑩𐑯:"
-
-#: ../properties-caja/ev-properties-view.c:62
-#: ../properties-nemo/ev-properties-view.c:62
-msgid "Subject:"
-msgstr "𐑕𐑩𐑚𐑡𐑧𐑒𐑑:"
-
-#: ../properties-caja/ev-properties-view.c:63
-#: ../properties-nemo/ev-properties-view.c:63
-#: ../shell/ev-annotation-properties-dialog.c:157
-msgid "Author:"
-msgstr "𐑷𐑔𐑼:"
-
-#: ../properties-caja/ev-properties-view.c:64
-#: ../properties-nemo/ev-properties-view.c:64
-msgid "Keywords:"
-msgstr "𐑒𐑰𐑢𐑻𐑛𐑟:"
-
-#: ../properties-caja/ev-properties-view.c:65
-#: ../properties-nemo/ev-properties-view.c:65
-msgid "Producer:"
-msgstr "𐑐𐑮𐑩𐑛𐑿𐑕𐑼:"
-
-#: ../properties-caja/ev-properties-view.c:66
-#: ../properties-nemo/ev-properties-view.c:66
-msgid "Creator:"
-msgstr "𐑒𐑮𐑦𐑱𐑑𐑼:"
-
-#: ../properties-caja/ev-properties-view.c:67
-#: ../properties-nemo/ev-properties-view.c:67
-msgid "Created:"
-msgstr "𐑒𐑮𐑦𐑱𐑑𐑩𐑛:"
-
-#: ../properties-caja/ev-properties-view.c:68
-#: ../properties-nemo/ev-properties-view.c:68
-msgid "Modified:"
-msgstr "𐑥𐑪𐑛𐑦𐑓𐑲𐑛:"
-
-#: ../properties-caja/ev-properties-view.c:69
-#: ../properties-nemo/ev-properties-view.c:69
-msgid "Number of Pages:"
-msgstr "𐑯𐑳𐑥𐑚𐑼 𐑝 𐑐𐑱𐑡𐑧𐑟:"
-
-#: ../properties-caja/ev-properties-view.c:70
-#: ../properties-nemo/ev-properties-view.c:70
-msgid "Optimized:"
-msgstr ""
-
-#: ../properties-caja/ev-properties-view.c:71
-#: ../properties-nemo/ev-properties-view.c:71
-msgid "Format:"
-msgstr "𐑓𐑹𐑥𐑨𐑑:"
-
-#: ../properties-caja/ev-properties-view.c:72
-#: ../properties-nemo/ev-properties-view.c:72
-msgid "Security:"
-msgstr "𐑕𐑦𐑒𐑘𐑫𐑼𐑦𐑑𐑦:"
-
-#: ../properties-caja/ev-properties-view.c:73
-#: ../properties-nemo/ev-properties-view.c:73
-msgid "Paper Size:"
-msgstr "𐑐𐑱𐑐𐑼 𐑕𐑲𐑟:"
-
-#. translators: This is used when a document property does
-#. not have a value.  Examples:
-#. Author: None
-#. Keywords: None
-#. 
-#. translators: Value for 'Page Scaling:' to not scale the document pages on printing
-#: ../properties-caja/ev-properties-view.c:192
-#: ../properties-nemo/ev-properties-view.c:187
-#: ../libview/ev-print-operation.c:1894
-msgid "None"
-msgstr "𐑯𐑳𐑯"
-
-#. Translate to the default units to use for presenting
-#. * lengths to the user. Translate to default:inch if you
-#. * want inches, otherwise translate to default:mm.
-#. * Do *not* translate it to "predefinito:mm", if it
-#. * it isn't default:mm or default:inch it will not work
-#. 
-#: ../properties-caja/ev-properties-view.c:220
-#: ../properties-nemo/ev-properties-view.c:215
-msgid "default:mm"
-msgstr "default:mm"
-
-#: ../properties-caja/ev-properties-view.c:264
-#: ../properties-nemo/ev-properties-view.c:259
-#, c-format
-msgid "%.0f × %.0f mm"
-msgstr "%.0f × %.0f mm"
-
-#: ../properties-caja/ev-properties-view.c:268
-#: ../properties-nemo/ev-properties-view.c:263
-#, c-format
-msgid "%.2f × %.2f inch"
-msgstr "%.2f × %.2f 𐑦𐑯𐑗"
-
-#. Note to translators: first placeholder is the paper name (eg.
-#. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: ../properties-caja/ev-properties-view.c:292
-#: ../properties-nemo/ev-properties-view.c:287
-#, c-format
-msgid "%s, Portrait (%s)"
-msgstr "%s, 𐑐𐑪𐑮𐑑𐑮𐑩𐑑 (%s)"
-
-#. Note to translators: first placeholder is the paper name (eg.
-#. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: ../properties-caja/ev-properties-view.c:299
-#: ../properties-nemo/ev-properties-view.c:294
-#, c-format
-msgid "%s, Landscape (%s)"
-msgstr "%s, 𐑤𐑨𐑯𐑛𐑕𐑒𐑨𐑐 (%s)"
-
-#: ../properties-caja/libxreader-properties-page.caja-extension.in.in.h:1
-#: ../properties-nemo/libxreader-properties-page.nemo-extension.in.in.h:1
-msgid "Xreader properties"
-msgstr ""
-
-#: ../properties-caja/libxreader-properties-page.caja-extension.in.in.h:2
-#: ../properties-nemo/libxreader-properties-page.nemo-extension.in.in.h:2
-msgid "Shows details for Xreader documents"
-msgstr ""
 
 #: ../libmisc/ev-page-action-widget.c:85 ../libmisc/ev-page-action-widget.c:125
 #, c-format
@@ -744,6 +605,11 @@ msgstr "𐑿𐑼 𐑐𐑮𐑦𐑯𐑑 𐑮𐑱𐑯𐑡 𐑕𐑦𐑤𐑧𐑒𐑖�
 #: ../libview/ev-print-operation.c:1888
 msgid "Page Scaling:"
 msgstr "𐑐𐑱𐑡 𐑕𐑒𐑱𐑤𐑦𐑙:"
+
+#. translators: Value for 'Page Scaling:' to not scale the document pages on printing
+#: ../libview/ev-print-operation.c:1894
+msgid "None"
+msgstr "𐑯𐑳𐑯"
 
 #: ../libview/ev-print-operation.c:1895
 msgid "Shrink to Printable Area"
@@ -804,7 +670,7 @@ msgstr ""
 msgid "Page Handling"
 msgstr "𐑐𐑱𐑡 𐑣𐑨𐑯𐑛𐑤𐑦𐑙"
 
-#: ../libview/ev-jobs.c:1730
+#: ../libview/ev-jobs.c:1738
 #, c-format
 msgid "Failed to print page %d: %s"
 msgstr "𐑓𐑱𐑤𐑛 𐑑 𐑐𐑮𐑦𐑯𐑑 𐑐𐑱𐑡 %d: %s"
@@ -837,46 +703,46 @@ msgstr "𐑡𐑳𐑥𐑐 𐑑 𐑐𐑱𐑡:"
 msgid "End of presentation. Click to exit."
 msgstr "𐑧𐑯𐑛 𐑝 𐑐𐑮𐑧𐑟𐑩𐑯𐑑𐑱𐑖𐑩𐑯. 𐑒𐑤𐑦𐑒 𐑑 𐑧𐑜𐑟𐑦𐑑."
 
-#: ../libview/ev-view.c:1824
+#: ../libview/ev-view.c:1838
 msgid "Go to first page"
 msgstr "𐑜𐑴 𐑑 𐑓𐑻𐑕𐑑 𐑐𐑱𐑡"
 
-#: ../libview/ev-view.c:1826
+#: ../libview/ev-view.c:1840
 msgid "Go to previous page"
 msgstr "𐑜𐑴 𐑑 𐑐𐑮𐑰𐑝𐑦𐑩𐑕 𐑐𐑱𐑡"
 
-#: ../libview/ev-view.c:1828
+#: ../libview/ev-view.c:1842
 msgid "Go to next page"
 msgstr "𐑜𐑴 𐑑 𐑯𐑧𐑒𐑕𐑑 𐑐𐑱𐑡"
 
-#: ../libview/ev-view.c:1830
+#: ../libview/ev-view.c:1844
 msgid "Go to last page"
 msgstr "𐑜𐑴 𐑑 𐑤𐑭𐑕𐑑 𐑐𐑱𐑡"
 
-#: ../libview/ev-view.c:1832
+#: ../libview/ev-view.c:1846
 msgid "Go to page"
 msgstr "𐑜𐑴 𐑑 𐑐𐑱𐑡"
 
-#: ../libview/ev-view.c:1834
+#: ../libview/ev-view.c:1848
 msgid "Find"
 msgstr "𐑓𐑲𐑯𐑛"
 
-#: ../libview/ev-view.c:1862
+#: ../libview/ev-view.c:1876
 #, c-format
 msgid "Go to page %s"
 msgstr "𐑜𐑴 𐑑 𐑐𐑱𐑡 %s"
 
-#: ../libview/ev-view.c:1868
+#: ../libview/ev-view.c:1882
 #, c-format
 msgid "Go to %s on file “%s”"
 msgstr "𐑜𐑴 𐑑 %s 𐑪𐑯 𐑓𐑲𐑤 “%s”"
 
-#: ../libview/ev-view.c:1871
+#: ../libview/ev-view.c:1885
 #, c-format
 msgid "Go to file “%s”"
 msgstr "𐑜𐑴 𐑑 𐑓𐑲𐑤 “%s”"
 
-#: ../libview/ev-view.c:1879
+#: ../libview/ev-view.c:1893
 #, c-format
 msgid "Launch %s"
 msgstr "𐑤𐑷𐑯𐑗 %s"
@@ -885,7 +751,7 @@ msgstr "𐑤𐑷𐑯𐑗 %s"
 msgid "Find:"
 msgstr "𐑓𐑲𐑯𐑛:"
 
-#: ../shell/eggfindbar.c:328 ../shell/ev-window.c:5837
+#: ../shell/eggfindbar.c:328 ../shell/ev-window.c:5914
 msgid "Find Pre_vious"
 msgstr "𐑓𐑲𐑯𐑛 _𐑐𐑮𐑰𐑝𐑦𐑩𐑕"
 
@@ -893,7 +759,7 @@ msgstr "𐑓𐑲𐑯𐑛 _𐑐𐑮𐑰𐑝𐑦𐑩𐑕"
 msgid "Find previous occurrence of the search string"
 msgstr "𐑓𐑲𐑯𐑛 𐑐𐑮𐑰𐑝𐑦𐑩𐑕 𐑪𐑒𐑻𐑩𐑯𐑕 𐑝 𐑞 𐑕𐑻𐑗 𐑕𐑑𐑮𐑦𐑙"
 
-#: ../shell/eggfindbar.c:336 ../shell/ev-window.c:5835
+#: ../shell/eggfindbar.c:336 ../shell/ev-window.c:5910
 msgid "Find Ne_xt"
 msgstr "𐑓𐑲𐑯𐑛 _𐑯𐑧𐑒𐑕𐑑"
 
@@ -957,6 +823,10 @@ msgstr ""
 msgid "Annotation Properties"
 msgstr ""
 
+#: ../shell/ev-annotation-properties-dialog.c:157
+msgid "Author:"
+msgstr "𐑷𐑔𐑼:"
+
 #: ../shell/ev-annotation-properties-dialog.c:170
 msgid "Color:"
 msgstr ""
@@ -985,21 +855,21 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: ../shell/ev-application.c:989
+#: ../shell/ev-application.c:1000
 msgid "Running in presentation mode"
 msgstr "𐑮𐑳𐑯𐑦𐑙 𐑦𐑯 𐑐𐑮𐑧𐑟𐑩𐑯𐑑𐑱𐑖𐑩𐑯 𐑥𐑴𐑛"
 
 #: ../shell/ev-history.c:475 ../shell/ev-sidebar-bookmarks.c:313
-#: ../shell/ev-window.c:890 ../shell/ev-window.c:4590
+#: ../shell/ev-window.c:872 ../shell/ev-window.c:4631
 #, c-format
 msgid "Page %s"
 msgstr "𐑐𐑱𐑡 %s"
 
-#: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:5881
+#: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:5982
 msgid "Go to previous history item"
 msgstr ""
 
-#: ../shell/ev-history-action-widget.c:219 ../shell/ev-window.c:5884
+#: ../shell/ev-history-action-widget.c:219 ../shell/ev-window.c:5986
 msgid "Go to next history item"
 msgstr ""
 
@@ -1093,16 +963,16 @@ msgstr "𐑓𐑻𐑞𐑼 𐑦𐑯𐑓𐑼𐑥𐑱𐑖𐑩𐑯"
 msgid "Add text annotation"
 msgstr ""
 
-#: ../shell/ev-sidebar-annotations.c:334
+#: ../shell/ev-sidebar-annotations.c:328
 msgid "Document contains no annotations"
 msgstr ""
 
-#: ../shell/ev-sidebar-annotations.c:366
+#: ../shell/ev-sidebar-annotations.c:360
 #, c-format
 msgid "Page %d"
 msgstr ""
 
-#: ../shell/ev-sidebar-annotations.c:508
+#: ../shell/ev-sidebar-annotations.c:502
 msgid "Annotations"
 msgstr ""
 
@@ -1138,150 +1008,162 @@ msgstr "𐑐𐑮𐑦𐑯𐑑…"
 msgid "Index"
 msgstr "𐑦𐑯𐑛𐑧𐑒𐑕"
 
-#: ../shell/ev-sidebar-thumbnails.c:997
+#: ../shell/ev-sidebar-thumbnails.c:935
+msgid "Shrink the thumbnails"
+msgstr ""
+
+#: ../shell/ev-sidebar-thumbnails.c:948
+msgid "Enlarge the thumbnails"
+msgstr ""
+
+#: ../shell/ev-sidebar-thumbnails.c:961
+msgid "View the thumbnails at their original size"
+msgstr ""
+
+#: ../shell/ev-sidebar-thumbnails.c:1207
 msgid "Thumbnails"
 msgstr ""
 
-#: ../shell/ev-toolbar.c:129
+#: ../shell/ev-toolbar.c:132
 msgid ""
 "Page View\n"
 "Non-Continuous + Best Fit\n"
 "Ctrl+2"
 msgstr ""
 
-#: ../shell/ev-toolbar.c:143
+#: ../shell/ev-toolbar.c:146
 msgid ""
 "Reader View\n"
 "Continuous + Fit Page Width\n"
 "Ctrl+1"
 msgstr ""
 
-#: ../shell/ev-window.c:1004
+#: ../shell/ev-window.c:984
 msgid ""
 "Cannot enter presentation mode with ePub documents use fullscreen mode "
 "instead."
 msgstr ""
 
-#: ../shell/ev-window.c:1497
+#: ../shell/ev-window.c:1467
 msgid "The document contains no pages"
 msgstr "𐑞 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 𐑒𐑩𐑯𐑑𐑱𐑯𐑟 𐑯𐑴 𐑐𐑱𐑡𐑧𐑟"
 
-#: ../shell/ev-window.c:1500
+#: ../shell/ev-window.c:1469
 msgid "The document contains only empty pages"
 msgstr "𐑞 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 𐑒𐑩𐑯𐑑𐑱𐑯𐑟 𐑴𐑯𐑤𐑦 𐑧𐑥𐑐𐑑𐑦 𐑐𐑱𐑡𐑧𐑟"
 
-#: ../shell/ev-window.c:1539
+#: ../shell/ev-window.c:1504
 msgid "Presentation mode is not supported for ePub documents."
 msgstr ""
 
-#: ../shell/ev-window.c:1729 ../shell/ev-window.c:1893
+#: ../shell/ev-window.c:1690 ../shell/ev-window.c:1854
 msgid "Unable to open document"
 msgstr "𐑳𐑯𐑱𐑚𐑩𐑤 𐑑 𐑴𐑐𐑩𐑯 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑"
 
-#: ../shell/ev-window.c:1862
+#: ../shell/ev-window.c:1823
 #, c-format
 msgid "Loading document from “%s”"
 msgstr "𐑤𐑴𐑛𐑦𐑙 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 𐑓𐑮𐑪𐑥 “%s”"
 
-#: ../shell/ev-window.c:2006 ../shell/ev-window.c:2294
+#: ../shell/ev-window.c:1967 ../shell/ev-window.c:2288
 #, c-format
 msgid "Downloading document (%d%%)"
 msgstr "𐑛𐑬𐑯𐑤𐑴𐑛𐑦𐑙 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 (%d%%)"
 
-#: ../shell/ev-window.c:2039
+#: ../shell/ev-window.c:2000
 msgid "Failed to load remote file."
 msgstr "𐑓𐑱𐑤𐑛 𐑑 𐑤𐑴𐑛 𐑮𐑦𐑥𐑴𐑑 𐑓𐑲𐑤."
 
-#: ../shell/ev-window.c:2238
+#: ../shell/ev-window.c:2232
 #, c-format
 msgid "Reloading document from %s"
 msgstr ""
 
-#: ../shell/ev-window.c:2270
+#: ../shell/ev-window.c:2264
 msgid "Failed to reload document."
 msgstr "𐑓𐑱𐑤𐑛 𐑑 𐑮𐑰𐑤𐑴𐑛 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑."
 
-#: ../shell/ev-window.c:2485
+#: ../shell/ev-window.c:2480
 msgid "Open Document"
 msgstr "𐑴𐑐𐑩𐑯 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑"
 
-#: ../shell/ev-window.c:2763
+#: ../shell/ev-window.c:2761
 #, c-format
 msgid "Saving document to %s"
 msgstr "𐑕𐑱𐑝𐑦𐑙 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 𐑑 %s"
 
-#: ../shell/ev-window.c:2766
+#: ../shell/ev-window.c:2764
 #, c-format
 msgid "Saving attachment to %s"
 msgstr "𐑕𐑱𐑝𐑦𐑙 𐑩𐑑𐑨𐑗𐑥𐑩𐑯𐑑 𐑑 %s"
 
-#: ../shell/ev-window.c:2769
+#: ../shell/ev-window.c:2767
 #, c-format
 msgid "Saving image to %s"
 msgstr "𐑕𐑱𐑝𐑦𐑙 𐑦𐑥𐑦𐑡 𐑑 %s"
 
-#: ../shell/ev-window.c:2813 ../shell/ev-window.c:2913
+#: ../shell/ev-window.c:2811 ../shell/ev-window.c:2911
 #, c-format
 msgid "The file could not be saved as “%s”."
 msgstr "𐑞 𐑓𐑲𐑤 𐑒𐑫𐑛 𐑯𐑪𐑑 𐑚𐑰 𐑕𐑱𐑝𐑛 𐑨𐑟 “%s”."
 
-#: ../shell/ev-window.c:2844
+#: ../shell/ev-window.c:2842
 #, c-format
 msgid "Uploading document (%d%%)"
 msgstr "𐑳𐑐𐑤𐑴𐑛𐑦𐑙 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 (%d%%)"
 
-#: ../shell/ev-window.c:2848
+#: ../shell/ev-window.c:2846
 #, c-format
 msgid "Uploading attachment (%d%%)"
 msgstr "𐑳𐑐𐑤𐑴𐑛𐑦𐑙 𐑩𐑑𐑨𐑗𐑥𐑩𐑯𐑑 (%d%%)"
 
-#: ../shell/ev-window.c:2852
+#: ../shell/ev-window.c:2850
 #, c-format
 msgid "Uploading image (%d%%)"
 msgstr "𐑳𐑐𐑤𐑴𐑛𐑦𐑙 𐑦𐑥𐑦𐑡 (%d%%)"
 
-#: ../shell/ev-window.c:2965
+#: ../shell/ev-window.c:2964
 msgid "Save a Copy"
 msgstr "𐑕𐑱𐑝 𐑩 𐑒𐑪𐑐𐑦"
 
-#: ../shell/ev-window.c:3240
+#: ../shell/ev-window.c:3239
 #, c-format
 msgid "%d pending job in queue"
 msgid_plural "%d pending jobs in queue"
 msgstr[0] "%d 𐑐𐑧𐑯𐑛𐑦𐑙 𐑡𐑪𐑚 𐑦𐑯 𐑒𐑿"
 msgstr[1] "%d 𐑐𐑧𐑯𐑛𐑦𐑙 𐑡𐑪𐑚𐑟 𐑦𐑯 𐑒𐑿"
 
-#: ../shell/ev-window.c:3353
+#: ../shell/ev-window.c:3352
 #, c-format
 msgid "Printing job “%s”"
 msgstr "𐑐𐑮𐑦𐑯𐑑𐑦𐑙 𐑡𐑪𐑚 “%s”"
 
-#: ../shell/ev-window.c:3525
+#: ../shell/ev-window.c:3533
 msgid ""
 "Document contains form fields that have been filled out. If you don't save a "
 "copy, changes will be permanently lost."
 msgstr ""
 
-#: ../shell/ev-window.c:3529
+#: ../shell/ev-window.c:3537
 msgid ""
 "Document contains new or modified annotations. If you don't save a copy, "
 "changes will be permanently lost."
 msgstr ""
 
-#: ../shell/ev-window.c:3536
+#: ../shell/ev-window.c:3544
 #, c-format
 msgid "Save a copy of document “%s” before closing?"
 msgstr ""
 
-#: ../shell/ev-window.c:3555
+#: ../shell/ev-window.c:3563
 msgid "Close _without Saving"
 msgstr ""
 
-#: ../shell/ev-window.c:3559
+#: ../shell/ev-window.c:3567
 msgid "Save a _Copy"
 msgstr ""
 
-#: ../shell/ev-window.c:3628
+#: ../shell/ev-window.c:3636
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
 msgstr "𐑢𐑱𐑑 𐑳𐑯𐑑𐑦𐑤 𐑐𐑮𐑦𐑯𐑑 𐑡𐑪𐑚 “%s” 𐑓𐑦𐑯𐑦𐑖𐑩𐑟 𐑚𐑦𐑓𐑹 𐑒𐑤𐑴𐑟𐑦𐑙?"
@@ -1289,7 +1171,7 @@ msgstr "𐑢𐑱𐑑 𐑳𐑯𐑑𐑦𐑤 𐑐𐑮𐑦𐑯𐑑 𐑡𐑪𐑚 “%
 #. TRANS: the singular form is not really used as n_print_jobs > 1
 #. but some languages distinguish between different plurals forms,
 #. so the ngettext is needed.
-#: ../shell/ev-window.c:3634
+#: ../shell/ev-window.c:3642
 #, c-format
 msgid ""
 "There is %d print job active. Wait until print finishes before closing?"
@@ -1298,27 +1180,27 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../shell/ev-window.c:3649
+#: ../shell/ev-window.c:3657
 msgid "If you close the window, pending print jobs will not be printed."
 msgstr "𐑦𐑓 𐑿 𐑒𐑤𐑴𐑟 𐑞 𐑢𐑦𐑯𐑛𐑴, 𐑐𐑧𐑯𐑛𐑦𐑙 𐑐𐑮𐑦𐑯𐑑 𐑡𐑪𐑚𐑟 𐑢𐑦𐑤 𐑯𐑪𐑑 𐑚𐑰 𐑐𐑮𐑦𐑯𐑑𐑩𐑛."
 
-#: ../shell/ev-window.c:3653
+#: ../shell/ev-window.c:3661
 msgid "Cancel _print and Close"
 msgstr "𐑒𐑨𐑯𐑕𐑩𐑤 _𐑐𐑮𐑦𐑯𐑑 𐑯 𐑒𐑤𐑴𐑕"
 
-#: ../shell/ev-window.c:3657
+#: ../shell/ev-window.c:3665
 msgid "Close _after Printing"
 msgstr "𐑒𐑤𐑴𐑟 _𐑭𐑓𐑑𐑼 𐑐𐑮𐑦𐑯𐑑𐑦𐑙"
 
-#: ../shell/ev-window.c:4038
+#: ../shell/ev-window.c:4061
 msgid "Presentation mode is not supported for ePub documents"
 msgstr ""
 
-#: ../shell/ev-window.c:4635
+#: ../shell/ev-window.c:4687
 msgid "There was an error displaying help"
 msgstr "𐑞𐑺 𐑢𐑪𐑟 𐑩𐑯 𐑻𐑼 𐑛𐑦𐑕𐑐𐑤𐑱𐑦𐑙 𐑣𐑧𐑤𐑐"
 
-#: ../shell/ev-window.c:4882
+#: ../shell/ev-window.c:4940
 msgid ""
 "Xreader is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -1329,7 +1211,7 @@ msgstr ""
 "·𐑜𐑯𐑿 𐑡𐑧𐑯𐑼𐑩𐑤 𐑐𐑳𐑚𐑤𐑦𐑒 𐑤𐑲𐑕𐑩𐑯𐑕 𐑨𐑟 𐑐𐑳𐑚𐑤𐑦𐑖𐑑 𐑚𐑲 𐑞 𐑓𐑮𐑰 𐑕𐑪𐑓𐑑𐑢𐑺 𐑓𐑬𐑯𐑛𐑱𐑖𐑩𐑯; 𐑲𐑞𐑼 𐑝𐑻𐑠𐑩𐑯 2 𐑝 "
 "𐑞 𐑤𐑲𐑕𐑩𐑯𐑕, 𐑹 (𐑨𐑑 𐑿𐑼 𐑪𐑐𐑖𐑩𐑯) 𐑧𐑯𐑦 𐑤𐑱𐑑𐑼 𐑝𐑻𐑠𐑩𐑯.\n"
 
-#: ../shell/ev-window.c:4886
+#: ../shell/ev-window.c:4944
 msgid ""
 "Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -1337,7 +1219,7 @@ msgid ""
 "details.\n"
 msgstr ""
 
-#: ../shell/ev-window.c:4890
+#: ../shell/ev-window.c:4948
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
@@ -1347,371 +1229,383 @@ msgstr ""
 "𐑯𐑪𐑑, 𐑮𐑲𐑑 𐑑 𐑞 𐑓𐑮𐑰 𐑕𐑪𐑓𐑑𐑢𐑺 𐑓𐑬𐑯𐑛𐑱𐑖𐑩𐑯, 𐑦𐑙𐑒., 51 ·𐑓𐑮𐑨𐑙𐑒𐑤𐑦𐑯 𐑕𐑑𐑮𐑰𐑑, 𐑓𐑦𐑓𐑔 𐑓𐑤𐑹, "
 "·𐑚𐑪𐑕𐑑𐑩𐑯, MA 02110-1301  USA\n"
 
-#: ../shell/ev-window.c:4901
+#: ../shell/ev-window.c:4959
 msgid "Xreader"
 msgstr "·𐑦𐑝𐑦𐑯𐑕"
 
 #. TRANS: Sometimes this could be better translated as
 #. "%d hit(s) on this page".  Therefore this string
 #. contains plural cases.
-#: ../shell/ev-window.c:5174
+#: ../shell/ev-window.c:5238
 #, c-format
 msgid "%d found on this page"
 msgid_plural "%d found on this page"
 msgstr[0] "%d 𐑓𐑬𐑯𐑛 𐑪𐑯 𐑞𐑦𐑕 𐑐𐑱𐑡"
 msgstr[1] "%d 𐑓𐑬𐑯𐑛 𐑪𐑯 𐑞𐑦𐑕 𐑐𐑱𐑡"
 
-#: ../shell/ev-window.c:5179
+#: ../shell/ev-window.c:5243 ../shell/ev-window.c:5366
 msgid "Not found"
 msgstr ""
 
-#: ../shell/ev-window.c:5185
+#: ../shell/ev-window.c:5249
 #, c-format
 msgid "%3d%% remaining to search"
 msgstr "%3d%% 𐑮𐑦𐑥𐑱𐑯𐑦𐑙 𐑑 𐑕𐑻𐑗"
 
-#: ../shell/ev-window.c:5802
+#: ../shell/ev-window.c:5864
 msgid "_File"
 msgstr "_𐑓𐑲𐑤"
 
-#: ../shell/ev-window.c:5803
+#: ../shell/ev-window.c:5865
 msgid "_Edit"
 msgstr "_𐑧𐑛𐑦𐑑"
 
-#: ../shell/ev-window.c:5804
+#: ../shell/ev-window.c:5866
 msgid "_View"
 msgstr "_𐑝𐑿"
 
-#: ../shell/ev-window.c:5805
+#: ../shell/ev-window.c:5867
 msgid "_Go"
 msgstr "_𐑜𐑴"
 
-#: ../shell/ev-window.c:5806
+#: ../shell/ev-window.c:5868
 msgid "_Bookmarks"
 msgstr ""
 
-#: ../shell/ev-window.c:5807
+#: ../shell/ev-window.c:5869
 msgid "_Help"
 msgstr "_𐑣𐑧𐑤𐑐"
 
 #. File menu
-#: ../shell/ev-window.c:5810 ../shell/ev-window.c:6138
+#: ../shell/ev-window.c:5872 ../shell/ev-window.c:6347
 msgid "_Open…"
 msgstr "_𐑴𐑐𐑩𐑯…"
 
-#: ../shell/ev-window.c:5811 ../shell/ev-window.c:6139
+#: ../shell/ev-window.c:5874 ../shell/ev-window.c:6348
 msgid "Open an existing document"
 msgstr "𐑴𐑐𐑩𐑯 𐑩𐑯 𐑧𐑒𐑟𐑦𐑕𐑑𐑦𐑙 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑"
 
-#: ../shell/ev-window.c:5813
+#: ../shell/ev-window.c:5876
 msgid "Op_en a Copy"
 msgstr "_𐑴𐑐𐑩𐑯 𐑩 𐑒𐑪𐑐𐑦"
 
-#: ../shell/ev-window.c:5814
+#: ../shell/ev-window.c:5878
 msgid "Open a copy of the current document in a new window"
 msgstr "𐑴𐑐𐑩𐑯 𐑩 𐑒𐑪𐑐𐑦 𐑝 𐑞 𐑒𐑳𐑮𐑩𐑯𐑑 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 𐑦𐑯 𐑩 𐑯𐑿 𐑢𐑦𐑯𐑛𐑴"
 
-#: ../shell/ev-window.c:5816
+#: ../shell/ev-window.c:5880
 msgid "_Save a Copy…"
 msgstr "_𐑕𐑱𐑝 𐑩 𐑒𐑪𐑐𐑦…"
 
-#: ../shell/ev-window.c:5817
+#: ../shell/ev-window.c:5882
 msgid "Save a copy of the current document"
 msgstr "𐑕𐑱𐑝 𐑩 𐑒𐑪𐑐𐑦 𐑝 𐑞 𐑒𐑳𐑮𐑩𐑯𐑑 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑"
 
-#: ../shell/ev-window.c:5819
+#: ../shell/ev-window.c:5884
 msgid "_Print…"
 msgstr "_𐑐𐑮𐑦𐑯𐑑…"
 
-#: ../shell/ev-window.c:5822
+#: ../shell/ev-window.c:5888
 msgid "P_roperties"
 msgstr "_𐑐𐑮𐑪𐑐𐑼𐑑𐑦𐑟"
 
-#: ../shell/ev-window.c:5824
+#: ../shell/ev-window.c:5892
 msgid "_Close"
 msgstr ""
 
 #. Edit menu
-#: ../shell/ev-window.c:5828
+#: ../shell/ev-window.c:5898
 msgid "_Copy"
 msgstr ""
 
-#: ../shell/ev-window.c:5830
+#: ../shell/ev-window.c:5902
 msgid "Select _All"
 msgstr "𐑕𐑩𐑤𐑧𐑒𐑑 _𐑷𐑤"
 
-#: ../shell/ev-window.c:5832
+#: ../shell/ev-window.c:5906
 msgid "_Find…"
 msgstr "_𐑓𐑲𐑯𐑛…"
 
-#: ../shell/ev-window.c:5833
+#: ../shell/ev-window.c:5908
 msgid "Find a word or phrase in the document"
 msgstr "𐑓𐑲𐑯𐑛 𐑩 𐑢𐑻𐑛 𐑹 𐑓𐑮𐑱𐑟 𐑦𐑯 𐑞 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑"
 
-#: ../shell/ev-window.c:5839
+#: ../shell/ev-window.c:5918
 msgid "Rotate _Left"
 msgstr "𐑮𐑴𐑑𐑱𐑑 _𐑤𐑧𐑓𐑑"
 
-#: ../shell/ev-window.c:5841
+#: ../shell/ev-window.c:5922
 msgid "Rotate _Right"
 msgstr "𐑮𐑴𐑑𐑱𐑑 _𐑮𐑲𐑑"
 
-#: ../shell/ev-window.c:5843
+#: ../shell/ev-window.c:5926
 msgid "Save Current Settings as _Default"
 msgstr ""
 
+#: ../shell/ev-window.c:5930
+msgid "Preferences"
+msgstr ""
+
 #. View menu
-#: ../shell/ev-window.c:5848
+#: ../shell/ev-window.c:5937
 msgid "_Original size"
 msgstr ""
 
-#: ../shell/ev-window.c:5849
+#: ../shell/ev-window.c:5939
 msgid "View the document at its original size"
 msgstr ""
 
-#: ../shell/ev-window.c:5851
+#: ../shell/ev-window.c:5941
 msgid "Zoom _In"
 msgstr ""
 
-#: ../shell/ev-window.c:5854
+#: ../shell/ev-window.c:5945
 msgid "Zoom _Out"
 msgstr ""
 
-#: ../shell/ev-window.c:5857
+#: ../shell/ev-window.c:5949
 msgid "_Reload"
 msgstr "_𐑮𐑰𐑤𐑴𐑛"
 
-#: ../shell/ev-window.c:5858
+#: ../shell/ev-window.c:5951
 msgid "Reload the document"
 msgstr "𐑮𐑰𐑤𐑴𐑛 𐑞 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑"
 
-#: ../shell/ev-window.c:5860
+#: ../shell/ev-window.c:5953
 msgid "_Expand Window to Fit"
 msgstr ""
 
-#: ../shell/ev-window.c:5864
+#: ../shell/ev-window.c:5958
 msgid "Auto_scroll"
 msgstr ""
 
-#: ../shell/ev-window.c:5874
+#: ../shell/ev-window.c:5972
 msgid "_First Page"
 msgstr "_𐑓𐑻𐑕𐑑 𐑐𐑱𐑡"
 
-#: ../shell/ev-window.c:5875
+#: ../shell/ev-window.c:5974
 msgid "Go to the first page"
 msgstr "𐑜𐑴 𐑑 𐑞 𐑓𐑻𐑕𐑑 𐑐𐑱𐑡"
 
-#: ../shell/ev-window.c:5877
+#: ../shell/ev-window.c:5976
 msgid "_Last Page"
 msgstr "_𐑤𐑭𐑕𐑑 𐑐𐑱𐑡"
 
-#: ../shell/ev-window.c:5878
+#: ../shell/ev-window.c:5978
 msgid "Go to the last page"
 msgstr "𐑜𐑴 𐑑 𐑞 𐑤𐑭𐑕𐑑 𐑐𐑱𐑡"
 
-#: ../shell/ev-window.c:5880
+#: ../shell/ev-window.c:5980
 msgid "Previous History Item"
 msgstr ""
 
-#: ../shell/ev-window.c:5883
+#: ../shell/ev-window.c:5984
 msgid "Next History Item"
 msgstr ""
 
 #. Bookmarks menu
-#: ../shell/ev-window.c:5888
+#: ../shell/ev-window.c:5990
 msgid "_Add Bookmark"
 msgstr ""
 
-#: ../shell/ev-window.c:5889
+#: ../shell/ev-window.c:5992
 msgid "Add a bookmark for the current page"
 msgstr ""
 
 #. Help menu
-#: ../shell/ev-window.c:5893
+#: ../shell/ev-window.c:5996
 msgid "_Contents"
 msgstr "_𐑒𐑪𐑯𐑑𐑩𐑯𐑑𐑕"
 
-#: ../shell/ev-window.c:5896
+#: ../shell/ev-window.c:6001
 msgid "_About"
 msgstr "_𐑩𐑚𐑬𐑑"
 
 #. Toolbar-only
-#: ../shell/ev-window.c:5900
+#: ../shell/ev-window.c:6007
 msgid "Leave Fullscreen"
 msgstr ""
 
-#: ../shell/ev-window.c:5901
+#: ../shell/ev-window.c:6009
 msgid "Leave fullscreen mode"
 msgstr ""
 
-#: ../shell/ev-window.c:5903
+#: ../shell/ev-window.c:6011
 msgid "Start Presentation"
 msgstr "𐑕𐑑𐑸𐑑 𐑐𐑮𐑧𐑟𐑩𐑯𐑑𐑱𐑖𐑩𐑯"
 
-#: ../shell/ev-window.c:5904
+#: ../shell/ev-window.c:6013
 msgid "Start a presentation"
 msgstr "𐑕𐑑𐑸𐑑 𐑩 𐑐𐑮𐑧𐑟𐑩𐑯𐑑𐑱𐑖𐑩𐑯"
 
 #. View Menu
-#: ../shell/ev-window.c:5967
+#: ../shell/ev-window.c:6130
 msgid "_Toolbar"
 msgstr "_𐑑𐑵𐑤𐑚𐑸"
 
-#: ../shell/ev-window.c:5968
+#: ../shell/ev-window.c:6132
 msgid "Show or hide the toolbar"
 msgstr "𐑖𐑴 𐑹 𐑣𐑲𐑛 𐑞 𐑑𐑵𐑤𐑚𐑸"
 
-#: ../shell/ev-window.c:5970
+#: ../shell/ev-window.c:6134
 msgid "Side _Pane"
 msgstr "𐑕𐑲𐑛 _𐑐𐑱𐑯"
 
-#: ../shell/ev-window.c:5971
+#: ../shell/ev-window.c:6136
 msgid "Show or hide the side pane"
 msgstr "𐑖𐑴 𐑹 𐑣𐑲𐑛 𐑞 𐑕𐑲𐑛 𐑐𐑱𐑯"
 
-#: ../shell/ev-window.c:5973
+#: ../shell/ev-window.c:6138
 msgid "_Continuous"
 msgstr "_𐑒𐑩𐑯𐑑𐑦𐑯𐑿𐑩𐑕"
 
-#: ../shell/ev-window.c:5974
+#: ../shell/ev-window.c:6140
 msgid "Show the entire document"
 msgstr "𐑖𐑴 𐑞 𐑧𐑯𐑑𐑲𐑼 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑"
 
-#: ../shell/ev-window.c:5976
+#: ../shell/ev-window.c:6142
 msgid "_Dual (Even pages left)"
 msgstr ""
 
-#: ../shell/ev-window.c:5977
+#: ../shell/ev-window.c:6144
 msgid "Show two pages at once with even pages on the left"
 msgstr ""
 
-#: ../shell/ev-window.c:5979
+#: ../shell/ev-window.c:6146
 msgid "Dual (_Odd pages left)"
 msgstr ""
 
-#: ../shell/ev-window.c:5980
+#: ../shell/ev-window.c:6148
 msgid "Show two pages at once with odd pages on the left"
 msgstr ""
 
-#: ../shell/ev-window.c:5982
+#: ../shell/ev-window.c:6150
 msgid "_Fullscreen"
 msgstr ""
 
-#: ../shell/ev-window.c:5983
+#: ../shell/ev-window.c:6152
 msgid "Expand the window to fill the screen"
 msgstr "𐑦𐑒𐑕𐑐𐑨𐑯𐑛 𐑞 𐑢𐑦𐑯𐑛𐑴 𐑑 𐑓𐑦𐑤 𐑞 𐑕𐑒𐑮𐑰𐑯"
 
-#: ../shell/ev-window.c:5985
+#: ../shell/ev-window.c:6154
 msgid "Pre_sentation"
 msgstr "_𐑐𐑮𐑧𐑟𐑩𐑯𐑑𐑱𐑖𐑩𐑯"
 
-#: ../shell/ev-window.c:5986
+#: ../shell/ev-window.c:6156
 msgid "Run document as a presentation"
 msgstr "𐑮𐑳𐑯 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑 𐑨𐑟 𐑩 𐑐𐑮𐑧𐑟𐑩𐑯𐑑𐑱𐑖𐑩𐑯"
 
-#: ../shell/ev-window.c:5994
+#: ../shell/ev-window.c:6166
 msgid "_Inverted Colors"
 msgstr "_𐑦𐑯𐑝𐑻𐑑𐑦𐑛 𐑒𐑳𐑤𐑼𐑟"
 
-#: ../shell/ev-window.c:5995
+#: ../shell/ev-window.c:6168
 msgid "Show page contents with the colors inverted"
 msgstr "𐑖𐑴 𐑐𐑱𐑡 𐑒𐑪𐑯𐑑𐑩𐑯𐑑𐑕 𐑢𐑦𐑞 𐑞 𐑒𐑳𐑤𐑼𐑟 𐑦𐑯𐑝𐑻𐑑𐑦𐑛"
 
 #. Links
-#: ../shell/ev-window.c:6003
+#: ../shell/ev-window.c:6176
 msgid "_Open Link"
 msgstr "_𐑴𐑐𐑩𐑯 𐑤𐑦𐑙𐑒"
 
-#: ../shell/ev-window.c:6005
+#: ../shell/ev-window.c:6178
 msgid "_Go To"
 msgstr "_𐑜𐑴 𐑑"
 
-#: ../shell/ev-window.c:6007
+#: ../shell/ev-window.c:6180
 msgid "Open in New _Window"
 msgstr "𐑴𐑐𐑩𐑯 𐑦𐑯 𐑯𐑿 _𐑢𐑦𐑯𐑛𐑴"
 
-#: ../shell/ev-window.c:6009
+#: ../shell/ev-window.c:6182
 msgid "_Copy Link Address"
 msgstr "_𐑒𐑪𐑐𐑦 𐑤𐑦𐑙𐑒 𐑩𐑛𐑮𐑧𐑕"
 
-#: ../shell/ev-window.c:6011
+#: ../shell/ev-window.c:6184
 msgid "_Save Image As…"
 msgstr "_𐑕𐑱𐑝 𐑦𐑥𐑦𐑡 𐑨𐑟…"
 
-#: ../shell/ev-window.c:6013
+#: ../shell/ev-window.c:6186
 msgid "Copy _Image"
 msgstr "𐑒𐑪𐑐𐑦 _𐑦𐑥𐑦𐑡"
 
-#: ../shell/ev-window.c:6015
+#: ../shell/ev-window.c:6188
 msgid "Annotation Properties…"
 msgstr ""
 
-#: ../shell/ev-window.c:6020
+#: ../shell/ev-window.c:6190
+msgid "Remove Annotation"
+msgstr ""
+
+#: ../shell/ev-window.c:6195
 msgid "_Open Attachment"
 msgstr "_𐑴𐑐𐑩𐑯 𐑩𐑑𐑨𐑗𐑥𐑩𐑯𐑑"
 
-#: ../shell/ev-window.c:6022
+#: ../shell/ev-window.c:6197
 msgid "_Save Attachment As…"
 msgstr "_𐑕𐑱𐑝 𐑩𐑑𐑨𐑗𐑥𐑩𐑯𐑑 𐑨𐑟…"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6159
+#: ../shell/ev-window.c:6368
 msgid "Previous"
 msgstr "𐑐𐑮𐑰𐑝𐑦𐑩𐑕"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6164
+#: ../shell/ev-window.c:6373
 msgid "Next"
 msgstr "𐑯𐑧𐑒𐑕𐑑"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6168
+#: ../shell/ev-window.c:6377
 msgid "Zoom In"
 msgstr "𐑟𐑵𐑥 𐑦𐑯"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6172
+#: ../shell/ev-window.c:6381
 msgid "Zoom Out"
 msgstr "𐑟𐑵𐑥 𐑬𐑑"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6184
+#: ../shell/ev-window.c:6393
 msgid "Fit Width"
 msgstr "𐑓𐑦𐑑 𐑢𐑦𐑛𐑔"
 
-#: ../shell/ev-window.c:6352 ../shell/ev-window.c:6368
+#: ../shell/ev-window.c:6570 ../shell/ev-window.c:6586
 msgid "Unable to launch external application."
 msgstr "𐑳𐑯𐑱𐑚𐑩𐑤 𐑑 𐑤𐑷𐑯𐑗 𐑦𐑒𐑕𐑑𐑻𐑯𐑩𐑤 𐑩𐑐𐑤𐑦𐑒𐑱𐑕𐑩𐑯."
 
-#: ../shell/ev-window.c:6425
+#: ../shell/ev-window.c:6644
 msgid "Unable to open external link"
 msgstr "𐑳𐑯𐑱𐑚𐑩𐑤 𐑑 𐑴𐑐𐑩𐑯 𐑦𐑒𐑕𐑑𐑻𐑯𐑩𐑤 𐑤𐑦𐑙𐑒"
 
-#: ../shell/ev-window.c:6620
+#: ../shell/ev-window.c:6845
 msgid "Couldn't find appropriate format to save image"
 msgstr "𐑒𐑫𐑛𐑯𐑑 𐑓𐑲𐑯𐑛 𐑩𐑐𐑮𐑴𐑐𐑮𐑦𐑱𐑑 𐑓𐑹𐑥𐑨𐑑 𐑑 𐑕𐑱𐑝 𐑦𐑥𐑦𐑡"
 
-#: ../shell/ev-window.c:6652
+#: ../shell/ev-window.c:6876
 msgid "The image could not be saved."
 msgstr "𐑞 𐑦𐑥𐑦𐑡 𐑒𐑫𐑛 𐑯𐑪𐑑 𐑚𐑰 𐑕𐑱𐑝𐑛."
 
-#: ../shell/ev-window.c:6684
+#: ../shell/ev-window.c:6909
 msgid "Save Image"
 msgstr "𐑕𐑱𐑝 𐑦𐑥𐑦𐑡"
 
-#: ../shell/ev-window.c:6816
+#: ../shell/ev-window.c:7051
 msgid "Unable to open attachment"
 msgstr "𐑳𐑯𐑱𐑚𐑩𐑤 𐑑 𐑴𐑐𐑩𐑯 𐑩𐑑𐑨𐑗𐑥𐑩𐑯𐑑"
 
-#: ../shell/ev-window.c:6873
+#: ../shell/ev-window.c:7108
 msgid "The attachment could not be saved."
 msgstr "𐑞 𐑩𐑑𐑨𐑗𐑥𐑩𐑯𐑑 𐑒𐑫𐑛 𐑯𐑪𐑑 𐑚𐑰 𐑕𐑱𐑝𐑛."
 
-#: ../shell/ev-window.c:6918
+#: ../shell/ev-window.c:7154
 msgid "Save Attachment"
 msgstr "𐑕𐑱𐑝 𐑩𐑑𐑨𐑗𐑥𐑩𐑯𐑑"
 
-#: ../shell/ev-window-title.c:170
+#: ../shell/ev-window-title.c:127
+msgid "Recent Documents"
+msgstr ""
+
+#: ../shell/ev-window-title.c:175
 #, c-format
 msgid "%s — Password Required"
 msgstr "%s — 𐑐𐑭𐑕𐑢𐑼𐑛 𐑮𐑦𐑒𐑢𐑲𐑼𐑛"
