@@ -1,6 +1,6 @@
-/* 
+/*
  * Declarations used throughout the djvu classes
- * 
+ *
  * Copyright (C) 2006, Michael Hofmann <mh21@piware.de>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -17,7 +17,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
- 
+
 #ifndef __DJVU_DOCUMENT_INTERNAL_H__
 #define __DJVU_DOCUMENT_INTERNAL_H__
 
@@ -35,13 +35,17 @@ struct _DjvuDocument {
 
 	gchar            *uri;
 
-        /* PS exporter */
-        gchar		 *ps_filename;
-        GString 	 *opts;
+	/* PS exporter */
+	gchar            *ps_filename;
+	GString          *opts;
+
+	/* Annotations */
+	GHashTable       *annots;
+	gboolean          annots_modified;
 };
 
 int  djvu_document_get_n_pages (EvDocument   *document);
-void djvu_handle_events        (DjvuDocument *djvu_document, 
+void djvu_handle_events        (DjvuDocument *djvu_document,
 			        int           wait,
 				GError      **error);
 

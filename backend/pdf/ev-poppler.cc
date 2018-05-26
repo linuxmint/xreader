@@ -3335,6 +3335,19 @@ pdf_document_annotations_save_annotation (EvDocumentAnnotations *document_annota
 	ev_document_set_modified (EV_DOCUMENT (document_annotations), TRUE);
 }
 
+static EvDocumentAnnotationsAvailabilities
+pdf_document_annotations_get_availabilities (EvDocumentAnnotations *document_annots)
+{
+	EvDocumentAnnotationsAvailabilities av;
+
+	av.text = TRUE;
+	av.markup_text = TRUE;
+	av.circle = TRUE;
+	av.line = TRUE;
+
+	return av;
+}
+
 static void
 pdf_document_document_annotations_iface_init (EvDocumentAnnotationsInterface *iface)
 {
@@ -3343,6 +3356,7 @@ pdf_document_document_annotations_iface_init (EvDocumentAnnotationsInterface *if
 	iface->add_annotation = pdf_document_annotations_add_annotation;
 	iface->save_annotation = pdf_document_annotations_save_annotation;
 	iface->remove_annotation = pdf_document_annotations_remove_annotation;
+	iface->get_availabilities = pdf_document_annotations_get_availabilities;
 }
 
 /* Attachments */

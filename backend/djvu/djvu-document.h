@@ -32,7 +32,7 @@ typedef struct _DjvuDocument DjvuDocument;
 GType                 djvu_document_get_type  (void) G_GNUC_CONST;
 
 G_MODULE_EXPORT GType register_xreader_backend (GTypeModule *module);
-     
+
 G_END_DECLS
 
 #endif /* __DJVU_DOCUMENT_H__ */

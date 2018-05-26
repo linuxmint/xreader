@@ -69,22 +69,31 @@ typedef enum {
 typedef struct _EvDocumentAnnotations          EvDocumentAnnotations;
 typedef struct _EvDocumentAnnotationsInterface EvDocumentAnnotationsInterface;
 
+typedef struct {
+    gboolean text;
+    gboolean markup_text;
+    gboolean circle;
+    gboolean line;
+} EvDocumentAnnotationsAvailabilities;
+
 struct _EvDocumentAnnotationsInterface
 {
-	GTypeInterface base_iface;
+    GTypeInterface base_iface;
 
-	/* Methods  */
-	EvMappingList *(* get_annotations)      (EvDocumentAnnotations *document_annots,
-						 EvPage                *page);
-	gboolean       (* document_is_modified) (EvDocumentAnnotations *document_annots);
-	void           (* add_annotation)       (EvDocumentAnnotations *document_annots,
-						 EvAnnotation          *annot,
-						 EvRectangle           *rect);
-	void           (* save_annotation)      (EvDocumentAnnotations *document_annots,
-						 EvAnnotation          *annot,
-						 EvAnnotationsSaveMask  mask);
-	void	       (* remove_annotation)    (EvDocumentAnnotations *document_annots,
-						 EvAnnotation          *annot);
+    /* Methods  */
+    EvMappingList *(* get_annotations)      (EvDocumentAnnotations *document_annots,
+                                             EvPage                *page);
+    gboolean       (* document_is_modified) (EvDocumentAnnotations *document_annots);
+    void           (* add_annotation)       (EvDocumentAnnotations *document_annots,
+                                             EvAnnotation          *annot,
+                                             EvRectangle           *rect);
+    void           (* save_annotation)      (EvDocumentAnnotations *document_annots,
+                                             EvAnnotation          *annot,
+                                             EvAnnotationsSaveMask  mask);
+    void           (* remove_annotation)    (EvDocumentAnnotations *document_annots,
+                                             EvAnnotation          *annot);
+
+    EvDocumentAnnotationsAvailabilities   (* get_availabilities)   (EvDocumentAnnotations *document_annots);
 };
 
 GType          ev_document_annotations_get_type             (void) G_GNUC_CONST;
@@ -99,8 +108,11 @@ void           ev_document_annotations_remove_annotation    (EvDocumentAnnotatio
 void           ev_document_annotations_save_annotation      (EvDocumentAnnotations *document_annots,
 							     EvAnnotation          *annot,
 							     EvAnnotationsSaveMask  mask);
+
 gboolean       ev_document_annotations_can_add_annotation   (EvDocumentAnnotations *document_annots);
 gboolean       ev_document_annotations_can_remove_annotation (EvDocumentAnnotations *document_annots);
+
+EvDocumentAnnotationsAvailabilities      ev_document_annotations_get_availabilities (EvDocumentAnnotations *document_annots);
 
 G_END_DECLS
 

@@ -74,6 +74,25 @@ ev_document_annotations_can_add_annotation (EvDocumentAnnotations *document_anno
 	return iface->add_annotation != NULL;
 }
 
+EvDocumentAnnotationsAvailabilities
+ev_document_annotations_get_availabilities (EvDocumentAnnotations *document_annots)
+{
+	if (!ev_document_annotations_can_add_annotation (document_annots)) {
+		EvDocumentAnnotationsAvailabilities av;
+
+		av.text = FALSE;
+		av.markup_text = FALSE;
+		av.circle = FALSE;
+		av.line = FALSE;
+
+		return av;
+	}
+
+	EvDocumentAnnotationsInterface *iface = EV_DOCUMENT_ANNOTATIONS_GET_IFACE (document_annots);
+
+	return iface->get_availabilities (document_annots);
+}
+
 void
 ev_document_annotations_remove_annotation (EvDocumentAnnotations *document_annots,
 					   EvAnnotation          *annot)
