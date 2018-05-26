@@ -44,6 +44,12 @@ struct _EvAnnotationPropertiesDialog {
 
 	/* Text Annotations */
 	GtkWidget       *icon;
+
+	/* Text Markup Annotations */
+	GtkWidget       *text_markup_type;
+
+	/* Pdf indicator for icon text annot */
+	gboolean is_pdf;
 };
 
 struct _EvAnnotationPropertiesDialogClass {
@@ -91,35 +97,45 @@ ev_annotation_properties_dialog_constructed (GObject *object)
 
 	gtk_window_set_titlebar (GTK_WINDOW (dialog), NULL);
 
-	switch (dialog->annot_type) {
-	case EV_ANNOTATION_TYPE_TEXT:
-		label = gtk_label_new (_("Icon:"));
-		gtk_widget_set_halign (label, GTK_ALIGN_START);
-		gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
+	if (EV_IS_ANNOTATION_TEXT (dialog->annot)) {
+		if (dialog->is_pdf) {
+			label = gtk_label_new (_("Icon:"));
+			gtk_widget_set_halign (label, GTK_ALIGN_START);
+			gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
+			gtk_grid_attach (GTK_GRID (grid), label, 0, 5, 1, 1);
+			gtk_widget_show (label);
+
+			dialog->icon = gtk_combo_box_text_new ();
+			gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("Note"));
+			gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("Comment"));
+			gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("Key"));
+			gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("Help"));
+			gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("New Paragraph"));
+			gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("Paragraph"));
+			gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("Insert"));
+			gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("Cross"));
+			gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("Circle"));
+			gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("Unknown"));
+			gtk_combo_box_set_active (GTK_COMBO_BOX (dialog->icon), 0);
+			gtk_grid_attach (GTK_GRID (grid), dialog->icon, 1, 5, 1, 1);
+			gtk_widget_set_hexpand (dialog->icon, TRUE);
+			gtk_widget_show (dialog->icon);
+		}
+	} else if (EV_IS_ANNOTATION_TEXT_MARKUP (dialog->annot)) {
+		label = gtk_label_new (_("Markup type:"));
+		gtk_misc_set_alignment (GTK_MISC (label), 0., 0.5);
 		gtk_grid_attach (GTK_GRID (grid), label, 0, 5, 1, 1);
 		gtk_widget_show (label);
 
-		dialog->icon = gtk_combo_box_text_new ();
-		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("Note"));
-		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("Comment"));
-		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("Key"));
-		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("Help"));
-		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("New Paragraph"));
-		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("Paragraph"));
-		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("Insert"));
-		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("Cross"));
-		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("Circle"));
-		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->icon), _("Unknown"));
-		gtk_combo_box_set_active (GTK_COMBO_BOX (dialog->icon), 0);
-		gtk_grid_attach (GTK_GRID (grid), dialog->icon, 1, 5, 1, 1);
-		gtk_widget_set_hexpand (dialog->icon, TRUE);
-		gtk_widget_show (dialog->icon);
-
-		break;
-	case EV_ANNOTATION_TYPE_ATTACHMENT:
-		/* TODO */
-	default:
-		break;
+		dialog->text_markup_type = gtk_combo_box_text_new ();
+		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->text_markup_type), _("Highlight"));
+		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->text_markup_type), _("Strike out"));
+		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->text_markup_type), _("Underline"));
+		gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->text_markup_type), _("Squiggly"));
+		gtk_combo_box_set_active (GTK_COMBO_BOX (dialog->text_markup_type), 0);
+		gtk_grid_attach (GTK_GRID (grid), dialog->text_markup_type, 1, 5, 1, 1);
+		gtk_widget_set_hexpand (dialog->text_markup_type, TRUE);
+		gtk_widget_show (dialog->text_markup_type);
 	}
 }
 
@@ -244,7 +260,8 @@ ev_annotation_properties_dialog_class_init (EvAnnotationPropertiesDialogClass *k
 							    "The type of annotation",
 							    EV_TYPE_ANNOTATION_TYPE,
 							    EV_ANNOTATION_TYPE_TEXT,
-							    G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY));
+							    G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY |
+							                       G_PARAM_STATIC_STRINGS));
 }
 
 GtkWidget *
@@ -256,7 +273,8 @@ ev_annotation_properties_dialog_new (EvAnnotationType annot_type)
 }
 
 GtkWidget *
-ev_annotation_properties_dialog_new_with_annotation (EvAnnotation *annot)
+ev_annotation_properties_dialog_new_with_annotation (EvAnnotation *annot,
+                                                     gboolean      is_pdf)
 {
 	EvAnnotationPropertiesDialog *dialog;
 	const gchar                  *label;
@@ -266,6 +284,7 @@ ev_annotation_properties_dialog_new_with_annotation (EvAnnotation *annot)
 
 	dialog = (EvAnnotationPropertiesDialog *)ev_annotation_properties_dialog_new (ev_annotation_get_annotation_type (annot));
 	dialog->annot = g_object_ref (annot);
+	dialog->is_pdf = is_pdf;
 
 	label = ev_annotation_markup_get_label (EV_ANNOTATION_MARKUP (annot));
 	if (label)
@@ -282,10 +301,17 @@ ev_annotation_properties_dialog_new_with_annotation (EvAnnotation *annot)
 				  is_open ? 0 : 1);
 
 	if (EV_IS_ANNOTATION_TEXT (annot)) {
-		EvAnnotationText *annot_text = EV_ANNOTATION_TEXT (annot);
+		if (dialog->is_pdf) {
+			EvAnnotationText *annot_text = EV_ANNOTATION_TEXT (annot);
 
-		gtk_combo_box_set_active (GTK_COMBO_BOX (dialog->icon),
-					  ev_annotation_text_get_icon (annot_text));
+			gtk_combo_box_set_active (GTK_COMBO_BOX (dialog->icon),
+						  ev_annotation_text_get_icon (annot_text));
+		}
+	} else if (EV_IS_ANNOTATION_TEXT_MARKUP (annot)) {
+		EvAnnotationTextMarkup *annot_markup = EV_ANNOTATION_TEXT_MARKUP (annot);
+
+		gtk_combo_box_set_active (GTK_COMBO_BOX (dialog->text_markup_type),
+								  ev_annotation_text_markup_get_markup_type (annot_markup));
 	}
 
 	return GTK_WIDGET (dialog);
@@ -320,4 +346,10 @@ EvAnnotationTextIcon
 ev_annotation_properties_dialog_get_text_icon (EvAnnotationPropertiesDialog *dialog)
 {
 	return gtk_combo_box_get_active (GTK_COMBO_BOX (dialog->icon));
+}
+
+EvAnnotationTextMarkupType
+ev_annotation_properties_dialog_get_text_markup_type (EvAnnotationPropertiesDialog *dialog)
+{
+        return gtk_combo_box_get_active (GTK_COMBO_BOX (dialog->text_markup_type));
 }

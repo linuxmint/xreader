@@ -3515,7 +3515,6 @@ document_modified_confirmation_dialog_response (GtkDialog *dialog,
     switch (response) {
     case GTK_RESPONSE_YES:
         ev_window_cmd_save_as (NULL, ev_window);
-        gtk_widget_destroy (GTK_WIDGET (ev_window));
         break;
     case GTK_RESPONSE_APPLY:
         ev_window_file_save (ev_window, ev_window->priv->uri);
@@ -7054,7 +7053,7 @@ ev_view_popup_cmd_annot_properties (GtkAction *action,
     const gchar                  *author;
     GdkRGBA                       rgba;
     gdouble                       opacity;
-    gboolean                      popup_is_open;
+    gboolean                      popup_is_open, is_pdf;
     EvAnnotationPropertiesDialog *dialog;
     EvAnnotation                 *annot = window->priv->annot;
     EvAnnotationsSaveMask         mask = EV_ANNOTATIONS_SAVE_NONE;
@@ -7062,7 +7061,10 @@ ev_view_popup_cmd_annot_properties (GtkAction *action,
     if (!annot)
         return;
 
-    dialog = EV_ANNOTATION_PROPERTIES_DIALOG (ev_annotation_properties_dialog_new_with_annotation (window->priv->annot));
+    is_pdf = (g_strcmp0 (ev_backends_manager_get_document_module_name (window->priv->document), "pdf") == 0);
+    g_printf("is_pdf ? %d\n", is_pdf);
+
+    dialog = EV_ANNOTATION_PROPERTIES_DIALOG (ev_annotation_properties_dialog_new_with_annotation (window->priv->annot, is_pdf));
     gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (window));
     if (gtk_dialog_run (GTK_DIALOG (dialog)) != GTK_RESPONSE_APPLY) {
         gtk_widget_destroy (GTK_WIDGET (dialog));
@@ -7087,12 +7089,20 @@ ev_view_popup_cmd_annot_properties (GtkAction *action,
     if (ev_annotation_markup_set_popup_is_open (EV_ANNOTATION_MARKUP (annot), popup_is_open))
         mask |= EV_ANNOTATIONS_SAVE_POPUP_IS_OPEN;
 
-    if (EV_IS_ANNOTATION_TEXT (annot)) {
+    if (EV_IS_ANNOTATION_TEXT (annot) && is_pdf) {
         EvAnnotationTextIcon icon;
 
         icon = ev_annotation_properties_dialog_get_text_icon (dialog);
         if (ev_annotation_text_set_icon (EV_ANNOTATION_TEXT (annot), icon))
             mask |= EV_ANNOTATIONS_SAVE_TEXT_ICON;
+    }
+
+    if (EV_IS_ANNOTATION_TEXT_MARKUP (annot)) {
+        EvAnnotationTextMarkupType markup_type;
+
+        markup_type = ev_annotation_properties_dialog_get_text_markup_type (dialog);
+        if (ev_annotation_text_markup_set_markup_type (EV_ANNOTATION_TEXT_MARKUP (annot), markup_type))
+            mask |= EV_ANNOTATIONS_SAVE_TEXT_MARKUP_TYPE;
     }
 
     if (mask != EV_ANNOTATIONS_SAVE_NONE) {

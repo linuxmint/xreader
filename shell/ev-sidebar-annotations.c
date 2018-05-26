@@ -722,7 +722,7 @@ ev_sidebar_annotations_document_changed_cb (EvDocumentModel      *model,
 {
 	EvDocument *document = ev_document_model_get_document (model);
 	EvSidebarAnnotationsPrivate *priv = sidebar_annots->priv;
-	gboolean enable_add;
+	EvDocumentAnnotationsAvailabilities av;
 
 	if (!EV_IS_DOCUMENT_ANNOTATIONS (document))
 		return;
@@ -731,12 +731,12 @@ ev_sidebar_annotations_document_changed_cb (EvDocumentModel      *model,
 		g_object_unref (priv->document);
 	priv->document = g_object_ref (document);
 
-	enable_add = ev_document_annotations_can_add_annotation (EV_DOCUMENT_ANNOTATIONS (document));
-	gtk_widget_set_sensitive (priv->annot_note, enable_add);
-	gtk_widget_set_sensitive (priv->annot_highlight, enable_add);
-	gtk_widget_set_sensitive (priv->annot_underline, enable_add);
-	gtk_widget_set_sensitive (priv->annot_strike_out, enable_add);
-	gtk_widget_set_sensitive (priv->annot_squiggly, enable_add);
+	av = ev_document_annotations_get_availabilities (EV_DOCUMENT_ANNOTATIONS (document));
+	gtk_widget_set_sensitive (priv->annot_note, av.text);
+	gtk_widget_set_sensitive (priv->annot_highlight, av.markup_text);
+	gtk_widget_set_sensitive (priv->annot_underline, av.markup_text);
+	gtk_widget_set_sensitive (priv->annot_strike_out, av.markup_text);
+	gtk_widget_set_sensitive (priv->annot_squiggly, av.markup_text);
 
 	ev_sidebar_annotations_load (sidebar_annots);
 }
