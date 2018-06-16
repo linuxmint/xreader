@@ -1209,7 +1209,8 @@ build_tree (PdfDocument      *pdf_document,
 			continue;
 
 		/* Block zoom change when action link is pressed (bug fix #175) */
-		action->goto_dest.dest->change_zoom = 0;
+		if (action->goto_dest.dest)
+			action->goto_dest.dest->change_zoom = 0;
 
 		link = ev_link_from_action (pdf_document, action);
 		if (!link || strlen (ev_link_get_title (link)) <= 0) {
