@@ -139,6 +139,7 @@ ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 	GtkCellRenderer *renderer;
 	GtkTreeViewColumn *column;
 	GtkTreeSelection *selection;
+	GtkWidget *separator;
 	GtkWidget *toolbar;
 	GtkWidget *toolitem;
 	GtkWidget *hbox;
@@ -179,6 +180,10 @@ ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 
 	gtk_container_add (GTK_CONTAINER (swindow), ev_annots->priv->tree_view);
 	gtk_widget_show (ev_annots->priv->tree_view);
+
+	separator = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
+	gtk_box_pack_start (GTK_BOX (ev_annots), separator, FALSE, FALSE, 0);
+	gtk_widget_show (separator);
 
 	toolbar = gtk_toolbar_new ();
 	gtk_widget_show (toolbar);

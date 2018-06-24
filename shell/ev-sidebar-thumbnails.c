@@ -877,6 +877,7 @@ static void
 ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 {
 	EvSidebarThumbnailsPrivate *priv;
+	GtkWidget *separator;
 	GtkWidget *toolbar;
 	GtkWidget *toolitem;
 	GtkWidget *button;
@@ -911,6 +912,10 @@ ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 				  G_CALLBACK (adjustment_changed_cb),
 				  ev_sidebar_thumbnails);
 	gtk_box_pack_start (GTK_BOX (ev_sidebar_thumbnails), priv->swindow, TRUE, TRUE, 0);
+
+	separator = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
+	gtk_box_pack_start (GTK_BOX (ev_sidebar_thumbnails), separator, FALSE, FALSE, 0);
+	gtk_widget_show (separator);
 
 	toolbar = gtk_toolbar_new ();
 	gtk_widget_show (toolbar);
