@@ -240,7 +240,7 @@ ev_page_action_widget_init (EvPageActionWidget *action_widget)
 			    FALSE, FALSE, 0);
 	gtk_widget_show (action_widget->label);
 
-	gtk_container_set_border_width (GTK_CONTAINER (action_widget), 6);
+	g_object_set (G_OBJECT (action_widget), "margin-left", 8, "margin-right", 8, NULL);
 	gtk_container_add (GTK_CONTAINER (action_widget), hbox);
 	gtk_widget_show (hbox);
 
