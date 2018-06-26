@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 10:36+0100\n"
+"POT-Creation-Date: 2018-06-25 08:57+0200\n"
 "PO-Revision-Date: 2018-02-26 16:05+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) "
@@ -23,8 +23,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2018-05-22 09:23+0000\n"
-"X-Generator: Launchpad (build 18658)\n"
+"X-Launchpad-Export-Date: 2018-06-26 10:16+0000\n"
+"X-Generator: Launchpad (build 18688)\n"
 "Language: zh_TW\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -796,6 +796,7 @@ msgid "Key"
 msgstr "設定鍵"
 
 #: ../shell/ev-annotation-properties-dialog.c:106
+#: ../shell/ev-preferences-dialog.c:117
 msgid "Help"
 msgstr "求助"
 
@@ -856,6 +857,7 @@ msgid "Open"
 msgstr "開啟"
 
 #: ../shell/ev-annotation-properties-dialog.c:224
+#: ../shell/ev-preferences-dialog.c:121
 msgid "Close"
 msgstr "關閉"
 
@@ -925,6 +927,22 @@ msgstr "在您登出前記住密碼(_L)"
 #: ../shell/ev-password-view.c:384
 msgid "Remember _forever"
 msgstr "永遠記住密碼(_F)"
+
+#: ../shell/ev-preferences-dialog.c:109 ../shell/ev-preferences-dialog.ui.h:1
+msgid "Toolbar"
+msgstr ""
+
+#: ../shell/ev-preferences-dialog.c:131 ../shell/ev-window.c:5930
+msgid "Preferences"
+msgstr ""
+
+#: ../shell/ev-preferences-dialog.ui.h:2
+msgid "Show history buttons"
+msgstr ""
+
+#: ../shell/ev-preferences-dialog.ui.h:3
+msgid "Show expand window button"
+msgstr ""
 
 #: ../shell/ev-properties-dialog.c:62
 msgid "Properties"
@@ -1347,10 +1365,6 @@ msgstr "向右旋轉(_R)"
 #: ../shell/ev-window.c:5926
 msgid "Save Current Settings as _Default"
 msgstr "將目前的設定值儲存為預設值(_D)"
-
-#: ../shell/ev-window.c:5930
-msgid "Preferences"
-msgstr ""
 
 #. View menu
 #: ../shell/ev-window.c:5937

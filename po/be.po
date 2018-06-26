@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 10:36+0100\n"
+"POT-Creation-Date: 2018-06-25 08:57+0200\n"
 "PO-Revision-Date: 2016-02-11 14:34+0000\n"
 "Last-Translator: meequz <meequz@gmail.com>\n"
 "Language-Team: Belarusian (http://www.transifex.com/mate/MATE/language/be/)\n"
@@ -22,8 +22,8 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-"X-Launchpad-Export-Date: 2018-05-22 09:23+0000\n"
-"X-Generator: Launchpad (build 18658)\n"
+"X-Launchpad-Export-Date: 2018-06-26 10:16+0000\n"
+"X-Generator: Launchpad (build 18688)\n"
 "Language: be\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -807,6 +807,7 @@ msgid "Key"
 msgstr "Ключ"
 
 #: ../shell/ev-annotation-properties-dialog.c:106
+#: ../shell/ev-preferences-dialog.c:117
 msgid "Help"
 msgstr "Даведка"
 
@@ -867,6 +868,7 @@ msgid "Open"
 msgstr "Адкрыць"
 
 #: ../shell/ev-annotation-properties-dialog.c:224
+#: ../shell/ev-preferences-dialog.c:121
 msgid "Close"
 msgstr "Закрыць"
 
@@ -936,6 +938,22 @@ msgstr "Памятаць пароль да канца сесіі"
 #: ../shell/ev-password-view.c:384
 msgid "Remember _forever"
 msgstr "Памятаць _заўсёды"
+
+#: ../shell/ev-preferences-dialog.c:109 ../shell/ev-preferences-dialog.ui.h:1
+msgid "Toolbar"
+msgstr ""
+
+#: ../shell/ev-preferences-dialog.c:131 ../shell/ev-window.c:5930
+msgid "Preferences"
+msgstr ""
+
+#: ../shell/ev-preferences-dialog.ui.h:2
+msgid "Show history buttons"
+msgstr ""
+
+#: ../shell/ev-preferences-dialog.ui.h:3
+msgid "Show expand window button"
+msgstr ""
 
 #: ../shell/ev-properties-dialog.c:62
 msgid "Properties"
@@ -1369,10 +1387,6 @@ msgstr "Павярнуць _па сонцу"
 #: ../shell/ev-window.c:5926
 msgid "Save Current Settings as _Default"
 msgstr "Захаваць дзейныя настáўленні як стандартныя"
-
-#: ../shell/ev-window.c:5930
-msgid "Preferences"
-msgstr ""
 
 #. View menu
 #: ../shell/ev-window.c:5937

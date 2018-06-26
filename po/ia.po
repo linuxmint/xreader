@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-05-08 10:36+0100\n"
+"POT-Creation-Date: 2018-06-25 08:57+0200\n"
 "PO-Revision-Date: 2018-05-09 08:24+0000\n"
 "Last-Translator: karm <melo@carmu.com>\n"
 "Language-Team: Interlingua <ia@li.org>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2018-05-22 09:23+0000\n"
-"X-Generator: Launchpad (build 18658)\n"
+"X-Launchpad-Export-Date: 2018-06-26 10:16+0000\n"
+"X-Generator: Launchpad (build 18688)\n"
 
 #: ../backend/comics/comics-document.c:208
 #, c-format
@@ -815,6 +815,7 @@ msgid "Key"
 msgstr "Clave"
 
 #: ../shell/ev-annotation-properties-dialog.c:106
+#: ../shell/ev-preferences-dialog.c:117
 msgid "Help"
 msgstr "Adjutar"
 
@@ -875,6 +876,7 @@ msgid "Open"
 msgstr "Aperir"
 
 #: ../shell/ev-annotation-properties-dialog.c:224
+#: ../shell/ev-preferences-dialog.c:121
 msgid "Close"
 msgstr "Clauder"
 
@@ -947,6 +949,22 @@ msgstr "Rememorar le contrasigno donec tu claude le session"
 #: ../shell/ev-password-view.c:384
 msgid "Remember _forever"
 msgstr "_Rememorar pro sempre"
+
+#: ../shell/ev-preferences-dialog.c:109 ../shell/ev-preferences-dialog.ui.h:1
+msgid "Toolbar"
+msgstr ""
+
+#: ../shell/ev-preferences-dialog.c:131 ../shell/ev-window.c:5930
+msgid "Preferences"
+msgstr "Preferentias"
+
+#: ../shell/ev-preferences-dialog.ui.h:2
+msgid "Show history buttons"
+msgstr ""
+
+#: ../shell/ev-preferences-dialog.ui.h:3
+msgid "Show expand window button"
+msgstr ""
 
 #: ../shell/ev-properties-dialog.c:62
 msgid "Properties"
@@ -1386,10 +1404,6 @@ msgstr "Rotar a dexte_Ra"
 #: ../shell/ev-window.c:5926
 msgid "Save Current Settings as _Default"
 msgstr "Salvar le actual configurationes como pre_Definite"
-
-#: ../shell/ev-window.c:5930
-msgid "Preferences"
-msgstr "Preferentias"
 
 #. View menu
 #: ../shell/ev-window.c:5937
