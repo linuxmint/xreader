@@ -4094,6 +4094,7 @@ ev_view_motion_notify_event (GtkWidget      *widget,
 					                 event->y);
 
 			view->selection_info.in_drag = FALSE;
+			view->pressed_button = -1;
 
 			gtk_target_list_unref (target_list);
 
@@ -4116,6 +4117,7 @@ ev_view_motion_notify_event (GtkWidget      *widget,
 					                 event->y);
 
 			view->image_dnd_info.in_drag = FALSE;
+			view->pressed_button = -1;
 
 			gtk_target_list_unref (target_list);
 
