@@ -521,25 +521,10 @@ clear_range (EvSidebarThumbnails *sidebar_thumbnails,
 			g_signal_handlers_disconnect_by_func (job, thumbnail_job_completed_callback, sidebar_thumbnails);
 			ev_job_cancel (EV_JOB (job));
 			g_object_unref (job);
-		}
-
-		ev_thumbnails_size_cache_get_size (priv->size_cache, start_page,
-						  priv->rotation,
-						  &width, &height);
-		if (!loading_icon || (width != prev_width && height != prev_height)) {
-			loading_icon =
-				ev_sidebar_thumbnails_get_loading_icon (sidebar_thumbnails,
-									width, height);
-		}
-
-		prev_width = width;
-		prev_height = height;
-
-		gtk_list_store_set (priv->list_store, &iter,
+      gtk_list_store_set (priv->list_store, &iter,
 				    COLUMN_JOB, NULL,
-				    COLUMN_THUMBNAIL_SET, FALSE,
-				    COLUMN_PIXBUF, loading_icon,
 				    -1);
+		}
 	}
 	gtk_tree_path_free (path);
 }
