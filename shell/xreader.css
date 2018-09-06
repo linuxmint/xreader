@@ -34,3 +34,7 @@ evview.document-page:active {
     border-image: none;
     padding: 0;
 }
+
+evview.document-page.inverted {
+    background-color: black;
+}
