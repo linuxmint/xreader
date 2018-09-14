@@ -2,37 +2,21 @@ evview {
     background-color: @theme_bg_color;
 }
 
-.content-view.view {
-    background-color: @theme_selected_bg_color;
-    color: @theme_selected_fg_color;
-}
-
 evsidebarthumbnails.page-thumbnail {
-    background-color: white;
+    background-color: @theme_bg_color;
     border: 1px solid black;
-    padding: 0;
 }
 
 evsidebarthumbnails.page-thumbnail.inverted {
     background-color: black;
+    border: 1px solid white;
 }
 
 evview.document-page {
-    border-color: black;
+    background-color: @theme_bg_color;
     border-style: solid;
-    border-width: 1px;
-    border-radius: 0px;
-    border-image: none;
-    padding: 0;
-}
-
-evview.document-page:active {
-    border-color: @theme_selected_bg_color;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 0px;
-    border-image: none;
-    padding: 0;
+    border-width: 3px 3px 6px 4px;
+    border-image: url("resource:///org/x/reader/shell/ui/thumbnail-frame.png") 3 3 6 4;
 }
 
 evview.document-page.inverted {

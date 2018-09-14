@@ -18,5 +18,7 @@
 <gresources>
   <gresource prefix="/org/x/reader/previewer">
     <file alias="ui/previewer.xml" compressed="true" preprocess="xml-stripblanks">previewer-ui.xml</file>
+    <file alias="ui/xreader-previewer.css" compressed="true">xreader-previewer.css</file>
+    <file alias="ui/thumbnail-frame.png" compressed="true">thumbnail-frame.png</file>
   </gresource>
 </gresources>
