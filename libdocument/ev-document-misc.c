@@ -27,10 +27,10 @@
 
 #include "ev-document-misc.h"
 
-/* Returns a new GdkPixbuf that is suitable for placing in the thumbnail view.
- * It is four pixels wider and taller than the source.  If source_pixbuf is not
- * NULL, then it will fill the return pixbuf with the contents of
- * source_pixbuf.
+/**
+ * Returns a new GdkPixbuf that is suitable for placing in the thumbnail view.
+ * If source_pixbuf is not NULL, then it will fill the return pixbuf with the
+ * contents of source_pixbuf.
  */
 static GdkPixbuf *
 create_thumbnail_frame (int        width,
@@ -39,57 +39,31 @@ create_thumbnail_frame (int        width,
 			gboolean   fill_bg)
 {
 	GdkPixbuf *retval;
-	guchar *data;
-	gint rowstride;
 	int i;
 	int width_r, height_r;
 
 	if (source_pixbuf)
 		g_return_val_if_fail (GDK_IS_PIXBUF (source_pixbuf), NULL);
 
-	if (source_pixbuf) {
-		width_r = gdk_pixbuf_get_width (source_pixbuf);
-		height_r = gdk_pixbuf_get_height (source_pixbuf);
-	} else {
-		width_r = width;
-		height_r = height;
-	}
+	width_r = gdk_pixbuf_get_width (source_pixbuf);
+	height_r = gdk_pixbuf_get_height (source_pixbuf);
 
 	/* make sure no one is passing us garbage */
 	g_return_val_if_fail (width_r >= 0 && height_r >= 0, NULL);
 
 	retval = gdk_pixbuf_new (GDK_COLORSPACE_RGB,
 				 TRUE, 8,
-				 width_r + 4,
-				 height_r + 4);
-
-	/* make it black and fill in the middle */
-	data = gdk_pixbuf_get_pixels (retval);
-	rowstride = gdk_pixbuf_get_rowstride (retval);
+				 width_r,
+				 height_r);
 
 	gdk_pixbuf_fill (retval, 0x000000ff);
-	if (fill_bg) {
-		for (i = 1; i < height_r + 1; i++)
-			memset (data + (rowstride * i) + 4, 0xffffffff, width_r * 4);
-	}
 
 	/* copy the source pixbuf */
-	if (source_pixbuf)
-		gdk_pixbuf_copy_area (source_pixbuf, 0, 0,
-				      width_r,
-				      height_r,
-				      retval,
-				      1, 1);
-	/* Add the corner */
-	data [(width_r + 2) * 4 + 3] = 0;
-	data [(width_r + 3) * 4 + 3] = 0;
-	data [(width_r + 2) * 4 + (rowstride * 1) + 3] = 0;
-	data [(width_r + 3) * 4 + (rowstride * 1) + 3] = 0;
-
-	data [(height_r + 2) * rowstride + 3] = 0;
-	data [(height_r + 3) * rowstride + 3] = 0;
-	data [(height_r + 2) * rowstride + 4 + 3] = 0;
-	data [(height_r + 3) * rowstride + 4 + 3] = 0;
+	gdk_pixbuf_copy_area (source_pixbuf, 0, 0,
+				  width_r,
+				  height_r,
+				  retval,
+				  0, 0);
 
 	return retval;
 }
