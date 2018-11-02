@@ -27,6 +27,7 @@
 #endif
 
 #include <string.h>
+#include <math.h>
 
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
@@ -711,7 +712,7 @@ ev_sidebar_thumbnails_fill_model (EvSidebarThumbnails *sidebar_thumbnails)
 						  sidebar_thumbnails->priv->rotation,
 						  &width, &height);
 
-		height = (gint) (height*priv->thumbnail_width/width);
+		height = (gint) ceil((double)(height) * priv->thumbnail_width / width);
 		width = priv->thumbnail_width;
 
 		if (!loading_icon || (width != prev_width && height != prev_height)) {
