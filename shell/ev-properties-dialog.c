@@ -55,7 +55,8 @@ ev_properties_dialog_class_init (EvPropertiesDialogClass *properties_class)
 static void
 ev_properties_dialog_init (EvPropertiesDialog *properties)
 {
-	GtkBox *content_area;
+	GtkBox    *content_area;
+	GtkWidget *button;
 
 	content_area = GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (properties)));
 
@@ -64,9 +65,11 @@ ev_properties_dialog_init (EvPropertiesDialog *properties)
 	gtk_container_set_border_width (GTK_CONTAINER (properties), 5);
 	gtk_box_set_spacing (content_area, 2);
 
-	gtk_dialog_add_button (GTK_DIALOG (properties), GTK_STOCK_CLOSE,
+	button = gtk_dialog_add_button (GTK_DIALOG (properties), GTK_STOCK_CLOSE,
 			       GTK_RESPONSE_CANCEL);
-	gtk_dialog_set_default_response (GTK_DIALOG (properties), 
+	gtk_style_context_add_class (gtk_widget_get_style_context (button),
+				     GTK_STYLE_CLASS_DESTRUCTIVE_ACTION);
+	gtk_dialog_set_default_response (GTK_DIALOG (properties),
 			                 GTK_RESPONSE_CANCEL);
 
 	properties->notebook = gtk_notebook_new ();
