@@ -1,5 +1,4 @@
-/* ev-previewer.c: 
- *  this file is part of xreader, a mate document viewer
+/* ev-previewer.c:
  *
  * Copyright (C) 2009 Carlos Garcia Campos <carlosgc@gnome.org>
  *
@@ -103,33 +102,30 @@ main (gint argc, gchar **argv)
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
 #endif
-	
-	context = g_option_context_new (_("MATE Document Previewer"));
+
+	context = g_option_context_new (_("Print Preview"));
 	g_option_context_set_translation_domain (context, GETTEXT_PACKAGE);
 	g_option_context_add_main_entries (context, goption_options, GETTEXT_PACKAGE);
 
 	g_option_context_add_group (context, gtk_get_option_group (TRUE));
-	
+
 	if (!g_option_context_parse (context, &argc, &argv, &error)) {
 		g_warning ("Error parsing command line arguments: %s", error->message);
 		g_error_free (error);
 		g_option_context_free (context);
-
 		return 1;
 	}
 	g_option_context_free (context);
 
 	if (!filenames) {
 		g_warning ("File argument is required");
-		
 		return 1;
 	}
 
 	filename = filenames[0];
-	
+
 	if (!g_file_test (filename, G_FILE_TEST_IS_REGULAR)) {
 		g_warning ("Filename \"%s\" does not exist or is not a regular file", filename);
-
 		return 1;
 	}
 
@@ -138,21 +134,19 @@ main (gint argc, gchar **argv)
 
 	ev_stock_icons_init ();
 
-	g_set_application_name (_("MATE Document Previewer"));
+	g_set_application_name (_("Print Preview"));
 	gtk_window_set_default_icon_name ("xreader");
 
 	model = ev_document_model_new ();
 	window = ev_previewer_window_new (model);
 	ev_previewer_window_set_source_file (EV_PREVIEWER_WINDOW (window), filename);
 	ev_previewer_window_set_print_settings (EV_PREVIEWER_WINDOW (window), print_settings);
-	g_signal_connect (window, "delete-event",
-			  G_CALLBACK (gtk_main_quit), NULL);
-	g_signal_connect (window, "destroy",
-			  G_CALLBACK (gtk_main_quit), NULL);
+	g_signal_connect (window, "delete-event", G_CALLBACK (gtk_main_quit), NULL);
+	g_signal_connect (window, "destroy", G_CALLBACK (gtk_main_quit), NULL);
 	gtk_widget_show (window);
 
 	ev_previewer_load_document (filename, model);
-	
+
 	gtk_main ();
 
 	if (unlink_temp_file)
@@ -163,6 +157,6 @@ main (gint argc, gchar **argv)
 	ev_shutdown ();
 	ev_stock_icons_shutdown ();
 	g_object_unref (model);
-	
+
 	return 0;
 }

@@ -1,4 +1,4 @@
-/* ev-previewer-window.c: 
+/* ev-previewer-window.c:
  *  this file is part of xreader, a generic document viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos <carlosgc@gnome.org>
@@ -246,7 +246,7 @@ ev_previewer_window_enumerate_finished (EvPreviewerWindow *window)
 			     GTK_PRINT_ERROR_GENERAL,
 			     _("The selected printer '%s' could not be found"),
 			     gtk_print_settings_get_printer (window->print_settings));
-				     
+
 		ev_previewer_window_error_dialog_run (window, error);
 		g_error_free (error);
 	}
@@ -291,24 +291,24 @@ static const GtkActionEntry action_entries[] = {
 	{ "FileCloseWindow", GTK_STOCK_CLOSE, NULL, "<control>W",
 	  NULL,
 	  G_CALLBACK (ev_previewer_window_close) },
-	{ "GoPreviousPage", GTK_STOCK_GO_UP, N_("_Previous Page"), "<control>Page_Up",
+	{ "GoPreviousPage", "go-previous-symbolic", N_("_Previous Page"), "<control>Page_Up",
           N_("Go to the previous page"),
           G_CALLBACK (ev_previewer_window_previous_page) },
-        { "GoNextPage", GTK_STOCK_GO_DOWN, N_("_Next Page"), "<control>Page_Down",
+        { "GoNextPage", "go-next-symbolic", N_("_Next Page"), "<control>Page_Down",
           N_("Go to the next page"),
           G_CALLBACK (ev_previewer_window_next_page) },
-        { "ViewZoomIn", GTK_STOCK_ZOOM_IN, NULL, "<control>plus",
+        { "ViewZoomIn", "zoom-in-symbolic", NULL, "<control>plus",
           N_("Enlarge the document"),
           G_CALLBACK (ev_previewer_window_zoom_in) },
-        { "ViewZoomOut", GTK_STOCK_ZOOM_OUT, NULL, "<control>minus",
+        { "ViewZoomOut", "zoom-out-symbolic", NULL, "<control>minus",
           N_("Shrink the document"),
           G_CALLBACK (ev_previewer_window_zoom_out) },
-        { "ViewZoomReset", GTK_STOCK_ZOOM_100, NULL, "<control>0",
+        { "ViewZoomReset", "zoom-original-symbolic", NULL, "<control>0",
           N_("Original size"),
           G_CALLBACK (ev_previewer_window_zoom_reset) },
 #if GTKUNIXPRINT_ENABLED
 	/* translators: Print document currently shown in the Print Preview window */
-	{ "PreviewPrint", GTK_STOCK_PRINT, N_("Print"), NULL,
+	{ "PreviewPrint", "document-print-symbolic", N_("Print"), NULL,
 	  N_("Print this document"),
 	  G_CALLBACK (ev_previewer_window_print) }
 #endif
@@ -353,10 +353,10 @@ static const GtkActionEntry accel_entries[] = {
 };
 
 static const GtkToggleActionEntry toggle_action_entries[] = {
-	{ "ViewBestFit", EV_STOCK_ZOOM_PAGE, N_("_Best Fit"), NULL,
+	{ "ViewBestFit", "zoom-fit-best-symbolic", N_("_Best Fit"), NULL,
 	  N_("Make the current document fill the window"),
 	  G_CALLBACK (ev_previewer_window_zoom_best_fit) },
-	{ "ViewPageWidth", EV_STOCK_ZOOM_WIDTH, N_("Fit Page _Width"), NULL,
+	{ "ViewPageWidth", "view-paged-symbolic", N_("Fit Page _Width"), NULL,
 	  N_("Make the current document fill the window width"),
 	  G_CALLBACK (ev_previewer_window_zoom_page_width) }
 };
@@ -592,6 +592,7 @@ ev_previewer_window_constructor (GType                  type,
 	vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 
 	toolbar = gtk_ui_manager_get_widget (window->ui_manager, "/PreviewToolbar");
+	gtk_toolbar_set_icon_size ( GTK_TOOLBAR (toolbar), GTK_ICON_SIZE_SMALL_TOOLBAR);
 	gtk_box_pack_start (GTK_BOX (vbox), toolbar, FALSE, FALSE, 0);
 	gtk_widget_show (toolbar);
 
