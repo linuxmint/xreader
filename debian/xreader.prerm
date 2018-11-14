@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+# Remove our evince symlink
+if [ -L /usr/bin/evince ]
+then
+	echo "Removing /usr/bin/evince symbolic link."
+	rm -f /usr/bin/evince
+fi
+
+exit 0
