@@ -3522,6 +3522,7 @@ ev_window_check_document_modified (EvWindow *ev_window)
 {
     EvDocument  *document = ev_window->priv->document;
     GtkWidget   *dialog;
+    GtkWidget   *button;
     gchar       *text, *markup;
     const gchar *secondary_text;
 
@@ -3559,14 +3560,12 @@ ev_window_check_document_modified (EvWindow *ev_window)
     gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
             "%s", secondary_text);
 
-    gtk_dialog_add_buttons (GTK_DIALOG (dialog),
-            _("Close _without Saving"),
-            GTK_RESPONSE_NO,
-            GTK_STOCK_CANCEL,
-            GTK_RESPONSE_CANCEL,
-            _("Save a _Copy"),
-            GTK_RESPONSE_YES,
-            NULL);
+    gtk_dialog_add_button (GTK_DIALOG (dialog), _("Close _without Saving"), GTK_RESPONSE_NO);
+    gtk_dialog_add_button (GTK_DIALOG (dialog), GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL);
+    button = gtk_dialog_add_button (GTK_DIALOG (dialog), _("Save a _Copy"), GTK_RESPONSE_YES);
+
+    gtk_style_context_add_class (gtk_widget_get_style_context (button),
+                                 GTK_STYLE_CLASS_SUGGESTED_ACTION);
     gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_YES);
 
     g_signal_connect (dialog, "response",
@@ -3612,6 +3611,7 @@ static gboolean
 ev_window_check_print_queue (EvWindow *ev_window)
 {
     GtkWidget *dialog;
+    GtkWidget *button;
     gchar     *text, *markup;
     gint       n_print_jobs;
 
@@ -3657,14 +3657,12 @@ ev_window_check_print_queue (EvWindow *ev_window)
             _("If you close the window, pending print "
                     "jobs will not be printed."));
 
-    gtk_dialog_add_buttons (GTK_DIALOG (dialog),
-            _("Cancel _print and Close"),
-            GTK_RESPONSE_NO,
-            GTK_STOCK_CANCEL,
-            GTK_RESPONSE_CANCEL,
-            _("Close _after Printing"),
-            GTK_RESPONSE_YES,
-            NULL);
+    gtk_dialog_add_button (GTK_DIALOG (dialog), _("Cancel _print and Close"), GTK_RESPONSE_NO);
+    gtk_dialog_add_button (GTK_DIALOG (dialog), GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL);
+    button = gtk_dialog_add_button (GTK_DIALOG (dialog), _("Close _after Printing"), GTK_RESPONSE_YES);
+
+    gtk_style_context_add_class (gtk_widget_get_style_context (button),
+                                 GTK_STYLE_CLASS_DESTRUCTIVE_ACTION);
     gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_YES);
 
     g_signal_connect (dialog, "response",

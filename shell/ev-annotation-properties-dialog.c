@@ -131,16 +131,17 @@ ev_annotation_properties_dialog_init (EvAnnotationPropertiesDialog *annot_dialog
 	GtkWidget *label;
 	GtkWidget *grid;
 	GtkWidget *hbox;
+	GtkWidget *button;
 	gchar     *markup;
         const GdkRGBA yellow = { 1., 1., 0., 1. };
 
 	gtk_window_set_title (GTK_WINDOW (annot_dialog), _("Annotation Properties"));
 	gtk_window_set_destroy_with_parent (GTK_WINDOW (annot_dialog), TRUE);
 	gtk_container_set_border_width (GTK_CONTAINER (annot_dialog), 5);
-	gtk_dialog_add_buttons (dialog,
-				GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE,
-				GTK_STOCK_APPLY, GTK_RESPONSE_APPLY,
-				NULL);
+	gtk_dialog_add_button (dialog, GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE);
+	button = gtk_dialog_add_button (dialog, GTK_STOCK_APPLY, GTK_RESPONSE_APPLY);
+
+	gtk_style_context_add_class (gtk_widget_get_style_context (button), GTK_STYLE_CLASS_SUGGESTED_ACTION);
 	gtk_dialog_set_default_response (dialog, GTK_RESPONSE_APPLY);
 
 	content_area = gtk_dialog_get_content_area (dialog);

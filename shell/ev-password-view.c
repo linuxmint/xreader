@@ -147,6 +147,7 @@ ev_password_view_init (EvPasswordView *password_view)
 	gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
 
 	button = gtk_button_new_with_mnemonic (_("_Unlock Document"));
+	gtk_style_context_add_class (gtk_widget_get_style_context (button), GTK_STYLE_CLASS_SUGGESTED_ACTION);
 	g_signal_connect (button, "clicked", G_CALLBACK (ev_password_view_clicked_cb), password_view);
 	gtk_box_pack_end (GTK_BOX (hbox), button, FALSE, FALSE, 0);
 
@@ -189,15 +190,15 @@ ev_password_dialog_got_response (GtkDialog      *dialog,
 				 EvPasswordView *password_view)
 {
 	gtk_widget_set_sensitive (GTK_WIDGET (password_view), TRUE);
-	
+
 	if (response_id == GTK_RESPONSE_OK) {
 		g_free (password_view->priv->password);
 		password_view->priv->password =
 			g_strdup (gtk_entry_get_text (GTK_ENTRY (password_view->priv->password_entry)));
-		
+
 		g_signal_emit (password_view, password_view_signals[UNLOCK], 0);
 	}
-	
+
 	gtk_widget_destroy (GTK_WIDGET (dialog));
 }
 
@@ -207,7 +208,7 @@ ev_password_dialog_remember_button_toggled (GtkToggleButton *button,
 {
 	if (gtk_toggle_button_get_active (button)) {
 		gpointer data;
-		
+
 		data = g_object_get_data (G_OBJECT (button), "password-save");
 		password_view->priv->password_save = GPOINTER_TO_INT (data);
 	}
@@ -240,10 +241,11 @@ ev_password_view_ask_password (EvPasswordView *password_view)
 	GtkWidget *hbox, *main_vbox, *vbox, *icon;
 	GtkWidget *grid;
 	GtkWidget *label;
+	GtkWidget *button;
 	gchar     *text, *markup, *file_name;
 
 	gtk_widget_set_sensitive (GTK_WIDGET (password_view), FALSE);
-	
+
 	dialog = GTK_DIALOG (gtk_dialog_new ());
 	content_area = gtk_dialog_get_content_area (dialog);
 	action_area = gtk_dialog_get_action_area (dialog);
@@ -260,10 +262,10 @@ ev_password_view_ask_password (EvPasswordView *password_view)
 	gtk_window_set_transient_for (GTK_WINDOW (dialog), password_view->priv->parent_window);
 	gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
 
-	gtk_dialog_add_buttons (dialog,
-				GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-				_("_Unlock Document"), GTK_RESPONSE_OK,
-				NULL);
+	gtk_dialog_add_button (dialog, GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL);
+	button = gtk_dialog_add_button (dialog, _("_Unlock Document"), GTK_RESPONSE_OK);
+
+	gtk_style_context_add_class (gtk_widget_get_style_context (button), GTK_STYLE_CLASS_SUGGESTED_ACTION);
 	gtk_dialog_set_default_response (dialog, GTK_RESPONSE_OK);
 	gtk_dialog_set_response_sensitive (GTK_DIALOG (dialog),
 					   GTK_RESPONSE_OK, FALSE);
@@ -343,7 +345,7 @@ ev_password_view_ask_password (EvPasswordView *password_view)
 	gtk_grid_attach (GTK_GRID (grid), password_view->priv->password_entry, 1, 0, 1, 1);
 	gtk_widget_set_hexpand (password_view->priv->password_entry, TRUE);
 	gtk_widget_show (password_view->priv->password_entry);
-	
+
 	gtk_label_set_mnemonic_widget (GTK_LABEL (label),
 				       password_view->priv->password_entry);
 
@@ -396,7 +398,7 @@ ev_password_view_ask_password (EvPasswordView *password_view)
 	g_signal_connect (dialog, "response",
 			  G_CALLBACK (ev_password_dialog_got_response),
 			  password_view);
-	
+
 	gtk_widget_show (GTK_WIDGET (dialog));
 }
 
