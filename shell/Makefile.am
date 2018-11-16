@@ -173,8 +173,8 @@ ev-marshal.c: $(srcdir)/ev-marshal.list
 	echo '#include "ev-marshal.h"' > ev-marshal.c
 	$(AM_V_GEN)$(GLIB_GENMARSHAL) --prefix=ev_marshal $(srcdir)/ev-marshal.list --body >> ev-marshal.c
 
-ev-resources.c: xreader.gresource.xml Makefile $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir $(srcdir) $(srcdir)/xreader.gresource.xml)
-	$(AM_V_GEN) XMLLINT=$(XMLLINT) $(GLIB_COMPILE_RESOURCES) --target $@ --sourcedir $(srcdir) --generate-source --c-name ev $<
+ev-resources.c: xreader.gresource.xml Makefile $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir=$(srcdir) --sourcedir=$(top_builddir)/data $(srcdir)/xreader.gresource.xml)
+	$(AM_V_GEN) XMLLINT=$(XMLLINT) $(GLIB_COMPILE_RESOURCES) --target $@ --sourcedir=$(srcdir) --sourcedir=$(top_builddir)/data --generate-source --c-name ev $<
 
 ev-gdbus-generated.c ev-gdbus-generated.h: ev-gdbus.xml Makefile
 	$(AM_V_GEN) $(GDBUS_CODEGEN) \
