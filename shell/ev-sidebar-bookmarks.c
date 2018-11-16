@@ -418,6 +418,7 @@ ev_sidebar_bookmarks_init (EvSidebarBookmarks *sidebar_bookmarks)
 {
         EvSidebarBookmarksPrivate *priv;
         GtkWidget *swindow;
+        GtkWidget *separator;
         GtkWidget *toolbar;
         GtkWidget *toolitem;
         GtkWidget *hbox;
@@ -433,8 +434,6 @@ ev_sidebar_bookmarks_init (EvSidebarBookmarks *sidebar_bookmarks)
         gtk_orientable_set_orientation (GTK_ORIENTABLE (sidebar_bookmarks), GTK_ORIENTATION_VERTICAL);
 
         swindow = gtk_scrolled_window_new (NULL, NULL);
-        gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow),
-                                             GTK_SHADOW_IN);
         gtk_box_pack_start (GTK_BOX (sidebar_bookmarks), swindow, TRUE, TRUE, 0);
         gtk_widget_show (swindow);
 
@@ -468,6 +467,10 @@ ev_sidebar_bookmarks_init (EvSidebarBookmarks *sidebar_bookmarks)
                                                      NULL);
         gtk_container_add (GTK_CONTAINER (swindow), priv->tree_view);
         gtk_widget_show (priv->tree_view);
+
+        separator = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
+        gtk_box_pack_start (GTK_BOX (sidebar_bookmarks), separator, FALSE, FALSE, 0);
+        gtk_widget_show (separator);
 
         toolbar = gtk_toolbar_new ();
         gtk_widget_show (toolbar);
