@@ -27,10 +27,10 @@
 
 #include "ev-document-misc.h"
 
-/* Returns a new GdkPixbuf that is suitable for placing in the thumbnail view.
- * It is four pixels wider and taller than the source.  If source_pixbuf is not
- * NULL, then it will fill the return pixbuf with the contents of
- * source_pixbuf.
+/**
+ * Returns a new GdkPixbuf that is suitable for placing in the thumbnail view.
+ * If source_pixbuf is not NULL, then it will fill the return pixbuf with the
+ * contents of source_pixbuf.
  */
 static GdkPixbuf *
 create_thumbnail_frame (int        width,
@@ -39,57 +39,31 @@ create_thumbnail_frame (int        width,
 			gboolean   fill_bg)
 {
 	GdkPixbuf *retval;
-	guchar *data;
-	gint rowstride;
 	int i;
 	int width_r, height_r;
 
 	if (source_pixbuf)
 		g_return_val_if_fail (GDK_IS_PIXBUF (source_pixbuf), NULL);
 
-	if (source_pixbuf) {
-		width_r = gdk_pixbuf_get_width (source_pixbuf);
-		height_r = gdk_pixbuf_get_height (source_pixbuf);
-	} else {
-		width_r = width;
-		height_r = height;
-	}
+	width_r = gdk_pixbuf_get_width (source_pixbuf);
+	height_r = gdk_pixbuf_get_height (source_pixbuf);
 
 	/* make sure no one is passing us garbage */
 	g_return_val_if_fail (width_r >= 0 && height_r >= 0, NULL);
 
 	retval = gdk_pixbuf_new (GDK_COLORSPACE_RGB,
 				 TRUE, 8,
-				 width_r + 4,
-				 height_r + 4);
-
-	/* make it black and fill in the middle */
-	data = gdk_pixbuf_get_pixels (retval);
-	rowstride = gdk_pixbuf_get_rowstride (retval);
+				 width_r,
+				 height_r);
 
 	gdk_pixbuf_fill (retval, 0x000000ff);
-	if (fill_bg) {
-		for (i = 1; i < height_r + 1; i++)
-			memset (data + (rowstride * i) + 4, 0xffffffff, width_r * 4);
-	}
 
 	/* copy the source pixbuf */
-	if (source_pixbuf)
-		gdk_pixbuf_copy_area (source_pixbuf, 0, 0,
-				      width_r,
-				      height_r,
-				      retval,
-				      1, 1);
-	/* Add the corner */
-	data [(width_r + 2) * 4 + 3] = 0;
-	data [(width_r + 3) * 4 + 3] = 0;
-	data [(width_r + 2) * 4 + (rowstride * 1) + 3] = 0;
-	data [(width_r + 3) * 4 + (rowstride * 1) + 3] = 0;
-
-	data [(height_r + 2) * rowstride + 3] = 0;
-	data [(height_r + 3) * rowstride + 3] = 0;
-	data [(height_r + 2) * rowstride + 4 + 3] = 0;
-	data [(height_r + 3) * rowstride + 4 + 3] = 0;
+	gdk_pixbuf_copy_area (source_pixbuf, 0, 0,
+				  width_r,
+				  height_r,
+				  retval,
+				  0, 0);
 
 	return retval;
 }
@@ -108,6 +82,78 @@ ev_document_misc_get_loading_thumbnail (int      width,
 					gboolean inverted_colors)
 {
 	return create_thumbnail_frame (width, height, NULL, !inverted_colors);
+}
+
+static GdkPixbuf *
+ev_document_misc_render_thumbnail_frame (GtkWidget *widget,
+                                         int        width,
+                                         int        height,
+                                         gboolean   inverted_colors,
+                                         GdkPixbuf *source_pixbuf)
+{
+        GtkStyleContext *context = gtk_widget_get_style_context (widget);
+        GtkStateFlags    state = gtk_widget_get_state_flags (widget);
+        int              width_r, height_r;
+        int              width_f, height_f;
+        cairo_surface_t *surface;
+        cairo_t         *cr;
+        GtkBorder        border = {0, };
+        GdkPixbuf       *retval;
+
+        if (source_pixbuf) {
+                g_return_val_if_fail (GDK_IS_PIXBUF (source_pixbuf), NULL);
+
+                width_r = gdk_pixbuf_get_width (source_pixbuf);
+                height_r = gdk_pixbuf_get_height (source_pixbuf);
+        } else {
+                width_r = width;
+                height_r = height;
+        }
+
+        gtk_style_context_save (context);
+
+        gtk_style_context_add_class (context, "page-thumbnail");
+        if (inverted_colors)
+                gtk_style_context_add_class (context, "inverted");
+
+        gtk_style_context_get_border (context, state, &border);
+        width_f = width_r + border.left + border.right;
+        height_f = height_r + border.top + border.bottom;
+
+        surface = cairo_image_surface_create (CAIRO_FORMAT_ARGB32,
+                                              width_f, height_f);
+        cr = cairo_create (surface);
+        if (source_pixbuf) {
+                gdk_cairo_set_source_pixbuf (cr, source_pixbuf, border.left, border.top);
+                cairo_paint (cr);
+        } else {
+                gtk_render_background (context, cr, 0, 0, width_f, height_f);
+        }
+        gtk_render_frame (context, cr, 0, 0, width_f, height_f);
+        cairo_destroy (cr);
+
+        gtk_style_context_restore (context);
+
+        retval = gdk_pixbuf_get_from_surface (surface, 0, 0, width_f, height_f);
+        cairo_surface_destroy (surface);
+
+        return retval;
+}
+
+GdkPixbuf *
+ev_document_misc_render_loading_thumbnail (GtkWidget *widget,
+                                           int        width,
+                                           int        height,
+                                           gboolean   inverted_colors)
+{
+        return ev_document_misc_render_thumbnail_frame (widget, width, height, inverted_colors, NULL);
+}
+
+GdkPixbuf *
+ev_document_misc_render_thumbnail_with_frame (GtkWidget *widget,
+                                              GdkPixbuf *source_pixbuf)
+{
+        return ev_document_misc_render_thumbnail_frame (widget, -1, -1, FALSE, source_pixbuf);
 }
 
 void

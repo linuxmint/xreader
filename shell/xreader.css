@@ -6,3 +6,28 @@
     background-color: @theme_selected_bg_color;
     color: @theme_selected_fg_color;
 }
+
+evview {
+    background-color: @theme_bg_color;
+}
+
+evsidebarthumbnails.page-thumbnail {
+    background-color: @theme_bg_color;
+    border: 1px solid black;
+}
+
+evsidebarthumbnails.page-thumbnail.inverted {
+    background-color: black;
+    border: 1px solid white;
+}
+
+evview.document-page {
+    background-color: @theme_bg_color;
+    border-style: solid;
+    border-width: 3px 3px 6px 4px;
+    border-image: url("resource:///org/x/reader/shell/ui/thumbnail-frame.png") 3 3 6 4;
+}
+
+evview.document-page.inverted {
+    background-color: black;
+}

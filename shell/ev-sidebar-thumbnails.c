@@ -27,6 +27,7 @@
 #endif
 
 #include <string.h>
+#include <math.h>
 
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
@@ -438,6 +439,10 @@ ev_sidebar_thumbnails_class_init (EvSidebarThumbnailsClass *ev_sidebar_thumbnail
 
 	widget_class->map = ev_sidebar_thumbnails_map;
 
+#if GTK_CHECK_VERSION(3, 20, 0)
+	gtk_widget_class_set_css_name (widget_class, "evsidebarthumbnails");
+#endif
+
 	g_object_class_override_property (g_object_class,
 					  PROP_WIDGET,
 					  "main-widget");
@@ -480,7 +485,8 @@ ev_sidebar_thumbnails_get_loading_icon (EvSidebarThumbnails *sidebar_thumbnails,
 		gboolean inverted_colors;
 
 		inverted_colors = ev_document_model_get_inverted_colors (priv->model);
-		icon = ev_document_misc_get_loading_thumbnail (width, height, inverted_colors);
+        icon = ev_document_misc_render_loading_thumbnail (GTK_WIDGET (sidebar_thumbnails),
+                                                          width, height, inverted_colors);
 		g_hash_table_insert (priv->loading_icons, key, icon);
 	} else {
 		g_free (key);
@@ -521,25 +527,10 @@ clear_range (EvSidebarThumbnails *sidebar_thumbnails,
 			g_signal_handlers_disconnect_by_func (job, thumbnail_job_completed_callback, sidebar_thumbnails);
 			ev_job_cancel (EV_JOB (job));
 			g_object_unref (job);
-		}
-
-		ev_thumbnails_size_cache_get_size (priv->size_cache, start_page,
-						  priv->rotation,
-						  &width, &height);
-		if (!loading_icon || (width != prev_width && height != prev_height)) {
-			loading_icon =
-				ev_sidebar_thumbnails_get_loading_icon (sidebar_thumbnails,
-									width, height);
-		}
-
-		prev_width = width;
-		prev_height = height;
-
-		gtk_list_store_set (priv->list_store, &iter,
+      gtk_list_store_set (priv->list_store, &iter,
 				    COLUMN_JOB, NULL,
-				    COLUMN_THUMBNAIL_SET, FALSE,
-				    COLUMN_PIXBUF, loading_icon,
 				    -1);
+		}
 	}
 	gtk_tree_path_free (path);
 }
@@ -721,7 +712,7 @@ ev_sidebar_thumbnails_fill_model (EvSidebarThumbnails *sidebar_thumbnails)
 						  sidebar_thumbnails->priv->rotation,
 						  &width, &height);
 
-		height = (gint) (height*priv->thumbnail_width/width);
+		height = (gint) ceil((double)(height) * priv->thumbnail_width / width);
 		width = priv->thumbnail_width;
 
 		if (!loading_icon || (width != prev_width && height != prev_height)) {
@@ -874,10 +865,27 @@ ev_sidebar_thumbnails_use_icon_view (EvSidebarThumbnails *sidebar_thumbnails)
 }
 
 static void
+ev_sidebar_thumbnails_row_changed (GtkTreeModel *model,
+                                   GtkTreePath  *path,
+                                   GtkTreeIter  *iter,
+                                   gpointer      data)
+{
+	guint signal_id;
+
+	signal_id = GPOINTER_TO_UINT (data);
+
+	/* PREVENT GtkIconView "row-changed" handler to be reached, as it will
+	 * perform a full invalidate and relayout of all items, See bug:
+	 * https://bugzilla.gnome.org/show_bug.cgi?id=691448#c9 */
+	g_signal_stop_emission (model, signal_id, 0);
+}
+
+static void
 ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 {
 	EvSidebarThumbnailsPrivate *priv;
 	GtkWidget *separator;
+	guint signal_id;
 	GtkWidget *toolbar;
 	GtkWidget *toolitem;
 	GtkWidget *button;
@@ -894,13 +902,15 @@ ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 					       G_TYPE_BOOLEAN,
 					       EV_TYPE_JOB_THUMBNAIL);
 
+	signal_id = g_signal_lookup ("row-changed", GTK_TYPE_TREE_MODEL);
+	g_signal_connect (GTK_TREE_MODEL (priv->list_store), "row-changed",
+			  G_CALLBACK (ev_sidebar_thumbnails_row_changed),
+			  GUINT_TO_POINTER (signal_id));
+
 	priv->swindow = gtk_scrolled_window_new (NULL, NULL);
 
 	priv->thumbnail_width = THUMBNAIL_DEFAULT_WIDTH;
 
-	/* We actually don't want GTK_POLICY_AUTOMATIC for horizontal scrollbar here
-	 * it's just a workaround for bug #449462 (GTK2 only)
-	 */
 	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (priv->swindow),
 					GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
 	priv->vadjustment = gtk_scrolled_window_get_vadjustment (GTK_SCROLLED_WINDOW (priv->swindow));
@@ -1071,17 +1081,23 @@ thumbnail_job_completed_callback (EvJobThumbnail      *job,
 				  EvSidebarThumbnails *sidebar_thumbnails)
 {
 	EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
-	GtkTreeIter *iter;
+	GtkTreeIter   *iter;
+    GdkPixbuf     *pixbuf;
+
+    pixbuf = ev_document_misc_render_thumbnail_with_frame (GTK_WIDGET (sidebar_thumbnails), job->thumbnail);
 
 	iter = (GtkTreeIter *) g_object_get_data (G_OBJECT (job), "tree_iter");
 	if (priv->inverted_colors && priv->document->iswebdocument == FALSE)
-		ev_document_misc_invert_pixbuf (job->thumbnail);
+		ev_document_misc_invert_pixbuf (pixbuf);
 	gtk_list_store_set (priv->list_store,
 			    iter,
-			    COLUMN_PIXBUF, job->thumbnail,
+			    COLUMN_PIXBUF, pixbuf,
 			    COLUMN_THUMBNAIL_SET, TRUE,
 			    COLUMN_JOB, NULL,
 			    -1);
+
+	gtk_widget_queue_draw (priv->icon_view);
+    g_object_unref (pixbuf);
 }
 
 static void

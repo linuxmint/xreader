@@ -20,16 +20,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 10:36+0100\n"
-"PO-Revision-Date: 2018-05-07 12:37+0000\n"
+"POT-Creation-Date: 2018-06-25 08:57+0200\n"
+"PO-Revision-Date: 2018-06-25 09:50+0000\n"
 "Last-Translator: Isidro Pisa <isidro@utils.info>\n"
 "Language-Team: Spanish (http://www.transifex.com/mate/MATE/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2018-05-22 09:23+0000\n"
-"X-Generator: Launchpad (build 18658)\n"
+"X-Launchpad-Export-Date: 2018-06-26 10:16+0000\n"
+"X-Generator: Launchpad (build 18688)\n"
 "Language: es\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -829,6 +829,7 @@ msgid "Key"
 msgstr "Clave"
 
 #: ../shell/ev-annotation-properties-dialog.c:106
+#: ../shell/ev-preferences-dialog.c:117
 msgid "Help"
 msgstr "Ayuda"
 
@@ -889,6 +890,7 @@ msgid "Open"
 msgstr "Abierta"
 
 #: ../shell/ev-annotation-properties-dialog.c:224
+#: ../shell/ev-preferences-dialog.c:121
 msgid "Close"
 msgstr "Cerrada"
 
@@ -962,6 +964,22 @@ msgstr "_Recordar contraseña para esta sesión"
 #: ../shell/ev-password-view.c:384
 msgid "Remember _forever"
 msgstr "Recordar para _siempre"
+
+#: ../shell/ev-preferences-dialog.c:109 ../shell/ev-preferences-dialog.ui.h:1
+msgid "Toolbar"
+msgstr "Barra de herramientas"
+
+#: ../shell/ev-preferences-dialog.c:131 ../shell/ev-window.c:5930
+msgid "Preferences"
+msgstr "Preferencias"
+
+#: ../shell/ev-preferences-dialog.ui.h:2
+msgid "Show history buttons"
+msgstr "Mostrar botones de historial"
+
+#: ../shell/ev-preferences-dialog.ui.h:3
+msgid "Show expand window button"
+msgstr "Mostrar botón de expandir ventana"
 
 #: ../shell/ev-properties-dialog.c:62
 msgid "Properties"
@@ -1403,10 +1421,6 @@ msgstr "Rotar a la _derecha"
 #: ../shell/ev-window.c:5926
 msgid "Save Current Settings as _Default"
 msgstr "Guardar los ajustes actuales como pre_determinados"
-
-#: ../shell/ev-window.c:5930
-msgid "Preferences"
-msgstr "Preferencias"
 
 #. View menu
 #: ../shell/ev-window.c:5937

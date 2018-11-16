@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 10:36+0100\n"
+"POT-Creation-Date: 2018-06-25 08:57+0200\n"
 "PO-Revision-Date: 2018-05-19 05:54+0000\n"
 "Last-Translator: Dusan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/mate/MATE/language/sk/)\n"
@@ -21,8 +21,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Launchpad-Export-Date: 2018-05-22 09:23+0000\n"
-"X-Generator: Launchpad (build 18658)\n"
+"X-Launchpad-Export-Date: 2018-06-26 10:16+0000\n"
+"X-Generator: Launchpad (build 18688)\n"
 "Language: sk\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -816,6 +816,7 @@ msgid "Key"
 msgstr "Kľúč"
 
 #: ../shell/ev-annotation-properties-dialog.c:106
+#: ../shell/ev-preferences-dialog.c:117
 msgid "Help"
 msgstr "Pomocník"
 
@@ -876,6 +877,7 @@ msgid "Open"
 msgstr "Otvoriť"
 
 #: ../shell/ev-annotation-properties-dialog.c:224
+#: ../shell/ev-preferences-dialog.c:121
 msgid "Close"
 msgstr "Zatvoriť"
 
@@ -946,6 +948,22 @@ msgstr "Pamätať heslo do odh_lásenia"
 #: ../shell/ev-password-view.c:384
 msgid "Remember _forever"
 msgstr "Zapamätať si _navždy"
+
+#: ../shell/ev-preferences-dialog.c:109 ../shell/ev-preferences-dialog.ui.h:1
+msgid "Toolbar"
+msgstr ""
+
+#: ../shell/ev-preferences-dialog.c:131 ../shell/ev-window.c:5930
+msgid "Preferences"
+msgstr "Predvoľby"
+
+#: ../shell/ev-preferences-dialog.ui.h:2
+msgid "Show history buttons"
+msgstr ""
+
+#: ../shell/ev-preferences-dialog.ui.h:3
+msgid "Show expand window button"
+msgstr ""
 
 #: ../shell/ev-properties-dialog.c:62
 msgid "Properties"
@@ -1388,10 +1406,6 @@ msgstr "Otočiť do_prava"
 #: ../shell/ev-window.c:5926
 msgid "Save Current Settings as _Default"
 msgstr "Uložiť aktuálne nastavenia ako pre_dvolené"
-
-#: ../shell/ev-window.c:5930
-msgid "Preferences"
-msgstr "Predvoľby"
 
 #. View menu
 #: ../shell/ev-window.c:5937

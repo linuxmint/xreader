@@ -16,16 +16,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 10:36+0100\n"
-"PO-Revision-Date: 2018-05-07 10:40+0000\n"
+"POT-Creation-Date: 2018-06-25 08:57+0200\n"
+"PO-Revision-Date: 2018-06-25 09:17+0000\n"
 "Last-Translator: Butterfly <Unknown>\n"
 "Language-Team: Turkish (http://www.transifex.com/mate/MATE/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2018-05-22 09:23+0000\n"
-"X-Generator: Launchpad (build 18658)\n"
+"X-Launchpad-Export-Date: 2018-06-26 10:16+0000\n"
+"X-Generator: Launchpad (build 18688)\n"
 "Language: tr\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -817,6 +817,7 @@ msgid "Key"
 msgstr "Anahtar"
 
 #: ../shell/ev-annotation-properties-dialog.c:106
+#: ../shell/ev-preferences-dialog.c:117
 msgid "Help"
 msgstr "Yardım"
 
@@ -877,6 +878,7 @@ msgid "Open"
 msgstr "Aç"
 
 #: ../shell/ev-annotation-properties-dialog.c:224
+#: ../shell/ev-preferences-dialog.c:121
 msgid "Close"
 msgstr "Kapat"
 
@@ -946,6 +948,22 @@ msgstr "Çıkış yapana kadar parolayı hatır_la"
 #: ../shell/ev-password-view.c:384
 msgid "Remember _forever"
 msgstr "_Her zaman hatırla"
+
+#: ../shell/ev-preferences-dialog.c:109 ../shell/ev-preferences-dialog.ui.h:1
+msgid "Toolbar"
+msgstr "Araç çubuğu"
+
+#: ../shell/ev-preferences-dialog.c:131 ../shell/ev-window.c:5930
+msgid "Preferences"
+msgstr "Tercihler"
+
+#: ../shell/ev-preferences-dialog.ui.h:2
+msgid "Show history buttons"
+msgstr "Geçmiş düğmelerini göster"
+
+#: ../shell/ev-preferences-dialog.ui.h:3
+msgid "Show expand window button"
+msgstr "Pencere genişletme düğmesini göster"
 
 #: ../shell/ev-properties-dialog.c:62
 msgid "Properties"
@@ -1387,10 +1405,6 @@ msgstr "S_ağa Çevir"
 #: ../shell/ev-window.c:5926
 msgid "Save Current Settings as _Default"
 msgstr "Şu Anda Kullanılan Ayarları _Varsayılan olarak Kaydet"
-
-#: ../shell/ev-window.c:5930
-msgid "Preferences"
-msgstr "Tercihler"
 
 #. View menu
 #: ../shell/ev-window.c:5937

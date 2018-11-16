@@ -1,5 +1,4 @@
-/* ev-previewer-window.h: 
- *  this file is part of xreader, a mate document viewer
+/* ev-previewer-window.h:
  *
  * Copyright (C) 2009 Carlos Garcia Campos <carlosgc@gnome.org>
  *

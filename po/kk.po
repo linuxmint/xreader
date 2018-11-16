@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 10:36+0100\n"
+"POT-Creation-Date: 2018-06-25 08:57+0200\n"
 "PO-Revision-Date: 2016-05-20 08:27+0000\n"
 "Last-Translator: Murat Káribaı <d2vsd1@mail.ru>\n"
 "Language-Team: Kazakh (http://www.transifex.com/mate/MATE/language/kk/)\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2018-05-22 09:23+0000\n"
-"X-Generator: Launchpad (build 18658)\n"
+"X-Launchpad-Export-Date: 2018-06-26 10:16+0000\n"
+"X-Generator: Launchpad (build 18688)\n"
 "Language: kk\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -802,6 +802,7 @@ msgid "Key"
 msgstr "Кілт"
 
 #: ../shell/ev-annotation-properties-dialog.c:106
+#: ../shell/ev-preferences-dialog.c:117
 msgid "Help"
 msgstr "Көмек"
 
@@ -862,6 +863,7 @@ msgid "Open"
 msgstr "Ашу"
 
 #: ../shell/ev-annotation-properties-dialog.c:224
+#: ../shell/ev-preferences-dialog.c:121
 msgid "Close"
 msgstr "Жабу"
 
@@ -931,6 +933,22 @@ msgstr "Шыққанға дейін сақ_тау"
 #: ../shell/ev-password-view.c:384
 msgid "Remember _forever"
 msgstr "Әрқаша_нға есте сақтау"
+
+#: ../shell/ev-preferences-dialog.c:109 ../shell/ev-preferences-dialog.ui.h:1
+msgid "Toolbar"
+msgstr ""
+
+#: ../shell/ev-preferences-dialog.c:131 ../shell/ev-window.c:5930
+msgid "Preferences"
+msgstr ""
+
+#: ../shell/ev-preferences-dialog.ui.h:2
+msgid "Show history buttons"
+msgstr ""
+
+#: ../shell/ev-preferences-dialog.ui.h:3
+msgid "Show expand window button"
+msgstr ""
 
 #: ../shell/ev-properties-dialog.c:62
 msgid "Properties"
@@ -1360,10 +1378,6 @@ msgstr "Оңғ_а бұру"
 #: ../shell/ev-window.c:5926
 msgid "Save Current Settings as _Default"
 msgstr "Ағы_мдағы баптауларды негізгі ретінде сақтау"
-
-#: ../shell/ev-window.c:5930
-msgid "Preferences"
-msgstr ""
 
 #. View menu
 #: ../shell/ev-window.c:5937

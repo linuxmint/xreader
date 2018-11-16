@@ -103,7 +103,8 @@ thumbnail_job_completed_callback (EvJobThumbnail *job,
                                   GtkButton      *button)
 {
     if (!ev_job_is_failed (EV_JOB (job))) {
-        gtk_button_set_image (button, gtk_image_new_from_pixbuf(job->thumbnail));
+        GdkPixbuf *pixbuf = ev_document_misc_render_thumbnail_with_frame(button, job->thumbnail);
+        gtk_button_set_image (button, gtk_image_new_from_pixbuf(pixbuf));
     }
 }
 

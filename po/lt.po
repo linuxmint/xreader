@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 10:36+0100\n"
-"PO-Revision-Date: 2018-05-07 12:05+0000\n"
+"POT-Creation-Date: 2018-06-25 08:57+0200\n"
+"PO-Revision-Date: 2018-06-25 09:32+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian (http://www.transifex.com/mate/MATE/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -23,8 +23,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "(n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2018-05-22 09:23+0000\n"
-"X-Generator: Launchpad (build 18658)\n"
+"X-Launchpad-Export-Date: 2018-06-26 10:16+0000\n"
+"X-Generator: Launchpad (build 18688)\n"
 "Language: lt\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -816,6 +816,7 @@ msgid "Key"
 msgstr "Raktas"
 
 #: ../shell/ev-annotation-properties-dialog.c:106
+#: ../shell/ev-preferences-dialog.c:117
 msgid "Help"
 msgstr "Žinynas"
 
@@ -876,6 +877,7 @@ msgid "Open"
 msgstr "Atverti"
 
 #: ../shell/ev-annotation-properties-dialog.c:224
+#: ../shell/ev-preferences-dialog.c:121
 msgid "Close"
 msgstr "Užverti"
 
@@ -948,6 +950,22 @@ msgstr "_Atsiminti slaptažodį šiam seansui"
 #: ../shell/ev-password-view.c:384
 msgid "Remember _forever"
 msgstr "Prisiminti _visam laikui"
+
+#: ../shell/ev-preferences-dialog.c:109 ../shell/ev-preferences-dialog.ui.h:1
+msgid "Toolbar"
+msgstr "Įrankių juosta"
+
+#: ../shell/ev-preferences-dialog.c:131 ../shell/ev-window.c:5930
+msgid "Preferences"
+msgstr "Nuostatos"
+
+#: ../shell/ev-preferences-dialog.ui.h:2
+msgid "Show history buttons"
+msgstr "Rodyti istorijos mygtukus"
+
+#: ../shell/ev-preferences-dialog.ui.h:3
+msgid "Show expand window button"
+msgstr "Rodyti lango išskleidimo mygtuką"
 
 #: ../shell/ev-properties-dialog.c:62
 msgid "Properties"
@@ -1395,10 +1413,6 @@ msgstr "Pasukti _dešinėn"
 msgid "Save Current Settings as _Default"
 msgstr "Įrašyti dabartinius nustatymus kaip _numatytuosius"
 
-#: ../shell/ev-window.c:5930
-msgid "Preferences"
-msgstr "Nuostatos"
-
 #. View menu
 #: ../shell/ev-window.c:5937
 msgid "_Original size"
@@ -1494,11 +1508,11 @@ msgstr "Rodyti dokumentą kaip pateiktį"
 #. View Menu
 #: ../shell/ev-window.c:6130
 msgid "_Toolbar"
-msgstr "Į_rankinė"
+msgstr "Į_rankių juosta"
 
 #: ../shell/ev-window.c:6132
 msgid "Show or hide the toolbar"
-msgstr "Rodyti arba slėpti įrankinę"
+msgstr "Rodyti arba slėpti įrankių juostą"
 
 #: ../shell/ev-window.c:6134
 msgid "Side _Pane"

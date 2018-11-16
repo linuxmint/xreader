@@ -1,0 +1,27 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+    configure)
+        # Make sure evince is present, or provide a symlink to xreader
+        # This is needed for GTK print previews, which call "evince".
+        if [ ! -f /usr/bin/evince ]
+        then
+            echo "/usr/bin/evince not found, providing symlink."
+            ln -s /usr/bin/xreader /usr/bin/evince
+        fi
+    ;;
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+    triggered)
+    ;;
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 0
+    ;;
+esac
+
+exit 0
+
+
