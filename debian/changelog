@@ -1,3 +1,29 @@
+xreader (2.0.0) tessa; urgency=medium
+
+  [ Clement Lefebvre ]
+  * Packaging: Ensure /usr/bin/evince is present
+  * Print previewer: Multiple small fixes
+
+  [ Piiit ]
+  * Missing function headers (#256)
+
+  [ NikoKrause ]
+  * use style classes for dialog buttons (#257)
+
+  [ Tomasz Gąsior ]
+  * "shell: Show as much text as possible for index tree" (#235)
+
+  [ Piiit ]
+  * Change border of pages to a realistic shadow, make thumbnails styleable via CSS  (#248)
+
+  [ Tomasz Gąsior ]
+  * Better appearance (#234)
+
+  [ Clement Lefebvre ]
+  * l10n: Update POT
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 19 Nov 2018 10:26:58 +0000
+
 xreader (1.8.5) tara; urgency=medium
 
   [ Cobinja ]
