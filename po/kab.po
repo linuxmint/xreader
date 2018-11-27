@@ -7,16 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-06-25 08:57+0200\n"
-"PO-Revision-Date: 2016-12-16 20:12+0000\n"
-"Last-Translator: Belkacem Mohammed <belkacem77@gmail.com>\n"
+"POT-Creation-Date: 2018-11-19 10:13+0000\n"
+"PO-Revision-Date: 2018-11-25 21:32+0000\n"
+"Last-Translator: Yazid Bouhamam <Unknown>\n"
 "Language-Team: Kabyle <kab@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2018-06-26 10:16+0000\n"
-"X-Generator: Launchpad (build 18688)\n"
+"X-Launchpad-Export-Date: 2018-11-27 17:52+0000\n"
+"X-Generator: Launchpad (build 18826)\n"
+"Language: kab\n"
 
 #: ../backend/comics/comics-document.c:208
 #, c-format
@@ -147,7 +148,7 @@ msgstr "afaylu n ugbur d arameɣtu"
 
 #: ../backend/epub/epub-document.c:987
 msgid "epub file has no spine"
-msgstr ""
+msgstr "afaylu ePub ur yesɛi ara ajgu"
 
 #: ../backend/epub/epub-document.c:996
 msgid "epub file has no manifest"
@@ -214,7 +215,7 @@ msgstr "Ulac isem"
 
 #: ../backend/pdf/ev-poppler.cc:953
 msgid "Embedded subset"
-msgstr ""
+msgstr "Taggayt ddaw ittwarnan"
 
 #: ../backend/pdf/ev-poppler.cc:955
 msgid "Embedded"
@@ -313,6 +314,7 @@ msgstr "Aɣewwaṛ n usenker ur yettwassen ara: %d"
 #, c-format
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgstr ""
+"Ulamek asɛeddi n tansiwin URL n isemli  ɣer 'Type=Link' n unekcum n tnarit"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1384
 #, c-format
@@ -327,8 +329,8 @@ msgstr "Kkes arma n tuqqna i umsefrak n tɣimit"
 msgid "Specify file containing saved configuration"
 msgstr "Mudd afaylu igebren tawila yettwakelsen"
 
-#: ../cut-n-paste/smclient/eggsmclient.c:230 ../previewer/ev-previewer.c:36
-#: ../previewer/ev-previewer.c:37
+#: ../cut-n-paste/smclient/eggsmclient.c:230 ../previewer/ev-previewer.c:35
+#: ../previewer/ev-previewer.c:36
 msgid "FILE"
 msgstr "AFAYLU"
 
@@ -349,17 +351,17 @@ msgid "Show session management options"
 msgstr "Sken iɣewwaṛen n usefrek n tɣimit"
 
 #. translators: this is the label for toolbar button
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6389
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6379
 msgid "Best Fit"
 msgstr "Asgadda iggerzen akk"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:50
 msgid "Fit Page Width"
-msgstr ""
+msgstr "Sezg tehri n usebtar"
 
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:5955
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:5945
 msgid "Expand Window to Fit"
-msgstr ""
+msgstr "Sihriw asafaylu iwakken ad yettusezg"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:53
 msgid "50%"
@@ -419,7 +421,7 @@ msgstr "6400%"
 
 #: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer"
-msgstr ""
+msgstr "Tameskant n isemliyen"
 
 #: ../data/xreader.appdata.xml.in.h:2
 msgid ""
@@ -433,39 +435,40 @@ msgstr ""
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:162
 #: ../shell/main.c:241 ../shell/main.c:270
 msgid "Document Viewer"
-msgstr ""
+msgstr "Tameskant n isemliyen"
 
 #: ../data/xreader.desktop.in.in.h:2
 msgid "View multi-page documents"
-msgstr ""
+msgstr "Sken isemli s isebtaren iggten"
 
 #: ../data/org.x.reader.gschema.xml.h:1
 msgid "Override document restrictions"
-msgstr ""
+msgstr "Suref i tsiragt n isemli"
 
 #: ../data/org.x.reader.gschema.xml.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
-msgstr ""
+msgstr "Suref i tsirag n isemli, am tsirag n unɣal neɣ n usiggez."
 
 #: ../data/org.x.reader.gschema.xml.h:3
 msgid "Automatically reload the document"
-msgstr ""
+msgstr "Ales azdam n isemli s wudem awurman"
 
 #: ../data/org.x.reader.gschema.xml.h:4
 msgid "Whether the document is automatically reloaded on file change."
 msgstr ""
+"Ma yella isemli ad yales azdam s wudem awurman ticki yettwabeddel ufaylu."
 
 #: ../data/org.x.reader.gschema.xml.h:5
 msgid "The URI of the directory last used to open or save a document."
-msgstr ""
+msgstr "URI n ukaram yettwasqedcen melmi kan i welday neɣ asekles n isemli."
 
 #: ../data/org.x.reader.gschema.xml.h:6
 msgid "The URI of the directory last used to save a picture."
-msgstr ""
+msgstr "URI n ukaram yettwasqedcen i usekles n tugna."
 
 #: ../data/org.x.reader.gschema.xml.h:7
 msgid "Page cache size in MiB"
-msgstr ""
+msgstr "Tiddi n tuffirt n isebtaren s MṬM"
 
 #: ../data/org.x.reader.gschema.xml.h:8
 msgid ""
@@ -473,56 +476,56 @@ msgid ""
 "zoom level."
 msgstr ""
 
-#: ../previewer/ev-previewer.c:35
+#: ../previewer/ev-previewer.c:34
 msgid "Delete the temporary file"
-msgstr ""
+msgstr "Kkes afaylu akudan"
 
-#: ../previewer/ev-previewer.c:36
+#: ../previewer/ev-previewer.c:35
 msgid "Print settings file"
-msgstr ""
+msgstr "Siggez iɣewaren n ufaylu"
 
-#: ../previewer/ev-previewer.c:107 ../previewer/ev-previewer.c:141
-msgid "MATE Document Previewer"
-msgstr ""
+#: ../previewer/ev-previewer.c:106 ../previewer/ev-previewer.c:137
+msgid "Print Preview"
+msgstr "Taskant n usiggez"
 
 #: ../previewer/ev-previewer-window.c:93 ../shell/ev-window.c:3295
 msgid "Failed to print document"
-msgstr ""
+msgstr "Ulamek asiggez n isemli"
 
 #: ../previewer/ev-previewer-window.c:247
 #, c-format
 msgid "The selected printer '%s' could not be found"
-msgstr ""
+msgstr "Tasaggazt yettwafernen '%s' ur tettwaf ara"
 
 #. Go menu
-#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:5964
+#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:5954
 msgid "_Previous Page"
-msgstr ""
+msgstr "Asebtar uzwir"
 
-#: ../previewer/ev-previewer-window.c:295 ../shell/ev-window.c:5966
+#: ../previewer/ev-previewer-window.c:295 ../shell/ev-window.c:5956
 msgid "Go to the previous page"
 msgstr "Ddu ar usebter yezrin"
 
-#: ../previewer/ev-previewer-window.c:297 ../shell/ev-window.c:5968
+#: ../previewer/ev-previewer-window.c:297 ../shell/ev-window.c:5958
 msgid "_Next Page"
 msgstr "_Asebtar d -iteddun"
 
-#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:5970
+#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:5960
 msgid "Go to the next page"
 msgstr "Ddu ar usebter d-iteddun"
 
-#: ../previewer/ev-previewer-window.c:301 ../shell/ev-window.c:5943
+#: ../previewer/ev-previewer-window.c:301 ../shell/ev-window.c:5933
 msgid "Enlarge the document"
 msgstr "Sihrew isemli"
 
-#: ../previewer/ev-previewer-window.c:304 ../shell/ev-window.c:5947
+#: ../previewer/ev-previewer-window.c:304 ../shell/ev-window.c:5937
 msgid "Shrink the document"
-msgstr ""
+msgstr "Simẓi isemli"
 
 #. translators: this is the label for toolbar button
-#: ../previewer/ev-previewer-window.c:307 ../shell/ev-window.c:6385
+#: ../previewer/ev-previewer-window.c:307 ../shell/ev-window.c:6375
 msgid "Original size"
-msgstr ""
+msgstr "Tiddi tasentant"
 
 #. translators: Print document currently shown in the Print Preview window
 #. translators: Title of the print dialog
@@ -530,31 +533,31 @@ msgstr ""
 msgid "Print"
 msgstr "Siggez"
 
-#: ../previewer/ev-previewer-window.c:312 ../shell/ev-window.c:5886
+#: ../previewer/ev-previewer-window.c:312 ../shell/ev-window.c:5876
 msgid "Print this document"
 msgstr "Siggez isemli-agi"
 
-#: ../previewer/ev-previewer-window.c:356 ../shell/ev-window.c:6158
+#: ../previewer/ev-previewer-window.c:356 ../shell/ev-window.c:6148
 msgid "_Best Fit"
-msgstr ""
+msgstr "Tiddi i_wenɛen"
 
-#: ../previewer/ev-previewer-window.c:357 ../shell/ev-window.c:6160
+#: ../previewer/ev-previewer-window.c:357 ../shell/ev-window.c:6150
 msgid "Make the current document fill the window"
-msgstr ""
+msgstr "Sezg isemli amiran ɣer usfaylu"
 
-#: ../previewer/ev-previewer-window.c:359 ../shell/ev-window.c:6162
+#: ../previewer/ev-previewer-window.c:359 ../shell/ev-window.c:6152
 msgid "Fit Page _Width"
-msgstr ""
+msgstr "Sezg te_hri n usebtar"
 
-#: ../previewer/ev-previewer-window.c:360 ../shell/ev-window.c:6164
+#: ../previewer/ev-previewer-window.c:360 ../shell/ev-window.c:6154
 msgid "Make the current document fill the window width"
-msgstr ""
+msgstr "Sezg isemli amiran ɣer tehri n usfaylu"
 
-#: ../previewer/ev-previewer-window.c:556 ../shell/ev-window.c:6333
+#: ../previewer/ev-previewer-window.c:578 ../shell/ev-window.c:6323
 msgid "Page"
 msgstr "Asebter"
 
-#: ../previewer/ev-previewer-window.c:557 ../shell/ev-window.c:6334
+#: ../previewer/ev-previewer-window.c:579 ../shell/ev-window.c:6324
 msgid "Select Page"
 msgstr "Fren asebter"
 
@@ -581,7 +584,7 @@ msgstr "Aheggi i usiggez..."
 
 #: ../libview/ev-print-operation.c:336
 msgid "Finishing…"
-msgstr ""
+msgstr "Yettfakka..."
 
 #: ../libview/ev-print-operation.c:338
 #, c-format
@@ -602,11 +605,11 @@ msgstr "ɣuṛ-ek"
 
 #: ../libview/ev-print-operation.c:1230
 msgid "Your print range selection does not include any pages"
-msgstr ""
+msgstr "Tagrumma-inek n usiggez ur tsedda ara ula yiwen n usebtar"
 
 #: ../libview/ev-print-operation.c:1888
 msgid "Page Scaling:"
-msgstr ""
+msgstr "Asgaddi n isebtaren:"
 
 #. translators: Value for 'Page Scaling:' to not scale the document pages on printing
 #: ../libview/ev-print-operation.c:1894
@@ -615,11 +618,11 @@ msgstr "Ulac"
 
 #: ../libview/ev-print-operation.c:1895
 msgid "Shrink to Printable Area"
-msgstr ""
+msgstr "Simẓi taɣzut n usiggez"
 
 #: ../libview/ev-print-operation.c:1896
 msgid "Fit to Printable Area"
-msgstr ""
+msgstr "Sezg ɣer teɣzut n usiggez"
 
 #: ../libview/ev-print-operation.c:1899
 msgid ""
@@ -637,7 +640,7 @@ msgstr ""
 
 #: ../libview/ev-print-operation.c:1911
 msgid "Auto Rotate and Center"
-msgstr ""
+msgstr "Tuzya akked uselmes s wudem awurman"
 
 #: ../libview/ev-print-operation.c:1914
 msgid ""
@@ -647,396 +650,398 @@ msgstr ""
 
 #: ../libview/ev-print-operation.c:1919
 msgid "Select page size using document page size"
-msgstr ""
+msgstr "Fren tiddi n ukaɣeḍ i lmend n tiddi n isebtaren n isemli"
 
 #: ../libview/ev-print-operation.c:1921
 msgid ""
 "When enabled, each page will be printed on the same size paper as the "
 "document page."
-msgstr ""
+msgstr "Ma yermed, yal asebtar ad yettusiggez s tiddi yetwammlan deg isemli."
 
 #: ../libview/ev-print-operation.c:2003
 msgid "Page Handling"
-msgstr ""
+msgstr "Asefrek n isebtaren"
 
 #: ../libview/ev-jobs.c:1738
 #, c-format
 msgid "Failed to print page %d: %s"
-msgstr ""
+msgstr "D awezɣi asiggez n usebtar %d: %s"
 
 #: ../libview/ev-view-accessible.c:46
 msgid "Scroll Up"
-msgstr ""
+msgstr "Drurem d asawen"
 
 #: ../libview/ev-view-accessible.c:47
 msgid "Scroll Down"
-msgstr ""
+msgstr "Drurem d akessar"
 
 #: ../libview/ev-view-accessible.c:53
 msgid "Scroll View Up"
-msgstr ""
+msgstr "Drurem tamuɣli d asawen"
 
 #: ../libview/ev-view-accessible.c:54
 msgid "Scroll View Down"
-msgstr ""
+msgstr "Drurem tamuɣli d akessar"
 
 #: ../libview/ev-view-accessible.c:883
 msgid "Document View"
-msgstr ""
+msgstr "Tamuɣli n isemli"
 
 #: ../libview/ev-view-presentation.c:692
 msgid "Jump to page:"
-msgstr ""
+msgstr "Neggez s asebtar:"
 
 #: ../libview/ev-view-presentation.c:996
 msgid "End of presentation. Click to exit."
-msgstr ""
+msgstr "Tagara n tnekda. Sit iwakken ad teffɣeḍ."
 
-#: ../libview/ev-view.c:1838
+#: ../libview/ev-view.c:1845
 msgid "Go to first page"
-msgstr ""
+msgstr "Ddu ɣer usebtar amezwaru"
 
-#: ../libview/ev-view.c:1840
+#: ../libview/ev-view.c:1847
 msgid "Go to previous page"
-msgstr ""
+msgstr "Ddu ɣer usebtar uzwir"
 
-#: ../libview/ev-view.c:1842
+#: ../libview/ev-view.c:1849
 msgid "Go to next page"
-msgstr ""
+msgstr "Ddu ɣer usebtar uḍfir"
 
-#: ../libview/ev-view.c:1844
+#: ../libview/ev-view.c:1851
 msgid "Go to last page"
-msgstr ""
+msgstr "Ddu ɣer usebtar aneggaru"
 
-#: ../libview/ev-view.c:1846
+#: ../libview/ev-view.c:1853
 msgid "Go to page"
-msgstr ""
+msgstr "Ddu ɣer usebtar"
 
-#: ../libview/ev-view.c:1848
+#: ../libview/ev-view.c:1855
 msgid "Find"
-msgstr ""
+msgstr "Nnadi"
 
-#: ../libview/ev-view.c:1876
+#: ../libview/ev-view.c:1883
 #, c-format
 msgid "Go to page %s"
-msgstr ""
+msgstr "Ddu ɣer usebtar %s"
 
-#: ../libview/ev-view.c:1882
+#: ../libview/ev-view.c:1889
 #, c-format
 msgid "Go to %s on file “%s”"
-msgstr ""
+msgstr "Ddu ɣer %s deg ufaylu “%s”"
 
-#: ../libview/ev-view.c:1885
+#: ../libview/ev-view.c:1892
 #, c-format
 msgid "Go to file “%s”"
-msgstr ""
+msgstr "Ddu ɣer ufaylu “%s”"
 
-#: ../libview/ev-view.c:1893
+#: ../libview/ev-view.c:1900
 #, c-format
 msgid "Launch %s"
-msgstr ""
+msgstr "Sekker %s"
 
 #: ../shell/eggfindbar.c:307
 msgid "Find:"
-msgstr ""
+msgstr "Nadi:"
 
-#: ../shell/eggfindbar.c:328 ../shell/ev-window.c:5914
+#: ../shell/eggfindbar.c:328 ../shell/ev-window.c:5904
 msgid "Find Pre_vious"
-msgstr ""
+msgstr "_Nadi ar deffir"
 
 #: ../shell/eggfindbar.c:332
 msgid "Find previous occurrence of the search string"
-msgstr ""
+msgstr "Aff-d timseḍriwt  n uḍris n unadi iεeddan"
 
-#: ../shell/eggfindbar.c:336 ../shell/ev-window.c:5910
+#: ../shell/eggfindbar.c:336 ../shell/ev-window.c:5900
 msgid "Find Ne_xt"
-msgstr ""
+msgstr "Nadi ar _zdat"
 
 #: ../shell/eggfindbar.c:340
 msgid "Find next occurrence of the search string"
-msgstr ""
+msgstr "Aff-d timseḍriwt  n uḍris n unadi i d*iteddun"
 
 #: ../shell/eggfindbar.c:347
 msgid "Case Sensitive"
-msgstr ""
+msgstr "Yettḥulfu i tejrut n usekkil"
 
 #: ../shell/eggfindbar.c:350
 msgid "Toggle case sensitive search"
-msgstr ""
+msgstr "Seqdec anadi yettḥulfun i tejrut n usekkil"
 
 #: ../shell/ev-annotation-properties-dialog.c:96
 msgid "Icon:"
-msgstr ""
+msgstr "Tignit:"
 
 #: ../shell/ev-annotation-properties-dialog.c:103
 msgid "Note"
-msgstr ""
+msgstr "Tamawt"
 
 #: ../shell/ev-annotation-properties-dialog.c:104
 msgid "Comment"
-msgstr ""
+msgstr "awennit"
 
 #: ../shell/ev-annotation-properties-dialog.c:105
 msgid "Key"
-msgstr ""
+msgstr "Tasarutt"
 
 #: ../shell/ev-annotation-properties-dialog.c:106
 #: ../shell/ev-preferences-dialog.c:117
 msgid "Help"
-msgstr ""
+msgstr "Tallalt"
 
 #: ../shell/ev-annotation-properties-dialog.c:107
 msgid "New Paragraph"
-msgstr ""
+msgstr "Taseddart tamaynut"
 
 #: ../shell/ev-annotation-properties-dialog.c:108
 msgid "Paragraph"
-msgstr ""
+msgstr "Taseddart"
 
 #: ../shell/ev-annotation-properties-dialog.c:109
 msgid "Insert"
-msgstr ""
+msgstr "Ger"
 
 #: ../shell/ev-annotation-properties-dialog.c:110
 msgid "Cross"
-msgstr ""
+msgstr "Tanmidagt"
 
 #: ../shell/ev-annotation-properties-dialog.c:111
 msgid "Circle"
-msgstr ""
+msgstr "Tawinest"
 
 #: ../shell/ev-annotation-properties-dialog.c:112
 msgid "Unknown"
-msgstr ""
+msgstr "Ur yettwassen ara"
 
-#: ../shell/ev-annotation-properties-dialog.c:137
+#: ../shell/ev-annotation-properties-dialog.c:138
 msgid "Annotation Properties"
-msgstr ""
+msgstr "Iraten n telɣuyin"
 
-#: ../shell/ev-annotation-properties-dialog.c:157
+#: ../shell/ev-annotation-properties-dialog.c:158
 msgid "Author:"
 msgstr "Ameskar:"
 
-#: ../shell/ev-annotation-properties-dialog.c:170
+#: ../shell/ev-annotation-properties-dialog.c:171
 msgid "Color:"
-msgstr ""
+msgstr "Ini:"
 
-#: ../shell/ev-annotation-properties-dialog.c:182
+#: ../shell/ev-annotation-properties-dialog.c:183
 msgid "Style:"
-msgstr ""
+msgstr "Aɣanib:"
 
-#: ../shell/ev-annotation-properties-dialog.c:198
+#: ../shell/ev-annotation-properties-dialog.c:199
 msgid "Transparent"
-msgstr ""
+msgstr "Afrawan"
 
-#: ../shell/ev-annotation-properties-dialog.c:205
+#: ../shell/ev-annotation-properties-dialog.c:206
 msgid "Opaque"
-msgstr ""
+msgstr "Imḍulles"
 
-#: ../shell/ev-annotation-properties-dialog.c:215
+#: ../shell/ev-annotation-properties-dialog.c:216
 msgid "Initial window state:"
-msgstr ""
-
-#: ../shell/ev-annotation-properties-dialog.c:223
-msgid "Open"
-msgstr ""
+msgstr "Addad asentan n usfaylu:"
 
 #: ../shell/ev-annotation-properties-dialog.c:224
+msgid "Open"
+msgstr "Ldi"
+
+#: ../shell/ev-annotation-properties-dialog.c:225
 #: ../shell/ev-preferences-dialog.c:121
 msgid "Close"
-msgstr ""
+msgstr "Mdel"
 
 #: ../shell/ev-application.c:1000
 msgid "Running in presentation mode"
-msgstr ""
+msgstr "Aselkem s uskar n tnekda"
 
 #: ../shell/ev-history.c:475 ../shell/ev-sidebar-bookmarks.c:313
-#: ../shell/ev-window.c:872 ../shell/ev-window.c:4631
+#: ../shell/ev-window.c:872 ../shell/ev-window.c:4621
 #, c-format
 msgid "Page %s"
-msgstr ""
+msgstr "Asebtar %s"
 
-#: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:5982
+#: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:5972
 msgid "Go to previous history item"
-msgstr ""
+msgstr "Ddu ɣer uferdis uzwir n umazray"
 
-#: ../shell/ev-history-action-widget.c:219 ../shell/ev-window.c:5986
+#: ../shell/ev-history-action-widget.c:219 ../shell/ev-window.c:5976
 msgid "Go to next history item"
-msgstr ""
+msgstr "Ddu ɣer uferdis uḍfir n umazray"
 
 #: ../shell/ev-keyring.c:86
 #, c-format
 msgid "Password for document %s"
-msgstr ""
+msgstr "Awal n uɛeddi i isemli %s"
 
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
-msgstr ""
+msgstr "Ldi isemli yettwasqedcen melmi kan"
 
 #: ../shell/ev-password-view.c:140
 msgid ""
 "This document is locked and can only be read by entering the correct "
 "password."
 msgstr ""
+"Isemli-agi yettwasekkeṛ, ulamek ara yettwaɣer alama teskecmeḍ awal n uɛeddi "
+"ameɣtu."
 
-#: ../shell/ev-password-view.c:149 ../shell/ev-password-view.c:265
+#: ../shell/ev-password-view.c:149 ../shell/ev-password-view.c:266
 msgid "_Unlock Document"
-msgstr ""
+msgstr "K_kes aseḍru i isemli-agi"
 
-#: ../shell/ev-password-view.c:257
+#: ../shell/ev-password-view.c:259
 msgid "Enter password"
-msgstr ""
+msgstr "Sekcem awal n uɛeddi"
 
-#: ../shell/ev-password-view.c:294
+#: ../shell/ev-password-view.c:296
 #, c-format
 msgid ""
 "The document “%s” is locked and requires a password before it can be opened."
-msgstr ""
+msgstr "Isemli “%s” yettwasekkeṛ u yesra awal n uɛeddi iwakken ad yeldi."
 
-#: ../shell/ev-password-view.c:297
+#: ../shell/ev-password-view.c:299
 msgid "Password required"
-msgstr ""
+msgstr "Ilaq wawal n uɛeddi"
 
-#: ../shell/ev-password-view.c:327
+#: ../shell/ev-password-view.c:329
 msgid "_Password:"
-msgstr ""
+msgstr "A_wal n uɛeddi:"
 
-#: ../shell/ev-password-view.c:360
+#: ../shell/ev-password-view.c:362
 msgid "Forget password _immediately"
-msgstr ""
+msgstr "Ttu awal n uɛeddi _din din"
 
-#: ../shell/ev-password-view.c:372
+#: ../shell/ev-password-view.c:374
 msgid "Remember password until you _log out"
-msgstr ""
+msgstr "Cfu ɣef wawal n uɛeddi alama te_mdel tɛimit"
 
-#: ../shell/ev-password-view.c:384
+#: ../shell/ev-password-view.c:386
 msgid "Remember _forever"
-msgstr ""
+msgstr "Cfu ɣef wawal n uɛeddi i lebda"
 
 #: ../shell/ev-preferences-dialog.c:109 ../shell/ev-preferences-dialog.ui.h:1
 msgid "Toolbar"
-msgstr ""
+msgstr "Afeggag n ifecka"
 
-#: ../shell/ev-preferences-dialog.c:131 ../shell/ev-window.c:5930
+#: ../shell/ev-preferences-dialog.c:131 ../shell/ev-window.c:5920
 msgid "Preferences"
-msgstr ""
+msgstr "Ismenyifen"
 
 #: ../shell/ev-preferences-dialog.ui.h:2
 msgid "Show history buttons"
-msgstr ""
+msgstr "Beqqeḍ tiqfalin n umazray"
 
 #: ../shell/ev-preferences-dialog.ui.h:3
 msgid "Show expand window button"
-msgstr ""
+msgstr "Beqqeḍ taqfalt n usemɣer n usfaylu"
 
-#: ../shell/ev-properties-dialog.c:62
+#: ../shell/ev-properties-dialog.c:63
 msgid "Properties"
-msgstr ""
+msgstr "Iraten"
 
-#: ../shell/ev-properties-dialog.c:94
+#: ../shell/ev-properties-dialog.c:97
 msgid "General"
-msgstr ""
+msgstr "Amatu"
 
-#: ../shell/ev-properties-dialog.c:104
+#: ../shell/ev-properties-dialog.c:107
 msgid "Fonts"
-msgstr ""
+msgstr "Tasefsit"
 
-#: ../shell/ev-properties-dialog.c:117
+#: ../shell/ev-properties-dialog.c:120
 msgid "Document License"
-msgstr ""
+msgstr "Turagt n isemli"
 
 #: ../shell/ev-properties-fonts.c:133
 msgid "Font"
-msgstr ""
+msgstr "Tasefsit"
 
 #: ../shell/ev-properties-fonts.c:160
 #, c-format
 msgid "Gathering font information… %3d%%"
-msgstr ""
+msgstr "Alqaḍ n isallan n tsefsiyin… %3d%%"
 
 #: ../shell/ev-properties-license.c:135
 msgid "Usage terms"
-msgstr ""
+msgstr "Tawtilt n usseqdec"
 
 #: ../shell/ev-properties-license.c:141
 msgid "Text License"
-msgstr ""
+msgstr "Aḍris n turagt"
 
 #: ../shell/ev-properties-license.c:147
 msgid "Further Information"
-msgstr ""
+msgstr "Isallan imernan"
 
-#: ../shell/ev-sidebar-annotations.c:201
+#: ../shell/ev-sidebar-annotations.c:205
 msgid "Add text annotation"
-msgstr ""
+msgstr "Rnu talɣut s uḍris"
 
-#: ../shell/ev-sidebar-annotations.c:328
+#: ../shell/ev-sidebar-annotations.c:332
 msgid "Document contains no annotations"
-msgstr ""
+msgstr "Isemli ur isɛi ara talɣut"
 
-#: ../shell/ev-sidebar-annotations.c:360
+#: ../shell/ev-sidebar-annotations.c:364
 #, c-format
 msgid "Page %d"
-msgstr ""
+msgstr "Asebtar %d"
 
-#: ../shell/ev-sidebar-annotations.c:502
+#: ../shell/ev-sidebar-annotations.c:506
 msgid "Annotations"
-msgstr ""
+msgstr "Tilɣuyin"
 
-#: ../shell/ev-sidebar-attachments.c:699
+#: ../shell/ev-sidebar-attachments.c:697
 msgid "Attachments"
-msgstr ""
+msgstr "Ticeqqufin"
 
 #: ../shell/ev-sidebar-bookmarks.c:154
 msgid "_Open Bookmark"
-msgstr ""
+msgstr "_Ldi anuraf"
 
 #: ../shell/ev-sidebar-bookmarks.c:156
 msgid "_Rename Bookmark"
-msgstr ""
+msgstr "_Beddel isem n unuraf"
 
 #: ../shell/ev-sidebar-bookmarks.c:158
 msgid "_Remove Bookmark"
-msgstr ""
+msgstr "_Kkes anuraf"
 
-#: ../shell/ev-sidebar-bookmarks.c:615
+#: ../shell/ev-sidebar-bookmarks.c:618
 msgid "Bookmarks"
-msgstr ""
+msgstr "Ticraḍ"
 
 #: ../shell/ev-sidebar-layers.c:444
 msgid "Layers"
-msgstr ""
+msgstr "Tissi"
 
 #: ../shell/ev-sidebar-links.c:336
 msgid "Print…"
-msgstr ""
+msgstr "Siggez…"
 
-#: ../shell/ev-sidebar-links.c:720
+#: ../shell/ev-sidebar-links.c:721
 msgid "Index"
-msgstr ""
-
-#: ../shell/ev-sidebar-thumbnails.c:935
-msgid "Shrink the thumbnails"
-msgstr ""
+msgstr "Amatar"
 
 #: ../shell/ev-sidebar-thumbnails.c:948
-msgid "Enlarge the thumbnails"
-msgstr ""
+msgid "Shrink the thumbnails"
+msgstr "Simẓi tinfulin"
 
 #: ../shell/ev-sidebar-thumbnails.c:961
-msgid "View the thumbnails at their original size"
-msgstr ""
+msgid "Enlarge the thumbnails"
+msgstr "Simṣur tinfulin"
 
-#: ../shell/ev-sidebar-thumbnails.c:1207
+#: ../shell/ev-sidebar-thumbnails.c:974
+msgid "View the thumbnails at their original size"
+msgstr "Wali tinfulin s tsekta-nnsent tisentanin"
+
+#: ../shell/ev-sidebar-thumbnails.c:1226
 msgid "Thumbnails"
-msgstr ""
+msgstr "Tinfulin"
 
 #: ../shell/ev-toolbar.c:132
 msgid ""
 "Page View\n"
 "Non-Continuous + Best Fit\n"
 "Ctrl+2"
-msgstr ""
+msgstr "Taskant n usebter"
 
 #: ../shell/ev-toolbar.c:146
 msgid ""
@@ -1050,130 +1055,136 @@ msgid ""
 "Cannot enter presentation mode with ePub documents use fullscreen mode "
 "instead."
 msgstr ""
+"Ulamek aselkem n uskar n tnekda i yisemliyen ePub, seqdec deg umḍiq askar n "
+"ugdil aččuran."
 
 #: ../shell/ev-window.c:1467
 msgid "The document contains no pages"
-msgstr ""
+msgstr "Isemli ur igbir ara isebtaren"
 
 #: ../shell/ev-window.c:1469
 msgid "The document contains only empty pages"
-msgstr ""
+msgstr "Isemli igber anagar isebtaren ilmawen"
 
 #: ../shell/ev-window.c:1504
 msgid "Presentation mode is not supported for ePub documents."
-msgstr ""
+msgstr "Askar n tnekda ur itteddu ara deg yisemliyen ePub."
 
 #: ../shell/ev-window.c:1690 ../shell/ev-window.c:1854
 msgid "Unable to open document"
-msgstr ""
+msgstr "D awezɣi alday n isemli"
 
 #: ../shell/ev-window.c:1823
 #, c-format
 msgid "Loading document from “%s”"
-msgstr ""
+msgstr "Aɛebbi n isemli si “%s”"
 
 #: ../shell/ev-window.c:1967 ../shell/ev-window.c:2288
 #, c-format
 msgid "Downloading document (%d%%)"
-msgstr ""
+msgstr "Asider n isemli (%d %%)"
 
 #: ../shell/ev-window.c:2000
 msgid "Failed to load remote file."
-msgstr ""
+msgstr "D awezɣi aɛebbi n ufaylu anmeggag."
 
 #: ../shell/ev-window.c:2232
 #, c-format
 msgid "Reloading document from %s"
-msgstr ""
+msgstr "Aɛebbi tikkelt-nniḍen n isemli si %s"
 
 #: ../shell/ev-window.c:2264
 msgid "Failed to reload document."
-msgstr ""
+msgstr "D awezɣi aɛebbi tikkelt-nniḍen n isemli."
 
 #: ../shell/ev-window.c:2480
 msgid "Open Document"
-msgstr ""
+msgstr "Ldi isemli"
 
 #: ../shell/ev-window.c:2761
 #, c-format
 msgid "Saving document to %s"
-msgstr ""
+msgstr "Asekles n isemli di %s"
 
 #: ../shell/ev-window.c:2764
 #, c-format
 msgid "Saving attachment to %s"
-msgstr ""
+msgstr "Asekles n ufaylu yeddan di %s"
 
 #: ../shell/ev-window.c:2767
 #, c-format
 msgid "Saving image to %s"
-msgstr ""
+msgstr "Asekles n tugna di %s"
 
 #: ../shell/ev-window.c:2811 ../shell/ev-window.c:2911
 #, c-format
 msgid "The file could not be saved as “%s”."
-msgstr ""
+msgstr "Afaylu ulamek ara yettwasekles am “%s”."
 
 #: ../shell/ev-window.c:2842
 #, c-format
 msgid "Uploading document (%d%%)"
-msgstr ""
+msgstr "Asili n isemli (%d %%)"
 
 #: ../shell/ev-window.c:2846
 #, c-format
 msgid "Uploading attachment (%d%%)"
-msgstr ""
+msgstr "Asili n ufaylu yeddan (%d %%)"
 
 #: ../shell/ev-window.c:2850
 #, c-format
 msgid "Uploading image (%d%%)"
-msgstr ""
+msgstr "Asili n tugna (%d %%)"
 
 #: ../shell/ev-window.c:2964
 msgid "Save a Copy"
-msgstr ""
+msgstr "Sekles tasukkint"
 
 #: ../shell/ev-window.c:3239
 #, c-format
 msgid "%d pending job in queue"
 msgid_plural "%d pending jobs in queue"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d n umahil deg udras n ugani"
+msgstr[1] "%d n imuhal deg udras n ugani"
 
 #: ../shell/ev-window.c:3352
 #, c-format
 msgid "Printing job “%s”"
-msgstr ""
+msgstr "Asiggez n “%s”"
 
-#: ../shell/ev-window.c:3533
+#: ../shell/ev-window.c:3534
 msgid ""
 "Document contains form fields that have been filled out. If you don't save a "
 "copy, changes will be permanently lost."
 msgstr ""
+"Isemli yesɛa urtan n tferkit yeččuren. Ma ur teskelseḍ ara tasukkint, "
+"ibeddilen ad ṛuḥen i lebda."
 
-#: ../shell/ev-window.c:3537
+#: ../shell/ev-window.c:3538
 msgid ""
 "Document contains new or modified annotations. If you don't save a copy, "
 "changes will be permanently lost."
 msgstr ""
+"Isemli yesɛa tilɣuyin timaynutin neɣ yettwabeddelen. Ma ur teskelseḍ ara "
+"tasukkint, ibeddilen ad ṛuḥen i lebda."
 
-#: ../shell/ev-window.c:3544
+#: ../shell/ev-window.c:3545
 #, c-format
 msgid "Save a copy of document “%s” before closing?"
-msgstr ""
+msgstr "Ad teskelseḍ tasukkint n isemli “%s” send ad yemdel?"
 
 #: ../shell/ev-window.c:3563
 msgid "Close _without Saving"
-msgstr ""
+msgstr "Ffeɣ s _war asekles"
 
-#: ../shell/ev-window.c:3567
+#: ../shell/ev-window.c:3565
 msgid "Save a _Copy"
-msgstr ""
+msgstr "Sekles ta_sukkint"
 
 #: ../shell/ev-window.c:3636
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
-msgstr ""
+msgstr "Ad tarǧuḍ tagara n usiggez n temhelt “%s” send ad tmedleḍ?"
 
 #. TRANS: the singular form is not really used as n_print_jobs > 1
 #. but some languages distinguish between different plurals forms,
@@ -1189,25 +1200,25 @@ msgstr[1] ""
 
 #: ../shell/ev-window.c:3657
 msgid "If you close the window, pending print jobs will not be printed."
-msgstr ""
+msgstr "Ma tmedleḍ asfaylu, timehlin yettraǧun asiggez ur ttwasaggazent ara."
 
-#: ../shell/ev-window.c:3661
+#: ../shell/ev-window.c:3660
 msgid "Cancel _print and Close"
-msgstr ""
+msgstr "Sefsex asi_ggez yerna mdel"
 
-#: ../shell/ev-window.c:3665
+#: ../shell/ev-window.c:3662
 msgid "Close _after Printing"
-msgstr ""
+msgstr "Mdel _sakin asiggez"
 
-#: ../shell/ev-window.c:4061
+#: ../shell/ev-window.c:4051
 msgid "Presentation mode is not supported for ePub documents"
-msgstr ""
+msgstr "Askar n tnekda ur itteddu ara deg yisemliyen ePub"
 
-#: ../shell/ev-window.c:4687
+#: ../shell/ev-window.c:4677
 msgid "There was an error displaying help"
-msgstr ""
+msgstr "Teḍra-d tuccḍa deg ubeqqeḍ n tallalt"
 
-#: ../shell/ev-window.c:4940
+#: ../shell/ev-window.c:4930
 msgid ""
 "Xreader is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -1215,7 +1226,7 @@ msgid ""
 "version.\n"
 msgstr ""
 
-#: ../shell/ev-window.c:4944
+#: ../shell/ev-window.c:4934
 msgid ""
 "Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -1223,413 +1234,413 @@ msgid ""
 "details.\n"
 msgstr ""
 
-#: ../shell/ev-window.c:4948
+#: ../shell/ev-window.c:4938
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
 
-#: ../shell/ev-window.c:4959
+#: ../shell/ev-window.c:4949
 msgid "Xreader"
-msgstr ""
+msgstr "Xreader"
 
 #. TRANS: Sometimes this could be better translated as
 #. "%d hit(s) on this page".  Therefore this string
 #. contains plural cases.
-#: ../shell/ev-window.c:5238
+#: ../shell/ev-window.c:5228
 #, c-format
 msgid "%d found on this page"
 msgid_plural "%d found on this page"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d ttwafen deg usebter-agi"
+msgstr[1] "%d ttwafen deg usebte- agi"
 
-#: ../shell/ev-window.c:5243 ../shell/ev-window.c:5366
+#: ../shell/ev-window.c:5233 ../shell/ev-window.c:5356
 msgid "Not found"
-msgstr ""
+msgstr "Ur yettwaf ara"
 
-#: ../shell/ev-window.c:5249
+#: ../shell/ev-window.c:5239
 #, c-format
 msgid "%3d%% remaining to search"
-msgstr ""
+msgstr "%3d %% i d-yegran i wenadi"
 
-#: ../shell/ev-window.c:5864
+#: ../shell/ev-window.c:5854
 msgid "_File"
-msgstr ""
+msgstr "Afay_lu"
 
-#: ../shell/ev-window.c:5865
+#: ../shell/ev-window.c:5855
 msgid "_Edit"
-msgstr ""
+msgstr "_Ẓreg"
 
-#: ../shell/ev-window.c:5866
+#: ../shell/ev-window.c:5856
 msgid "_View"
-msgstr ""
+msgstr "_Wali"
 
-#: ../shell/ev-window.c:5867
+#: ../shell/ev-window.c:5857
 msgid "_Go"
-msgstr ""
+msgstr "_Ddu"
 
-#: ../shell/ev-window.c:5868
+#: ../shell/ev-window.c:5858
 msgid "_Bookmarks"
-msgstr ""
+msgstr "I_sɣalen"
 
-#: ../shell/ev-window.c:5869
+#: ../shell/ev-window.c:5859
 msgid "_Help"
-msgstr ""
+msgstr "Ta_llalt"
 
 #. File menu
-#: ../shell/ev-window.c:5872 ../shell/ev-window.c:6347
+#: ../shell/ev-window.c:5862 ../shell/ev-window.c:6337
 msgid "_Open…"
-msgstr ""
+msgstr "_Ldi…"
 
-#: ../shell/ev-window.c:5874 ../shell/ev-window.c:6348
+#: ../shell/ev-window.c:5864 ../shell/ev-window.c:6338
 msgid "Open an existing document"
-msgstr ""
+msgstr "Ldi isemli yellan"
 
-#: ../shell/ev-window.c:5876
+#: ../shell/ev-window.c:5866
 msgid "Op_en a Copy"
-msgstr ""
+msgstr "_Ldi tasukkint"
+
+#: ../shell/ev-window.c:5868
+msgid "Open a copy of the current document in a new window"
+msgstr "Ldi tasukkint n isemli amiran deg usfaylu amaynut"
+
+#: ../shell/ev-window.c:5870
+msgid "_Save a Copy…"
+msgstr "_Sekles tasukkint…"
+
+#: ../shell/ev-window.c:5872
+msgid "Save a copy of the current document"
+msgstr "Sekles tasukkint n isemli amiran"
+
+#: ../shell/ev-window.c:5874
+msgid "_Print…"
+msgstr "_Siggez…"
 
 #: ../shell/ev-window.c:5878
-msgid "Open a copy of the current document in a new window"
-msgstr ""
-
-#: ../shell/ev-window.c:5880
-msgid "_Save a Copy…"
-msgstr ""
+msgid "P_roperties"
+msgstr "I_raten"
 
 #: ../shell/ev-window.c:5882
-msgid "Save a copy of the current document"
-msgstr ""
-
-#: ../shell/ev-window.c:5884
-msgid "_Print…"
-msgstr ""
-
-#: ../shell/ev-window.c:5888
-msgid "P_roperties"
-msgstr ""
-
-#: ../shell/ev-window.c:5892
 msgid "_Close"
-msgstr ""
+msgstr "_Mdel"
 
 #. Edit menu
-#: ../shell/ev-window.c:5898
+#: ../shell/ev-window.c:5888
 msgid "_Copy"
-msgstr ""
+msgstr "_Suken"
 
-#: ../shell/ev-window.c:5902
+#: ../shell/ev-window.c:5892
 msgid "Select _All"
-msgstr ""
+msgstr "Fren a_kk"
 
-#: ../shell/ev-window.c:5906
+#: ../shell/ev-window.c:5896
 msgid "_Find…"
-msgstr ""
+msgstr "_Nadi…"
+
+#: ../shell/ev-window.c:5898
+msgid "Find a word or phrase in the document"
+msgstr "Nadi awal neɣ tafyirt deg yisemli"
 
 #: ../shell/ev-window.c:5908
-msgid "Find a word or phrase in the document"
-msgstr ""
-
-#: ../shell/ev-window.c:5918
 msgid "Rotate _Left"
-msgstr ""
+msgstr "Zzi ɣer _zelmaḍ"
 
-#: ../shell/ev-window.c:5922
+#: ../shell/ev-window.c:5912
 msgid "Rotate _Right"
-msgstr ""
+msgstr "Zzi ɣer ye_fus"
 
-#: ../shell/ev-window.c:5926
+#: ../shell/ev-window.c:5916
 msgid "Save Current Settings as _Default"
-msgstr ""
+msgstr "Sekles iɣewwaren imiranen i lexṣa_s"
 
 #. View menu
-#: ../shell/ev-window.c:5937
+#: ../shell/ev-window.c:5927
 msgid "_Original size"
-msgstr ""
+msgstr "Taiddi ta_sentant"
+
+#: ../shell/ev-window.c:5929
+msgid "View the document at its original size"
+msgstr "Wali isemli s tiddi-ines tasentant"
+
+#: ../shell/ev-window.c:5931
+msgid "Zoom _In"
+msgstr "Se_mɣeṛ"
+
+#: ../shell/ev-window.c:5935
+msgid "Zoom _Out"
+msgstr "_Semẓi"
 
 #: ../shell/ev-window.c:5939
-msgid "View the document at its original size"
-msgstr ""
+msgid "_Reload"
+msgstr "_Smiren"
 
 #: ../shell/ev-window.c:5941
-msgid "Zoom _In"
-msgstr ""
-
-#: ../shell/ev-window.c:5945
-msgid "Zoom _Out"
-msgstr ""
-
-#: ../shell/ev-window.c:5949
-msgid "_Reload"
-msgstr ""
-
-#: ../shell/ev-window.c:5951
 msgid "Reload the document"
-msgstr ""
+msgstr "Ɛebbi tikkelt-nniḍen isemli"
 
-#: ../shell/ev-window.c:5953
+#: ../shell/ev-window.c:5943
 msgid "_Expand Window to Fit"
-msgstr ""
+msgstr "Si_mɣur asfaylu iwakken ad t-tsezgeḍ"
 
-#: ../shell/ev-window.c:5958
+#: ../shell/ev-window.c:5948
 msgid "Auto_scroll"
-msgstr ""
+msgstr "A_drurem awurman"
 
-#: ../shell/ev-window.c:5972
+#: ../shell/ev-window.c:5962
 msgid "_First Page"
-msgstr ""
+msgstr "Asebtar a_mezwaru"
+
+#: ../shell/ev-window.c:5964
+msgid "Go to the first page"
+msgstr "Ddu ɣer usebtar amezwaru"
+
+#: ../shell/ev-window.c:5966
+msgid "_Last Page"
+msgstr "Asebtar a_neggaru"
+
+#: ../shell/ev-window.c:5968
+msgid "Go to the last page"
+msgstr "Ddu ɣer usebtar aneggaru"
+
+#: ../shell/ev-window.c:5970
+msgid "Previous History Item"
+msgstr "Aferdis uzwir n umazray"
 
 #: ../shell/ev-window.c:5974
-msgid "Go to the first page"
-msgstr ""
-
-#: ../shell/ev-window.c:5976
-msgid "_Last Page"
-msgstr ""
-
-#: ../shell/ev-window.c:5978
-msgid "Go to the last page"
-msgstr ""
-
-#: ../shell/ev-window.c:5980
-msgid "Previous History Item"
-msgstr ""
-
-#: ../shell/ev-window.c:5984
 msgid "Next History Item"
-msgstr ""
+msgstr "Aferdis uḍfir n umazray"
 
 #. Bookmarks menu
-#: ../shell/ev-window.c:5990
+#: ../shell/ev-window.c:5980
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "_Rnu ticreṭ"
 
-#: ../shell/ev-window.c:5992
+#: ../shell/ev-window.c:5982
 msgid "Add a bookmark for the current page"
-msgstr ""
+msgstr "Rnu anuraf i wesebtar amiran"
 
 #. Help menu
-#: ../shell/ev-window.c:5996
+#: ../shell/ev-window.c:5986
 msgid "_Contents"
-msgstr ""
+msgstr "A_gbur"
 
-#: ../shell/ev-window.c:6001
+#: ../shell/ev-window.c:5991
 msgid "_About"
-msgstr ""
+msgstr "_Ɣef"
 
 #. Toolbar-only
-#: ../shell/ev-window.c:6007
+#: ../shell/ev-window.c:5997
 msgid "Leave Fullscreen"
-msgstr ""
+msgstr "Ffeɣ seg ugdil aččuran"
 
-#: ../shell/ev-window.c:6009
+#: ../shell/ev-window.c:5999
 msgid "Leave fullscreen mode"
-msgstr ""
+msgstr "Ffeɣ seg uskar n ugdil aččuran"
 
-#: ../shell/ev-window.c:6011
+#: ../shell/ev-window.c:6001
 msgid "Start Presentation"
-msgstr ""
+msgstr "Sekker tanekda"
 
-#: ../shell/ev-window.c:6013
+#: ../shell/ev-window.c:6003
 msgid "Start a presentation"
-msgstr ""
+msgstr "Sekker tanekda"
 
 #. View Menu
-#: ../shell/ev-window.c:6130
+#: ../shell/ev-window.c:6120
 msgid "_Toolbar"
-msgstr ""
+msgstr "Afeggag n ife_cka"
+
+#: ../shell/ev-window.c:6122
+msgid "Show or hide the toolbar"
+msgstr "Sken neɣ ffer tafeggagt n ifecka"
+
+#: ../shell/ev-window.c:6124
+msgid "Side _Pane"
+msgstr "A_galis n yidis"
+
+#: ../shell/ev-window.c:6126
+msgid "Show or hide the side pane"
+msgstr "Sken neɣ ffer agalis n yidis"
+
+#: ../shell/ev-window.c:6128
+msgid "_Continuous"
+msgstr "A_maɣlal"
+
+#: ../shell/ev-window.c:6130
+msgid "Show the entire document"
+msgstr "Sken isemli i merra"
 
 #: ../shell/ev-window.c:6132
-msgid "Show or hide the toolbar"
-msgstr ""
+msgid "_Dual (Even pages left)"
+msgstr "U_slig (isebtaren izelmaḍen d iyuganen)"
 
 #: ../shell/ev-window.c:6134
-msgid "Side _Pane"
-msgstr ""
+msgid "Show two pages at once with even pages on the left"
+msgstr "Beqqeḍ sin n isebtaren ɣef tikkelt, isebtaren iyuganen ɣer zelmaḍ"
 
 #: ../shell/ev-window.c:6136
-msgid "Show or hide the side pane"
-msgstr ""
+msgid "Dual (_Odd pages left)"
+msgstr "U_slig (isebtaren izelmaḍen d iryuganen)"
 
 #: ../shell/ev-window.c:6138
-msgid "_Continuous"
-msgstr ""
+msgid "Show two pages at once with odd pages on the left"
+msgstr "Beqqeḍ sin n isebtaren ɣef tikkelt, isebtaren iryuganen ɣer zelmaḍ"
 
 #: ../shell/ev-window.c:6140
-msgid "Show the entire document"
-msgstr ""
+msgid "_Fullscreen"
+msgstr "Agdil a_ččuran"
 
 #: ../shell/ev-window.c:6142
-msgid "_Dual (Even pages left)"
-msgstr ""
+msgid "Expand the window to fill the screen"
+msgstr "Simɣur asfaylu iwakken ad yawi akk agdil"
 
 #: ../shell/ev-window.c:6144
-msgid "Show two pages at once with even pages on the left"
-msgstr ""
+msgid "Pre_sentation"
+msgstr "Ta_nekda"
 
 #: ../shell/ev-window.c:6146
-msgid "Dual (_Odd pages left)"
-msgstr ""
-
-#: ../shell/ev-window.c:6148
-msgid "Show two pages at once with odd pages on the left"
-msgstr ""
-
-#: ../shell/ev-window.c:6150
-msgid "_Fullscreen"
-msgstr ""
-
-#: ../shell/ev-window.c:6152
-msgid "Expand the window to fill the screen"
-msgstr ""
-
-#: ../shell/ev-window.c:6154
-msgid "Pre_sentation"
-msgstr ""
+msgid "Run document as a presentation"
+msgstr "Selkem isemli am tnekda"
 
 #: ../shell/ev-window.c:6156
-msgid "Run document as a presentation"
-msgstr ""
-
-#: ../shell/ev-window.c:6166
 msgid "_Inverted Colors"
-msgstr ""
+msgstr "Initen ye_ttin"
 
-#: ../shell/ev-window.c:6168
+#: ../shell/ev-window.c:6158
 msgid "Show page contents with the colors inverted"
-msgstr ""
+msgstr "Sken agbur n isebtaren s yiniten yttin"
 
 #. Links
-#: ../shell/ev-window.c:6176
+#: ../shell/ev-window.c:6166
 msgid "_Open Link"
-msgstr ""
+msgstr "_Ldi aseɣwen"
+
+#: ../shell/ev-window.c:6168
+msgid "_Go To"
+msgstr "D_du ɣer"
+
+#: ../shell/ev-window.c:6170
+msgid "Open in New _Window"
+msgstr "Ldi deg usfaylu a_maynut"
+
+#: ../shell/ev-window.c:6172
+msgid "_Copy Link Address"
+msgstr "_Suken aseɣwen n tansa"
+
+#: ../shell/ev-window.c:6174
+msgid "_Save Image As…"
+msgstr "_Sekles tugna am…"
+
+#: ../shell/ev-window.c:6176
+msgid "Copy _Image"
+msgstr "Sukken tu_gna"
 
 #: ../shell/ev-window.c:6178
-msgid "_Go To"
-msgstr ""
+msgid "Annotation Properties…"
+msgstr "Iraten n telɣut…"
 
 #: ../shell/ev-window.c:6180
-msgid "Open in New _Window"
-msgstr ""
-
-#: ../shell/ev-window.c:6182
-msgid "_Copy Link Address"
-msgstr ""
-
-#: ../shell/ev-window.c:6184
-msgid "_Save Image As…"
-msgstr ""
-
-#: ../shell/ev-window.c:6186
-msgid "Copy _Image"
-msgstr ""
-
-#: ../shell/ev-window.c:6188
-msgid "Annotation Properties…"
-msgstr ""
-
-#: ../shell/ev-window.c:6190
 msgid "Remove Annotation"
-msgstr ""
+msgstr "Kkes talɣut"
 
-#: ../shell/ev-window.c:6195
+#: ../shell/ev-window.c:6185
 msgid "_Open Attachment"
-msgstr ""
+msgstr "_Ldi afaylu yeddan"
 
-#: ../shell/ev-window.c:6197
+#: ../shell/ev-window.c:6187
 msgid "_Save Attachment As…"
-msgstr ""
+msgstr "_Sekles afaylu yeddan am…"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6368
+#: ../shell/ev-window.c:6358
 msgid "Previous"
-msgstr ""
+msgstr "Uzwir"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6373
+#: ../shell/ev-window.c:6363
 msgid "Next"
-msgstr ""
+msgstr "Ar zdat"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6377
+#: ../shell/ev-window.c:6367
 msgid "Zoom In"
-msgstr ""
+msgstr "Semɣer"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6381
+#: ../shell/ev-window.c:6371
 msgid "Zoom Out"
-msgstr ""
+msgstr "Zoom ɣer deffir"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6393
+#: ../shell/ev-window.c:6383
 msgid "Fit Width"
-msgstr ""
+msgstr "Sezg tehri"
 
-#: ../shell/ev-window.c:6570 ../shell/ev-window.c:6586
+#: ../shell/ev-window.c:6560 ../shell/ev-window.c:6576
 msgid "Unable to launch external application."
-msgstr ""
+msgstr "D awezɣi asekker n usnas uffiɣ."
 
-#: ../shell/ev-window.c:6644
+#: ../shell/ev-window.c:6634
 msgid "Unable to open external link"
-msgstr ""
+msgstr "D awezɣi alday n useɣwen uffiɣ"
 
-#: ../shell/ev-window.c:6845
+#: ../shell/ev-window.c:6835
 msgid "Couldn't find appropriate format to save image"
-msgstr ""
+msgstr "D awezɣi tifin n umasal iwatan i wesekles n tugna"
 
-#: ../shell/ev-window.c:6876
+#: ../shell/ev-window.c:6866
 msgid "The image could not be saved."
-msgstr ""
+msgstr "Tugna ulamek ara tettwasekles."
 
-#: ../shell/ev-window.c:6909
+#: ../shell/ev-window.c:6899
 msgid "Save Image"
-msgstr ""
+msgstr "Sekles tugna"
 
-#: ../shell/ev-window.c:7051
+#: ../shell/ev-window.c:7041
 msgid "Unable to open attachment"
-msgstr ""
+msgstr "Ulamek alday n ufaylu yeddan"
 
-#: ../shell/ev-window.c:7108
+#: ../shell/ev-window.c:7098
 msgid "The attachment could not be saved."
-msgstr ""
+msgstr "Afaylu yeddan ulamek ara yettwasekles."
 
-#: ../shell/ev-window.c:7154
+#: ../shell/ev-window.c:7144
 msgid "Save Attachment"
-msgstr ""
+msgstr "Sekles afaylu yeddan"
 
 #: ../shell/ev-window-title.c:127
 msgid "Recent Documents"
-msgstr ""
+msgstr "Ittafttaren n melmi kan"
 
 #: ../shell/ev-window-title.c:175
 #, c-format
 msgid "%s — Password Required"
-msgstr ""
+msgstr "%s — Awal n uɛeddi yettwasra"
 
 #: ../shell/ev-utils.c:105
 msgid "By extension"
-msgstr ""
+msgstr "S uzegrir"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."
-msgstr ""
+msgstr "Tabzimt n usebtar n isemli ara yettwabeqqeḍen."
 
 #: ../shell/main.c:66
 msgid "PAGE"
-msgstr ""
+msgstr "ASEBTER"
 
 #: ../shell/main.c:67
 msgid "The page number of the document to display."
-msgstr ""
+msgstr "Uṭṭun n usebtar n isemli ara yettwabeqqeḍen."
 
 #: ../shell/main.c:67
 msgid "NUMBER"
-msgstr ""
+msgstr "UṬṬUN"
 
 #: ../shell/main.c:68
 msgid "Run xreader in fullscreen mode"
-msgstr ""
+msgstr "Selkem xreader deg uskar n ugdil aččuran"
 
 #: ../shell/main.c:69
 msgid "Named destination to display."
@@ -1637,24 +1648,24 @@ msgstr ""
 
 #: ../shell/main.c:69
 msgid "DEST"
-msgstr ""
+msgstr "DEST"
 
 #: ../shell/main.c:70
 msgid "Run xreader in presentation mode"
-msgstr ""
+msgstr "Selkem xreader s uskar n tnekda"
 
 #: ../shell/main.c:71
 msgid "Run xreader as a previewer"
-msgstr ""
+msgstr "Senker xreader am tsekant n usiggez"
 
 #: ../shell/main.c:72
 msgid "The word or phrase to find in the document"
-msgstr ""
+msgstr "Awal neɣ tafyirt ara tnadiḍ deg isemli"
 
 #: ../shell/main.c:72
 msgid "STRING"
-msgstr ""
+msgstr "AZRAR"
 
 #: ../shell/main.c:76
 msgid "[FILE…]"
-msgstr ""
+msgstr "[AFAYLU…]"

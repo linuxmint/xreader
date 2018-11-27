@@ -1,24 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Latin translation for linuxmint
+# Copyright (c) 2018 Rosetta Contributors and Canonical Ltd 2018
+# This file is distributed under the same license as the linuxmint package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
 #
-# Translators:
-# Ardit Dani <ardit.dani@gmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: linuxmint\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2018-11-19 10:13+0000\n"
-"PO-Revision-Date: 2016-03-30 14:52+0000\n"
-"Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
-"Language-Team: Albanian (http://www.transifex.com/mate/MATE/language/sq/)\n"
+"PO-Revision-Date: 2018-10-16 17:04+0000\n"
+"Last-Translator: Vendelín Slezák <Unknown>\n"
+"Language-Team: Latin <la@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Launchpad-Export-Date: 2018-11-27 17:52+0000\n"
 "X-Generator: Launchpad (build 18826)\n"
-"Language: sq\n"
 
 #: ../backend/comics/comics-document.c:208
 #, c-format
@@ -50,7 +48,7 @@ msgstr ""
 #: ../libdocument/ev-document-factory.c:145
 #: ../libdocument/ev-document-factory.c:288
 msgid "Unknown MIME Type"
-msgstr "Lloj MIME i panjohur"
+msgstr ""
 
 #: ../backend/comics/comics-document.c:567
 msgid "File corrupted"
@@ -63,7 +61,7 @@ msgstr ""
 #: ../backend/comics/comics-document.c:619
 #, c-format
 msgid "No images found in archive %s"
-msgstr "Nuk u gjetën figura tek arkivi %s"
+msgstr ""
 
 #: ../backend/comics/comics-document.c:866 ../backend/epub/epub-document.c:1782
 #, c-format
@@ -73,11 +71,11 @@ msgstr ""
 #: ../backend/comics/comics-document.c:1015
 #, c-format
 msgid "Error %s"
-msgstr "Gabim %s"
+msgstr ""
 
 #: ../backend/comics/comicsdocument.xreader-backend.in.h:1
 msgid "Comic Books"
-msgstr "Libra komikë"
+msgstr ""
 
 #: ../backend/djvu/djvu-document.c:171
 msgid "DjVu document has incorrect format"
@@ -95,11 +93,11 @@ msgstr ""
 
 #: ../backend/dvi/dvi-document.c:107
 msgid "DVI document has incorrect format"
-msgstr "Dokumenti DVI është i një formati të parregullt"
+msgstr ""
 
 #: ../backend/dvi/dvidocument.xreader-backend.in.h:1
 msgid "DVI Documents"
-msgstr "Dokumente DVI"
+msgstr ""
 
 #: ../backend/epub/epub-document.c:649
 msgid "Not an ePub document"
@@ -168,110 +166,110 @@ msgstr ""
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:772 ../backend/pdf/ev-poppler.cc:778
 msgid "Yes"
-msgstr "Po"
+msgstr ""
 
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:775 ../backend/pdf/ev-poppler.cc:778
 msgid "No"
-msgstr "Jo"
+msgstr ""
 
 #: ../backend/pdf/ev-poppler.cc:905
 msgid "Type 1"
-msgstr "Lloji 1"
+msgstr ""
 
 #: ../backend/pdf/ev-poppler.cc:907
 msgid "Type 1C"
-msgstr "Lloji 1C"
+msgstr ""
 
 #: ../backend/pdf/ev-poppler.cc:909
 msgid "Type 3"
-msgstr "Lloji 3"
+msgstr ""
 
 #: ../backend/pdf/ev-poppler.cc:911
 msgid "TrueType"
-msgstr "TrueType"
+msgstr ""
 
 #: ../backend/pdf/ev-poppler.cc:913
 msgid "Type 1 (CID)"
-msgstr "Lloji 1 (CID)"
+msgstr ""
 
 #: ../backend/pdf/ev-poppler.cc:915
 msgid "Type 1C (CID)"
-msgstr "Lloji 1C (CID)"
+msgstr ""
 
 #: ../backend/pdf/ev-poppler.cc:917
 msgid "TrueType (CID)"
-msgstr "TrueType (CID)"
+msgstr ""
 
 #: ../backend/pdf/ev-poppler.cc:919
 msgid "Unknown font type"
-msgstr "Lloj gërmë e panjohur"
+msgstr ""
 
 #: ../backend/pdf/ev-poppler.cc:945
 msgid "No name"
-msgstr "Pa emër"
+msgstr ""
 
 #: ../backend/pdf/ev-poppler.cc:953
 msgid "Embedded subset"
-msgstr "E nënpërbashkët e trupëzuar"
+msgstr ""
 
 #: ../backend/pdf/ev-poppler.cc:955
 msgid "Embedded"
-msgstr "Trupëzuar"
+msgstr ""
 
 #: ../backend/pdf/ev-poppler.cc:957
 msgid "Not embedded"
-msgstr "Jo e trupëzuar"
+msgstr ""
 
 #: ../backend/pdf/pdfdocument.xreader-backend.in.h:1
 msgid "PDF Documents"
-msgstr "Dokumente PDF"
+msgstr ""
 
 #: ../backend/ps/ev-spectre.c:102
 #, c-format
 msgid "Failed to load document “%s”"
-msgstr "E pamundur hapja e dokumentit “%s”"
+msgstr ""
 
 #: ../backend/ps/ev-spectre.c:135
 #, c-format
 msgid "Failed to save document “%s”"
-msgstr "E pamundur ruajtja e dokumentit “%s”"
+msgstr ""
 
 #: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
-msgstr "Dokumente PostScript"
+msgstr ""
 
 #: ../backend/tiff/tiff-document.c:114
 msgid "Invalid document"
-msgstr "Dokument i pavlefshëm"
+msgstr ""
 
 #: ../libdocument/ev-attachment.c:304 ../libdocument/ev-attachment.c:325
 #, c-format
 msgid "Couldn't save attachment “%s”: %s"
-msgstr "E pamundur ruajtja e të bashkangjiturit “%s”: %s"
+msgstr ""
 
 #: ../libdocument/ev-attachment.c:373
 #, c-format
 msgid "Couldn't open attachment “%s”: %s"
-msgstr "E pamundur hapja e të bashkangjiturit “%s”: %s"
+msgstr ""
 
 #: ../libdocument/ev-attachment.c:408
 #, c-format
 msgid "Couldn't open attachment “%s”"
-msgstr "E pamundur hapja e të bashkangjiturit “%s”"
+msgstr ""
 
 #: ../libdocument/ev-document-factory.c:170
 #, c-format
 msgid "File type %s (%s) is not supported"
-msgstr "File i llojit %s (%s) nuk suportohet"
+msgstr ""
 
 #: ../libdocument/ev-document-factory.c:361
 msgid "All Documents"
-msgstr "Të gjithë dokumentët"
+msgstr ""
 
 #: ../libdocument/ev-document-factory.c:393
 msgid "All Files"
-msgstr "Të gjithë files"
+msgstr "Scatuli omnia"
 
 #: ../libdocument/ev-file-helpers.c:147
 #, c-format
@@ -286,59 +284,58 @@ msgstr ""
 #: ../cut-n-paste/smclient/eggdesktopfile.c:165
 #, c-format
 msgid "File is not a valid .desktop file"
-msgstr "File nuk është një file i vlefshëm .desktop"
+msgstr ""
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:188
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
-msgstr "Version i pasaktë file desktop '%s'"
+msgstr ""
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:957
 #, c-format
 msgid "Starting %s"
-msgstr "Duke nisur %s"
+msgstr ""
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1098
 #, c-format
 msgid "Application does not accept documents on command line"
-msgstr "Aplikativi nuk pranon dokumente në rreshtin e komandës"
+msgstr ""
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1166
 #, c-format
 msgid "Unrecognized launch option: %d"
-msgstr "Opsion i pasaktë nisje: %d"
+msgstr ""
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1365
 #, c-format
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgstr ""
-"Nuk mund t'i kalohen URLtë e dokumenteve një zëri desktop 'Type=Link'"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1384
 #, c-format
 msgid "Not a launchable item"
-msgstr "Nuk është një element i ekzekutueshëm"
+msgstr ""
 
 #: ../cut-n-paste/smclient/eggsmclient.c:227
 msgid "Disable connection to session manager"
-msgstr "Çaktivizon lidhjen me menazhuesin e seancës"
+msgstr ""
 
 #: ../cut-n-paste/smclient/eggsmclient.c:230
 msgid "Specify file containing saved configuration"
-msgstr "Specifikon file që përmban konfiurimin e ruajtur"
+msgstr ""
 
 #: ../cut-n-paste/smclient/eggsmclient.c:230 ../previewer/ev-previewer.c:35
 #: ../previewer/ev-previewer.c:36
 msgid "FILE"
-msgstr "FILE"
+msgstr "SCATULA"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:233
 msgid "Specify session management ID"
-msgstr "Specifikon ID e menazhuesit të seancës"
+msgstr ""
 
 #: ../cut-n-paste/smclient/eggsmclient.c:233
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #: ../cut-n-paste/smclient/eggsmclient.c:254
 msgid "Session management options:"
@@ -351,11 +348,11 @@ msgstr ""
 #. translators: this is the label for toolbar button
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6379
 msgid "Best Fit"
-msgstr "Përshtatja më e mirë"
+msgstr ""
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:50
 msgid "Fit Page Width"
-msgstr "Përshtat gjerësinë e faqes"
+msgstr ""
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:5945
 msgid "Expand Window to Fit"
@@ -363,59 +360,59 @@ msgstr ""
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:53
 msgid "50%"
-msgstr "50%"
+msgstr ""
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:54
 msgid "70%"
-msgstr "70%"
+msgstr ""
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:55
 msgid "85%"
-msgstr "85%"
+msgstr ""
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:56
 msgid "100%"
-msgstr "100%"
+msgstr ""
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:57
 msgid "125%"
-msgstr "125%"
+msgstr ""
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:58
 msgid "150%"
-msgstr "150%"
+msgstr ""
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:59
 msgid "175%"
-msgstr "175%"
+msgstr ""
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:60
 msgid "200%"
-msgstr "200%"
+msgstr ""
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:61
 msgid "300%"
-msgstr "300%"
+msgstr ""
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:62
 msgid "400%"
-msgstr "400%"
+msgstr ""
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:63
 msgid "800%"
-msgstr "800%"
+msgstr ""
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:64
 msgid "1600%"
-msgstr "1600%"
+msgstr ""
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:65
 msgid "3200%"
-msgstr "3200%"
+msgstr ""
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:66
 msgid "6400%"
-msgstr "6400%"
+msgstr ""
 
 #: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer"
@@ -433,7 +430,7 @@ msgstr ""
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:162
 #: ../shell/main.c:241 ../shell/main.c:270
 msgid "Document Viewer"
-msgstr "Shikues dokumentesh"
+msgstr ""
 
 #: ../data/xreader.desktop.in.in.h:2
 msgid "View multi-page documents"
@@ -479,7 +476,7 @@ msgstr ""
 
 #: ../previewer/ev-previewer.c:35
 msgid "Print settings file"
-msgstr "Printo konfigurimin e dokumenti"
+msgstr ""
 
 #: ../previewer/ev-previewer.c:106 ../previewer/ev-previewer.c:137
 msgid "Print Preview"
@@ -487,7 +484,7 @@ msgstr ""
 
 #: ../previewer/ev-previewer-window.c:93 ../shell/ev-window.c:3295
 msgid "Failed to print document"
-msgstr "I pamundur prinitmi i dokumentit"
+msgstr ""
 
 #: ../previewer/ev-previewer-window.c:247
 #, c-format
@@ -497,27 +494,27 @@ msgstr ""
 #. Go menu
 #: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:5954
 msgid "_Previous Page"
-msgstr "Faqja _Paraardhëse"
+msgstr ""
 
 #: ../previewer/ev-previewer-window.c:295 ../shell/ev-window.c:5956
 msgid "Go to the previous page"
-msgstr "Shko tek faqja paraardhëse"
+msgstr ""
 
 #: ../previewer/ev-previewer-window.c:297 ../shell/ev-window.c:5958
 msgid "_Next Page"
-msgstr "Faqja në _Vazhdim"
+msgstr ""
 
 #: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:5960
 msgid "Go to the next page"
-msgstr "Shko tek faqja në vazhdim"
+msgstr ""
 
 #: ../previewer/ev-previewer-window.c:301 ../shell/ev-window.c:5933
 msgid "Enlarge the document"
-msgstr "Zmadho dokumentin"
+msgstr ""
 
 #: ../previewer/ev-previewer-window.c:304 ../shell/ev-window.c:5937
 msgid "Shrink the document"
-msgstr "Ngushto dokumentin"
+msgstr ""
 
 #. translators: this is the label for toolbar button
 #: ../previewer/ev-previewer-window.c:307 ../shell/ev-window.c:6375
@@ -528,81 +525,81 @@ msgstr ""
 #. translators: Title of the print dialog
 #: ../previewer/ev-previewer-window.c:311 ../libview/ev-print-operation.c:1309
 msgid "Print"
-msgstr "Printo"
+msgstr ""
 
 #: ../previewer/ev-previewer-window.c:312 ../shell/ev-window.c:5876
 msgid "Print this document"
-msgstr "Printo këtë dokument"
+msgstr ""
 
 #: ../previewer/ev-previewer-window.c:356 ../shell/ev-window.c:6148
 msgid "_Best Fit"
-msgstr "_Përshtate"
+msgstr ""
 
 #: ../previewer/ev-previewer-window.c:357 ../shell/ev-window.c:6150
 msgid "Make the current document fill the window"
-msgstr "Përshtatja dritares dokumentin aktual"
+msgstr ""
 
 #: ../previewer/ev-previewer-window.c:359 ../shell/ev-window.c:6152
 msgid "Fit Page _Width"
-msgstr "Përshtat _gjerësinë e faqes"
+msgstr ""
 
 #: ../previewer/ev-previewer-window.c:360 ../shell/ev-window.c:6154
 msgid "Make the current document fill the window width"
-msgstr "Përshtatja dokumentin aktual gjerësisë së dritares"
+msgstr ""
 
 #: ../previewer/ev-previewer-window.c:578 ../shell/ev-window.c:6323
 msgid "Page"
-msgstr "Faqja"
+msgstr ""
 
 #: ../previewer/ev-previewer-window.c:579 ../shell/ev-window.c:6324
 msgid "Select Page"
-msgstr "Zgjidh faqen"
+msgstr ""
 
 #: ../libmisc/ev-page-action-widget.c:85 ../libmisc/ev-page-action-widget.c:125
 #, c-format
 msgid "(%d of %d)"
-msgstr "(%d në %d)"
+msgstr ""
 
 #: ../libmisc/ev-page-action-widget.c:87 ../libmisc/ev-page-action-widget.c:127
 #, c-format
 msgid "of %d"
-msgstr "nga %d"
+msgstr ""
 
 #. Create tree view
 #: ../libview/ev-loading-window.c:76 ../shell/ev-sidebar-annotations.c:158
 #: ../shell/ev-sidebar-layers.c:124 ../shell/ev-sidebar-links.c:260
 msgid "Loading…"
-msgstr "Ngarkimi..."
+msgstr ""
 
 #. Initial state
 #: ../libview/ev-print-operation.c:334
 msgid "Preparing to print…"
-msgstr "Përgatitja për printim..."
+msgstr ""
 
 #: ../libview/ev-print-operation.c:336
 msgid "Finishing…"
-msgstr "Mbarimi..."
+msgstr ""
 
 #: ../libview/ev-print-operation.c:338
 #, c-format
 msgid "Printing page %d of %d…"
-msgstr "Printimi faqes %d i %d..."
+msgstr ""
 
 #: ../libview/ev-print-operation.c:1162
 msgid "Printing is not supported on this printer."
-msgstr "Printimi nuk suportohet nga ky printer."
+msgstr ""
 
 #: ../libview/ev-print-operation.c:1227
 msgid "Invalid page selection"
-msgstr "Zgjedhja Faqja e pavlefshme"
+msgstr ""
 
 #: ../libview/ev-print-operation.c:1228
 msgid "Warning"
-msgstr "Paralajmërim"
+msgstr ""
 
 #: ../libview/ev-print-operation.c:1230
 msgid "Your print range selection does not include any pages"
-msgstr "Zgjedhja vargut tuaj për printim nuk përfshin ndonjë faqe"
+msgstr ""
 
 #: ../libview/ev-print-operation.c:1888
 msgid "Page Scaling:"
@@ -611,11 +608,11 @@ msgstr ""
 #. translators: Value for 'Page Scaling:' to not scale the document pages on printing
 #: ../libview/ev-print-operation.c:1894
 msgid "None"
-msgstr "Asnjë"
+msgstr ""
 
 #: ../libview/ev-print-operation.c:1895
 msgid "Shrink to Printable Area"
-msgstr "Zvogëlo në zonën printuese"
+msgstr ""
 
 #: ../libview/ev-print-operation.c:1896
 msgid "Fit to Printable Area"
@@ -637,7 +634,7 @@ msgstr ""
 
 #: ../libview/ev-print-operation.c:1911
 msgid "Auto Rotate and Center"
-msgstr "Rrotullim Automatik dhe Qendra"
+msgstr ""
 
 #: ../libview/ev-print-operation.c:1914
 msgid ""
@@ -666,27 +663,27 @@ msgstr ""
 
 #: ../libview/ev-view-accessible.c:46
 msgid "Scroll Up"
-msgstr "Sipër"
+msgstr ""
 
 #: ../libview/ev-view-accessible.c:47
 msgid "Scroll Down"
-msgstr "Poshtë"
+msgstr ""
 
 #: ../libview/ev-view-accessible.c:53
 msgid "Scroll View Up"
-msgstr "Rrëshqit sipër pamjen"
+msgstr ""
 
 #: ../libview/ev-view-accessible.c:54
 msgid "Scroll View Down"
-msgstr "Rrëshqit poshtë pamjen"
+msgstr ""
 
 #: ../libview/ev-view-accessible.c:883
 msgid "Document View"
-msgstr "Shikimi i dokumentit"
+msgstr ""
 
 #: ../libview/ev-view-presentation.c:692
 msgid "Jump to page:"
-msgstr "Shko tek faqja:"
+msgstr ""
 
 #: ../libview/ev-view-presentation.c:996
 msgid "End of presentation. Click to exit."
@@ -694,67 +691,67 @@ msgstr ""
 
 #: ../libview/ev-view.c:1845
 msgid "Go to first page"
-msgstr "Shko tek faqja e parë"
+msgstr ""
 
 #: ../libview/ev-view.c:1847
 msgid "Go to previous page"
-msgstr "Shko tek faqja paraardhëse"
+msgstr ""
 
 #: ../libview/ev-view.c:1849
 msgid "Go to next page"
-msgstr "Shko tek faqja në vazhdim"
+msgstr ""
 
 #: ../libview/ev-view.c:1851
 msgid "Go to last page"
-msgstr "Shko tek faqja e fundit"
+msgstr ""
 
 #: ../libview/ev-view.c:1853
 msgid "Go to page"
-msgstr "Shko tek faqja"
+msgstr ""
 
 #: ../libview/ev-view.c:1855
 msgid "Find"
-msgstr "Gjej"
+msgstr ""
 
 #: ../libview/ev-view.c:1883
 #, c-format
 msgid "Go to page %s"
-msgstr "Shko tek faqja %s"
+msgstr ""
 
 #: ../libview/ev-view.c:1889
 #, c-format
 msgid "Go to %s on file “%s”"
-msgstr "Shko tek %s tek file “%s”"
+msgstr ""
 
 #: ../libview/ev-view.c:1892
 #, c-format
 msgid "Go to file “%s”"
-msgstr "Shko tek file “%s”"
+msgstr ""
 
 #: ../libview/ev-view.c:1900
 #, c-format
 msgid "Launch %s"
-msgstr "Nis %s"
+msgstr ""
 
 #: ../shell/eggfindbar.c:307
 msgid "Find:"
-msgstr "Gjej:"
+msgstr ""
 
 #: ../shell/eggfindbar.c:328 ../shell/ev-window.c:5904
 msgid "Find Pre_vious"
-msgstr "Gjej para_ardhësen"
+msgstr ""
 
 #: ../shell/eggfindbar.c:332
 msgid "Find previous occurrence of the search string"
-msgstr "Gjej korrispondimin paraardhës të tekstit të kërkuar"
+msgstr ""
 
 #: ../shell/eggfindbar.c:336 ../shell/ev-window.c:5900
 msgid "Find Ne_xt"
-msgstr "Gjej në va_zhdim"
+msgstr ""
 
 #: ../shell/eggfindbar.c:340
 msgid "Find next occurrence of the search string"
-msgstr "Gjej korrispondimin në vazhdim të tekstit të kërkuar"
+msgstr ""
 
 #: ../shell/eggfindbar.c:347
 msgid "Case Sensitive"
@@ -762,40 +759,40 @@ msgstr ""
 
 #: ../shell/eggfindbar.c:350
 msgid "Toggle case sensitive search"
-msgstr "Ndrysho kërkimin e ndjeshëm ndaj ndryshimit gërma të mëdha/vogla"
+msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:96
 msgid "Icon:"
-msgstr "Ikona:"
+msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:103
 msgid "Note"
-msgstr "Shënim"
+msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:104
 msgid "Comment"
-msgstr "Koment"
+msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:105
 msgid "Key"
-msgstr "Çeles"
+msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:106
 #: ../shell/ev-preferences-dialog.c:117
 msgid "Help"
-msgstr "Ndihmë"
+msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:107
 msgid "New Paragraph"
-msgstr "Paragrafi i Ri"
+msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:108
 msgid "Paragraph"
-msgstr "Paragraf"
+msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:109
 msgid "Insert"
-msgstr "Fut"
+msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:110
 msgid "Cross"
@@ -803,11 +800,11 @@ msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:111
 msgid "Circle"
-msgstr "Rreth"
+msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:112
 msgid "Unknown"
-msgstr "i panjohur"
+msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:138
 msgid "Annotation Properties"
@@ -815,23 +812,23 @@ msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:158
 msgid "Author:"
-msgstr "Autori:"
+msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:171
 msgid "Color:"
-msgstr "Ngjyrat:"
+msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:183
 msgid "Style:"
-msgstr "Stili:"
+msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:199
 msgid "Transparent"
-msgstr "Tejdukshem:"
+msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:206
 msgid "Opaque"
-msgstr "e errët"
+msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:216
 msgid "Initial window state:"
@@ -839,22 +836,22 @@ msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:224
 msgid "Open"
-msgstr "Hap"
+msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:225
 #: ../shell/ev-preferences-dialog.c:121
 msgid "Close"
-msgstr "Mbyll"
+msgstr ""
 
 #: ../shell/ev-application.c:1000
 msgid "Running in presentation mode"
-msgstr "Duke punuar në mënyrën prezantim"
+msgstr ""
 
 #: ../shell/ev-history.c:475 ../shell/ev-sidebar-bookmarks.c:313
 #: ../shell/ev-window.c:872 ../shell/ev-window.c:4621
 #, c-format
 msgid "Page %s"
-msgstr "Faqja %s"
+msgstr ""
 
 #: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:5972
 msgid "Go to previous history item"
@@ -867,42 +864,39 @@ msgstr ""
 #: ../shell/ev-keyring.c:86
 #, c-format
 msgid "Password for document %s"
-msgstr "Fjalëkalimi për dokumentin %s"
+msgstr ""
 
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
-msgstr "Hap një dokument të përdorur së fundmi"
+msgstr ""
 
 #: ../shell/ev-password-view.c:140
 msgid ""
 "This document is locked and can only be read by entering the correct "
 "password."
 msgstr ""
-"Ky dokument është bllokuar dhe mund të lexohet vetë mbasi të jepet "
-"fjalëkalimi korrekt."
 
 #: ../shell/ev-password-view.c:149 ../shell/ev-password-view.c:266
 msgid "_Unlock Document"
-msgstr "Ç_blloko dokumentin"
+msgstr ""
 
 #: ../shell/ev-password-view.c:259
 msgid "Enter password"
-msgstr "Shkruaj fjalëkalimin"
+msgstr ""
 
 #: ../shell/ev-password-view.c:296
 #, c-format
 msgid ""
 "The document “%s” is locked and requires a password before it can be opened."
 msgstr ""
-"Dokumenti “%s” është bllokuar dhe kërkon një fjalëkalim për t'u hapur."
 
 #: ../shell/ev-password-view.c:299
 msgid "Password required"
-msgstr "Kërkohet fjalëkalimi"
+msgstr ""
 
 #: ../shell/ev-password-view.c:329
 msgid "_Password:"
-msgstr "_Fjalëkalimi:"
+msgstr ""
 
 #: ../shell/ev-password-view.c:362
 msgid "Forget password _immediately"
@@ -934,61 +928,61 @@ msgstr ""
 
 #: ../shell/ev-properties-dialog.c:63
 msgid "Properties"
-msgstr "Pronësitë"
+msgstr "Proprieti"
 
 #: ../shell/ev-properties-dialog.c:97
 msgid "General"
-msgstr "Të përgjithshme"
+msgstr ""
 
 #: ../shell/ev-properties-dialog.c:107
 msgid "Fonts"
-msgstr "Gërmat"
+msgstr ""
 
 #: ../shell/ev-properties-dialog.c:120
 msgid "Document License"
-msgstr "Dokumenti liçensës"
+msgstr ""
 
 #: ../shell/ev-properties-fonts.c:133
 msgid "Font"
-msgstr "Gërmat"
+msgstr ""
 
 #: ../shell/ev-properties-fonts.c:160
 #, c-format
 msgid "Gathering font information… %3d%%"
-msgstr "Duke mbledhur informacionin e gërmave… %3d%%"
+msgstr ""
 
 #: ../shell/ev-properties-license.c:135
 msgid "Usage terms"
-msgstr "Kushtet Përdorimi"
+msgstr ""
 
 #: ../shell/ev-properties-license.c:141
 msgid "Text License"
-msgstr "Teksti liçensës"
+msgstr ""
 
 #: ../shell/ev-properties-license.c:147
 msgid "Further Information"
-msgstr "Informacione të mëtejshme"
+msgstr ""
 
 #: ../shell/ev-sidebar-annotations.c:205
 msgid "Add text annotation"
-msgstr "Shto tekstin shënimeve"
+msgstr ""
 
 #: ../shell/ev-sidebar-annotations.c:332
 msgid "Document contains no annotations"
-msgstr "Dokumenti nuk përmban shënime"
+msgstr ""
 
 #: ../shell/ev-sidebar-annotations.c:364
 #, c-format
 msgid "Page %d"
-msgstr "Faqja %d"
+msgstr ""
 
 #: ../shell/ev-sidebar-annotations.c:506
 msgid "Annotations"
-msgstr "Shënime"
+msgstr ""
 
 #: ../shell/ev-sidebar-attachments.c:697
 msgid "Attachments"
-msgstr "Të bashkangjitur"
+msgstr ""
 
 #: ../shell/ev-sidebar-bookmarks.c:154
 msgid "_Open Bookmark"
@@ -1008,15 +1002,15 @@ msgstr ""
 
 #: ../shell/ev-sidebar-layers.c:444
 msgid "Layers"
-msgstr "Shtresat"
+msgstr ""
 
 #: ../shell/ev-sidebar-links.c:336
 msgid "Print…"
-msgstr "Printo..."
+msgstr ""
 
 #: ../shell/ev-sidebar-links.c:721
 msgid "Index"
-msgstr "Treguesi"
+msgstr ""
 
 #: ../shell/ev-sidebar-thumbnails.c:948
 msgid "Shrink the thumbnails"
@@ -1032,7 +1026,7 @@ msgstr ""
 
 #: ../shell/ev-sidebar-thumbnails.c:1226
 msgid "Thumbnails"
-msgstr "Miniaturat"
+msgstr ""
 
 #: ../shell/ev-toolbar.c:132
 msgid ""
@@ -1056,11 +1050,11 @@ msgstr ""
 
 #: ../shell/ev-window.c:1467
 msgid "The document contains no pages"
-msgstr "Dokumenti nuk përmban asnjë faqe"
+msgstr ""
 
 #: ../shell/ev-window.c:1469
 msgid "The document contains only empty pages"
-msgstr "Dokumenti përmban vetëm faqet bosh"
+msgstr ""
 
 #: ../shell/ev-window.c:1504
 msgid "Presentation mode is not supported for ePub documents."
@@ -1068,17 +1062,17 @@ msgstr ""
 
 #: ../shell/ev-window.c:1690 ../shell/ev-window.c:1854
 msgid "Unable to open document"
-msgstr "E pamundur hapja e dokumentit"
+msgstr ""
 
 #: ../shell/ev-window.c:1823
 #, c-format
 msgid "Loading document from “%s”"
-msgstr "Ngarkimi dokumentit nga \"%s\""
+msgstr ""
 
 #: ../shell/ev-window.c:1967 ../shell/ev-window.c:2288
 #, c-format
 msgid "Downloading document (%d%%)"
-msgstr "Shkarkimi dokumentit (%d%%)"
+msgstr ""
 
 #: ../shell/ev-window.c:2000
 msgid "Failed to load remote file."
@@ -1095,7 +1089,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:2480
 msgid "Open Document"
-msgstr "Hap dokumentin"
+msgstr ""
 
 #: ../shell/ev-window.c:2761
 #, c-format
@@ -1115,7 +1109,7 @@ msgstr ""
 #: ../shell/ev-window.c:2811 ../shell/ev-window.c:2911
 #, c-format
 msgid "The file could not be saved as “%s”."
-msgstr "File nuk mund të ruhet si “%s”."
+msgstr ""
 
 #: ../shell/ev-window.c:2842
 #, c-format
@@ -1134,7 +1128,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:2964
 msgid "Save a Copy"
-msgstr "Ruaj një kopje"
+msgstr ""
 
 #: ../shell/ev-window.c:3239
 #, c-format
@@ -1217,10 +1211,6 @@ msgid ""
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Xreader është program i lirë; mund t'a rishpërndani dhe/apo ndryshoninën "
-"kushtet e Liçencës Publike të Përgjithshme GNU sikurse publikuar ngaFree "
-"Software Foundation; sipas versionit 2 të Liçencës, ose(sipas dëshirës suaj) "
-"çdo versioni tjetër pasardhës.\n"
 
 #: ../shell/ev-window.c:4934
 msgid ""
@@ -1229,10 +1219,6 @@ msgid ""
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Xreader shpërndahet me shpresën që do t'ju jetë i dobishëm,por PA ASNJË LLOJ "
-"GARANCIE; pa as garancinë e shprehur të TREGËTIMIT apo VLEFSHMËRINË PËR NJË "
-"PËRDORIM PRECIZ.  Shiko Liçencën Publike të Përgjithshme GNU për hollësi të "
-"tjera.\n"
 
 #: ../shell/ev-window.c:4938
 msgid ""
@@ -1243,7 +1229,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:4949
 msgid "Xreader"
-msgstr "Xreader"
+msgstr ""
 
 #. TRANS: Sometimes this could be better translated as
 #. "%d hit(s) on this page".  Therefore this string
@@ -1252,8 +1238,8 @@ msgstr "Xreader"
 #, c-format
 msgid "%d found on this page"
 msgid_plural "%d found on this page"
-msgstr[0] "%d gjetur në këtë faqe"
-msgstr[1] "%d gjetur në këtë faqe"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../shell/ev-window.c:5233 ../shell/ev-window.c:5356
 msgid "Not found"
@@ -1262,23 +1248,23 @@ msgstr ""
 #: ../shell/ev-window.c:5239
 #, c-format
 msgid "%3d%% remaining to search"
-msgstr "%3d%% akoma për t'u kërkuar"
+msgstr ""
 
 #: ../shell/ev-window.c:5854
 msgid "_File"
-msgstr "_File"
+msgstr "_Scatula"
 
 #: ../shell/ev-window.c:5855
 msgid "_Edit"
-msgstr "_Ndrysho"
+msgstr "_Mutare"
 
 #: ../shell/ev-window.c:5856
 msgid "_View"
-msgstr "_Shfaq"
+msgstr ""
 
 #: ../shell/ev-window.c:5857
 msgid "_Go"
-msgstr "_Shko"
+msgstr ""
 
 #: ../shell/ev-window.c:5858
 msgid "_Bookmarks"
@@ -1286,7 +1272,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:5859
 msgid "_Help"
-msgstr "_Ndihmë"
+msgstr ""
 
 #. File menu
 #: ../shell/ev-window.c:5862 ../shell/ev-window.c:6337
@@ -1295,15 +1281,15 @@ msgstr ""
 
 #: ../shell/ev-window.c:5864 ../shell/ev-window.c:6338
 msgid "Open an existing document"
-msgstr "Hap një dokument ekzistues"
+msgstr ""
 
 #: ../shell/ev-window.c:5866
 msgid "Op_en a Copy"
-msgstr "Hap një kopj_e"
+msgstr ""
 
 #: ../shell/ev-window.c:5868
 msgid "Open a copy of the current document in a new window"
-msgstr "Hap një kopje të dokumentit aktual në një dritare të re"
+msgstr ""
 
 #: ../shell/ev-window.c:5870
 msgid "_Save a Copy…"
@@ -1311,7 +1297,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:5872
 msgid "Save a copy of the current document"
-msgstr "Ruaj një kopje të dokumentit aktual"
+msgstr ""
 
 #: ../shell/ev-window.c:5874
 msgid "_Print…"
@@ -1319,7 +1305,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:5878
 msgid "P_roperties"
-msgstr "P_ronësitë"
+msgstr ""
 
 #: ../shell/ev-window.c:5882
 msgid "_Close"
@@ -1332,7 +1318,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:5892
 msgid "Select _All"
-msgstr "Zgjidh _gjithçka"
+msgstr ""
 
 #: ../shell/ev-window.c:5896
 msgid "_Find…"
@@ -1340,15 +1326,15 @@ msgstr ""
 
 #: ../shell/ev-window.c:5898
 msgid "Find a word or phrase in the document"
-msgstr "Gjej një fjalë apo frazë në dokument"
+msgstr ""
 
 #: ../shell/ev-window.c:5908
 msgid "Rotate _Left"
-msgstr "Rrotullo _Majtas"
+msgstr ""
 
 #: ../shell/ev-window.c:5912
 msgid "Rotate _Right"
-msgstr "Rrotullo _Djathtas"
+msgstr ""
 
 #: ../shell/ev-window.c:5916
 msgid "Save Current Settings as _Default"
@@ -1373,11 +1359,11 @@ msgstr ""
 
 #: ../shell/ev-window.c:5939
 msgid "_Reload"
-msgstr "_Rilexo"
+msgstr ""
 
 #: ../shell/ev-window.c:5941
 msgid "Reload the document"
-msgstr "Rilexo dokumentin"
+msgstr ""
 
 #: ../shell/ev-window.c:5943
 msgid "_Expand Window to Fit"
@@ -1385,23 +1371,23 @@ msgstr ""
 
 #: ../shell/ev-window.c:5948
 msgid "Auto_scroll"
-msgstr "Rë_shkitje automatike"
+msgstr ""
 
 #: ../shell/ev-window.c:5962
 msgid "_First Page"
-msgstr "_Faqja e parë"
+msgstr ""
 
 #: ../shell/ev-window.c:5964
 msgid "Go to the first page"
-msgstr "Shko tek faqja e parë"
+msgstr ""
 
 #: ../shell/ev-window.c:5966
 msgid "_Last Page"
-msgstr "Faqja e _fundit"
+msgstr ""
 
 #: ../shell/ev-window.c:5968
 msgid "Go to the last page"
-msgstr "Shko tek faqja e fundit"
+msgstr ""
 
 #: ../shell/ev-window.c:5970
 msgid "Previous History Item"
@@ -1423,53 +1409,53 @@ msgstr ""
 #. Help menu
 #: ../shell/ev-window.c:5986
 msgid "_Contents"
-msgstr "_Përmbajtja"
+msgstr ""
 
 #: ../shell/ev-window.c:5991
 msgid "_About"
-msgstr "_Informacione"
+msgstr ""
 
 #. Toolbar-only
 #: ../shell/ev-window.c:5997
 msgid "Leave Fullscreen"
-msgstr "Largohu nga modaliteti me ekran të plotë"
+msgstr ""
 
 #: ../shell/ev-window.c:5999
 msgid "Leave fullscreen mode"
-msgstr "Dil nga modaliteti me ekran të plotë"
+msgstr ""
 
 #: ../shell/ev-window.c:6001
 msgid "Start Presentation"
-msgstr "Fillo prezantimin"
+msgstr ""
 
 #: ../shell/ev-window.c:6003
 msgid "Start a presentation"
-msgstr "Fillo një prezantim"
+msgstr ""
 
 #. View Menu
 #: ../shell/ev-window.c:6120
 msgid "_Toolbar"
-msgstr "_Paneli i instrumentëve"
+msgstr ""
 
 #: ../shell/ev-window.c:6122
 msgid "Show or hide the toolbar"
-msgstr "Shfaq ose fsheh panelin"
+msgstr ""
 
 #: ../shell/ev-window.c:6124
 msgid "Side _Pane"
-msgstr "_Paneli anës"
+msgstr ""
 
 #: ../shell/ev-window.c:6126
 msgid "Show or hide the side pane"
-msgstr "Shfaq ose fsheh panelin anësor"
+msgstr ""
 
 #: ../shell/ev-window.c:6128
 msgid "_Continuous"
-msgstr "_Pa ndërprerje"
+msgstr ""
 
 #: ../shell/ev-window.c:6130
 msgid "Show the entire document"
-msgstr "Shfaq krejt dokumentin"
+msgstr ""
 
 #: ../shell/ev-window.c:6132
 msgid "_Dual (Even pages left)"
@@ -1489,19 +1475,19 @@ msgstr ""
 
 #: ../shell/ev-window.c:6140
 msgid "_Fullscreen"
-msgstr "_Ekran i plotë"
+msgstr ""
 
 #: ../shell/ev-window.c:6142
 msgid "Expand the window to fill the screen"
-msgstr "Zmadho dritaren për t'ju përshtatur krejt ekranit"
+msgstr ""
 
 #: ../shell/ev-window.c:6144
 msgid "Pre_sentation"
-msgstr "Pre_zantim"
+msgstr ""
 
 #: ../shell/ev-window.c:6146
 msgid "Run document as a presentation"
-msgstr "Zbato dokumentin si një prezantim"
+msgstr ""
 
 #: ../shell/ev-window.c:6156
 msgid "_Inverted Colors"
@@ -1514,19 +1500,19 @@ msgstr ""
 #. Links
 #: ../shell/ev-window.c:6166
 msgid "_Open Link"
-msgstr "_Hap adresën"
+msgstr ""
 
 #: ../shell/ev-window.c:6168
 msgid "_Go To"
-msgstr "_Shko tek"
+msgstr ""
 
 #: ../shell/ev-window.c:6170
 msgid "Open in New _Window"
-msgstr "Hap në _Dritare të re"
+msgstr ""
 
 #: ../shell/ev-window.c:6172
 msgid "_Copy Link Address"
-msgstr "_Kopjo adresën e lidhjes"
+msgstr ""
 
 #: ../shell/ev-window.c:6174
 msgid "_Save Image As…"
@@ -1534,7 +1520,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:6176
 msgid "Copy _Image"
-msgstr "Kopjo f_igurën"
+msgstr ""
 
 #: ../shell/ev-window.c:6178
 msgid "Annotation Properties…"
@@ -1555,27 +1541,27 @@ msgstr ""
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6358
 msgid "Previous"
-msgstr "Paraardhëse"
+msgstr ""
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6363
 msgid "Next"
-msgstr "Në vazhdim"
+msgstr ""
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6367
 msgid "Zoom In"
-msgstr "Zmadho"
+msgstr ""
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6371
 msgid "Zoom Out"
-msgstr "Zvogëlo"
+msgstr ""
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6383
 msgid "Fit Width"
-msgstr "Përshtat sipas gjerësisë"
+msgstr ""
 
 #: ../shell/ev-window.c:6560 ../shell/ev-window.c:6576
 msgid "Unable to launch external application."
@@ -1583,31 +1569,31 @@ msgstr ""
 
 #: ../shell/ev-window.c:6634
 msgid "Unable to open external link"
-msgstr "E pamundur hapja e lidhjes së jashtme"
+msgstr ""
 
 #: ../shell/ev-window.c:6835
 msgid "Couldn't find appropriate format to save image"
-msgstr "E pamundur gjetja e formatit të duhur për ruajtjen e figurës"
+msgstr ""
 
 #: ../shell/ev-window.c:6866
 msgid "The image could not be saved."
-msgstr "E pamundur ruajtja e figurës."
+msgstr ""
 
 #: ../shell/ev-window.c:6899
 msgid "Save Image"
-msgstr "Ruaj figurën"
+msgstr ""
 
 #: ../shell/ev-window.c:7041
 msgid "Unable to open attachment"
-msgstr "E pamundur hapja e të bashkangjiturit"
+msgstr ""
 
 #: ../shell/ev-window.c:7098
 msgid "The attachment could not be saved."
-msgstr "E pamundur ruajtja e të bashkangjiturit."
+msgstr ""
 
 #: ../shell/ev-window.c:7144
 msgid "Save Attachment"
-msgstr "Ruaj të bashkangjiturin"
+msgstr ""
 
 #: ../shell/ev-window-title.c:127
 msgid "Recent Documents"
@@ -1620,7 +1606,7 @@ msgstr ""
 
 #: ../shell/ev-utils.c:105
 msgid "By extension"
-msgstr "Sipas prapashtesës"
+msgstr ""
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."
@@ -1628,7 +1614,7 @@ msgstr ""
 
 #: ../shell/main.c:66
 msgid "PAGE"
-msgstr "FAQJA"
+msgstr ""
 
 #: ../shell/main.c:67
 msgid "The page number of the document to display."
@@ -1640,7 +1626,7 @@ msgstr ""
 
 #: ../shell/main.c:68
 msgid "Run xreader in fullscreen mode"
-msgstr "Ekzekuto xreader në modalitetin me ekran të plotë"
+msgstr ""
 
 #: ../shell/main.c:69
 msgid "Named destination to display."
@@ -1652,20 +1638,20 @@ msgstr ""
 
 #: ../shell/main.c:70
 msgid "Run xreader in presentation mode"
-msgstr "Ekzekuto xreader në modalitetin prezantime"
+msgstr ""
 
 #: ../shell/main.c:71
 msgid "Run xreader as a previewer"
-msgstr "Ekzekuto xreader si vështrues i shpejtë"
+msgstr ""
 
 #: ../shell/main.c:72
 msgid "The word or phrase to find in the document"
-msgstr "Fjala apo fraza për tu kërkuar në dokument"
+msgstr ""
 
 #: ../shell/main.c:72
 msgid "STRING"
-msgstr "VARG"
+msgstr ""
 
 #: ../shell/main.c:76
 msgid "[FILE…]"
-msgstr ""
+msgstr "[SCATULA...]"
