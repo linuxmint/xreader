@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2018-11-19 10:13+0000\n"
-"PO-Revision-Date: 2018-11-25 21:32+0000\n"
-"Last-Translator: Yazid Bouhamam <Unknown>\n"
+"PO-Revision-Date: 2018-11-28 08:57+0000\n"
+"Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
 "Language-Team: Kabyle <kab@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2018-11-27 17:52+0000\n"
-"X-Generator: Launchpad (build 18826)\n"
+"X-Launchpad-Export-Date: 2018-12-11 12:00+0000\n"
+"X-Generator: Launchpad (build 18837)\n"
 "Language: kab\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -431,6 +431,11 @@ msgid ""
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
 msgstr ""
+"<p> Xreader d taskant n usmel aget-asebter afessas. Iskanay-d sakin isaggaz "
+"PostScript (PS), PostScript Ittwagebren (EPS), DJVU, DVI, XPS  akked ifuyla "
+"n ismal ittwarfaden s umasal (PDF), daɣ ifuyla n uḥraz n udlis. Mi ara "
+"ittusefrak isemli, ittmudaɣ-d tagnit i unadi n uḍris, anɣal akked usenṭeḍ n "
+"uḍris ɣer \"ɣef ufus\", tunigin gar ugbur n ticcra n iccaren.</p>"
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:162
 #: ../shell/main.c:241 ../shell/main.c:270
@@ -475,6 +480,8 @@ msgid ""
 "The maximum size that will be used to cache rendered pages, limits maximum "
 "zoom level."
 msgstr ""
+"Tuɣzi tafellayt ad ittwasqedcen deg tuffirt n isebtar, talas n uswir n "
+"usemɣer."
 
 #: ../previewer/ev-previewer.c:34
 msgid "Delete the temporary file"
@@ -637,6 +644,16 @@ msgid ""
 "• \"Fit to Printable Area\": Document pages are enlarged or reduced as "
 "required to fit the printable area of the printer page.\n"
 msgstr ""
+"Sellum n isebtar n isemli i uṣeggem n usebter ittwafernen i usiggez. Fren "
+"seg wayen illan:\n"
+"\n"
+"• \"Ulac\": Ulac sellum.\n"
+"\n"
+"• \"Semẓẓi i usiggez n temnaḍt\": Isebtar n isemli hrawit sakin tamnaḍt n "
+"usiggez ad tettwanɣes i  useggem n temnaḍt n usiggez n usebter n tseggazt.\n"
+"\n"
+"• \"Ṣeggem i usiggez n temnaḍt\": sebtar n isemli ad iimɣur neɣ ad inɣes ɣef "
+"temnaḍt n usiggez n usebter n tseggazt.\n"
 
 #: ../libview/ev-print-operation.c:1911
 msgid "Auto Rotate and Center"
@@ -647,6 +664,8 @@ msgid ""
 "Rotate printer page orientation of each page to match orientation of each "
 "document page. Document pages will be centered within the printer page."
 msgstr ""
+"Dewweṛ taɣda n useggez n yal usebter akken ad imsaḍa akked taɣda n yal "
+"isemli. Isebtar n usemli ad ttwareyyecen tlemmast deg usebter n usiggez."
 
 #: ../libview/ev-print-operation.c:1919
 msgid "Select page size using document page size"
@@ -1049,6 +1068,9 @@ msgid ""
 "Continuous + Fit Page Width\n"
 "Ctrl+1"
 msgstr ""
+"Taskant n umeɣri\n"
+"Kemmel+ Ṣeggem tahrawt n usebter\n"
+"Ctrl+1"
 
 #: ../shell/ev-window.c:984
 msgid ""
@@ -1196,7 +1218,9 @@ msgid ""
 msgid_plural ""
 "There are %d print jobs active. Wait until print finishes before closing?"
 msgstr[0] ""
+"Illa %d n umahil n usiggez iremden. Rǧu armi ifuk send ad tmedleḍ?"
 msgstr[1] ""
+"Illa %d n imahilen n usiggez iremden. Rǧu armi fukken send ad tmedleḍ?"
 
 #: ../shell/ev-window.c:3657
 msgid "If you close the window, pending print jobs will not be printed."
@@ -1225,6 +1249,9 @@ msgid ""
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
+"Xreader d aseɣẓan illeli; tzemreḍ ad tezuzreḍ-t akked/neɣ ad tẓergeḍ-t ddaw "
+"iluan n GNU turagt Tazzayezt Tamatut akken i d-ttunefken sɣur Free Software "
+"Foundation; ama lqem wis 2 n turagt neɣ lqem aneggaru.\n"
 
 #: ../shell/ev-window.c:4934
 msgid ""
@@ -1233,6 +1260,9 @@ msgid ""
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
+"Xreader Ittwazuzer i siwi d akken ad yili deg lmendad, maca war ṭmana; war "
+"ṭmana n useqdec. wali GNU  Turagt Tazzayezt Tamatut i ugar n talɣut "
+"leqqayen.\n"
 
 #: ../shell/ev-window.c:4938
 msgid ""
@@ -1240,6 +1270,9 @@ msgid ""
 "Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
+"Isefk ad yili iwweḍ-ak-n anɣal n GNU Turagt Tazzayzt Tamatut akked Xreader; "
+"Ma yella mazal, aru i Free Software Foundation, Inc., 51 Franklin Street, "
+"Fifth Floor, Boston, MA 02110-1301 USA\n"
 
 #: ../shell/ev-window.c:4949
 msgid "Xreader"
@@ -1644,7 +1677,7 @@ msgstr "Selkem xreader deg uskar n ugdil aččuran"
 
 #: ../shell/main.c:69
 msgid "Named destination to display."
-msgstr ""
+msgstr "Tanila ittwasemman i tsekant"
 
 #: ../shell/main.c:69
 msgid "DEST"

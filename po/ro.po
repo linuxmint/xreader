@@ -11,16 +11,16 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-19 10:13+0000\n"
-"PO-Revision-Date: 2017-09-20 18:20+0000\n"
-"Last-Translator: Rufus Dexter <Unknown>\n"
+"PO-Revision-Date: 2018-12-04 09:22+0000\n"
+"Last-Translator: Dorian Baciu <Unknown>\n"
 "Language-Team: Romanian (http://www.transifex.com/mate/MATE/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n == 1 ? 0: (((n % 100 > 19) || ((n % 100 "
 "== 0) && (n != 0))) ? 2: 1));\n"
-"X-Launchpad-Export-Date: 2018-11-27 17:51+0000\n"
-"X-Generator: Launchpad (build 18826)\n"
+"X-Launchpad-Export-Date: 2018-12-11 12:00+0000\n"
+"X-Generator: Launchpad (build 18837)\n"
 "Language: ro\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -505,7 +505,7 @@ msgstr "Tipărește fișierul de configurări"
 
 #: ../previewer/ev-previewer.c:106 ../previewer/ev-previewer.c:137
 msgid "Print Preview"
-msgstr ""
+msgstr "Previzualizare tipărire"
 
 #: ../previewer/ev-previewer-window.c:93 ../shell/ev-window.c:3295
 msgid "Failed to print document"
@@ -544,7 +544,7 @@ msgstr "Depărtează documentul"
 #. translators: this is the label for toolbar button
 #: ../previewer/ev-previewer-window.c:307 ../shell/ev-window.c:6375
 msgid "Original size"
-msgstr ""
+msgstr "Dimensiune originală"
 
 #. translators: Print document currently shown in the Print Preview window
 #. translators: Title of the print dialog
@@ -957,19 +957,19 @@ msgstr "Reține pentru _totdeauna"
 
 #: ../shell/ev-preferences-dialog.c:109 ../shell/ev-preferences-dialog.ui.h:1
 msgid "Toolbar"
-msgstr ""
+msgstr "Bară de unelte"
 
 #: ../shell/ev-preferences-dialog.c:131 ../shell/ev-window.c:5920
 msgid "Preferences"
-msgstr ""
+msgstr "Preferințe"
 
 #: ../shell/ev-preferences-dialog.ui.h:2
 msgid "Show history buttons"
-msgstr ""
+msgstr "Afișare butoanele de istoric"
 
 #: ../shell/ev-preferences-dialog.ui.h:3
 msgid "Show expand window button"
-msgstr ""
+msgstr "Afișare butonul de extindere fereastră"
 
 #: ../shell/ev-properties-dialog.c:63
 msgid "Properties"
@@ -1059,15 +1059,15 @@ msgstr "Index"
 
 #: ../shell/ev-sidebar-thumbnails.c:948
 msgid "Shrink the thumbnails"
-msgstr ""
+msgstr "Micșorare miniaturi"
 
 #: ../shell/ev-sidebar-thumbnails.c:961
 msgid "Enlarge the thumbnails"
-msgstr ""
+msgstr "Mărire miniaturi"
 
 #: ../shell/ev-sidebar-thumbnails.c:974
 msgid "View the thumbnails at their original size"
-msgstr ""
+msgstr "Vizualizare miniaturi la dimensiunea lor originală"
 
 #: ../shell/ev-sidebar-thumbnails.c:1226
 msgid "Thumbnails"
@@ -1422,11 +1422,11 @@ msgstr "Salvea_ză configurările curente ca implicite"
 #. View menu
 #: ../shell/ev-window.c:5927
 msgid "_Original size"
-msgstr ""
+msgstr "Dimensiune _originală"
 
 #: ../shell/ev-window.c:5929
 msgid "View the document at its original size"
-msgstr ""
+msgstr "Vizualizare document la dimensiunea originală"
 
 #: ../shell/ev-window.c:5931
 msgid "Zoom _In"
@@ -1607,7 +1607,7 @@ msgstr "Proprietăți adnotare…"
 
 #: ../shell/ev-window.c:6180
 msgid "Remove Annotation"
-msgstr ""
+msgstr "Elimină adnotarea"
 
 #: ../shell/ev-window.c:6185
 msgid "_Open Attachment"
@@ -1676,7 +1676,7 @@ msgstr "Salvare atașament"
 
 #: ../shell/ev-window-title.c:127
 msgid "Recent Documents"
-msgstr ""
+msgstr "Documente recente"
 
 #: ../shell/ev-window-title.c:175
 #, c-format

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-19 10:13+0000\n"
-"PO-Revision-Date: 2018-05-08 08:53+0000\n"
+"PO-Revision-Date: 2018-12-01 22:27+0000\n"
 "Last-Translator: Erlend Østlie <erlendandreas12368@gmail.com>\n"
 "Language-Team: Norwegian Bokmål "
 "(http://www.transifex.com/mate/MATE/language/nb/)\n"
@@ -18,8 +18,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2018-11-27 17:52+0000\n"
-"X-Generator: Launchpad (build 18826)\n"
+"X-Launchpad-Export-Date: 2018-12-11 12:00+0000\n"
+"X-Generator: Launchpad (build 18837)\n"
 "Language: nb\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -458,7 +458,7 @@ msgstr ""
 
 #: ../data/org.x.reader.gschema.xml.h:3
 msgid "Automatically reload the document"
-msgstr ""
+msgstr "Last dokumentet på nytt automatisk"
 
 #: ../data/org.x.reader.gschema.xml.h:4
 msgid "Whether the document is automatically reloaded on file change."
@@ -526,7 +526,7 @@ msgstr "Forstørr dokumentet"
 
 #: ../previewer/ev-previewer-window.c:304 ../shell/ev-window.c:5937
 msgid "Shrink the document"
-msgstr "Komprimer dokumentet"
+msgstr "Forminsk dokumentet"
 
 #. translators: this is the label for toolbar button
 #: ../previewer/ev-previewer-window.c:307 ../shell/ev-window.c:6375
@@ -939,7 +939,7 @@ msgstr "Husk _for alltid"
 
 #: ../shell/ev-preferences-dialog.c:109 ../shell/ev-preferences-dialog.ui.h:1
 msgid "Toolbar"
-msgstr ""
+msgstr "Verktøylinje"
 
 #: ../shell/ev-preferences-dialog.c:131 ../shell/ev-window.c:5920
 msgid "Preferences"
@@ -947,11 +947,11 @@ msgstr "Brukervalg"
 
 #: ../shell/ev-preferences-dialog.ui.h:2
 msgid "Show history buttons"
-msgstr ""
+msgstr "Vis knapper for historikk"
 
 #: ../shell/ev-preferences-dialog.ui.h:3
 msgid "Show expand window button"
-msgstr ""
+msgstr "Vis knapp for å utvide vinduet"
 
 #: ../shell/ev-properties-dialog.c:63
 msgid "Properties"
@@ -1061,6 +1061,9 @@ msgid ""
 "Non-Continuous + Best Fit\n"
 "Ctrl+2"
 msgstr ""
+"Sidevisning\n"
+"Ikke-sammenhengende + Beste tilpasning\n"
+"Ctrl+2"
 
 #: ../shell/ev-toolbar.c:146
 msgid ""
@@ -1068,6 +1071,9 @@ msgid ""
 "Continuous + Fit Page Width\n"
 "Ctrl+1"
 msgstr ""
+"Lesevisning\n"
+"Sammenhengende +Tilpass til sidebredde\n"
+"Ctrl+1"
 
 #: ../shell/ev-window.c:984
 msgid ""
@@ -1395,7 +1401,7 @@ msgstr "_Opprinnelig størrelse"
 
 #: ../shell/ev-window.c:5929
 msgid "View the document at its original size"
-msgstr ""
+msgstr "Vis dokumentet i opprinnelig størrelse"
 
 #: ../shell/ev-window.c:5931
 msgid "Zoom _In"
@@ -1483,7 +1489,7 @@ msgstr "Start en presentasjon"
 #. View Menu
 #: ../shell/ev-window.c:6120
 msgid "_Toolbar"
-msgstr "Verk_tøylinje"
+msgstr "_Verktøylinje"
 
 #: ../shell/ev-window.c:6122
 msgid "Show or hide the toolbar"
