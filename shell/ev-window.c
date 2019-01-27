@@ -6146,7 +6146,7 @@ static const GtkToggleActionEntry toggle_entries[] = {
                  N_("Run document as a presentation"),
                  G_CALLBACK (ev_window_cmd_view_presentation) },
          { "ViewBestFit", EV_STOCK_ZOOM_PAGE, N_("_Best Fit"),
-                 NULL,
+                 "f",
                  N_("Make the current document fill the window"),
                  G_CALLBACK (ev_window_cmd_view_best_fit) },
          { "ViewPageWidth", EV_STOCK_ZOOM_WIDTH, N_("Fit Page _Width"),
