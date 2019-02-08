@@ -33,10 +33,6 @@
 #    define strchr         index
 #    define strrchr        rindex
 #  endif
-#  ifndef HAVE_MEMCPY
-#    define memcpy(a,b,n)  bcopy((b), (a), (n))
-#    define memmove(a,b,n) bcopy((b), (a), (n))
-#  endif
 #endif
 
 #if defined(STDC_HEADERS) || defined(HAVE_MEMCPY)
