@@ -13,28 +13,21 @@ endif
 %:
 	dh $@ $(DHFLAGS)
 
-override_dh_install:
-	rm -rfv debian/tmp/usr/lib/*/*.la
-	rm -rfv debian/tmp/usr/lib/*/xreader/3/backends/*.la
-	rm -rfv debian/tmp/usr/share/MateConf/gsettings/xreader.convert
-	sed 's@TYPELIBDIR@${TYPELIBDIR}@' debian/gir1.2-xreader.install.in > debian/gir1.2-xreader.install
-	dh_install --fail-missing
-
 override_dh_auto_test:
-	DEB_BUILD_OPTIONS=nocheck dh_auto_test
+	ninja -C debian/build test
 
 override_dh_auto_configure:
-	NOCONFIGURE=1 ./autogen.sh
-	dh_auto_configure $(DHFLAGS) -- \
-		--enable-gtk-doc \
-		--enable-djvu \
-		--enable-dvi \
-		--enable-t1lib \
-		--enable-pixbuf \
-		--enable-comics \
-		--enable-introspection \
-		--disable-static \
-		$(DEB_XREADER_FLAGS)
+	meson debian/build \
+		--prefix=/usr \
+		--buildtype=plain \
+		-D deprecated_warnings=false \
+		-D djvu=true \
+		-D dvi=true \
+		-D t1lib=true \
+		-D pixbuf=true \
+		-D comics=true \
+		-D introspection=true
+	# 	--disable-static \
 
 override_dh_strip:
 	dh_strip -pxreader --dbg-package=xreader-dbg
@@ -46,3 +39,10 @@ override_dh_builddeb:
 
 get-orig-source:
 	uscan --noconf --force-download --rename --download-current-version --destdir=..
+
+override_dh_auto_install:
+	DESTDIR=${CURDIR}/debian/tmp \
+	ninja -C debian/build install
+
+override_dh_auto_build:
+	ninja -C debian/build

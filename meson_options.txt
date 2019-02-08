@@ -1,0 +1,90 @@
+option('comics',
+	type: 'boolean',
+	value: false,
+	description: ''
+)
+option('djvu',
+	type: 'boolean',
+	value: false,
+	description: ''
+)
+option('dvi',
+	type: 'boolean',
+	value: false,
+	description: ''
+)
+option('t1lib',
+	type: 'boolean',
+	value: false,
+	description: ''
+)
+option('epub',
+	type: 'boolean',
+	value: true,
+	description: ''
+)
+option('pdf',
+	type: 'boolean',
+	value: true,
+	description: ''
+)
+option('pixbuf',
+	type: 'boolean',
+	value: false,
+	description: ''
+)
+option('ps',
+	type: 'boolean',
+	value: true,
+	description: ''
+)
+option('tiff',
+	type: 'boolean',
+	value: true,
+	description: ''
+)
+option('xps',
+	type: 'boolean',
+	value: true,
+	description: ''
+)
+option('previewer',
+	type: 'boolean',
+	value: true,
+	description: ''
+)
+option('thumbnailer',
+	type: 'boolean',
+	value: true,
+	description: ''
+)
+option('tests',
+	type: 'boolean',
+	value: true,
+	description: ''
+)
+option('docs',
+    type: 'boolean',
+    value: false,
+    description: 'Build the API references (requires gtk-doc)'
+)
+option('introspection',
+	type: 'boolean',
+	value: false,
+	description: ''
+)
+option('dbus',
+	type: 'boolean',
+	value: true,
+	description: ''
+)
+option('deprecated_warnings',
+	type: 'boolean',
+	value: false,
+	description: 'Show build warnings for deprecations'
+)
+option('debug',
+	type: 'boolean',
+	value: false,
+	description: 'Show build warnings for deprecations'
+)

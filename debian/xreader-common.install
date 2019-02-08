@@ -1,6 +1,6 @@
 usr/share/appdata/
 usr/share/xreader/
-usr/share/gtk-doc/
+#usr/share/gtk-doc/ docs temporarily disabled because it doesn't work for meson < 0.48
 usr/share/help/
 usr/share/icons/
 usr/share/locale/
