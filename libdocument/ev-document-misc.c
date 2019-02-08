@@ -39,7 +39,6 @@ create_thumbnail_frame (int        width,
 			gboolean   fill_bg)
 {
 	GdkPixbuf *retval;
-	int i;
 	int width_r, height_r;
 
 	if (source_pixbuf)
@@ -420,22 +419,22 @@ ev_document_misc_invert_pixbuf (GdkPixbuf *pixbuf)
 }
 
 gdouble
-ev_document_misc_get_screen_dpi (GdkScreen *screen, gint monitor)
+ev_document_misc_get_screen_dpi (GdkScreen *screen, GdkMonitor *monitor)
 {
     gdouble dp, di;
-    gint mmX, mmY;
-	  GdkRectangle monitorRect;
+    int mmX, mmY;
+    GdkRectangle monitorRect;
 
     /*diagonal in pixels*/
-    gdk_screen_get_monitor_geometry(screen, monitor, &monitorRect);
+    gdk_monitor_get_geometry(monitor, &monitorRect);
 
     /*diagonal in inches*/
-    mmX = gdk_screen_get_monitor_width_mm(screen, monitor);
-    mmY = gdk_screen_get_monitor_height_mm(screen, monitor);
+    mmX = gdk_monitor_get_width_mm(monitor);
+    mmY = gdk_monitor_get_height_mm(monitor);
 
     /* Fallback in cases where devices report their aspect ratio */
-    if (mmX == 160 && (mmY == 90 || mmY == 100) ||
-        mmX == 16  && (mmY == 9  || mmY == 10)  ||
+    if ((mmX == 160 && (mmY == 90 || mmY == 100)) ||
+        (mmX == 16  && (mmY == 9  || mmY == 10))  ||
         mmX == 0 || mmY == 0 ||
         monitorRect.width == 0 || monitorRect.height == 0) {
         return 96.0;
@@ -444,7 +443,7 @@ ev_document_misc_get_screen_dpi (GdkScreen *screen, gint monitor)
     dp = hypot (monitorRect.width, monitorRect.height);
 
     di = hypot (mmX, mmY) / 25.4;
-    di /= gdk_screen_get_monitor_scale_factor(screen, monitor);
+    di /= gdk_monitor_get_scale_factor(monitor);
 
     return (dp / di);
 }
