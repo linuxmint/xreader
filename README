@@ -51,8 +51,8 @@ Building Xreader from source
     apt install gobject-introspection libdjvulibre-dev libgail-3-dev          \
                 libgirepository1.0-dev libgtk-3-dev libgxps-dev               \
                 libkpathsea-dev libpoppler-glib-dev libsecret-1-dev           \
-                libspectre-dev libwebkit2gtk-4.0-dev mate-common xsltproc     \
-                yelp-tools
+                libspectre-dev libtiff-dev libwebkit2gtk-4.0-dev libxapp-dev  \
+                mate-common meson xsltproc yelp-tools
 
 2) Download the source-code to your machine:
 
@@ -62,30 +62,33 @@ Building Xreader from source
 
     cd xreader
 
-4) Run ./autogen.sh with options you like. The following configuration installs
-   all binaries, libs, and shared files into $PWD/install, and enables all
+4) Run meson with options you like. The following configuration installs
+   all binaries, libs, and shared files into /usr/local, and enables all
    available options:
 
-    ./autogen.sh                    \
-        --prefix=$PWD/install/      \
-        --exec-prefix=$PWD/install/ \
-        --enable-debug              \
-        --enable-tests              \
-        --enable-pixbuf             \
-        --enable-introspection      \
-        --enable-gtk-doc
+    meson debian/build \
+        --prefix=/usr/local \
+        --buildtype=plain \
+        -D deprecated_warnings=false \
+        -D djvu=true \
+        -D dvi=true \
+        -D t1lib=true \
+        -D pixbuf=true \
+        -D comics=true \
+        -D introspection=true
 
-5) Compile and install (sudo is needed for make install)
+5) Compile and install (sudo is needed for install)
 
-    make && sudo make install
+    ninja -C debian/build
+    ninja -C debian/build install
 
-6) Now you can run and test (all executables are in ./install/bin):
+6) Now you can run and test (all executables are in /usr/local/bin):
 
-    ./install/bin/xreader
+    /usr/local/bin/xreader
 
 7) You can uninstall the installed files with
 
-    make distclean
+    ninja -C debian/build uninstall
 
 
 Hacking
