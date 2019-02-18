@@ -212,7 +212,7 @@ struct _EvView {
 	EvMapping *synctex_result;
 
 	/* Accessibility */
-	gboolean a11y_enabled;
+	AtkObject *accessible;
 
 	/* Gestures */
 	GtkGesture *pan_gesture;

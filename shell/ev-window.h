@@ -104,7 +104,8 @@ void                ev_window_print_range               (EvWindow       *ev_wind
                                                          int             first_page,
                                                          int             last_page);
 const gchar *       ev_window_get_dbus_object_path      (EvWindow       *ev_window);
-
+void                ev_window_show_help                 (EvWindow       *ev_window,
+                                                         const gchar    *uri);
 GtkActionGroup *    ev_window_get_main_action_group     (EvWindow       *window);
 EvDocumentModel *   ev_window_get_document_model        (EvWindow       *ev_window);
 

@@ -60,6 +60,9 @@ void              ev_application_open_uri_at_dest       (EvApplication   *applic
                                                          EvWindowRunMode  mode,
                                                          const gchar     *search_string,
                                                          guint32          timestamp);
+void              ev_application_open_recent_view       (EvApplication   *application,
+                                                         GdkScreen       *screen,
+                                                         guint32          timestamp);
 void              ev_application_open_uri_list          (EvApplication   *application,
                                                          GSList          *uri_list,
                                                          GdkScreen       *screen,
