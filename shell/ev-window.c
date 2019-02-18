@@ -467,7 +467,7 @@ ev_window_setup_action_sensitivity (EvWindow *ev_window)
 
     /* Toolbar-specific actions: */
     ev_window_set_action_sensitive (ev_window, PAGE_SELECTOR_ACTION, has_pages);
-    ev_toolbar_set_preset_sensitivity (ev_window->priv->toolbar, has_pages && !(document->iswebdocument));
+    ev_toolbar_set_preset_sensitivity (EV_TOOLBAR (ev_window->priv->toolbar), has_pages && !(document->iswebdocument));
 
     ev_window_update_actions (ev_window);
 }
@@ -611,7 +611,7 @@ update_chrome_visibility (EvWindow *window)
     set_widget_visibility (priv->sidebar, sidebar);
     gtk_revealer_set_reveal_child (GTK_REVEALER (priv->toolbar_revealer), toolbar);
 
-    ev_toolbar_set_style (priv->toolbar, fullscreen_toolbar);
+    ev_toolbar_set_style (EV_TOOLBAR (priv->toolbar), fullscreen_toolbar);
 }
 
 static void
@@ -2176,7 +2176,7 @@ ev_window_open_recent_view (EvWindow *ev_window)
 
     gtk_widget_hide (ev_window->priv->hpaned);
 
-    ev_window->priv->recent_view = ev_recent_view_new();
+    ev_window->priv->recent_view = EV_RECENT_VIEW (ev_recent_view_new());
     g_signal_connect_object (ev_window->priv->recent_view,
                              "item-activated",
                              G_CALLBACK (recent_view_item_activated_cb),
@@ -2187,7 +2187,7 @@ ev_window_open_recent_view (EvWindow *ev_window)
 
     ev_window_title_set_type (ev_window->priv->title, EV_WINDOW_TITLE_RECENT);
     ev_window_update_actions (ev_window);
-    gtk_widget_show (ev_window->priv->recent_view);
+    gtk_widget_show (GTK_WIDGET (ev_window->priv->recent_view));
 }
 
 static void
@@ -4523,7 +4523,7 @@ ev_window_cmd_reader_view (GtkAction *action,
 {
     g_return_if_fail (EV_IS_WINDOW (ev_window));
 
-    ev_toolbar_activate_reader_view (ev_window->priv->toolbar);
+    ev_toolbar_activate_reader_view (EV_TOOLBAR (ev_window->priv->toolbar));
 }
 
 static void
@@ -4532,7 +4532,7 @@ ev_window_cmd_page_view (GtkAction *action,
 {
     g_return_if_fail (EV_IS_WINDOW (ev_window));
 
-    ev_toolbar_activate_page_view (ev_window->priv->toolbar);
+    ev_toolbar_activate_page_view (EV_TOOLBAR (ev_window->priv->toolbar));
 }
 
 static void
