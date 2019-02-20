@@ -114,7 +114,7 @@ cpp_args = [
     '-DHAVE_CONFIG_H',
 ]
 
-if get_option('debug')
+if get_option('enable_debug')
     c_args += '-DEV_ENABLE_DEBUG'
 endif
 

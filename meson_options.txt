@@ -83,7 +83,7 @@ option('deprecated_warnings',
 	value: false,
 	description: 'Show build warnings for deprecations'
 )
-option('debug',
+option('enable_debug',
 	type: 'boolean',
 	value: false,
 	description: 'Show build warnings for deprecations'
