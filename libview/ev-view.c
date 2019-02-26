@@ -120,24 +120,12 @@ static void       compute_border                             (EvView            
 static void       get_page_y_offset                          (EvView             *view,
 							      int                 page,
 							      int                *y_offset);
-static void       view_rect_to_doc_rect                      (EvView             *view,
-							      GdkRectangle       *view_rect,
-							      GdkRectangle       *page_area,
-							      EvRectangle        *doc_rect);
-static void       doc_rect_to_view_rect                      (EvView             *view,
-							      int                 page,
-							      EvRectangle        *doc_rect,
-							      GdkRectangle       *view_rect);
 static void       find_page_at_location                      (EvView             *view,
 							      gdouble             x,
 							      gdouble             y,
 							      gint               *page,
 							      gint               *x_offset,
 							      gint               *y_offset);
-static void       doc_point_to_view_point 		     (EvView             *view,
-				                              int                 page,
-							      EvPoint            *doc_point,
-					     	              GdkPoint           *view_point);
 /*** Hyperrefs ***/
 static EvLink *   ev_view_get_link_at_location 		     (EvView             *view,
 				  	         	      gdouble             x,
@@ -551,8 +539,8 @@ ev_view_scroll_to_page_position (EvView *view, GtkOrientation orientation)
 	} else {
 		GdkPoint view_point;
 
-		doc_point_to_view_point (view, view->current_page,
-					 &view->pending_point, &view_point);
+		_ev_view_transform_doc_point_to_view_point (view, view->current_page,
+							    &view->pending_point, &view_point);
 		x = view_point.x;
 		y = view_point.y;
 	}
@@ -845,7 +833,7 @@ compute_scroll_increment (EvView        *view,
 	rect.y = view->scroll_y + (scroll == GTK_SCROLL_PAGE_BACKWARD ? 5 : allocation.height - 5);
 	rect.width = page_area.width;
 	rect.height = 1;
-	view_rect_to_doc_rect (view, &rect, &page_area, &doc_rect);
+	_ev_view_transform_view_rect_to_doc_rect (view, &rect, &page_area, &doc_rect);
 
 	/* Convert the doc rectangle into a GdkRectangle */
 	rect.x = doc_rect.x1;
@@ -1239,22 +1227,22 @@ get_doc_page_size (EvView  *view,
 	}
 }
 
-static void
-view_point_to_doc_point (EvView *view,
-			 GdkPoint *view_point,
-			 GdkRectangle *page_area,
-			 double  *doc_point_x,
-			 double  *doc_point_y)
+void
+_ev_view_transform_view_point_to_doc_point (EvView       *view,
+					    GdkPoint     *view_point,
+					    GdkRectangle *page_area,
+					    double       *doc_point_x,
+					    double       *doc_point_y)
 {
 	*doc_point_x = (double) (view_point->x - page_area->x) / view->scale;
 	*doc_point_y = (double) (view_point->y - page_area->y) / view->scale;
 }
 
-static void
-view_rect_to_doc_rect (EvView *view,
-		       GdkRectangle *view_rect,
-		       GdkRectangle *page_area,
-		       EvRectangle  *doc_rect)
+void
+_ev_view_transform_view_rect_to_doc_rect (EvView       *view,
+					  GdkRectangle *view_rect,
+					  GdkRectangle *page_area,
+					  EvRectangle  *doc_rect)
 {
 	doc_rect->x1 = (double) (view_rect->x - page_area->x) / view->scale;
 	doc_rect->y1 = (double) (view_rect->y - page_area->y) / view->scale;
@@ -1262,11 +1250,11 @@ view_rect_to_doc_rect (EvView *view,
 	doc_rect->y2 = doc_rect->y1 + (double) view_rect->height / view->scale;
 }
 
-static void
-doc_point_to_view_point (EvView       *view,
-                         int           page,
-		         EvPoint      *doc_point,
-		         GdkPoint     *view_point)
+void
+_ev_view_transform_doc_point_to_view_point (EvView   *view,
+					    int       page,
+					    EvPoint  *doc_point,
+					    GdkPoint *view_point)
 {
 	GdkRectangle page_area;
 	GtkBorder border;
@@ -1299,11 +1287,11 @@ doc_point_to_view_point (EvView       *view,
 	view_point->y = view_y + page_area.y + border.top;
 }
 
-static void
-doc_rect_to_view_rect (EvView       *view,
-                       int           page,
-		       EvRectangle  *doc_rect,
-		       GdkRectangle *view_rect)
+void
+_ev_view_transform_doc_rect_to_view_rect (EvView       *view,
+					  int           page,
+					  EvRectangle  *doc_rect,
+					  GdkRectangle *view_rect)
 {
 	GdkRectangle page_area;
 	GtkBorder border;
@@ -1497,7 +1485,7 @@ ev_view_get_area_from_mapping (EvView        *view,
 	EvMapping *mapping;
 
 	mapping = ev_mapping_list_find (mapping_list, data);
-	doc_rect_to_view_rect (view, page, &mapping->area, area);
+	_ev_view_transform_doc_rect_to_view_rect (view, page, &mapping->area, area);
 	area->x -= view->scroll_x;
 	area->y -= view->scroll_y;
 }
@@ -1532,7 +1520,7 @@ ev_view_put_to_doc_rect (EvView      *view,
 {
 	GdkRectangle area;
 
-	doc_rect_to_view_rect (view, page, doc_rect, &area);
+	_ev_view_transform_doc_rect_to_view_rect (view, page, doc_rect, &area);
 	area.x -= view->scroll_x;
 	area.y -= view->scroll_y;
 	ev_view_put (view, child_widget, area.x, area.y, page, doc_rect);
@@ -2003,10 +1991,10 @@ ev_view_get_focused_area (EvView       *view,
 	if (!view->focused_element)
 		return FALSE;
 
-	doc_rect_to_view_rect (view,
-						  view->focused_element_page,
-						  &view->focused_element->area,
-						  area);
+	_ev_view_transform_doc_rect_to_view_rect (view,
+											  view->focused_element_page,
+											  &view->focused_element->area,
+											  area);
 	area->x -= view->scroll_x + 1;
 	area->y -= view->scroll_y + 1;
 	area->width += 1;
@@ -2779,7 +2767,7 @@ annotation_window_moved (EvAnnotationWindow *window,
 	view_rect.height = height;
 
 	ev_view_get_page_extents (view, child->page, &page_area, &border);
-	view_rect_to_doc_rect (view, &view_rect, &page_area, &doc_rect);
+	_ev_view_transform_view_rect_to_doc_rect (view, &view_rect, &page_area, &doc_rect);
 	child->orig_x = doc_rect.x1;
 	child->orig_y = doc_rect.y1;
 }
@@ -2825,7 +2813,7 @@ ev_view_create_annotation_window (EvView       *view,
 
 	page = ev_annotation_get_page_index (annot);
 	ev_annotation_window_get_rectangle (EV_ANNOTATION_WINDOW (window), &doc_rect);
-	doc_rect_to_view_rect (view, page, &doc_rect, &view_rect);
+	_ev_view_transform_doc_rect_to_view_rect (view, page, &doc_rect, &view_rect);
 	view_rect.x -= view->scroll_x;
 	view_rect.y -= view->scroll_y;
 
@@ -2997,8 +2985,8 @@ ev_view_create_annotation (EvView          *view,
 	point.x = x;
 	point.y = y;
 	ev_view_get_page_extents (view, view->current_page, &page_area, &border);
-	view_point_to_doc_point (view, &point, &page_area,
-				 &doc_rect.x1, &doc_rect.y1);
+	_ev_view_transform_view_point_to_doc_point (view, &point, &page_area,
+						    &doc_rect.x1, &doc_rect.y1);
 	doc_rect.x2 = doc_rect.x1 + 24;
 	doc_rect.y2 = doc_rect.y1 + 24;
 
@@ -3052,7 +3040,7 @@ ev_view_create_annotation (EvView          *view,
 		ev_view_annotation_show_popup_window (view, window);
 	}
 
-	doc_rect_to_view_rect (view, view->current_page, &doc_rect, &view_rect);
+	_ev_view_transform_doc_rect_to_view_rect (view, view->current_page, &doc_rect, &view_rect);
 	view_rect.x -= view->scroll_x;
 	view_rect.y -= view->scroll_y;
 	region = cairo_region_create_rectangle (&view_rect);
@@ -3082,8 +3070,9 @@ ev_view_focus_annotation (EvView    *view,
 	page = ev_annotation_get_page_index (annot);
 	ev_document_model_set_page (view->model, page);
 
-	doc_rect_to_view_rect (view, page,
-			       &annot_mapping->area, &view_rect);
+	_ev_view_transform_doc_rect_to_view_rect (view, page,
+						  &annot_mapping->area,
+						  &view_rect);
 	ensure_rectangle_is_visible (view, &view_rect);
 	gtk_widget_queue_draw (GTK_WIDGET (view));
 }
@@ -3403,7 +3392,7 @@ ev_view_size_allocate (GtkWidget      *widget,
 		if (!gtk_widget_get_visible (child->widget))
 			continue;
 
-		doc_rect_to_view_rect (view, child->page, &child->doc_rect, &view_area);
+		_ev_view_transform_doc_rect_to_view_rect (view, child->page, &child->doc_rect, &view_area);
 		view_area.x -= view->scroll_x;
 		view_area.y -= view->scroll_y;
 
@@ -3427,7 +3416,7 @@ ev_view_size_allocate (GtkWidget      *widget,
 			doc_rect.x1 = child->orig_x;
 			doc_rect.y1 = child->orig_y;
 		}
-		doc_rect_to_view_rect (view, child->page, &doc_rect, &view_rect);
+		_ev_view_transform_doc_rect_to_view_rect (view, child->page, &doc_rect, &view_rect);
 		view_rect.x -= view->scroll_x;
 		view_rect.y -= view->scroll_y;
 
@@ -4464,7 +4453,7 @@ highlight_find_results (EvView *view, cairo_t *cr, int page)
 		}
 
 		rectangle = ev_view_find_get_result (view, page, i);
-		doc_rect_to_view_rect (view, page, rectangle, &view_rectangle);
+		_ev_view_transform_doc_rect_to_view_rect (view, page, rectangle, &view_rectangle);
 		draw_rubberband (view, cr, &view_rectangle, alpha);
         }
 }
@@ -4478,7 +4467,7 @@ highlight_forward_search_results (EvView *view, cairo_t *cr, int page)
 	if (GPOINTER_TO_INT (mapping->data) != page)
 		return;
 
-	doc_rect_to_view_rect (view, page, &mapping->area, &rect);
+	_ev_view_transform_doc_rect_to_view_rect (view, page, &mapping->area, &rect);
 
 	cairo_save (cr);
 	cairo_set_source_rgb (cr, 1., 0., 0.);
@@ -4504,7 +4493,7 @@ focus_annotation (EvView       *view,
 	if (ev_annotation_get_page_index (annot) != page)
 		return;
 
-	doc_rect_to_view_rect (view, page, &mapping->area, &rect);
+	_ev_view_transform_doc_rect_to_view_rect (view, page, &mapping->area, &rect);
 	gtk_render_focus (gtk_widget_get_style_context (widget),
 			  cr,
 			  rect.x - view->scroll_x,
@@ -6157,7 +6146,7 @@ jump_to_find_result (EvView *view)
 		GdkRectangle view_rect;
 
 		rect = ev_view_find_get_result (view, page, view->find_result);
-		doc_rect_to_view_rect (view, page, rect, &view_rect);
+		_ev_view_transform_doc_rect_to_view_rect (view, page, rect, &view_rect);
 		ensure_rectangle_is_visible (view, &view_rect);
 		view->jump_to_find_result = FALSE;
 	}
@@ -6292,7 +6281,7 @@ ev_view_highlight_forward_search (EvView       *view,
 	page = GPOINTER_TO_INT (mapping->data);
 	ev_document_model_set_page (view->model, page);
 
-	doc_rect_to_view_rect (view, page, &mapping->area, &view_rect);
+	_ev_view_transform_doc_rect_to_view_rect (view, page, &mapping->area, &view_rect);
 	ensure_rectangle_is_visible (view, &view_rect);
 	gtk_widget_queue_draw (GTK_WIDGET (view));
 }
@@ -6332,8 +6321,8 @@ compute_new_selection_rect (EvView       *view,
 
 				selection = g_new0 (EvViewSelection, 1);
 				selection->page = i;
-				view_rect_to_doc_rect (view, &overlap, &page_area,
-						       &(selection->rect));
+				_ev_view_transform_view_rect_to_doc_rect (view, &overlap, &page_area,
+									  &(selection->rect));
 
 				list = g_list_append (list, selection);
 			}
@@ -6423,9 +6412,9 @@ compute_new_selection_text (EvView          *view,
 			point = stop;
 
 		if (i == first)
-			view_point_to_doc_point (view, point, &page_area,
-						 &selection->rect.x1,
-						 &selection->rect.y1);
+			_ev_view_transform_view_point_to_doc_point (view, point, &page_area,
+								    &selection->rect.x1,
+								    &selection->rect.y1);
 
 		/* If the selection is contained within just one page,
 		 * make sure we don't write 'start' into both points
@@ -6434,9 +6423,9 @@ compute_new_selection_text (EvView          *view,
 			point = stop;
 
 		if (i == last)
-			view_point_to_doc_point (view, point, &page_area,
-						 &selection->rect.x2,
-						 &selection->rect.y2);
+			_ev_view_transform_view_point_to_doc_point (view, point, &page_area,
+								    &selection->rect.x2,
+								    &selection->rect.y2);
 
 		list = g_list_append (list, selection);
 	}
