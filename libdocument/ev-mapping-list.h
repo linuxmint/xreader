@@ -49,6 +49,8 @@ gpointer       ev_mapping_list_get_data    (EvMappingList *mapping_list,
 					    gdouble        y);
 void           ev_mapping_list_remove      (EvMappingList *mapping_list,
 					    EvMapping     *mapping);
+EvMapping     *ev_mapping_list_nth         (EvMappingList *mapping_list,
+                                            guint          n);
 guint          ev_mapping_list_length      (EvMappingList *mapping_list);
 
 G_END_DECLS
