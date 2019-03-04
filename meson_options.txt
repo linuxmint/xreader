@@ -1,62 +1,62 @@
 option('comics',
 	type: 'boolean',
 	value: false,
-	description: ''
+	description: 'Support for the comic book (cbr) backend'
 )
 option('djvu',
 	type: 'boolean',
 	value: false,
-	description: ''
+	description: 'Support for the djvu backend'
 )
 option('dvi',
 	type: 'boolean',
 	value: false,
-	description: ''
+	description: 'Support for the dvi backend'
 )
 option('t1lib',
 	type: 'boolean',
 	value: false,
-	description: ''
+	description: 'Compile with t1lib for type1 font support in the dvi backend'
 )
 option('epub',
 	type: 'boolean',
 	value: true,
-	description: ''
+	description: 'Support for the epub backend'
 )
 option('pdf',
 	type: 'boolean',
 	value: true,
-	description: ''
+	description: 'Support for the PDF backend'
 )
 option('pixbuf',
 	type: 'boolean',
 	value: false,
-	description: ''
+	description: 'Support for the generic pixbuf image backend'
 )
 option('ps',
 	type: 'boolean',
 	value: true,
-	description: ''
+	description: 'Support for the PostScript backend'
 )
 option('tiff',
 	type: 'boolean',
 	value: true,
-	description: ''
+	description: 'Support for the tiff backend'
 )
 option('xps',
 	type: 'boolean',
 	value: true,
-	description: ''
+	description: 'Support for the xps backend'
 )
 option('previewer',
 	type: 'boolean',
 	value: true,
-	description: ''
+	description: 'Build the print previewer program'
 )
 option('thumbnailer',
 	type: 'boolean',
 	value: true,
-	description: ''
+	description: 'Build the thumbnailer program'
 )
 option('tests',
 	type: 'boolean',
@@ -71,12 +71,12 @@ option('docs',
 option('introspection',
 	type: 'boolean',
 	value: false,
-	description: ''
+	description: 'Enable GObject introspection'
 )
 option('dbus',
 	type: 'boolean',
 	value: true,
-	description: ''
+	description: 'D-Bus support'
 )
 option('deprecated_warnings',
 	type: 'boolean',
@@ -86,5 +86,5 @@ option('deprecated_warnings',
 option('enable_debug',
 	type: 'boolean',
 	value: false,
-	description: 'Show build warnings for deprecations'
+	description: 'Enable the runtime debugger'
 )
