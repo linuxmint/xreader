@@ -48,6 +48,16 @@ option('xps',
 	value: true,
 	description: 'Support for the xps backend'
 )
+option('gtk_unix_print',
+    type: 'boolean',
+    value: true,
+    description: 'Print support'
+)
+option('keyring',
+    type: 'boolean',
+    value: true,
+    description: 'Keyring support for password-protected documents'
+)
 option('previewer',
 	type: 'boolean',
 	value: true,

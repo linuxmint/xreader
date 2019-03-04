@@ -69,6 +69,7 @@ libview_deps = [
     gail,
     glib,
     gtk,
+    gtk_unix_print,
     math,
     webkit,
 ]
