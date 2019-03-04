@@ -58,6 +58,11 @@ option('keyring',
     value: true,
     description: 'Keyring support for password-protected documents'
 )
+option('mathjax-directory',
+    type: 'string',
+    value: '',
+    description: 'Path to the system mathjax installation.'
+)
 option('previewer',
 	type: 'boolean',
 	value: true,
