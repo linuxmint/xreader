@@ -1,5 +1,6 @@
 libview_private_headers = [
     'ev-annotation-window.h',
+    'ev-link-accessible.h',
     'ev-loading-window.h',
     'ev-page-cache.h',
     'ev-pixbuf-cache.h',
@@ -27,6 +28,7 @@ libview_sources = [
     'ev-loading-window.c',
     'ev-jobs.c',
     'ev-job-scheduler.c',
+    'ev-link-accessible.c',
     'ev-page-cache.c',
     'ev-pixbuf-cache.c',
     'ev-print-operation.c',
