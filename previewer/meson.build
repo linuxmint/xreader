@@ -14,7 +14,8 @@ previewer_sources += gnome.compile_resources(
 
 previewer_deps = [
     gio,
-    gtk
+    gtk,
+    gtk_unix_print
 ]
 
 executable(

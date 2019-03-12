@@ -49,6 +49,8 @@ X11 = dependency('x11')
 xapp = dependency('xapp', version: '>= 1.1.0')
 xml = dependency('libxml-2.0', version: '>= 2.5.0')
 zlib = dependency('zlib')
+libsecret = dependency('libsecret-1', version: '>= 0.5', required: get_option('keyring'))
+gtk_unix_print = dependency('gtk+-unix-print-3.0', version: '>= ' + gtk_version, required: get_option('gtk_unix_print'))
 
 if get_option('djvu')
     djvu = dependency('ddjvuapi', version: '>= 3.5.17')

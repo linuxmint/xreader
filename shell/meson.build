@@ -89,6 +89,7 @@ xreader_deps = [
     gio,
     glib,
     gtk,
+    libsecret,
     math,
     xapp,
 ]
