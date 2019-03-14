@@ -2670,7 +2670,7 @@ ev_view_find_window_child_for_annot (EvView       *view,
 	return NULL;
 }
 
-static EvViewWindowChild *
+static void
 ev_view_remove_window_child_for_annot (EvView       *view,
 				     guint         page,
 				     EvAnnotation *annot)

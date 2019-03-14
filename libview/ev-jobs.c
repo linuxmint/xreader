@@ -856,7 +856,7 @@ snapshot_callback(WebKitWebView *webview,
 	ev_document_doc_mutex_unlock ();
 	ev_job_succeeded (EV_JOB(job_thumb));
     
-	gtk_widget_destroy (gtk_widget_get_toplevel (webview));
+	gtk_widget_destroy (gtk_widget_get_toplevel (GTK_WIDGET (webview)));
 }
 
 #endif  /* ENABLE_EPUB */
@@ -889,7 +889,7 @@ webview_load_failed_cb (WebKitWebView  *webview,
 	g_warning ("Error loading data from %s: %s", failing_uri, e->message);
 	ev_job_failed_from_error (EV_JOB(job_thumb), e);
 	
-	gtk_widget_destroy (gtk_widget_get_toplevel (webview));
+	gtk_widget_destroy (gtk_widget_get_toplevel (GTK_WIDGET (webview)));
 	
 	return TRUE;
 }
@@ -940,7 +940,7 @@ ev_job_thumbnail_run (EvJob *job)
 		g_signal_connect (WEBKIT_WEB_VIEW(webview), "load-failed",
 		                  G_CALLBACK(webview_load_failed_cb),
 		                  g_object_ref (job_thumb));
-		webkit_web_view_load_uri (webview, (gchar*) rc->page->backend_page);
+		webkit_web_view_load_uri (WEBKIT_WEB_VIEW(webview), (gchar*) rc->page->backend_page);
 	}
 	else 
 #endif  /* ENABLE_EPUB */

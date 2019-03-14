@@ -484,7 +484,6 @@ ev_window_update_actions (EvWindow *ev_window)
     gboolean has_pages = FALSE;
     gboolean presentation_mode;
     gboolean can_find_in_page = FALSE;
-    EvSizingMode sizing_mode;
 
     if (ev_window->priv->document) {
         page = ev_document_model_get_page (ev_window->priv->model);
@@ -4175,7 +4174,6 @@ static void
 ev_window_update_max_min_scale (EvWindow *window)
 {
     gdouble    dpi;
-    GtkAction *action;
     gdouble    min_width, min_height;
     gdouble    width, height;
     gdouble    max_scale;

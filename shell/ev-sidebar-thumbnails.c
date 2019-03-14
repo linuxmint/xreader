@@ -108,8 +108,6 @@ static gboolean     ev_sidebar_thumbnails_support_document (EvSidebarPage       
 							    EvDocument              *document);
 static void         ev_sidebar_thumbnails_page_iface_init  (EvSidebarPageInterface  *iface);
 static const gchar* ev_sidebar_thumbnails_get_label        (EvSidebarPage           *sidebar_page);
-static gboolean     ev_sidebar_thumbnails_event            (GtkWidget               *widget,
-							                                GdkEventScroll          *event);
 static void         thumbnail_job_completed_callback       (EvJobThumbnail          *job,
 							    EvSidebarThumbnails     *sidebar_thumbnails);
 static void         adjustment_changed_cb                  (EvSidebarThumbnails     *sidebar_thumbnails);
@@ -398,7 +396,7 @@ ev_sidebar_thumbnails_set_size (EvSidebarThumbnails *sidebar_thumbnails, gint si
         priv->thumbnail_width = THUMBNAIL_MIN_WIDTH;
 
     if (priv->icon_view)
-        gtk_icon_view_set_item_width (priv->icon_view, priv->thumbnail_width);
+        gtk_icon_view_set_item_width (GTK_ICON_VIEW (priv->icon_view), priv->thumbnail_width);
 
     ev_sidebar_thumbnails_reload (sidebar_thumbnails);
 }
@@ -949,7 +947,7 @@ ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 	gtk_widget_show (hbox);
 
 	button = gtk_button_new ();
-	gtk_button_set_relief (button, GTK_RELIEF_NONE);
+	gtk_button_set_relief (GTK_BUTTON (button), GTK_RELIEF_NONE);
 	image = gtk_image_new_from_icon_name ("zoom-out-symbolic", GTK_ICON_SIZE_BUTTON);
 	gtk_container_add (GTK_CONTAINER (button), image);
 	gtk_widget_show (image);
@@ -962,7 +960,7 @@ ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 	gtk_widget_show (GTK_WIDGET (button));
 
 	button = gtk_button_new ();
-	gtk_button_set_relief (button, GTK_RELIEF_NONE);
+	gtk_button_set_relief (GTK_BUTTON (button), GTK_RELIEF_NONE);
 	image = gtk_image_new_from_icon_name ("zoom-in-symbolic", GTK_ICON_SIZE_BUTTON);
 	gtk_container_add (GTK_CONTAINER (button), image);
 	gtk_widget_show (image);
@@ -975,7 +973,7 @@ ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 	gtk_widget_show (GTK_WIDGET (button));
 
 	button = gtk_button_new ();
-	gtk_button_set_relief (button, GTK_RELIEF_NONE);
+	gtk_button_set_relief (GTK_BUTTON (button), GTK_RELIEF_NONE);
 	image = gtk_image_new_from_icon_name ("zoom-original-symbolic", GTK_ICON_SIZE_BUTTON);
 	gtk_container_add (GTK_CONTAINER (button), image);
 	gtk_widget_show (image);
