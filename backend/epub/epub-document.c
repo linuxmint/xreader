@@ -499,7 +499,7 @@ xml_get_pointer_to_node(xmlChar* parserfor,
                         xmlChar*  attributename,
                         xmlChar* attributevalue )
 {
-    xmlNodePtr topchild,children ;
+    xmlNodePtr topchild;
 
     xmlretval = NULL ;
 
@@ -1330,7 +1330,6 @@ epub_document_get_info(EvDocument *document)
 	gchar* infofile ;
 	xmlNodePtr metanode ;
 	GString* buffer ;
-	gchar* archive_dir = epub_document->tmp_archive_dir;
 
 	GString* containerpath = g_string_new(epub_document->tmp_archive_dir);
 	g_string_append_printf(containerpath,"/META-INF/container.xml");
