@@ -19,6 +19,7 @@
 
 #include <config.h>
 
+#include <gio/gio.h>
 #include <glib/gstdio.h>
 #include <gmodule.h>
 
@@ -100,7 +101,7 @@ ev_backends_manager_load_backend (const gchar *file)
 
 	info->resident = g_key_file_get_boolean (backend_file, EV_BACKENDS_GROUP,
 						 "Resident", NULL);
-	
+
 	info->type_desc = g_key_file_get_locale_string (backend_file, EV_BACKENDS_GROUP,
 							"TypeDescription", NULL, NULL);
 	if (!info->type_desc) {
@@ -146,7 +147,7 @@ ev_backends_manager_load (void)
 	while ((dirent = g_dir_read_name (dir))) {
 		EvBackendInfo *info;
 		gchar         *file;
-		
+
 		if (!g_str_has_suffix (dirent, EV_BACKENDS_EXTENSION))
 			continue;
 
@@ -156,7 +157,7 @@ ev_backends_manager_load (void)
 
 		if (!info)
 			continue;
-		
+
 		ev_backends_list = g_list_prepend (ev_backends_list, info);
 	}
 
@@ -205,11 +206,11 @@ ev_backends_manager_get_backend_info (const gchar *mime_type)
 		EvBackendInfo *info;
 		gint           i = 0;
 		const char    *mime;
-		
+
 		info = (EvBackendInfo *)l->data;
-		
+
 		while ((mime = info->mime_types[i++])) {
-			if (g_ascii_strcasecmp (mime, mime_type) == 0)
+			if (g_content_type_is_a (mime, mime_type))
 				return info;
 		}
 	}
@@ -229,12 +230,12 @@ ev_backends_manager_get_document (const gchar *mime_type)
 
 	if (!info->module) {
 		gchar *path;
-		
+
 		path = g_module_build_path (backends_dir(), info->module_name);
 		info->module = G_TYPE_MODULE (ev_module_new (path, info->resident));
 		g_free (path);
 	}
-	
+
 	if (!g_type_module_use (info->module)) {
 		g_warning ("Cannot load backend '%s' since file '%s' cannot be read.",
 			   info->module_name,
