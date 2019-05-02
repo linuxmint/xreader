@@ -4743,9 +4743,16 @@ draw_one_page (EvView       *view,
 		if (region) {
 			double scale_x, scale_y;
 			GdkRGBA color;
+			double device_scale_x = 1, device_scale_y = 1;
 
 			scale_x = (gdouble)width / cairo_image_surface_get_width (page_surface);
 			scale_y = (gdouble)height / cairo_image_surface_get_height (page_surface);
+
+			cairo_surface_get_device_scale (page_surface, &device_scale_x, &device_scale_y);
+
+			scale_x *= device_scale_x;
+			scale_y *= device_scale_y;
+
 			_ev_view_get_selection_colors (view, &color, NULL);
 			draw_selection_region (cr, region, &color, real_page_area.x, real_page_area.y,
 					       scale_x, scale_y);
