@@ -3802,12 +3802,15 @@ ev_window_cmd_edit_select_all (GtkAction *action,
     g_return_if_fail (EV_IS_WINDOW (ev_window));
 
     /*
-     * If the find bar is open, select all applies to
-     * the find field contents. Otherwise it applies
-     * to the viewing window's contents.
+     * If the find bar is open, select all applies to the find field contents.
+     * If the zoom level selector is active, select all applies to its entry
+     * field.Otherwise it applies to the viewing window's contents.
      */
     if (ev_window->priv->chrome & EV_CHROME_FINDBAR) {
         egg_find_bar_grab_focus(ev_window->priv->find_bar);
+    } else if (ev_window->priv->chrome & EV_CHROME_TOOLBAR
+        && ev_toolbar_zoom_action_get_focused (EV_TOOLBAR (ev_window->priv->toolbar))) {
+        ev_toolbar_zoom_action_select_all (EV_TOOLBAR (ev_window->priv->toolbar));
     } else if (ev_window->priv->document->iswebdocument == FALSE ) {
         ev_view_select_all (EV_VIEW (ev_window->priv->view));
     }
@@ -4416,6 +4419,20 @@ ev_window_cmd_view_zoom_reset (GtkAction *action,
     {
         ev_document_model_set_scale (ev_window->priv->model, get_screen_dpi (ev_window) / 72.0);
     }
+}
+
+static void
+ev_window_cmd_view_zoom (GSimpleAction *action,
+			 GVariant      *parameter,
+			 gpointer       user_data)
+{
+    EvWindow *ev_window = user_data;
+    EvWindowPrivate *priv = EV_WINDOW_GET_PRIVATE (ev_window);
+    gdouble zoom = g_variant_get_double (parameter);
+
+    ev_document_model_set_sizing_mode (priv->model, EV_SIZING_FREE);
+    ev_document_model_set_scale (priv->model,
+                                 zoom * get_screen_dpi (ev_window) / 72.0);
 }
 
 static void
@@ -6180,6 +6197,10 @@ static const GtkActionEntry attachment_popup_entries [] = {
                 NULL, G_CALLBACK (ev_attachment_popup_cmd_save_attachment_as) },
 };
 
+static const GActionEntry actions[] = {
+    { "zoom", ev_window_cmd_view_zoom, "d" }
+};
+
 static void
 sidebar_links_link_activated_cb (EvSidebarLinks *sidebar_links,
                                  EvLink         *link,
@@ -7382,6 +7403,10 @@ ev_window_init (EvWindow *ev_window)
             ev_window);
     gtk_ui_manager_insert_action_group (ev_window->priv->ui_manager,
             action_group, 0);
+
+    g_action_map_add_action_entries (G_ACTION_MAP (ev_window),
+                                     actions, G_N_ELEMENTS (actions),
+                                     ev_window);
 
     gtk_ui_manager_add_ui_from_resource (ev_window->priv->ui_manager,
             "/org/x/reader/shell/ui/xreader.xml",

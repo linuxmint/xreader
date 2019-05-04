@@ -8,6 +8,7 @@
 
 #include "ev-toolbar.h"
 #include "ev-document-model.h"
+#include "ev-zoom-action.h"
 
 enum
 {
@@ -22,6 +23,7 @@ struct _EvToolbarPrivate
     GtkWidget *fullscreen_group;
     GtkWidget *preset_group;
     GtkWidget *expand_window_button;
+    GtkWidget *zoom_action;
     GtkWidget *page_preset_button;
     GtkWidget *reader_preset_button;
     GtkWidget *history_group;
@@ -171,6 +173,18 @@ create_button (GtkAction *action)
     return button;
 }
 
+gboolean
+ev_toolbar_zoom_action_get_focused (EvToolbar *ev_toolbar)
+{
+    return ev_zoom_action_get_focused (EV_ZOOM_ACTION (ev_toolbar->priv->zoom_action));
+}
+
+void
+ev_toolbar_zoom_action_select_all (EvToolbar *ev_toolbar)
+{
+    ev_zoom_action_select_all (EV_ZOOM_ACTION (ev_toolbar->priv->zoom_action));
+}
+
 static void
 ev_toolbar_constructed (GObject *object)
 {
@@ -250,6 +264,13 @@ ev_toolbar_constructed (GObject *object)
     gtk_box_pack_end (GTK_BOX (box), separator, FALSE, FALSE, 0);
     gtk_widget_show (GTK_WIDGET (separator));
 
+    ev_toolbar->priv->zoom_action = ev_zoom_action_new
+        (ev_window_get_document_model (ev_toolbar->priv->window), g_menu_new());
+    gtk_widget_set_tooltip_text (ev_toolbar->priv->zoom_action,
+                                 _("Select or set the zoom level of the document"));
+    gtk_widget_set_margin_start(ev_toolbar->priv->zoom_action, 2);
+    gtk_box_pack_end (GTK_BOX (box), ev_toolbar->priv->zoom_action, FALSE, FALSE, 0);
+
     action = gtk_action_group_get_action (action_group, "ViewExpandWindow");
     ev_toolbar->priv->expand_window_button = create_button (action);
     gtk_box_pack_end (GTK_BOX (box), ev_toolbar->priv->expand_window_button, FALSE, FALSE, 0);
@@ -304,6 +325,9 @@ ev_toolbar_constructed (GObject *object)
     /* Toolbar buttons visibility bindings */
     g_settings_bind (ev_toolbar->priv->settings, GS_SHOW_EXPAND_WINDOW,
                      ev_toolbar->priv->expand_window_button, "visible",
+                     G_SETTINGS_BIND_DEFAULT);
+    g_settings_bind (ev_toolbar->priv->settings, GS_SHOW_ZOOM_ACTION,
+                     ev_toolbar->priv->zoom_action, "visible",
                      G_SETTINGS_BIND_DEFAULT);
     g_settings_bind (ev_toolbar->priv->settings, GS_SHOW_HISTORY_BUTTONS,
                      ev_toolbar->priv->history_group, "visible",

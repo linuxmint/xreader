@@ -65,6 +65,8 @@ shell_sources = [
     'ev-sidebar-page.h',
     'ev-sidebar-thumbnails.c',
     'ev-sidebar-thumbnails.h',
+    'ev-zoom-action.c',
+    'ev-zoom-action.h',
 ]
 
 ev_marshal = gnome.genmarshal(
