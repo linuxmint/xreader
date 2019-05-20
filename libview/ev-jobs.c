@@ -859,7 +859,6 @@ snapshot_callback(WebKitWebView *webview,
 	gtk_widget_destroy (gtk_widget_get_toplevel (GTK_WIDGET (webview)));
 }
 
-#endif  /* ENABLE_EPUB */
 
 static void
 web_thumbnail_get_screenshot_cb (WebKitWebView  *webview,
@@ -893,6 +892,8 @@ webview_load_failed_cb (WebKitWebView  *webview,
 	
 	return TRUE;
 }
+
+#endif  /* ENABLE_EPUB */
 
 static gboolean
 ev_job_thumbnail_run (EvJob *job)
