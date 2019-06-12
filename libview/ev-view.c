@@ -4579,6 +4579,87 @@ hide_loading_window (EvView *view)
 }
 
 static void
+draw_surface (cairo_t 	      *cr,
+			  cairo_surface_t *surface,
+			  gint             x,
+			  gint             y,
+			  gint             offset_x,
+			  gint             offset_y,
+			  gint             target_width,
+			  gint             target_height)
+{
+	gint width, height;
+	double device_scale_x = 1, device_scale_y = 1;
+
+	cairo_surface_get_device_scale (surface, &device_scale_x, &device_scale_y);
+
+	width = cairo_image_surface_get_width (surface);
+	height = cairo_image_surface_get_height (surface);
+
+	cairo_save (cr);
+	cairo_translate (cr, x, y);
+
+	if (width != target_width || height != target_height) {
+		cairo_pattern_set_filter (cairo_get_source (cr),
+								  CAIRO_FILTER_FAST);
+		cairo_scale (cr,
+					 (gdouble)target_width / width * device_scale_x,
+					 (gdouble)target_height / height * device_scale_y);
+	}
+
+	cairo_surface_set_device_offset (surface,
+									 offset_x * device_scale_x,
+									 offset_y * device_scale_y);
+	cairo_set_source_surface (cr, surface, 0, 0);
+	cairo_paint (cr);
+	cairo_restore (cr);
+}
+
+void
+_ev_view_get_selection_colors (EvView  *view,
+			       GdkRGBA *bg_color,
+			       GdkRGBA *fg_color)
+{
+	GtkWidget       *widget = GTK_WIDGET (view);
+	GtkStateFlags    state;
+	GtkStyleContext *context;
+
+	context = gtk_widget_get_style_context (widget);
+	gtk_style_context_save (context);
+	state = gtk_style_context_get_state (context) |
+		(gtk_widget_has_focus (widget) ? GTK_STATE_FLAG_SELECTED : GTK_STATE_FLAG_ACTIVE);
+	gtk_style_context_set_state (context, state);
+
+	if (bg_color)
+		gtk_style_context_get_background_color (context, state, bg_color);
+
+	if (fg_color)
+		gtk_style_context_get_color (context, state, fg_color);
+
+	gtk_style_context_restore (context);
+}
+
+static void
+draw_selection_region (cairo_t        *cr,
+		       cairo_region_t *region,
+		       GdkRGBA        *color,
+		       gint            x,
+		       gint            y,
+		       gdouble         scale_x,
+		       gdouble         scale_y)
+{
+	cairo_save (cr);
+	cairo_translate (cr, x, y);
+	cairo_scale (cr, scale_x, scale_y);
+	gdk_cairo_region (cr, region);
+	cairo_set_source_rgb (cr, color->red, color->green, color->blue);
+	cairo_set_operator (cr, CAIRO_OPERATOR_MULTIPLY);
+	cairo_set_antialias (cr, CAIRO_ANTIALIAS_NONE);
+	cairo_fill (cr);
+	cairo_restore (cr);
+}
+
+static void
 draw_one_page (EvView       *view,
 	       gint          page,
 	       cairo_t      *cr,
@@ -4623,11 +4704,10 @@ draw_one_page (EvView       *view,
 
 	if (gdk_rectangle_intersect (&real_page_area, expose_area, &overlap)) {
 		gint             width, height;
-		gint             page_width, page_height;
 		cairo_surface_t *page_surface = NULL;
-		gint             selection_width, selection_height;
 		cairo_surface_t *selection_surface = NULL;
-		double device_scale_x = 1, device_scale_y = 1;
+		gint offset_x, offset_y;
+		cairo_region_t *region = NULL;
 
 		page_surface = ev_pixbuf_cache_get_surface (view->pixbuf_cache, page);
 
@@ -4640,69 +4720,48 @@ draw_one_page (EvView       *view,
 			return;
 		}
 
-		cairo_surface_get_device_scale (page_surface, &device_scale_x, &device_scale_y);
-
 		if (page == current_page)
 			hide_loading_window (view);
 
 		ev_view_get_page_size (view, page, &width, &height);
+		offset_x = overlap.x - real_page_area.x;
+		offset_y = overlap.y - real_page_area.y;
 
-		page_width = cairo_image_surface_get_width (page_surface);
-		page_height = cairo_image_surface_get_height (page_surface);
-
-		cairo_save (cr);
-		cairo_translate (cr, overlap.x, overlap.y);
-
-		if (width != page_width || height != page_height) {
-			cairo_pattern_set_filter (cairo_get_source (cr),
-						  CAIRO_FILTER_FAST);
-			cairo_scale (cr,
-				     (gdouble)width / page_width * device_scale_x,
-				     (gdouble)height / page_height * device_scale_y);
-		}
-
-		cairo_surface_set_device_offset (page_surface,
-						 (overlap.x - real_page_area.x) * device_scale_x,
-						 (overlap.y - real_page_area.y) * device_scale_y);
-		cairo_set_source_surface (cr, page_surface, 0, 0);
-		cairo_paint (cr);
-		cairo_restore (cr);
+		draw_surface (cr, page_surface, overlap.x, overlap.y, offset_x, offset_y, width, height);
 
 		/* Get the selection pixbuf iff we have something to draw */
-		if (find_selection_for_page (view, page) &&
-		    view->selection_mode == EV_VIEW_SELECTION_TEXT) {
-			selection_surface =
-				ev_pixbuf_cache_get_selection_surface (view->pixbuf_cache,
-								       page,
-								       view->scale,
-								       NULL);
-		}
+		if (!find_selection_for_page (view, page))
+			return;
 
-		if (!selection_surface) {
+		selection_surface = ev_pixbuf_cache_get_selection_surface (view->pixbuf_cache,
+									   page,
+									   view->scale);
+		if (selection_surface) {
+			draw_surface (cr, selection_surface, overlap.x, overlap.y, offset_x, offset_y,
+				      width, height);
 			return;
 		}
 
-		selection_width = cairo_image_surface_get_width (selection_surface);
-		selection_height = cairo_image_surface_get_height (selection_surface);
+		region = ev_pixbuf_cache_get_selection_region (view->pixbuf_cache,
+							       page,
+							       view->scale);
+		if (region) {
+			double scale_x, scale_y;
+			GdkRGBA color;
+			double device_scale_x = 1, device_scale_y = 1;
 
-		cairo_save (cr);
-		cairo_translate (cr, overlap.x, overlap.y);
+			scale_x = (gdouble)width / cairo_image_surface_get_width (page_surface);
+			scale_y = (gdouble)height / cairo_image_surface_get_height (page_surface);
 
-		if (width != selection_width || height != selection_height) {
-			cairo_pattern_set_filter (cairo_get_source (cr),
-						  CAIRO_FILTER_FAST);
-			cairo_scale (cr,
-				     (gdouble)width / selection_width * device_scale_x,
-				     (gdouble)height / selection_height * device_scale_y);
+			cairo_surface_get_device_scale (page_surface, &device_scale_x, &device_scale_y);
+
+			scale_x *= device_scale_x;
+			scale_y *= device_scale_y;
+
+			_ev_view_get_selection_colors (view, &color, NULL);
+			draw_selection_region (cr, region, &color, real_page_area.x, real_page_area.y,
+					       scale_x, scale_y);
 		}
-
-		cairo_surface_set_device_offset (selection_surface,
-						 (overlap.x - real_page_area.x) * device_scale_x,
-						 (overlap.y - real_page_area.y) * device_scale_y);
-
-		cairo_set_source_surface (cr, selection_surface, 0, 0);
-		cairo_paint (cr);
-		cairo_restore (cr);
 	}
 }
 
@@ -6321,7 +6380,7 @@ compute_new_selection_rect (EvView       *view,
 			if (gdk_rectangle_intersect (&page_area, &view_rect, &overlap)) {
 				EvViewSelection *selection;
 
-				selection = g_new0 (EvViewSelection, 1);
+				selection = g_slice_new0 (EvViewSelection);
 				selection->page = i;
 				_ev_view_transform_view_rect_to_doc_rect (view, &overlap, &page_area,
 									  &(selection->rect));
@@ -6380,6 +6439,10 @@ compute_new_selection_text (EvView          *view,
 		GtkBorder border;
 
 		ev_view_get_page_extents (view, i, &page_area, &border);
+		page_area.x -= border.left;
+		page_area.y -= border.top;
+		page_area.width += border.left + border.right;
+		page_area.height += border.top + border.bottom;
 		if (gdk_rectangle_point_in (&page_area, start) ||
 		    gdk_rectangle_point_in (&page_area, stop)) {
 			if (first == n_pages)
@@ -6399,7 +6462,7 @@ compute_new_selection_text (EvView          *view,
 
 		get_doc_page_size (view, i, &width, &height);
 
-		selection = g_new0 (EvViewSelection, 1);
+		selection = g_slice_new0 (EvViewSelection);
 		selection->page = i;
 		selection->style = style;
 		selection->rect.x1 = selection->rect.y1 = 0;
@@ -6407,16 +6470,23 @@ compute_new_selection_text (EvView          *view,
 		selection->rect.y2 = height;
 
 		ev_view_get_page_extents (view, i, &page_area, &border);
+		page_area.x -= border.left;
+		page_area.y -= border.top;
+		page_area.width += border.left + border.right;
+		page_area.height += border.top + border.bottom;
 
 		if (gdk_rectangle_point_in (&page_area, start))
 			point = start;
 		else
 			point = stop;
 
-		if (i == first)
+		if (i == first) {
 			_ev_view_transform_view_point_to_doc_point (view, point, &page_area,
 								    &selection->rect.x1,
 								    &selection->rect.y1);
+			selection->rect.x1 = MAX (selection->rect.x1 - border.left, 0);
+			selection->rect.y1 = MAX (selection->rect.y1 - border.top, 0);
+		}
 
 		/* If the selection is contained within just one page,
 		 * make sure we don't write 'start' into both points
@@ -6424,15 +6494,18 @@ compute_new_selection_text (EvView          *view,
 		if (first == last)
 			point = stop;
 
-		if (i == last)
+		if (i == last) {
 			_ev_view_transform_view_point_to_doc_point (view, point, &page_area,
 								    &selection->rect.x2,
 								    &selection->rect.y2);
+			selection->rect.x2 = MAX (selection->rect.x2 - border.right, 0);
+			selection->rect.y2 = MAX (selection->rect.y2 - border.bottom, 0);
+		}
 
-		list = g_list_append (list, selection);
+		list = g_list_prepend (list, selection);
 	}
 
-	return list;
+	return g_list_reverse (list);
 }
 
 /* This function takes the newly calculated list, and figures out which regions
@@ -6447,8 +6520,7 @@ merge_selection_region (EvView *view,
 
 	/* Update the selection */
 	old_list = ev_pixbuf_cache_get_selection_list (view->pixbuf_cache);
-	g_list_foreach (view->selection_info.selections, (GFunc)selection_free, NULL);
-	g_list_free (view->selection_info.selections);
+	g_list_free_full (view->selection_info.selections, (GDestroyNotify)selection_free);
 	view->selection_info.selections = new_list;
 	ev_pixbuf_cache_set_selection_list (view->pixbuf_cache, new_list);
 	g_signal_emit (view, signals[SIGNAL_SELECTION_CHANGED], 0, NULL);
@@ -6494,13 +6566,11 @@ merge_selection_region (EvView *view,
 		/* seed the cache with a new page.  We are going to need the new
 		 * region too. */
 		if (new_sel) {
-			cairo_region_t *tmp_region = NULL;
+			cairo_region_t *tmp_region;
 
-			ev_pixbuf_cache_get_selection_surface (view->pixbuf_cache,
-							       cur_page,
-							       view->scale,
-							       &tmp_region);
-
+			tmp_region = ev_pixbuf_cache_get_selection_region (view->pixbuf_cache,
+									   cur_page,
+									   view->scale);
 			if (tmp_region && !cairo_region_is_empty (tmp_region)) {
 				new_sel->covered_region = cairo_region_reference (tmp_region);
 			}
@@ -6509,44 +6579,24 @@ merge_selection_region (EvView *view,
 		/* Now we figure out what needs redrawing */
 		if (old_sel && new_sel) {
 			if (old_sel->covered_region && new_sel->covered_region) {
-				/* We only want to redraw the areas that have
-				 * changed, so we xor the old and new regions
-				 * and redraw if it's different */
-				region = cairo_region_copy (old_sel->covered_region);
-				cairo_region_xor (region, new_sel->covered_region);
-
-				if (cairo_region_is_empty (region)) {
-					cairo_region_destroy (region);
-					region = NULL;
-				} else {
-					gint num_rectangles = cairo_region_num_rectangles (region);
-					GdkRectangle r;
-
-					/* We need to make the damage region a little bigger
-					 * because the edges of the old selection might change
-					 */
-					cairo_region_get_rectangle (region, 0, &r);
-					r.x -= 5;
-					r.width = 5;
-					cairo_region_union_rectangle (region, &r);
-
-					cairo_region_get_rectangle (region, num_rectangles - 1, &r);
-					r.x += r.width;
-					r.width = 5;
-					cairo_region_union_rectangle (region, &r);
+				if (!cairo_region_equal (old_sel->covered_region, new_sel->covered_region)) {
+					/* Anything that was previously or currently selected may
+					 * have changed */
+					region = cairo_region_copy (old_sel->covered_region);
+					cairo_region_union (region, new_sel->covered_region);
 				}
 			} else if (old_sel->covered_region) {
-				region = cairo_region_copy (old_sel->covered_region);
+				region = cairo_region_reference (old_sel->covered_region);
 			} else if (new_sel->covered_region) {
-				region = cairo_region_copy (new_sel->covered_region);
+				region = cairo_region_reference (new_sel->covered_region);
 			}
 		} else if (old_sel && !new_sel) {
 			if (old_sel->covered_region && !cairo_region_is_empty (old_sel->covered_region)) {
-				region = cairo_region_copy (old_sel->covered_region);
+				region = cairo_region_reference (old_sel->covered_region);
 			}
 		} else if (!old_sel && new_sel) {
 			if (new_sel->covered_region && !cairo_region_is_empty (new_sel->covered_region)) {
-				region = cairo_region_copy (new_sel->covered_region);
+				region = cairo_region_reference (new_sel->covered_region);
 			}
 		} else {
 			g_assert_not_reached ();
@@ -6554,21 +6604,39 @@ merge_selection_region (EvView *view,
 
 		/* Redraw the damaged region! */
 		if (region) {
-			GdkRectangle page_area;
-			GtkBorder    border;
+			GdkRectangle    page_area;
+			GtkBorder       border;
+			cairo_region_t *damage_region;
+			gint            i, n_rects;
 
 			ev_view_get_page_extents (view, cur_page, &page_area, &border);
-			cairo_region_translate (region,
-					   page_area.x + border.left - view->scroll_x,
-					   page_area.y + border.top - view->scroll_y);
-			gdk_window_invalidate_region (gtk_widget_get_window (GTK_WIDGET (view)), region, TRUE);
+
+			damage_region = cairo_region_create ();
+			/* Translate the region and grow it 2 pixels because for some zoom levels
+			 * the area actually drawn by cairo is larger than the selected region, due
+			 * to rounding errors or pixel alignment.
+			 */
+			n_rects = cairo_region_num_rectangles (region);
+			for (i = 0; i < n_rects; i++) {
+				cairo_rectangle_int_t rect;
+
+				cairo_region_get_rectangle (region, i, &rect);
+				rect.x += page_area.x + border.left - view->scroll_x - 2;
+				rect.y += page_area.y + border.top - view->scroll_y - 2;
+				rect.width += 4;
+				rect.height += 4;
+				cairo_region_union_rectangle (damage_region, &rect);
+			}
 			cairo_region_destroy (region);
+
+			gdk_window_invalidate_region (gtk_widget_get_window (GTK_WIDGET (view)),
+						      damage_region, TRUE);
+			cairo_region_destroy (damage_region);
 		}
 	}
 
 	/* Free the old list, now that we're done with it. */
-	g_list_foreach (old_list, (GFunc) selection_free, NULL);
-	g_list_free (old_list);
+	g_list_free_full (old_list, (GDestroyNotify)selection_free);
 }
 
 static void
@@ -6593,15 +6661,14 @@ selection_free (EvViewSelection *selection)
 {
 	if (selection->covered_region)
 		cairo_region_destroy (selection->covered_region);
-	g_free (selection);
+	g_slice_free (EvViewSelection, selection);
 }
 
 static void
 clear_selection (EvView *view)
 {
 	if (view->selection_info.selections) {
-		g_list_foreach (view->selection_info.selections, (GFunc)selection_free, NULL);
-		g_list_free (view->selection_info.selections);
+		g_list_free_full (view->selection_info.selections, (GDestroyNotify)selection_free);
 		view->selection_info.selections = NULL;
 
 		g_signal_emit (view, signals[SIGNAL_SELECTION_CHANGED], 0, NULL);
@@ -6630,18 +6697,17 @@ ev_view_select_all (EvView *view)
 
 		get_doc_page_size (view, i, &width, &height);
 
-		selection = g_new0 (EvViewSelection, 1);
+		selection = g_slice_new0 (EvViewSelection);
 		selection->page = i;
 		selection->style = EV_SELECTION_STYLE_GLYPH;
 		selection->rect.x1 = selection->rect.y1 = 0;
 		selection->rect.x2 = width;
 		selection->rect.y2 = height;
 
-		selections = g_list_append (selections, selection);
+		selections = g_list_prepend (selections, selection);
 	}
 
-	merge_selection_region (view, selections);
-	gtk_widget_queue_draw (GTK_WIDGET (view));
+	merge_selection_region (view, g_list_reverse (selections));
 }
 
 gboolean
