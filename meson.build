@@ -80,6 +80,27 @@ math = cc.find_library('m', required: false)
 
 intltool_merge = find_program('intltool-merge')
 
+mathjax_directory = get_option('mathjax-directory')
+if mathjax_directory == ''
+    foreach dir: [
+        # Arch Linux
+        '/usr/share/mathjax',
+        # Debian
+        '/usr/share/javascript/mathjax'
+        ]
+        if run_command('test', ['-f', join_paths(dir, 'MathJax.js')]).returncode() == 0
+            mathjax_directory = dir
+            # break would require meson_version >= 0.49.0 so just let the last one win
+        endif
+    endforeach
+endif
+
+if mathjax_directory != ''
+    xreader_conf.set_quoted('MATHJAX_DIRECTORY', mathjax_directory)
+elif get_option('epub')
+    error('"mathjax-directory" is undefined and could not be autodetected')
+endif
+
 # generate config.h
 config_h_file = configure_file(
     output : 'config.h',
@@ -202,3 +223,4 @@ message('includedir = @0@'.format(includedir))
 message('libexecdir = @0@'.format(libexecdir))
 message('desktopdir = @0@'.format(desktopdir))
 message('schema_dir = @0@'.format(schema_dir))
+message('MathJax directory = @0@'.format(mathjax_directory))
