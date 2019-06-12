@@ -45,6 +45,9 @@ void ev_toolbar_set_preset_sensitivity (EvToolbar *ev_toolbar,
 void ev_toolbar_activate_reader_view (EvToolbar *ev_toolbar);
 void ev_toolbar_activate_page_view (EvToolbar *ev_toolbar);
 
+gboolean ev_toolbar_zoom_action_get_focused (EvToolbar *ev_toolbar);
+void ev_toolbar_zoom_action_select_all (EvToolbar *ev_toolbar);
+
 G_END_DECLS
 
 #endif /* __EV_TOOLBAR_H__ */

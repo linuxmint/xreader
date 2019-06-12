@@ -45,6 +45,7 @@ G_BEGIN_DECLS
 
 /* Schema keys: Toolbar */
 #define GS_SHOW_EXPAND_WINDOW      "show-expand-window"
+#define GS_SHOW_ZOOM_ACTION        "show-zoom-action"
 #define GS_SHOW_HISTORY_BUTTONS    "show-history-buttons"
 
 typedef enum {

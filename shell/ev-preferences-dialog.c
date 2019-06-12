@@ -42,6 +42,7 @@ struct _EvPreferencesDialog
     /* Toolbar page */
     GtkWidget             *show_history_buttons_switch;
     GtkWidget             *show_expand_window_button_switch;
+    GtkWidget             *show_zoom_action_switch;
 };
 
 G_DEFINE_TYPE(EvPreferencesDialog, ev_preferences_dialog, XAPP_TYPE_PREFERENCES_WINDOW)
@@ -72,6 +73,7 @@ ev_preferences_dialog_class_init(EvPreferencesDialogClass *klass)
     /* Editor Page widgets */
     gtk_widget_class_bind_template_child(widget_class, EvPreferencesDialog, show_history_buttons_switch);
     gtk_widget_class_bind_template_child(widget_class, EvPreferencesDialog, show_expand_window_button_switch);
+    gtk_widget_class_bind_template_child(widget_class, EvPreferencesDialog, show_zoom_action_switch);
 }
 
 static void
@@ -103,6 +105,12 @@ setup_editor_page(EvPreferencesDialog *dlg)
     g_settings_bind(dlg->toolbar_settings,
                      GS_SHOW_EXPAND_WINDOW,
                      dlg->show_expand_window_button_switch,
+                     "active",
+                     G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
+
+    g_settings_bind(dlg->toolbar_settings,
+                     GS_SHOW_ZOOM_ACTION,
+                     dlg->show_zoom_action_switch,
                      "active",
                      G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
 
