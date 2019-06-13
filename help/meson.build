@@ -17,17 +17,19 @@ if get_option('docs')
 endif
 
 # help files
-help_sources = [
-    'index.docbook',
-    'legal.xml',
-]
+if get_option('help_files')
+  help_sources = [
+      'index.docbook',
+      'legal.xml',
+  ]
 
-help_media = [
-    'figures/xreader_start_window.png',
-]
+  help_media = [
+      'figures/xreader_start_window.png',
+  ]
 
-gnome.yelp(
-    meson.project_name(),
-    sources: help_sources,
-    media: help_media,
-)
+  gnome.yelp(
+      meson.project_name(),
+      sources: help_sources,
+      media: help_media,
+  )
+endif

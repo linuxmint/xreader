@@ -26,7 +26,8 @@ override_dh_auto_configure:
 		-D t1lib=true \
 		-D pixbuf=true \
 		-D comics=true \
-		-D introspection=true
+		-D introspection=true \
+		-D help_files=true
 	# 	--disable-static \
 
 override_dh_strip:

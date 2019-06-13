@@ -83,6 +83,11 @@ option('docs',
     value: false,
     description: 'Build the API references (requires gtk-doc)'
 )
+option('help_files',
+    type: 'boolean',
+    value: false,
+    description: 'Build the help files'
+)
 option('introspection',
 	type: 'boolean',
 	value: false,
