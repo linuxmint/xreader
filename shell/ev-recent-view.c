@@ -26,11 +26,14 @@
 #include "ev-document-model.h"
 #include "ev-jobs.h"
 #include "ev-job-scheduler.h"
+#include "ev-window.h"
 
 struct _EvRecentViewPrivate {
     GtkWidget        *view;
     GtkRecentManager *recent_manager;
     guint             recent_manager_changed_handler_id;
+    GtkWidget        *grid_view;
+    GtkWidget        *no_recents_view;
 };
 
 typedef enum {
@@ -103,7 +106,7 @@ thumbnail_job_completed_callback (EvJobThumbnail *job,
                                   GtkButton      *button)
 {
     if (!ev_job_is_failed (EV_JOB (job))) {
-        GdkPixbuf *pixbuf = ev_document_misc_render_thumbnail_with_frame(button, job->thumbnail);
+        GdkPixbuf *pixbuf = ev_document_misc_render_thumbnail_with_frame(GTK_WIDGET(button), job->thumbnail);
         gtk_button_set_image (button, gtk_image_new_from_pixbuf(pixbuf));
     }
 }
@@ -121,7 +124,7 @@ ev_recent_view_clear (EvRecentView *ev_recent_view)
 {
     EvRecentViewPrivate *priv = ev_recent_view->priv;
 
-    gtk_container_foreach (GTK_CONTAINER (priv->view), (GtkCallback) destroy_child, priv->view);
+    gtk_container_foreach (GTK_CONTAINER (priv->grid_view), (GtkCallback) destroy_child, priv->grid_view);
 }
 
 static void
@@ -135,6 +138,11 @@ ev_recent_view_refresh (EvRecentView *ev_recent_view)
 
     items = gtk_recent_manager_get_items (priv->recent_manager);
     items = g_list_sort (items, (GCompareFunc) compare_recent_items);
+
+    if (g_list_length(items) == 0) {
+        gtk_stack_set_visible_child_name(GTK_STACK(priv->view), "no_recent_files");
+        return;
+    }
 
     for (l = items; l && l->data; l = g_list_next (l)) {
         GtkRecentInfo *info;
@@ -165,7 +173,7 @@ ev_recent_view_refresh (EvRecentView *ev_recent_view)
         gtk_button_set_image_position (GTK_BUTTON (button), GTK_POS_TOP);
         g_free (name);
 
-        gtk_container_add (GTK_CONTAINER (priv->view), button);
+        gtk_container_add (GTK_CONTAINER (priv->grid_view), button);
         gtk_widget_show (button);
 
         g_object_set_data (G_OBJECT (button), "uri", (gpointer) uri);
@@ -191,6 +199,7 @@ ev_recent_view_refresh (EvRecentView *ev_recent_view)
             g_object_unref (job);
         }
     }
+    gtk_stack_set_visible_child_name(GTK_STACK(priv->view), "recent_files");
 }
 
 
@@ -204,6 +213,7 @@ ev_recent_view_init (EvRecentView *ev_recent_view)
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (ev_recent_view), GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
 }
 
+
 static void
 ev_recent_view_constructed (GObject *object)
 {
@@ -212,16 +222,48 @@ ev_recent_view_constructed (GObject *object)
 
     G_OBJECT_CLASS (ev_recent_view_parent_class)->constructed (object);
 
-    priv->view = gtk_flow_box_new ();
-    gtk_widget_set_valign (priv->view, GTK_ALIGN_START);
-    gtk_flow_box_set_activate_on_single_click (GTK_FLOW_BOX (priv->view), TRUE);
-    gtk_flow_box_set_selection_mode (GTK_FLOW_BOX (priv->view), GTK_SELECTION_NONE);
-    gtk_flow_box_set_homogeneous (GTK_FLOW_BOX (priv->view), TRUE);
+    priv->view = gtk_stack_new();
 
-    gtk_widget_set_margin_start (priv->view, 6);
-    gtk_widget_set_margin_end (priv->view, 6);
-    gtk_widget_set_margin_top (priv->view, 6);
-    gtk_widget_set_margin_bottom (priv->view, 6);
+    priv->grid_view = gtk_flow_box_new();
+    gtk_widget_set_valign (priv->grid_view, GTK_ALIGN_START);
+    gtk_flow_box_set_activate_on_single_click (GTK_FLOW_BOX (priv->grid_view), TRUE);
+    gtk_flow_box_set_selection_mode (GTK_FLOW_BOX (priv->grid_view), GTK_SELECTION_NONE);
+    gtk_flow_box_set_homogeneous (GTK_FLOW_BOX (priv->grid_view), TRUE);
+    gtk_widget_set_margin_start (priv->grid_view, 6);
+    gtk_widget_set_margin_end (priv->grid_view, 6);
+    gtk_widget_set_margin_top (priv->grid_view, 6);
+    gtk_widget_set_margin_bottom (priv->grid_view, 6);
+
+    priv->no_recents_view = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
+
+    gtk_widget_set_can_focus(priv->no_recents_view, FALSE);
+    gtk_widget_set_valign(priv->no_recents_view, GTK_ALIGN_CENTER);
+    gtk_widget_set_halign(priv->no_recents_view, GTK_ALIGN_FILL);
+
+    GtkWidget *no_recents_image = gtk_image_new_from_icon_name("document-open-recent", GTK_ICON_SIZE_DIALOG);
+    gtk_image_set_pixel_size(GTK_IMAGE(no_recents_image), 96);
+    gtk_box_pack_start(GTK_BOX(priv->no_recents_view), no_recents_image, FALSE, TRUE, 0);
+    gtk_widget_show(no_recents_image);
+
+    GtkWidget *label = gtk_label_new(_("No recent documents"));
+    PangoAttribute *attrib_size = pango_attr_scale_new(1.05);
+    PangoAttribute *attrib_bold = pango_attr_weight_new(PANGO_WEIGHT_BOLD);
+    PangoAttrList *attribs = pango_attr_list_new();
+    pango_attr_list_insert(attribs, attrib_size);
+    pango_attr_list_insert(attribs, attrib_bold);
+    gtk_label_set_attributes(GTK_LABEL(label), attribs);
+    gtk_box_pack_start(GTK_BOX(priv->no_recents_view), label, FALSE, FALSE, 5);
+    gtk_widget_set_halign(label, GTK_ALIGN_CENTER);
+    gtk_widget_set_valign(label, GTK_ALIGN_START);
+    gtk_widget_show(label);
+
+    gtk_stack_add_named(GTK_STACK(priv->view), priv->no_recents_view, "no_recent_files");
+    gtk_stack_add_named(GTK_STACK(priv->view), priv->grid_view, "recent_files");
+
+    gtk_stack_set_visible_child_name(GTK_STACK(priv->view), "no_recent_files");
+
+    gtk_widget_show(priv->grid_view);
+    gtk_widget_show(priv->no_recents_view);
 
     gtk_container_add (GTK_CONTAINER (ev_recent_view), priv->view);
     gtk_widget_show (priv->view);
