@@ -11,6 +11,7 @@
       <separator/>
       <placeholder name="RecentFilesMenu"/>
       <separator/>
+      <menuitem name="FileCloseAllWindowsMenu" action="FileCloseAllWindows"/>
       <menuitem name="FileCloseWindowMenu" action="FileCloseWindow"/>
     </menu>
 
