@@ -1,5 +1,5 @@
 /* ev-annotation-window.c
- *  this file is part of xreader, a mate document viewer
+ *  this file is part of xreader, a generic document viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos <carlosgc@gnome.org>
  * Copyright (C) 2007 Iñigo Martinez <inigomartinez@gmail.com>
@@ -96,14 +96,7 @@ send_focus_change (GtkWidget *widget,
 static gdouble
 get_screen_dpi (EvAnnotationWindow *window)
 {
-	GdkScreen *screen;
-	GdkDisplay *display;
-	GdkMonitor *monitor;
-
-	screen = gtk_window_get_screen (GTK_WINDOW (window));
-	display = gdk_screen_get_display (screen);
-	monitor = gdk_display_get_monitor_at_window(display, gtk_widget_get_window(GTK_WIDGET(GTK_WINDOW(window))));
-	return ev_document_misc_get_screen_dpi (screen, monitor);
+	return ev_document_misc_get_screen_dpi_at_window (GTK_WINDOW(window));
 }
 
 static void
