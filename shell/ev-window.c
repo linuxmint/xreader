@@ -3696,6 +3696,18 @@ ev_window_cmd_file_close_window (GtkAction *action,
 }
 
 static void
+ev_window_cmd_file_close_all_windows (GtkAction *action,
+                                      EvWindow  *ev_window)
+{
+    GList *l, *windows;
+
+    windows = g_list_copy(gtk_application_get_windows ((GtkApplication *) EV_APP));
+    for (l = windows; l != NULL; l = l->next) {
+        ev_window_cmd_file_close_window(action, (EvWindow *)l->data);
+    }
+}
+
+static void
 ev_window_cmd_focus_page_selector (GtkAction *act,
                                    EvWindow  *window)
 {
@@ -5888,6 +5900,10 @@ static const GtkActionEntry entries[] = {
                 "<alt>Return",
                 NULL,
                 G_CALLBACK (ev_window_cmd_file_properties) },
+        { "FileCloseAllWindows", NULL, N_("_Close All Windows"),
+                "<control>Q",
+                NULL,
+                G_CALLBACK (ev_window_cmd_file_close_all_windows) },
         { "FileCloseWindow", "window-close-symbolic", N_("_Close"),
                 "<control>W",
                 NULL,
