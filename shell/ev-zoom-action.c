@@ -100,17 +100,21 @@ ev_zoom_action_set_zoom_level (EvZoomAction *zoom_action,
 static void
 ev_zoom_action_update_zoom_level (EvZoomAction *zoom_action)
 {
-	EvZoomActionPrivate *priv = GET_PRIVATE (zoom_action);
+    EvZoomActionPrivate *priv = GET_PRIVATE (zoom_action);
 
-        float      zoom = ev_document_model_get_scale (priv->model);
-        GdkScreen *screen = gtk_widget_get_screen (GTK_WIDGET (zoom_action));
-        GdkWindow *window = gtk_widget_get_parent_window (GTK_WIDGET (zoom_action));
+    float       zoom = ev_document_model_get_scale (priv->model);
+    GdkScreen  *screen = gtk_widget_get_screen (GTK_WIDGET (zoom_action));
+    GdkWindow  *window = gtk_widget_get_parent_window (GTK_WIDGET (zoom_action));
+
+    if (window) {
         GdkDisplay *display = gdk_screen_get_display (screen);
         GdkMonitor *monitor = gdk_display_get_monitor_at_window (display, window);
 
         zoom *= 72.0 / ev_document_misc_get_screen_dpi (screen, monitor);
         zoom *= gdk_monitor_get_scale_factor (monitor);
-        ev_zoom_action_set_zoom_level (zoom_action, zoom);
+    }
+
+    ev_zoom_action_set_zoom_level (zoom_action, zoom);
 }
 
 static void

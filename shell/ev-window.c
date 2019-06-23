@@ -363,14 +363,7 @@ G_DEFINE_TYPE (EvWindow, ev_window, GTK_TYPE_APPLICATION_WINDOW)
 static gdouble
 get_screen_dpi (EvWindow *window)
 {
-    GdkScreen *screen;
-    GdkDisplay *display;
-    GdkMonitor *monitor;
-
-    screen = gtk_window_get_screen (GTK_WINDOW (window));
-    display = gdk_screen_get_display (screen);
-    monitor = gdk_display_get_monitor_at_window(display, gtk_widget_get_window(GTK_WIDGET(GTK_WINDOW(window))));
-    return ev_document_misc_get_screen_dpi (screen, monitor) / gdk_monitor_get_scale_factor (monitor);
+    return ev_document_misc_get_screen_dpi_at_window (GTK_WINDOW(window));
 }
 
 static void

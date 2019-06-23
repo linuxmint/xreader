@@ -33,6 +33,9 @@
 #include <gtk/gtk.h>
 #include "ev-macros.h"
 
+
+#define DEFAULT_DPI 96.0
+
 G_BEGIN_DECLS
 
 EV_DEPRECATED
@@ -72,6 +75,9 @@ void             ev_document_misc_invert_surface (cairo_surface_t *surface);
 void		 ev_document_misc_invert_pixbuf  (GdkPixbuf       *pixbuf);
 
 gdouble          ev_document_misc_get_screen_dpi (GdkScreen *screen, GdkMonitor *monitor);
+
+gdouble ev_document_misc_get_screen_dpi_at_window(GtkWindow *window);
+
 
 gchar           *ev_document_misc_format_date (GTime utime);
 

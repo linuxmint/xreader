@@ -437,7 +437,7 @@ ev_document_misc_get_screen_dpi (GdkScreen *screen, GdkMonitor *monitor)
         (mmX == 16  && (mmY == 9  || mmY == 10))  ||
         mmX == 0 || mmY == 0 ||
         monitorRect.width == 0 || monitorRect.height == 0) {
-        return 96.0;
+        return DEFAULT_DPI;
     }
 
     dp = hypot (monitorRect.width, monitorRect.height);
@@ -446,6 +446,25 @@ ev_document_misc_get_screen_dpi (GdkScreen *screen, GdkMonitor *monitor)
     di /= gdk_monitor_get_scale_factor(monitor);
 
     return (dp / di);
+}
+
+
+gdouble
+ev_document_misc_get_screen_dpi_at_window(GtkWindow *window)
+{
+	GdkDisplay *display;
+	GdkScreen *screen;
+	GdkMonitor *monitor;
+	GdkWindow *gwindow = gtk_widget_get_window(GTK_WIDGET(GTK_WINDOW(window)));
+
+	if (!window || !gwindow) {
+		return DEFAULT_DPI;
+	}
+
+	screen = gtk_window_get_screen (window);
+	display = gdk_screen_get_display (screen);
+	monitor = gdk_display_get_monitor_at_window(display, gwindow);
+	return ev_document_misc_get_screen_dpi (screen, monitor) / gdk_monitor_get_scale_factor (monitor);
 }
 
 /* Returns a locale specific date and time representation */
