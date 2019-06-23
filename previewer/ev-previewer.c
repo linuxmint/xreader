@@ -96,12 +96,10 @@ main (gint argc, gchar **argv)
 	EvDocumentModel *model;
 	GError          *error = NULL;
 
-#ifdef ENABLE_NLS
 	/* Initialize the i18n stuff */
 	bindtextdomain (GETTEXT_PACKAGE, XREADER_LOCALE_DIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
-#endif
 
 	context = g_option_context_new (_("Print Preview"));
 	g_option_context_set_translation_domain (context, GETTEXT_PACKAGE);
