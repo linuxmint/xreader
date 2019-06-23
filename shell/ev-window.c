@@ -5801,49 +5801,36 @@ menubar_deactivate_cb (GtkWidget *menubar,
     update_chrome_visibility (window);
 }
 
+
+/*
+ * GtkWindow catches keybindings for the menu items _before_ passing them to
+ * the focused widget. This is unfortunate and means that pressing Ctrl+a,
+ * Ctrl+left or Ctrl+right in the search bar ends up selecting text in the EvView
+ * or rotating it.
+ * Here we override GtkWindow's handler to do the same things that it
+ * does, but in the opposite order and then we chain up to the grand
+ * parent handler, skipping gtk_window_key_press_event.
+ */
 static gboolean
 ev_window_key_press_event (GtkWidget   *widget,
                            GdkEventKey *event)
 {
-    EvWindow        *ev_window = EV_WINDOW (widget);
-    EvWindowPrivate *priv = ev_window->priv;
-    gboolean         handled = FALSE;
+	static gpointer grand_parent_class = NULL;
+	GtkWindow *window = GTK_WINDOW (widget);
 
-    /* Propagate the event to the view first
-     * It's needed to be able to type in
-     * annot popups windows
-     */
-    if ( priv->view) {
-        g_object_ref (priv->view);
-        if (gtk_widget_is_sensitive (priv->view))
-            handled = gtk_widget_event (priv->view, (GdkEvent*) event);
-        g_object_unref (priv->view);
-    }
+	if (grand_parent_class == NULL)
+                grand_parent_class = g_type_class_peek_parent (ev_window_parent_class);
 
-    if (!handled && !EV_WINDOW_IS_PRESENTATION (ev_window)) {
-        guint modifier = event->state & gtk_accelerator_get_default_mod_mask ();
+    /* Handle focus widget key events */
+    if (gtk_window_propagate_key_event (window, event))
+		return TRUE;
 
-        if (priv->menubar_accel_keyval != 0 &&
-                event->keyval == priv->menubar_accel_keyval &&
-                modifier == priv->menubar_accel_modifier) {
-            if (!gtk_widget_get_visible (priv->menubar)) {
-                g_signal_connect (priv->menubar, "deactivate",
-                        G_CALLBACK (menubar_deactivate_cb),
-                        ev_window);
+	/* Handle mnemonics and accelerators */
+	if (gtk_window_activate_key (window, event))
+		return TRUE;
 
-                gtk_widget_show (priv->menubar);
-                gtk_menu_shell_select_first (GTK_MENU_SHELL (priv->menubar),
-                        FALSE);
-
-                handled = TRUE;
-            }
-        }
-    }
-
-    if (!handled)
-        handled = GTK_WIDGET_CLASS (ev_window_parent_class)->key_press_event (widget, event);
-
-    return handled;
+    /* Chain up, invokes binding set on window */
+	return GTK_WIDGET_CLASS (grand_parent_class)->key_press_event (widget, event);
 }
 
 static gboolean
