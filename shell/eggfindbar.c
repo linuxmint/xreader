@@ -287,7 +287,6 @@ egg_find_bar_init (EggFindBar *find_bar)
 {
   EggFindBarPrivate *priv;
   GtkWidget *label;
-  GtkWidget *alignment;
   GtkWidget *box;
   GtkToolItem *item;
   GtkWidget *arrow;

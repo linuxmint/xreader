@@ -90,7 +90,7 @@ help_button_clicked(GtkButton *button,
                     gpointer   data)
 {
     EvPreferencesDialog *dlg = EV_PREFERENCES_DIALOG(data);
-    ev_window_show_help(GTK_WINDOW(dlg), NULL);
+    ev_window_show_help(EV_WINDOW(dlg), NULL);
 }
 
 static void
