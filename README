@@ -82,9 +82,16 @@ Building Xreader from source
     ninja -C debian/build
     ninja -C debian/build install
 
-6) Now you can run and test (all executables are in /usr/local/bin):
+6) Now you can run and test (most executables are in /usr/local/bin):
 
     /usr/local/bin/xreader
+
+    If you want to test the daemon, run:
+
+    /usr/local/lib/x86_64-linux-gnu/xreaderd
+
+    You can enable debugging with the G_MESSAGES_DEBUG environmental
+    variable.
 
 7) You can uninstall the installed files with
 
