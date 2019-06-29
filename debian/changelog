@@ -1,3 +1,93 @@
+xreader (2.2.0) tina; urgency=medium
+
+  [ chingyinwan123 ]
+  * Fix some warnings when building xreader 2.0.2 (#265)
+
+  [ Clement Lefebvre ]
+  * CI: Remove Mint 18
+
+  [ Stephen Collins ]
+  * port to meson (#269)
+
+  [ Clement Lefebvre ]
+  * Build: Fix Debian Stretch build
+
+  [ Matthew Petroff ]
+  * Take device scale factor into account for zoom (#277)
+
+  [ Leigh Scott ]
+  * Update readme for meson changes (#284)
+
+  [ Stephen Collins ]
+  * meson: change 'debug' option to 'enable_debug' to avoid collisions (#285)
+
+  [ Peter Moser ]
+  * Remove leftover code
+  * view: Fix whitespace issues
+  * ev-window: Fix incompatible pointer type issues
+
+  [ raveit65 ]
+  * ATRIL BACKPORTS: a11y: Do not use AtkFactory to create the EvViewAccessible
+  * ATRIL BACKPORTS: libview: Rename EvView coordinate transformation functions
+  * ATRIL BACKPORTS: ev-view-accessible: Use _ev_view_transform_view_point_to_doc_point()
+  * ATRIL BACKPORTS: ev-view-accessible: Use _ev_view_transform_doc_rect_to_view_rect()
+  * ATRIL BACKPORTS: ev-view: Inlcude ev-jobs in ev-view.h
+  * ATRIL BACKPORTS: libdocument: Add length and nth methods to EvMappingList
+  * ATRIL BACKPORTS: libview: Implement AtkHypertext interface
+  * ATRIL BACKPORTS: libview: Make EvLinkAccessible implement AtkAction
+  * ATRIL BACKPORTS: ev-view-accessible: Add helper function to get text before, at or after offset
+  * ATRIL BACKPORTS: ev-view-accessible: Fix some coding style issues
+
+  [ Eli Schwartz ]
+  * Meson fixups (#293)
+  * libdocument: Fix handling of mime-type aliases (#292)
+
+  [ Baurzhan Muftakhidinov ]
+  * ATRIL BACKPORTS: Add missing comma.
+
+  [ Peter Moser ]
+  * sidebar-thumbnails: clean up cancel_running_jobs
+
+  [ Nelson Benitez Leon ]
+  * ATRIL BACKPORTS: sidebar-thumbnails: preload one extra visible range while scrolling
+
+  [ Owen W. Taylor ]
+  * ATRIL BACKPORTS: EvPixbufCache: Handle backends that don't render a selection
+
+  [ Peter Moser ]
+  * Fix some compile time warnings
+
+  [ Piiit ]
+  * EVINCE BACKPORTS: libview: Reset `pressed_button` when starting Drag and Drop (#301)
+
+  [ Peter Moser ]
+  * build: Fix compiling with disabled epub (#308)
+  * Fix text selection in HiDPI (#302)
+
+  [ Matthew Petroff ]
+  * Add optional zoom level selector. (#305)
+
+  [ Eli Schwartz ]
+  * epub backend: make mathjax directory a configure-time option (#297)
+
+  [ Cobinja ]
+  * Make help files optional (#311)
+
+  [ Peter Moser ]
+  * shell: Add a ctrl+q shortcut to close all open windows (#312)
+  * shell: Add a 'No recent documents' screen (#313)
+  * EVINCE BACKPORTS: shell: forward accels to the focused widget (#315)
+
+  [ Clement Lefebvre ]
+  * l10n: Update POT
+  * Build: Fix l10n
+
+  [ Peter Moser ]
+  * libdocument: Return default DPI on failure (#316)
+  * xreaderd logging (#318)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 29 Jun 2019 17:21:40 +0200
+
 xreader (2.0.2) tessa; urgency=medium
 
   * l10n: Update translations
