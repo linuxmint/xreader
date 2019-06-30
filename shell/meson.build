@@ -127,7 +127,7 @@ if get_option('dbus')
         include_directories: include_dirs,
         dependencies: xreader_deps,
         install: true,
-        install_dir: libdir,
+        install_dir: libexecdir,
     )
 endif
 
