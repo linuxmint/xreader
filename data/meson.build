@@ -8,7 +8,7 @@ install_data(
 )
 
 service_conf = configuration_data()
-service_conf.set('libexecdir', join_paths(prefix, libdir))
+service_conf.set('libexecdir', join_paths(prefix, libexecdir))
 
 configure_file(
     input: 'org.x.reader.Daemon.service.in',
