@@ -13,6 +13,10 @@ endif
 %:
 	dh $@ $(DHFLAGS)
 
+override_dh_install:
+	sed 's@TYPELIBDIR@${TYPELIBDIR}@' debian/gir1.2-xreader.install.in > debian/gir1.2-xreader.install
+	dh_install --fail-missing
+
 override_dh_auto_test:
 	ninja -C debian/build test
 
