@@ -13,6 +13,7 @@ previewer_sources += gnome.compile_resources(
 )
 
 previewer_deps = [
+    libdocument_dep,
     gio,
     gtk,
     gtk_unix_print
@@ -22,7 +23,7 @@ executable(
     'xreader-previewer',
     previewer_sources,
     dependencies: previewer_deps,
-    link_with: [libdocument, libview, libmisc],
+    link_with: [libview, libmisc],
     include_directories: include_dirs,
     install: true,
 )

@@ -3,6 +3,7 @@ thumbnailer_sources = [
 ]
 
 thumbnailer_deps = [
+    libdocument_dep,
     glib,
     gtk,
 ]
@@ -10,7 +11,6 @@ thumbnailer_deps = [
 executable(
     'xreader-thumbnailer',
     thumbnailer_sources,
-    link_with: [libdocument],
     include_directories: include_dirs,
     dependencies: thumbnailer_deps,
     install: true,

@@ -134,6 +134,12 @@ libdocument = library(
     install: true,
 )
 
+# this is needed so targets that depend on generated headers can do so
+libdocument_dep = declare_dependency(
+    link_with: libdocument,
+    sources: libdoc_enums[1]
+)
+
 install_headers(
     libdocument_headers,
     subdir: libdoc_header_dir,
