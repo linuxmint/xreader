@@ -1,3 +1,18 @@
+xreader (2.2.2) tina; urgency=medium
+
+  [ Peter Moser ]
+  * EVINCE BACKPORTS: libview: Allow printing to all formats supported by backend (#322)
+  * #239 Printing issue: Incorrect centering while printing (#320)
+
+  [ Eli Schwartz ]
+  * meson: fix order-only dependencies on generated headers (#323)
+
+  [ Clement Lefebvre ]
+  * l10n: Update POT
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 10 Jul 2019 11:37:12 +0200
+
 xreader (2.2.1) tina; urgency=medium
 
   [ Leigh Scott ]
