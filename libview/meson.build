@@ -67,6 +67,7 @@ libview_marshal = gnome.genmarshal(
 )
 
 libview_deps = [
+    libdocument_dep,
     config_h,
     gail,
     glib,
@@ -79,7 +80,6 @@ libview_deps = [
 libview = library(
     'xreaderview',
     libview_sources + libview_private_headers + libdoc_enums + libview_marshal,
-    link_with: [libdocument],
     include_directories: include_dirs,
     dependencies: libview_deps,
     soversion: binary_major_version,

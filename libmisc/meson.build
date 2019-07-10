@@ -8,6 +8,7 @@ libmisc_sources = [
 ]
 
 libmisc_deps = [
+    libdocument_dep,
     glib,
     gtk,
 ]
@@ -15,7 +16,7 @@ libmisc_deps = [
 libmisc = static_library(
     'misc',
     libmisc_sources,
-    link_with: [libdocument, libview],
+    link_with: libview,
     include_directories: include_dirs,
     dependencies: libmisc_deps,
 )

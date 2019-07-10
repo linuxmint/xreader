@@ -87,6 +87,7 @@ ev_resources = gnome.compile_resources(
 shell_sources += ev_resources
 
 xreader_deps = [
+    libdocument_dep,
     config_h,
     gio,
     glib,
@@ -134,7 +135,7 @@ endif
 libshell = static_library(
     'shell',
     shell_sources,
-    link_with: [libdocument, libview],
+    link_with: libview,
     link_whole: [libmisc, libtotemscrsaver, libsmclient, libephyzoom],
     dependencies: xreader_deps,
     include_directories: [include_dirs, cnc_includes],
@@ -143,7 +144,7 @@ libshell = static_library(
 executable(
     'xreader',
     'main.c',
-    link_with: [libdocument, libview],
+    link_with: libview,
     link_whole: libshell,
     dependencies: xreader_deps,
     include_directories: [include_dirs, cnc_includes],
