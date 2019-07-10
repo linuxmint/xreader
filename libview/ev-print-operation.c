@@ -1185,7 +1185,7 @@ ev_print_operation_export_print_dialog_response_cb (GtkDialog              *dial
 		g_set_error_literal (&export->error,
                                      GTK_PRINT_ERROR,
                                      GTK_PRINT_ERROR_GENERAL,
-                                     _("Printing is not supported on this printer."));
+                                     _("Requested format is not supported by this printer."));
 		g_signal_emit (op, signals[DONE], 0, GTK_PRINT_OPERATION_RESULT_ERROR);
 		
 		return;
@@ -1776,7 +1776,17 @@ ev_print_operation_print_request_page_setup (EvPrintOperationPrint *print,
 	}
 
 	if (print->autorotate) {
-		if (width > height)
+		gdouble paper_width, paper_height;
+		gboolean page_is_landscape, paper_is_landscape;
+
+		GtkPaperSize *psize = gtk_page_setup_get_paper_size (setup);
+		paper_width = gtk_paper_size_get_width (psize, GTK_UNIT_POINTS);
+		paper_height = gtk_paper_size_get_height (psize, GTK_UNIT_POINTS);
+
+		paper_is_landscape = paper_width > paper_height;
+		page_is_landscape = width > height;
+
+		if (page_is_landscape != paper_is_landscape)
 			gtk_page_setup_set_orientation (setup, GTK_PAGE_ORIENTATION_LANDSCAPE);
 		else
 			gtk_page_setup_set_orientation (setup, GTK_PAGE_ORIENTATION_PORTRAIT);
@@ -1799,6 +1809,27 @@ _print_context_get_hard_margins (GtkPrintContext *context,
 }
 
 static void
+ev_print_operation_print_get_scaled_page_size (EvPrintOperationPrint *print,
+                                               gint                   page,
+                                               gdouble               *width,
+                                               gdouble               *height,
+					       gdouble               *manual_scale)
+{
+        GtkPrintSettings *settings;
+
+        ev_document_get_page_size (EV_PRINT_OPERATION (print)->document,
+                                   page, width, height);
+
+        settings = gtk_print_operation_get_print_settings (print->op);
+        *manual_scale = gtk_print_settings_get_scale (settings) / 100.0;
+        if (*manual_scale == 1.0)
+                return;
+
+        *width *= *manual_scale;
+        *height *= *manual_scale;
+}
+
+static void
 ev_print_operation_print_draw_page (EvPrintOperationPrint *print,
 				    GtkPrintContext       *context,
 				    gint                   page)
@@ -1806,8 +1837,9 @@ ev_print_operation_print_draw_page (EvPrintOperationPrint *print,
 	EvPrintOperation *op = EV_PRINT_OPERATION (print);
 	cairo_t          *cr;
 	gdouble           cr_width, cr_height;
-	gdouble           width, height, scale;
+	gdouble           width, height, manual_scale, scale;
 	gdouble           x_scale, y_scale;
+        gdouble           x_offset, y_offset;
 	gdouble           top, bottom, left, right;
 
 	gtk_print_operation_set_defer_drawing (print->op);
@@ -1831,47 +1863,47 @@ ev_print_operation_print_draw_page (EvPrintOperationPrint *print,
 	cr = gtk_print_context_get_cairo_context (context);
 	cr_width = gtk_print_context_get_width (context);
 	cr_height = gtk_print_context_get_height (context);
-	ev_document_get_page_size (op->document, page, &width, &height);
+        ev_print_operation_print_get_scaled_page_size (print, page, &width, &height, &manual_scale);
 
 	if (print->page_scale == EV_SCALE_NONE) {
 		/* Center document page on the printed page */
-		if (print->autorotate)
-			cairo_translate (cr, (cr_width - width) / 2, (cr_height - height) / 2);
+		if (print->autorotate) {
+                        x_offset = (cr_width - width) / (2 * manual_scale);
+                        y_offset = (cr_height - height) / (2 * manual_scale);
+                        cairo_translate (cr, x_offset, y_offset);
+                }
 	} else {
 		_print_context_get_hard_margins (context, &top, &bottom, &left, &right);
 
 		x_scale = (cr_width - left - right) / width;
 		y_scale = (cr_height - top - bottom) / height;
+                scale = MIN (x_scale, y_scale);
 
-		if (x_scale < y_scale)
-			scale = x_scale;
-		else
-			scale = y_scale;
+                /* Ignore scale > 1 when shrinking to printable area */
+                if (scale > 1.0 && print->page_scale == EV_SCALE_SHRINK_TO_PRINTABLE_AREA)
+                        scale = 1.0;
 
 		if (print->autorotate) {
-			double left_right_sides, top_bottom_sides;
-
-			cairo_translate (cr, (cr_width - scale * width) / 2,
-					 (cr_height - scale * height) / 2);
+                        x_offset = (cr_width - scale * width) / (2 * manual_scale);
+                        y_offset = (cr_height - scale * height) / (2 * manual_scale);
+                        cairo_translate (cr, x_offset, y_offset);
 
 			/* Ensure document page is within the margins. The
 			 * scale guarantees the document will fit in the
 			 * margins so we just need to check each side and
 			 * if it overhangs the margin, translate it to the
-			 * margin. */
-			left_right_sides = (cr_width - width*scale)/2;
-			top_bottom_sides = (cr_height - height*scale)/2;
-			if (left_right_sides < left)
-				cairo_translate (cr, left - left_right_sides, 0);
+                         * margin. */
+			if (x_offset < left)
+				cairo_translate (cr, left - x_offset, 0);
 
-			if (left_right_sides < right)
-				cairo_translate (cr, -(right - left_right_sides), 0);
+			if (x_offset < right)
+				cairo_translate (cr, -(right - x_offset), 0);
 
-			if (top_bottom_sides < top)
-				cairo_translate (cr, 0, top - top_bottom_sides);
+			if (y_offset < top)
+				cairo_translate (cr, 0, top - y_offset);
 
-			if (top_bottom_sides < bottom)
-				cairo_translate (cr, 0, -(bottom - top_bottom_sides));
+			if (y_offset < bottom)
+				cairo_translate (cr, 0, -(bottom - y_offset));
 		} else {
 			cairo_translate (cr, left, top);
 		}
