@@ -24,6 +24,8 @@
 #include <gtk/gtk.h>
 #include <glib-object.h>
 
+#include "ev-annotations-toolbar.h"
+
 G_BEGIN_DECLS
 
 typedef struct _EvSidebarAnnotations        EvSidebarAnnotations;
@@ -48,9 +50,6 @@ struct _EvSidebarAnnotationsClass {
 
 	void    (* annot_activated)     (EvSidebarAnnotations *sidebar_annots,
 					 EvMapping            *mapping);
-	void    (* begin_annot_add)     (EvSidebarAnnotations *sidebar_annots,
-					 EvAnnotationType      annot_type);
-	void    (* annot_add_cancelled) (EvSidebarAnnotations *sidebar_annots);
 };
 
 GType      ev_sidebar_annotations_get_type    (void) G_GNUC_CONST;
@@ -59,6 +58,8 @@ void       ev_sidebar_annotations_annot_added (EvSidebarAnnotations *sidebar_ann
 					       EvAnnotation         *annot);
 void       ev_sidebar_annotations_annot_removed (EvSidebarAnnotations *sidebar_annots,
 					       EvAnnotation         *annot);
+EvAnnotationsToolbar *ev_sidebar_annotations_get_toolbar(EvSidebarAnnotations *sidebar_annots);
+
 G_END_DECLS
 
 #endif /* __EV_SIDEBAR_ANNOTATIONS_H__ */
