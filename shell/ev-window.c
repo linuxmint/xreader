@@ -91,6 +91,7 @@
 #include "ev-print-operation.h"
 #include "ev-progress-message-area.h"
 #include "ev-annotation-properties-dialog.h"
+#include "ev-annotations-toolbar.h"
 #include "ev-bookmarks.h"
 #include "ev-bookmark-action.h"
 #include "ev-toolbar.h"
@@ -6283,9 +6284,9 @@ sidebar_annots_annot_activated_cb (EvSidebarAnnotations *sidebar_annots,
 }
 
 static void
-sidebar_annots_begin_annot_add (EvSidebarAnnotations *sidebar_annots,
-                                EvAnnotationType      annot_type,
-                                EvWindow             *window)
+ev_window_begin_add_annot (EvSidebarAnnotations *sidebar_annots,
+		EvAnnotationType annot_type,
+		EvWindow        *window)
 {
     if (window->priv->document->iswebdocument == TRUE ) return;
     ev_view_begin_add_annotation (EV_VIEW (window->priv->view), annot_type);
@@ -6296,8 +6297,11 @@ view_annot_added (EvView       *view,
                   EvAnnotation *annot,
                   EvWindow     *window)
 {
-    ev_sidebar_annotations_annot_added (EV_SIDEBAR_ANNOTATIONS (window->priv->sidebar_annots),
-                                        annot);
+	EvSidebarAnnotations *sidebar = EV_SIDEBAR_ANNOTATIONS (window->priv->sidebar_annots);
+	EvAnnotationsToolbar *toolbar = ev_sidebar_annotations_get_toolbar(sidebar);
+
+    ev_sidebar_annotations_annot_added (sidebar, annot);
+    ev_annotations_toolbar_add_annot_finished (toolbar);
 }
 
 static void
@@ -6310,8 +6314,7 @@ view_annot_removed (EvView       *view,
 }
 
 static void
-sidebar_annots_annot_add_cancelled (EvSidebarAnnotations *sidebar_annots,
-                                    EvWindow             *window)
+ev_window_cancel_add_annot(EvSidebarAnnotations *sidebar_annots, EvWindow *window)
 {
     if (window->priv->document->iswebdocument == TRUE ) return;
     ev_view_cancel_add_annotation (EV_VIEW (window->priv->view));
@@ -7532,18 +7535,19 @@ ev_window_init (EvWindow *ev_window)
             sidebar_widget);
 
     sidebar_widget = ev_sidebar_annotations_new ();
+    EvAnnotationsToolbar *annot_toolbar = ev_sidebar_annotations_get_toolbar(EV_SIDEBAR_ANNOTATIONS(sidebar_widget));
     ev_window->priv->sidebar_annots = sidebar_widget;
     g_signal_connect (sidebar_widget,
             "annot_activated",
             G_CALLBACK (sidebar_annots_annot_activated_cb),
             ev_window);
-    g_signal_connect (sidebar_widget,
-            "begin_annot_add",
-            G_CALLBACK (sidebar_annots_begin_annot_add),
+    g_signal_connect (annot_toolbar,
+            "begin-add-annot",
+            G_CALLBACK (ev_window_begin_add_annot),
             ev_window);
-    g_signal_connect (sidebar_widget,
-            "annot_add_cancelled",
-            G_CALLBACK (sidebar_annots_annot_add_cancelled),
+    g_signal_connect (annot_toolbar,
+            "cancel-add-annot",
+            G_CALLBACK (ev_window_cancel_add_annot),
             ev_window);
     gtk_widget_show (sidebar_widget);
     ev_sidebar_add_page (EV_SIDEBAR (ev_window->priv->sidebar),

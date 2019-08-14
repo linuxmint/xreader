@@ -3,6 +3,8 @@ shell_sources = [
     'eggfindbar.h',
     'ev-annotation-properties-dialog.h',
     'ev-annotation-properties-dialog.c',
+    'ev-annotations-toolbar.h',
+    'ev-annotations-toolbar.c',
     'ev-bookmarks.h',
     'ev-bookmarks.c',
     'ev-bookmark-action.h',
