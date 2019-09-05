@@ -17,6 +17,7 @@
  */
 
 #include <config.h>
+#include <string.h>
 #include "mdvi.h"
 
 /* simple hash tables for MDVI */

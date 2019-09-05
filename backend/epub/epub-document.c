@@ -352,7 +352,7 @@ epub_document_save (EvDocument *document,
 {
     EpubDocument *epub_document = EPUB_DOCUMENT (document);
 
-    gchar *source_uri = g_filename_to_uri (epub_document->archivename, NULL, &error);
+    gchar *source_uri = g_filename_to_uri (epub_document->archivename, NULL, error);
     if (source_uri == NULL)
         return FALSE;
 
@@ -1503,12 +1503,6 @@ add_night_sheet(contentListNode *listdata,gchar *sheet)
     open_xml_document(listdata->value);
 
     set_xml_root_node(NULL);
-    xmlNodePtr head = xml_get_pointer_to_node((xmlChar*)"head",NULL,NULL);
-
-    xmlNodePtr link = xmlNewTextChild(head,NULL,(xmlChar*)"link",NULL);
-    xmlAttrPtr href = xmlNewProp(link,(xmlChar*)"href",(xmlChar*)sheeturi);
-    xmlAttrPtr rel = xmlNewProp(link,(xmlChar*)"rel",(xmlChar*)"alternate stylesheet");
-    xmlAttrPtr class =  xmlNewProp(link,(xmlChar*)"class",(xmlChar*)"night");
 
     xmlSaveFormatFile (listdata->value, xmldocument, 0);
     xml_free_doc();
@@ -1656,7 +1650,6 @@ static void
 epub_document_add_mathJax(gchar* containeruri,gchar* documentdir)
 {
 	gchar *containerfilename= g_filename_from_uri(containeruri,NULL,NULL);
-	const gchar *backenddir = ev_backends_manager_get_backends_dir();
 	GString *mathjaxdir = g_string_new(MATHJAX_DIRECTORY);
 
 	gchar *mathjaxref = g_filename_to_uri(mathjaxdir->str,NULL,NULL);

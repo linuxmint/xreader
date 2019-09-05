@@ -358,12 +358,12 @@ ev_properties_view_set_info (EvPropertiesView *properties, const EvDocumentInfo 
 	}
 	if (info->fields_mask & EV_DOCUMENT_INFO_LINEARIZED)
 	{
-		/* nice hack bro */
-		if (info->linearized == 1)
+		/* Sometimes info->linearized is not a string */
+		if (info->linearized == (char *)1)
 		{
 			set_property (properties, GTK_TABLE (table), LINEARIZED_PROPERTY, _("Yes"), &row);
 		}
-		else if (info->linearized == 0)
+		else if (info->linearized == (char *)0)
 		{
 			set_property (properties, GTK_TABLE (table), LINEARIZED_PROPERTY, _("No"), &row);
 		}
