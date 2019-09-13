@@ -2325,6 +2325,7 @@ pdf_document_forms_form_field_text_set_text (EvDocumentForms *document,
 
 	poppler_form_field_text_set_text (poppler_field, text);
 	PDF_DOCUMENT (document)->forms_modified = TRUE;
+	ev_document_set_modified (EV_DOCUMENT (document), TRUE);
 }
 
 static void
@@ -2340,6 +2341,7 @@ pdf_document_forms_form_field_button_set_state (EvDocumentForms *document,
 
 	poppler_form_field_button_set_state (poppler_field, state);
 	PDF_DOCUMENT (document)->forms_modified = TRUE;
+	ev_document_set_modified (EV_DOCUMENT (document), TRUE);
 }
 
 static gboolean
@@ -2421,6 +2423,7 @@ pdf_document_forms_form_field_choice_select_item (EvDocumentForms *document,
 
 	poppler_form_field_choice_select_item (poppler_field, index);
 	PDF_DOCUMENT (document)->forms_modified = TRUE;
+	ev_document_set_modified (EV_DOCUMENT (document), TRUE);
 }
 
 static void
@@ -2436,6 +2439,7 @@ pdf_document_forms_form_field_choice_toggle_item (EvDocumentForms *document,
 
 	poppler_form_field_choice_toggle_item (poppler_field, index);
 	PDF_DOCUMENT (document)->forms_modified = TRUE;
+	ev_document_set_modified (EV_DOCUMENT (document), TRUE);
 }
 
 static void
@@ -2450,6 +2454,7 @@ pdf_document_forms_form_field_choice_unselect_all (EvDocumentForms *document,
 
 	poppler_form_field_choice_unselect_all (poppler_field);
 	PDF_DOCUMENT (document)->forms_modified = TRUE;
+	ev_document_set_modified (EV_DOCUMENT (document), TRUE);
 }
 
 static void
@@ -2465,6 +2470,7 @@ pdf_document_forms_form_field_choice_set_text (EvDocumentForms *document,
 
 	poppler_form_field_choice_set_text (poppler_field, text);
 	PDF_DOCUMENT (document)->forms_modified = TRUE;
+	ev_document_set_modified (EV_DOCUMENT (document), TRUE);
 }
 
 static gchar *
@@ -2926,7 +2932,6 @@ pdf_document_annotations_remove_annotation (EvDocumentAnnotations *document_anno
         PopplerAnnot  *poppler_annot;
         EvMappingList *mapping_list;
         EvMapping     *annot_mapping;
-        GList         *list;
 
         poppler_annot = POPPLER_ANNOT (g_object_get_data (G_OBJECT (annot), "poppler-annot"));
         pdf_document = PDF_DOCUMENT (document_annotations);
@@ -2946,6 +2951,7 @@ pdf_document_annotations_remove_annotation (EvDocumentAnnotations *document_anno
         }
 
         pdf_document->annots_modified = TRUE;
+	    ev_document_set_modified (EV_DOCUMENT (document_annotations), TRUE);
 }
 
 /* FIXME: this could be moved to poppler */
@@ -3155,6 +3161,8 @@ pdf_document_annotations_add_annotation (EvDocumentAnnotations *document_annotat
 		mapping_list = NULL;
 	}
 
+	annot_set_unique_name (annot);
+
 	if (mapping_list) {
 		list = ev_mapping_list_get_list (mapping_list);
 		list = g_list_append (list, annot_mapping);
@@ -3167,6 +3175,7 @@ pdf_document_annotations_add_annotation (EvDocumentAnnotations *document_annotat
 	}
 
 	pdf_document->annots_modified = TRUE;
+	ev_document_set_modified (EV_DOCUMENT (document_annotations), TRUE);
 }
 
 /* FIXME: We could probably add this to poppler */
@@ -3389,6 +3398,7 @@ pdf_document_annotations_save_annotation (EvDocumentAnnotations *document_annota
 	}
 
 	PDF_DOCUMENT (document_annotations)->annots_modified = TRUE;
+	ev_document_set_modified (EV_DOCUMENT (document_annotations), TRUE);
 }
 
 static void
