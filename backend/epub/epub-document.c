@@ -1267,7 +1267,7 @@ setup_document_index(EpubDocument *epub_document,gchar *containeruri)
 
     xmlNodePtr navPoint = xmlretval;
 
-    do {
+    while(navPoint != NULL) {
 
         if ( !xmlStrcmp(navPoint->name,(xmlChar*)"navPoint")) {
     		xmlretval = NULL;
@@ -1315,7 +1315,7 @@ setup_document_index(EpubDocument *epub_document,gchar *containeruri)
 
         navPoint = navPoint->next;
 
-    } while(navPoint != NULL);
+    }
 
 	xml_free_doc();
 
