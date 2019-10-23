@@ -123,8 +123,6 @@ ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 	GtkWidget *toolbar;
 	GtkWidget *toolitem;
 	GtkWidget *hbox;
-	GtkWidget *image;
-
 
 	ev_annots->priv = EV_SIDEBAR_ANNOTATIONS_GET_PRIVATE (ev_annots);
 
@@ -251,7 +249,7 @@ EvAnnotationsToolbar *
 ev_sidebar_annotations_get_toolbar(EvSidebarAnnotations *sidebar_annots)
 {
 	EvSidebarAnnotationsPrivate *priv = EV_SIDEBAR_ANNOTATIONS_GET_PRIVATE(sidebar_annots);
-	return priv->toolbar;
+	return EV_ANNOTATIONS_TOOLBAR(priv->toolbar);
 }
 
 
@@ -479,7 +477,6 @@ ev_sidebar_annotations_document_changed_cb (EvDocumentModel      *model,
 {
 	EvDocument *document = ev_document_model_get_document (model);
 	EvSidebarAnnotationsPrivate *priv = sidebar_annots->priv;
-	gboolean enable_add;
 
 	if (!EV_IS_DOCUMENT_ANNOTATIONS (document))
 		return;
@@ -488,7 +485,7 @@ ev_sidebar_annotations_document_changed_cb (EvDocumentModel      *model,
 		g_object_unref (priv->document);
 	priv->document = g_object_ref (document);
 
-	enable_add = ev_document_annotations_can_add_annotation (EV_DOCUMENT_ANNOTATIONS (document));
+	ev_document_annotations_can_add_annotation (EV_DOCUMENT_ANNOTATIONS (document));
 
 	ev_sidebar_annotations_load (sidebar_annots);
 }
