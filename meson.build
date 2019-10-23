@@ -43,8 +43,6 @@ gtk_api_version = '3.0'
 gtk = dependency('gtk+-' + gtk_api_version, version: '>= ' + gtk_version)
 ice = dependency('ice')
 sm = dependency('sm')
-spectre = dependency('libspectre', version: '>= 0.2.0')
-webkit = dependency('webkit2gtk-4.0', version: '>= 2.4.3')
 X11 = dependency('x11')
 xapp = dependency('xapp', version: '>= 1.1.0')
 xml = dependency('libxml-2.0', version: '>= 2.5.0')
@@ -57,6 +55,7 @@ if get_option('djvu')
 endif
 if get_option('dvi')
     kpathsea = dependency('kpathsea')
+    spectre = dependency('libspectre', version: '>= 0.2.0')
     if get_option('t1lib')
         t1lib = dependency('t1', required: false)
         t1_enabled = t1lib.found()
@@ -72,6 +71,12 @@ if get_option('tiff')
 endif
 if get_option('xps')
     xps = dependency('libgxps', version: '>= 0.2.1')
+endif
+if get_option('ps')
+    spectre = dependency('libspectre', version: '>= 0.2.0')
+endif
+if get_option('epub')
+    webkit = dependency('webkit2gtk-4.0', version: '>= 2.4.3')
 endif
 
 # on some systems we need to find the math lib to make sure it builds
