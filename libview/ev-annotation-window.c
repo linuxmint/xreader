@@ -427,6 +427,23 @@ ev_annotation_window_constructor (GType                  type,
 }
 
 static gboolean
+ev_annotation_window_key_press_event (GtkWidget   *widget,
+                                      GdkEventKey *event)
+{
+	EvAnnotationWindow *window = EV_ANNOTATION_WINDOW (widget);
+
+	switch (event->keyval) {
+		case GDK_KEY_Escape:
+			ev_annotation_window_close(window);
+			return TRUE;
+	}
+
+	/* handle other key events of the focused widget */
+	return gtk_window_propagate_key_event (GTK_WINDOW (window), event);
+}
+
+
+static gboolean
 ev_annotation_window_button_press_event (GtkWidget      *widget,
 					 GdkEventButton *event)
 {
@@ -460,6 +477,14 @@ ev_annotation_window_configure_event (GtkWidget         *widget,
 	}
 
 	return GTK_WIDGET_CLASS (ev_annotation_window_parent_class)->configure_event (widget, event);
+}
+
+static gboolean
+ev_annotation_window_hide_on_delete (GtkWidget *widget, GdkEventAny *event) {
+
+	EvAnnotationWindow *window = EV_ANNOTATION_WINDOW (widget);
+	ev_annotation_window_close(window);
+	return TRUE;
 }
 
 static gboolean
@@ -506,9 +531,11 @@ ev_annotation_window_class_init (EvAnnotationWindowClass *klass)
 	g_object_class->dispose = ev_annotation_window_dispose;
 
 	gtk_widget_class->button_press_event = ev_annotation_window_button_press_event;
+	gtk_widget_class->key_press_event = ev_annotation_window_key_press_event;
 	gtk_widget_class->configure_event = ev_annotation_window_configure_event;
 	gtk_widget_class->focus_in_event = ev_annotation_window_focus_in_event;
 	gtk_widget_class->focus_out_event = ev_annotation_window_focus_out_event;
+	gtk_widget_class->delete_event = ev_annotation_window_hide_on_delete;
 
 	g_object_class_install_property (g_object_class,
 					 PROP_ANNOTATION,
