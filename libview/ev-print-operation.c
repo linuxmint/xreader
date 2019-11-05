@@ -21,9 +21,7 @@
 
 #include "ev-print-operation.h"
 
-#if GTKUNIXPRINT_ENABLED
 #include <gtk/gtkunixprint.h>
-#endif
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
 #include <unistd.h>
@@ -343,8 +341,6 @@ ev_print_operation_update_status (EvPrintOperation *op,
 
 	g_signal_emit (op, signals[STATUS_CHANGED], 0);
 }
-
-#if GTKUNIXPRINT_ENABLED
 
 /* Export interface */
 #define EV_TYPE_PRINT_OPERATION_EXPORT         (ev_print_operation_export_get_type())
@@ -1514,8 +1510,6 @@ ev_print_operation_export_class_init (EvPrintOperationExportClass *klass)
 	g_object_class->finalize = ev_print_operation_export_finalize;
 }
 
-#endif /* GTKUNIXPRINT_ENABLED */
-
 /* Print to cairo interface */
 #define EV_TYPE_PRINT_OPERATION_PRINT         (ev_print_operation_print_get_type())
 #define EV_PRINT_OPERATION_PRINT(object)      (G_TYPE_CHECK_INSTANCE_CAST((object), EV_TYPE_PRINT_OPERATION_PRINT, EvPrintOperationPrint))
@@ -2083,11 +2077,7 @@ ev_print_operation_print_class_init (EvPrintOperationPrintClass *klass)
 gboolean
 ev_print_operation_exists_for_document (EvDocument *document)
 {
-#if GTKUNIXPRINT_ENABLED
 	return (EV_IS_FILE_EXPORTER(document) || EV_IS_DOCUMENT_PRINT(document));
-#else
-	return EV_IS_DOCUMENT_PRINT(document);
-#endif /* GTKUNIXPRINT_ENABLED */
 }
 
 /* Factory method */
@@ -2102,11 +2092,7 @@ ev_print_operation_new (EvDocument *document)
 		op = EV_PRINT_OPERATION (g_object_new (EV_TYPE_PRINT_OPERATION_PRINT,
 						       "document", document, NULL));
 	else
-#if GTKUNIXPRINT_ENABLED
 		op = EV_PRINT_OPERATION (g_object_new (EV_TYPE_PRINT_OPERATION_EXPORT,
 						       "document", document, NULL));
-#else
-		op = NULL;
-#endif
 	return op;
 }

@@ -20,9 +20,7 @@
 
 #include <config.h>
 
-#if GTKUNIXPRINT_ENABLED
 #include <gtk/gtkunixprint.h>
-#endif
 #include <glib/gi18n.h>
 #include <xreader-view.h>
 #include "ev-page-action.h"
@@ -46,9 +44,7 @@ struct _EvPreviewerWindow {
 	/* Printing */
 	GtkPrintSettings *print_settings;
 	GtkPageSetup     *print_page_setup;
-#if GTKUNIXPRINT_ENABLED
 	GtkPrinter       *printer;
-#endif
 	gchar            *print_job_title;
 	gchar            *source_file;
 };
@@ -73,7 +69,6 @@ get_screen_dpi (EvPreviewerWindow *window)
 	return ev_document_misc_get_screen_dpi_at_window (GTK_WINDOW(window));
 }
 
-#if GTKUNIXPRINT_ENABLED
 static void
 ev_previewer_window_error_dialog_run (EvPreviewerWindow *window,
 				      GError            *error)
@@ -91,7 +86,6 @@ ev_previewer_window_error_dialog_run (EvPreviewerWindow *window,
 	gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
 }
-#endif
 
 static void
 ev_previewer_window_close (GtkAction         *action,
@@ -190,7 +184,6 @@ ev_previewer_window_scroll_backward (GtkAction         *action,
 	ev_view_scroll (window->view, GTK_SCROLL_PAGE_BACKWARD, FALSE);
 }
 
-#if GTKUNIXPRINT_ENABLED
 static void
 ev_previewer_window_print_finished (GtkPrintJob       *print_job,
 				    EvPreviewerWindow *window,
@@ -280,7 +273,6 @@ ev_previewer_window_print (GtkAction         *action,
 				(GDestroyNotify)ev_previewer_window_enumerate_finished,
 				FALSE);
 }
-#endif
 
 static const GtkActionEntry action_entries[] = {
 	{ "FileCloseWindow", GTK_STOCK_CLOSE, NULL, "<control>W",
@@ -301,12 +293,10 @@ static const GtkActionEntry action_entries[] = {
         { "ViewZoomReset", "zoom-original-symbolic", NULL, "<control>0",
           N_("Original size"),
           G_CALLBACK (ev_previewer_window_zoom_reset) },
-#if GTKUNIXPRINT_ENABLED
 	/* translators: Print document currently shown in the Print Preview window */
 	{ "PreviewPrint", "document-print-symbolic", N_("Print"), NULL,
 	  N_("Print this document"),
 	  G_CALLBACK (ev_previewer_window_print) }
-#endif
 };
 
 static const GtkActionEntry accel_entries[] = {
@@ -465,12 +455,10 @@ ev_previewer_window_dispose (GObject *object)
 		window->print_page_setup = NULL;
 	}
 
-#if GTKUNIXPRINT_ENABLED
 	if (window->printer) {
 		g_object_unref (window->printer);
 		window->printer = NULL;
 	}
-#endif
 
 	if (window->print_job_title) {
 		g_free (window->print_job_title);
