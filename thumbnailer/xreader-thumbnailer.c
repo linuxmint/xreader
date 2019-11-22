@@ -19,7 +19,10 @@
 #include <config.h>
 
 #include <xreader-document.h>
+#include <xreader-view.h>
 
+#include <gtk/gtk.h>
+#include <glib/gi18n.h>
 #include <gio/gio.h>
 
 #include <stdlib.h>
@@ -156,6 +159,43 @@ xreader_thumbnailer_get_document (GFile *file)
 }
 
 static gboolean
+xreader_thumbnail_save (GdkPixbuf *pixbuf, const char *thumbnail) {
+	g_return_val_if_fail(pixbuf != NULL, FALSE);
+
+	const char *overlaid_icon_name = NULL;
+
+	if (overlaid_icon_name) {
+		GdkPixbuf *overlaid_pixbuf;
+
+		gchar *overlaid_icon_path = g_strdup_printf ("%s/%s", XREADERDATADIR, overlaid_icon_name);
+		overlaid_pixbuf = gdk_pixbuf_new_from_file (overlaid_icon_path, NULL);
+		g_free (overlaid_icon_path);
+		if (overlaid_pixbuf != NULL) {
+			int delta_height, delta_width;
+
+			delta_width = gdk_pixbuf_get_width (pixbuf) -
+				gdk_pixbuf_get_width (overlaid_pixbuf);
+			delta_height = gdk_pixbuf_get_height (pixbuf) -
+				gdk_pixbuf_get_height (overlaid_pixbuf);
+
+			gdk_pixbuf_composite (overlaid_pixbuf, pixbuf,
+						  delta_width, delta_height,
+						  gdk_pixbuf_get_width (overlaid_pixbuf),
+						  gdk_pixbuf_get_height (overlaid_pixbuf),
+						  delta_width, delta_height,
+						  1, 1,
+						  GDK_INTERP_NEAREST, 100);
+
+			g_object_unref  (overlaid_pixbuf);
+		}
+	}
+
+	gboolean response = gdk_pixbuf_save (pixbuf, thumbnail, "png", NULL, NULL);
+	g_object_unref  (pixbuf);
+	return response;
+}
+
+static gboolean
 xreader_thumbnail_pngenc_get (EvDocument *document, const char *thumbnail, int size)
 {
 	EvRenderContext *rc;
@@ -164,7 +204,7 @@ xreader_thumbnail_pngenc_get (EvDocument *document, const char *thumbnail, int s
 	EvPage *page;
 
 	page = ev_document_get_page (document, 0);
-	
+
 	ev_document_get_page_size (document, 0, &width, &height);
 
 	rc = ev_render_context_new (page, 0, size / width);
@@ -172,58 +212,24 @@ xreader_thumbnail_pngenc_get (EvDocument *document, const char *thumbnail, int s
 						       rc, FALSE);
 	g_object_unref (rc);
 	g_object_unref (page);
-	
-	if (pixbuf != NULL) {
-		const char *overlaid_icon_name = NULL;
-
-		if (overlaid_icon_name) {
-			GdkPixbuf *overlaid_pixbuf;
-
-			gchar *overlaid_icon_path = g_strdup_printf ("%s/%s", XREADERDATADIR, overlaid_icon_name);
-			overlaid_pixbuf = gdk_pixbuf_new_from_file (overlaid_icon_path, NULL);
-			g_free (overlaid_icon_path);
-			if (overlaid_pixbuf != NULL) {
-				int delta_height, delta_width;
-				
-				delta_width = gdk_pixbuf_get_width (pixbuf) -
-					gdk_pixbuf_get_width (overlaid_pixbuf);
-				delta_height = gdk_pixbuf_get_height (pixbuf) -
-					gdk_pixbuf_get_height (overlaid_pixbuf);
-				
-				gdk_pixbuf_composite (overlaid_pixbuf, pixbuf,
-						      delta_width, delta_height,
-						      gdk_pixbuf_get_width (overlaid_pixbuf),
-						      gdk_pixbuf_get_height (overlaid_pixbuf),
-						      delta_width, delta_height,
-						      1, 1,
-						      GDK_INTERP_NEAREST, 100);
-				
-				g_object_unref  (overlaid_pixbuf);
-			}
-		}
-		
-		if (gdk_pixbuf_save (pixbuf, thumbnail, "png", NULL, NULL)) {
-			g_object_unref  (pixbuf);
-			return TRUE;
-		}
-
-		g_object_unref  (pixbuf);
-	}
-	
-	return FALSE;
+	return xreader_thumbnail_save(pixbuf, thumbnail);
 }
 
 static gpointer
-xreader_thumbnail_pngenc_get_async (struct AsyncData *data)
+xreader_thumbnail_pngenc_get_async (EvJobThumbnail *job, struct AsyncData *data)
 {
-	ev_document_doc_mutex_lock ();
-	data->success = xreader_thumbnail_pngenc_get (data->document,
-						     data->output,
-						     data->size);
-	ev_document_doc_mutex_unlock ();
-	
-	g_idle_add ((GSourceFunc)gtk_main_quit, NULL);
-	
+
+	if (EV_IS_JOB(job)) {
+	    GdkPixbuf     *pixbuf = job->thumbnail;
+	    g_assert (GDK_IS_PIXBUF (pixbuf));
+	    xreader_thumbnail_save(pixbuf, data->output);
+	} else {
+		ev_document_doc_mutex_lock ();
+		data->success = xreader_thumbnail_pngenc_get (data->document, data->output, data->size);
+		ev_document_doc_mutex_unlock ();
+	}
+
+    g_idle_add ((GSourceFunc)gtk_main_quit, NULL);
 	return NULL;
 }
 
@@ -236,6 +242,7 @@ print_usage (GOptionContext *context)
 	g_print ("%s", help);
 	g_free (help);
 }
+
 
 int
 main (int argc, char *argv[])
@@ -299,7 +306,7 @@ main (int argc, char *argv[])
         if (time_limit)
                 time_monitor_start (input);
 
-	if (EV_IS_ASYNC_RENDERER (document)) {
+	if (EV_IS_ASYNC_RENDERER (document) || document->iswebdocument) {
 		struct AsyncData data;
 
 		gtk_init (&argc, &argv);
@@ -308,9 +315,21 @@ main (int argc, char *argv[])
 		data.output = output;
 		data.size = size;
 
-		g_thread_new ("EvThumbnailerAsyncRenderer",
-				(GThreadFunc) xreader_thumbnail_pngenc_get_async,
-				&data);
+		if (EV_IS_ASYNC_RENDERER (document)) {
+			g_thread_new ("EvThumbnailerAsyncRenderer",
+					(GThreadFunc) xreader_thumbnail_pngenc_get_async,
+					&data);
+		} else {
+			gdouble page_width;
+			EvJob *job;
+
+			ev_document_get_page_size (document, 0, &page_width, NULL);
+			job = ev_job_thumbnail_new (document, 0, 0, size / page_width);
+			ev_job_set_run_mode(job, EV_JOB_RUN_MAIN_LOOP);
+			g_signal_connect (job, "finished", G_CALLBACK (xreader_thumbnail_pngenc_get_async), &data);
+			ev_job_scheduler_push_job (EV_JOB (job), EV_JOB_PRIORITY_HIGH);
+			g_object_unref (job);
+		}
 		
 		gtk_main ();
 
