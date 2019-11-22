@@ -74,8 +74,11 @@ libview_deps = [
     gtk,
     gtk_unix_print,
     math,
-    webkit,
 ]
+
+if get_option('epub')
+   libview_deps += webkit
+endif
 
 libview = library(
     'xreaderview',
