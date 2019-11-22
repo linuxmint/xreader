@@ -1,3 +1,104 @@
+xreader (2.4.0) tricia; urgency=medium
+
+  [ Peter Moser ]
+  * Fix compile warnings (#317)
+  * Build: Fail on implicit function declarations (#321)
+
+  [ Michael Webster ]
+  * preview window/printing: Remove build conditionals for gtk+-unix-print-3.0.
+
+  [ Dominik Helm ]
+  * Fix segfault on empty navMap (#334)
+
+  [ Soapux ]
+  * meson: Dependency fixes (#335)
+
+  [ Germán Poo-Caamaño ]
+  * EVINCE BACKPORTS: backends: Don't ask for bug report in known issues. Fixes #695165.
+
+  [ Giselle Reis ]
+  * EVINCE BACKPORTS: pdf: Create highlight annotations for existing annotations in document
+  * EVINCE BACKPORTS: libdocument: adding class EvAnnotationTextMarkup
+  * EVINCE BACKPORTS: libdocument: adding annotation highlight
+
+  [ Carlos Garcia Campos ]
+  * EVINCE BACKPORTS: shell: Show highlight annotations in the sidebar
+  * EVINCE BACKPORTS: libdocument: Use a common annotation type for text markup annotations
+  * EVINCE BACKPORTS: Add support for reading strike out text markup annotations
+  * EVINCE BACKPORTS: Add support for reading underline text markup annotations
+  * EVINCE BACKPORTS: Add support for changing the type of a text markup annotation
+  * EVINCE BACKPORTS: pdf: Fix memory leak when adding new text annotations
+
+  [ Philipp Reinkemeier ]
+  * EVINCE BACKPORTS: libdocument: Added can-have-popup property to EvAnnotationMarkups.
+  * EVINCE BACKPORTS: pdf: Set can-have-popup property to markup annotations when created
+  * EVINCE BACKPORTS: ev-view: Create an EvAnnotationWindow for EvAnnotationMarkups allowing this
+  * EVINCE BACKPORTS: pdf: Added support to save popup rectangles to pdf backend
+
+  [ Carlos Garcia Campos ]
+  * EVINCE BACKPORTS: pdf: Use poppler_annot_markup_set_popup_rectangle() if available
+
+  [ Philipp Reinkemeier ]
+  * EVINCE BACKPORTS: pdf: Force text annotations to have a fixed size 24x24
+
+  [ Carlos Garcia Campos ]
+  * EVINCE BACKPORTS: libview: Take border into account when converting view points to doc points
+
+  [ Giselle Machado ]
+  * EVINCE BACKPORTS: view: preparing for interactive annotations
+
+  [ Philipp Reinkemeier ]
+  * EVINCE BACKPORTS: libdocument: adding annotation squiggly.
+  * EVINCE BACKPORTS: pdf: adding annotation squiggly.
+  * EVINCE BACKPORTS: shell: adding annotation squiggly.
+  * EVINCE BACKPORTS: pdf: Fixed wrong type-check in copy_poppler_annot.
+
+  [ Carlos Garcia Campos ]
+  * EVINCE BACKPORTS: libdocument: Add area property to EvAnnotation
+  * EVINCE BACKPORTS: libview: Set the area of the annotations created by the user
+  * EVINCE BACKPORTS: pdf: Deprecate the rectangle passed to ev_document_annotations_add_annotation
+  * EVINCE BACKPORTS: libdocument: Add EV_ANNOTATIONS_SAVE_AREA flag
+  * EVINCE BACKPORTS: pdf: Add support for saving the annotation area
+  * EVINCE BACKPORTS: libview: Update the annot area while moved when it's being added
+
+  [ Giselle Reis ]
+  * EVINCE BACKPORTS: pdf: support for adding and saving highlight annotations
+  * EVINCE BACKPORTS: shell, view: adding highlight annotation
+
+  [ Carlos Garcia Campos ]
+  * EVINCE BACKPORTS: pdf: Ensure we always create text markup annots with at least one quadrilateral
+
+  [ Peter Moser ]
+  * Add a sidebar buttons for adding annotations
+
+  [ Carlos Garcia Campos ]
+  * EVINCE BACKPORTS: page-cache: Add flags parameter to ev_page_cache_mark_dirty()
+
+  [ Peter Moser ]
+  * pdf: Mark document as modified when inserting annotations
+
+  [ Jose Aliste ]
+  * EVINCE BACKPORTS: libview: Do not create annotation window twice.
+
+  [ José Aliste ]
+  * EVINCE BACKPORTS: libview: Ignore right clicks while in annotation add mode.
+
+  [ Jose Aliste ]
+  * EVINCE BACKPORTS: view: use a hashtable to map annots to their popups.
+
+  [ Nelson Benítez León ]
+  * EVINCE BACKPORTS: ev-view: don't show tooltips for empty annotations
+  * EVINCE BACKPORTS: Fix add_annotation() to update area based on bounding box
+
+  [ Peter Moser ]
+  * Remove deprecated/unused code and fix warnings
+  * libview: Hide annotation windows on key-press
+
+  [ Clement Lefebvre ]
+  * l10n: Update POT
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 22 Nov 2019 12:28:05 +0000
+
 xreader (2.2.3) tina; urgency=medium
 
   * l10n: Update translations
