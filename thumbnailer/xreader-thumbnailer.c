@@ -247,7 +247,7 @@ main (int argc, char *argv[])
 	GFile          *file;
 	GError         *error = NULL;
 
-	context = g_option_context_new ("- MATE Document Thumbnailer");
+	context = g_option_context_new ("- Document Thumbnailer");
 	g_option_context_add_main_entries (context, goption_options, NULL);
 
 	if (!g_option_context_parse (context, &argc, &argv, &error)) {
