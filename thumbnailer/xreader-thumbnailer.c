@@ -290,7 +290,7 @@ main (int argc, char *argv[])
 		return -2;
 	}
 
-	if (!EV_IS_DOCUMENT_THUMBNAILS (document)) {
+	if (!EV_IS_DOCUMENT_THUMBNAILS (document) || document->iswebdocument) {
 		g_object_unref (document);
 		ev_shutdown ();
 		return -2;
