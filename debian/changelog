@@ -1,3 +1,14 @@
+xreader (2.4.2) tricia; urgency=medium
+
+  [ Soapux ]
+  * Meson: Formatting fix in the options file
+
+  [ Peter Moser ]
+  * Thumbnailer: Do not try to create an unsupported epub thumbnail
+  * Thumbnailer: Remove MATE label from context
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 28 Nov 2019 20:02:37 +0000
+
 xreader (2.4.1) tricia; urgency=medium
 
   * l10n: Update translations
