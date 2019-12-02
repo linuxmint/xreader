@@ -4,6 +4,8 @@ gnome = import('gnome')
 i18n = import('i18n')
 pkgconfig = import('pkgconfig')
 
+cc = meson.get_compiler('c')
+
 version = meson.project_version()
 version_list = version.split('.')
 major_version = version_list[0]
@@ -61,7 +63,7 @@ if get_option('dvi')
     kpathsea = dependency('kpathsea')
     spectre = dependency('libspectre', version: '>= 0.2.0')
     if get_option('t1lib')
-        t1lib = dependency('t1', required: false)
+        t1lib = cc.find_library('t1', required: false)
         t1_enabled = t1lib.found()
     else
         t1_enabled = false
@@ -84,7 +86,6 @@ if get_option('epub')
 endif
 
 # on some systems we need to find the math lib to make sure it builds
-cc = meson.get_compiler('c')
 math = cc.find_library('m', required: false)
 
 intltool_merge = find_program('intltool-merge')
