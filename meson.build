@@ -179,6 +179,7 @@ endif
 subdir('shell')
 subdir('po')
 subdir('help')
+subdir('install-scripts')
 # tests are currently outdated and will not work with current xreader.
 # to reenable tests, change "false" to "get_option('tests')"
 if false
