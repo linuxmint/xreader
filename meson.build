@@ -18,6 +18,10 @@ xreader_conf = configuration_data()
 xreader_conf.set_quoted('VERSION', version)
 xreader_conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 
+if get_option('enable_dbus')
+    xreader_conf.set('ENABLE_DBUS', '')
+endif
+
 # directories
 prefix = get_option('prefix')
 bindir = get_option('bindir')
@@ -230,4 +234,5 @@ message('includedir = @0@'.format(includedir))
 message('libexecdir = @0@'.format(libexecdir))
 message('desktopdir = @0@'.format(desktopdir))
 message('schema_dir = @0@'.format(schema_dir))
+message('ENABLE_DBUS = @0@'.format(get_option('enable_dbus')))
 message('MathJax directory = @0@'.format(mathjax_directory))

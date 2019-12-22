@@ -93,10 +93,10 @@ option('introspection',
     value: false,
     description: 'Enable GObject introspection'
 )
-option('dbus',
+option('enable_dbus',
     type: 'boolean',
     value: true,
-    description: 'D-Bus support'
+    description: 'Enable D-Bus support'
 )
 option('deprecated_warnings',
     type: 'boolean',

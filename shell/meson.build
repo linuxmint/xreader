@@ -99,7 +99,7 @@ xreader_deps = [
     xapp,
 ]
 
-if get_option('dbus')
+if get_option('enable_dbus')
     dbus_generated = gnome.gdbus_codegen(
         'ev-gdbus-generated',
         'ev-gdbus.xml',
