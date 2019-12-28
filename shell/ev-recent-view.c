@@ -193,6 +193,9 @@ ev_recent_view_refresh (EvRecentView *ev_recent_view)
 
             width = (gdouble)THUMBNAIL_WIDTH / width;
             job = ev_job_thumbnail_new (document, 0, 0, width);
+            if (document->iswebdocument) {
+                ev_job_set_run_mode(EV_JOB(job), EV_JOB_RUN_MAIN_LOOP);
+            }
             g_signal_connect (job, "finished", G_CALLBACK (thumbnail_job_completed_callback), button);
             ev_job_scheduler_push_job (EV_JOB (job), EV_JOB_PRIORITY_HIGH);
 
