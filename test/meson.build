@@ -1,4 +1,4 @@
-test_cases = ['testFileMenu', 'testEditMenu', 'testHelpMenu']
+test_cases = ['testFileMenu.py', 'testEditMenu.py', 'testHelpMenu.py']
 
 foreach case : test_cases
     test_script = find_program(case)
