@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2019-11-22 12:27+0000\n"
-"PO-Revision-Date: 2018-11-28 08:57+0000\n"
-"Last-Translator: Selyan Sliman Ɛmiri <selyan.kab@gmail.com>\n"
+"PO-Revision-Date: 2019-12-21 15:10+0000\n"
+"Last-Translator: Yacine Bouklif <yacinebouklif@gmail.com>\n"
 "Language-Team: Kabyle <kab@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2019-12-11 11:57+0000\n"
-"X-Generator: Launchpad (build c597c3229eb023b1e626162d5947141bf7befb13)\n"
+"X-Launchpad-Export-Date: 2020-01-06 10:06+0000\n"
+"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
 "Language: kab\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -600,7 +600,7 @@ msgstr "Asiggez n usebter %d si %d…"
 
 #: ../libview/ev-print-operation.c:1184
 msgid "The requested format is not supported by this printer."
-msgstr ""
+msgstr "Amasal tsutreḍ ur itteddu  ara di tsaggazt-agi."
 
 #: ../libview/ev-print-operation.c:1247
 msgid "Invalid page selection"
@@ -833,23 +833,23 @@ msgstr "Ur yettwassen ara"
 
 #: ../shell/ev-annotation-properties-dialog.c:126
 msgid "Markup type:"
-msgstr ""
+msgstr "Anam n wecraḍ:"
 
 #: ../shell/ev-annotation-properties-dialog.c:132
 msgid "Highlight"
-msgstr ""
+msgstr "Sebrureq"
 
 #: ../shell/ev-annotation-properties-dialog.c:133
 msgid "Strike out"
-msgstr ""
+msgstr "yettujerreḍ"
 
 #: ../shell/ev-annotation-properties-dialog.c:134
 msgid "Underline"
-msgstr ""
+msgstr "Ittuderrer"
 
 #: ../shell/ev-annotation-properties-dialog.c:135
 msgid "Squiggly"
-msgstr ""
+msgstr "Yemdeswel"
 
 #: ../shell/ev-annotation-properties-dialog.c:158
 msgid "Annotation Properties"
@@ -894,7 +894,7 @@ msgstr "Rnu talɣut s uḍris"
 
 #: ../shell/ev-annotations-toolbar.c:127
 msgid "Add highlight annotation"
-msgstr ""
+msgstr "Rnu talɣut n usebrureq"
 
 #: ../shell/ev-application.c:1000
 msgid "Running in presentation mode"
@@ -983,7 +983,7 @@ msgstr "Beqqeḍ taqfalt n usemɣer n usfaylu"
 
 #: ../shell/ev-preferences-dialog.ui.h:4
 msgid "Show zoom level selector"
-msgstr ""
+msgstr "Sken amefran n uswir n zoom"
 
 #: ../shell/ev-properties-dialog.c:63
 msgid "Properties"
@@ -1102,13 +1102,15 @@ msgstr ""
 
 #: ../shell/ev-toolbar.c:270
 msgid "Select or set the zoom level of the document"
-msgstr ""
+msgstr "Fren neɣ sbadu aswir n zoom n isemli"
 
 #: ../shell/ev-window.c:979
 msgid ""
 "Cannot enter presentation mode with ePub documents, use fullscreen mode "
 "instead."
 msgstr ""
+"D awezɣi anekcum s askar n tnekda s isemliyen ePub, seqdec agdil aččuran deg "
+"ubdil."
 
 #: ../shell/ev-window.c:1454
 msgid "The document contains no pages"
@@ -1386,7 +1388,7 @@ msgstr "I_raten"
 
 #: ../shell/ev-window.c:5887
 msgid "_Close All Windows"
-msgstr ""
+msgstr "M_del akk isfuyla"
 
 #: ../shell/ev-window.c:5891
 msgid "_Close"

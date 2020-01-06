@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-22 12:27+0000\n"
-"PO-Revision-Date: 2016-02-11 14:34+0000\n"
-"Last-Translator: meequz <meequz@gmail.com>\n"
+"PO-Revision-Date: 2019-12-19 22:09+0000\n"
+"Last-Translator: Alexis Borovik <Unknown>\n"
 "Language-Team: Belarusian (http://www.transifex.com/mate/MATE/language/be/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,8 +22,8 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-"X-Launchpad-Export-Date: 2019-12-11 11:57+0000\n"
-"X-Generator: Launchpad (build c597c3229eb023b1e626162d5947141bf7befb13)\n"
+"X-Launchpad-Export-Date: 2020-01-06 10:06+0000\n"
+"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
 "Language: be\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -146,11 +146,11 @@ msgstr "epub-файл пашкоджаны, няма кантэйнера"
 
 #: ../backend/epub/epub-document.c:969
 msgid "could not parse content manifest"
-msgstr ""
+msgstr "не атрымалася разабраць маніфест"
 
 #: ../backend/epub/epub-document.c:978
 msgid "content file is invalid"
-msgstr ""
+msgstr "файл несапраўдны"
 
 #: ../backend/epub/epub-document.c:987
 msgid "epub file has no spine"
@@ -158,7 +158,7 @@ msgstr ""
 
 #: ../backend/epub/epub-document.c:996
 msgid "epub file has no manifest"
-msgstr ""
+msgstr "файл epub не мае ніякага маніфеста"
 
 #: ../backend/epub/epub-document.c:1082
 msgid "Could not set up document tree for loading, some files missing"
@@ -461,29 +461,34 @@ msgstr ""
 
 #: ../data/org.x.reader.gschema.xml.h:3
 msgid "Automatically reload the document"
-msgstr ""
+msgstr "Аўтаматычна перазагружаць дакумент"
 
 #: ../data/org.x.reader.gschema.xml.h:4
 msgid "Whether the document is automatically reloaded on file change."
-msgstr ""
+msgstr "Ці будзе дакумент аўтаматычна перазагружаны пры змене файла."
 
 #: ../data/org.x.reader.gschema.xml.h:5
 msgid "The URI of the directory last used to open or save a document."
 msgstr ""
+"URI каталога, які апошні раз выкарыстоўваўся для адкрыцця альбо захавання "
+"дакумента."
 
 #: ../data/org.x.reader.gschema.xml.h:6
 msgid "The URI of the directory last used to save a picture."
 msgstr ""
+"URI каталога, які апошні раз выкарыстоўваўся для для захавання выявы."
 
 #: ../data/org.x.reader.gschema.xml.h:7
 msgid "Page cache size in MiB"
-msgstr ""
+msgstr "Памер кэш-памяці старонак, MiB"
 
 #: ../data/org.x.reader.gschema.xml.h:8
 msgid ""
 "The maximum size that will be used to cache rendered pages, limits maximum "
 "zoom level."
 msgstr ""
+"Максімальны памер кэш-памяці для захавання згенераваных старонак, абмяжоўвае "
+"магчымы ўзровень маштабавання."
 
 #: ../previewer/ev-previewer.c:34
 msgid "Delete the temporary file"
@@ -495,7 +500,7 @@ msgstr "Друкаваць файл настáўленняў"
 
 #: ../previewer/ev-previewer.c:104 ../previewer/ev-previewer.c:135
 msgid "Print Preview"
-msgstr ""
+msgstr "Прагляд перад друкам"
 
 #: ../previewer/ev-previewer-window.c:83 ../shell/ev-window.c:3285
 msgid "Failed to print document"
@@ -534,7 +539,7 @@ msgstr "Паменшыць дакумент"
 #. translators: this is the label for toolbar button
 #: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:6390
 msgid "Original size"
-msgstr ""
+msgstr "Зыходны памер"
 
 #. translators: Print document currently shown in the Print Preview window
 #. translators: Title of the print dialog
@@ -602,7 +607,7 @@ msgstr "Друк старонкі %d з %d…"
 
 #: ../libview/ev-print-operation.c:1184
 msgid "The requested format is not supported by this printer."
-msgstr ""
+msgstr "Запытаны фармат не падтрымліваецца гэтым друкаркай."
 
 #: ../libview/ev-print-operation.c:1247
 msgid "Invalid page selection"
@@ -829,7 +834,7 @@ msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:114
 msgid "Circle"
-msgstr ""
+msgstr "Акружына"
 
 #: ../shell/ev-annotation-properties-dialog.c:115
 msgid "Unknown"
@@ -837,19 +842,19 @@ msgstr "Невядомы"
 
 #: ../shell/ev-annotation-properties-dialog.c:126
 msgid "Markup type:"
-msgstr ""
+msgstr "Рэжым разметкі:"
 
 #: ../shell/ev-annotation-properties-dialog.c:132
 msgid "Highlight"
-msgstr ""
+msgstr "Выдзеліць"
 
 #: ../shell/ev-annotation-properties-dialog.c:133
 msgid "Strike out"
-msgstr ""
+msgstr "Закрэсліць"
 
 #: ../shell/ev-annotation-properties-dialog.c:134
 msgid "Underline"
-msgstr ""
+msgstr "Падкрэсліць"
 
 #: ../shell/ev-annotation-properties-dialog.c:135
 msgid "Squiggly"
@@ -873,11 +878,11 @@ msgstr "Стыль:"
 
 #: ../shell/ev-annotation-properties-dialog.c:219
 msgid "Transparent"
-msgstr ""
+msgstr "Празрыстасць"
 
 #: ../shell/ev-annotation-properties-dialog.c:226
 msgid "Opaque"
-msgstr ""
+msgstr "Непразрыстасць"
 
 #: ../shell/ev-annotation-properties-dialog.c:236
 msgid "Initial window state:"
@@ -898,7 +903,7 @@ msgstr "Дадаць тэкставую анатацыю"
 
 #: ../shell/ev-annotations-toolbar.c:127
 msgid "Add highlight annotation"
-msgstr ""
+msgstr "Дадаць анатацыі выдзялення"
 
 #: ../shell/ev-application.c:1000
 msgid "Running in presentation mode"
@@ -912,11 +917,11 @@ msgstr "Старонка %s"
 
 #: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:5981
 msgid "Go to previous history item"
-msgstr ""
+msgstr "Перайсці да папярэдняга элемента ў гісторыі"
 
 #: ../shell/ev-history-action-widget.c:219 ../shell/ev-window.c:5985
 msgid "Go to next history item"
-msgstr ""
+msgstr "Перайсці да наступнага элемента ў гісторыі"
 
 #: ../shell/ev-keyring.c:86
 #, c-format
@@ -969,23 +974,23 @@ msgstr "Памятаць _заўсёды"
 
 #: ../shell/ev-preferences-dialog.c:117 ../shell/ev-preferences-dialog.ui.h:1
 msgid "Toolbar"
-msgstr ""
+msgstr "Панэль прылад"
 
 #: ../shell/ev-preferences-dialog.c:139 ../shell/ev-window.c:5929
 msgid "Preferences"
-msgstr ""
+msgstr "Параметры"
 
 #: ../shell/ev-preferences-dialog.ui.h:2
 msgid "Show history buttons"
-msgstr ""
+msgstr "Паказаць кнопкі гісторыі"
 
 #: ../shell/ev-preferences-dialog.ui.h:3
 msgid "Show expand window button"
-msgstr ""
+msgstr "Паказаць кнопку пашырэння акна"
 
 #: ../shell/ev-preferences-dialog.ui.h:4
 msgid "Show zoom level selector"
-msgstr ""
+msgstr "Паказаць селектар маштабіравання"
 
 #: ../shell/ev-properties-dialog.c:63
 msgid "Properties"
@@ -1248,7 +1253,11 @@ msgid ""
 msgid_plural ""
 "There are %d print jobs active. Wait until print finishes before closing?"
 msgstr[0] ""
+"Ёсць %d актыўнае заданне друку. Пачакаць заканчэння друку перад закрыццём?"
 msgstr[1] ""
+"Ёсць %d актыўныя заданні друку. Пачакаць заканчэння друку перад закрыццём?"
+msgstr[2] ""
+"Ёсць %d актыўных заданняў друку. Пачакаць заканчэння друку перад закрыццём?"
 
 #: ../shell/ev-window.c:3647
 msgid "If you close the window, pending print jobs will not be printed."
@@ -1396,7 +1405,7 @@ msgstr ""
 #. Edit menu
 #: ../shell/ev-window.c:5897
 msgid "_Copy"
-msgstr ""
+msgstr "_Скапіраваць"
 
 #: ../shell/ev-window.c:5901
 msgid "Select _All"
@@ -1425,7 +1434,7 @@ msgstr "Захаваць дзейныя настáўленні як станда
 #. View menu
 #: ../shell/ev-window.c:5936
 msgid "_Original size"
-msgstr ""
+msgstr "_Першапачатковы памер"
 
 #: ../shell/ev-window.c:5938
 msgid "View the document at its original size"
@@ -1433,11 +1442,11 @@ msgstr ""
 
 #: ../shell/ev-window.c:5940
 msgid "Zoom _In"
-msgstr ""
+msgstr "_Павялічыць"
 
 #: ../shell/ev-window.c:5944
 msgid "Zoom _Out"
-msgstr ""
+msgstr "_Зменшыць"
 
 #: ../shell/ev-window.c:5948
 msgid "_Reload"
@@ -1541,19 +1550,19 @@ msgstr "Паказаць увесь дакумент"
 
 #: ../shell/ev-window.c:6141
 msgid "_Dual (Even pages left)"
-msgstr ""
+msgstr "Падвойна (_цотныя старонкі злева)"
 
 #: ../shell/ev-window.c:6143
 msgid "Show two pages at once with even pages on the left"
-msgstr ""
+msgstr "Паказваць адразу дзве старонкі (цотныя злева)"
 
 #: ../shell/ev-window.c:6145
 msgid "Dual (_Odd pages left)"
-msgstr ""
+msgstr "_Падвойна (_няцотныя старонкі злева)"
 
 #: ../shell/ev-window.c:6147
 msgid "Show two pages at once with odd pages on the left"
-msgstr ""
+msgstr "Паказваць адразу дзве старонкі (няцотныя злева)"
 
 #: ../shell/ev-window.c:6149
 msgid "_Fullscreen"
@@ -1610,7 +1619,7 @@ msgstr "Уласцівасці анатацый..."
 
 #: ../shell/ev-window.c:6189
 msgid "Remove Annotation"
-msgstr ""
+msgstr "Выдаліць анатацыю"
 
 #: ../shell/ev-window.c:6194
 msgid "_Open Attachment"
@@ -1679,7 +1688,7 @@ msgstr "Запісаць далучэнне"
 
 #: ../shell/ev-window-title.c:127
 msgid "Recent Documents"
-msgstr ""
+msgstr "Нядаўнія дакументы"
 
 #: ../shell/ev-window-title.c:175
 #, c-format
@@ -1712,7 +1721,7 @@ msgstr "Запускаць Xreader у поўнаэкранным рэжыме"
 
 #: ../shell/main.c:69
 msgid "Named destination to display."
-msgstr ""
+msgstr "Месца з назвай, якое трэба паказаць."
 
 #: ../shell/main.c:69
 msgid "DEST"
