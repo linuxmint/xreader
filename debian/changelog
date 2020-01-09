@@ -1,3 +1,30 @@
+xreader (2.4.4) tricia; urgency=medium
+
+  [ Michael Webster ]
+  * Add meson scripts for compiling gschemas and updating the icon cache and mime database.
+  * meson: Fix build configuration - dbus support was partly broken.
+
+  [ Peter Moser ]
+  * Shell: Run thumbnail jobs for epubs not as threads (#353)
+
+  [ Clement Lefebvre ]
+  * l10n: Update translations
+
+  [ Eli Schwartz ]
+  * meson: fix detection of t1lib
+
+  [ icarter09 ]
+  * Created test for the Xreader Help menu.
+  * Created test cases for File and Edit menus.
+
+  [ Isaac Carter ]
+  * Update meson.build
+
+  [ Michael Webster ]
+  * debian/rules: disable tests for now via build options.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 09 Jan 2020 16:04:14 +0000
+
 xreader (2.4.3) tricia; urgency=medium
 
   * l10n: Update translations
