@@ -17,9 +17,6 @@ override_dh_install:
 	sed 's@TYPELIBDIR@${TYPELIBDIR}@' debian/gir1.2-xreader.install.in > debian/gir1.2-xreader.install
 	dh_install --fail-missing
 
-override_dh_auto_test:
-	ninja -C debian/build test
-
 override_dh_auto_configure:
 	meson debian/build \
 		--prefix=/usr \
@@ -33,7 +30,6 @@ override_dh_auto_configure:
 		-D comics=true \
 		-D introspection=true \
 		-D help_files=true \
-		-D tests=false
 	# 	--disable-static \
 
 override_dh_strip:
