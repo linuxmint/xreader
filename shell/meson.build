@@ -143,7 +143,7 @@ libshell = static_library(
     include_directories: [include_dirs, cnc_includes],
 )
 
-executable(
+xreader = executable(
     'xreader',
     'main.c',
     link_with: libview,
