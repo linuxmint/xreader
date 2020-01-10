@@ -8,7 +8,7 @@ foreach case : test_cases
         case,
         test_script,
         is_parallel: false,
-        depends: 'xreader',
+        depends: xreader,
         workdir: join_paths(prefix, bindir),
     )
 endforeach
