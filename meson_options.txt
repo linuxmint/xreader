@@ -73,11 +73,6 @@ option('thumbnailer',
     value: true,
     description: 'Build the thumbnailer program'
 )
-option('tests',
-    type: 'boolean',
-    value: true,
-    description: ''
-)
 option('docs',
     type: 'boolean',
     value: false,
