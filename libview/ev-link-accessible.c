@@ -195,6 +195,7 @@ static void ev_link_accessible_hyperlink_impl_iface_init (AtkHyperlinkImplIface 
 static void ev_link_accessible_action_interface_init     (AtkActionIface        *iface);
 
 G_DEFINE_TYPE_WITH_CODE (EvLinkAccessible, ev_link_accessible, ATK_TYPE_OBJECT,
+			 G_ADD_PRIVATE (EvLinkAccessible)
 			 G_IMPLEMENT_INTERFACE (ATK_TYPE_HYPERLINK_IMPL, ev_link_accessible_hyperlink_impl_iface_init)
 			 G_IMPLEMENT_INTERFACE (ATK_TYPE_ACTION, ev_link_accessible_action_interface_init))
 
@@ -214,14 +215,12 @@ ev_link_accessible_class_init (EvLinkAccessibleClass *klass)
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
         object_class->finalize = ev_link_accessible_finalize;
-
-        g_type_class_add_private (klass, sizeof (EvLinkAccessiblePrivate));
 }
 
 static void
 ev_link_accessible_init (EvLinkAccessible *link)
 {
-        link->priv = G_TYPE_INSTANCE_GET_PRIVATE (link, EV_TYPE_LINK_ACCESSIBLE, EvLinkAccessiblePrivate);
+        link->priv = ev_link_accessible_get_instance_private (link);
 }
 
 static AtkHyperlink *

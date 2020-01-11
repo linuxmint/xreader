@@ -28,9 +28,6 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 
-#define EPHY_ZOOM_CONTROL_GET_PRIVATE(object)\
-	(G_TYPE_INSTANCE_GET_PRIVATE ((object), EPHY_TYPE_ZOOM_CONTROL, EphyZoomControlPrivate))
-
 struct _EphyZoomControlPrivate
 {
 	GtkComboBox *combo;
@@ -62,7 +59,7 @@ enum
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
-G_DEFINE_TYPE (EphyZoomControl, ephy_zoom_control, GTK_TYPE_TOOL_ITEM)
+G_DEFINE_TYPE_WITH_PRIVATE (EphyZoomControl, ephy_zoom_control, GTK_TYPE_TOOL_ITEM)
 
 static void
 combo_changed_cb (GtkComboBox *combo, EphyZoomControl *control)
@@ -160,7 +157,7 @@ ephy_zoom_control_init (EphyZoomControl *control)
 	GtkTreeIter      iter;
 	guint i;
 
-	p = EPHY_ZOOM_CONTROL_GET_PRIVATE (control);
+	p = ephy_zoom_control_get_instance_private (control);
 	control->priv = p;
 
 	p->zoom = 1.0;
@@ -324,8 +321,6 @@ ephy_zoom_control_class_init (EphyZoomControlClass *klass)
 			      G_TYPE_NONE,
 			      1,
 			      G_TYPE_FLOAT);
-
-	g_type_class_add_private (object_class, sizeof (EphyZoomControlPrivate));
 }
 
 void

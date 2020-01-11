@@ -50,7 +50,7 @@ enum {
 
 static guint signals[NUM_SIGNALS] = { 0, };
 
-G_DEFINE_TYPE (EvRecentView, ev_recent_view, GTK_TYPE_SCROLLED_WINDOW)
+G_DEFINE_TYPE_WITH_PRIVATE (EvRecentView, ev_recent_view, GTK_TYPE_SCROLLED_WINDOW)
 
 #define THUMBNAIL_WIDTH 80
 
@@ -209,7 +209,7 @@ ev_recent_view_refresh (EvRecentView *ev_recent_view)
 static void
 ev_recent_view_init (EvRecentView *ev_recent_view)
 {
-    ev_recent_view->priv = G_TYPE_INSTANCE_GET_PRIVATE (ev_recent_view, EV_TYPE_RECENT_VIEW, EvRecentViewPrivate);
+    ev_recent_view->priv = ev_recent_view_get_instance_private (ev_recent_view);
 
     gtk_widget_set_hexpand (GTK_WIDGET (ev_recent_view), TRUE);
     gtk_widget_set_vexpand (GTK_WIDGET (ev_recent_view), TRUE);
@@ -313,8 +313,6 @@ ev_recent_view_class_init (EvRecentViewClass *klass)
                           g_cclosure_marshal_generic,
                           G_TYPE_NONE, 1,
                           G_TYPE_STRING);
-
-    g_type_class_add_private (klass, sizeof (EvRecentViewPrivate));
 }
 
 

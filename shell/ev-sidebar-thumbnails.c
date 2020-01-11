@@ -118,11 +118,9 @@ G_DEFINE_TYPE_EXTENDED (EvSidebarThumbnails,
                         ev_sidebar_thumbnails,
                         GTK_TYPE_BOX,
                         0,
+                        G_ADD_PRIVATE (EvSidebarThumbnails)
                         G_IMPLEMENT_INTERFACE (EV_TYPE_SIDEBAR_PAGE,
 					       ev_sidebar_thumbnails_page_iface_init))
-
-#define EV_SIDEBAR_THUMBNAILS_GET_PRIVATE(object) \
-	(G_TYPE_INSTANCE_GET_PRIVATE ((object), EV_TYPE_SIDEBAR_THUMBNAILS, EvSidebarThumbnailsPrivate));
 
 /* Thumbnails dimensions cache */
 #define EV_THUMBNAILS_SIZE_CACHE_KEY "ev-thumbnails-size-cache"
@@ -445,7 +443,6 @@ ev_sidebar_thumbnails_class_init (EvSidebarThumbnailsClass *ev_sidebar_thumbnail
 					  PROP_WIDGET,
 					  "main-widget");
 
-	g_type_class_add_private (g_object_class, sizeof (EvSidebarThumbnailsPrivate));
 
 	signals[SIZE_CHANGED] =
 		g_signal_new ("size-changed",
@@ -900,7 +897,7 @@ ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 	GtkWidget *hbox;
 	GtkWidget *image;
 
-	priv = ev_sidebar_thumbnails->priv = EV_SIDEBAR_THUMBNAILS_GET_PRIVATE (ev_sidebar_thumbnails);
+	priv = ev_sidebar_thumbnails->priv = ev_sidebar_thumbnails_get_instance_private (ev_sidebar_thumbnails);
 
 	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_sidebar_thumbnails), GTK_ORIENTATION_VERTICAL);
 

@@ -34,7 +34,7 @@ struct _EvToolbarPrivate
     EvDocumentModel *model;
 };
 
-G_DEFINE_TYPE (EvToolbar, ev_toolbar, GTK_TYPE_TOOLBAR)
+G_DEFINE_TYPE_WITH_PRIVATE (EvToolbar, ev_toolbar, GTK_TYPE_TOOLBAR)
 
 static void
 ev_toolbar_set_property (GObject      *object,
@@ -353,14 +353,12 @@ ev_toolbar_class_init (EvToolbarClass *klass)
                                                           G_PARAM_WRITABLE |
                                                           G_PARAM_CONSTRUCT_ONLY |
                                                           G_PARAM_STATIC_STRINGS));
-
-    g_type_class_add_private (object_class, sizeof (EvToolbarPrivate));
 }
 
 static void
 ev_toolbar_init (EvToolbar *ev_toolbar)
 {
-    ev_toolbar->priv = G_TYPE_INSTANCE_GET_PRIVATE (ev_toolbar, EV_TYPE_TOOLBAR, EvToolbarPrivate);
+    ev_toolbar->priv = ev_toolbar_get_instance_private (ev_toolbar);
     ev_toolbar->priv->settings = g_settings_new (GS_SCHEMA_NAME_TOOLBAR);
 }
 

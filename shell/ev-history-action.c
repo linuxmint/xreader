@@ -22,7 +22,7 @@ struct _EvHistoryActionPrivate
     gboolean popup_shown;
 };
 
-G_DEFINE_TYPE (EvHistoryAction, ev_history_action, GTK_TYPE_ACTION)
+G_DEFINE_TYPE_WITH_PRIVATE (EvHistoryAction, ev_history_action, GTK_TYPE_ACTION)
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
@@ -68,13 +68,12 @@ ev_history_action_class_init (EvHistoryActionClass *class)
                           g_cclosure_marshal_VOID__VOID,
                           G_TYPE_NONE, 0);
 
-    g_type_class_add_private (object_class, sizeof (EvHistoryActionPrivate));
 }
 
 static void
 ev_history_action_init (EvHistoryAction *action)
 {
-    action->priv = G_TYPE_INSTANCE_GET_PRIVATE (action, EV_TYPE_HISTORY_ACTION, EvHistoryActionPrivate);
+    action->priv = ev_history_action_get_instance_private (action);
 }
 
 void

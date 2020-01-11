@@ -58,10 +58,7 @@ struct _EvSidebarPrivate {
 	GtkTreeModel *page_model;
 };
 
-G_DEFINE_TYPE (EvSidebar, ev_sidebar, GTK_TYPE_BOX)
-
-#define EV_SIDEBAR_GET_PRIVATE(object) \
-		(G_TYPE_INSTANCE_GET_PRIVATE ((object), EV_TYPE_SIDEBAR, EvSidebarPrivate))
+G_DEFINE_TYPE_WITH_PRIVATE (EvSidebar, ev_sidebar, GTK_TYPE_BOX)
 
 static void
 ev_sidebar_dispose (GObject *object)
@@ -177,7 +174,6 @@ ev_sidebar_class_init (EvSidebarClass *ev_sidebar_class)
 	GObjectClass *g_object_class;
 
 	g_object_class = G_OBJECT_CLASS (ev_sidebar_class);
-	g_type_class_add_private (g_object_class, sizeof (EvSidebarPrivate));
 
 	g_object_class->dispose = ev_sidebar_dispose;
 	g_object_class->get_property = ev_sidebar_get_property;
@@ -336,7 +332,7 @@ ev_sidebar_init (EvSidebar *ev_sidebar)
 	GtkWidget *select_hbox;
 	GtkWidget *arrow;
 
-	ev_sidebar->priv = EV_SIDEBAR_GET_PRIVATE (ev_sidebar);
+	ev_sidebar->priv = ev_sidebar_get_instance_private (ev_sidebar);
 
 	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_sidebar), GTK_ORIENTATION_VERTICAL);
 

@@ -228,9 +228,6 @@ struct _EvWindowPrivate {
 #endif
 };
 
-#define EV_WINDOW_GET_PRIVATE(object) \
-        (G_TYPE_INSTANCE_GET_PRIVATE ((object), EV_TYPE_WINDOW, EvWindowPrivate))
-
 #define EV_WINDOW_IS_PRESENTATION(w) (w->priv->presentation_view != NULL)
 
 #define PAGE_SELECTOR_ACTION            "PageSelector"
@@ -359,7 +356,7 @@ static void    recent_view_item_activated_cb                 (EvRecentView   *re
                                                               const char       *uri,
                                                               EvWindow         *ev_window);
 
-G_DEFINE_TYPE (EvWindow, ev_window, GTK_TYPE_APPLICATION_WINDOW)
+G_DEFINE_TYPE_WITH_PRIVATE (EvWindow, ev_window, GTK_TYPE_APPLICATION_WINDOW)
 
 static gdouble
 get_screen_dpi (EvWindow *window)
@@ -4436,7 +4433,7 @@ ev_window_cmd_view_zoom (GSimpleAction *action,
 			 gpointer       user_data)
 {
     EvWindow *ev_window = user_data;
-    EvWindowPrivate *priv = EV_WINDOW_GET_PRIVATE (ev_window);
+    EvWindowPrivate *priv = ev_window_get_instance_private (ev_window);
     gdouble zoom = g_variant_get_double (parameter);
 
     ev_document_model_set_sizing_mode (priv->model, EV_SIZING_FREE);
@@ -5850,8 +5847,6 @@ ev_window_class_init (EvWindowClass *ev_window_class)
     widget_class->screen_changed = ev_window_screen_changed;
     widget_class->window_state_event = ev_window_state_event;
     widget_class->drag_data_received = ev_window_drag_data_received;
-
-    g_type_class_add_private (g_object_class, sizeof (EvWindowPrivate));
 }
 
 /* Normal items */
@@ -7324,7 +7319,7 @@ ev_window_init (EvWindow *ev_window)
     g_signal_connect (ev_window, "window_state_event",
             G_CALLBACK (window_state_event_cb), NULL);
 
-    ev_window->priv = EV_WINDOW_GET_PRIVATE (ev_window);
+    ev_window->priv = ev_window_get_instance_private (ev_window);
 
 #ifdef ENABLE_DBUS
     connection = g_application_get_dbus_connection (g_application_get_default ());
