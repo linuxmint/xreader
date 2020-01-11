@@ -34,7 +34,7 @@ typedef enum
     EV_HISTORY_ACTION_BUTTON_FORWARD
 } EvHistoryActionButton;
 
-G_DEFINE_TYPE (EvHistoryActionWidget, ev_history_action_widget, GTK_TYPE_TOOL_ITEM)
+G_DEFINE_TYPE_WITH_PRIVATE (EvHistoryActionWidget, ev_history_action_widget, GTK_TYPE_TOOL_ITEM)
 
 static void
 ev_history_action_widget_finalize (GObject *object)
@@ -235,7 +235,7 @@ ev_history_action_widget_init (EvHistoryActionWidget *history_widget)
     EvHistoryActionWidgetPrivate *priv;
     GtkWidget *box;
 
-    history_widget->priv = G_TYPE_INSTANCE_GET_PRIVATE (history_widget, EV_TYPE_HISTORY_ACTION_WIDGET, EvHistoryActionWidgetPrivate);
+    history_widget->priv = ev_history_action_widget_get_instance_private (history_widget);
     priv = history_widget->priv;
 
     box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
@@ -272,7 +272,6 @@ ev_history_action_widget_class_init (EvHistoryActionWidgetClass *klass)
                                                            G_PARAM_READABLE |
                                                            G_PARAM_STATIC_STRINGS));
 
-    g_type_class_add_private (object_class, sizeof (EvHistoryActionWidgetPrivate));
 }
 
 static void

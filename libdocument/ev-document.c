@@ -28,8 +28,6 @@
 #include "synctex_parser.h"
 #include "ev-file-helpers.h"
 
-#define EV_DOCUMENT_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), EV_TYPE_DOCUMENT, EvDocumentPrivate))
-
 typedef struct _EvPageSize
 {
 	gdouble width;
@@ -73,7 +71,7 @@ static gboolean        _ev_document_support_synctex (EvDocument *document);
 static GMutex ev_doc_mutex;
 static GMutex ev_fc_mutex;
 
-G_DEFINE_ABSTRACT_TYPE (EvDocument, ev_document, G_TYPE_OBJECT)
+G_DEFINE_ABSTRACT_TYPE_WITH_PRIVATE (EvDocument, ev_document, G_TYPE_OBJECT)
 
 GQuark
 ev_document_error_quark (void)
@@ -139,7 +137,7 @@ ev_document_finalize (GObject *object)
 static void
 ev_document_init (EvDocument *document)
 {
-	document->priv = EV_DOCUMENT_GET_PRIVATE (document);
+	document->priv = ev_document_get_instance_private (document);
 
 	/* Assume all pages are the same size until proven otherwise */
 	document->priv->uniform = TRUE;
@@ -151,8 +149,6 @@ static void
 ev_document_class_init (EvDocumentClass *klass)
 {
 	GObjectClass *g_object_class = G_OBJECT_CLASS (klass);
-
-	g_type_class_add_private (g_object_class, sizeof (EvDocumentPrivate));
 
 	klass->get_page = ev_document_impl_get_page;
 	klass->get_info = ev_document_impl_get_info;

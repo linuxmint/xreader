@@ -48,10 +48,7 @@ struct _EvAttachmentPrivate {
 	GFile                   *tmp_file;
 };
 
-#define EV_ATTACHMENT_GET_PRIVATE(object) \
-                (G_TYPE_INSTANCE_GET_PRIVATE ((object), EV_TYPE_ATTACHMENT, EvAttachmentPrivate))
-
-G_DEFINE_TYPE (EvAttachment, ev_attachment, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (EvAttachment, ev_attachment, G_TYPE_OBJECT)
 
 GQuark
 ev_attachment_error_quark (void)
@@ -152,8 +149,6 @@ ev_attachment_class_init (EvAttachmentClass *klass)
 
 	g_object_class->set_property = ev_attachment_set_property;
 
-	g_type_class_add_private (g_object_class, sizeof (EvAttachmentPrivate));
-
 	/* Properties */
 	g_object_class_install_property (g_object_class,
 					 PROP_NAME,
@@ -209,7 +204,7 @@ ev_attachment_class_init (EvAttachmentClass *klass)
 static void
 ev_attachment_init (EvAttachment *attachment)
 {
-	attachment->priv = EV_ATTACHMENT_GET_PRIVATE (attachment);
+	attachment->priv = ev_attachment_get_instance_private (attachment);
 
 	attachment->priv->name = NULL;
 	attachment->priv->description = NULL;

@@ -45,13 +45,10 @@ struct _EvPasswordViewPrivate {
 	GFile        *uri_file;
 };
 
-#define EV_PASSWORD_VIEW_GET_PRIVATE(object) \
-	(G_TYPE_INSTANCE_GET_PRIVATE ((object), EV_TYPE_PASSWORD_VIEW, EvPasswordViewPrivate));
-
 static guint password_view_signals [LAST_SIGNAL] = { 0 };
 
 
-G_DEFINE_TYPE (EvPasswordView, ev_password_view, GTK_TYPE_VIEWPORT)
+G_DEFINE_TYPE_WITH_PRIVATE (EvPasswordView, ev_password_view, GTK_TYPE_VIEWPORT)
 
 static void
 ev_password_view_finalize (GObject *object)
@@ -89,8 +86,6 @@ ev_password_view_class_init (EvPasswordViewClass *class)
 			      g_cclosure_marshal_VOID__VOID,
 			      G_TYPE_NONE, 0);
 
-	g_type_class_add_private (g_object_class, sizeof (EvPasswordViewPrivate));
-
 	g_object_class->finalize = ev_password_view_finalize;
 }
 
@@ -111,7 +106,7 @@ ev_password_view_init (EvPasswordView *password_view)
 	GtkWidget *label;
 	gchar     *markup;
 
-	password_view->priv = EV_PASSWORD_VIEW_GET_PRIVATE (password_view);
+	password_view->priv = ev_password_view_get_instance_private (password_view);
 
 	password_view->priv->password_save = G_PASSWORD_SAVE_NEVER;
 

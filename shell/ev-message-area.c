@@ -25,9 +25,6 @@
 
 #include "ev-message-area.h"
 
-#define EV_MESSAGE_AREA_GET_PRIVATE(obj) \
-	(G_TYPE_INSTANCE_GET_PRIVATE ((obj), EV_TYPE_MESSAGE_AREA, EvMessageAreaPrivate))
-
 struct _EvMessageAreaPrivate {
 	GtkWidget *main_box;
 	GtkWidget *image;
@@ -53,7 +50,7 @@ static void ev_message_area_get_property (GObject      *object,
 					  GValue       *value,
 					  GParamSpec   *pspec);
 
-G_DEFINE_TYPE (EvMessageArea, ev_message_area, GTK_TYPE_INFO_BAR)
+G_DEFINE_TYPE_WITH_PRIVATE (EvMessageArea, ev_message_area, GTK_TYPE_INFO_BAR)
 
 static void
 ev_message_area_class_init (EvMessageAreaClass *class)
@@ -84,8 +81,6 @@ ev_message_area_class_init (EvMessageAreaClass *class)
 							      "The image",
 							      GTK_TYPE_WIDGET,
 							      G_PARAM_READWRITE));
-
-	g_type_class_add_private (gobject_class, sizeof (EvMessageAreaPrivate));
 }
 
 static void
@@ -94,7 +89,7 @@ ev_message_area_init (EvMessageArea *area)
 	GtkWidget *hbox, *vbox;
 	GtkWidget *content_area;
 
-	area->priv = EV_MESSAGE_AREA_GET_PRIVATE (area);
+	area->priv = ev_message_area_get_instance_private (area);
 
 	area->priv->main_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 12);
 

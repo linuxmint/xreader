@@ -74,11 +74,9 @@ G_DEFINE_TYPE_EXTENDED (EvSidebarAttachments,
                         ev_sidebar_attachments,
                         GTK_TYPE_BOX,
                         0, 
+                        G_ADD_PRIVATE (EvSidebarAttachments)
                         G_IMPLEMENT_INTERFACE (EV_TYPE_SIDEBAR_PAGE, 
 					       ev_sidebar_attachments_page_iface_init))
-
-#define EV_SIDEBAR_ATTACHMENTS_GET_PRIVATE(object) \
-                (G_TYPE_INSTANCE_GET_PRIVATE ((object), EV_TYPE_SIDEBAR_ATTACHMENTS, EvSidebarAttachmentsPrivate))
 
 /* Icon cache */
 static void
@@ -512,8 +510,6 @@ ev_sidebar_attachments_class_init (EvSidebarAttachmentsClass *ev_attachbar_class
 	gtk_widget_class->popup_menu = ev_sidebar_attachments_popup_menu;
 	gtk_widget_class->screen_changed = ev_sidebar_attachments_screen_changed;
 
-	g_type_class_add_private (g_object_class, sizeof (EvSidebarAttachmentsPrivate));
-
 	/* Signals */
 	signals[SIGNAL_POPUP_MENU] =
 		g_signal_new ("popup",
@@ -535,7 +531,7 @@ ev_sidebar_attachments_init (EvSidebarAttachments *ev_attachbar)
 {
 	GtkWidget *swindow;
 	
-	ev_attachbar->priv = EV_SIDEBAR_ATTACHMENTS_GET_PRIVATE (ev_attachbar);
+	ev_attachbar->priv = ev_sidebar_attachments_get_instance_private (ev_attachbar);
 
 	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_attachbar), GTK_ORIENTATION_VERTICAL);
 	swindow = gtk_scrolled_window_new (NULL, NULL);

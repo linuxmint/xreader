@@ -31,8 +31,6 @@
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
-#define EPHY_ZOOM_ACTION_GET_PRIVATE(object)(G_TYPE_INSTANCE_GET_PRIVATE ((object), EPHY_TYPE_ZOOM_ACTION, EphyZoomActionPrivate))
-
 struct _EphyZoomActionPrivate
 {
 	float zoom;
@@ -60,7 +58,7 @@ enum
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
-G_DEFINE_TYPE (EphyZoomAction, ephy_zoom_action, GTK_TYPE_ACTION)
+G_DEFINE_TYPE_WITH_PRIVATE (EphyZoomAction, ephy_zoom_action, GTK_TYPE_ACTION)
 
 static void
 zoom_to_level_cb (EphyZoomControl *control,
@@ -274,14 +272,12 @@ ephy_zoom_action_class_init (EphyZoomActionClass *class)
 			      G_TYPE_NONE,
 			      1,
 			      G_TYPE_FLOAT);
-
-	g_type_class_add_private (object_class, sizeof (EphyZoomActionPrivate));
 }
 
 static void
 ephy_zoom_action_init (EphyZoomAction *action)
 {
-	action->priv = EPHY_ZOOM_ACTION_GET_PRIVATE (action);
+	action->priv = ephy_zoom_action_get_instance_private (action);
 
 	action->priv->zoom = 1.0;
 }

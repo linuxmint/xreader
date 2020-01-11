@@ -43,18 +43,16 @@ static void ev_file_monitor_changed_cb    (GFileMonitor     *monitor,
 					   GFile            *other_file,
 					   GFileMonitorEvent event_type,
 					   EvFileMonitor    *ev_monitor);
-	
-#define EV_FILE_MONITOR_GET_PRIVATE(object) \
-                (G_TYPE_INSTANCE_GET_PRIVATE ((object), EV_TYPE_FILE_MONITOR, EvFileMonitorPrivate))
 
-G_DEFINE_TYPE (EvFileMonitor, ev_file_monitor, G_TYPE_OBJECT)
+
+G_DEFINE_TYPE_WITH_PRIVATE (EvFileMonitor, ev_file_monitor, G_TYPE_OBJECT)
 
 static guint signals[N_SIGNALS] = { 0 };
 
 static void
 ev_file_monitor_init (EvFileMonitor *ev_monitor)
 {
-	ev_monitor->priv = EV_FILE_MONITOR_GET_PRIVATE (ev_monitor);
+	ev_monitor->priv = ev_file_monitor_get_instance_private (ev_monitor);
 }
 
 static void
@@ -79,8 +77,6 @@ static void
 ev_file_monitor_class_init (EvFileMonitorClass *klass)
 {
 	GObjectClass *g_object_class = G_OBJECT_CLASS (klass);
-
-	g_type_class_add_private (g_object_class, sizeof (EvFileMonitorPrivate));
 
 	g_object_class->finalize = ev_file_monitor_finalize;
 

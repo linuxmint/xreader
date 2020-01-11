@@ -48,7 +48,7 @@ struct _EvHistoryPrivate
 	guint frozen;
 };
 
-G_DEFINE_TYPE (EvHistory, ev_history, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE(EvHistory, ev_history, G_TYPE_OBJECT)
 
 static void ev_history_set_model (EvHistory       *history,
 								  EvDocumentModel *model);
@@ -133,13 +133,12 @@ ev_history_class_init (EvHistoryClass *class)
 				              G_TYPE_NONE, 1,
 				              G_TYPE_OBJECT);
 
-	g_type_class_add_private (object_class, sizeof (EvHistoryPrivate));
 }
 
 static void
 ev_history_init (EvHistory *history)
 {
-	history->priv = G_TYPE_INSTANCE_GET_PRIVATE (history, EV_TYPE_HISTORY, EvHistoryPrivate);
+	history->priv = ev_history_get_instance_private (history);
 }
 
 static gboolean

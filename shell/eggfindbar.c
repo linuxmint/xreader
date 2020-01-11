@@ -43,7 +43,6 @@ struct _EggFindBarPrivate
   guint case_sensitive : 1;
 };
 
-#define EGG_FIND_BAR_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), EGG_TYPE_FIND_BAR, EggFindBarPrivate))
 
 enum {
     PROP_0,
@@ -64,7 +63,7 @@ static void egg_find_bar_show          (GtkWidget *widget);
 static void egg_find_bar_hide          (GtkWidget *widget);
 void egg_find_bar_grab_focus    (GtkWidget *widget);
 
-G_DEFINE_TYPE (EggFindBar, egg_find_bar, GTK_TYPE_TOOLBAR);
+G_DEFINE_TYPE_WITH_PRIVATE (EggFindBar, egg_find_bar, GTK_TYPE_TOOLBAR);
 
 enum
   {
@@ -162,7 +161,6 @@ egg_find_bar_class_init (EggFindBarClass *klass)
                                                          FALSE,
                                                          G_PARAM_READWRITE));
 
-  g_type_class_add_private (object_class, sizeof (EggFindBarPrivate));
 
   binding_set = gtk_binding_set_by_class (klass);
 
@@ -292,7 +290,7 @@ egg_find_bar_init (EggFindBar *find_bar)
   GtkWidget *arrow;
 
   /* Data */
-  priv = EGG_FIND_BAR_GET_PRIVATE (find_bar);
+  priv = egg_find_bar_get_instance_private (find_bar);
   
   find_bar->priv = priv;  
   priv->search_string = NULL;

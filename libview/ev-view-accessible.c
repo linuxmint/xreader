@@ -70,6 +70,7 @@ struct _EvViewAccessiblePrivate {
 };
 
 G_DEFINE_TYPE_WITH_CODE (EvViewAccessible, ev_view_accessible, GTK_TYPE_CONTAINER_ACCESSIBLE,
+			 G_ADD_PRIVATE (EvViewAccessible)
 			 G_IMPLEMENT_INTERFACE (ATK_TYPE_TEXT, ev_view_accessible_text_iface_init)
 			 G_IMPLEMENT_INTERFACE (ATK_TYPE_ACTION, ev_view_accessible_action_iface_init)
 			 G_IMPLEMENT_INTERFACE (ATK_TYPE_HYPERTEXT, ev_view_accessible_hypertext_iface_init)
@@ -114,14 +115,12 @@ ev_view_accessible_class_init (EvViewAccessibleClass *klass)
 
 	object_class->finalize = ev_view_accessible_finalize;
 	atk_class->initialize = ev_view_accessible_initialize;
-
-	g_type_class_add_private (klass, sizeof (EvViewAccessiblePrivate));
 }
 
 static void
 ev_view_accessible_init (EvViewAccessible *accessible)
 {
-	accessible->priv = G_TYPE_INSTANCE_GET_PRIVATE (accessible, EV_TYPE_VIEW_ACCESSIBLE, EvViewAccessiblePrivate);
+	accessible->priv = ev_view_accessible_get_instance_private (accessible);
 }
 
 static GtkTextBuffer *

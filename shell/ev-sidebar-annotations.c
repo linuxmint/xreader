@@ -66,11 +66,9 @@ G_DEFINE_TYPE_EXTENDED (EvSidebarAnnotations,
                         ev_sidebar_annotations,
                         GTK_TYPE_BOX,
                         0,
+                        G_ADD_PRIVATE (EvSidebarAnnotations)
                         G_IMPLEMENT_INTERFACE (EV_TYPE_SIDEBAR_PAGE,
 					       ev_sidebar_annotations_page_iface_init))
-
-#define EV_SIDEBAR_ANNOTATIONS_GET_PRIVATE(object) \
-	(G_TYPE_INSTANCE_GET_PRIVATE ((object), EV_TYPE_SIDEBAR_ANNOTATIONS, EvSidebarAnnotationsPrivate))
 
 static void
 ev_sidebar_annotations_dispose (GObject *object)
@@ -124,7 +122,7 @@ ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 	GtkWidget *toolitem;
 	GtkWidget *hbox;
 
-	ev_annots->priv = EV_SIDEBAR_ANNOTATIONS_GET_PRIVATE (ev_annots);
+	ev_annots->priv = ev_sidebar_annotations_get_instance_private (ev_annots);
 
 	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_annots), GTK_ORIENTATION_VERTICAL);
 
@@ -210,8 +208,6 @@ ev_sidebar_annotations_class_init (EvSidebarAnnotationsClass *klass)
 	g_object_class->get_property = ev_sidebar_annotations_get_property;
 	g_object_class->dispose = ev_sidebar_annotations_dispose;
 
-	g_type_class_add_private (g_object_class, sizeof (EvSidebarAnnotationsPrivate));
-
 	g_object_class_override_property (g_object_class, PROP_WIDGET, "main-widget");
 
 	signals[ANNOT_ACTIVATED] =
@@ -248,7 +244,7 @@ ev_sidebar_annotations_annot_removed (EvSidebarAnnotations *sidebar_annots,
 EvAnnotationsToolbar *
 ev_sidebar_annotations_get_toolbar(EvSidebarAnnotations *sidebar_annots)
 {
-	EvSidebarAnnotationsPrivate *priv = EV_SIDEBAR_ANNOTATIONS_GET_PRIVATE(sidebar_annots);
+	EvSidebarAnnotationsPrivate *priv = ev_sidebar_annotations_get_instance_private(sidebar_annots);
 	return EV_ANNOTATIONS_TOOLBAR(priv->toolbar);
 }
 

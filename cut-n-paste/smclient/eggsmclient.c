@@ -46,9 +46,8 @@ struct _EggSMClientPrivate {
   GKeyFile *state_file;
 };
 
-#define EGG_SM_CLIENT_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), EGG_TYPE_SM_CLIENT, EggSMClientPrivate))
 
-G_DEFINE_TYPE (EggSMClient, egg_sm_client, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (EggSMClient, egg_sm_client, G_TYPE_OBJECT)
 
 static EggSMClient *global_client;
 static EggSMClientMode global_client_mode = EGG_SM_CLIENT_MODE_NORMAL;
@@ -63,8 +62,6 @@ static void
 egg_sm_client_class_init (EggSMClientClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
-
-  g_type_class_add_private (klass, sizeof (EggSMClientPrivate));
 
   /**
    * EggSMClient::save_state:
@@ -376,7 +373,7 @@ egg_sm_client_is_resumed (EggSMClient *client)
 GKeyFile *
 egg_sm_client_get_state_file (EggSMClient *client)
 {
-  EggSMClientPrivate *priv = EGG_SM_CLIENT_GET_PRIVATE (client);
+  EggSMClientPrivate *priv = egg_sm_client_get_instance_private (client);
   char *state_file_path;
   GError *err = NULL;
 

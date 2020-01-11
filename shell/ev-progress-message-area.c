@@ -24,9 +24,6 @@
 
 #include "ev-progress-message-area.h"
 
-#define EV_PROGRESS_MESSAGE_AREA_GET_PRIVATE(obj) \
-	(G_TYPE_INSTANCE_GET_PRIVATE ((obj), EV_TYPE_PROGRESS_MESSAGE_AREA, EvProgressMessageAreaPrivate))
-
 struct _EvProgressMessageAreaPrivate {
 	GtkWidget *label;
 	GtkWidget *progress_bar;
@@ -47,7 +44,7 @@ static void ev_progress_message_area_get_property (GObject      *object,
 						   GValue       *value,
 						   GParamSpec   *pspec);
 
-G_DEFINE_TYPE (EvProgressMessageArea, ev_progress_message_area, EV_TYPE_MESSAGE_AREA)
+G_DEFINE_TYPE_WITH_PRIVATE (EvProgressMessageArea, ev_progress_message_area, EV_TYPE_MESSAGE_AREA)
 
 static void
 ev_progress_message_area_class_init (EvProgressMessageAreaClass *class)
@@ -71,8 +68,6 @@ ev_progress_message_area_class_init (EvProgressMessageAreaClass *class)
 							      "The fraction of total work that has been completed",
 							      0.0, 1.0, 0.0,
 							      G_PARAM_READWRITE));
-
-	g_type_class_add_private (gobject_class, sizeof (EvProgressMessageAreaPrivate));
 }
 
 static void
@@ -81,7 +76,7 @@ ev_progress_message_area_init (EvProgressMessageArea *area)
 	GtkWidget *contents;
 	GtkWidget *vbox;
 
-	area->priv = EV_PROGRESS_MESSAGE_AREA_GET_PRIVATE (area);
+	area->priv = ev_progress_message_area_get_instance_private (area);
 
 	contents = _ev_message_area_get_main_box (EV_MESSAGE_AREA (area));
 
