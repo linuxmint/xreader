@@ -17,5 +17,6 @@ foreach case : test_cases
         is_parallel: false,
         depends: xreader,
         workdir: join_paths(prefix, bindir),
+        timeout: 120,
     )
 endforeach
