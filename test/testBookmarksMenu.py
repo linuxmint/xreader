@@ -7,13 +7,7 @@ from testCommon import run_app, bail
 from dogtail.procedural import *
 
 try:
-    run_app()
-
-    # Open a file
-    click('File', roleName='menu')
-    click('Open…', roleName='menu item')
-    click('test-links.pdf', roleName='table cell')
-    click('Open', roleName='push button')
+    run_app(file='test-links.pdf')
 
     focus.frame('test-links.pdf')
     click('Bookmarks', roleName='menu')
