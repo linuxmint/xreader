@@ -1,5 +1,11 @@
-test_cases = ['testFileMenu.py', 'testEditMenu.py', 'testHelpMenu.py',
-		'testZoom.py', 'testGoMenu.py', 'testBookmarksMenu.py']
+test_cases = [
+    'testFileMenu.py',
+    'testEditMenu.py',
+    'testHelpMenu.py',
+    'testZoom.py',
+    'testGoMenu.py',
+    'testBookmarksMenu.py'
+]
 
 foreach case : test_cases
     test_script = find_program(case)
@@ -7,6 +13,7 @@ foreach case : test_cases
     test(
         case,
         test_script,
+        args: [xreader.full_path()],
         is_parallel: false,
         depends: xreader,
         workdir: join_paths(prefix, bindir),
