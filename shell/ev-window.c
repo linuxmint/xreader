@@ -1462,6 +1462,7 @@ ev_window_set_document (EvWindow *ev_window,
     }
 
     ev_window_destroy_recent_view (ev_window);
+    gtk_widget_show (ev_window->priv->toolbar);
 
 #if ENABLE_EPUB
     if (document->iswebdocument == TRUE && ev_window->priv->view != NULL)
@@ -2173,7 +2174,7 @@ ev_window_open_recent_view (EvWindow *ev_window)
         return;
 
     gtk_widget_hide (ev_window->priv->hpaned);
-
+    gtk_widget_hide (ev_window->priv->toolbar);
     ev_window->priv->recent_view = EV_RECENT_VIEW (ev_recent_view_new());
     g_signal_connect_object (ev_window->priv->recent_view,
                              "item-activated",
