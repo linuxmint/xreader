@@ -373,6 +373,14 @@ ev_window_set_action_sensitive (EvWindow   *ev_window,
     gtk_action_set_sensitive (action, sensitive);
 }
 
+static void
+ev_window_set_action_visible (GtkActionGroup *group,
+                              const char     *name,
+                              gboolean        visible)
+{
+    GtkAction *action = gtk_action_group_get_action (group, name);
+    gtk_action_set_visible (action, visible);
+}
 
 static void
 ev_window_setup_action_sensitivity (EvWindow *ev_window)
@@ -5069,21 +5077,10 @@ view_menu_link_popup (EvWindow *ev_window,
         }
     }
 
-    action = gtk_action_group_get_action (ev_window->priv->view_popup_action_group,
-            "OpenLink");
-    gtk_action_set_visible (action, show_external);
-
-    action = gtk_action_group_get_action (ev_window->priv->view_popup_action_group,
-            "CopyLinkAddress");
-    gtk_action_set_visible (action, show_external);
-
-    action = gtk_action_group_get_action (ev_window->priv->view_popup_action_group,
-            "GoLink");
-    gtk_action_set_visible (action, show_internal);
-
-    action = gtk_action_group_get_action (ev_window->priv->view_popup_action_group,
-            "OpenLinkNewWindow");
-    gtk_action_set_visible (action, show_internal);
+    ev_window_set_action_visible (ev_window->priv->view_popup_action_group, "OpenLink", show_external);
+    ev_window_set_action_visible (ev_window->priv->view_popup_action_group, "CopyLinkAddress", show_external);
+    ev_window_set_action_visible (ev_window->priv->view_popup_action_group, "GoLink", show_external);
+    ev_window_set_action_visible (ev_window->priv->view_popup_action_group, "OpenLinkNewWindow", show_external);
 }
 
 static void
@@ -5104,13 +5101,8 @@ view_menu_image_popup (EvWindow  *ev_window,
 
     show_image = (ev_window->priv->image != NULL);
 
-    action = gtk_action_group_get_action (ev_window->priv->view_popup_action_group,
-            "SaveImageAs");
-    gtk_action_set_visible (action, show_image);
-
-    action = gtk_action_group_get_action (ev_window->priv->view_popup_action_group,
-            "CopyImage");
-    gtk_action_set_visible (action, show_image);
+    ev_window_set_action_visible (ev_window->priv->view_popup_action_group, "SaveImageAs", show_image);
+    ev_window_set_action_visible (ev_window->priv->view_popup_action_group, "CopyImage", show_image);
 }
 
 static void
@@ -5124,13 +5116,13 @@ view_menu_annot_popup (EvWindow     *ev_window,
         g_object_unref (ev_window->priv->annot);
     ev_window->priv->annot = (annot) ? g_object_ref (annot) : NULL;
 
-    action = gtk_action_group_get_action (ev_window->priv->view_popup_action_group,
-            "AnnotProperties");
-    gtk_action_set_visible (action, (annot != NULL && EV_IS_ANNOTATION_MARKUP (annot)));
+    ev_window_set_action_visible (ev_window->priv->view_popup_action_group,
+                                  "AnnotProperties",
+                                  (annot != NULL && EV_IS_ANNOTATION_MARKUP (annot)));
 
-    action = gtk_action_group_get_action (ev_window->priv->view_popup_action_group,
-                                          "RemoveAnnotation");
-    gtk_action_set_visible (action, (annot != NULL && EV_IS_ANNOTATION_MARKUP (annot)));
+    ev_window_set_action_visible (ev_window->priv->view_popup_action_group,
+                                  "RemoveAnnotation",
+                                  (annot != NULL && EV_IS_ANNOTATION_MARKUP (annot)));
 
     if (annot && EV_IS_ANNOTATION_ATTACHMENT (annot)) {
         EvAttachment *attachment;
@@ -5150,13 +5142,12 @@ view_menu_annot_popup (EvWindow     *ev_window,
         }
     }
 
-    action = gtk_action_group_get_action (ev_window->priv->attachment_popup_action_group,
-            "OpenAttachment");
-    gtk_action_set_visible (action, show_annot);
-
-    action = gtk_action_group_get_action (ev_window->priv->attachment_popup_action_group,
-            "SaveAttachmentAs");
-    gtk_action_set_visible (action, show_annot);
+    ev_window_set_action_visible (ev_window->priv->view_popup_action_group,
+                                  "OpenAttachment",
+                                  show_annot);
+    ev_window_set_action_visible (ev_window->priv->view_popup_action_group,
+                                  "SaveAttachmentAs",
+                                  show_annot);
 }
 
 static gboolean
