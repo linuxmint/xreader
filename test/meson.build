@@ -4,7 +4,10 @@ test_cases = [
     'testHelpMenu.py',
     'testZoom.py',
     'testGoMenu.py',
-    'testBookmarksMenu.py'
+    'testBookmarksMenu.py',
+    'testEncryptedFile.py',
+    'testFileReloading.py',
+    'testWrongFileExtension.py'
 ]
 
 foreach case : test_cases
