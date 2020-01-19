@@ -190,8 +190,7 @@ subdir('install-scripts')
 # Since they aren't strictly necessary, we'll just skip them for earlier versions
 # rather than making 0.46 a hard requirement. This condition can be removed once we
 # no longer need to worry about building on 0.45 or earlier
-meson_version_parts = meson.version().split('.')
-if meson_version_parts[0].to_int() > 0 or meson_version_parts[1].to_int() >= 46
+if meson.version().version_compare('>=0.46')
     subdir('test')
 endif
 
