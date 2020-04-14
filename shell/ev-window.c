@@ -358,6 +358,34 @@ static void    recent_view_item_activated_cb                 (EvRecentView   *re
 
 G_DEFINE_TYPE_WITH_PRIVATE (EvWindow, ev_window, GTK_TYPE_APPLICATION_WINDOW)
 
+
+static gchar *
+sizing_mode_to_string (EvSizingMode mode)
+{
+    switch (mode) {
+        case EV_SIZING_BEST_FIT:
+            return "best-fit";
+        case EV_SIZING_FIT_WIDTH:
+            return "fit-width";
+        case EV_SIZING_FREE:
+            return "free";
+    }
+}
+
+static gint
+sizing_mode_string_to_int (const gchar *string)
+{
+    if (g_strcmp0 (string, "best-fit") == 0){
+        return 0;
+    } else if (g_strcmp0 (string, "fit-width") == 0) {
+        return 1;
+    } else if (g_strcmp0 (string, "free") == 0) {
+        return 2;
+    }
+
+    return 0;
+}
+
 static gdouble
 get_screen_dpi (EvWindow *window)
 {
@@ -1040,9 +1068,8 @@ ev_window_init_metadata_with_default_values (EvWindow *window)
     }
     if (!ev_metadata_has_key (metadata, "sizing_mode")) {
         EvSizingMode mode = g_settings_get_enum (settings, "sizing-mode");
-        GEnumValue *enum_value = g_enum_get_value (g_type_class_peek (EV_TYPE_SIZING_MODE), mode);
 
-        ev_metadata_set_string (metadata, "sizing_mode", enum_value->value_nick);
+        ev_metadata_set_string (metadata, "sizing_mode", sizing_mode_to_string (mode));
     }
 
     if (!ev_metadata_has_key (metadata, "zoom")) {
@@ -1114,11 +1141,7 @@ setup_model_from_metadata (EvWindow *window)
 
     /* Sizing mode */
     if (ev_metadata_get_string (window->priv->metadata, "sizing_mode", &sizing_mode)) {
-        GEnumValue *enum_value;
-
-        enum_value = g_enum_get_value_by_nick
-                (g_type_class_peek (EV_TYPE_SIZING_MODE), sizing_mode);
-        ev_document_model_set_sizing_mode (window->priv->model, enum_value->value);
+        ev_document_model_set_sizing_mode (window->priv->model, sizing_mode_string_to_int (sizing_mode));
     }
 
     /* Zoom */
@@ -4771,9 +4794,8 @@ save_sizing_mode (EvWindow *window)
         return;
 
     mode = ev_document_model_get_sizing_mode (window->priv->model);
-    enum_value = g_enum_get_value (g_type_class_peek (EV_TYPE_SIZING_MODE), mode);
     ev_metadata_set_string (window->priv->metadata, "sizing_mode",
-            enum_value->value_nick);
+            sizing_mode_to_string (mode));
 }
 
 static void
