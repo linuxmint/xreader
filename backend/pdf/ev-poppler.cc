@@ -72,6 +72,9 @@
 /* license field from Creative Commons schema, http://creativecommons.org/ns */
 #define LICENSE_URI "/x:xmpmeta/rdf:RDF/rdf:Description/cc:license/@rdf:resource"
 
+/* TRACK MESSAGE TO STOP OVERWHELMING THE TERMINAL */
+const char *action_message = NULL;
+
 typedef struct {
 	EvFileExporterFormat format;
 
@@ -1174,15 +1177,19 @@ ev_link_from_action (PdfDocument   *pdf_document,
 			unimplemented_action = "POPPLER_ACTION_UNKNOWN";
 	}
 
-	if (unimplemented_action) {
+	if (unimplemented_action && action_message == NULL) {
 		g_warning ("Unimplemented action: %s, please post a bug report "
 			   "on Xreader bug tracker (https://github.com/linuxmint/xreader/issues) "
 			   "with a testcase.", unimplemented_action);
+        action_message = unimplemented_action;
 	}
 
 	link = ev_link_new (action->any.title, ev_action);
 
-	g_object_unref (ev_action);
+    if (G_IS_OBJECT (ev_action)) 
+    {
+        g_object_unref (ev_action);
+    }
 
 	return link;
 }
