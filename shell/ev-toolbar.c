@@ -290,6 +290,18 @@ ev_toolbar_constructed (GObject *object)
     gtk_box_pack_end (GTK_BOX (box), button, FALSE, FALSE, 0);
     gtk_widget_show (GTK_WIDGET (button));
 
+    separator = gtk_separator_new (GTK_ORIENTATION_VERTICAL);
+    gtk_widget_set_margin_start (separator, 6);
+    gtk_widget_set_margin_end (separator, 6);
+    gtk_box_pack_start (GTK_BOX (box), separator, FALSE, FALSE, 0);
+    gtk_widget_show (GTK_WIDGET (separator));
+
+    /* Print button */
+    action = gtk_action_group_get_action (action_group, "FilePrint");
+    button = create_button (action);
+    gtk_box_pack_start (GTK_BOX (box), button, FALSE, FALSE, 0);
+    gtk_widget_show (GTK_WIDGET (button));
+
     /* View preset button */
     tool_item = gtk_tool_item_new ();
     gtk_container_add (GTK_CONTAINER (ev_toolbar), GTK_WIDGET (tool_item));
