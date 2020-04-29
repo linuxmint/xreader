@@ -53,6 +53,7 @@ static guint signals[NUM_SIGNALS] = { 0, };
 G_DEFINE_TYPE_WITH_PRIVATE (EvRecentView, ev_recent_view, GTK_TYPE_SCROLLED_WINDOW)
 
 #define THUMBNAIL_WIDTH 80
+#define MAX_NBR_CARACTERS 30
 
 static gint
 compare_recent_items (GtkRecentInfo *a,
@@ -88,17 +89,27 @@ destroy_child (GtkWidget *child,
 }
 
 static gchar *
-format_name (const gchar *name)
+format_name (const gchar *str)
 {
-    GString *str = g_string_new (name);
-    guint length = strlen (name);
+    gchar *escaped_str;
 
-    if (length <= 32)
-        return (gchar *) name;
+	if (g_utf8_strlen (str, MAX_NBR_CARACTERS*2+1) > MAX_NBR_CARACTERS) {
+		gchar *truncated_str;
+		gchar *str2;
 
-    g_string_erase (str, 20, length-32);
-    g_string_insert (str, 20, "...");
-    return g_string_free (str, FALSE);
+		/* allocate number of bytes and not number of utf-8 chars */
+		str2 = g_malloc ((MAX_NBR_CARACTERS-1) * 2 * sizeof(gchar));
+
+		g_utf8_strncpy (str2, str, MAX_NBR_CARACTERS-2);
+		truncated_str = g_strdup_printf ("%s..", str2);
+		escaped_str = g_markup_escape_text (truncated_str, strlen (truncated_str));
+		g_free (str2);
+		g_free (truncated_str);
+	} else {
+		escaped_str = g_markup_escape_text (str, strlen (str));
+	}
+
+	return escaped_str;
 }
 
 static void
