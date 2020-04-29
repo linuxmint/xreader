@@ -3863,6 +3863,13 @@ static void
 ev_window_cmd_edit_find (GtkAction *action,
                          EvWindow  *ev_window)
 {
+    if (gtk_widget_is_visible (ev_window->priv->find_bar))
+    {
+        update_chrome_flag (ev_window, EV_CHROME_FINDBAR, FALSE);
+        update_chrome_visibility (ev_window);
+        return;
+    }
+
     if (ev_window->priv->document == NULL || !EV_IS_DOCUMENT_FIND (ev_window->priv->document)) {
         g_error ("Find action should be insensitive since document doesn't support find");
         return;
@@ -7706,10 +7713,6 @@ ev_window_init (EvWindow *ev_window)
     g_signal_connect (ev_window->priv->find_bar,
             "next",
             G_CALLBACK (find_bar_next_cb),
-            ev_window);
-    g_signal_connect (ev_window->priv->find_bar,
-            "close",
-            G_CALLBACK (find_bar_close_cb),
             ev_window);
     g_signal_connect (ev_window->priv->find_bar,
             "notify::search-string",
