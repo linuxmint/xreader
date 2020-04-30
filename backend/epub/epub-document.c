@@ -679,6 +679,10 @@ extract_one_file(EpubDocument* epub_document,GError ** error)
 
     gfilepath = g_string_new(epub_document->tmp_archive_dir) ;
     g_string_append_printf(gfilepath,"/%s",(gchar*)currentfilename);
+    
+    // handle the html extension (IssueID #266)
+    if (g_strrstr(currentfilename, ".html") != NULL)
+        g_string_insert_c (gfilepath, gfilepath->len-4, 'x');
 
     /*if we encounter a directory, make a directory inside our temporary folder.*/
     if (directory != NULL && *directory == '\0')
@@ -1044,13 +1048,18 @@ setup_document_content_list(const gchar* content_uri, GError** error,gchar *docu
                 break;
             }
 
+
             GString* absolutepath = g_string_new(documentdir);
             gchar *relativepath = (gchar*)xml_get_data_from_node(itemptr,XML_ATTRIBUTE,(xmlChar*)"href");
             g_string_append_printf(absolutepath,"/%s",relativepath);
-            g_free (relativepath);
 
+            // Handle the html extension (IssueID #266)
+           if (g_strrstr(relativepath, ".html") != NULL)
+                g_string_insert_c (absolutepath, absolutepath->len-4, 'x');
+            g_free (relativepath);
+            
             newnode->value = g_filename_to_uri(absolutepath->str,NULL,&err);
-            g_string_free(absolutepath,TRUE);
+            g_string_free(absolutepath, TRUE);
 
             if ( newnode->value == NULL )
             {
@@ -1089,7 +1098,6 @@ setup_document_content_list(const gchar* content_uri, GError** error,gchar *docu
 	newlist = g_list_reverse(newlist);
 	xml_free_doc();
     return newlist;
-
 }
 
 /* Callback function to free the contentlist.*/
@@ -1221,6 +1229,78 @@ setup_index_from_navfile(gchar *tocpath)
 }
 
 static GList*
+setup_document_children(EpubDocument *epub_document,xmlNodePtr node)
+{
+    GList *index = NULL;
+    
+    xmlretval = NULL;
+    xml_parse_children_of_node(node,(xmlChar*)"navPoint",NULL,NULL);
+    xmlNodePtr navPoint = xmlretval;
+    
+    while(navPoint != NULL) {
+    
+        if ( !xmlStrcmp(navPoint->name,(xmlChar*)"navPoint")) {
+    		xmlretval = NULL;
+    		xml_parse_children_of_node(navPoint,(xmlChar*)"navLabel",NULL,NULL);
+    		xmlNodePtr navLabel = xmlretval;
+    		xmlretval = NULL;
+    		gchar *fragment=NULL,*end=NULL;
+    		GString *uri = NULL;
+            GString *pagelink = NULL;
+
+    		xml_parse_children_of_node(navLabel,(xmlChar*)"text",NULL,NULL);
+    		
+            linknode *newnode = g_new0(linknode,1);
+            newnode->linktext = NULL;
+            while (newnode->linktext == NULL) {
+	            newnode->linktext = (gchar*)xml_get_data_from_node(xmlretval,XML_KEYWORD,NULL);
+	            xmlretval = xmlretval->next;
+            }
+           
+            xmlretval = NULL;
+            xml_parse_children_of_node(navPoint,(xmlChar*)"content",NULL,NULL);
+            pagelink = g_string_new(epub_document->documentdir);
+            newnode->pagelink = (gchar*)xml_get_data_from_node(xmlretval,XML_ATTRIBUTE,(xmlChar*)"src");
+            g_string_append_printf(pagelink,"/%s",newnode->pagelink);
+
+            xmlFree(newnode->pagelink);
+
+            gchar *escaped = g_strdup(pagelink->str);
+
+            //unescaping any special characters
+            pagelink->str = g_uri_unescape_string (escaped,NULL);
+            g_free(escaped);
+
+            if ((end = g_strrstr(pagelink->str,"#")) != NULL) {
+	            fragment = g_strdup(g_strrstr(pagelink->str,"#"));
+	            *end = '\0';
+            }
+            
+            uri = g_string_new(g_filename_to_uri(pagelink->str,NULL,NULL));
+            
+            // handle the html extension (IssueID #266)
+            if (g_strrstr(uri->str, ".html") != NULL)
+                g_string_insert_c (uri, uri->len-4, 'x');
+                
+            g_string_free(pagelink,TRUE);
+
+            if (fragment) {
+	            g_string_append(uri,fragment);
+            }
+
+            newnode->pagelink = g_strdup(uri->str);
+            newnode->children = setup_document_children(epub_document, navPoint);
+            g_string_free(uri,TRUE);
+            index = g_list_prepend(index,newnode);
+        } 
+
+        navPoint = navPoint->next;
+    }
+    
+    return g_list_reverse (index);
+}
+
+static GList*
 setup_document_index(EpubDocument *epub_document,gchar *containeruri)
 {
     GString *tocpath = g_string_new(epub_document->documentdir);
@@ -1248,7 +1328,6 @@ setup_document_index(EpubDocument *epub_document,gchar *containeruri)
     g_string_append_printf (tocpath,"/%s",tocfilename);
     g_free (tocfilename);
 
-    GString *pagelink;
     open_xml_document(tocpath->str);
     g_string_free(tocpath,TRUE);
     set_xml_root_node((xmlChar*)"ncx");
@@ -1262,64 +1341,10 @@ setup_document_index(EpubDocument *epub_document,gchar *containeruri)
 		xmlretval = xmlretval->next;
 	}
     xmlNodePtr navMap = xml_get_pointer_to_node((xmlChar*)"navMap",NULL,NULL);
-	xmlretval = NULL;
-    xml_parse_children_of_node(navMap,(xmlChar*)"navPoint",NULL,NULL);
-
-    xmlNodePtr navPoint = xmlretval;
-
-    while(navPoint != NULL) {
-
-        if ( !xmlStrcmp(navPoint->name,(xmlChar*)"navPoint")) {
-    		xmlretval = NULL;
-    		xml_parse_children_of_node(navPoint,(xmlChar*)"navLabel",NULL,NULL);
-    		xmlNodePtr navLabel = xmlretval;
-    		xmlretval = NULL;
-    		gchar *fragment=NULL,*end=NULL;
-    		GString *uri = NULL;
-
-    		xml_parse_children_of_node(navLabel,(xmlChar*)"text",NULL,NULL);
-            linknode *newnode = g_new0(linknode,1);
-    		newnode->linktext = NULL;
-    		while (newnode->linktext == NULL) {
-        		newnode->linktext = (gchar*)xml_get_data_from_node(xmlretval,XML_KEYWORD,NULL);
-    			xmlretval = xmlretval->next;
-    		}
-    		xmlretval = NULL;
-            xml_parse_children_of_node(navPoint,(xmlChar*)"content",NULL,NULL);
-            pagelink = g_string_new(epub_document->documentdir);
-            newnode->pagelink = (gchar*)xml_get_data_from_node(xmlretval,XML_ATTRIBUTE,(xmlChar*)"src");
-            g_string_append_printf(pagelink,"/%s",newnode->pagelink);
-            xmlFree(newnode->pagelink);
-
-			gchar *escaped = g_strdup(pagelink->str);
-
-			//unescaping any special characters
-			pagelink->str = g_uri_unescape_string (escaped,NULL);
-			g_free(escaped);
-
-            if ((end = g_strrstr(pagelink->str,"#")) != NULL) {
-            	fragment = g_strdup(g_strrstr(pagelink->str,"#"));
-            	*end = '\0';
-            }
-            uri = g_string_new(g_filename_to_uri(pagelink->str,NULL,NULL));
-     		g_string_free(pagelink,TRUE);
-
-            if (fragment) {
-            	g_string_append(uri,fragment);
-            }
-
-            newnode->pagelink = g_strdup(uri->str);
-            g_string_free(uri,TRUE);
-            index = g_list_prepend(index,newnode);
-        }
-
-        navPoint = navPoint->next;
-
-    }
-
+    index = setup_document_children (epub_document, navMap);
+    
 	xml_free_doc();
-
-    return g_list_reverse(index);
+    return index;
 }
 
 static EvDocumentInfo*
@@ -1424,6 +1449,7 @@ epub_document_get_page(EvDocument *document,
 	EvPage* page = ev_page_new(index);
 	contentListNode *listptr = g_list_nth_data (epub_document->contentList,index);
 	page->backend_page = g_strdup(listptr->value);
+
 	return page ;
 }
 
