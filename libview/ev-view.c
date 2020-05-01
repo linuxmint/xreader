@@ -249,6 +249,10 @@ static double	zoom_for_size_best_fit 			     (gdouble doc_width,
 							      gdouble doc_height,
 							      int     target_width,
 							      int     target_height);
+static gboolean ev_view_can_zoom                             (EvView *view,
+                                                              gdouble factor);
+static void     ev_view_zoom                                 (EvView *view,
+                                                              gdouble factor);
 static void     ev_view_zoom_for_size                        (EvView *view,
 							      int     width,
 							      int     height);
@@ -3455,6 +3459,7 @@ ev_view_scroll_event (GtkWidget *widget, GdkEventScroll *event)
 {
 	EvView *view = EV_VIEW (widget);
 	guint state;
+	gboolean fit_width, fit_height;
 
 	state = event->state & gtk_accelerator_get_default_mod_mask ();
 
@@ -3463,12 +3468,25 @@ ev_view_scroll_event (GtkWidget *widget, GdkEventScroll *event)
 		view->zoom_center_x = event->x;
 		view->zoom_center_y = event->y;
 
-		if (event->delta_x > 0 || event->delta_y < 0) {
-			if (ev_view_can_zoom_in (view))
-				ev_view_zoom_in (view);
-		} else {
+		switch (event->direction) {
+		case GDK_SCROLL_DOWN:
+		case GDK_SCROLL_RIGHT:
 			if (ev_view_can_zoom_out (view))
 				ev_view_zoom_out (view);
+			break;
+		case GDK_SCROLL_UP:
+		case GDK_SCROLL_LEFT:
+			if (ev_view_can_zoom_in (view))
+				ev_view_zoom_in (view);
+			break;
+		case GDK_SCROLL_SMOOTH: {
+			gdouble delta = event->delta_x + event->delta_y;
+			gdouble factor = pow (delta < 0 ? ZOOM_IN_FACTOR : ZOOM_OUT_FACTOR, fabs (delta));
+
+			if (ev_view_can_zoom (view, factor))
+				ev_view_zoom (view, factor);
+		}
+			break;
 		}
 
 		return TRUE;
@@ -3478,26 +3496,37 @@ ev_view_scroll_event (GtkWidget *widget, GdkEventScroll *event)
 
 	/* Shift+Wheel scrolls the in the perpendicular direction */
 	if (state & GDK_SHIFT_MASK) {
-		event->delta_x = -event->delta_x;
-		event->delta_y = -event->delta_y;
+		if (event->direction == GDK_SCROLL_UP)
+			event->direction = GDK_SCROLL_LEFT;
+		else if (event->direction == GDK_SCROLL_LEFT)
+			event->direction = GDK_SCROLL_UP;
+		else if (event->direction == GDK_SCROLL_DOWN)
+			event->direction = GDK_SCROLL_RIGHT;
+		else if (event->direction == GDK_SCROLL_RIGHT)
+			event->direction = GDK_SCROLL_DOWN;
+		else if (event->direction == GDK_SCROLL_SMOOTH) {
+			/* Swap the deltas for perpendicular direction */
+			gdouble tmp_delta = event->delta_x;
+
+			event->delta_x = event->delta_y;
+			event->delta_y = tmp_delta;
+		}
 
 		event->state &= ~GDK_SHIFT_MASK;
 		state &= ~GDK_SHIFT_MASK;
 	}
 
-	gint width, height;
-	GtkAllocation allocation;
+	/* Do scroll only on one axis at a time. Issue #866 of Evince */
+	if (event->direction == GDK_SCROLL_SMOOTH &&
+	    event->delta_x != 0.0 && event->delta_y != 0.0) {
+		gdouble abs_x, abs_y;
+		abs_x = fabs (event->delta_x);
+		abs_y = fabs (event->delta_y);
 
-	ev_view_get_page_size (view, view->current_page, &width, &height);
-	gtk_widget_get_allocation (widget, &allocation);
-
-	if (state == 0 && !view->continuous
-			&& (view->sizing_mode == EV_SIZING_BEST_FIT || height <= allocation.height)) {
-		if (event->delta_x > 0 || event->delta_y < 0)
-			ev_view_previous_page (view);
-		else
-			ev_view_next_page (view);
-		return TRUE;
+		if (abs_y > abs_x)
+			event->delta_x = 0.0;
+		else if (abs_x > abs_y)
+			event->delta_y = 0.0;
 	}
 
 	return FALSE;
@@ -6085,6 +6114,19 @@ ev_view_reload (EvView *view)
 
 /*** Zoom and sizing mode ***/
 
+static gboolean
+ev_view_can_zoom (EvView *view, gdouble factor)
+{
+	if (factor == 1.0)
+		return TRUE;
+
+	else if (factor < 1.0) {
+		return ev_view_can_zoom_out (view);
+	} else {
+		return ev_view_can_zoom_in (view);
+	}
+}
+
 gboolean
 ev_view_can_zoom_in (EvView *view)
 {
@@ -6097,7 +6139,7 @@ ev_view_can_zoom_out (EvView *view)
 	return view->scale * ZOOM_OUT_FACTOR >= ev_document_model_get_min_scale (view->model);
 }
 
-void
+static void
 ev_view_zoom (EvView *view, gdouble factor)
 {
 	gdouble scale;
@@ -6355,16 +6397,6 @@ jump_to_find_result (EvView *view)
 	}
 }
 
-/**
- * jump_to_find_page:
- * @view: #EvView instance
- * @direction: Direction to look
- * @shift: Shift from current page
- *
- * Jumps to the first page that has occurences of searched word.
- * Uses a direction where to look and a shift from current page.
- *
- */
 static void
 jump_to_find_page (EvView *view, EvViewFindDirection direction, gint shift)
 {
