@@ -2934,28 +2934,13 @@ ev_window_save_job_cb (EvJob     *job,
 }
 
 static void
-file_save_dialog_response_cb (GtkWidget *fc,
-                              gint       response_id,
-                              EvWindow  *ev_window)
+ev_window_save_as (EvWindow *ev_window,
+		   gchar* uri)
 {
-    gchar *uri;
-
-    if (response_id != GTK_RESPONSE_OK) {
-        gtk_widget_destroy (fc);
-        return;
-    }
-
-    ev_window_file_chooser_save_folder (ev_window,
-            GTK_FILE_CHOOSER (fc),
-            G_USER_DIRECTORY_DOCUMENTS);
-
-    uri = gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (fc));
-
     /* FIXME: remote copy should be done here rather than in the save job,
      * so that we can track progress and cancel the operation
      */
-
-    ev_window_clear_save_job (ev_window);
+		ev_window_clear_save_job (ev_window);
     ev_window->priv->save_job = ev_job_save_new (ev_window->priv->document,
             uri, ev_window->priv->uri);
     g_signal_connect (ev_window->priv->save_job, "finished",
@@ -2963,12 +2948,15 @@ file_save_dialog_response_cb (GtkWidget *fc,
             ev_window);
     /* The priority doesn't matter for this job */
     ev_job_scheduler_push_job (ev_window->priv->save_job, EV_JOB_PRIORITY_NONE);
-
-    g_free (uri);
-    gtk_widget_destroy (fc);
 }
 
 static void
+ev_window_save (EvWindow *ev_window)
+{
+    ev_window_save_as (ev_window, ev_window->priv->uri);
+}
+
+static gboolean
 ev_window_cmd_save_as (GtkAction *action,
                        EvWindow *ev_window)
 {
@@ -3000,11 +2988,23 @@ ev_window_cmd_save_as (GtkAction *action,
             ev_window->priv->uri,
             G_USER_DIRECTORY_DOCUMENTS);
 
-    g_signal_connect (fc, "response",
-            G_CALLBACK (file_save_dialog_response_cb),
-            ev_window);
 
-    gtk_widget_show (fc);
+    if (gtk_dialog_run (GTK_DIALOG (fc)) != GTK_RESPONSE_OK) {
+        gtk_widget_destroy (fc);
+        return FALSE;
+    }
+
+    ev_window_file_chooser_save_folder (ev_window,
+            GTK_FILE_CHOOSER (fc),
+            G_USER_DIRECTORY_DOCUMENTS);
+
+    gchar *uri;
+    uri = gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (fc));
+    ev_window_save_as (ev_window, uri);
+
+    g_free (uri);
+    gtk_widget_destroy (fc);
+    return TRUE;
 }
 
 static GKeyFile *
@@ -3516,26 +3516,6 @@ ev_window_cmd_edit_preferences (GtkAction *action,
     ev_preferences_dialog_show(ev_window);
 }
 
-static void
-document_modified_confirmation_dialog_response (GtkDialog *dialog,
-                                                gint       response,
-                                                EvWindow  *ev_window)
-{
-    gtk_widget_destroy (GTK_WIDGET (dialog));
-
-    switch (response) {
-    case GTK_RESPONSE_YES:
-        ev_window_cmd_save_as (NULL, ev_window);
-        break;
-    case GTK_RESPONSE_NO:
-        gtk_widget_destroy (GTK_WIDGET (ev_window));
-        break;
-    case GTK_RESPONSE_CANCEL:
-    default:
-        break;
-    }
-}
-
 static gboolean
 ev_window_check_document_modified (EvWindow *ev_window)
 {
@@ -3579,19 +3559,27 @@ ev_window_check_document_modified (EvWindow *ev_window)
     gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
             "%s", secondary_text);
 
+    button = gtk_dialog_add_button (GTK_DIALOG (dialog), _("Save a _Copy"), GTK_RESPONSE_YES);
+    gtk_dialog_add_button (GTK_DIALOG (dialog), _("_Save"), GTK_RESPONSE_ACCEPT);
     gtk_dialog_add_button (GTK_DIALOG (dialog), _("Close _without Saving"), GTK_RESPONSE_NO);
     gtk_dialog_add_button (GTK_DIALOG (dialog), GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL);
-    button = gtk_dialog_add_button (GTK_DIALOG (dialog), _("Save a _Copy"), GTK_RESPONSE_YES);
 
     gtk_style_context_add_class (gtk_widget_get_style_context (button),
                                  GTK_STYLE_CLASS_SUGGESTED_ACTION);
     gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_YES);
 
-    g_signal_connect (dialog, "response",
-            G_CALLBACK (document_modified_confirmation_dialog_response),
-            ev_window);
-    gtk_widget_show (dialog);
+    int result = gtk_dialog_run (GTK_DIALOG (dialog));
+    gtk_widget_destroy (GTK_WIDGET (dialog));
 
+    if (result == GTK_RESPONSE_YES) 
+        return !ev_window_cmd_save_as (NULL, ev_window);
+    else if (result == GTK_RESPONSE_NO)
+    	return FALSE;
+    else if (result == GTK_RESPONSE_ACCEPT) {
+        ev_window_save (ev_window);
+        return FALSE;
+    }
+    	
     return TRUE;
 }
 
