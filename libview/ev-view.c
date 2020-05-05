@@ -5866,6 +5866,9 @@ ev_view_document_changed_cb (EvDocumentModel *model,
 		view->find_result = 0;
 
 		if (view->document) {
+			if (ev_document_get_n_pages (view->document) <= 0 || !ev_document_check_dimensions (view->document))
+				return;
+
 			view->loading = FALSE;
 			g_object_ref (view->document);
 			setup_caches (view);
