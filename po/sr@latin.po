@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-22 12:27+0000\n"
-"PO-Revision-Date: 2018-11-25 20:31+0000\n"
-"Last-Translator: Knez <Unknown>\n"
+"PO-Revision-Date: 2020-01-22 17:33+0000\n"
+"Last-Translator: Saša Marjanović <Unknown>\n"
 "Language-Team: Serbian (Latin) "
 "(http://www.transifex.com/mate/MATE/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
@@ -18,8 +18,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2020-01-06 10:06+0000\n"
-"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
+"X-Launchpad-Export-Date: 2020-05-11 11:02+0000\n"
+"X-Generator: Launchpad (build fbdff7602bd10fb883bf7e2ddcc7fd5a16f60398)\n"
 "Language: sr@latin\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -605,7 +605,7 @@ msgstr "Štampam %d. stranicu od %d..."
 
 #: ../libview/ev-print-operation.c:1184
 msgid "The requested format is not supported by this printer."
-msgstr ""
+msgstr "Traženi format nije podržan na ovom printeru."
 
 #: ../libview/ev-print-operation.c:1247
 msgid "Invalid page selection"
@@ -840,23 +840,23 @@ msgstr "Nepoznato"
 
 #: ../shell/ev-annotation-properties-dialog.c:126
 msgid "Markup type:"
-msgstr ""
+msgstr "Vrsta označavanja:"
 
 #: ../shell/ev-annotation-properties-dialog.c:132
 msgid "Highlight"
-msgstr ""
+msgstr "Istakni"
 
 #: ../shell/ev-annotation-properties-dialog.c:133
 msgid "Strike out"
-msgstr ""
+msgstr "Izbaci"
 
 #: ../shell/ev-annotation-properties-dialog.c:134
 msgid "Underline"
-msgstr ""
+msgstr "Podvuci"
 
 #: ../shell/ev-annotation-properties-dialog.c:135
 msgid "Squiggly"
-msgstr ""
+msgstr "Uvrnuto"
 
 #: ../shell/ev-annotation-properties-dialog.c:158
 msgid "Annotation Properties"
@@ -901,7 +901,7 @@ msgstr "Dodaj zabelešku"
 
 #: ../shell/ev-annotations-toolbar.c:127
 msgid "Add highlight annotation"
-msgstr ""
+msgstr "Dodaj i istakni napomenu"
 
 #: ../shell/ev-application.c:1000
 msgid "Running in presentation mode"
@@ -992,7 +992,7 @@ msgstr "Prikaži tipku proširenja prozora"
 
 #: ../shell/ev-preferences-dialog.ui.h:4
 msgid "Show zoom level selector"
-msgstr ""
+msgstr "Prikaži birač nivoa zumiranja"
 
 #: ../shell/ev-properties-dialog.c:63
 msgid "Properties"
@@ -1114,13 +1114,15 @@ msgstr ""
 
 #: ../shell/ev-toolbar.c:270
 msgid "Select or set the zoom level of the document"
-msgstr ""
+msgstr "Izaberi ili odredi nivo zumiranja u dokumentu"
 
 #: ../shell/ev-window.c:979
 msgid ""
 "Cannot enter presentation mode with ePub documents, use fullscreen mode "
 "instead."
 msgstr ""
+"Ne mogu da uđem u režim za prezentacije sa ePub dokumentima, zato probaj "
+"režim prikaza na celom ekranu."
 
 #: ../shell/ev-window.c:1454
 msgid "The document contains no pages"
@@ -1407,7 +1409,7 @@ msgstr "Oso_bine"
 
 #: ../shell/ev-window.c:5887
 msgid "_Close All Windows"
-msgstr ""
+msgstr "Zat_vori sve prozore"
 
 #: ../shell/ev-window.c:5891
 msgid "_Close"

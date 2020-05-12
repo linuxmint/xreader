@@ -11,15 +11,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-22 12:27+0000\n"
-"PO-Revision-Date: 2019-01-18 13:51+0000\n"
+"PO-Revision-Date: 2020-04-18 05:59+0000\n"
 "Last-Translator: mahfiaz <mahfiaz@gmail.com>\n"
 "Language-Team: Estonian (http://www.transifex.com/mate/MATE/language/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2020-01-06 10:06+0000\n"
-"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
+"X-Launchpad-Export-Date: 2020-05-11 11:02+0000\n"
+"X-Generator: Launchpad (build fbdff7602bd10fb883bf7e2ddcc7fd5a16f60398)\n"
 "Language: et\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -604,7 +604,7 @@ msgstr "Lehekülje %d/%d printimine…"
 
 #: ../libview/ev-print-operation.c:1184
 msgid "The requested format is not supported by this printer."
-msgstr ""
+msgstr "See printer ei toeta seda formaati."
 
 #: ../libview/ev-print-operation.c:1247
 msgid "Invalid page selection"
@@ -839,23 +839,23 @@ msgstr "Tundmatu"
 
 #: ../shell/ev-annotation-properties-dialog.c:126
 msgid "Markup type:"
-msgstr ""
+msgstr "Märgistuse tüüp:"
 
 #: ../shell/ev-annotation-properties-dialog.c:132
 msgid "Highlight"
-msgstr ""
+msgstr "Esiletõstmine"
 
 #: ../shell/ev-annotation-properties-dialog.c:133
 msgid "Strike out"
-msgstr ""
+msgstr "Läbikriipsutamine"
 
 #: ../shell/ev-annotation-properties-dialog.c:134
 msgid "Underline"
-msgstr ""
+msgstr "Allajoonimine"
 
 #: ../shell/ev-annotation-properties-dialog.c:135
 msgid "Squiggly"
-msgstr ""
+msgstr "Sakkjoon"
 
 #: ../shell/ev-annotation-properties-dialog.c:158
 msgid "Annotation Properties"
@@ -900,7 +900,7 @@ msgstr "Tekstikommentaari lisamine"
 
 #: ../shell/ev-annotations-toolbar.c:127
 msgid "Add highlight annotation"
-msgstr ""
+msgstr "Lisa esiletõstuga kommentaar"
 
 #: ../shell/ev-application.c:1000
 msgid "Running in presentation mode"
@@ -987,7 +987,7 @@ msgstr "Akna laiendamise nupu näitamine"
 
 #: ../shell/ev-preferences-dialog.ui.h:4
 msgid "Show zoom level selector"
-msgstr ""
+msgstr "Suurenduse valija"
 
 #: ../shell/ev-properties-dialog.c:63
 msgid "Properties"
@@ -1109,13 +1109,15 @@ msgstr ""
 
 #: ../shell/ev-toolbar.c:270
 msgid "Select or set the zoom level of the document"
-msgstr ""
+msgstr "Dokumendi suurenduse valimine või määramine"
 
 #: ../shell/ev-window.c:979
 msgid ""
 "Cannot enter presentation mode with ePub documents, use fullscreen mode "
 "instead."
 msgstr ""
+"ePub dokumenti ei saa esitlusrežiimsi kuvada, selle asemel võib kasutada "
+"täisekraani režiimi."
 
 #: ../shell/ev-window.c:1454
 msgid "The document contains no pages"
@@ -1398,7 +1400,7 @@ msgstr "_Omadused"
 
 #: ../shell/ev-window.c:5887
 msgid "_Close All Windows"
-msgstr ""
+msgstr "_Sulge kõik aknad"
 
 #: ../shell/ev-window.c:5891
 msgid "_Close"

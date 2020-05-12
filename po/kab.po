@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2019-11-22 12:27+0000\n"
-"PO-Revision-Date: 2019-12-21 15:10+0000\n"
-"Last-Translator: Yacine Bouklif <yacinebouklif@gmail.com>\n"
+"PO-Revision-Date: 2020-01-26 23:57+0000\n"
+"Last-Translator: alem <Unknown>\n"
 "Language-Team: Kabyle <kab@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2020-01-06 10:06+0000\n"
-"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
+"X-Launchpad-Export-Date: 2020-05-11 11:02+0000\n"
+"X-Generator: Launchpad (build fbdff7602bd10fb883bf7e2ddcc7fd5a16f60398)\n"
 "Language: kab\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -132,7 +132,7 @@ msgstr "afaylu amagbar yexseṛ"
 
 #: ../backend/epub/epub-document.c:874
 msgid "epub file is invalid or corrupt"
-msgstr "afaylu epub ɣur-s amasal arameɣtu neq yexseṛ"
+msgstr "afaylu epub ɣuṛ-s amasal arameɣtu neɣ yexseṛ"
 
 #: ../backend/epub/epub-document.c:884
 msgid "epub file is corrupt, no container"
@@ -165,7 +165,7 @@ msgstr "Isemliyen ePub"
 
 #: ../backend/pdf/ev-poppler.cc:519
 msgid "This work is in the Public Domain"
-msgstr "Amawil-agi ulac-it di Taɣult Tazayezt"
+msgstr "Amahil-agi atan di Taɣult Tazayezt"
 
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:772 ../backend/pdf/ev-poppler.cc:778
@@ -175,7 +175,7 @@ msgstr "Ih"
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:775 ../backend/pdf/ev-poppler.cc:778
 msgid "No"
-msgstr "Ala"
+msgstr "Uhu"
 
 #: ../backend/pdf/ev-poppler.cc:905
 msgid "Type 1"
