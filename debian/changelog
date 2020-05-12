@@ -1,3 +1,57 @@
+xreader (2.6.0) ulyana; urgency=medium
+
+  [ Stephen Collins ]
+  * .gitignore: add meson build dir for deb builds
+
+  [ Leigh Scott ]
+  * Remove use of deprecated g_type_class_add_private function
+
+  [ Michael Webster ]
+  * ev-window.c: Refactor action visibility.
+  * ev-window.c: Hide the toolbar in recent document mode, there's nothing that can be used on it anyhow.
+
+  [ icarter09 ]
+  * Created more tests for Xreader menu.
+
+  [ Stephen Collins ]
+  * Tests: use build target rather than executable name for dependency
+  * Build: change the conditions for handling tests
+  * tests: Some adjustments and improvements
+  * testEditMenu.py and testFileMenu.py: open file with arg to prevent error
+  * Tests: extend the timeout from 30 seconds to 2 minutes
+
+  [ icarter09 ]
+  * Updated old tests
+  * Removing unnecessary test.
+
+  [ Eli Schwartz ]
+  * meson: simplify version comparison
+
+  [ icarter09 ]
+  * Updated python version to python3
+
+  [ Michael Webster ]
+  * ev-window.c: Don't use g_type_class_peek.
+
+  [ icarter09 ]
+  * Added checks to stop error messages from overtaking the terminal and possibly causing a segfault.
+  * Add Print button to toolbar
+  * Added logic to keep the find bar visible until keyboard shortcut is pressed.
+  * Added back hot keys
+
+  [ Mickael ]
+  * Segmentation fault when opening a PDF file #339
+  * Add UTF8 support for filename in recent view
+  * Bugfix #266
+  * Zoom by Control+scroll is too sensitive
+  * [Feature request] Please provide "Save" option
+
+  [ Clement Lefebvre ]
+  * l10n: Update POT
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 12 May 2020 10:16:46 +0100
+
 xreader (2.4.4) tricia; urgency=medium
 
   [ Michael Webster ]
