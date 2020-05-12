@@ -846,7 +846,7 @@ compute_scroll_increment (EvView        *view,
 	rect.y = view->scroll_y + (scroll == GTK_SCROLL_PAGE_BACKWARD ? 5 : allocation.height - 5);
 	rect.width = page_area.width;
 	rect.height = 1;
-	_ev_view_transform_view_rect_to_doc_rect (view, &rect, &page_area, &border, &doc_rect);
+	view_rect_to_doc_rect (view, &rect, &page_area, &border, &doc_rect);
 
 	/* Convert the doc rectangle into a GdkRectangle */
 	rect.x = doc_rect.x1;
@@ -1241,26 +1241,26 @@ get_doc_page_size (EvView  *view,
 }
 
 void
-_ev_view_transform_view_point_to_doc_point (EvView       *view,
-					    GdkPoint     *view_point,
-					    GdkRectangle *page_area,
-					    GtkBorder    *border,
-					    double       *doc_point_x,
-					    double       *doc_point_y)
+view_point_to_doc_point (EvView       *view,
+		         GdkPoint     *view_point,
+		         GdkRectangle *page_area,
+		         GtkBorder    *border,
+		         double       *doc_point_x,
+		         double       *doc_point_y)
 {
-	*doc_point_x = (double) (view_point->x - page_area->x - border->left) / view->scale;
-	*doc_point_y = (double) (view_point->y - page_area->y - border->right) / view->scale;
+	*doc_point_x = (double) (view_point->x - page_area->x) / view->scale;
+	*doc_point_y = (double) (view_point->y - page_area->y) / view->scale;
 }
 
 void
-_ev_view_transform_view_rect_to_doc_rect (EvView       *view,
-					  GdkRectangle *view_rect,
-					  GdkRectangle *page_area,
-					  GtkBorder    *border,
-					  EvRectangle  *doc_rect)
+view_rect_to_doc_rect (EvView       *view,
+                       GdkRectangle *view_rect,
+                       GdkRectangle *page_area,
+                       GtkBorder    *border,
+                       EvRectangle  *doc_rect)
 {
-	doc_rect->x1 = (double) (view_rect->x - page_area->x - border->left) / view->scale;
-	doc_rect->y1 = (double) (view_rect->y - page_area->y - border->right) / view->scale;
+	doc_rect->x1 = (double) (view_rect->x - page_area->x) / view->scale;
+	doc_rect->y1 = (double) (view_rect->y - page_area->y) / view->scale;
 	doc_rect->x2 = doc_rect->x1 + (double) view_rect->width / view->scale;
 	doc_rect->y2 = doc_rect->y1 + (double) view_rect->height / view->scale;
 }
@@ -1925,9 +1925,12 @@ ev_view_handle_cursor_over_xy (EvView *view, gint x, gint y)
 	if (view->cursor == EV_VIEW_CURSOR_HIDDEN)
 		return;
 
-	if (view->adding_annot_info.adding_annot && !view->adding_annot_info.annot) {
-		if (view->cursor != EV_VIEW_CURSOR_ADD)
+	if (view->adding_annot_info.adding_annot) {
+		if (view->adding_annot_info.info.type == EV_ANNOTATION_TYPE_TEXT_MARKUP) {
+			ev_view_set_cursor (view, EV_VIEW_CURSOR_IBEAM);
+		} else if (!view->adding_annot_info.annot) {
 			ev_view_set_cursor (view, EV_VIEW_CURSOR_ADD);
+		}
 		return;
 	}
 
@@ -2778,7 +2781,7 @@ annotation_window_moved (EvAnnotationWindow *window,
 	view_rect.height = height;
 
 	ev_view_get_page_extents (view, child->page, &page_area, &border);
-	_ev_view_transform_view_rect_to_doc_rect (view, &view_rect, &page_area, &border, &doc_rect);
+	view_rect_to_doc_rect (view, &view_rect, &page_area, &border, &doc_rect);
 	child->orig_x = doc_rect.x1;
 	child->orig_y = doc_rect.y1;
 }
@@ -3004,19 +3007,19 @@ ev_view_create_annotation (EvView *view)
 	cairo_region_t *region;
 
 	ev_view_get_page_extents (view, view->current_page, &page_area, &border);
-	_ev_view_transform_view_point_to_doc_point (view, &view->adding_annot_info.start, &page_area, &border,
+	view_point_to_doc_point (view, &view->adding_annot_info.start, &page_area, &border,
 						    &start.x, &start.y);
-	_ev_view_transform_view_point_to_doc_point (view, &view->adding_annot_info.stop, &page_area, &border,
+	view_point_to_doc_point (view, &view->adding_annot_info.stop, &page_area, &border,
 						    &end.x, &end.y);
 
 	ev_document_doc_mutex_lock ();
 	page = ev_document_get_page (view->document, view->current_page);
-    switch (view->adding_annot_info.type) {
+	switch (view->adding_annot_info.info.type) {
 	case EV_ANNOTATION_TYPE_TEXT:
-        doc_rect.x1 = end.x;
-        doc_rect.y1 = end.y;
-        doc_rect.x2 = doc_rect.x1 + ANNOTATION_ICON_SIZE;
-        doc_rect.y2 = doc_rect.y1 + ANNOTATION_ICON_SIZE;
+		doc_rect.x1 = end.x;
+		doc_rect.y1 = end.y;
+		doc_rect.x2 = doc_rect.x1 + ANNOTATION_ICON_SIZE;
+		doc_rect.y2 = doc_rect.y1 + ANNOTATION_ICON_SIZE;
 		annot = ev_annotation_text_new (page);
 		break;
 	case EV_ANNOTATION_TYPE_TEXT_MARKUP:
@@ -3025,6 +3028,10 @@ ev_view_create_annotation (EvView *view)
 		doc_rect.x2 = end.x;
 		doc_rect.y2 = end.y;
 		annot = ev_annotation_text_markup_highlight_new (page);
+		
+		ev_annotation_text_markup_set_markup_type (EV_ANNOTATION_TEXT_MARKUP (annot),
+							   view->adding_annot_info.info.markup_type);
+							   
 		break;
 	case EV_ANNOTATION_TYPE_ATTACHMENT:
 		/* TODO */
@@ -3037,7 +3044,7 @@ ev_view_create_annotation (EvView *view)
 	g_object_unref (page);
 
 	ev_annotation_set_area (annot, &doc_rect);
-	ev_annotation_set_color (annot, &color);
+	ev_annotation_set_color (annot, &view->adding_annot_info.info.color);
 
 	if (EV_IS_ANNOTATION_MARKUP (annot)) {
 		popup_rect.x1 = doc_rect.x2;
@@ -3054,8 +3061,6 @@ ev_view_create_annotation (EvView *view)
 	}
 	ev_document_annotations_add_annotation (EV_DOCUMENT_ANNOTATIONS (view->document),
 						annot, &doc_rect);
-	/* Re-fetch area as eg. adding Text Markup annots updates area for its bounding box */
-	ev_annotation_get_area (annot, &doc_rect);
 	ev_document_doc_mutex_unlock ();
 
 	/* If the page didn't have annots, mark the cache as dirty */
@@ -3070,7 +3075,6 @@ ev_view_create_annotation (EvView *view)
 	cairo_region_destroy (region);
 
 	view->adding_annot_info.annot = annot;
-	ev_view_set_cursor (view, EV_VIEW_CURSOR_NORMAL);
 }
 
 void
@@ -3102,16 +3106,16 @@ ev_view_focus_annotation (EvView    *view,
 
 void
 ev_view_begin_add_annotation (EvView          *view,
-			      EvAnnotationType annot_type)
+			      EvAnnotationInfo annot_info)
 {
-	if (annot_type == EV_ANNOTATION_TYPE_UNKNOWN)
+	if (annot_info.type == EV_ANNOTATION_TYPE_UNKNOWN)
 		return;
 
 	if (view->adding_annot_info.adding_annot)
 		return;
 
 	view->adding_annot_info.adding_annot = TRUE;
-	view->adding_annot_info.type = annot_type;
+	view->adding_annot_info.info = annot_info;
 	ev_view_set_cursor (view, EV_VIEW_CURSOR_ADD);
 }
 
@@ -3859,8 +3863,43 @@ ev_view_button_press_event (GtkWidget      *widget,
 				}
 
 				gtk_widget_queue_draw (widget);
-			} else if ((annot = ev_view_get_annotation_at_location (view, event->x, event->y))) {
-				ev_view_handle_annotation (view, annot, event->x, event->y, event->time);
+			} else if ((annot = ev_view_get_annotation_at_location (view, event->x, event->y))
+						&& !EV_IS_ANNOTATION_TEXT_MARKUP (annot)) {
+				EvRectangle  current_area;
+				GdkPoint     view_point;
+				EvPoint      doc_point;
+				GdkRectangle page_area;
+				GtkBorder    border;
+				guint        annot_page;
+
+				/* annot_clicked remembers that we clicked
+				 * on an annotation. We need moving_annot
+				 * to distinguish moving an annotation from
+				 * showing its popup upon button release. */
+				view->moving_annot_info.annot_clicked = TRUE;
+				view->moving_annot_info.moving_annot = FALSE;
+				view->moving_annot_info.annot = annot;
+				ev_annotation_get_area (annot, &current_area);
+
+				view_point.x = event->x + view->scroll_x;
+				view_point.y = event->y + view->scroll_y;
+
+				/* Remember the coordinates of the button press event
+				 * in order to implement a minimum threshold for moving
+				 * annotations. */
+				view->moving_annot_info.start = view_point;
+				annot_page = ev_annotation_get_page_index (annot);
+				ev_view_get_page_extents (view, annot_page, &page_area, &border);
+				view_point_to_doc_point (view, &view_point,
+							       &page_area,
+							       &border,
+							       &doc_point.x, &doc_point.y);
+
+				/* Remember the offset of the cursor with respect to
+				 * the annotation area in order to prevent the annotation from
+				 * jumping under the cursor while moving it. */
+				view->moving_annot_info.cursor_offset.x = doc_point.x - current_area.x1;
+				view->moving_annot_info.cursor_offset.y = doc_point.y - current_area.y1;
 			} else if ((field = ev_view_get_form_field_at_location (view, event->x, event->y))) {
 				ev_view_remove_all_form_fields (view);
 				ev_view_handle_form_field (view, field);
@@ -4155,7 +4194,6 @@ ev_view_motion_notify_event (GtkWidget      *widget,
 					                 event->y);
 
 			view->selection_info.in_drag = FALSE;
-			view->pressed_button = -1;
 
 			gtk_target_list_unref (target_list);
 
@@ -4178,7 +4216,6 @@ ev_view_motion_notify_event (GtkWidget      *widget,
 					                 event->y);
 
 			view->image_dnd_info.in_drag = FALSE;
-			view->pressed_button = -1;
 
 			gtk_target_list_unref (target_list);
 
@@ -4201,6 +4238,7 @@ ev_view_motion_notify_event (GtkWidget      *widget,
 			EvPoint      end;
 			GdkRectangle page_area;
 			GtkBorder    border;
+			guint        annot_page;
 
 			if (!view->adding_annot_info.annot)
 				return TRUE;
@@ -4209,13 +4247,14 @@ ev_view_motion_notify_event (GtkWidget      *widget,
 
 			view->adding_annot_info.stop.x = event->x + view->scroll_x;
 			view->adding_annot_info.stop.y = event->y + view->scroll_y;
-			ev_view_get_page_extents (view, view->current_page, &page_area, &border);
-			_ev_view_transform_view_point_to_doc_point (view, &view->adding_annot_info.start, &page_area, &border,
+			annot_page = ev_annotation_get_page_index (view->adding_annot_info.annot);
+			ev_view_get_page_extents (view, annot_page, &page_area, &border);
+			view_point_to_doc_point (view, &view->adding_annot_info.start, &page_area, &border,
 								    &start.x, &start.y);
-			_ev_view_transform_view_point_to_doc_point (view, &view->adding_annot_info.stop, &page_area, &border,
+			view_point_to_doc_point (view, &view->adding_annot_info.stop, &page_area, &border,
 								    &end.x, &end.y);
 
-			switch (view->adding_annot_info.type) {
+			switch (view->adding_annot_info.info.type) {
 			case EV_ANNOTATION_TYPE_TEXT:
 				rect.x1 = end.x;
 				rect.y1 = end.y;
@@ -4232,19 +4271,74 @@ ev_view_motion_notify_event (GtkWidget      *widget,
 				g_assert_not_reached ();
 			}
 
-			/* Take the mutex before set_area, because the notify signal
-			 * updates the mappings in the backend */
-			ev_document_doc_mutex_lock ();
 			if (ev_annotation_set_area (view->adding_annot_info.annot, &rect)) {
 				ev_document_annotations_save_annotation (EV_DOCUMENT_ANNOTATIONS (view->document),
 									 view->adding_annot_info.annot,
 									 EV_ANNOTATIONS_SAVE_AREA);
 			}
-			ev_document_doc_mutex_unlock ();
 
 
 			/* FIXME: reload only annotation area */
-			ev_view_reload_page (view, view->current_page, NULL);
+			ev_view_reload_page (view, annot_page, NULL);
+		} else if (view->moving_annot_info.annot_clicked) {
+			EvRectangle  rect;
+			EvRectangle  current_area;
+			GdkPoint     view_point;
+			EvPoint      doc_point;
+			GdkRectangle page_area;
+			GtkBorder    border;
+			guint        annot_page;
+			double       page_width;
+			double       page_height;
+
+			if (!view->moving_annot_info.annot)
+				return TRUE;
+
+			view_point.x = event->x + view->scroll_x;
+			view_point.y = event->y + view->scroll_y;
+
+			if (!view->moving_annot_info.moving_annot) {
+				/* Only move the annotation if the threshold is exceeded */
+				if (!gtk_drag_check_threshold (widget,
+							       view->moving_annot_info.start.x,
+							       view->moving_annot_info.start.y,
+							       view_point.x,
+							       view_point.y))
+					return TRUE;
+				view->moving_annot_info.moving_annot = TRUE;
+			}
+
+			ev_annotation_get_area (view->moving_annot_info.annot, &current_area);
+			annot_page = ev_annotation_get_page_index (view->moving_annot_info.annot);
+			ev_view_get_page_extents (view, annot_page, &page_area, &border);
+			view_point_to_doc_point (view, &view_point, &page_area, &border,
+								    &doc_point.x, &doc_point.y);
+
+			ev_document_get_page_size (view->document, annot_page, &page_width, &page_height);
+
+			rect.x1 = MAX (0, doc_point.x - view->moving_annot_info.cursor_offset.x);
+			rect.y1 = MAX (0, doc_point.y - view->moving_annot_info.cursor_offset.y);
+			rect.x2 = rect.x1 + current_area.x2 - current_area.x1;
+			rect.y2 = rect.y1 + current_area.y2 - current_area.y1;
+
+			/* Prevent the annotation from being moved off the page */
+			if (rect.x2 > page_width) {
+				rect.x2 = page_width;
+				rect.x1 = page_width - current_area.x2 + current_area.x1;
+			}
+			if (rect.y2 > page_height) {
+				rect.y2 = page_height;
+				rect.y1 = page_height - current_area.y2 + current_area.y1;
+			}
+
+			if (ev_annotation_set_area (view->moving_annot_info.annot, &rect)) {
+				ev_document_annotations_save_annotation (EV_DOCUMENT_ANNOTATIONS (view->document),
+									 view->moving_annot_info.annot,
+									 EV_ANNOTATIONS_SAVE_AREA);
+			}
+
+			/* FIXME: reload only annotation area */
+			ev_view_reload_page (view, annot_page, NULL);
 		} else {
 			/* Schedule timeout to scroll during selection and additionally
 			 * scroll once to allow arbitrary speed. */
@@ -4414,7 +4508,7 @@ ev_view_button_release_event (GtkWidget      *widget,
 					window = ev_view_create_annotation_window (view, view->adding_annot_info.annot, parent);
 				}
 				/* Show the annot window the first time for text annotations */
-				if (view->adding_annot_info.type == EV_ANNOTATION_TYPE_TEXT)
+				if (view->adding_annot_info.info.type == EV_ANNOTATION_TYPE_TEXT)
 					ev_view_annotation_show_popup_window (view, window);
 			}
 		}
@@ -4430,6 +4524,27 @@ ev_view_button_release_event (GtkWidget      *widget,
 		view->pressed_button = -1;
 
 		return FALSE;
+	}
+	
+	if (view->moving_annot_info.annot_clicked) {
+		if (view->moving_annot_info.moving_annot)
+			ev_view_handle_cursor_over_xy (view, event->x, event->y);
+		else
+			ev_view_handle_annotation (view, view->moving_annot_info.annot, event->x, event->y, event->time);
+
+		view->moving_annot_info.annot_clicked = FALSE;
+		view->moving_annot_info.moving_annot = FALSE;
+		view->moving_annot_info.annot = NULL;
+		view->pressed_button = -1;
+
+		return FALSE;
+	}
+
+	if (view->pressed_button == 1) {
+		EvAnnotation *annot = ev_view_get_annotation_at_location (view, event->x, event->y);
+
+		if (annot)
+			ev_view_handle_annotation (view, annot, event->x, event->y, event->time);
 	}
 
 	if (view->pressed_button == 2) {
@@ -6556,7 +6671,7 @@ compute_new_selection_rect (EvView       *view,
 
 				selection = g_slice_new0 (EvViewSelection);
 				selection->page = i;
-				_ev_view_transform_view_rect_to_doc_rect (view, &overlap, &page_area, &border,
+				view_rect_to_doc_rect (view, &overlap, &page_area, &border,
 									  &(selection->rect));
 
 				list = g_list_append (list, selection);
@@ -6650,7 +6765,7 @@ compute_new_selection_text (EvView          *view,
 			point = stop;
 
 		if (i == first) {
-			_ev_view_transform_view_point_to_doc_point (view, point,
+			view_point_to_doc_point (view, point,
 								    &page_area, &border,
 								    &selection->rect.x1,
 								    &selection->rect.y1);
@@ -6665,7 +6780,7 @@ compute_new_selection_text (EvView          *view,
 			point = stop;
 
 		if (i == last) {
-			_ev_view_transform_view_point_to_doc_point (view, point,
+			view_point_to_doc_point (view, point,
 								    &page_area, &border,
 								    &selection->rect.x2,
 								    &selection->rect.y2);

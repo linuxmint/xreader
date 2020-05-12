@@ -6289,11 +6289,11 @@ sidebar_annots_annot_activated_cb (EvSidebarAnnotations *sidebar_annots,
 
 static void
 ev_window_begin_add_annot (EvSidebarAnnotations *sidebar_annots,
-		EvAnnotationType annot_type,
-		EvWindow        *window)
+                           EvAnnotationInfo     *annot_info,
+                           EvWindow             *window)
 {
-    if (window->priv->document->iswebdocument == TRUE ) return;
-    ev_view_begin_add_annotation (EV_VIEW (window->priv->view), annot_type);
+    if (window->priv->document->iswebdocument == TRUE) return;
+    ev_view_begin_add_annotation (EV_VIEW (window->priv->view), *annot_info);
 }
 
 static void

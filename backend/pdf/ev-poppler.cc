@@ -3090,6 +3090,15 @@ pdf_document_annotations_add_annotation (EvDocumentAnnotations *document_annotat
 				case EV_ANNOTATION_TEXT_MARKUP_HIGHLIGHT:
 					poppler_annot = poppler_annot_text_markup_new_highlight (pdf_document->document, &poppler_rect, quads);
 					break;
+				case EV_ANNOTATION_TEXT_MARKUP_UNDERLINE:
+					poppler_annot = poppler_annot_text_markup_new_underline (pdf_document->document, &poppler_rect, quads);
+					break;
+				case EV_ANNOTATION_TEXT_MARKUP_STRIKE_OUT:
+					poppler_annot = poppler_annot_text_markup_new_strikeout (pdf_document->document, &poppler_rect, quads);
+					break;
+				case EV_ANNOTATION_TEXT_MARKUP_SQUIGGLY:
+					poppler_annot = poppler_annot_text_markup_new_squiggly (pdf_document->document, &poppler_rect, quads);
+					break;
 				default:
 					g_assert_not_reached ();
 			}

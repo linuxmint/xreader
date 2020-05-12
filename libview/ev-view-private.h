@@ -119,9 +119,17 @@ typedef struct {
 	GdkPoint         start;
 	GdkPoint         stop;
 	gboolean         adding_annot;
-	EvAnnotationType type;
+	EvAnnotationInfo info;
 	EvAnnotation    *annot;
 } AddingAnnotInfo;
+
+typedef struct {
+	GdkPoint      start;
+	EvPoint       cursor_offset;
+	gboolean      annot_clicked;
+	gboolean      moving_annot;
+	EvAnnotation *annot;
+} MovingAnnotInfo;
 
 struct _EvView {
 	GtkLayout layout;
@@ -211,6 +219,7 @@ struct _EvView {
 	EvViewWindowChild *window_child_focus;
 	EvMapping         *focus_annotation;
 	AddingAnnotInfo    adding_annot_info;
+	MovingAnnotInfo    moving_annot_info;
 	GHashTable        *annot_window_map;
 
 	/* Focus */
@@ -261,13 +270,13 @@ void _get_page_size_for_scale_and_rotation (EvDocument *document,
 					    gint        rotation,
 					    gint       *page_width,
 					    gint       *page_height);
-void _ev_view_transform_view_point_to_doc_point (EvView       *view,
+void view_point_to_doc_point               (EvView            *view,
 						 GdkPoint     *view_point,
 						 GdkRectangle *page_area,
 						 GtkBorder    *border,
 						 double       *doc_point_x,
 						 double       *doc_point_y);
-void _ev_view_transform_view_rect_to_doc_rect (EvView       *view,
+void view_rect_to_doc_rect                    (EvView       *view,
 					       GdkRectangle *view_rect,
 					       GdkRectangle *page_area,
 					       GtkBorder    *border,

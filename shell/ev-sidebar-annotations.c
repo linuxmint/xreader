@@ -117,10 +117,6 @@ ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 	GtkCellRenderer *renderer;
 	GtkTreeViewColumn *column;
 	GtkTreeSelection *selection;
-	GtkWidget *separator;
-	GtkWidget *toolbar;
-	GtkWidget *toolitem;
-	GtkWidget *hbox;
 
 	ev_annots->priv = ev_sidebar_annotations_get_instance_private (ev_annots);
 
@@ -157,26 +153,11 @@ ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 	gtk_container_add (GTK_CONTAINER (swindow), ev_annots->priv->tree_view);
 	gtk_widget_show (ev_annots->priv->tree_view);
 
-	separator = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
-	gtk_box_pack_start (GTK_BOX (ev_annots), separator, FALSE, FALSE, 0);
-	gtk_widget_show (separator);
-
-	toolbar = gtk_toolbar_new ();
-	gtk_widget_show (toolbar);
-
-	toolitem = GTK_WIDGET (gtk_tool_item_new ());
-	gtk_toolbar_insert (GTK_TOOLBAR (toolbar), GTK_TOOL_ITEM (toolitem), 0);
-	gtk_widget_show (toolitem);
-
-	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-	gtk_container_add (GTK_CONTAINER (toolitem), hbox);
-	gtk_widget_show (hbox);
-
 	/* Create annotation tool bar */
 	ev_annots->priv->toolbar = ev_annotations_toolbar_new();
 	gtk_widget_show (ev_annots->priv->toolbar);
-
 	gtk_box_pack_end (GTK_BOX (ev_annots), ev_annots->priv->toolbar, FALSE, TRUE, 0);
+	
 	gtk_widget_show (GTK_WIDGET (ev_annots));
 }
 
