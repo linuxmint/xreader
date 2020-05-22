@@ -223,12 +223,19 @@ ev_sidebar_annotations_annot_removed (EvSidebarAnnotations *sidebar_annots,
 }
 
 EvAnnotationsToolbar *
-ev_sidebar_annotations_get_toolbar(EvSidebarAnnotations *sidebar_annots)
+ev_sidebar_annotations_get_toolbar (EvSidebarAnnotations *sidebar_annots)
 {
 	EvSidebarAnnotationsPrivate *priv = ev_sidebar_annotations_get_instance_private(sidebar_annots);
 	return EV_ANNOTATIONS_TOOLBAR(priv->toolbar);
 }
 
+void
+ev_sidebar_annotations_set_color (EvSidebarAnnotations *sidebar_annots,
+                                  GdkColor             *color)
+{
+	EvSidebarAnnotationsPrivate *priv = ev_sidebar_annotations_get_instance_private(sidebar_annots);
+	ev_annotations_toolbar_set_color (priv->toolbar, color);
+}
 
 static void
 selection_changed_cb (GtkTreeSelection     *selection,
@@ -260,10 +267,10 @@ job_finished_callback (EvJobAnnots          *job,
 	GdkScreen *screen;
 	GdkPixbuf *text_icon = NULL;
 	GdkPixbuf *attachment_icon = NULL;
-        GdkPixbuf *highlight_icon = NULL;
-        GdkPixbuf *strike_out_icon = NULL;
-        GdkPixbuf *underline_icon = NULL;
-        GdkPixbuf *squiggly_icon = NULL;
+    GdkPixbuf *highlight_icon = NULL;
+    GdkPixbuf *strike_out_icon = NULL;
+    GdkPixbuf *underline_icon = NULL;
+    GdkPixbuf *squiggly_icon = NULL;
 
 	priv = sidebar_annots->priv;
 

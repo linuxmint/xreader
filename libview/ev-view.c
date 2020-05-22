@@ -4485,7 +4485,9 @@ ev_view_button_release_event (GtkWidget      *widget,
 				ev_document_annotations_remove_annotation (EV_DOCUMENT_ANNOTATIONS (view->document),
 									   view->adding_annot_info.annot);
 				ev_document_doc_mutex_unlock ();
-				ev_page_cache_mark_dirty (view->page_cache, view->current_page, EV_PAGE_DATA_INCLUDE_ANNOTS);
+				ev_page_cache_mark_dirty (view->page_cache, 
+						ev_annotation_get_page_index (view->adding_annot_info.annot), 
+						EV_PAGE_DATA_INCLUDE_ANNOTS);
 			} else {
 				popup_rect.x1 = area.x2;
 				popup_rect.x2 = popup_rect.x1 + ANNOT_POPUP_WINDOW_DEFAULT_WIDTH;

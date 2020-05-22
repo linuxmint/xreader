@@ -27,6 +27,7 @@
 enum {
         BEGIN_ADD_ANNOT,
         CANCEL_ADD_ANNOT,
+        CHANGE_COLOR_ANNOT,
         N_SIGNALS
 };
 
@@ -100,7 +101,7 @@ static void
 ev_annotations_toolbar_color_changed (GtkWidget            *button,
                                       EvAnnotationsToolbar *toolbar)
 {
-	EvAnnotationInfo             annot_info;
+	EvAnnotationInfo annot_info;
 
 	g_signal_emit (toolbar, signals[CANCEL_ADD_ANNOT], 0, NULL);
 	gtk_color_button_get_color (GTK_COLOR_BUTTON (toolbar->color_button), &annot_info.color);
@@ -126,6 +127,8 @@ ev_annotations_toolbar_color_changed (GtkWidget            *button,
 		annot_info.markup_type = EV_ANNOTATION_TEXT_ICON_NOTE;
 		g_signal_emit (toolbar, signals[BEGIN_ADD_ANNOT], 0, &annot_info);
 	}
+	
+	g_signal_emit (toolbar, signals[CHANGE_COLOR_ANNOT], 0, &annot_info.color);
 }
 
 static gboolean
@@ -207,8 +210,7 @@ ev_annotations_toolbar_init (EvAnnotationsToolbar *toolbar)
         gtk_widget_show (toolbar->squiggly_button);
         
         /* color button */
-		GdkColor color = { 0, 65535, 65535, 0 };
-		toolbar->color_button = gtk_color_button_new_with_color (&color);
+		toolbar->color_button = gtk_color_button_new ();
 		gtk_button_set_relief (GTK_BUTTON (toolbar->color_button), GTK_RELIEF_NONE);
 
 		gtk_container_add (GTK_CONTAINER(toolbar), toolbar->color_button);
@@ -243,6 +245,16 @@ ev_annotations_toolbar_class_init (EvAnnotationsToolbarClass *klass)
                               g_cclosure_marshal_VOID__VOID,
                               G_TYPE_NONE, 0,
                               G_TYPE_NONE);
+		
+        signals[CHANGE_COLOR_ANNOT] =
+                g_signal_new ("change-color-annot",
+                              G_TYPE_FROM_CLASS (g_object_class),
+                              G_SIGNAL_RUN_LAST,
+                              0,
+                              NULL, NULL,
+                              g_cclosure_marshal_VOID__POINTER,
+                              G_TYPE_NONE, 1,
+                              G_TYPE_POINTER);
 }
 
 GtkWidget *
@@ -254,19 +266,26 @@ ev_annotations_toolbar_new (void)
 void
 ev_annotations_toolbar_add_annot_finished (EvAnnotationsToolbar *toolbar)
 {
-        g_return_if_fail (EV_IS_ANNOTATIONS_TOOLBAR (toolbar));
+    g_return_if_fail (EV_IS_ANNOTATIONS_TOOLBAR (toolbar));
 
-        if (ev_annotations_toolbar_toggle_button_if_active (toolbar, GTK_TOGGLE_BUTTON (toolbar->text_button)))
-                return;
+    if (ev_annotations_toolbar_toggle_button_if_active (toolbar, GTK_TOGGLE_BUTTON (toolbar->text_button)))
+            return;
 
-        if (ev_annotations_toolbar_toggle_button_if_active (toolbar, GTK_TOGGLE_BUTTON (toolbar->highlight_button)))
-        	return;
-        
-        if (ev_annotations_toolbar_toggle_button_if_active (toolbar, GTK_TOGGLE_BUTTON (toolbar->underline_button)))
-        	return;
-        	
-        if (ev_annotations_toolbar_toggle_button_if_active (toolbar, GTK_TOGGLE_BUTTON (toolbar->strike_out_button)))
-        	return;
-        
-        ev_annotations_toolbar_toggle_button_if_active (toolbar, GTK_TOGGLE_BUTTON (toolbar->squiggly_button));
+    if (ev_annotations_toolbar_toggle_button_if_active (toolbar, GTK_TOGGLE_BUTTON (toolbar->highlight_button)))
+    	return;
+    
+    if (ev_annotations_toolbar_toggle_button_if_active (toolbar, GTK_TOGGLE_BUTTON (toolbar->underline_button)))
+    	return;
+    	
+    if (ev_annotations_toolbar_toggle_button_if_active (toolbar, GTK_TOGGLE_BUTTON (toolbar->strike_out_button)))
+    	return;
+    
+    ev_annotations_toolbar_toggle_button_if_active (toolbar, GTK_TOGGLE_BUTTON (toolbar->squiggly_button));
 }
+
+void
+ev_annotations_toolbar_set_color (EvAnnotationsToolbar *toolbar, GdkColor *color)
+{
+	gtk_color_button_set_color (GTK_COLOR_BUTTON (toolbar->color_button), color);
+}
+													  
