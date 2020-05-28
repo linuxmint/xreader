@@ -204,7 +204,7 @@ ev_annotations_toolbar_init (EvAnnotationsToolbar *toolbar)
         gtk_widget_show (toolbar->strike_out_button);
         
         toolbar->squiggly_button = ev_annotations_toolbar_create_toggle_button (toolbar,
-                                                                            "annotations-squiggly-symbolic",
+                                                                            "xapp-annotations-squiggly-symbolic",
                                                                             _("Squiggly the selected text"));
         gtk_container_add (GTK_CONTAINER(toolbar), toolbar->squiggly_button);
         gtk_widget_show (toolbar->squiggly_button);

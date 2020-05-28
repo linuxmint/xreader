@@ -344,7 +344,7 @@ job_finished_callback (EvJobAnnots          *job,
 			if (EV_IS_ANNOTATION_TEXT (annot)) {
 				if (!text_icon) {
 					text_icon = gtk_icon_theme_load_icon (icon_theme,
-														  "annotations-text-symbolic",
+														  "xapp-annotations-text-symbolic",
 														  16,
 														  GTK_ICON_LOOKUP_FORCE_REGULAR,
 														  NULL);
@@ -364,7 +364,7 @@ job_finished_callback (EvJobAnnots          *job,
                                 case EV_ANNOTATION_TEXT_MARKUP_HIGHLIGHT:
                                         if (!highlight_icon) {
                                                 highlight_icon = gtk_icon_theme_load_icon (icon_theme,
-														  "format-text-highlight-symbolic",
+														  "xapp-format-text-highlight-symbolic",
 														  16,
 														  GTK_ICON_LOOKUP_FORCE_REGULAR,
 														  NULL);
@@ -395,7 +395,7 @@ job_finished_callback (EvJobAnnots          *job,
                                 case EV_ANNOTATION_TEXT_MARKUP_SQUIGGLY:
                                         if (!squiggly_icon) {
                                                 squiggly_icon = gtk_icon_theme_load_icon (icon_theme,
-														  "annotations-squiggly-symbolic",
+														  "xapp-annotations-squiggly-symbolic",
 														  16,
 														  GTK_ICON_LOOKUP_FORCE_REGULAR,
 														  NULL);
