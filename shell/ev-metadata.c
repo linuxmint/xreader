@@ -323,3 +323,28 @@ ev_is_metadata_supported_for_file (GFile *file)
 
 	return retval;
 }
+
+void
+ev_metadata_copy_to (EvMetadata  *metadata, GFile *file)
+{
+	GFileInfo *info;
+	GError    *error = NULL;
+
+	info = g_file_query_info (metadata->file, "metadata::*", 0, NULL, &error);
+	if (!info) {
+		g_warning ("%s", error->message);
+		g_error_free (error);
+
+		return;
+	}
+
+	g_file_set_attributes_async (file,
+				     info,
+				     0,
+				     G_PRIORITY_DEFAULT,
+				     NULL,
+				     (GAsyncReadyCallback)metadata_set_callback,
+				     metadata);
+
+	g_object_unref (info);
+}

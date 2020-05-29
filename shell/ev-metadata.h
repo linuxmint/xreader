@@ -67,6 +67,9 @@ gboolean    ev_metadata_has_key               (EvMetadata  *metadata,
 
 gboolean    ev_is_metadata_supported_for_file (GFile       *file);
 
+void        ev_metadata_copy_to               (EvMetadata  *metadata,
+                                               GFile       *file);
+
 G_END_DECLS
 
 #endif /* EV_METADATA_H */
