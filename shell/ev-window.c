@@ -2928,6 +2928,12 @@ ev_window_save_job_cb (EvJob     *job,
                 EV_JOB_SAVE (job)->uri);
     } else {
         ev_window_add_recent (window, EV_JOB_SAVE (job)->uri);
+
+        GFile *dst = g_file_new_for_uri (EV_JOB_SAVE (job)->uri);
+	    if (dst && ev_is_metadata_supported_for_file (dst))
+	        ev_metadata_copy_to (window->priv->metadata, dst);
+
+	    g_object_unref (dst);
     }
 
     ev_window_clear_save_job (window);
@@ -2940,7 +2946,7 @@ ev_window_save_as (EvWindow *ev_window,
     /* FIXME: remote copy should be done here rather than in the save job,
      * so that we can track progress and cancel the operation
      */
-		ev_window_clear_save_job (ev_window);
+    ev_window_clear_save_job (ev_window);
     ev_window->priv->save_job = ev_job_save_new (ev_window->priv->document,
             uri, ev_window->priv->uri);
     g_signal_connect (ev_window->priv->save_job, "finished",
@@ -3571,7 +3577,7 @@ ev_window_check_document_modified (EvWindow *ev_window)
     int result = gtk_dialog_run (GTK_DIALOG (dialog));
     gtk_widget_destroy (GTK_WIDGET (dialog));
 
-    if (result == GTK_RESPONSE_YES) 
+    if (result == GTK_RESPONSE_YES)
         return !ev_window_cmd_save_as (NULL, ev_window);
     else if (result == GTK_RESPONSE_NO)
     	return FALSE;
@@ -3579,7 +3585,7 @@ ev_window_check_document_modified (EvWindow *ev_window)
         ev_window_save (ev_window);
         return FALSE;
     }
-    	
+
     return TRUE;
 }
 
