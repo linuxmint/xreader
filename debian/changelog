@@ -1,3 +1,14 @@
+xreader (2.6.2) ulyana; urgency=medium
+
+  [ Mickael ]
+  * xreader crash on epub search - reproducable
+  * Copy metadata when a file is copied
+
+  [ Clement Lefebvre ]
+  * CI: Target Mint 20 and LMDE 4
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 06 Jun 2020 14:33:41 +0100
+
 xreader (2.6.1) ulyana; urgency=medium
 
   [ NikoKrause ]
