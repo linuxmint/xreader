@@ -30,7 +30,7 @@ endif
 
 if get_option('comics')
     subdir('comics')
-    xreader_mime_types += 'application/x-cbr;application/x-cbz;application/x-cb7;application/x-cbt;application/vnd.comicbook+zip;'
+    xreader_mime_types += 'application/x-cbr;application/x-cbz;application/x-cb7;application/x-cbt;application/vnd.comicbook+zip;application/vnd.comicbook-rar;'
 endif
 
 if get_option('pixbuf')
