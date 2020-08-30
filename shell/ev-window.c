@@ -5454,8 +5454,11 @@ find_bar_visibility_changed_cb (EggFindBar *find_bar,
 
         if (visible)
             ev_window_search_start (ev_window);
-        else
+        else 
+        {
             egg_find_bar_set_status_text (EGG_FIND_BAR (ev_window->priv->find_bar), NULL);
+            egg_find_bar_set_search_string (EGG_FIND_BAR (ev_window->priv->find_bar), NULL);
+        }
     }
 }
 
