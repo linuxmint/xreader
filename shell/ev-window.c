@@ -122,6 +122,12 @@ typedef enum {
     EV_SAVE_IMAGE
 } EvSaveType;
 
+typedef enum {
+    EV_MENUBAR_HIDE,
+    EV_MENUBAR_SHOW,
+    EV_MENUBAR_TOGGLE
+} EvMenubarAction;
+
 struct _EvWindowPrivate {
     /* UI */
     EvChrome chrome;
@@ -152,9 +158,11 @@ struct _EvWindowPrivate {
     GSettings *settings;
     GSettings *default_settings;
 
-    /* Menubar accels */
+    /* Menubar */
     guint           menubar_accel_keyval;
     GdkModifierType menubar_accel_modifier;
+    gboolean        menubar_skip_release;
+    gboolean        menubar_show_queued;
 
     /* Progress Messages */
     guint         progress_idle;
@@ -270,6 +278,10 @@ static void     ev_window_update_actions                     (EvWindow         *
 static void     ev_window_sidebar_visibility_changed_cb      (EvSidebar        *ev_sidebar,
                                                               GParamSpec       *pspec,
                                                               EvWindow         *ev_window);
+static void     ev_window_view_menubar_cb                    (GtkAction        *action,
+                                                              EvWindow         *ev_window);
+static void     ev_window_toggle_menubar                     (EvWindow         *window,
+                                                              EvMenubarAction   action);
 static void     ev_window_view_toolbar_cb                    (GtkAction        *action,
                                                               EvWindow         *ev_window);
 static void     ev_window_set_page_mode                      (EvWindow         *window,
@@ -1027,6 +1039,10 @@ ev_window_init_metadata_with_default_values (EvWindow *window)
     EvMetadata *metadata = window->priv->metadata;
 
     /* Chrome */
+    if (!ev_metadata_has_key (metadata, "show_menubar")) {
+        ev_metadata_set_boolean (metadata, "show_menubar",
+                g_settings_get_boolean (settings, "show-menubar"));
+    }
     if (!ev_metadata_has_key (metadata, "show_toolbar")) {
         ev_metadata_set_boolean (metadata, "show_toolbar",
                 g_settings_get_boolean (settings, "show-toolbar"));
@@ -1084,16 +1100,20 @@ ev_window_init_metadata_with_default_values (EvWindow *window)
 static void
 setup_chrome_from_metadata (EvWindow *window)
 {
+    gboolean show_menubar;
     gboolean show_toolbar;
     gboolean show_sidebar;
 
     if (!window->priv->metadata)
         return;
 
+    if (ev_metadata_get_boolean (window->priv->metadata, "show_menubar", &show_menubar))
+        update_chrome_flag (window, EV_CHROME_MENUBAR, show_menubar);
     if (ev_metadata_get_boolean (window->priv->metadata, "show_toolbar", &show_toolbar))
         update_chrome_flag (window, EV_CHROME_TOOLBAR, show_toolbar);
     if (ev_metadata_get_boolean (window->priv->metadata, "sidebar_visibility", &show_sidebar))
         update_chrome_flag (window, EV_CHROME_SIDEBAR, show_sidebar);
+
     update_chrome_visibility (window);
 }
 
@@ -1313,6 +1333,7 @@ ev_window_setup_default (EvWindow *ev_window)
     /* Chrome */
     update_chrome_flag (ev_window, EV_CHROME_TOOLBAR, g_settings_get_boolean (settings, "show-toolbar"));
     update_chrome_flag (ev_window, EV_CHROME_SIDEBAR, g_settings_get_boolean (settings, "show-sidebar"));
+    update_chrome_flag (ev_window, EV_CHROME_MENUBAR, g_settings_get_boolean (settings, "show-menubar"));
     update_chrome_visibility (ev_window);
 
     /* Sidebar */
@@ -5005,6 +5026,49 @@ ev_window_cmd_help_about (GtkAction *action,
 }
 
 static void
+ev_window_view_menubar_cb (GtkAction *action,
+                           EvWindow  *ev_window)
+{
+    gboolean active;
+
+    active = gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action));
+    update_chrome_flag (ev_window, EV_CHROME_MENUBAR, active);
+    update_chrome_visibility (ev_window);
+    if (ev_window->priv->metadata)
+        ev_metadata_set_boolean (ev_window->priv->metadata, "show_menubar", active);
+}
+
+static void
+ev_window_toggle_menubar (EvWindow *window, EvMenubarAction action)
+{
+    GtkWidget *menubar;
+
+    menubar = window->priv->menubar;
+
+    if (EV_WINDOW_IS_PRESENTATION (window))
+        return;
+
+    if (action == EV_MENUBAR_TOGGLE)
+        action = gtk_widget_get_visible (menubar) ? EV_MENUBAR_HIDE : EV_MENUBAR_SHOW;
+
+    if (action == EV_MENUBAR_HIDE) {
+        gtk_widget_hide (menubar);
+    } else {
+        gtk_widget_show (menubar);
+
+        /* When the menu is normally hidden, have an activation of it trigger a key grab.
+         * For keyboard users, this is a natural progression, that they will type a mnemonic
+         * next to open a menu.  Any loss of focus or click elsewhere will re-hide the menu
+         * and cancel focus.
+         */
+        gtk_widget_grab_focus (menubar);
+        gtk_window_set_mnemonics_visible (GTK_WINDOW (window), TRUE);
+    }
+
+    return;
+}
+
+static void
 ev_window_view_toolbar_cb (GtkAction *action,
                            EvWindow  *ev_window)
 {
@@ -5810,6 +5874,27 @@ menubar_deactivate_cb (GtkWidget *menubar,
     update_chrome_visibility (window);
 }
 
+static gboolean
+is_alt_key_event (GdkEventKey *event)
+{
+    GdkModifierType nominal_state;
+    gboolean state_ok;
+
+    nominal_state = event->state & gtk_accelerator_get_default_mod_mask();
+
+    /* A key press of alt will show just the alt keyval (GDK_KEY_Alt_L/R).  A key release
+     * of a single modifier is always modified by itself.  So a valid press state is 0 and
+     * a valid release state is GDK_MOD1_MASK (alt modifier).
+     */
+    state_ok = (event->type == GDK_KEY_PRESS && nominal_state == 0) ||
+               (event->type == GDK_KEY_RELEASE && nominal_state == GDK_MOD1_MASK);
+
+    if (state_ok && (event->keyval == GDK_KEY_Alt_L || event->keyval == GDK_KEY_Alt_R)) {
+        return TRUE;
+    }
+
+    return FALSE;
+}
 
 /*
  * GtkWindow catches keybindings for the menu items _before_ passing them to
@@ -5825,10 +5910,31 @@ ev_window_key_press_event (GtkWidget   *widget,
                            GdkEventKey *event)
 {
 	static gpointer grand_parent_class = NULL;
-	GtkWindow *window = GTK_WINDOW (widget);
+	EvWindow *window = EV_WINDOW (widget);
 
 	if (grand_parent_class == NULL)
-                grand_parent_class = g_type_class_peek_parent (ev_window_parent_class);
+        grand_parent_class = g_type_class_peek_parent (ev_window_parent_class);
+
+    /* An alt key press by itself will always hide the menu if it's visible.  We set a flag
+     * to skip the subsequent release, otherwise we'll show the menu again.
+     *
+     * When alt is pressed and the menu is NOT visible, we flag that on release we'll show the
+     * menu.  If any other keys are pressed between alt being pressed and released, we clear that
+     * flag, because it was more than likely part of some other shortcut, and otherwise, depending
+     * on the order the keys are released, if the alt key is last to be released, we don't want to
+     * show the menu, as that was not the original intent.
+     */
+
+    if (is_alt_key_event (event)) {
+        if (gtk_widget_get_visible (window->priv->menubar)) {
+            ev_window_toggle_menubar (window, EV_MENUBAR_HIDE);
+            window->priv->menubar_skip_release = TRUE;
+        } else {
+            window->priv->menubar_show_queued = TRUE;
+        }
+    } else {
+        window->priv->menubar_show_queued = FALSE;
+    }
 
     /* Handle focus widget key events */
     if (gtk_window_propagate_key_event (window, event))
@@ -5840,6 +5946,28 @@ ev_window_key_press_event (GtkWidget   *widget,
 
     /* Chain up, invokes binding set on window */
 	return GTK_WIDGET_CLASS (grand_parent_class)->key_press_event (widget, event);
+}
+
+static gboolean
+ev_window_key_release_event (GtkWidget *widget,
+                             GdkEventKey *event)
+{
+    EvWindow *window = EV_WINDOW (widget);
+    /* Conditions to show the menu via the alt key is that it must have been pressed and
+     * released without any other key events in between, and we must not have hidden the
+     * menu on the alt key press event.  Show we check both flags here, for opposing states.
+     */
+
+    if (is_alt_key_event (event)) {
+        if (!window->priv->menubar_skip_release && window->priv->menubar_show_queued) {
+            ev_window_toggle_menubar (window, EV_MENUBAR_SHOW);
+        }
+    }
+
+    window->priv->menubar_skip_release = FALSE;
+    window->priv->menubar_show_queued = FALSE;
+
+    return GTK_WIDGET_CLASS (ev_window_parent_class)->key_release_event (widget, event);
 }
 
 static gboolean
@@ -5859,6 +5987,7 @@ ev_window_class_init (EvWindowClass *ev_window_class)
 
     widget_class->delete_event = ev_window_delete_event;
     widget_class->key_press_event = ev_window_key_press_event;
+    widget_class->key_release_event = ev_window_key_release_event;
     widget_class->screen_changed = ev_window_screen_changed;
     widget_class->window_state_event = ev_window_state_event;
     widget_class->drag_data_received = ev_window_drag_data_received;
@@ -6136,6 +6265,10 @@ static const GtkActionEntry entries[] = {
 /* Toggle items */
 static const GtkToggleActionEntry toggle_entries[] = {
         /* View Menu */
+        { "ViewMenubar", NULL, N_("_Menubar"),
+                NULL,
+                N_("Show or hide the menubar"),
+                G_CALLBACK (ev_window_view_menubar_cb), TRUE },
         { "ViewToolbar", NULL, N_("_Toolbar"),
                 NULL,
                 N_("Show or hide the toolbar"),
@@ -7366,6 +7499,11 @@ ev_window_init (EvWindow *ev_window)
     }
 #endif /* ENABLE_DBUS */
 
+    /* disable automatic menubar handling, since we show our regular
+	 * menubar together with the app menu.
+	 */
+	gtk_application_window_set_show_menubar (GTK_APPLICATION_WINDOW (ev_window), FALSE);
+
     ev_window->priv->model = ev_document_model_new ();
 
     ev_window->priv->page_mode = PAGE_MODE_DOCUMENT;
@@ -7457,6 +7595,10 @@ ev_window_init (EvWindow *ev_window)
     gtk_box_pack_start (GTK_BOX (ev_window->priv->main_box),
             ev_window->priv->menubar,
             FALSE, FALSE, 0);
+
+    gtk_widget_set_can_focus (ev_window->priv->menubar, TRUE);
+	gtk_widget_set_hexpand (ev_window->priv->menubar, TRUE);
+
     menuitem = gtk_ui_manager_get_widget (ev_window->priv->ui_manager,
             "/MainMenu/EditMenu/EditRotateLeftMenu");
     gtk_image_menu_item_set_always_show_image (GTK_IMAGE_MENU_ITEM (menuitem), TRUE);

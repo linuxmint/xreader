@@ -32,6 +32,7 @@
     </menu>
 
     <menu name="ViewMenu" action="View">
+      <menuitem name="ViewMenubarMenu" action="ViewMenubar"/>
       <menuitem name="ViewToolbarMenu" action="ViewToolbar"/>
       <menuitem name="ViewSidebarMenu" action="ViewSidebar"/>
       <separator/>
