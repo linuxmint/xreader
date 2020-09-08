@@ -4396,7 +4396,7 @@ ev_window_cmd_edit_save_settings (GtkAction *action,
         g_settings_set_double (settings, "zoom", zoom);
     }
     g_settings_set_boolean (settings, "show-toolbar",
-            gtk_widget_get_visible (priv->toolbar));
+            gtk_revealer_get_reveal_child( GTK_REVEALER (ev_window->priv->toolbar_revealer)));
     g_settings_set_boolean (settings, "show-sidebar",
             gtk_widget_get_visible (priv->sidebar));
     g_settings_set_int (settings, "sidebar-size",
