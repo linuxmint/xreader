@@ -186,6 +186,9 @@ struct _EvView {
 	/* Common for button press handling */
 	int pressed_button;
 
+    /* Key bindings propagation */
+    gboolean key_binding_handled;
+
 	/* Information for middle clicking and dragging around. */
 	DragInfo drag_info;
 	
@@ -253,6 +256,7 @@ struct _EvViewClass {
 	void    (*annot_added)            (EvView         *view,
 					   EvAnnotation   *annot);
 	void    (*layers_changed)         (EvView         *view);
+	void    (*activate)         (EvView         *view);
 };
 
 void _get_page_size_for_scale_and_rotation (EvDocument *document,

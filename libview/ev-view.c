@@ -59,6 +59,7 @@ enum {
 	SIGNAL_ANNOT_ADDED,
 	SIGNAL_ANNOT_REMOVED,
 	SIGNAL_LAYERS_CHANGED,
+    SIGNAL_ACTIVATE,
 	N_SIGNALS
 };
 
@@ -2117,64 +2118,77 @@ ev_view_form_field_destroy (GtkWidget *widget,
 	g_idle_add ((GSourceFunc)ev_view_forms_remove_widgets, view);
 }
 
+static void
+ev_view_form_field_button_toggle (EvView      *view,
+				  EvFormField *field)
+{
+	EvMappingList     *forms_mapping;
+	cairo_region_t    *region;
+	gboolean           state;
+	GList             *l;
+	EvFormFieldButton *field_button = EV_FORM_FIELD_BUTTON (field);
+
+	if (field_button->type == EV_FORM_FIELD_BUTTON_PUSH)
+		return;
+
+	state = ev_document_forms_form_field_button_get_state (EV_DOCUMENT_FORMS (view->document),
+							       field);
+
+	/* FIXME: it actually depends on NoToggleToOff flags */
+	if (field_button->type == EV_FORM_FIELD_BUTTON_RADIO && state && field_button->state)
+		return;
+
+	region = ev_view_form_field_get_region (view, field);
+
+	/* For radio buttons and checkbox buttons that are in a set
+	 * we need to update also the region for the current selected item
+	 */
+	forms_mapping = ev_page_cache_get_form_field_mapping (view->page_cache,
+							      field->page->index);
+
+	for (l = ev_mapping_list_get_list (forms_mapping); l; l = g_list_next (l)) {
+		EvFormField *button = ((EvMapping *)(l->data))->data;
+		cairo_region_t *button_region;
+
+		if (button->id == field->id)
+			continue;
+
+		/* FIXME: only buttons in the same group should be updated */
+		if (!EV_IS_FORM_FIELD_BUTTON (button) ||
+		    EV_FORM_FIELD_BUTTON (button)->type != field_button->type ||
+		    EV_FORM_FIELD_BUTTON (button)->state != TRUE)
+			continue;
+
+		button_region = ev_view_form_field_get_region (view, button);
+		cairo_region_union (region, button_region);
+		cairo_region_destroy (button_region);
+	}
+
+	/* Update state */
+	ev_document_forms_form_field_button_set_state (EV_DOCUMENT_FORMS (view->document),
+						       field,
+						       !state);
+	field_button->state = !state;
+
+	ev_view_reload_page (view, field->page->index, region);
+	cairo_region_destroy (region);
+}
+
 static GtkWidget *
 ev_view_form_field_button_create_widget (EvView      *view,
 					 EvFormField *field)
 {
-	EvFormFieldButton *field_button = EV_FORM_FIELD_BUTTON (field);
-	cairo_region_t    *field_region = NULL;
+	EvMappingList *form_mapping;
+	EvMapping     *mapping;
 
-	switch (field_button->type) {
-	        case EV_FORM_FIELD_BUTTON_PUSH:
-			return NULL;
-	        case EV_FORM_FIELD_BUTTON_CHECK:
-  	        case EV_FORM_FIELD_BUTTON_RADIO: {
-			gboolean       state;
-			EvMappingList *forms_mapping;
-			GList         *l;
+	/* We need to do this focus grab prior to setting the focused element for accessibility */
+	if (!gtk_widget_has_focus (GTK_WIDGET (view)))
+		gtk_widget_grab_focus (GTK_WIDGET (view));
 
-			state = ev_document_forms_form_field_button_get_state (EV_DOCUMENT_FORMS (view->document),
-									       field);
-
-			/* FIXME: it actually depends on NoToggleToOff flags */
-			if (field_button->type == EV_FORM_FIELD_BUTTON_RADIO &&
-			    state && field_button->state)
-				return NULL;
-
-			field_region = ev_view_form_field_get_region (view, field);
-
-			/* For radio buttons and checkbox buttons that are in a set
-			 * we need to update also the region for the current selected item
-			 */
-			forms_mapping = ev_page_cache_get_form_field_mapping (view->page_cache,
-									      field->page->index);
-			for (l = ev_mapping_list_get_list (forms_mapping); l; l = g_list_next (l)) {
-				EvFormField *button = ((EvMapping *)(l->data))->data;
-				cairo_region_t *button_region;
-
-				if (button->id == field->id)
-					continue;
-
-				/* FIXME: only buttons in the same group should be updated */
-				if (!EV_IS_FORM_FIELD_BUTTON (button) ||
-				    EV_FORM_FIELD_BUTTON (button)->type != field_button->type ||
-				    EV_FORM_FIELD_BUTTON (button)->state != TRUE)
-					continue;
-
-				button_region = ev_view_form_field_get_region (view, button);
-				cairo_region_union (field_region, button_region);
-				cairo_region_destroy (button_region);
-			}
-
-			ev_document_forms_form_field_button_set_state (EV_DOCUMENT_FORMS (view->document),
-								       field, !state);
-			field_button->state = !state;
-		}
-			break;
-	}
-
-	ev_view_reload_page (view, field->page->index, field_region);
-	cairo_region_destroy (field_region);
+	form_mapping = ev_page_cache_get_form_field_mapping (view->page_cache,
+							     field->page->index);
+	mapping = ev_mapping_list_find (form_mapping, field);
+	ev_view_set_focused_element (view, mapping, field->page->index);
 
 	return NULL;
 }
@@ -2514,15 +2528,17 @@ ev_view_form_field_choice_create_widget (EvView      *view,
 	return choice;
 }
 
-static void
-ev_view_handle_form_field (EvView      *view,
-			   EvFormField *field)
+
+void
+ev_view_focus_form_field (EvView      *view,
+			  EvFormField *field)
 {
 	GtkWidget     *field_widget = NULL;
 	EvMappingList *form_field_mapping;
 	EvMapping     *mapping;
 
 	ev_view_set_focused_element (view, NULL, -1);
+
 	if (field->is_read_only)
 		return;
 
@@ -2549,17 +2565,31 @@ ev_view_handle_form_field (EvView      *view,
 
 	form_field_mapping = ev_page_cache_get_form_field_mapping (view->page_cache,
 								   field->page->index);
-
 	mapping = ev_mapping_list_find (form_field_mapping, field);
-
 	ev_view_set_focused_element (view, mapping, field->page->index);
-	ev_view_put_to_doc_rect (view,
-			field_widget,
-			field->page->index,
-			&mapping->area);
-
+	ev_view_put_to_doc_rect (view, field_widget, field->page->index, &mapping->area);
 	gtk_widget_show (field_widget);
 	gtk_widget_grab_focus (field_widget);
+}
+
+static void
+ev_view_handle_form_field (EvView      *view,
+			   EvFormField *field)
+{
+	if (field->is_read_only)
+		return;
+
+	ev_view_focus_form_field (view, field);
+
+    /*
+	if (field->activation_link)
+		ev_view_handle_link (view, field->activation_link);
+    */
+
+	if (EV_IS_FORM_FIELD_BUTTON (field)) {
+		ev_view_form_field_button_toggle (view, field);
+    }
+
 }
 
 /* Annotations */
@@ -4480,43 +4510,58 @@ ev_view_button_release_event (GtkWidget      *widget,
 	return FALSE;
 }
 
+
+static gboolean
+ev_view_forward_key_event_to_focused_child (EvView      *view,
+					    GdkEventKey *event)
+{
+	GtkWidget   *child_widget = NULL;
+	GdkEventKey *new_event;
+	gboolean     handled;
+
+	if (view->window_child_focus) {
+		child_widget = view->window_child_focus->window;
+	} else if (view->children) {
+		EvViewChild *child = (EvViewChild *)view->children->data;
+
+		child_widget = child->widget;
+	} else {
+		return FALSE;
+	}
+
+	new_event = (GdkEventKey *) gdk_event_copy ((GdkEvent *)event);
+	g_object_unref (new_event->window);
+	new_event->window = gtk_widget_get_window (child_widget);
+	if (new_event->window)
+		g_object_ref (new_event->window);
+	gtk_widget_realize (child_widget);
+	handled = gtk_widget_event (child_widget, (GdkEvent *)new_event);
+	gdk_event_free ((GdkEvent *)new_event);
+
+	return handled;
+}
+
 static gboolean
 ev_view_key_press_event (GtkWidget   *widget,
 			 GdkEventKey *event)
 {
-	EvView *view = EV_VIEW (widget);
+	EvView  *view = EV_VIEW (widget);
+	gboolean retval;
 
 	if (!view->document)
 		return FALSE;
 
-	if (!gtk_widget_has_focus (widget)) {
-		/* Forward key events to current focused window child */
-		GtkWidget   *child_widget = NULL;
-		if (view->window_child_focus) {
-			child_widget = view->window_child_focus->window;
-		} else if (view->children) {
-			EvViewChild *child = (EvViewChild *)view->children->data;
-			child_widget = child->widget;
-		} else {
-			return FALSE;
-		}
-		GdkEventKey *new_event;
-		gboolean     handled;
+	if (!gtk_widget_has_focus (widget))
+		return ev_view_forward_key_event_to_focused_child (view, event);
 
-		new_event = (GdkEventKey *) gdk_event_copy ((GdkEvent *)event);
-		g_object_unref (new_event->window);
-		new_event->window = gtk_widget_get_window (child_widget);
-		if (new_event->window)
-			g_object_ref (new_event->window);
-		gtk_widget_realize (child_widget);
-		handled = gtk_widget_event (child_widget, (GdkEvent *)new_event);
-		gdk_event_free ((GdkEvent *)new_event);
+	/* I expected GTK+ do this for me, but it doesn't cancel
+	 * the propagation of bindings handled for the same binding set
+	 */
+	view->key_binding_handled = FALSE;
+	retval = gtk_bindings_activate_event (G_OBJECT (widget), event);
+	view->key_binding_handled = FALSE;
 
-		return handled;
-	}
-
-
-	return gtk_bindings_activate_event (G_OBJECT (widget), event);
+	return retval;
 }
 
 static gint
@@ -5316,7 +5361,7 @@ ev_view_focus_next (EvView           *view,
 
 	if (focus_element) {
 		ev_view_remove_all_form_fields (view);
-		ev_view_handle_form_field (view, EV_FORM_FIELD (focus_element->data));
+        ev_view_focus_form_field (view, EV_FORM_FIELD (focus_element->data));
 
 		return TRUE;
 	}
@@ -5370,6 +5415,77 @@ ev_view_parent_set (GtkWidget *widget,
 	g_assert (!parent || GTK_IS_SCROLLED_WINDOW (parent));
 }
 
+static gboolean
+ev_view_activate_form_field (EvView      *view,
+			     EvFormField *field)
+{
+	gboolean handled = FALSE;
+
+	if (field->is_read_only)
+		return handled;
+
+	if (EV_IS_FORM_FIELD_BUTTON (field)) {
+		ev_view_form_field_button_toggle (view, field);
+		handled = TRUE;
+	}
+
+	return handled;
+}
+
+static gboolean
+current_event_is_space_key_press (void)
+{
+	GdkEvent *current_event;
+	guint     keyval;
+	gboolean  is_space_key_press;
+
+	current_event = gtk_get_current_event ();
+	if (!current_event)
+		return FALSE;
+
+	is_space_key_press = current_event->type == GDK_KEY_PRESS &&
+		gdk_event_get_keyval (current_event, &keyval) &&
+		(keyval == GDK_KEY_space || keyval == GDK_KEY_KP_Space);
+	gdk_event_free (current_event);
+
+	return is_space_key_press;
+}
+
+static gboolean
+ev_view_activate_link (EvView *view,
+		       EvLink *link)
+{
+	/* Most of the GtkWidgets emit activate on both Space and Return key press,
+	 * but we don't want to activate links on Space for consistency with the Web.
+	 */
+	if (current_event_is_space_key_press ())
+		return FALSE;
+
+	ev_view_handle_link (view, link);
+
+	return TRUE;
+}
+
+
+static void
+ev_view_activate (EvView *view)
+{
+	if (!view->focused_element)
+		return;
+
+	if (EV_IS_DOCUMENT_FORMS (view->document) &&
+	    EV_IS_FORM_FIELD (view->focused_element->data)) {
+		view->key_binding_handled = ev_view_activate_form_field (view, EV_FORM_FIELD (view->focused_element->data));
+		return;
+	}
+
+	if (EV_IS_DOCUMENT_LINKS (view->document) &&
+	    EV_IS_LINK (view->focused_element->data)) {
+		view->key_binding_handled = ev_view_activate_link (view, EV_LINK (view->focused_element->data));
+		return;
+	}
+}
+
 static void
 ev_view_class_init (EvViewClass *class)
 {
@@ -5415,6 +5531,7 @@ ev_view_class_init (EvViewClass *class)
 	container_class->forall = ev_view_forall;
 
 	class->binding_activated = ev_view_scroll;
+    class->activate = ev_view_activate;
 
 	/* Scrollable interface */
 	g_object_class_override_property (object_class, PROP_HADJUSTMENT, "hadjustment");
@@ -5495,6 +5612,17 @@ ev_view_class_init (EvViewClass *class)
 		         g_cclosure_marshal_VOID__VOID,
 		         G_TYPE_NONE, 0,
 			 G_TYPE_NONE);
+    signals[SIGNAL_ACTIVATE] = g_signal_new ("activate",
+			 G_OBJECT_CLASS_TYPE (object_class),
+			 G_SIGNAL_RUN_FIRST | G_SIGNAL_ACTION,
+			 G_STRUCT_OFFSET (EvViewClass, activate),
+			 NULL, NULL,
+			 g_cclosure_marshal_VOID__VOID,
+			 G_TYPE_NONE, 0,
+			 G_TYPE_NONE);
+	widget_class->activate_signal = signals[SIGNAL_ACTIVATE];
+
+
 
 	binding_set = gtk_binding_set_by_class (class);
 
@@ -5514,6 +5642,10 @@ ev_view_class_init (EvViewClass *class)
 				      GTK_SCROLL_STEP_BACKWARD, G_TYPE_BOOLEAN, FALSE);
 	gtk_binding_entry_add_signal (binding_set, GDK_KEY_L, 0, "binding_activated", 2, GTK_TYPE_SCROLL_TYPE,
 				      GTK_SCROLL_STEP_FORWARD, G_TYPE_BOOLEAN, TRUE);
+    gtk_binding_entry_add_signal (binding_set, GDK_KEY_space, 0,
+				      "activate", 0);
+	gtk_binding_entry_add_signal (binding_set, GDK_KEY_KP_Space, 0,
+				      "activate", 0);
 }
 
 static void
@@ -7160,3 +7292,7 @@ ev_view_disconnect_handlers(EvView *view)
 					     G_CALLBACK (ev_view_document_changed_cb),
 					     view);
 }
+
+
+
+
