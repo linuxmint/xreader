@@ -707,6 +707,11 @@ update_chrome_actions (EvWindow *window)
     GtkActionGroup *action_group = priv->action_group;
     GtkAction *action;
 
+    action = gtk_action_group_get_action(action_group, "ViewMenubar");
+    g_signal_handlers_block_by_func (action, G_CALLBACK (ev_window_view_menubar_cb), window);
+    gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), (priv->chrome & EV_CHROME_MENUBAR != 0));
+    g_signal_handlers_unblock_by_func (action, G_CALLBACK (ev_window_view_menubar_cb), window);
+
     action= gtk_action_group_get_action (action_group, "ViewToolbar");
     g_signal_handlers_block_by_func
     (action, G_CALLBACK (ev_window_view_toolbar_cb), window);
@@ -1298,6 +1303,7 @@ static void
 setup_view_from_metadata (EvWindow *window)
 {
     gboolean presentation;
+    gboolean show_menubar;
 
     if (!window->priv->metadata)
         return;
@@ -1312,6 +1318,13 @@ setup_view_from_metadata (EvWindow *window)
                 ev_window_run_presentation (window);
             }
         }
+    }
+
+    /* Menubar */
+    if(ev_metadata_get_boolean (window->priv->metadata, "show_menubar", &show_menubar)) {
+        gtk_widget_show(window->priv->menubar);
+    } else {
+        gtk_widget_hide(window->priv->menubar);
     }
 }
 
@@ -7508,6 +7521,9 @@ ev_window_init (EvWindow *ev_window)
 	 * menubar together with the app menu.
 	 */
 	gtk_application_window_set_show_menubar (GTK_APPLICATION_WINDOW (ev_window), FALSE);
+
+    ev_window->priv->menubar_skip_release = FALSE;
+    ev_window->priv->menubar_show_queued = FALSE;
 
     ev_window->priv->model = ev_document_model_new ();
 
