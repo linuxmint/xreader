@@ -4431,6 +4431,8 @@ ev_window_cmd_edit_save_settings (GtkAction *action,
         zoom *= 72.0 / get_screen_dpi (ev_window);
         g_settings_set_double (settings, "zoom", zoom);
     }
+    g_settings_set_boolean (settings, "show-menubar",
+            ((priv->chrome & EV_CHROME_MENUBAR) != 0));
     g_settings_set_boolean (settings, "show-toolbar",
             gtk_revealer_get_reveal_child( GTK_REVEALER (ev_window->priv->toolbar_revealer)));
     g_settings_set_boolean (settings, "show-sidebar",
