@@ -369,6 +369,8 @@ sizing_mode_to_string (EvSizingMode mode)
             return "fit-width";
         case EV_SIZING_FREE:
             return "free";
+	default:
+	    g_assert_not_reached();
     }
 }
 
