@@ -2678,18 +2678,22 @@ ev_view_window_child_move_with_parent (EvView    *view,
 	child = ev_view_get_window_child (view, window);
 	gdk_window_get_origin (gtk_widget_get_window (GTK_WIDGET (view)),
 			       &root_x, &root_y);
-	if (root_x != child->parent_x || root_y != child->parent_y) {
-		gint dest_x, dest_y;
 
-		dest_x = child->x + (root_x - child->parent_x);
-		dest_y = child->y + (root_y - child->parent_y);
-		child->parent_x = root_x;
-		child->parent_y = root_y;
-		ev_view_window_child_move (view, child, dest_x, dest_y);
-	}
+    if (child != NULL) {
+        if (root_x != child->parent_x || root_y != child->parent_y) {
+            gint dest_x, dest_y;
 
-	if (child->visible && !gtk_widget_get_visible (window))
-		gtk_widget_show (window);
+            dest_x = child->x + (root_x - child->parent_x);
+            dest_y = child->y + (root_y - child->parent_y);
+            child->parent_x = root_x;
+            child->parent_y = root_y;
+            ev_view_window_child_move (view, child, dest_x, dest_y);
+        }
+
+        if (child->visible && !gtk_widget_get_visible (window))
+            gtk_widget_show (window);
+
+    }
 }
 
 static void
