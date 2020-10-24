@@ -6136,11 +6136,11 @@ static const GtkActionEntry entries[] = {
                 N_("Go to the last page"),
                 G_CALLBACK (ev_window_cmd_go_last_page) },
         { "GoPreviousHistory", "xapp-go-history-previous-symbolic", N_("Previous History Item"),
-                NULL,
+                "<shift><control>Page_Up",
                 N_("Go to previous history item"),
                 G_CALLBACK (ev_window_cmd_go_previous_history) },
         { "GoNextHistory", "xapp-go-history-next-symbolic", N_("Next History Item"),
-                NULL,
+                "<shift><control>Page_Down",
                 N_("Go to next history item"),
                 G_CALLBACK (ev_window_cmd_go_next_history) },
 
