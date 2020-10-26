@@ -32,6 +32,8 @@
     </key>
 
     <child name="default" schema="org.x.reader.default"/>
+    <child name="toolbar" schema="org.x.reader.toolbar"/>
+    <child name="state" schema="org.x.reader.state"/>
   </schema>
 
   <schema id="org.x.reader.default" path="/org/x/reader/default/" gettext-domain="xreader">
@@ -88,6 +90,13 @@
     </key>
     <key name="show-zoom-action" type="b">
       <default>false</default>
+    </key>
+  </schema>
+
+  <schema id="org.x.reader.state" path="/org/x/reader/state/" gettext-domain="xreader">
+    <key name="last-landing-page" type="s">
+      <default>'recent_files'</default>
+      <description>Keeps track of which page the user last viewed in the landing page. Values are recent_files or favorite_files.</description>
     </key>
   </schema>
 

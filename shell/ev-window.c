@@ -40,6 +40,7 @@
 #include <glib/gi18n.h>
 #include <gio/gio.h>
 #include <gtk/gtk.h>
+#include <libxapp/xapp-favorites.h>
 
 #include "eggfindbar.h"
 
@@ -95,7 +96,7 @@
 #include "ev-bookmarks.h"
 #include "ev-bookmark-action.h"
 #include "ev-toolbar.h"
-#include "ev-recent-view.h"
+#include "ev-landing-view.h"
 
 #ifdef ENABLE_DBUS
 #include "ev-gdbus-generated.h"
@@ -179,6 +180,9 @@ struct _EvWindowPrivate {
     GtkRecentManager *recent_manager;
     GtkActionGroup   *recent_action_group;
     guint             recent_ui_id;
+    XAppFavorites    *favorites;
+    GtkActionGroup   *favorites_action_group;
+    guint             favorites_ui_id;
     GtkActionGroup   *bookmarks_action_group;
     guint             bookmarks_ui_id;
     GtkUIManager     *ui_manager;
@@ -194,7 +198,7 @@ struct _EvWindowPrivate {
     GList        *attach_list;
 
     /* Recent view */
-    EvRecentView *recent_view;
+    EvLandingView *landing_view;
 
     /* Document */
     EvDocumentModel *model;
@@ -363,8 +367,8 @@ static void    zoom_control_changed_cb                       (EphyZoomAction *ac
                                                               EvWindow       *ev_window);
 static gint    compare_recent_items                          (GtkRecentInfo  *a,
                                                               GtkRecentInfo  *b);
-static void    ev_window_destroy_recent_view                 (EvWindow       *ev_window);
-static void    recent_view_item_activated_cb                 (EvRecentView   *recent_view,
+static void    ev_window_destroy_landing_view                 (EvWindow       *ev_window);
+static void    landing_view_item_activated_cb                 (EvLandingView   *landing_view,
                                                               const char       *uri,
                                                               EvWindow         *ev_window);
 
@@ -1520,7 +1524,7 @@ ev_window_set_document (EvWindow *ev_window,
         ev_window_warning_message (ev_window, "%s", _("The document contains only empty pages"));
     }
 
-    ev_window_destroy_recent_view (ev_window);
+    ev_window_destroy_landing_view (ev_window);
     gtk_widget_show (ev_window->priv->toolbar);
 
 #if ENABLE_EPUB
@@ -2227,35 +2231,35 @@ ev_window_open_document (EvWindow       *ev_window,
 }
 
 void
-ev_window_open_recent_view (EvWindow *ev_window)
+ev_window_open_landing_view (EvWindow *ev_window)
 {
-    if (ev_window->priv->recent_view)
+    if (ev_window->priv->landing_view)
         return;
 
     gtk_widget_hide (ev_window->priv->hpaned);
     gtk_widget_hide (ev_window->priv->toolbar);
-    ev_window->priv->recent_view = EV_RECENT_VIEW (ev_recent_view_new());
-    g_signal_connect_object (ev_window->priv->recent_view,
+    ev_window->priv->landing_view = EV_LANDING_VIEW (ev_landing_view_new());
+    g_signal_connect_object (ev_window->priv->landing_view,
                              "item-activated",
-                             G_CALLBACK (recent_view_item_activated_cb),
+                             G_CALLBACK (landing_view_item_activated_cb),
                              ev_window, 0);
     gtk_box_pack_start (GTK_BOX (ev_window->priv->main_box),
-                        GTK_WIDGET (ev_window->priv->recent_view),
+                        GTK_WIDGET (ev_window->priv->landing_view),
                         TRUE, TRUE, 0);
 
     ev_window_title_set_type (ev_window->priv->title, EV_WINDOW_TITLE_RECENT);
     ev_window_update_actions (ev_window);
-    gtk_widget_show (GTK_WIDGET (ev_window->priv->recent_view));
+    gtk_widget_show (GTK_WIDGET (ev_window->priv->landing_view));
 }
 
 static void
-ev_window_destroy_recent_view (EvWindow *ev_window)
+ev_window_destroy_landing_view (EvWindow *ev_window)
 {
-    if (!ev_window->priv->recent_view)
+    if (!ev_window->priv->landing_view)
         return;
 
-    gtk_widget_destroy (GTK_WIDGET (ev_window->priv->recent_view));
-    ev_window->priv->recent_view = NULL;
+    gtk_widget_destroy (GTK_WIDGET (ev_window->priv->landing_view));
+    ev_window->priv->landing_view = NULL;
     gtk_widget_show (ev_window->priv->hpaned);
 }
 
@@ -2576,16 +2580,14 @@ ev_window_cmd_file_open_copy (GtkAction *action,
 }
 
 static void
-ev_window_cmd_recent_file_activate (GtkAction *action,
-                                    EvWindow  *window)
+ev_window_cmd_file_activate (GtkAction *action,
+                             gpointer   user_data)
 {
+    GtkWindow *window = GTK_WINDOW (user_data);
     GtkRecentInfo *info;
     const gchar   *uri;
 
-    info = g_object_get_data (G_OBJECT (action), "gtk-recent-info");
-    g_assert (info != NULL);
-
-    uri = gtk_recent_info_get_uri (info);
+    uri = g_object_get_data (G_OBJECT (action), "uri");
 
     ev_application_open_uri_at_dest (EV_APP, uri,
             gtk_window_get_screen (GTK_WINDOW (window)),
@@ -2639,8 +2641,8 @@ compare_recent_items (GtkRecentInfo *a,
  * Doubles underscore to avoid spurious menu accels.
  */
 static gchar *
-ev_window_get_recent_file_label (gint index,
-                                 const gchar *filename)
+ev_window_get_menu_file_label (gint index,
+                               const gchar *filename)
 {
     GString *str;
     gint length;
@@ -2679,10 +2681,10 @@ ev_window_get_recent_file_label (gint index,
 }
 
 static void
-ev_window_recent_action_connect_proxy_cb (GtkActionGroup *action_group,
-                                          GtkAction *action,
-                                          GtkWidget *proxy,
-                                          gpointer data)
+ev_window_menu_action_connect_proxy_cb (GtkActionGroup *action_group,
+                                        GtkAction *action,
+                                        GtkWidget *proxy,
+                                        gpointer data)
 {
     GtkLabel *label;
 
@@ -2717,7 +2719,7 @@ ev_window_setup_recent (EvWindow *ev_window)
     }
     ev_window->priv->recent_action_group = gtk_action_group_new ("RecentFilesActions");
     g_signal_connect (ev_window->priv->recent_action_group, "connect-proxy",
-            G_CALLBACK (ev_window_recent_action_connect_proxy_cb), NULL);
+            G_CALLBACK (ev_window_menu_action_connect_proxy_cb), NULL);
 
     gtk_ui_manager_insert_action_group (ev_window->priv->ui_manager,
             ev_window->priv->recent_action_group, -1);
@@ -2741,13 +2743,13 @@ ev_window_setup_recent (EvWindow *ev_window)
             continue;
 
         action_name = g_strdup_printf ("RecentFile%u", i++);
-        label = ev_window_get_recent_file_label (
+        label = ev_window_get_menu_file_label (
                 n_items + 1, gtk_recent_info_get_display_name (info));
 
         mime_type = gtk_recent_info_get_mime_type (info);
         content_type = g_content_type_from_mime_type (mime_type);
         if (content_type != NULL) {
-            icon = g_content_type_get_icon (content_type);
+            icon = g_content_type_get_symbolic_icon (content_type);
             g_free (content_type);
         }
 
@@ -2759,12 +2761,11 @@ ev_window_setup_recent (EvWindow *ev_window)
                 NULL);
 
         g_object_set_data_full (G_OBJECT (action),
-                "gtk-recent-info",
-                gtk_recent_info_ref (info),
-                (GDestroyNotify) gtk_recent_info_unref);
+                                "uri", g_strdup (gtk_recent_info_get_uri (info)),
+                                (GDestroyNotify) g_free);
 
         g_signal_connect (action, "activate",
-                G_CALLBACK (ev_window_cmd_recent_file_activate),
+                G_CALLBACK (ev_window_cmd_file_activate),
                 (gpointer) ev_window);
 
         gtk_action_group_add_action (ev_window->priv->recent_action_group,
@@ -2773,7 +2774,7 @@ ev_window_setup_recent (EvWindow *ev_window)
 
         gtk_ui_manager_add_ui (ev_window->priv->ui_manager,
                 ev_window->priv->recent_ui_id,
-                "/MainMenu/FileMenu/RecentFilesMenu",
+                "/MainMenu/FileMenu/RecentsMenu/RecentsPlaceholder",
                 label,
                 action_name,
                 GTK_UI_MANAGER_MENUITEM,
@@ -2783,12 +2784,124 @@ ev_window_setup_recent (EvWindow *ev_window)
         if (icon != NULL)
             g_object_unref (icon);
 
-        if (++n_items == 5)
+        if (++n_items == 20)
             break;
     }
 
     g_list_foreach (items, (GFunc) gtk_recent_info_unref, NULL);
     g_list_free (items);
+}
+
+static void
+ev_window_setup_favorites (EvWindow *ev_window)
+{
+    GList        *infos, *l;
+    guint         n_items = 0;
+    const gchar  *xreader = g_get_application_name ();
+    static guint  i = 0;
+
+    if (ev_window->priv->favorites_ui_id > 0) {
+        gtk_ui_manager_remove_ui (ev_window->priv->ui_manager,
+                                  ev_window->priv->favorites_ui_id);
+        gtk_ui_manager_ensure_update (ev_window->priv->ui_manager);
+    }
+    ev_window->priv->favorites_ui_id = gtk_ui_manager_new_merge_id (ev_window->priv->ui_manager);
+
+    if (ev_window->priv->favorites_action_group) {
+        gtk_ui_manager_remove_action_group (ev_window->priv->ui_manager,
+                                            ev_window->priv->favorites_action_group);
+        g_object_unref (ev_window->priv->favorites_action_group);
+    }
+    ev_window->priv->favorites_action_group = gtk_action_group_new ("FavoriteFilesActions");
+    g_signal_connect (ev_window->priv->favorites_action_group, "connect-proxy",
+                      G_CALLBACK (ev_window_menu_action_connect_proxy_cb), NULL);
+
+    gtk_ui_manager_insert_action_group (ev_window->priv->ui_manager,
+            ev_window->priv->favorites_action_group, -1);
+
+    infos = xapp_favorites_get_favorites (ev_window->priv->favorites, (const gchar **) supported_mimetypes);
+
+    for (l = infos; l && l->data; l = l->next) {
+        XAppFavoriteInfo *info;
+        GFile *file;
+        GtkAction     *action;
+        gchar         *action_name;
+        gchar         *label;
+        const gchar   *mime_type;
+        gchar         *content_type;
+        GIcon         *icon = NULL;
+
+        info = (XAppFavoriteInfo *) l->data;
+
+        file = g_file_new_for_uri (info->uri);
+
+        if (g_file_is_native (file))
+        {
+            gchar *path = g_file_get_path (file);
+            gboolean exists = FALSE;
+
+            if (g_file_test (path, G_FILE_TEST_EXISTS))
+            {
+                exists = TRUE;
+            }
+
+            g_free (path);
+
+            if (!exists)
+            {
+                g_object_unref (file);
+                continue;
+            }
+        }
+
+        g_object_unref (file);
+
+        action_name = g_strdup_printf ("FavoriteFile%u", i++);
+        label = ev_window_get_menu_file_label (n_items + 1,
+                                               info->display_name);
+
+        content_type = g_content_type_from_mime_type (info->cached_mimetype);
+        if (content_type != NULL) {
+            icon = g_content_type_get_symbolic_icon (content_type);
+            g_free (content_type);
+        }
+
+        action = g_object_new (GTK_TYPE_ACTION,
+                "name", action_name,
+                "label", label,
+                "gicon", icon,
+                "always-show-image", TRUE,
+                NULL);
+
+        g_object_set_data_full (G_OBJECT (action),
+                                "uri", g_strdup (info->uri),
+                                (GDestroyNotify) g_free);
+
+        g_signal_connect (action, "activate",
+                          G_CALLBACK (ev_window_cmd_file_activate),
+                          ev_window);
+
+        gtk_action_group_add_action (ev_window->priv->favorites_action_group,
+                                     action);
+        g_object_unref (action);
+
+        gtk_ui_manager_add_ui (ev_window->priv->ui_manager,
+                               ev_window->priv->recent_ui_id,
+                               "/MainMenu/FileMenu/FavoritesMenu/FavoritesPlaceholder",
+                               label,
+                               action_name,
+                               GTK_UI_MANAGER_MENUITEM,
+                               FALSE);
+        g_free (action_name);
+        g_free (label);
+
+        if (icon != NULL)
+            g_object_unref (icon);
+
+        n_items++;
+    }
+
+    g_list_free_full (infos, (GDestroyNotify) xapp_favorite_info_free);
 }
 
 static gboolean
@@ -5753,6 +5866,13 @@ ev_window_dispose (GObject *object)
         priv->recent_manager = NULL;
     }
 
+    if (priv->favorites) {
+        g_signal_handlers_disconnect_by_func (priv->favorites,
+                ev_window_setup_favorites,
+                window);
+        priv->favorites = NULL;
+    }
+
     if (priv->settings) {
         g_object_unref (priv->settings);
         priv->settings = NULL;
@@ -6021,7 +6141,8 @@ static const GtkActionEntry entries[] = {
         { "Go", NULL, N_("_Go") },
         { "Bookmarks", NULL, N_("_Bookmarks") },
         { "Help", NULL, N_("_Help") },
-
+        { "FavoritesMenu", NULL, N_("Favorites")},
+        { "RecentsMenu", NULL, N_("Recents")},
         /* File menu */
         { "FileOpen", "document-open-symbolic", N_("_Open…"),
                 "<control>O",
@@ -6404,7 +6525,7 @@ activate_link_cb (GObject  *object,
 }
 
 static void
-recent_view_item_activated_cb (EvRecentView *recent_view,
+landing_view_item_activated_cb (EvLandingView *landing_view,
                                const char   *uri,
                                EvWindow     *ev_window)
 {
@@ -7611,6 +7732,13 @@ ev_window_init (EvWindow *ev_window)
             "changed",
             G_CALLBACK (ev_window_setup_recent),
             ev_window);
+    ev_window->priv->favorites = xapp_favorites_get_default ();
+    ev_window->priv->favorites_action_group = NULL;
+    ev_window->priv->favorites_ui_id = 0;
+    g_signal_connect_swapped (ev_window->priv->favorites,
+                              "changed",
+                              G_CALLBACK (ev_window_setup_favorites),
+                              ev_window);
 
     ev_window->priv->menubar =
             gtk_ui_manager_get_widget (ev_window->priv->ui_manager,
@@ -7909,6 +8037,7 @@ ev_window_init (EvWindow *ev_window)
 
     /* Set it user interface params */
     ev_window_setup_recent (ev_window);
+    ev_window_setup_favorites (ev_window);
 
     ev_window_setup_gtk_settings (ev_window);
 

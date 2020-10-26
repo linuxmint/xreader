@@ -60,7 +60,7 @@ void              ev_application_open_uri_at_dest       (EvApplication   *applic
                                                          EvWindowRunMode  mode,
                                                          const gchar     *search_string,
                                                          guint32          timestamp);
-void              ev_application_open_recent_view       (EvApplication   *application,
+void              ev_application_open_landing_view      (EvApplication   *application,
                                                          GdkScreen       *screen,
                                                          guint32          timestamp);
 void              ev_application_open_uri_list          (EvApplication   *application,
@@ -74,6 +74,8 @@ void              ev_application_screensaver_enable     (EvApplication   *applic
 void              ev_application_screensaver_disable    (EvApplication   *application);
 const gchar *     ev_application_get_dot_dir            (EvApplication   *application,
                                                          gboolean         create);
+
+extern gchar **supported_mimetypes;
 
 G_END_DECLS
 
