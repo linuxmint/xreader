@@ -44,6 +44,8 @@
 #include "ev-gdbus-generated.h"
 #endif /* ENABLE_DBUS */
 
+gchar **supported_mimetypes;
+
 struct _EvApplication {
 	GtkApplication         base_instance;
 
@@ -688,19 +690,19 @@ ev_application_open_uri_at_dest (EvApplication  *application,
 }
 
 /**
- * ev_application_open_recent_view:
+ * ev_application_open_landing_view:
  * @application: The instance of the application.
  * @timestamp: Current time value.
  *
  * Creates a new window with recent files
  */
 void
-ev_application_open_recent_view (EvApplication *application,
+ev_application_open_landing_view (EvApplication *application,
                             GdkScreen     *screen,
                             guint32        timestamp)
 {
     GtkWidget *new_window = ev_window_new ();
-    ev_window_open_recent_view (EV_WINDOW (new_window));
+    ev_window_open_landing_view (EV_WINDOW (new_window));
 
     if (screen) {
         ev_stock_icons_set_screen (screen);
@@ -897,6 +899,8 @@ ev_application_shutdown (GApplication *gapplication)
     g_free (application->dot_dir);
     application->dot_dir = NULL;
 
+    g_clear_pointer (&supported_mimetypes, g_strfreev);
+
     G_APPLICATION_CLASS (ev_application_parent_class)->shutdown (gapplication);
 }
 
@@ -986,6 +990,14 @@ ev_application_class_init (EvApplicationClass *ev_application_class)
 #endif
         }
 
+static gchar **
+parse_mimetypes (void)
+{
+    gchar **ret;
+
+    supported_mimetypes = g_strsplit (SUPPORTED_MIMETYPES, ";", -1);
+}
+
 static void
 ev_application_init (EvApplication *ev_application)
 {
@@ -994,6 +1006,8 @@ ev_application_init (EvApplication *ev_application)
     ev_application_init_session (ev_application);
 
 	ev_application_accel_map_load (ev_application);
+
+    parse_mimetypes ();
 
     ev_application->scr_saver = totem_scrsaver_new ();
     g_object_set (ev_application->scr_saver,

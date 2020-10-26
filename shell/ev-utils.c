@@ -20,7 +20,9 @@
 
 #include <config.h>
 
+
 #include "ev-utils.h"
+#include "ev-application.h"
 #include "ev-file-helpers.h"
 
 #include <string.h>

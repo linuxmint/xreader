@@ -9,7 +9,14 @@
       <separator/>
       <menuitem name="FilePropertiesMenu" action="FileProperties"/>
       <separator/>
-      <placeholder name="RecentFilesMenu"/>
+      <menu name="FavoritesMenu" action="FavoritesMenu">
+        <placeholder name="FavoritesPlaceholder">
+        </placeholder>
+      </menu>
+      <menu name="RecentsMenu" action="RecentsMenu">
+        <placeholder name="RecentsPlaceholder">
+        </placeholder>
+      </menu>
       <separator/>
       <menuitem name="FileCloseAllWindowsMenu" action="FileCloseAllWindows"/>
       <menuitem name="FileCloseWindowMenu" action="FileCloseWindow"/>
