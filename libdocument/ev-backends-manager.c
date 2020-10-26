@@ -200,22 +200,61 @@ _ev_backends_manager_shutdown (void)
 static EvBackendInfo *
 ev_backends_manager_get_backend_info (const gchar *mime_type)
 {
+    EvBackendInfo *ret;
 	GList *l;
+    gchar *file_type = g_content_type_from_mime_type (mime_type);
 
-	for (l = ev_backends_list; l; l = g_list_next (l)) {
-		EvBackendInfo *info;
-		gint           i = 0;
-		const char    *mime;
+    ret = NULL;
+    // Check exact matches first - this allows more specific handlers to
+    // take precedence.
+    for (l = ev_backends_list; l; l = g_list_next (l)) {
+        EvBackendInfo *info;
+        gint           i = 0;
+        const char    *mime;
 
-		info = (EvBackendInfo *)l->data;
+        info = (EvBackendInfo *)l->data;
 
-		while ((mime = info->mime_types[i++])) {
-			if (g_content_type_is_a (mime, mime_type))
-				return info;
-		}
-	}
+        while ((mime = info->mime_types[i++])) {
+            gchar *t = g_content_type_from_mime_type (mime);
 
-	return NULL;
+            if (g_content_type_equals (file_type, t)) {
+                ret = info;
+            }
+
+            g_free (t);
+
+            if (ret) {
+                break;
+            }
+        }
+    }
+
+    if (ret == NULL) {
+        // Then match for sub-types
+        for (l = ev_backends_list; l; l = g_list_next (l)) {
+            EvBackendInfo *info;
+            gint           i = 0;
+            const char    *mime;
+
+            info = (EvBackendInfo *)l->data;
+
+            while ((mime = info->mime_types[i++])) {
+                gchar *t = g_content_type_from_mime_type (mime);
+                if (g_content_type_is_a (file_type, t)) {
+                    ret = info;
+                }
+
+                g_free (t);
+
+                if (ret) {
+                    break;
+                }
+            }
+        }
+    }
+
+    g_free (file_type);
+    return ret;
 }
 
 EvDocument *
