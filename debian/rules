@@ -2,25 +2,17 @@
 
 TYPELIBDIR=$(shell pkg-config gobject-introspection-1.0 --variable libdir | sed -e 's/.//')
 
-DHFLAGS=--parallel
-DEB_XREADER_FLAGS=
-ifeq ($(shell dpkg-vendor --is Debian && echo yes),yes)
-ifeq ($(shell lsb_release -cs),wheezy)
-	DEB_XREADER_FLAGS=--without-keyring
-endif
-endif
-
 %:
-	dh $@ $(DHFLAGS)
+	dh $@
 
 override_dh_install:
 	sed 's@TYPELIBDIR@${TYPELIBDIR}@' debian/gir1.2-xreader.install.in > debian/gir1.2-xreader.install
-	dh_install --fail-missing
+	dh_install
 
 override_dh_auto_configure:
-	meson debian/build \
+	dh_auto_configure -- \
 		--prefix=/usr \
-		--libexecdir=/usr/lib/$(DEB_HOST_MULTIARCH) \
+		--libexecdir=/usr/libexec \
 		--buildtype=plain \
 		-D deprecated_warnings=false \
 		-D djvu=true \
@@ -37,15 +29,7 @@ override_dh_strip:
 	dh_strip -plibxreaderdocument3 --dbg-package=libxreaderdocument3-dbg
 	dh_strip -plibxreaderview3 --dbg-package=libxreaderview3-dbg
 
-override_dh_builddeb:
-	dh_builddeb -- -Zxz -z9
+override_dh_auto_test:
 
-get-orig-source:
-	uscan --noconf --force-download --rename --download-current-version --destdir=..
-
-override_dh_auto_install:
-	DESTDIR=${CURDIR}/debian/tmp \
-	ninja -C debian/build install
-
-override_dh_auto_build:
-	ninja -C debian/build
+override_dh_missing:
+	dh_missing --fail-missing

@@ -2,7 +2,7 @@ Source: xreader
 Section: x11
 Priority: optional
 Maintainer: Linux Mint <root@linuxmint.com>
-Build-Depends: debhelper (>= 9),
+Build-Depends: debhelper-compat (= 12),
                gobject-introspection,
                intltool,
                libdjvulibre-dev,
