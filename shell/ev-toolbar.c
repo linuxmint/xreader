@@ -154,6 +154,27 @@ setup_preset_buttons (EvToolbar *ev_toolbar)
 }
 
 static GtkWidget *
+create_sidepane_button (GtkAction *action)
+{
+    GtkWidget *button;
+    GtkWidget *image;
+
+    button = gtk_toggle_button_new();
+    gtk_widget_set_valign (button, GTK_ALIGN_CENTER);
+    image = gtk_image_new_from_icon_name ("view-left-pane-symbolic", GTK_ICON_SIZE_MENU);
+    gtk_image_set_pixel_size (GTK_IMAGE (image), 16);
+
+    gtk_button_set_image (GTK_BUTTON (button), image);
+    gtk_style_context_add_class (gtk_widget_get_style_context (button), "flat");
+    gtk_activatable_set_related_action (GTK_ACTIVATABLE (button), action);
+    gtk_button_set_label (GTK_BUTTON (button), NULL);
+    gtk_widget_set_tooltip_text (button, gtk_action_get_tooltip (action));
+    gtk_button_set_focus_on_click (GTK_BUTTON (button), FALSE);
+
+    return button;
+}
+
+static GtkWidget *
 create_button (GtkAction *action)
 {
     GtkWidget *button;
@@ -299,6 +320,12 @@ ev_toolbar_constructed (GObject *object)
     /* Print button */
     action = gtk_action_group_get_action (action_group, "FilePrint");
     button = create_button (action);
+    gtk_box_pack_start (GTK_BOX (box), button, FALSE, FALSE, 0);
+    gtk_widget_show (GTK_WIDGET (button));
+
+    /* Side pane button */
+    action = gtk_action_group_get_action (action_group, "ViewSidebar");
+    button = create_sidepane_button (action);
     gtk_box_pack_start (GTK_BOX (box), button, FALSE, FALSE, 0);
     gtk_widget_show (GTK_WIDGET (button));
 
