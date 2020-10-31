@@ -64,6 +64,8 @@
       <separator/>
       <menuitem name="GoPreviousHistory" action="GoPreviousHistory"/>
       <menuitem name="GoNextHistory" action="GoNextHistory"/>
+      <separator/>
+      <menuitem name="GoToPage" action="GoToPageByNumber"/>
     </menu>
 
     <menu name="BookmarksMenu" action="Bookmarks">
