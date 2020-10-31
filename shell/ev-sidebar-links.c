@@ -410,9 +410,12 @@ ev_sidebar_links_construct (EvSidebarLinks *ev_sidebar_links)
 	gtk_tree_view_append_column (GTK_TREE_VIEW (priv->tree_view), column);
 
 	renderer = gtk_cell_renderer_text_new ();
+
 	g_object_set (G_OBJECT (renderer),
-		      "ellipsize", PANGO_ELLIPSIZE_END,
+                    "ellipsize", PANGO_ELLIPSIZE_END,
 		      NULL);
+       gtk_tree_view_set_tooltip_column (GTK_TREE_VIEW(priv->tree_view), EV_DOCUMENT_LINKS_COLUMN_MARKUP);
+
 	gtk_tree_view_column_pack_start (GTK_TREE_VIEW_COLUMN (column), renderer, TRUE);
 	gtk_tree_view_column_set_attributes (GTK_TREE_VIEW_COLUMN (column), renderer,
 					     "markup", EV_DOCUMENT_LINKS_COLUMN_MARKUP,
