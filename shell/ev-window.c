@@ -1119,7 +1119,7 @@ setup_chrome_from_metadata (EvWindow *window)
         return;
 
     if (ev_metadata_get_boolean (window->priv->metadata, "show_menubar", &show_menubar))
-        update_chrome_flag (window, EV_CHROME_MENUBAR, show_menubar);
+        update_chrome_flag (window, EV_CHROME_MENUBAR, TRUE);
     if (ev_metadata_get_boolean (window->priv->metadata, "show_toolbar", &show_toolbar))
         update_chrome_flag (window, EV_CHROME_TOOLBAR, show_toolbar);
     if (ev_metadata_get_boolean (window->priv->metadata, "sidebar_visibility", &show_sidebar))
@@ -1325,7 +1325,9 @@ setup_view_from_metadata (EvWindow *window)
     }
 
     /* Menubar */
-    if(ev_metadata_get_boolean (window->priv->metadata, "show_menubar", &show_menubar)) {
+    // see https://github.com/linuxmint/xreader/pull/416 discussion.
+    // if(ev_metadata_get_boolean (window->priv->metadata, "show_menubar", &show_menubar)) {
+    if (TRUE) {
         gtk_widget_show(window->priv->menubar);
     } else {
         gtk_widget_hide(window->priv->menubar);
@@ -5174,6 +5176,9 @@ ev_window_toggle_menubar (EvWindow *window, EvMenubarAction action)
     GtkWidget *menubar;
 
     menubar = window->priv->menubar;
+
+    gtk_widget_show (menubar);
+    return;
 
     if (EV_WINDOW_IS_PRESENTATION (window))
         return;
