@@ -1,3 +1,59 @@
+xreader (2.8.0) ulyssa; urgency=medium
+
+  [ icarter09 ]
+  * Fixed issue 410
+
+  [ okaestne ]
+  * Get toolbar visibility from GtkRevealer when saving view metadata
+
+  [ Dan Čermák ]
+  * Add g_assert_not_reached to sizing_mode_to_string
+
+  [ okaestne ]
+  * setting to hide/show menubar (WIP)
+  * Update menubar toggle action on init
+  * fix saving menubar visibility as default
+
+  [ icarter09 ]
+  * Added logic to fix issue of Tab key toggling checkboxes
+
+  [ Michael Webster ]
+  * Fix mimetype handling and backend selection:
+  * Clean up build files
+
+  [ icarter09 ]
+  * Fix for #89. Added logic to allow for cursor position to change in multiline-text fields
+  * Added keyboard shortcut for toolbar
+  * Fix for #442. Added null check to stop segfault with annotations
+  * Implemented ticket #241. Added show sidebar button to toolbar
+
+  [ Michael Webster ]
+  * Move the new sidebar button to be part of the navigation group on the left end of the toolbar.
+
+  [ icarter09 ]
+  * Added keyboard shortcuts to history buttons
+
+  [ Michael Webster ]
+  * Favorites - rework startup page to display both favorites and recents, add favorites to the file menu.
+  * Disable pixbuf support properly.
+  * ev-window.c: Temporarily disable menu toggling using the alt key.
+
+  [ icarter09 ]
+  * Implements ticket #279. Added Go To Page By Number to menu
+  * Displays entire label in tooltip
+
+  [ Clement Lefebvre ]
+  * Revert "Implements ticket #279. Added Go To Page By Number to menu"
+  * l10n: Fix po/POTFILES.in
+
+  [ Michael Webster ]
+  * ev-window-title.c: Don't show "Recent Documents" in the landing page titlebar - it is no longer showing only recents.
+
+  [ Clement Lefebvre ]
+  * l10n: Update POT
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 02 Dec 2020 14:04:34 +0000
+
 xreader (2.6.4) ulyana; urgency=medium
 
   * Fix app version
