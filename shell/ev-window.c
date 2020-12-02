@@ -6269,10 +6269,6 @@ static const GtkActionEntry entries[] = {
                 "<shift><control>Page_Down",
                 N_("Go to next history item"),
                 G_CALLBACK (ev_window_cmd_go_next_history) },
-        { "GoToPageByNumber", NULL, N_("Go To Page"),
-                "<control>l",
-                N_("Go to page by number"),
-                G_CALLBACK (ev_window_cmd_focus_page_selector) },
 
         /* Bookmarks menu */
         { "BookmarksAdd", "bookmark-new-symbolic", N_("_Add Bookmark"),
