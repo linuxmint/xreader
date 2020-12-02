@@ -96,7 +96,6 @@
   <schema id="org.x.reader.state" path="/org/x/reader/state/" gettext-domain="xreader">
     <key name="last-landing-page" type="s">
       <default>'recent_files'</default>
-      <description>Keeps track of which page the user last viewed in the landing page. Values are recent_files or favorite_files.</description>
     </key>
   </schema>
 
