@@ -123,11 +123,6 @@ ev_window_title_update (EvWindowTitle *window_title)
 	GtkWindow *window = GTK_WINDOW (window_title->window);
 	char *title = NULL, *password_title, *p;
 
-	if (window_title->type == EV_WINDOW_TITLE_RECENT) {
-		gtk_window_set_title (window, _("Recent Documents"));
-		return;
-	}
-
 	if (window_title->document != NULL) {
 		gchar *doc_title;
 
