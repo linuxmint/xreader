@@ -13,7 +13,7 @@ override_dh_auto_configure:
 	dh_auto_configure -- \
 		--prefix=/usr \
 		--libexecdir=/usr/libexec \
-		--buildtype=plain \
+		--buildtype=debugoptimized \
 		-D deprecated_warnings=false \
 		-D djvu=true \
 		-D dvi=true \
