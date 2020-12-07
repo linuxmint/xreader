@@ -743,7 +743,7 @@ handle_get_window_list_cb (EvXreaderApplication   *object,
             if (!EV_IS_WINDOW (l->data))
                 continue;
 
-                g_ptr_array_add (paths, (gpointer) ev_window_get_dbus_object_path (EV_WINDOW (l->data)));
+            g_ptr_array_add (paths, (gpointer) ev_window_get_dbus_object_path (EV_WINDOW (l->data)));
         }
 
         g_ptr_array_add (paths, NULL);
@@ -990,11 +990,9 @@ ev_application_class_init (EvApplicationClass *ev_application_class)
 #endif
         }
 
-static gchar **
+static void
 parse_mimetypes (void)
 {
-    gchar **ret;
-
     supported_mimetypes = g_strsplit (SUPPORTED_MIMETYPES, ";", -1);
 }
 
