@@ -13,16 +13,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-21 12:14+0100\n"
-"PO-Revision-Date: 2018-12-16 00:18+0000\n"
-"Last-Translator: Dusan Kazik <prescott66@gmail.com>\n"
+"POT-Creation-Date: 2020-12-02 14:04+0000\n"
+"PO-Revision-Date: 2020-10-08 09:07+0000\n"
+"Last-Translator: Vendelín Slezák <Unknown>\n"
 "Language-Team: Slovak (http://www.transifex.com/mate/MATE/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Launchpad-Export-Date: 2020-06-24 10:10+0000\n"
-"X-Generator: Launchpad (build 1cbd0aa39df153c901321817f9b57cf3f232b507)\n"
+"X-Launchpad-Export-Date: 2020-12-10 10:29+0000\n"
+"X-Generator: Launchpad (build 4853cb86c14c5a9e513816c8a61121c639b30835)\n"
 "Language: sk\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -359,7 +359,7 @@ msgid "Show session management options"
 msgstr "Zobraziť možnosti správy relácie"
 
 #. translators: this is the label for toolbar button
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6404
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6683
 msgid "Best Fit"
 msgstr "Prispôsobiť"
 
@@ -367,7 +367,7 @@ msgstr "Prispôsobiť"
 msgid "Fit Page Width"
 msgstr "Prispôsobiť šírke strany"
 
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:5964
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:6239
 msgid "Expand Window to Fit"
 msgstr "Zväčšiť okno na celý dostupný priestor"
 
@@ -446,7 +446,7 @@ msgstr ""
 "textu, kopírovanie textu do schránky, navigáciu v hypertexte a v záložkách "
 "obsahu. </P>"
 
-#: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:162
+#: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
 #: ../shell/main.c:239 ../shell/main.c:268
 msgid "Document Viewer"
 msgstr "Prehliadač dokumentov"
@@ -505,7 +505,7 @@ msgstr "Súbor s nastavením tlače"
 msgid "Print Preview"
 msgstr "Ukážka pred tlačou"
 
-#: ../previewer/ev-previewer-window.c:83 ../shell/ev-window.c:3320
+#: ../previewer/ev-previewer-window.c:83 ../shell/ev-window.c:3471
 msgid "Failed to print document"
 msgstr "Zlyhala tlač dokumentu"
 
@@ -515,32 +515,32 @@ msgid "The selected printer '%s' could not be found"
 msgstr "Vybratú tlačiareň '%s' sa nepodarilo nájsť"
 
 #. Go menu
-#: ../previewer/ev-previewer-window.c:281 ../shell/ev-window.c:5973
+#: ../previewer/ev-previewer-window.c:281 ../shell/ev-window.c:6248
 msgid "_Previous Page"
 msgstr "_Predchádzajúca strana"
 
-#: ../previewer/ev-previewer-window.c:282 ../shell/ev-window.c:5975
+#: ../previewer/ev-previewer-window.c:282 ../shell/ev-window.c:6250
 msgid "Go to the previous page"
 msgstr "Choď na predchádzajúcu stranu"
 
-#: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:5977
+#: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:6252
 msgid "_Next Page"
 msgstr "_Nasledujúca strana"
 
-#: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:5979
+#: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:6254
 msgid "Go to the next page"
 msgstr "Prejsť na nasledujúcu stranu"
 
-#: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:5952
+#: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:6227
 msgid "Enlarge the document"
 msgstr "Zväčšiť dokument"
 
-#: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:5956
+#: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:6231
 msgid "Shrink the document"
 msgstr "Zmenšiť dokument"
 
 #. translators: this is the label for toolbar button
-#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:6400
+#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:6679
 msgid "Original size"
 msgstr "Pôvodná veľkosť"
 
@@ -550,31 +550,31 @@ msgstr "Pôvodná veľkosť"
 msgid "Print"
 msgstr "Tlač"
 
-#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:5891
+#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:6166
 msgid "Print this document"
 msgstr "Vytlačiť tento dokument"
 
-#: ../previewer/ev-previewer-window.c:341 ../shell/ev-window.c:6167
+#: ../previewer/ev-previewer-window.c:341 ../shell/ev-window.c:6446
 msgid "_Best Fit"
 msgstr "_Prispôsobiť"
 
-#: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:6169
+#: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:6448
 msgid "Make the current document fill the window"
 msgstr "Nechať aktuálny dokument vyplniť okno"
 
-#: ../previewer/ev-previewer-window.c:344 ../shell/ev-window.c:6171
+#: ../previewer/ev-previewer-window.c:344 ../shell/ev-window.c:6450
 msgid "Fit Page _Width"
 msgstr "Prispôsobiť ší_rke strany"
 
-#: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:6173
+#: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:6452
 msgid "Make the current document fill the window width"
 msgstr "Nechať aktuálny dokument vyplniť šírku okna"
 
-#: ../previewer/ev-previewer-window.c:561 ../shell/ev-window.c:6348
+#: ../previewer/ev-previewer-window.c:561 ../shell/ev-window.c:6627
 msgid "Page"
 msgstr "Strana"
 
-#: ../previewer/ev-previewer-window.c:562 ../shell/ev-window.c:6349
+#: ../previewer/ev-previewer-window.c:562 ../shell/ev-window.c:6628
 msgid "Select Page"
 msgstr "Vybrať stranu"
 
@@ -610,7 +610,7 @@ msgstr "Tlačí sa strana %d z %d…"
 
 #: ../libview/ev-print-operation.c:1184
 msgid "The requested format is not supported by this printer."
-msgstr ""
+msgstr "Odosielaný formát nie je tomuto tlačiarňou podporovaný"
 
 #: ../libview/ev-print-operation.c:1247
 msgid "Invalid page selection"
@@ -727,46 +727,46 @@ msgstr "Prejsť na stranu:"
 msgid "End of presentation. Click to exit."
 msgstr "Koniec prezentácie. Kliknite na ukončenie."
 
-#: ../libview/ev-view.c:1848
+#: ../libview/ev-view.c:1849
 msgid "Go to first page"
 msgstr "Prejsť na prvú stranu"
 
-#: ../libview/ev-view.c:1850
+#: ../libview/ev-view.c:1851
 msgid "Go to previous page"
 msgstr "Prejsť na predchádzajúcu stranu"
 
-#: ../libview/ev-view.c:1852
+#: ../libview/ev-view.c:1853
 msgid "Go to next page"
 msgstr "Prejsť na nasledujúcu stranu"
 
-#: ../libview/ev-view.c:1854
+#: ../libview/ev-view.c:1855
 msgid "Go to last page"
 msgstr "Prejsť na poslednú stranu"
 
-#: ../libview/ev-view.c:1856
+#: ../libview/ev-view.c:1857
 msgid "Go to page"
 msgstr "Prejsť na stranu"
 
-#: ../libview/ev-view.c:1858
+#: ../libview/ev-view.c:1859
 msgid "Find"
 msgstr "Nájsť"
 
-#: ../libview/ev-view.c:1886
+#: ../libview/ev-view.c:1887
 #, c-format
 msgid "Go to page %s"
 msgstr "Prejsť na stranu %s"
 
-#: ../libview/ev-view.c:1892
+#: ../libview/ev-view.c:1893
 #, c-format
 msgid "Go to %s on file “%s”"
 msgstr "Prejsť na %s v súbore „%s“"
 
-#: ../libview/ev-view.c:1895
+#: ../libview/ev-view.c:1896
 #, c-format
 msgid "Go to file “%s”"
 msgstr "Prejsť na súbor „%s“"
 
-#: ../libview/ev-view.c:1903
+#: ../libview/ev-view.c:1904
 #, c-format
 msgid "Launch %s"
 msgstr "Spustiť %s"
@@ -775,7 +775,7 @@ msgstr "Spustiť %s"
 msgid "Find:"
 msgstr "Nájsť:"
 
-#: ../shell/eggfindbar.c:325 ../shell/ev-window.c:5923
+#: ../shell/eggfindbar.c:325 ../shell/ev-window.c:6198
 msgid "Find Pre_vious"
 msgstr "Nájsť _predchádzajúce"
 
@@ -783,7 +783,7 @@ msgstr "Nájsť _predchádzajúce"
 msgid "Find previous occurrence of the search string"
 msgstr "Hladať predchádzajúci výskyt slova alebo frázy"
 
-#: ../shell/eggfindbar.c:333 ../shell/ev-window.c:5919
+#: ../shell/eggfindbar.c:333 ../shell/ev-window.c:6194
 msgid "Find Ne_xt"
 msgstr "Nájsť _nasledujúci"
 
@@ -846,23 +846,23 @@ msgstr "Neznáme"
 
 #: ../shell/ev-annotation-properties-dialog.c:126
 msgid "Markup type:"
-msgstr ""
+msgstr "Typ označenia:"
 
 #: ../shell/ev-annotation-properties-dialog.c:132
 msgid "Highlight"
-msgstr ""
+msgstr "Zvýrazniť"
 
 #: ../shell/ev-annotation-properties-dialog.c:133
 msgid "Strike out"
-msgstr ""
+msgstr "Prečiarknuť"
 
 #: ../shell/ev-annotation-properties-dialog.c:134
 msgid "Underline"
-msgstr ""
+msgstr "Podčiarknúť"
 
 #: ../shell/ev-annotation-properties-dialog.c:135
 msgid "Squiggly"
-msgstr ""
+msgstr "Vlnovka"
 
 #: ../shell/ev-annotation-properties-dialog.c:158
 msgid "Annotation Properties"
@@ -907,23 +907,23 @@ msgstr "Pridať textový komentár"
 
 #: ../shell/ev-annotations-toolbar.c:126
 msgid "Add highlight annotation"
-msgstr ""
+msgstr "Pridať zvýraznenú poznámku"
 
-#: ../shell/ev-application.c:1000
+#: ../shell/ev-application.c:1014
 msgid "Running in presentation mode"
 msgstr "Beží v režime prezentácie"
 
 #: ../shell/ev-history.c:474 ../shell/ev-sidebar-bookmarks.c:314
-#: ../shell/ev-window.c:900 ../shell/ev-window.c:4669
+#: ../shell/ev-window.c:923 ../shell/ev-window.c:4822
 #, c-format
 msgid "Page %s"
 msgstr "Strana %s"
 
-#: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:5991
+#: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:6266
 msgid "Go to previous history item"
 msgstr "Prejdite na predchádzajúcu položku histórie"
 
-#: ../shell/ev-history-action-widget.c:219 ../shell/ev-window.c:5995
+#: ../shell/ev-history-action-widget.c:219 ../shell/ev-window.c:6270
 msgid "Go to next history item"
 msgstr "Prejdite na nasledujúcu položku histórie"
 
@@ -931,6 +931,18 @@ msgstr "Prejdite na nasledujúcu položku histórie"
 #, c-format
 msgid "Password for document %s"
 msgstr "Heslo pre dokument %s"
+
+#: ../shell/ev-landing-view.c:389 ../shell/ev-window.c:6149
+msgid "Favorites"
+msgstr ""
+
+#: ../shell/ev-landing-view.c:498
+msgid "Recent files"
+msgstr ""
+
+#: ../shell/ev-landing-view.c:600
+msgid "No recent or favorite documents"
+msgstr ""
 
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
@@ -981,7 +993,7 @@ msgstr "Zapamätať si _navždy"
 msgid "Toolbar"
 msgstr "Panel nástrojov"
 
-#: ../shell/ev-preferences-dialog.c:139 ../shell/ev-window.c:5939
+#: ../shell/ev-preferences-dialog.c:139 ../shell/ev-window.c:6214
 msgid "Preferences"
 msgstr "Predvoľby"
 
@@ -995,7 +1007,7 @@ msgstr "Zobraziť tlačidlo zväčšenia dokumentu na dostupný priestor"
 
 #: ../shell/ev-preferences-dialog.ui.h:4
 msgid "Show zoom level selector"
-msgstr ""
+msgstr "Ukázať stupneň priblíženia"
 
 #: ../shell/ev-properties-dialog.c:63
 msgid "Properties"
@@ -1033,10 +1045,6 @@ msgstr "Text licencie"
 #: ../shell/ev-properties-license.c:147
 msgid "Further Information"
 msgstr "Ďalšie informácie"
-
-#: ../shell/ev-recent-view.c:262
-msgid "No recent documents"
-msgstr ""
 
 #: ../shell/ev-sidebar-annotations.c:292
 msgid "Document contains no annotations"
@@ -1079,7 +1087,7 @@ msgstr "Vrstvy"
 msgid "Print…"
 msgstr "Tlačiť…"
 
-#: ../shell/ev-sidebar-links.c:717
+#: ../shell/ev-sidebar-links.c:718
 msgid "Index"
 msgstr "Index"
 
@@ -1119,99 +1127,101 @@ msgstr ""
 "Pokračujúce + držať sa okrajov strán\n"
 "Ctrl+1"
 
-#: ../shell/ev-toolbar.c:270
+#: ../shell/ev-toolbar.c:291
 msgid "Select or set the zoom level of the document"
-msgstr ""
+msgstr "Vybrať alebo nastaviť úroveň priblíženia dokumentu"
 
-#: ../shell/ev-window.c:1012
+#: ../shell/ev-window.c:1035
 msgid ""
 "Cannot enter presentation mode with ePub documents, use fullscreen mode "
 "instead."
 msgstr ""
+"Pri ePub dokumentoch nemôžem otvoriť prezentačný mód, použité namiesto neho "
+"celoobrazovkový mód."
 
-#: ../shell/ev-window.c:1482
+#: ../shell/ev-window.c:1524
 msgid "The document contains no pages"
 msgstr "Dokument neobsahuje strany"
 
-#: ../shell/ev-window.c:1484
+#: ../shell/ev-window.c:1526
 msgid "The document contains only empty pages"
 msgstr "Dokument obsahuje len čisté strany"
 
-#: ../shell/ev-window.c:1520
+#: ../shell/ev-window.c:1562
 msgid "Presentation mode is not supported for ePub documents."
 msgstr "Prezentačný režim nie je pre ePub dokumentoch podporovaný."
 
-#: ../shell/ev-window.c:1706 ../shell/ev-window.c:1870
+#: ../shell/ev-window.c:1748 ../shell/ev-window.c:1912
 msgid "Unable to open document"
 msgstr "Nedá sa otvoriť dokument"
 
-#: ../shell/ev-window.c:1839
+#: ../shell/ev-window.c:1881
 #, c-format
 msgid "Loading document from “%s”"
 msgstr "Načítava sa dokument z „%s“"
 
-#: ../shell/ev-window.c:1983 ../shell/ev-window.c:2304
+#: ../shell/ev-window.c:2025 ../shell/ev-window.c:2346
 #, c-format
 msgid "Downloading document (%d%%)"
 msgstr "Sťahuje sa dokument (%d%%)"
 
-#: ../shell/ev-window.c:2016
+#: ../shell/ev-window.c:2058
 msgid "Failed to load remote file."
 msgstr "Zlyhalo načítanie vzdialeného súboru."
 
-#: ../shell/ev-window.c:2248
+#: ../shell/ev-window.c:2290
 #, c-format
 msgid "Reloading document from %s"
 msgstr "Obnoviť dokument z %s"
 
-#: ../shell/ev-window.c:2280
+#: ../shell/ev-window.c:2322
 msgid "Failed to reload document."
 msgstr "Zlyhalo obnovenie dokumentu."
 
-#: ../shell/ev-window.c:2496
+#: ../shell/ev-window.c:2538
 msgid "Open Document"
 msgstr "Otvoriť dokument"
 
-#: ../shell/ev-window.c:2777
+#: ../shell/ev-window.c:2928
 #, c-format
 msgid "Saving document to %s"
 msgstr "Ukladá sa dokument do %s"
 
-#: ../shell/ev-window.c:2780
+#: ../shell/ev-window.c:2931
 #, c-format
 msgid "Saving attachment to %s"
 msgstr "Ukladá sa príloha do %s"
 
-#: ../shell/ev-window.c:2783
+#: ../shell/ev-window.c:2934
 #, c-format
 msgid "Saving image to %s"
 msgstr "Ukladá sa obrázok do %s"
 
-#: ../shell/ev-window.c:2827 ../shell/ev-window.c:2927
+#: ../shell/ev-window.c:2978 ../shell/ev-window.c:3078
 #, c-format
 msgid "The file could not be saved as “%s”."
 msgstr "Súbor sa nepodarilo uložiť ako „%s“."
 
-#: ../shell/ev-window.c:2858
+#: ../shell/ev-window.c:3009
 #, c-format
 msgid "Uploading document (%d%%)"
 msgstr "Odovzdáva sa dokument (%d%%)"
 
-#: ../shell/ev-window.c:2862
+#: ../shell/ev-window.c:3013
 #, c-format
 msgid "Uploading attachment (%d%%)"
 msgstr "Odovzdáva sa príloha (%d%%)"
 
-#: ../shell/ev-window.c:2866
+#: ../shell/ev-window.c:3017
 #, c-format
 msgid "Uploading image (%d%%)"
 msgstr "Odovzdáva sa obrázok (%d%%)"
 
-#: ../shell/ev-window.c:2974
+#: ../shell/ev-window.c:3125
 msgid "Save a Copy"
 msgstr "Uložiť kópiu"
 
-#: ../shell/ev-window.c:3264
+#: ../shell/ev-window.c:3415
 #, c-format
 msgid "%d pending job in queue"
 msgid_plural "%d pending jobs in queue"
@@ -1219,12 +1229,12 @@ msgstr[0] "%d nevybavených úloh v poradí"
 msgstr[1] "%d nevybavená úloha v poradí"
 msgstr[2] "%d nevybavené úlohy v poradí"
 
-#: ../shell/ev-window.c:3377
+#: ../shell/ev-window.c:3528
 #, c-format
 msgid "Printing job “%s”"
 msgstr "Tlačí sa úloha „%s“"
 
-#: ../shell/ev-window.c:3539
+#: ../shell/ev-window.c:3690
 msgid ""
 "Document contains form fields that have been filled out. If you don't save a "
 "copy, changes will be permanently lost."
@@ -1232,7 +1242,7 @@ msgstr ""
 "Dokument obsahuje polia formulára, ktoré boli vyplnené. Ak neuložíte kópiu, "
 "budú zmeny navždy stratené"
 
-#: ../shell/ev-window.c:3543
+#: ../shell/ev-window.c:3694
 msgid ""
 "Document contains new or modified annotations. If you don't save a copy, "
 "changes will be permanently lost."
@@ -1240,24 +1250,24 @@ msgstr ""
 "Dokument obsahuje nové alebo upravené komentíre. Ak neuložíte jeho kópiu, "
 "všetky zmeny budú stratené."
 
-#: ../shell/ev-window.c:3550
+#: ../shell/ev-window.c:3701
 #, c-format
 msgid "Save a copy of document “%s” before closing?"
 msgstr "Uložiť kópiu dokumentu „%s“ pred zavretím?"
 
-#: ../shell/ev-window.c:3568
+#: ../shell/ev-window.c:3719
 msgid "Save a _Copy"
 msgstr "Uložiť _kópiu"
 
-#: ../shell/ev-window.c:3569
+#: ../shell/ev-window.c:3720
 msgid "_Save"
-msgstr ""
+msgstr "_Uložiť"
 
-#: ../shell/ev-window.c:3570
+#: ../shell/ev-window.c:3721
 msgid "Close _without Saving"
 msgstr "Zavrieť _bez uloženie"
 
-#: ../shell/ev-window.c:3649
+#: ../shell/ev-window.c:3800
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
 msgstr "Odložiť zatvorenie, kým sa nedokončí tlačová úloha „%s“?"
@@ -1265,7 +1275,7 @@ msgstr "Odložiť zatvorenie, kým sa nedokončí tlačová úloha „%s“?"
 #. TRANS: the singular form is not really used as n_print_jobs > 1
 #. but some languages distinguish between different plurals forms,
 #. so the ngettext is needed.
-#: ../shell/ev-window.c:3655
+#: ../shell/ev-window.c:3806
 #, c-format
 msgid ""
 "There is %d print job active. Wait until print finishes before closing?"
@@ -1278,27 +1288,27 @@ msgstr[1] ""
 msgstr[2] ""
 "Sú aktívne %d tlačové úlohy. Počkať pred zatvorením na dokončenie tlače?"
 
-#: ../shell/ev-window.c:3670
+#: ../shell/ev-window.c:3821
 msgid "If you close the window, pending print jobs will not be printed."
 msgstr "Ak zatvoríte okno, nebudú vytlačené nevybavené tlačové úlohy."
 
-#: ../shell/ev-window.c:3673
+#: ../shell/ev-window.c:3824
 msgid "Cancel _print and Close"
 msgstr "Zrušiť _tlač a zavrieť"
 
-#: ../shell/ev-window.c:3675
+#: ../shell/ev-window.c:3826
 msgid "Close _after Printing"
 msgstr "Z_avrieť po vytlačení"
 
-#: ../shell/ev-window.c:4086
+#: ../shell/ev-window.c:4237
 msgid "Presentation mode is not supported for ePub documents"
 msgstr "Prezentačný režim nie je pri ePub dokumentoch podporovaný"
 
-#: ../shell/ev-window.c:4725
+#: ../shell/ev-window.c:4878
 msgid "There was an error displaying help"
 msgstr "Pri zobrazovaní pomocníka sa vyskytla chyba"
 
-#: ../shell/ev-window.c:4977
+#: ../shell/ev-window.c:5130
 msgid ""
 "Xreader is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -1310,7 +1320,7 @@ msgstr ""
 "a to buď verzie licencie 2, alebo (podľa vášho uváženia) ľubovoľnej "
 "neskoršej verzie.\n"
 
-#: ../shell/ev-window.c:4981
+#: ../shell/ev-window.c:5134
 msgid ""
 "Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -1321,7 +1331,7 @@ msgstr ""
 "to ani bez predpokladanej záruky PREDAJNOSTI, alebo VHODNOSTI PRE KONKRÉTNY "
 "ÚČEL. Pre ďalšie podrobnosti viď. GNU General Public License.\n"
 
-#: ../shell/ev-window.c:4985
+#: ../shell/ev-window.c:5138
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
@@ -1331,14 +1341,14 @@ msgstr ""
 "nestalo, napíšte na Free Software Foundation, Inc., 51 Franklin Street, "
 "Fifth Floor, Boston, MA 02110-1301 USA\n"
 
-#: ../shell/ev-window.c:4996
+#: ../shell/ev-window.c:5149
 msgid "Xreader"
 msgstr "Xreader"
 
 #. TRANS: Sometimes this could be better translated as
 #. "%d hit(s) on this page".  Therefore this string
 #. contains plural cases.
-#: ../shell/ev-window.c:5258
+#: ../shell/ev-window.c:5457
 #, c-format
 msgid "%d found on this page"
 msgid_plural "%d found on this page"
@@ -1346,374 +1356,382 @@ msgstr[0] "%d nájdených na tejto strane"
 msgstr[1] "%d nájdený na tejto strane"
 msgstr[2] "%d nájdené na tejto strane"
 
-#: ../shell/ev-window.c:5263 ../shell/ev-window.c:5386
+#: ../shell/ev-window.c:5462 ../shell/ev-window.c:5585
 msgid "Not found"
 msgstr "Nenájdené"
 
-#: ../shell/ev-window.c:5269
+#: ../shell/ev-window.c:5468
 #, c-format
 msgid "%3d%% remaining to search"
 msgstr "Zostáva vyhľadať %3d%%"
 
-#: ../shell/ev-window.c:5869
+#: ../shell/ev-window.c:6143
 msgid "_File"
 msgstr "_Súbor"
 
-#: ../shell/ev-window.c:5870
+#: ../shell/ev-window.c:6144
 msgid "_Edit"
 msgstr "_Upraviť"
 
-#: ../shell/ev-window.c:5871
+#: ../shell/ev-window.c:6145
 msgid "_View"
 msgstr "_Zobraziť"
 
-#: ../shell/ev-window.c:5872
+#: ../shell/ev-window.c:6146
 msgid "_Go"
 msgstr "Í_sť"
 
-#: ../shell/ev-window.c:5873
+#: ../shell/ev-window.c:6147
 msgid "_Bookmarks"
 msgstr "_Záložky"
 
-#: ../shell/ev-window.c:5874
+#: ../shell/ev-window.c:6148
 msgid "_Help"
 msgstr "_Pomocník"
 
+#: ../shell/ev-window.c:6150
+msgid "Recents"
+msgstr ""
+
 #. File menu
-#: ../shell/ev-window.c:5877 ../shell/ev-window.c:6362
+#: ../shell/ev-window.c:6152 ../shell/ev-window.c:6641
 msgid "_Open…"
 msgstr "_Otvoriť…"
 
-#: ../shell/ev-window.c:5879 ../shell/ev-window.c:6363
+#: ../shell/ev-window.c:6154 ../shell/ev-window.c:6642
 msgid "Open an existing document"
 msgstr "Otvoriť existujúci dokument"
 
-#: ../shell/ev-window.c:5881
+#: ../shell/ev-window.c:6156
 msgid "Op_en a Copy"
 msgstr "O_tvoriť kópiu"
 
-#: ../shell/ev-window.c:5883
+#: ../shell/ev-window.c:6158
 msgid "Open a copy of the current document in a new window"
 msgstr "Otvoriť kópiu aktuálneho dokumentu v novom okne"
 
-#: ../shell/ev-window.c:5885
+#: ../shell/ev-window.c:6160
 msgid "_Save a Copy…"
 msgstr "_Uložiť kópiu"
 
-#: ../shell/ev-window.c:5887
+#: ../shell/ev-window.c:6162
 msgid "Save a copy of the current document"
 msgstr "Uložiť kópiu aktuálneho dokumentu"
 
-#: ../shell/ev-window.c:5889
+#: ../shell/ev-window.c:6164
 msgid "_Print…"
 msgstr "_Tlačiť…"
 
-#: ../shell/ev-window.c:5893
+#: ../shell/ev-window.c:6168
 msgid "P_roperties"
 msgstr "_Vlastnosti"
 
-#: ../shell/ev-window.c:5897
+#: ../shell/ev-window.c:6172
 msgid "_Close All Windows"
-msgstr ""
+msgstr "_Zatvoriť všetky okná"
 
-#: ../shell/ev-window.c:5901
+#: ../shell/ev-window.c:6176
 msgid "_Close"
 msgstr "_Zatvoriť"
 
 #. Edit menu
-#: ../shell/ev-window.c:5907
+#: ../shell/ev-window.c:6182
 msgid "_Copy"
 msgstr "_Koprírovať"
 
-#: ../shell/ev-window.c:5911
+#: ../shell/ev-window.c:6186
 msgid "Select _All"
 msgstr "Vybrať _všetko"
 
-#: ../shell/ev-window.c:5915
+#: ../shell/ev-window.c:6190
 msgid "_Find…"
 msgstr "_Nájsť…"
 
-#: ../shell/ev-window.c:5917
+#: ../shell/ev-window.c:6192
 msgid "Find a word or phrase in the document"
 msgstr "Nájsť v dokumente slovo alebo frázu"
 
-#: ../shell/ev-window.c:5927
+#: ../shell/ev-window.c:6202
 msgid "Rotate _Left"
 msgstr "Otočiť d_oľava"
 
-#: ../shell/ev-window.c:5931
+#: ../shell/ev-window.c:6206
 msgid "Rotate _Right"
 msgstr "Otočiť do_prava"
 
-#: ../shell/ev-window.c:5935
+#: ../shell/ev-window.c:6210
 msgid "Save Current Settings as _Default"
 msgstr "Uložiť aktuálne nastavenia ako pre_dvolené"
 
 #. View menu
-#: ../shell/ev-window.c:5946
+#: ../shell/ev-window.c:6221
 msgid "_Original size"
 msgstr "_Pôvodná veľkosť"
 
-#: ../shell/ev-window.c:5948
+#: ../shell/ev-window.c:6223
 msgid "View the document at its original size"
 msgstr "Zobraziť dokument v pôvodnej veľkosti"
 
-#: ../shell/ev-window.c:5950
+#: ../shell/ev-window.c:6225
 msgid "Zoom _In"
 msgstr "Zoom _In"
 
-#: ../shell/ev-window.c:5954
+#: ../shell/ev-window.c:6229
 msgid "Zoom _Out"
 msgstr "Zmenšiť"
 
-#: ../shell/ev-window.c:5958
+#: ../shell/ev-window.c:6233
 msgid "_Reload"
 msgstr "_Znovu načítať"
 
-#: ../shell/ev-window.c:5960
+#: ../shell/ev-window.c:6235
 msgid "Reload the document"
 msgstr "Znovu načítať dokument"
 
-#: ../shell/ev-window.c:5962
+#: ../shell/ev-window.c:6237
 msgid "_Expand Window to Fit"
 msgstr "_Zväčšiť okno na celý dostupný priestor"
 
-#: ../shell/ev-window.c:5967
+#: ../shell/ev-window.c:6242
 msgid "Auto_scroll"
 msgstr "Automaticky s_krolovať"
 
-#: ../shell/ev-window.c:5981
+#: ../shell/ev-window.c:6256
 msgid "_First Page"
 msgstr "_Prvá strana"
 
-#: ../shell/ev-window.c:5983
+#: ../shell/ev-window.c:6258
 msgid "Go to the first page"
 msgstr "Prejsť na prvú stranu"
 
-#: ../shell/ev-window.c:5985
+#: ../shell/ev-window.c:6260
 msgid "_Last Page"
 msgstr "Po_sledná strana"
 
-#: ../shell/ev-window.c:5987
+#: ../shell/ev-window.c:6262
 msgid "Go to the last page"
 msgstr "Prejsť na poslednú stranu"
 
-#: ../shell/ev-window.c:5989
+#: ../shell/ev-window.c:6264
 msgid "Previous History Item"
 msgstr "Predoľlá položka histórie"
 
-#: ../shell/ev-window.c:5993
+#: ../shell/ev-window.c:6268
 msgid "Next History Item"
 msgstr "Nasledovná položka histórie"
 
 #. Bookmarks menu
-#: ../shell/ev-window.c:5999
+#: ../shell/ev-window.c:6274
 msgid "_Add Bookmark"
 msgstr "Prid_ať záložku"
 
-#: ../shell/ev-window.c:6001
+#: ../shell/ev-window.c:6276
 msgid "Add a bookmark for the current page"
 msgstr "Pridať záložku pre aktuálnu stranu"
 
 #. Help menu
-#: ../shell/ev-window.c:6005
+#: ../shell/ev-window.c:6280
 msgid "_Contents"
 msgstr "_Obsah"
 
-#: ../shell/ev-window.c:6010
+#: ../shell/ev-window.c:6285
 msgid "_About"
 msgstr "O progr_ame"
 
 #. Toolbar-only
-#: ../shell/ev-window.c:6016
+#: ../shell/ev-window.c:6291
 msgid "Leave Fullscreen"
 msgstr "Opustiť režim celej obrazovky"
 
-#: ../shell/ev-window.c:6018
+#: ../shell/ev-window.c:6293
 msgid "Leave fullscreen mode"
 msgstr "Opustiť režim celej obrazovky"
 
-#: ../shell/ev-window.c:6020
+#: ../shell/ev-window.c:6295
 msgid "Start Presentation"
 msgstr "Spustiť Prezentáciu"
 
-#: ../shell/ev-window.c:6022
+#: ../shell/ev-window.c:6297
 msgid "Start a presentation"
 msgstr "Spustiť prezentáciu"
 
 #. View Menu
-#: ../shell/ev-window.c:6139
+#: ../shell/ev-window.c:6414
+msgid "_Menubar"
+msgstr ""
+
+#: ../shell/ev-window.c:6416
+msgid "Show or hide the menubar"
+msgstr ""
+
+#: ../shell/ev-window.c:6418
 msgid "_Toolbar"
 msgstr "_Panel nástrojov"
 
-#: ../shell/ev-window.c:6141
+#: ../shell/ev-window.c:6420
 msgid "Show or hide the toolbar"
 msgstr "Zobraziť alebo skryť panel nástrojov"
 
-#: ../shell/ev-window.c:6143
+#: ../shell/ev-window.c:6422
 msgid "Side _Pane"
 msgstr "Bočný _panel"
 
-#: ../shell/ev-window.c:6145
+#: ../shell/ev-window.c:6424
 msgid "Show or hide the side pane"
 msgstr "Zobraziť alebo skryť bočný panel"
 
-#: ../shell/ev-window.c:6147
+#: ../shell/ev-window.c:6426
 msgid "_Continuous"
 msgstr "_Súvislý"
 
-#: ../shell/ev-window.c:6149
+#: ../shell/ev-window.c:6428
 msgid "Show the entire document"
 msgstr "Zobraziť celý dokument"
 
-#: ../shell/ev-window.c:6151
+#: ../shell/ev-window.c:6430
 msgid "_Dual (Even pages left)"
 msgstr "_Dvojité (Párne strany vľavo)"
 
-#: ../shell/ev-window.c:6153
+#: ../shell/ev-window.c:6432
 msgid "Show two pages at once with even pages on the left"
 msgstr "Zobrazí dve strany naraz s párnymi stranami vľavo"
 
-#: ../shell/ev-window.c:6155
+#: ../shell/ev-window.c:6434
 msgid "Dual (_Odd pages left)"
 msgstr "Dvojité (_Nepárne strany vľavo)"
 
-#: ../shell/ev-window.c:6157
+#: ../shell/ev-window.c:6436
 msgid "Show two pages at once with odd pages on the left"
 msgstr "Zobrazí dve strany naraz s nepárnymi stranami vľavo"
 
-#: ../shell/ev-window.c:6159
+#: ../shell/ev-window.c:6438
 msgid "_Fullscreen"
 msgstr "_Celá obrazovka"
 
-#: ../shell/ev-window.c:6161
+#: ../shell/ev-window.c:6440
 msgid "Expand the window to fill the screen"
 msgstr "Zväčšiť okno tak, aby zaplnilo celú obrazovku"
 
-#: ../shell/ev-window.c:6163
+#: ../shell/ev-window.c:6442
 msgid "Pre_sentation"
 msgstr "_Prezentácia"
 
-#: ../shell/ev-window.c:6165
+#: ../shell/ev-window.c:6444
 msgid "Run document as a presentation"
 msgstr "Spustiť dokument ako prezentáciu"
 
-#: ../shell/ev-window.c:6175
+#: ../shell/ev-window.c:6454
 msgid "_Inverted Colors"
 msgstr "_Invertované farby"
 
-#: ../shell/ev-window.c:6177
+#: ../shell/ev-window.c:6456
 msgid "Show page contents with the colors inverted"
 msgstr "Zobraziť obsah stránky s invertovanými farbami"
 
 #. Links
-#: ../shell/ev-window.c:6185
+#: ../shell/ev-window.c:6464
 msgid "_Open Link"
 msgstr "_Otvoriť odkaz"
 
-#: ../shell/ev-window.c:6187
+#: ../shell/ev-window.c:6466
 msgid "_Go To"
 msgstr "Í_sť na"
 
-#: ../shell/ev-window.c:6189
+#: ../shell/ev-window.c:6468
 msgid "Open in New _Window"
 msgstr "Otvoriť v novom _okne"
 
-#: ../shell/ev-window.c:6191
+#: ../shell/ev-window.c:6470
 msgid "_Copy Link Address"
 msgstr "_Kopírovať adresu odkazu"
 
-#: ../shell/ev-window.c:6193
+#: ../shell/ev-window.c:6472
 msgid "_Save Image As…"
 msgstr "_Uložiť obrázok ako…"
 
-#: ../shell/ev-window.c:6195
+#: ../shell/ev-window.c:6474
 msgid "Copy _Image"
 msgstr "Kopírovať _Obrázok"
 
-#: ../shell/ev-window.c:6197
+#: ../shell/ev-window.c:6476
 msgid "Annotation Properties…"
 msgstr "Vlastnosti komentára…"
 
-#: ../shell/ev-window.c:6199
+#: ../shell/ev-window.c:6478
 msgid "Remove Annotation"
 msgstr "Odstrániť poznámku"
 
-#: ../shell/ev-window.c:6204
+#: ../shell/ev-window.c:6483
 msgid "_Open Attachment"
 msgstr "_Otvoriť prílohu"
 
-#: ../shell/ev-window.c:6206
+#: ../shell/ev-window.c:6485
 msgid "_Save Attachment As…"
 msgstr "_Uložiť prílohu ako…"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6383
+#: ../shell/ev-window.c:6662
 msgid "Previous"
 msgstr "Predchádzajúca"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6388
+#: ../shell/ev-window.c:6667
 msgid "Next"
 msgstr "Nasledujúca"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6392
+#: ../shell/ev-window.c:6671
 msgid "Zoom In"
 msgstr "Priblížiť"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6396
+#: ../shell/ev-window.c:6675
 msgid "Zoom Out"
 msgstr "Oddialiť"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6408
+#: ../shell/ev-window.c:6687
 msgid "Fit Width"
 msgstr "Prispôsobiť šírke"
 
-#: ../shell/ev-window.c:6585 ../shell/ev-window.c:6601
+#: ../shell/ev-window.c:6864 ../shell/ev-window.c:6880
 msgid "Unable to launch external application."
 msgstr "Nedá sa spustiť externý program."
 
-#: ../shell/ev-window.c:6659
+#: ../shell/ev-window.c:6938
 msgid "Unable to open external link"
 msgstr "Nedá sa otvoriť externý odkaz"
 
-#: ../shell/ev-window.c:6860
+#: ../shell/ev-window.c:7139
 msgid "Couldn't find appropriate format to save image"
 msgstr "Nepodarilo sa nájsť vhodný formát pre uloženie obrázka"
 
-#: ../shell/ev-window.c:6891
+#: ../shell/ev-window.c:7170
 msgid "The image could not be saved."
 msgstr "Obrázok sa nepodarilo uložiť."
 
-#: ../shell/ev-window.c:6924
+#: ../shell/ev-window.c:7203
 msgid "Save Image"
 msgstr "Uložiť obrázok"
 
-#: ../shell/ev-window.c:7074
+#: ../shell/ev-window.c:7353
 msgid "Unable to open attachment"
 msgstr "Nedá sa otvoriť prílohu"
 
-#: ../shell/ev-window.c:7131
+#: ../shell/ev-window.c:7410
 msgid "The attachment could not be saved."
 msgstr "Prílohu sa nepodarilo uložiť."
 
-#: ../shell/ev-window.c:7177
+#: ../shell/ev-window.c:7456
 msgid "Save Attachment"
 msgstr "Uložiť prílohu"
 
-#: ../shell/ev-window-title.c:127
-msgid "Recent Documents"
-msgstr "Nedávne dokumenty"
-
-#: ../shell/ev-window-title.c:175
+#: ../shell/ev-window-title.c:170
 #, c-format
 msgid "%s — Password Required"
 msgstr "%s — Vyžaduje sa heslo"
 
-#: ../shell/ev-utils.c:105
+#: ../shell/ev-utils.c:107
 msgid "By extension"
 msgstr "Podľa prípony"
 
