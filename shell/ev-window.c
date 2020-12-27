@@ -6481,7 +6481,7 @@ static const GtkToggleActionEntry toggle_entries[] = {
                  NULL,
                  N_("Show two pages at once with odd pages on the left"),
                  G_CALLBACK (ev_window_cmd_dual_odd_pages_left), FALSE },
-         { "ViewRtl", NULL, N_("_Right to Left"),
+         { "ViewRtl", NULL, N_("Right to Left"),
                  NULL,
                  N_("Browse the document from right to left"),
                  G_CALLBACK (ev_window_cmd_rtl), FALSE },
