@@ -3502,6 +3502,48 @@ ev_view_size_allocate (GtkWidget      *widget,
 	}
 }
 
+
+static gboolean
+ev_view_page_fits (EvView         *view,
+		   GtkOrientation  orientation)
+{
+	GtkRequisition requisition;
+	GtkAllocation  allocation;
+	double         size;
+
+	if (view->sizing_mode == EV_SIZING_BEST_FIT)
+		return TRUE;
+
+	if (orientation == GTK_ORIENTATION_HORIZONTAL &&
+	    (view->sizing_mode == EV_SIZING_FIT_WIDTH))
+		return TRUE;
+
+	gtk_widget_get_allocation (GTK_WIDGET (view), &allocation);
+	ev_view_size_request (GTK_WIDGET (view), &requisition);
+
+	if (orientation == GTK_ORIENTATION_HORIZONTAL) {
+		if (requisition.width == 1) {
+			size = 1.0;
+		} else {
+			if (allocation.width > 0.0)
+				size = (double) requisition.width / allocation.width;
+			else
+				size = 1.0;
+		}
+	} else {
+		if (requisition.height == 1) {
+			size = 1.0;
+		} else {
+			if (allocation.height > 0.0)
+				size = (double) requisition.height / allocation.height;
+			else
+				size = 1.0;
+		}
+	}
+
+	return size <= 1.0;
+}
+
 static gboolean
 ev_view_scroll_event (GtkWidget *widget, GdkEventScroll *event)
 {
@@ -3564,7 +3606,60 @@ ev_view_scroll_event (GtkWidget *widget, GdkEventScroll *event)
 		state &= ~GDK_SHIFT_MASK;
 	}
 
-	/* Do scroll only on one axis at a time. Issue #866 of Evince */
+	fit_width = ev_view_page_fits (view, GTK_ORIENTATION_HORIZONTAL);
+	fit_height = ev_view_page_fits (view, GTK_ORIENTATION_VERTICAL);
+	if (state == 0 && !view->continuous && (fit_width || fit_height)) {
+		switch (event->direction) {
+		case GDK_SCROLL_DOWN:
+			if (fit_height) {
+				ev_view_next_page (view);
+				return TRUE;
+			}
+			break;
+		case GDK_SCROLL_RIGHT:
+			if (fit_width) {
+				ev_view_next_page (view);
+				return TRUE;
+			}
+			break;
+		case GDK_SCROLL_UP:
+			if (fit_height) {
+				ev_view_previous_page (view);
+				return TRUE;
+			}
+			break;
+		case GDK_SCROLL_LEFT:
+			if (fit_width) {
+				ev_view_previous_page (view);
+				return TRUE;
+			}
+			break;
+		case GDK_SCROLL_SMOOTH: {
+			gdouble decrement;
+			if ((fit_width && fit_height) ||
+			    ((fit_height && event->delta_x == 0.0) ||
+			     (fit_width && event->delta_y == 0.0))) {
+				/* Emulate normal scrolling by summing the deltas */
+				view->total_delta += event->delta_x + event->delta_y;
+
+				decrement = view->total_delta < 0 ? -1.0 : 1.0;
+				for (; fabs (view->total_delta) >= 1.0; view->total_delta -= decrement) {
+					if (decrement < 0)
+						ev_view_previous_page (view);
+					else
+						ev_view_next_page (view);
+				}
+
+				return TRUE;
+			}
+		}
+			break;
+		}
+
+		return FALSE;
+	}
+
+	/* Do scroll only on one axis at a time. Issue #866 */
 	if (event->direction == GDK_SCROLL_SMOOTH &&
 	    event->delta_x != 0.0 && event->delta_y != 0.0) {
 		gdouble abs_x, abs_y;
