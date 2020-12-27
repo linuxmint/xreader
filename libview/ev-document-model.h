@@ -83,6 +83,9 @@ gboolean         ev_document_model_get_dual_page     (EvDocumentModel *model);
 void             ev_document_model_set_dual_page_odd_pages_left (EvDocumentModel *model,
 								 gboolean         odd_left);
 gboolean         ev_document_model_get_dual_page_odd_pages_left (EvDocumentModel *model);
+void             ev_document_model_set_rtl (EvDocumentModel *model,
+                                            gboolean         rtl);
+gboolean         ev_document_model_get_rtl (EvDocumentModel *model);
 void             ev_document_model_set_fullscreen    (EvDocumentModel *model,
 						      gboolean         fullscreen);
 gboolean         ev_document_model_get_fullscreen    (EvDocumentModel *model);

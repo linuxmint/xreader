@@ -496,6 +496,7 @@ ev_window_setup_action_sensitivity (EvWindow *ev_window)
     ev_window_set_action_sensitive (ev_window, "ViewContinuous", has_pages && !(document->iswebdocument));
     ev_window_set_action_sensitive (ev_window, "ViewDual", has_pages && !(document->iswebdocument));
     ev_window_set_action_sensitive (ev_window, "ViewDualOddLeft", has_pages);
+    ev_window_set_action_sensitive (ev_window, "ViewRtl", has_pages);
     ev_window_set_action_sensitive (ev_window, "ViewBestFit", has_pages && !(document->iswebdocument));
     ev_window_set_action_sensitive (ev_window, "ViewPageWidth", has_pages && !(document->iswebdocument));
     ev_window_set_action_sensitive (ev_window, "ViewReload", has_pages);
@@ -1090,6 +1091,10 @@ ev_window_init_metadata_with_default_values (EvWindow *window)
         ev_metadata_set_boolean (metadata, "dual-page-odd-left",
                                  g_settings_get_boolean (settings, "dual-page-odd-left"));
     }
+    if (!ev_metadata_has_key (metadata, "rtl")) {
+        ev_metadata_set_boolean (metadata, "rtl",
+               gtk_widget_get_default_direction () == GTK_TEXT_DIR_RTL ? TRUE : FALSE);
+    }
     if (!ev_metadata_has_key (metadata, "inverted-colors")) {
         ev_metadata_set_boolean (metadata, "inverted-colors", g_settings_get_boolean (settings, "inverted-colors"));
     }
@@ -1159,6 +1164,7 @@ setup_model_from_metadata (EvWindow *window)
     gboolean continuous = FALSE;
     gboolean dual_page = FALSE;
     gboolean dual_page_odd_left = FALSE;
+    gboolean rtl = FALSE;
     gboolean fullscreen = FALSE;
 
     if (!window->priv->metadata)
@@ -1220,6 +1226,11 @@ setup_model_from_metadata (EvWindow *window)
     /* Dual page odd pages left */
     if (ev_metadata_get_boolean (window->priv->metadata, "dual-page-odd-left", &dual_page_odd_left)) {
         ev_document_model_set_dual_page_odd_pages_left (window->priv->model, dual_page_odd_left);
+    }
+
+    /* Right to left document */
+    if (ev_metadata_get_boolean (window->priv->metadata, "rtl", &rtl)) {
+      ev_document_model_set_rtl (window->priv->model, rtl);
     }
 
     /* Fullscreen */
@@ -1364,6 +1375,7 @@ ev_window_setup_default (EvWindow *ev_window)
     ev_document_model_set_continuous (model, g_settings_get_boolean (settings, "continuous"));
     ev_document_model_set_dual_page (model, g_settings_get_boolean (settings, "dual-page"));
     ev_document_model_set_dual_page_odd_pages_left (model, g_settings_get_boolean (settings, "dual-page-odd-left"));
+    ev_document_model_set_rtl (model, gtk_widget_get_default_direction () == GTK_TEXT_DIR_RTL ? TRUE : FALSE);
     ev_document_model_set_inverted_colors (model, g_settings_get_boolean (settings, "inverted-colors"));
     ev_document_model_set_sizing_mode (model, g_settings_get_enum (settings, "sizing-mode"));
     if (ev_document_model_get_sizing_mode (model) == EV_SIZING_FREE)
@@ -3950,6 +3962,15 @@ ev_window_cmd_dual_odd_pages_left (GtkAction *action,
 }
 
 static void
+ev_window_cmd_rtl (GtkAction *action,
+                   EvWindow  *ev_window)
+{
+    gboolean rtl;
+    rtl = gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action));
+    ev_document_model_set_rtl (ev_window->priv->model, rtl);
+}
+
+static void
 ev_window_cmd_view_best_fit (GtkAction *action,
                              EvWindow  *ev_window)
 {
@@ -5110,6 +5131,20 @@ ev_window_update_dual_page_odd_pages_left_action (EvWindow *window)
 }
 
 static void
+ev_window_update_rtl_action (EvWindow *window)
+{
+    GtkAction *action;
+
+    action = gtk_action_group_get_action (window->priv->action_group, "ViewRtl");
+    g_signal_handlers_block_by_func
+    (action, G_CALLBACK (ev_window_cmd_rtl), window);
+    gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action),
+            ev_document_model_get_rtl (window->priv->model));
+    g_signal_handlers_unblock_by_func
+    (action, G_CALLBACK (ev_window_cmd_rtl), window);
+}
+
+static void
 ev_window_dual_mode_odd_pages_left_changed_cb (EvDocumentModel *model,
                                                GParamSpec      *pspec,
                                                EvWindow        *ev_window)
@@ -5121,6 +5156,17 @@ ev_window_dual_mode_odd_pages_left_changed_cb (EvDocumentModel *model,
                 ev_document_model_get_dual_page_odd_pages_left (model));
 }
 
+static void
+ev_window_direction_changed_cb (EvDocumentModel *model,
+                          GParamSpec      *pspec,
+                          EvWindow        *ev_window)
+{
+    ev_window_update_rtl_action (ev_window);
+
+    if (ev_window->priv->metadata && !ev_window_is_empty (ev_window))
+      ev_metadata_set_boolean (ev_window->priv->metadata, "rtl",
+             ev_document_model_get_rtl (model));
+}
 
 static void
 ev_window_cmd_help_about (GtkAction *action,
@@ -6435,6 +6481,10 @@ static const GtkToggleActionEntry toggle_entries[] = {
                  NULL,
                  N_("Show two pages at once with odd pages on the left"),
                  G_CALLBACK (ev_window_cmd_dual_odd_pages_left), FALSE },
+         { "ViewRtl", NULL, N_("_Right to Left"),
+                 NULL,
+                 N_("Browse the document from right to left"),
+                 G_CALLBACK (ev_window_cmd_rtl), FALSE },
          { "ViewFullscreen", GTK_STOCK_FULLSCREEN, N_("_Fullscreen"),
                  "F11",
                  N_("Expand the window to fill the screen"),
@@ -7981,6 +8031,10 @@ ev_window_init (EvWindow *ev_window)
     g_signal_connect (ev_window->priv->model,
             "notify::dual-odd-left",
             G_CALLBACK (ev_window_dual_mode_odd_pages_left_changed_cb),
+            ev_window);
+    g_signal_connect (ev_window->priv->model,
+            "notify::rtl",
+            G_CALLBACK (ev_window_direction_changed_cb),
             ev_window);
     g_signal_connect (ev_window->priv->model,
             "notify::inverted-colors",
