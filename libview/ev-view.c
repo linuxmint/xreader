@@ -5763,6 +5763,10 @@ ev_view_class_init (EvViewClass *class)
 				      "activate", 0);
 	gtk_binding_entry_add_signal (binding_set, GDK_KEY_KP_Space, 0,
 				      "activate", 0);
+	gtk_binding_entry_add_signal (binding_set, GDK_KEY_space, 0, "binding_activated", 2, GTK_TYPE_SCROLL_TYPE,
+				      GTK_SCROLL_STEP_FORWARD, G_TYPE_BOOLEAN, FALSE);
+	gtk_binding_entry_add_signal (binding_set, GDK_KEY_KP_Space, 0, "binding_activated", 2, GTK_TYPE_SCROLL_TYPE,
+				      GTK_SCROLL_STEP_FORWARD, G_TYPE_BOOLEAN, FALSE);
 }
 
 static void
