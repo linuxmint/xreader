@@ -46,7 +46,7 @@ appdata = custom_target(
     output: 'xreader.appdata.xml',
     command: [intltool_merge, '-x', '-u', po_dir, '@INPUT@', '@OUTPUT@'],
     install: true,
-    install_dir: join_paths(datadir, 'appdata'),
+    install_dir: join_paths(datadir, 'metainfo'),
 )
 
 install_data(
