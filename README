@@ -124,8 +124,14 @@ Optional Backend Libraries
 Requirements to Run Tests
 -------------------------
 
+1) Install prerequisites:
+
 - python-dogtail [ https://fedorahosted.org/dogtail/ ]
 - python-pyatspi2 [ http://download.gnome.org/sources/pyatspi/ ]
+
+2) Now you can run GUI test:
+
+    ninja test -C debian/build/
 
 
 Optional Programs
