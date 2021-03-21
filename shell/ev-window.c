@@ -2535,7 +2535,6 @@ ev_window_cmd_file_activate (GtkAction *action,
                              gpointer   user_data)
 {
     GtkWindow *window = GTK_WINDOW (user_data);
-    GtkRecentInfo *info;
     const gchar   *uri;
 
     uri = g_object_get_data (G_OBJECT (action), "uri");
@@ -2748,7 +2747,6 @@ ev_window_setup_favorites (EvWindow *ev_window)
 {
     GList        *infos, *l;
     guint         n_items = 0;
-    const gchar  *xreader = g_get_application_name ();
     static guint  i = 0;
 
     if (ev_window->priv->favorites_ui_id > 0) {
@@ -2778,7 +2776,6 @@ ev_window_setup_favorites (EvWindow *ev_window)
         GtkAction     *action;
         gchar         *action_name;
         gchar         *label;
-        const gchar   *mime_type;
         gchar         *content_type;
         GIcon         *icon = NULL;
 
@@ -4896,7 +4893,6 @@ static void
 save_sizing_mode (EvWindow *window)
 {
     EvSizingMode mode;
-    GEnumValue *enum_value;
 
     if (!window->priv->metadata || ev_window_is_empty (window))
         return;
@@ -5243,8 +5239,7 @@ view_menu_link_popup (EvWindow *ev_window,
                       EvLink   *link)
 {
     gboolean   show_external = FALSE;
-    gboolean   show_internal = FALSE;
-    GtkAction *action;
+    //gboolean   show_internal = FALSE;
 
     if ( ev_window->priv->document->iswebdocument == TRUE ) return ;
 
@@ -5264,7 +5259,8 @@ view_menu_link_popup (EvWindow *ev_window,
             switch (ev_link_action_get_action_type (ev_action)) {
             case EV_LINK_ACTION_TYPE_GOTO_DEST:
             case EV_LINK_ACTION_TYPE_GOTO_REMOTE:
-                show_internal = TRUE;
+                //  2021-03-21 WHY WAS THIS BEING SET BUT NEVER USED? 
+                //show_internal = TRUE;
                 break;
             case EV_LINK_ACTION_TYPE_EXTERNAL_URI:
             case EV_LINK_ACTION_TYPE_LAUNCH:
@@ -5286,7 +5282,6 @@ static void
 view_menu_image_popup (EvWindow  *ev_window,
                        EvImage   *image)
 {
-    GtkAction *action;
     gboolean   show_image = FALSE;
 
     if (ev_window->priv->document->iswebdocument == TRUE ) return ;
@@ -5308,7 +5303,6 @@ static void
 view_menu_annot_popup (EvWindow     *ev_window,
                        EvAnnotation *annot)
 {
-    GtkAction *action;
     gboolean   show_annot = FALSE;
     if (ev_window->priv->document->iswebdocument == TRUE ) return ;
     if (ev_window->priv->annot)
