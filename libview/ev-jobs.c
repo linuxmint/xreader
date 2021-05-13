@@ -1410,6 +1410,8 @@ ev_job_find_run (EvJob *job)
 		job_find->pages[job_find->current_page] = matches;
 	}
 
+	job_find->total_count += g_list_length(job_find->pages[job_find->current_page]);
+	
 	g_signal_emit (job_find, job_find_signals[FIND_UPDATED], 0, job_find->current_page);
 		       
 	job_find->current_page = (job_find->current_page + 1) % job_find->n_pages;
