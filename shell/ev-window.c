@@ -5500,10 +5500,10 @@ ev_window_update_find_status_message (EvWindow *ev_window)
             /* TRANS: Sometimes this could be better translated as
                "%d hit(s) on this page".  Therefore this string
                contains plural cases. */
-            message = g_strdup_printf (ngettext ("%d found on this page",
-                    "%d found on this page",
-                    n_results),
-                    n_results);
+            message = g_strdup_printf (ngettext ("%d found on this page (%d total)",
+                             "%d found on this page (%d total)",
+                             n_results),
+                             n_results, job_find->total_count);
         } else {
             message = g_strdup (_("Not found"));
         }

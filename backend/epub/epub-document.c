@@ -1630,7 +1630,7 @@ page_set_function(linknode *Link, GList *contentList)
 	contentListNode *pagedata;
 
 	guint flag=0;
-	while (!flag) {
+	while (!flag && listiter) {
 		pagedata = listiter->data;
 		if (link_present_on_page(Link->pagelink, pagedata->value)) {
 			flag=1;
