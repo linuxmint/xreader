@@ -271,13 +271,6 @@ set_focus_cb (GtkWidget *window,
       widget = gtk_widget_get_parent (widget);
     }
 
-  /* if widget == bar, the new focus widget is in the bar, so we
-   * don't deactivate.
-   */
-  if (widget != wbar)
-    {
-      g_signal_emit (bar, find_bar_signals[CLOSE], 0);
-    }
 }
 
 static void
