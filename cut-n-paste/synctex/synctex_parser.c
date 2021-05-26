@@ -2075,7 +2075,7 @@ scan_anchor:
 		available = 1;
 		status = _synctex_buffer_get_available_size(scanner,&available);
 		 if (status<SYNCTEX_STATUS_OK && available>0){
-			_synctex_error("Uncomplete sheet(0)");
+			_synctex_error("Incomplete sheet(0)");
 			SYNCTEX_RETURN(SYNCTEX_STATUS_ERROR);
 		}
         goto prepare_loop;
@@ -2104,7 +2104,7 @@ scan_xobv:
 				_synctex_error("Unexpected end of vbox, ignored.");
 			}
 			if (_synctex_next_line(scanner)<SYNCTEX_STATUS_OK) {
-				_synctex_error("Uncomplete sheet.");
+				_synctex_error("Incomplete sheet.");
 				SYNCTEX_RETURN(SYNCTEX_STATUS_ERROR);
 			}
 #           if SYNCTEX_VERBOSE
@@ -2156,7 +2156,7 @@ scan_xobh:
 				_synctex_error("Unexpected end of hbox, ignored.");
 			}
 			if (_synctex_next_line(scanner)<SYNCTEX_STATUS_OK) {
-				_synctex_error("Uncomplete sheet.");
+				_synctex_error("Incomplete sheet.");
 				SYNCTEX_RETURN(SYNCTEX_STATUS_ERROR);
 			}
 #           if SYNCTEX_VERBOSE
@@ -2332,7 +2332,7 @@ scan_xobh:
 		available = 1;
 		status = _synctex_buffer_get_available_size(scanner,&available);
 		 if (status<SYNCTEX_STATUS_OK && available>0){
-			_synctex_error("Uncomplete sheet(0)");
+			_synctex_error("Incomplete sheet(0)");
 			SYNCTEX_RETURN(SYNCTEX_STATUS_ERROR);
 		} else {
 			goto child_loop;
@@ -2566,7 +2566,7 @@ sibling_loop:
 		if (status<SYNCTEX_STATUS_OK && available>0){
 			goto sibling_loop;
 		} else {
-			_synctex_error("Uncomplete sheet(2)");
+			_synctex_error("Incomplete sheet(2)");
 			SYNCTEX_RETURN(SYNCTEX_STATUS_ERROR);
 		}
 	}
@@ -2608,7 +2608,7 @@ content_not_found:
 		return status;
 	}
 	if (_synctex_next_line(scanner)<SYNCTEX_STATUS_OK) {
-		_synctex_error("Uncomplete Content.");
+		_synctex_error("Incomplete Content.");
 		return SYNCTEX_STATUS_ERROR;
 	}
 	if (status == SYNCTEX_STATUS_NOT_OK) {
@@ -2642,7 +2642,7 @@ bail:
 	}
 	status = _synctex_next_line(scanner);
 	if (status<SYNCTEX_STATUS_OK) {
-		_synctex_error("Uncomplete file.");
+		_synctex_error("Incomplete file.");
 		goto bail;
 	}
 	status = _synctex_scan_sheet(scanner,sheet);
