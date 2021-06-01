@@ -1,3 +1,43 @@
+xreader (3.0.0) uma; urgency=medium
+
+  [ icarter09 ]
+  * Fixes #457. Allows space bar to scroll document forward
+
+  [ Soapux ]
+  * Move metadata to non-legacy path
+
+  [ icarter09 ]
+  * Fixes #463. Moves annotations below the text.
+
+  [ Michael Webster ]
+  * packaging: Fix metadata location.
+
+  [ icarter09 ]
+  * Fixes #473. Jump to Page functionality
+
+  [ musa ]
+  * enter event on presentation mode
+
+  [ m8 ]
+  * readme updated
+  * show the total number of words matching the search result
+
+  [ dejj ]
+  * fix segfault in epub backend when opening a filename containing a hash
+  * epub: Fix unescaping of '#' (#487)
+
+  [ Musa Unal ]
+  * control+f and space behaviours fixed in search bar (#488)
+
+  [ Joshua Peisach ]
+  * Fix grammar error spotted by lintian (#489)
+
+  [ Clement Lefebvre ]
+  * l10n: Don't include gsettings schema in translations
+  * l10n: Update POT
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 01 Jun 2021 14:27:53 +0100
+
 xreader (2.8.3) ulyssa; urgency=medium
 
   [ Isaac Carter ]
