@@ -1283,7 +1283,8 @@ setup_document_children(EpubDocument *epub_document,xmlNodePtr node)
             pagelink->str = g_uri_unescape_string (escaped,NULL);
             g_free(escaped);
 
-            if ((end = g_strrstr(pagelink->str,"#")) != NULL) {
+            // cut off fragment after '#', only in the last segment of path
+            if ((end = g_strrstr(pagelink->str,"#")) != NULL && (end > g_strrstr(pagelink->str,"/"))) {
 	            fragment = g_strdup(g_strrstr(pagelink->str,"#"));
 	            *end = '\0';
             }
@@ -1630,7 +1631,7 @@ page_set_function(linknode *Link, GList *contentList)
 	contentListNode *pagedata;
 
 	guint flag=0;
-	while (!flag && listiter) {
+	while (!flag && listiter != NULL) {
 		pagedata = listiter->data;
 		if (link_present_on_page(Link->pagelink, pagedata->value)) {
 			flag=1;
