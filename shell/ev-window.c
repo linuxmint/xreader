@@ -6523,9 +6523,9 @@ static const GtkActionEntry view_popup_entries [] = {
 	  NULL, G_CALLBACK (ev_view_popup_cmd_save_image_as) },
 	{ "CopyImage", NULL, N_("Copy _Image"), NULL,
 	  NULL, G_CALLBACK (ev_view_popup_cmd_copy_image) },
-	{ "AnnotProperties", NULL, N_("Annotation Properties…"), NULL,
+	{ "AnnotProperties", "xapp-format-text-highlight-symbolic" , N_("Annotation Properties…"), NULL,
 	  NULL, G_CALLBACK (ev_view_popup_cmd_annot_properties) },
-	{ "RemoveAnnotation", NULL, N_("Remove Annotation"), NULL,
+	{ "RemoveAnnotation", "window-close-symbolic", N_("Remove Annotation"), NULL,
 	  NULL, G_CALLBACK (ev_view_popup_cmd_remove_annotation) }
 };
 
