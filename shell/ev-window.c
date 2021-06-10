@@ -5410,10 +5410,10 @@ view_menu_annot_popup (EvWindow     *ev_window,
         }
     }
 
-    ev_window_set_action_visible (ev_window->priv->view_popup_action_group,
+    ev_window_set_action_visible (ev_window->priv->attachment_popup_action_group,
                                   "OpenAttachment",
                                   show_annot);
-    ev_window_set_action_visible (ev_window->priv->view_popup_action_group,
+    ev_window_set_action_visible (ev_window->priv->attachment_popup_action_group,
                                   "SaveAttachmentAs",
                                   show_annot);
 }
