@@ -11,45 +11,43 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 17:14+0000\n"
-"PO-Revision-Date: 2020-12-18 14:04+0000\n"
+"POT-Creation-Date: 2021-06-01 14:27+0100\n"
+"PO-Revision-Date: 2021-06-06 16:18+0000\n"
 "Last-Translator: Avi Markovitz <avi.markovitz@gmail.com>\n"
 "Language-Team: Hebrew (http://www.transifex.com/mate/MATE/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2021-01-02 14:17+0000\n"
-"X-Generator: Launchpad (build 34b3ffd45c9543b7f7aa5aa313925241e9e7ca3f)\n"
+"X-Launchpad-Export-Date: 2021-06-09 14:19+0000\n"
+"X-Generator: Launchpad (build b45bdbe3a00b6b668fa7f2069bd545c35c41f7f4)\n"
 "Language: he\n"
 
 #: ../backend/comics/comics-document.c:208
 #, c-format
 msgid ""
 "Error launching the command “%s” in order to decompress the comic book: %s"
-msgstr ""
-"Error launching the command “%s” in order to decompress the comic book: %s"
+msgstr "שגיאת שיגור הפקודה \"%s\" לחילוץ חוברת הקומיקס: %s"
 
 #: ../backend/comics/comics-document.c:222
 #, c-format
 msgid "The command “%s” failed at decompressing the comic book."
-msgstr "The command “%s” failed at decompressing the comic book."
+msgstr "הפקודה \"%s\" כשלה בדחיסת חוברת הקומיקס."
 
 #: ../backend/comics/comics-document.c:231
 #, c-format
 msgid "The command “%s” did not end normally."
-msgstr "הפקודה \"%s\" לא הסתיימה כתקין."
+msgstr "הפקודה \"%s\" לא הסתיימה באופן תקין."
 
 #: ../backend/comics/comics-document.c:459
 #, c-format
 msgid "Not a comic book MIME type: %s"
-msgstr "סוג ה־MIME אינו של ספר קומיקס: %s"
+msgstr "אינו סוג MIME קומיקס: %s"
 
 #: ../backend/comics/comics-document.c:466
 msgid ""
 "Can't find an appropriate command to decompress this type of comic book"
-msgstr ""
-"Can't find an appropriate command to decompress this type of comic book"
+msgstr "לא ניתן למצוא פקודה מתאימה לחלוץ דחיסת קומיקס מסוג זה"
 
 #: ../backend/comics/comics-document.c:540 ../backend/epub/epub-document.c:644
 #: ../libdocument/ev-document-factory.c:145
@@ -59,18 +57,18 @@ msgstr "סוג MIME לא ידוע"
 
 #: ../backend/comics/comics-document.c:567
 msgid "File corrupted"
-msgstr "הקובץ פגום"
+msgstr "קובץ פגום"
 
 #: ../backend/comics/comics-document.c:580
 msgid "No files in archive"
-msgstr "אין קבצים בארכיון"
+msgstr "אין קבצים בארכיב"
 
 #: ../backend/comics/comics-document.c:619
 #, c-format
 msgid "No images found in archive %s"
-msgstr "לא נמצאו תמונות בארכיון %s"
+msgstr "לא נמצאו תמונות בארכיב %s"
 
-#: ../backend/comics/comics-document.c:866 ../backend/epub/epub-document.c:1812
+#: ../backend/comics/comics-document.c:866 ../backend/epub/epub-document.c:1813
 #, c-format
 msgid "There was an error deleting “%s”."
 msgstr "אירעה שגיאה במחיקת \"%s\"."
@@ -86,7 +84,7 @@ msgstr "ספרי קומיקס"
 
 #: ../backend/djvu/djvu-document.c:171
 msgid "DjVu document has incorrect format"
-msgstr "למסמך ה-DjVu יש פורמט לא נכון"
+msgstr "מסמך DjVu בתבנית שגויה"
 
 #: ../backend/djvu/djvu-document.c:248
 msgid ""
@@ -100,7 +98,7 @@ msgstr "מסמכי DjVu"
 
 #: ../backend/dvi/dvi-document.c:107
 msgid "DVI document has incorrect format"
-msgstr "למסמך ה-DVI יש פורמט לא נכון"
+msgstr "מסמך DVI בתבנית שגויה"
 
 #: ../backend/dvi/dvidocument.xreader-backend.in.h:1
 msgid "DVI Documents"
@@ -112,51 +110,51 @@ msgstr "לא מסמך ePub"
 
 #: ../backend/epub/epub-document.c:766
 msgid "could not retrieve filename"
-msgstr "לא ניתן לאחזר את שם הקובץ"
+msgstr "לא ניתן לאחזר שם הקובץ"
 
 #: ../backend/epub/epub-document.c:794
 msgid "could not open archive"
-msgstr "נכשל בפתיחת הארכיון"
+msgstr "כשל בפתיחת ארכיב"
 
 #: ../backend/epub/epub-document.c:810 ../backend/epub/epub-document.c:826
 msgid "could not extract archive"
-msgstr "נכשל בחילוץ הארכיון"
+msgstr "כשל בחילוץ ארכיב"
 
 #: ../backend/epub/epub-document.c:858 ../backend/epub/epub-document.c:941
 msgid "could not retrieve container file"
-msgstr "לא ניתן לאחזר את קובץ ה-container"
+msgstr "לא ניתן לאחזר קובץ מיכל"
 
 #: ../backend/epub/epub-document.c:870
 msgid "could not open container file"
-msgstr "לא ניתן לפתוח את קובץ ה-container"
+msgstr "לא ניתן לפתוח קובץ מיכל"
 
 #: ../backend/epub/epub-document.c:880
 msgid "container file is corrupt"
-msgstr "קובץ ה-container פגום"
+msgstr "קובץ מיכל פגום"
 
 #: ../backend/epub/epub-document.c:890
 msgid "epub file is invalid or corrupt"
-msgstr "קובץ ePub לא תקף או פגום"
+msgstr "קובץ ePub לא תקין או פגום"
 
 #: ../backend/epub/epub-document.c:900
 msgid "epub file is corrupt, no container"
-msgstr "קובץ epub פגום, אין container"
+msgstr "קובץ epub פגום, אין מיכל"
 
 #: ../backend/epub/epub-document.c:985
 msgid "could not parse content manifest"
-msgstr "לא ניתן לנתח את ה-manifest"
+msgstr "לא ניתן לנתח מיצהר"
 
 #: ../backend/epub/epub-document.c:994
 msgid "content file is invalid"
-msgstr "תוכן הקובץ לא תקף"
+msgstr "תוכן קובץ לא תקין"
 
 #: ../backend/epub/epub-document.c:1003
 msgid "epub file has no spine"
-msgstr "לקובץ ה-epub אין spine"
+msgstr "קובץ epub ללא שידרה"
 
 #: ../backend/epub/epub-document.c:1012
 msgid "epub file has no manifest"
-msgstr "לקובץ ה-epub אין manifest"
+msgstr "קובץ epub ללא מצהר"
 
 #: ../backend/epub/epub-document.c:1103
 msgid "Could not set up document tree for loading, some files missing"
@@ -168,7 +166,7 @@ msgstr "מסמכי epub"
 
 #: ../backend/pdf/ev-poppler.cc:522
 msgid "This work is in the Public Domain"
-msgstr "יצירה זו היא לרשות הציבור"
+msgstr "יצירה זו היא ברשות הציבור"
 
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:775 ../backend/pdf/ev-poppler.cc:781
@@ -182,15 +180,15 @@ msgstr "לא"
 
 #: ../backend/pdf/ev-poppler.cc:908
 msgid "Type 1"
-msgstr "Type 1"
+msgstr "סוג 1"
 
 #: ../backend/pdf/ev-poppler.cc:910
 msgid "Type 1C"
-msgstr "Type 1C"
+msgstr "סוג 1C"
 
 #: ../backend/pdf/ev-poppler.cc:912
 msgid "Type 3"
-msgstr "Type 3"
+msgstr "סוג 3"
 
 #: ../backend/pdf/ev-poppler.cc:914
 msgid "TrueType"
@@ -198,11 +196,11 @@ msgstr "TrueType"
 
 #: ../backend/pdf/ev-poppler.cc:916
 msgid "Type 1 (CID)"
-msgstr "Type 1 (CID)"
+msgstr "סוג 1 (CID)"
 
 #: ../backend/pdf/ev-poppler.cc:918
 msgid "Type 1C (CID)"
-msgstr "Type 1C (CID)"
+msgstr "סוג 1C (CID)"
 
 #: ../backend/pdf/ev-poppler.cc:920
 msgid "TrueType (CID)"
@@ -218,15 +216,15 @@ msgstr "ללא שם"
 
 #: ../backend/pdf/ev-poppler.cc:956
 msgid "Embedded subset"
-msgstr "תת־קבוצה מוטמעת"
+msgstr "תת־קבוצה משובצת"
 
 #: ../backend/pdf/ev-poppler.cc:958
 msgid "Embedded"
-msgstr "מוטמע"
+msgstr "משובץ"
 
 #: ../backend/pdf/ev-poppler.cc:960
 msgid "Not embedded"
-msgstr "לא מוטמע"
+msgstr "לא משובץ"
 
 #: ../backend/pdf/pdfdocument.xreader-backend.in.h:1
 msgid "PDF Documents"
@@ -235,16 +233,16 @@ msgstr "מסמכי PDF"
 #: ../backend/ps/ev-spectre.c:102
 #, c-format
 msgid "Failed to load document “%s”"
-msgstr "לא ניתן לטעון את המסמך “%s”"
+msgstr "לא ניתן לטעון מסמך “%s”"
 
 #: ../backend/ps/ev-spectre.c:135
 #, c-format
 msgid "Failed to save document “%s”"
-msgstr "ארע כשל בשמירת המסמך “%s”"
+msgstr "כשל בשמירת מסמך “%s”"
 
 #: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
-msgstr "מסמכי PostScript"
+msgstr "מסמכי פוסטסקריפט"
 
 #: ../backend/tiff/tiff-document.c:114
 msgid "Invalid document"
@@ -253,22 +251,22 @@ msgstr "מסמך לא תקין"
 #: ../libdocument/ev-attachment.c:299 ../libdocument/ev-attachment.c:320
 #, c-format
 msgid "Couldn't save attachment “%s”: %s"
-msgstr "לא ניתן לשמור את הנספח “%s”:‏ %s"
+msgstr "לא ניתן לשמור צרופה “%s”:‏ %s"
 
 #: ../libdocument/ev-attachment.c:368
 #, c-format
 msgid "Couldn't open attachment “%s”: %s"
-msgstr "לא ניתן לפתוח את הנספח “%s”:‏ %s"
+msgstr "לא ניתן לפתוח צרופה “%s”:‏ %s"
 
 #: ../libdocument/ev-attachment.c:403
 #, c-format
 msgid "Couldn't open attachment “%s”"
-msgstr "לא ניתן לפתוח את הנספח “%s”"
+msgstr "לא ניתן לפתוח צרופה “%s”"
 
 #: ../libdocument/ev-document-factory.c:170
 #, c-format
 msgid "File type %s (%s) is not supported"
-msgstr "סוג הקובץ %s ‏(%s) אינו נתמך"
+msgstr "סוג הקובץ %s ‏(%s) לא נתמך"
 
 #: ../libdocument/ev-document-factory.c:361
 msgid "All Documents"
@@ -281,27 +279,27 @@ msgstr "כל הקבצים"
 #: ../libdocument/ev-file-helpers.c:147
 #, c-format
 msgid "Failed to create a temporary file: %s"
-msgstr "ארע כשל ביצירת הקובץ הזמני: %s"
+msgstr "כשל ביצירת קובץ זמני: %s"
 
 #: ../libdocument/ev-file-helpers.c:309
 #, c-format
 msgid "Failed to create a temporary directory: %s"
-msgstr "ארע כשל ביצירת התיקייה הזמנית: %s"
+msgstr "כשל ביצירת תיקייה זמנית: %s"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:165
 #, c-format
 msgid "File is not a valid .desktop file"
-msgstr "הקובץ אינו קובץ ‎.desktop תקין"
+msgstr "הקובץ אינו קובץ desktop. תקין"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:188
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
-msgstr "גרסת קובץ שולחן עבודה '%s' אינה מזוהה"
+msgstr "גרסת קובץ ה־‎.desktop‏ '%s' אינה מזוהה"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:957
 #, c-format
 msgid "Starting %s"
-msgstr "%s מופעל"
+msgstr "אתחול %s"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1098
 #, c-format
@@ -311,7 +309,7 @@ msgstr "היישום אינו מקבל מסמכים בשורת בפקודה"
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1166
 #, c-format
 msgid "Unrecognized launch option: %d"
-msgstr "אפשרות שיגור לא מוכרת: %d"
+msgstr "אפשרות שיגור לא מזוהה: %d"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1365
 #, c-format
@@ -325,45 +323,45 @@ msgstr "הפריט אינו ניתן לשיגור"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:224
 msgid "Disable connection to session manager"
-msgstr "Disable connection to session manager"
+msgstr "השבתת חיבור למנהל המופעים"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:227
 msgid "Specify file containing saved configuration"
-msgstr "Specify file containing saved configuration"
+msgstr "נא להגדיר קובץ המכיל את התצורה השמורה"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:227 ../previewer/ev-previewer.c:35
 #: ../previewer/ev-previewer.c:36
 msgid "FILE"
-msgstr "FILE"
+msgstr "קובץ"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:230
 msgid "Specify session management ID"
-msgstr "Specify session management ID"
+msgstr "הגדרת מזהה ניהול מופעים"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:230
 msgid "ID"
-msgstr "ID"
+msgstr "מזהה"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:251
 msgid "Session management options:"
-msgstr "Session management options:"
+msgstr "אפשרויות ניהול מופעים:"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:252
 msgid "Show session management options"
-msgstr "Show session management options"
+msgstr "הצגת אפשרויות ניהול מופע"
 
 #. translators: this is the label for toolbar button
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6733
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6732
 msgid "Best Fit"
-msgstr "ההתאמה הטובה ביותר"
+msgstr "התאמה מיטבית"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:50
 msgid "Fit Page Width"
 msgstr "התאמה לרוחב העמוד"
 
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:6285
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:6284
 msgid "Expand Window to Fit"
-msgstr "הרחב את החלון להתאמה"
+msgstr "הרחבת החלון להתאמה"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:53
 msgid "50%"
@@ -423,7 +421,7 @@ msgstr "6400%"
 
 #: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer"
-msgstr "מציג מסמכים"
+msgstr "משקף מסמכים"
 
 #: ../data/xreader.appdata.xml.in.h:2
 msgid ""
@@ -433,103 +431,68 @@ msgid ""
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
 msgstr ""
-"<p>Xreader הוא תכנה פשוטה לצפייה במסמכים מרובי דפים. ניתן להציג קובצי "
-"PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS ו-PDF, כמו גם "
-"קובצי ארכיון של קומיקסים. כשנתמך ע\"י הקובץ, ניתן גם לחפש טקסט, להעתיק טקסט, "
-"לנווט בעזרת קישורים וסימניות ותוכן עניינים. </p>"
+"<p> Xreader הוא מציג מסמכים, רב-עמודי, פשוט. הוא יכול להציג ולהדפיס קבצי "
+"פוסטסקריפט (PS),  פוסטסקריפט כמוס (EPS), DJVU, DVI, XPS ו- תַּסְדִּיר מסמכים "
+"נייד (PDF), כמו גם קבצי ארכיב קומיקס. כשהמסמך תומך בכך, הוא מאפשר גם חיפוש "
+"מלל, העתקת מלל ללוח, ניווט היפרטקסט וסימניות תוכן עניינים. </p>"
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
 #: ../shell/main.c:239 ../shell/main.c:268
 msgid "Document Viewer"
-msgstr "מציג מסמכים"
+msgstr "משקף מסמכים"
 
 #: ../data/xreader.desktop.in.in.h:2
 msgid "View multi-page documents"
 msgstr "הצגת מסמכים מרובי עמודים"
 
-#: ../data/org.x.reader.gschema.xml.h:1
-msgid "Override document restrictions"
-msgstr "עקוף הגבלות מסמך"
-
-#: ../data/org.x.reader.gschema.xml.h:2
-msgid "Override document restrictions, like restriction to copy or to print."
-msgstr "עקוף הגבלות על המסמך, כגון הגבלה על העתקה או הדפסה."
-
-#: ../data/org.x.reader.gschema.xml.h:3
-msgid "Automatically reload the document"
-msgstr "טען מחדש את המסמך אוטומטית"
-
-#: ../data/org.x.reader.gschema.xml.h:4
-msgid "Whether the document is automatically reloaded on file change."
-msgstr "האם הקובץ מתעדכן אוטומטית בעת שינויו."
-
-#: ../data/org.x.reader.gschema.xml.h:5
-msgid "The URI of the directory last used to open or save a document."
-msgstr "הנתיב של המיקום האחרון ששימש לפתיחה או שמירה של מסמך."
-
-#: ../data/org.x.reader.gschema.xml.h:6
-msgid "The URI of the directory last used to save a picture."
-msgstr "הנתיב של המיקום האחרון ששימש לשמירת תמונה."
-
-#: ../data/org.x.reader.gschema.xml.h:7
-msgid "Page cache size in MiB"
-msgstr "גודל מטמון דף במגה בייט"
-
-#: ../data/org.x.reader.gschema.xml.h:8
-msgid ""
-"The maximum size that will be used to cache rendered pages, limits maximum "
-"zoom level."
-msgstr ""
-"הגודל המירבי שישמש למטמון לדפים אחרי רינדור, מגביל את גודל התקריב המירבי."
-
 #: ../previewer/ev-previewer.c:34
 msgid "Delete the temporary file"
-msgstr "מחק את הקובץ הזמני"
+msgstr "מחיקת הקובץ הזמני"
 
 #: ../previewer/ev-previewer.c:35
 msgid "Print settings file"
-msgstr "הדפס קובץ הגדרות"
+msgstr "הדפסת קובץ הגדרות"
 
 #: ../previewer/ev-previewer.c:104 ../previewer/ev-previewer.c:135
 msgid "Print Preview"
-msgstr "הדפס תצוגה מקדימה"
+msgstr "תצוגה מקדימה של הדפסה"
 
 #: ../previewer/ev-previewer-window.c:83 ../shell/ev-window.c:3483
 msgid "Failed to print document"
-msgstr "ארע כשל בהדפסת המסמך"
+msgstr "כשל בהדפסת מסמך"
 
 #: ../previewer/ev-previewer-window.c:235
 #, c-format
 msgid "The selected printer '%s' could not be found"
-msgstr "המדפסת הנבחרת '%s' לא נמצאה"
+msgstr "המדפסת שנבחרה '%s' לא נמצאה"
 
 #. Go menu
-#: ../previewer/ev-previewer-window.c:281 ../shell/ev-window.c:6294
+#: ../previewer/ev-previewer-window.c:281 ../shell/ev-window.c:6293
 msgid "_Previous Page"
-msgstr "העמוד _הקודם"
+msgstr "עמוד _קודם"
 
-#: ../previewer/ev-previewer-window.c:282 ../shell/ev-window.c:6296
+#: ../previewer/ev-previewer-window.c:282 ../shell/ev-window.c:6295
 msgid "Go to the previous page"
 msgstr "מעבר לעמוד הקודם"
 
-#: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:6298
+#: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:6297
 msgid "_Next Page"
-msgstr "העמוד _הבא"
+msgstr "עמוד ה_בא"
 
-#: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:6300
+#: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:6299
 msgid "Go to the next page"
 msgstr "מעבר לעמוד הבא"
 
-#: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:6273
+#: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:6272
 msgid "Enlarge the document"
 msgstr "הגדלת המסמך"
 
-#: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:6277
+#: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:6276
 msgid "Shrink the document"
-msgstr "הקטנת המסמך"
+msgstr "כווץ המסמך"
 
 #. translators: this is the label for toolbar button
-#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:6729
+#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:6728
 msgid "Original size"
 msgstr "גודל מקורי"
 
@@ -537,33 +500,33 @@ msgstr "גודל מקורי"
 #. translators: Title of the print dialog
 #: ../previewer/ev-previewer-window.c:297 ../libview/ev-print-operation.c:1328
 msgid "Print"
-msgstr "הדפס"
+msgstr "הדפסה"
 
-#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:6212
+#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:6211
 msgid "Print this document"
 msgstr "הדפסת מסמך זה"
 
-#: ../previewer/ev-previewer-window.c:341 ../shell/ev-window.c:6496
+#: ../previewer/ev-previewer-window.c:341 ../shell/ev-window.c:6495
 msgid "_Best Fit"
-msgstr "_ההתאמה הטובה ביותר"
+msgstr "_התאמה מיטבית"
 
-#: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:6498
+#: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:6497
 msgid "Make the current document fill the window"
-msgstr "הצגת המסמך הנוכחי כך שימלא את החלון"
+msgstr "התאמת המסמך הנוכחי למידות החלון"
 
-#: ../previewer/ev-previewer-window.c:344 ../shell/ev-window.c:6500
+#: ../previewer/ev-previewer-window.c:344 ../shell/ev-window.c:6499
 msgid "Fit Page _Width"
 msgstr "התאמה _לרוחב עמוד"
 
-#: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:6502
+#: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:6501
 msgid "Make the current document fill the window width"
-msgstr "הצגת המסמך הנוכחי כך שימלא את רוחב העמוד"
+msgstr "התאמת המסמך הנוכחי לרוחב העמוד"
 
-#: ../previewer/ev-previewer-window.c:561 ../shell/ev-window.c:6677
+#: ../previewer/ev-previewer-window.c:561 ../shell/ev-window.c:6676
 msgid "Page"
 msgstr "עמוד"
 
-#: ../previewer/ev-previewer-window.c:562 ../shell/ev-window.c:6678
+#: ../previewer/ev-previewer-window.c:562 ../shell/ev-window.c:6677
 msgid "Select Page"
 msgstr "בחירת עמוד"
 
@@ -581,29 +544,29 @@ msgstr "מתוך %d"
 #: ../libview/ev-loading-window.c:76 ../shell/ev-sidebar-annotations.c:134
 #: ../shell/ev-sidebar-layers.c:122 ../shell/ev-sidebar-links.c:256
 msgid "Loading…"
-msgstr "בטעינה..."
+msgstr "טעינה..."
 
 #. Initial state
 #: ../libview/ev-print-operation.c:332
 msgid "Preparing to print…"
-msgstr "מתכונן להדפסה..."
+msgstr "הכנה להדפסה…"
 
 #: ../libview/ev-print-operation.c:334
 msgid "Finishing…"
-msgstr "מסיים..."
+msgstr "סיום…"
 
 #: ../libview/ev-print-operation.c:336
 #, c-format
 msgid "Printing page %d of %d…"
-msgstr "מדפיס עמוד %d מתוך %d..."
+msgstr "הדפסת עמוד %d מתוך %d..."
 
 #: ../libview/ev-print-operation.c:1184
 msgid "The requested format is not supported by this printer."
-msgstr "הפורמט המבוקש לא נתמך במדפסת זו."
+msgstr "התבנית המבוקשת לא נתמכת במדפסת זו."
 
 #: ../libview/ev-print-operation.c:1247
 msgid "Invalid page selection"
-msgstr "בחירת העמודים שגויה"
+msgstr "בחירת עמודים שגויה"
 
 #: ../libview/ev-print-operation.c:1248
 msgid "Warning"
@@ -611,11 +574,11 @@ msgstr "אזהרה"
 
 #: ../libview/ev-print-operation.c:1250
 msgid "Your print range selection does not include any pages"
-msgstr "בחירת טווח ההדפסה שלך אינו כולל עמודים כלשהם"
+msgstr "טווח ההדפסה שנבחר אינו מכיל עמודים כלל"
 
 #: ../libview/ev-print-operation.c:1937
 msgid "Page Scaling:"
-msgstr "מידות העמוד:"
+msgstr "סילום עמוד:"
 
 #. translators: Value for 'Page Scaling:' to not scale the document pages on printing
 #: ../libview/ev-print-operation.c:1943
@@ -624,11 +587,11 @@ msgstr "ללא"
 
 #: ../libview/ev-print-operation.c:1944
 msgid "Shrink to Printable Area"
-msgstr "כיווץ לאזור הניתן להדפסה"
+msgstr "כווץ לאזור ההדפסה"
 
 #: ../libview/ev-print-operation.c:1945
 msgid "Fit to Printable Area"
-msgstr "התאמה לאזור הניתן להדפסה"
+msgstr "התאמה לאזור ההדפסה"
 
 #: ../libview/ev-print-operation.c:1948
 msgid ""
@@ -643,82 +606,82 @@ msgid ""
 "• \"Fit to Printable Area\": Document pages are enlarged or reduced as "
 "required to fit the printable area of the printer page.\n"
 msgstr ""
-"התאמת עמודי המסמך לגודל העמוד במדפסת. יש לבחור מהבאים:\n"
+"סילום עמודי המסמך לגודל העמוד במדפסת. נא לבחור מהבאים:\n"
 "\n"
-"• \"ללא\": לא מתבצעות התאמות לעמוד.\n"
+"• \"ללא\": לא מתבצע סילום לעמוד.\n"
 "\n"
-"• \"כיווץ לאזור הניתן להדפסה\": עמודי המסמך גדולים מהאזור הניתן להדפסה "
-"מוקטנים כדי שיתאימו לאזור עליו ניתן להדפיס בדפי המדפסת.\n"
+"• \"כיווץ לאזור ההדפסה\": עמודי המסמך, הגדולים מהאזור ההדפסה, מוקטנים כך "
+"שיתאימו לאזור ההדפסה של דפי המדפסת.\n"
 "\n"
-"• \"התאמה לאזור הניתן להדפסה\": עמודי המסמך מוגדלים או מוקטנים כדי להתאים "
-"לאזור הניתן להדפסה בדף המדפסת.\n"
+"• \"התאמה לאזור ההדפסה\": עמודי המסמך מוגדלים או מוקטנים כדי להתאים לאזור "
+"ההדפסה של דף המדפסת.\n"
 
 #: ../libview/ev-print-operation.c:1960
 msgid "Auto Rotate and Center"
-msgstr "הטיה ומרכוז אוטומטיים"
+msgstr "סיבוב ומרכוז אוטומטי"
 
 #: ../libview/ev-print-operation.c:1963
 msgid ""
 "Rotate printer page orientation of each page to match orientation of each "
 "document page. Document pages will be centered within the printer page."
 msgstr ""
-"הטיית כיוון העמוד של כל עמוד בנפרד כך שיתאים להטיה של כל עמוד במסמך. עמודי "
+"סיבוב כיוון העמוד לכל עמוד בנפרד כך שיתאים לסיבוב של כל עמודי המסמך. עמודי "
 "המסמך ימורכזו בדף המדפסת."
 
 #: ../libview/ev-print-operation.c:1968
 msgid "Select page size using document page size"
-msgstr "בחירת גודל העמוד באמצעות גודל עמוד המסמך"
+msgstr "בחירת גודל העמוד על פי גודל עמוד המסמך"
 
 #: ../libview/ev-print-operation.c:1970
 msgid ""
 "When enabled, each page will be printed on the same size paper as the "
 "document page."
-msgstr "כאשר פעיל, כל עמוד יודפס באותו גודל הדף כמו עמוד המסמך."
+msgstr "כאשר מאופשר, כל עמוד יודפס באותו גודל דף כמו עמוד המסמך."
 
 #: ../libview/ev-print-operation.c:2052
 msgid "Page Handling"
 msgstr "טיפול בעמודים"
 
-#: ../libview/ev-jobs.c:1739
+#: ../libview/ev-jobs.c:1741
 #, c-format
 msgid "Failed to print page %d: %s"
-msgstr "ארע כשל בהדפסת עמוד %d: ‏%s"
+msgstr "כשל בהדפסת עמוד %d: ‏%s"
 
 #: ../libview/ev-view-accessible.c:45
 msgid "Scroll Up"
-msgstr "גלילה למעלה"
+msgstr "גלילה מעלה"
 
 #: ../libview/ev-view-accessible.c:46
 msgid "Scroll Down"
-msgstr "גלילה למטה"
+msgstr "גלילה מטה"
 
 #: ../libview/ev-view-accessible.c:52
 msgid "Scroll View Up"
-msgstr "גלילת התצוגה למעלה"
+msgstr "גלילת מצג מעלה"
 
 #: ../libview/ev-view-accessible.c:53
 msgid "Scroll View Down"
-msgstr "גלילת התצוגה למטה"
+msgstr "גלילת מצג מטה"
 
 #: ../libview/ev-view-accessible.c:106
 msgid "Document View"
 msgstr "תצוגת מסמך"
 
-#: ../libview/ev-view-presentation.c:692
+#: ../libview/ev-view-presentation.c:693
 msgid "Jump to page:"
-msgstr "קפוץ לעמוד:"
+msgstr "דלוג לעמוד:"
 
-#: ../libview/ev-view-presentation.c:996
+#: ../libview/ev-view-presentation.c:997
 msgid "End of presentation. Click to exit."
-msgstr "סוף המצגת. נא ללחוץ ליציאה."
+msgstr "סוף המצגת. נא להקיש ליציאה."
 
 #: ../libview/ev-view.c:1853
 msgid "Go to first page"
-msgstr "מעבר לעמוד הראשון"
+msgstr "מעבר לעמוד ראשון"
 
 #: ../libview/ev-view.c:1855
 msgid "Go to previous page"
-msgstr "מעבר לעמוד הקודם"
+msgstr "מעבר לעמוד קודם"
 
 #: ../libview/ev-view.c:1857
 msgid "Go to next page"
@@ -726,7 +689,7 @@ msgstr "מעבר לעמוד הבא"
 
 #: ../libview/ev-view.c:1859
 msgid "Go to last page"
-msgstr "מעבר לעמוד האחרון"
+msgstr "מעבר לעמוד אחרון"
 
 #: ../libview/ev-view.c:1861
 msgid "Go to page"
@@ -756,33 +719,33 @@ msgstr "מעבר לקובץ “%s”"
 msgid "Launch %s"
 msgstr "שיגור %s"
 
-#: ../shell/eggfindbar.c:304
+#: ../shell/eggfindbar.c:297
 msgid "Find:"
 msgstr "חיפוש:"
 
-#: ../shell/eggfindbar.c:325 ../shell/ev-window.c:6244
+#: ../shell/eggfindbar.c:318 ../shell/ev-window.c:6243
 msgid "Find Pre_vious"
 msgstr "חיפוש _הקודם"
 
-#: ../shell/eggfindbar.c:329
+#: ../shell/eggfindbar.c:322
 msgid "Find previous occurrence of the search string"
-msgstr "חיפוש המופע הקודם של המחרוזת"
+msgstr "חיפוש מופע קודם של מחרוזת החיפוש"
 
-#: ../shell/eggfindbar.c:333 ../shell/ev-window.c:6240
+#: ../shell/eggfindbar.c:326 ../shell/ev-window.c:6239
 msgid "Find Ne_xt"
 msgstr "חיפוש _הבא"
 
-#: ../shell/eggfindbar.c:337
+#: ../shell/eggfindbar.c:330
 msgid "Find next occurrence of the search string"
-msgstr "חיפוש המופע הבא של המחרוזת"
+msgstr "חיפוש מופע הבא של מחרוזת החיפוש"
 
-#: ../shell/eggfindbar.c:344
+#: ../shell/eggfindbar.c:337
 msgid "Case Sensitive"
-msgstr "רגיש לאותיות גדולות/קטנות"
+msgstr "תלוי רישיות"
 
-#: ../shell/eggfindbar.c:347
+#: ../shell/eggfindbar.c:340
 msgid "Toggle case sensitive search"
-msgstr "בחירה בחיפוש תלוי רשיות"
+msgstr "בררת חיפוש תלוי רשיות"
 
 #: ../shell/ev-annotation-properties-dialog.c:99
 msgid "Icon:"
@@ -790,11 +753,11 @@ msgstr "סמל:"
 
 #: ../shell/ev-annotation-properties-dialog.c:106
 msgid "Note"
-msgstr "פתקית"
+msgstr "הערה"
 
 #: ../shell/ev-annotation-properties-dialog.c:107
 msgid "Comment"
-msgstr "הערה"
+msgstr "תגובה"
 
 #: ../shell/ev-annotation-properties-dialog.c:108
 msgid "Key"
@@ -815,7 +778,7 @@ msgstr "פסקה"
 
 #: ../shell/ev-annotation-properties-dialog.c:112
 msgid "Insert"
-msgstr "הוסף"
+msgstr "הכנסה"
 
 #: ../shell/ev-annotation-properties-dialog.c:113
 msgid "Cross"
@@ -839,7 +802,7 @@ msgstr "הדגשה"
 
 #: ../shell/ev-annotation-properties-dialog.c:133
 msgid "Strike out"
-msgstr "קו אמצעי"
+msgstr "קו חוצה"
 
 #: ../shell/ev-annotation-properties-dialog.c:134
 msgid "Underline"
@@ -847,11 +810,11 @@ msgstr "קן תחתון"
 
 #: ../shell/ev-annotation-properties-dialog.c:135
 msgid "Squiggly"
-msgstr "מתפתל"
+msgstr "גלי"
 
 #: ../shell/ev-annotation-properties-dialog.c:158
 msgid "Annotation Properties"
-msgstr "מאפייני הערה"
+msgstr "מאפייני ביאור"
 
 #: ../shell/ev-annotation-properties-dialog.c:178
 msgid "Author:"
@@ -875,7 +838,7 @@ msgstr "אטום"
 
 #: ../shell/ev-annotation-properties-dialog.c:236
 msgid "Initial window state:"
-msgstr "מצב החלון ההתחלתי:"
+msgstr "מצב חלון התחלתי:"
 
 #: ../shell/ev-annotation-properties-dialog.c:244
 msgid "Open"
@@ -888,36 +851,36 @@ msgstr "סגירה"
 
 #: ../shell/ev-annotations-toolbar.c:120
 msgid "Add text annotation"
-msgstr "הוסף הערת טקסט"
+msgstr "הוספת ביאור מילולי"
 
 #: ../shell/ev-annotations-toolbar.c:126
 msgid "Add highlight annotation"
-msgstr "הוסף הערת הדגשה"
+msgstr "הוספת ביאור מודגש"
 
 #: ../shell/ev-application.c:1012
 msgid "Running in presentation mode"
-msgstr "מופעל מצב מצגת"
+msgstr "ריצה במצב מצגת"
 
 #: ../shell/ev-history.c:474 ../shell/ev-sidebar-bookmarks.c:314
-#: ../shell/ev-window.c:924 ../shell/ev-window.c:4843
+#: ../shell/ev-window.c:924 ../shell/ev-window.c:4836
 #, c-format
 msgid "Page %s"
 msgstr "עמוד %s"
 
-#: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:6312
+#: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:6311
 msgid "Go to previous history item"
-msgstr "עבור לפריט הקודם בהיסטוריה"
+msgstr "מעבר לפריט היסטוריה קודם"
 
-#: ../shell/ev-history-action-widget.c:219 ../shell/ev-window.c:6316
+#: ../shell/ev-history-action-widget.c:219 ../shell/ev-window.c:6315
 msgid "Go to next history item"
-msgstr "עבור לפריט הבא בהיסטוריה"
+msgstr "מעבר לפריט היסטוריה הבא"
 
 #: ../shell/ev-keyring.c:86
 #, c-format
 msgid "Password for document %s"
-msgstr "ססמה עבור המסמך %s"
+msgstr "ססמת המסמך %s"
 
-#: ../shell/ev-landing-view.c:389 ../shell/ev-window.c:6195
+#: ../shell/ev-landing-view.c:389 ../shell/ev-window.c:6194
 msgid "Favorites"
 msgstr "מועדפים"
 
@@ -937,11 +900,11 @@ msgstr "פתיחת מסמך שהיה בשימוש לאחרונה"
 msgid ""
 "This document is locked and can only be read by entering the correct "
 "password."
-msgstr "מסמך זה נעול, ויש צורך בססמה כדי לקרוא אותו."
+msgstr "מסמך זה נעול וניתן לקריאה רק לאחר הזנת ססמה תקינה."
 
 #: ../shell/ev-password-view.c:144 ../shell/ev-password-view.c:261
 msgid "_Unlock Document"
-msgstr "_שחרור המסמך"
+msgstr "_שחרור נעילת מסמך"
 
 #: ../shell/ev-password-view.c:254
 msgid "Enter password"
@@ -951,7 +914,7 @@ msgstr "הזנת ססמה"
 #, c-format
 msgid ""
 "The document “%s” is locked and requires a password before it can be opened."
-msgstr "המסמך “%s” נעול ונדרשת ססמה כדי לפתוח אותו."
+msgstr "המסמך “%s” נעול ונדרשת ססמה לפתוחתו."
 
 #: ../shell/ev-password-view.c:294
 msgid "Password required"
@@ -963,35 +926,35 @@ msgstr "_ססמה:"
 
 #: ../shell/ev-password-view.c:357
 msgid "Forget password _immediately"
-msgstr "שכח את הססמה _מיידית"
+msgstr "לשכוח את הססמה באופן _מיידי"
 
 #: ../shell/ev-password-view.c:369
 msgid "Remember password until you _log out"
-msgstr "שמור את הססמה _עד לניתוק"
+msgstr "שמירת הססמה _עד להתנתקות"
 
 #: ../shell/ev-password-view.c:381
 msgid "Remember _forever"
-msgstr "_שמור לעד"
+msgstr "_שמירה לעד"
 
 #: ../shell/ev-preferences-dialog.c:117 ../shell/ev-preferences-dialog.ui.h:1
 msgid "Toolbar"
-msgstr "סרגל הכלים"
+msgstr "סרגל כלים"
 
-#: ../shell/ev-preferences-dialog.c:139 ../shell/ev-window.c:6260
+#: ../shell/ev-preferences-dialog.c:139 ../shell/ev-window.c:6259
 msgid "Preferences"
 msgstr "העדפות"
 
 #: ../shell/ev-preferences-dialog.ui.h:2
 msgid "Show history buttons"
-msgstr "הצג כפתורי היסטוריה"
+msgstr "הצגת לחצני היסטוריה"
 
 #: ../shell/ev-preferences-dialog.ui.h:3
 msgid "Show expand window button"
-msgstr "הצג כפתור הרחבת חלון"
+msgstr "הצגת לחצן הרחבת חלון"
 
 #: ../shell/ev-preferences-dialog.ui.h:4
 msgid "Show zoom level selector"
-msgstr "הצג תיבת בחירת תקריב"
+msgstr "הצגת בורר רמת תקריב"
 
 #: ../shell/ev-properties-dialog.c:63
 msgid "Properties"
@@ -1007,7 +970,7 @@ msgstr "גופנים"
 
 #: ../shell/ev-properties-dialog.c:120
 msgid "Document License"
-msgstr "רישיון המסמך"
+msgstr "רישיון מסמך"
 
 #: ../shell/ev-properties-fonts.c:133
 msgid "Font"
@@ -1016,7 +979,7 @@ msgstr "גופן"
 #: ../shell/ev-properties-fonts.c:160
 #, c-format
 msgid "Gathering font information… %3d%%"
-msgstr "נאסף מידע על הגופנים... %3d%%"
+msgstr "איסוף מידע גופנים... %3d%%"
 
 #: ../shell/ev-properties-license.c:135
 msgid "Usage terms"
@@ -1024,7 +987,7 @@ msgstr "תנאי שימוש"
 
 #: ../shell/ev-properties-license.c:141
 msgid "Text License"
-msgstr "רישיון הטקסט"
+msgstr "רישיון מלל"
 
 #: ../shell/ev-properties-license.c:147
 msgid "Further Information"
@@ -1032,7 +995,7 @@ msgstr "מידע נוסף"
 
 #: ../shell/ev-sidebar-annotations.c:292
 msgid "Document contains no annotations"
-msgstr "המסמך לא מכיל הערות"
+msgstr "המסמך לא מכיל ביאורים"
 
 #: ../shell/ev-sidebar-annotations.c:324
 #, c-format
@@ -1041,23 +1004,23 @@ msgstr "עמוד %d"
 
 #: ../shell/ev-sidebar-annotations.c:509
 msgid "Annotations"
-msgstr "הערות"
+msgstr "ביאורים"
 
 #: ../shell/ev-sidebar-attachments.c:693
 msgid "Attachments"
-msgstr "נספחים"
+msgstr "צרופות"
 
 #: ../shell/ev-sidebar-bookmarks.c:155
 msgid "_Open Bookmark"
-msgstr "_פתח סימניה"
+msgstr "_פתיחת סימניה"
 
 #: ../shell/ev-sidebar-bookmarks.c:157
 msgid "_Rename Bookmark"
-msgstr "_שנה את שם הסימניה"
+msgstr "_שינוי שם סימנייה"
 
 #: ../shell/ev-sidebar-bookmarks.c:159
 msgid "_Remove Bookmark"
-msgstr "_הסר סימניה"
+msgstr "ה_סרת סימנייה"
 
 #: ../shell/ev-sidebar-bookmarks.c:615
 msgid "Bookmarks"
@@ -1069,7 +1032,7 @@ msgstr "שכבות"
 
 #: ../shell/ev-sidebar-links.c:332
 msgid "Print…"
-msgstr "הדפס..."
+msgstr "הדפסה…"
 
 #: ../shell/ev-sidebar-links.c:718
 msgid "Index"
@@ -1077,19 +1040,19 @@ msgstr "מפתח"
 
 #: ../shell/ev-sidebar-thumbnails.c:953
 msgid "Shrink the thumbnails"
-msgstr "הקטן את התצוגה המקדימה"
+msgstr "כווץ תמונות ממוזערות"
 
 #: ../shell/ev-sidebar-thumbnails.c:966
 msgid "Enlarge the thumbnails"
-msgstr "הגדל את התצוגה המקדימה"
+msgstr "הגדלת תמונות ממוזערות"
 
 #: ../shell/ev-sidebar-thumbnails.c:979
 msgid "View the thumbnails at their original size"
-msgstr "הצג את התצוגה המקדימה בגודלה המקורי"
+msgstr "הצגת תמונות ממוזערות בגודלן המקורי"
 
 #: ../shell/ev-sidebar-thumbnails.c:1231
 msgid "Thumbnails"
-msgstr "תצוגה מקדימה"
+msgstr "תמונות ממוזערות"
 
 #: ../shell/ev-toolbar.c:134
 msgid ""
@@ -1097,8 +1060,8 @@ msgid ""
 "Non-Continuous + Best Fit\n"
 "Ctrl+2"
 msgstr ""
-"תצוגת דף\n"
-"לא רציף + ההתאמה הטובה ביותר\n"
+"מצג דף\n"
+"לא רציף + התאמה מיטבית\n"
 "Ctrl + 2"
 
 #: ../shell/ev-toolbar.c:148
@@ -1107,19 +1070,19 @@ msgid ""
 "Continuous + Fit Page Width\n"
 "Ctrl+1"
 msgstr ""
-"תצוגת קריאה\n"
+"מצג קריאה\n"
 "רציף + התאמה לרוחב הדף\n"
 "Ctrl + 1"
 
 #: ../shell/ev-toolbar.c:291
 msgid "Select or set the zoom level of the document"
-msgstr "בחר את רמת התקריב של המסמך"
+msgstr "בחירת או הגדרת רמה התקריב של המסמך"
 
 #: ../shell/ev-window.c:1036
 msgid ""
 "Cannot enter presentation mode with ePub documents, use fullscreen mode "
 "instead."
-msgstr "לא ניתן להיכנס למצב מצגת עם מסמכי ePub, השתמש/י במצב מסך מלא במקום."
+msgstr "לא ניתן לעבור למצב מצגת עם מסמכי ePub, נא להשתמש במצב מסך מלא במקום."
 
 #: ../shell/ev-window.c:1536
 msgid "The document contains no pages"
@@ -1131,7 +1094,7 @@ msgstr "המסמך מכיל עמודים ריקים בלבד"
 
 #: ../shell/ev-window.c:1574
 msgid "Presentation mode is not supported for ePub documents."
-msgstr "מצב מצגת לא נתמך למסמכי ePub."
+msgstr "מצב מצגת לא תומך במסמכי ePub."
 
 #: ../shell/ev-window.c:1760 ../shell/ev-window.c:1924
 msgid "Unable to open document"
@@ -1140,98 +1103,98 @@ msgstr "לא ניתן לפתוח את המסמך"
 #: ../shell/ev-window.c:1893
 #, c-format
 msgid "Loading document from “%s”"
-msgstr "המסמך מ־\"%s\" נטען"
+msgstr "טעינת מסמך מ־\"%s\""
 
 #: ../shell/ev-window.c:2037 ../shell/ev-window.c:2358
 #, c-format
 msgid "Downloading document (%d%%)"
-msgstr "מוריד מסמך (%d%%)"
+msgstr "הורדת מסמך (%d%%)"
 
 #: ../shell/ev-window.c:2070
 msgid "Failed to load remote file."
-msgstr "ארע כשל בטעינת קובץ מרוחק."
+msgstr "כשל בטעינת קובץ מרוחק."
 
 #: ../shell/ev-window.c:2302
 #, c-format
 msgid "Reloading document from %s"
-msgstr "המסמך מ־%s נטען מחדש"
+msgstr "טעית מסמך חוזרת מ־%s"
 
 #: ../shell/ev-window.c:2334
 msgid "Failed to reload document."
-msgstr "ארע כשל בטעינת המסמך מחדש."
+msgstr "כשל בטעינת מסמך חוזרת."
 
 #: ../shell/ev-window.c:2550
 msgid "Open Document"
-msgstr "פתח מסמך"
+msgstr "פתיחת מסמך"
 
 #: ../shell/ev-window.c:2940
 #, c-format
 msgid "Saving document to %s"
-msgstr "שומר מסמך אל %s"
+msgstr "שמירת מסמך ל־%s"
 
 #: ../shell/ev-window.c:2943
 #, c-format
 msgid "Saving attachment to %s"
-msgstr "שומר נספח אל %s"
+msgstr "שמירת צרופה ל־%s"
 
 #: ../shell/ev-window.c:2946
 #, c-format
 msgid "Saving image to %s"
-msgstr "התמונה נשמרת ל־%s"
+msgstr "שמירת תמונה ל־%s"
 
 #: ../shell/ev-window.c:2990 ../shell/ev-window.c:3090
 #, c-format
 msgid "The file could not be saved as “%s”."
-msgstr "לא ניתן לשמור את הקובץ בשם “%s”."
+msgstr "לא ניתן לשמור את הקובץ כ־ “%s”."
 
 #: ../shell/ev-window.c:3021
 #, c-format
 msgid "Uploading document (%d%%)"
-msgstr "המסמך מועלה (%d%%)"
+msgstr "האלעת מסמך (%d%%)"
 
 #: ../shell/ev-window.c:3025
 #, c-format
 msgid "Uploading attachment (%d%%)"
-msgstr "הנספח מועלה (%d%%)"
+msgstr "האלעת צרופה (%d%%)"
 
 #: ../shell/ev-window.c:3029
 #, c-format
 msgid "Uploading image (%d%%)"
-msgstr "התמונה מועלה (%d%%)"
+msgstr "האלעת תמונה (%d%%)"
 
 #: ../shell/ev-window.c:3137
 msgid "Save a Copy"
-msgstr "שמור עתק"
+msgstr "שמירת עותק"
 
 #: ../shell/ev-window.c:3427
 #, c-format
 msgid "%d pending job in queue"
 msgid_plural "%d pending jobs in queue"
-msgstr[0] "משימה אחת ממתינה בתור"
+msgstr[0] "משימה %d ממתינה בתור"
 msgstr[1] "%d משימות ממתינות בתור"
 
 #: ../shell/ev-window.c:3540
 #, c-format
 msgid "Printing job “%s”"
-msgstr "המשימה “%s” מודפסת"
+msgstr "הדפסת משימה “%s”"
 
 #: ../shell/ev-window.c:3702
 msgid ""
 "Document contains form fields that have been filled out. If you don't save a "
 "copy, changes will be permanently lost."
-msgstr "המסמך מכיל שדות טופס שיש למלא. אם לא יישמר עותק, השינויים יאבדו לעד."
+msgstr "המסמך מכיל שדות טופס שהוזנו. ללא שמירת עותק, השינויים יאבדו לעד."
 
 #: ../shell/ev-window.c:3706
 msgid ""
 "Document contains new or modified annotations. If you don't save a copy, "
 "changes will be permanently lost."
 msgstr ""
-"המסמך מכיל הערות חדשות או ערוכות. אם לא יישמר עותק, השינויים יאבדו לעד."
+"המסמך מכיל הערות חדשות או מוסגלות. ללא שמירת עותק, השינויים יאבדו לעד."
 
 #: ../shell/ev-window.c:3713
 #, c-format
 msgid "Save a copy of document “%s” before closing?"
-msgstr "האם לשמור עותק של המסמך “%s” לפני הסגירה?"
+msgstr "לשמור עותק של המסמך “%s” לפני הסגירה?"
 
 #: ../shell/ev-window.c:3731
 msgid "Save a _Copy"
@@ -1239,7 +1202,7 @@ msgstr "שמירת _עותק"
 
 #: ../shell/ev-window.c:3732
 msgid "_Save"
-msgstr "_שמור"
+msgstr "_שמירה"
 
 #: ../shell/ev-window.c:3733
 msgid "Close _without Saving"
@@ -1248,7 +1211,7 @@ msgstr "_סגירה ללא שמירה"
 #: ../shell/ev-window.c:3812
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
-msgstr "האם להמתין לסיום המשימה “%s” לפני הסגירה?"
+msgstr "להמתין לסיום משימת ההדפסה “%s” לפני הסגירה?"
 
 #. TRANS: the singular form is not really used as n_print_jobs > 1
 #. but some languages distinguish between different plurals forms,
@@ -1259,465 +1222,452 @@ msgid ""
 "There is %d print job active. Wait until print finishes before closing?"
 msgid_plural ""
 "There are %d print jobs active. Wait until print finishes before closing?"
-msgstr[0] "יש הדפסה פעילה %d. לחכות עד שההדפסה תסתיים לפני הסגירה?"
-msgstr[1] "יש %d הדפסות פעילות. לחכות עד שההדפסה תסתיים לפני הסגירה?"
+msgstr[0] "קיימת הדפסה פעילה %d. להמתין עד סיום ההדפסה לפני הסגירה?"
+msgstr[1] "קיימות %d הדפסות פעילות . להמתין עד סיום ההדפסה לפני הסגירה?"
 
 #: ../shell/ev-window.c:3833
 msgid "If you close the window, pending print jobs will not be printed."
-msgstr "אם החלון ייסגר, משימות הדפסה הממתינות לא יודפסו."
+msgstr "סגירת החלון, תבטל משימות הדפסה בהמתנה."
 
 #: ../shell/ev-window.c:3836
 msgid "Cancel _print and Close"
-msgstr "ביטול הה_דפסה וסגירה"
+msgstr "ביטול ה_דפסה וסגירה"
 
 #: ../shell/ev-window.c:3838
 msgid "Close _after Printing"
 msgstr "_סגירה לאחר ההדפסה"
 
-#: ../shell/ev-window.c:4258
+#: ../shell/ev-window.c:4251
 msgid "Presentation mode is not supported for ePub documents"
-msgstr "מצב מצגת לא נתמך עבור מסמכי ePub"
+msgstr "מצב מצגת לא תומך במסמכי ePub"
 
-#: ../shell/ev-window.c:4899
+#: ../shell/ev-window.c:4892
 msgid "There was an error displaying help"
 msgstr "ארעה שגיאה בהצגת העזרה"
 
-#: ../shell/ev-window.c:5176
+#: ../shell/ev-window.c:5175
 msgid ""
 "Xreader is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Xreader is free software; you can redistribute it and/or modify it under the "
-"terms of the GNU General Public License as published by the Free Software "
-"Foundation; either version 2 of the License, or (at your option) any later "
-"version.\n"
+"Xreader היא תוכנה חופשית; ניתן להפיץ אותה בהפצה חוזרת ו/או לשנות אותה בכפוף "
+"לתנאי הרישיון הציבורי הכללי של 'גנו' כפי שפורסם על ידי קרן התכנה החופשית; "
+"גרסה 2 של הרישיון, או (לפי בחירתכם) כל גרסה מאוחרת יותר.\n"
 
-#: ../shell/ev-window.c:5180
+#: ../shell/ev-window.c:5179
 msgid ""
 "Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
-"WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
-"FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
-"details.\n"
+"Xreader מופצת בתקווה שתהיה שימושית, אך ללא כל אחריות; אפילו בלי האחריות "
+"המשתמעת של סחירות או כשרות למטרה מסוימת. לפרטים נוספים נא לעיין ברישיון "
+"הציבורי הכללי של 'גנו'.\n"
 
-#: ../shell/ev-window.c:5184
+#: ../shell/ev-window.c:5183
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
-"ל־Xreader אמור היה להיות מצורף עותק של הרישיון הציבורי הכללי של GNU; אם לא, "
-"יש לכתוב אל Free Software Foundation, Inc., 59 Temple Place, Suite 330, "
-"Boston, MA  02111-1307  USA\n"
+"הייתם אמורים לקבל עותק של הרישיון הציבורי הכללי של 'גנו' יחד עם Xreader; אם "
+"לא נתקבל עותק כזה, כתבו לקרן התכנה החופשית בע\"מ, רחוב פרנקלין 51, קומה "
+"חמישית, בוסטון, מסצ'וסט 02110-1301 ארה\"ב\n"
 
-#: ../shell/ev-window.c:5195
+#: ../shell/ev-window.c:5194
 msgid "Xreader"
 msgstr "‏Xreader"
 
 #. TRANS: Sometimes this could be better translated as
 #. "%d hit(s) on this page".  Therefore this string
 #. contains plural cases.
-#: ../shell/ev-window.c:5503
+#: ../shell/ev-window.c:5502
 #, c-format
-msgid "%d found on this page"
-msgid_plural "%d found on this page"
-msgstr[0] "‏אחד נמצא בעמוד זה"
-msgstr[1] "‏%d נמצאו בעמוד זה"
+msgid "%d found on this page (%d total)"
+msgid_plural "%d found on this page (%d total)"
+msgstr[0] "נמצא %d בעמוד זה  (מסך %d)"
+msgstr[1] "%d נמצאו בעמוד זה  (מסך %d)"
 
-#: ../shell/ev-window.c:5508 ../shell/ev-window.c:5631
+#: ../shell/ev-window.c:5507 ../shell/ev-window.c:5630
 msgid "Not found"
-msgstr "אין התאמה"
+msgstr "לא נמצא"
 
-#: ../shell/ev-window.c:5514
+#: ../shell/ev-window.c:5513
 #, c-format
 msgid "%3d%% remaining to search"
 msgstr "‏%3d%% נשארו לחיפוש"
 
-#: ../shell/ev-window.c:6189
+#: ../shell/ev-window.c:6188
 msgid "_File"
 msgstr "_קובץ"
 
-#: ../shell/ev-window.c:6190
+#: ../shell/ev-window.c:6189
 msgid "_Edit"
 msgstr "_עריכה"
 
-#: ../shell/ev-window.c:6191
+#: ../shell/ev-window.c:6190
 msgid "_View"
 msgstr "_תצוגה"
 
-#: ../shell/ev-window.c:6192
+#: ../shell/ev-window.c:6191
 msgid "_Go"
 msgstr "_מעבר"
 
-#: ../shell/ev-window.c:6193
+#: ../shell/ev-window.c:6192
 msgid "_Bookmarks"
 msgstr "_סימניות"
 
-#: ../shell/ev-window.c:6194
+#: ../shell/ev-window.c:6193
 msgid "_Help"
 msgstr "_עזרה"
 
-#: ../shell/ev-window.c:6196
+#: ../shell/ev-window.c:6195
 msgid "Recents"
 msgstr "אחרונים"
 
 #. File menu
-#: ../shell/ev-window.c:6198 ../shell/ev-window.c:6691
+#: ../shell/ev-window.c:6197 ../shell/ev-window.c:6690
 msgid "_Open…"
-msgstr "_פתח..."
+msgstr "_פתיחה…"
 
-#: ../shell/ev-window.c:6200 ../shell/ev-window.c:6692
+#: ../shell/ev-window.c:6199 ../shell/ev-window.c:6691
 msgid "Open an existing document"
-msgstr "פתת מסמך קיים"
+msgstr "פתיחת מסמך קיים"
 
-#: ../shell/ev-window.c:6202
+#: ../shell/ev-window.c:6201
 msgid "Op_en a Copy"
-msgstr "_פתח העתק"
+msgstr "_פתיחת עותק"
 
-#: ../shell/ev-window.c:6204
+#: ../shell/ev-window.c:6203
 msgid "Open a copy of the current document in a new window"
-msgstr "פתיחת העתק של המסמך הנוכחי בחלון חדש"
+msgstr "פתיחת עותק של המסמך הנוכחי בחלון חדש"
 
-#: ../shell/ev-window.c:6206
+#: ../shell/ev-window.c:6205
 msgid "_Save a Copy…"
-msgstr "שמור _עותק..."
+msgstr "שמירת _עותק…"
 
-#: ../shell/ev-window.c:6208
+#: ../shell/ev-window.c:6207
 msgid "Save a copy of the current document"
-msgstr "שמור עותק של המסמך הנוכחי"
+msgstr "שמירת עותק של המסמך הנוכחי"
 
-#: ../shell/ev-window.c:6210
+#: ../shell/ev-window.c:6209
 msgid "_Print…"
-msgstr "_הדפס..."
+msgstr "_הדפסה..."
 
-#: ../shell/ev-window.c:6214
+#: ../shell/ev-window.c:6213
 msgid "P_roperties"
-msgstr ""
-"_מאפיינים‫זניחה‪.‬‬ ‫האוויר‬ ‫התנגדות‬ ‫מעלה‪.‬‬ ‫כלפי‬ ‫א‬\n"
-"‫‪.‬‬ ‫א‬\n"
-"‫‪.‬‬ ‫ב‬\n"
-"‫‪.‬‬ ‫ג‬\n"
-"‫‪.‬‬ ‫ד‬\n"
-"‫‪.‬‬ ‫ה‬\n"
-"‫נק')‬ ‫‪8‬‬ ‫(‬ ‫‪.‬‬ ‫)‪t=10(sec‬‬ ‫ל‬ ‫עד‬ ‫הזמן‬ ‫של‬ ‫כפונקציה‬ ‫המסוק‬ "
-"‫מהירות‬ ‫את‬ ‫המתאר‬ ‫גרף‬ ‫שרטטו‬\n"
-"‫נק')‬ ‫‪5‬‬ ‫(‬ ‫לחשב‪.‬‬ ‫מבלי‬ ‫נמקו‬ ‫המרבי?‬ ‫לגובהו‬ ‫ק‬ ‫המסו‬ ‫הגיע‬ "
-"‫התנועה‬ ‫של‬ ‫שלב‬ ‫באיזה‬\n"
-"‫הגוב‬ ‫את‬ ‫חשבו"
+msgstr "מ_אפיינים"
 
-#: ../shell/ev-window.c:6218
+#: ../shell/ev-window.c:6217
 msgid "_Close All Windows"
-msgstr "_סגור את כל החלונות"
+msgstr "_סגירת כל החלונות"
 
-#: ../shell/ev-window.c:6222
+#: ../shell/ev-window.c:6221
 msgid "_Close"
-msgstr "_סגור"
+msgstr "_סגירה"
 
 #. Edit menu
-#: ../shell/ev-window.c:6228
+#: ../shell/ev-window.c:6227
 msgid "_Copy"
-msgstr "העתק"
+msgstr "_העתקה"
 
-#: ../shell/ev-window.c:6232
+#: ../shell/ev-window.c:6231
 msgid "Select _All"
-msgstr "_בחר הכל"
+msgstr "בחירת _הכול"
 
-#: ../shell/ev-window.c:6236
+#: ../shell/ev-window.c:6235
 msgid "_Find…"
-msgstr "_חיפוש..."
+msgstr "_חיפוש…"
 
-#: ../shell/ev-window.c:6238
+#: ../shell/ev-window.c:6237
 msgid "Find a word or phrase in the document"
 msgstr "חיפוש מילה או משפט במסמך"
 
-#: ../shell/ev-window.c:6248
+#: ../shell/ev-window.c:6247
 msgid "Rotate _Left"
-msgstr "סובב _שמאלה"
+msgstr "סיבוב _שמאלה"
 
-#: ../shell/ev-window.c:6252
+#: ../shell/ev-window.c:6251
 msgid "Rotate _Right"
-msgstr "סובב _ימינה"
+msgstr "סיבוב _ימינה"
 
-#: ../shell/ev-window.c:6256
+#: ../shell/ev-window.c:6255
 msgid "Save Current Settings as _Default"
-msgstr "שמור את ההגדרות _הנוכחיות כברירת מחדל"
+msgstr "שמירת ההגדרות ה_נוכחיות כבררת מחדל"
 
 #. View menu
-#: ../shell/ev-window.c:6267
+#: ../shell/ev-window.c:6266
 msgid "_Original size"
 msgstr "גודל _מקורי"
 
-#: ../shell/ev-window.c:6269
+#: ../shell/ev-window.c:6268
 msgid "View the document at its original size"
 msgstr "הצג את המסמך בגודלו המקורי"
 
-#: ../shell/ev-window.c:6271
+#: ../shell/ev-window.c:6270
 msgid "Zoom _In"
-msgstr "_התקרב"
+msgstr "התקרב_ות"
 
-#: ../shell/ev-window.c:6275
+#: ../shell/ev-window.c:6274
 msgid "Zoom _Out"
-msgstr "_התרחק"
+msgstr "_התרחקות"
 
-#: ../shell/ev-window.c:6279
+#: ../shell/ev-window.c:6278
 msgid "_Reload"
-msgstr "_טען מחדש"
+msgstr "_טעינה מחודשת"
 
-#: ../shell/ev-window.c:6281
+#: ../shell/ev-window.c:6280
 msgid "Reload the document"
 msgstr "טעינה מחדש של המסמך"
 
-#: ../shell/ev-window.c:6283
+#: ../shell/ev-window.c:6282
 msgid "_Expand Window to Fit"
-msgstr "_הרחב את החלון להתאמה"
+msgstr "_הרחבת חלון להתאמה"
 
-#: ../shell/ev-window.c:6288
+#: ../shell/ev-window.c:6287
 msgid "Auto_scroll"
 msgstr "_גלילה אוטומטית"
 
-#: ../shell/ev-window.c:6302
+#: ../shell/ev-window.c:6301
 msgid "_First Page"
 msgstr "עמוד _ראשון"
 
-#: ../shell/ev-window.c:6304
+#: ../shell/ev-window.c:6303
 msgid "Go to the first page"
 msgstr "מעבר לעמוד הראשון"
 
-#: ../shell/ev-window.c:6306
+#: ../shell/ev-window.c:6305
 msgid "_Last Page"
 msgstr "עמוד _אחרון"
 
-#: ../shell/ev-window.c:6308
+#: ../shell/ev-window.c:6307
 msgid "Go to the last page"
 msgstr "מעבר לעמוד האחרון"
 
-#: ../shell/ev-window.c:6310
+#: ../shell/ev-window.c:6309
 msgid "Previous History Item"
-msgstr "פריט קודם בהיסטוריה"
+msgstr "פריט היסטוריה קודם"
 
-#: ../shell/ev-window.c:6314
+#: ../shell/ev-window.c:6313
 msgid "Next History Item"
-msgstr "פריט הבא בהיסטוריה"
+msgstr "פריט היסטוריה הבא"
 
 #. Bookmarks menu
-#: ../shell/ev-window.c:6320
+#: ../shell/ev-window.c:6319
 msgid "_Add Bookmark"
-msgstr "_הוסף סימניה"
+msgstr "_הוספת סימניה"
 
-#: ../shell/ev-window.c:6322
+#: ../shell/ev-window.c:6321
 msgid "Add a bookmark for the current page"
-msgstr "הוסף סימניה לדף הנוכחי"
+msgstr "הוספת סימניה לעמוד הנוכחי"
 
 #. Help menu
-#: ../shell/ev-window.c:6326
+#: ../shell/ev-window.c:6325
 msgid "_Contents"
 msgstr "_תוכן עניינים"
 
-#: ../shell/ev-window.c:6331
+#: ../shell/ev-window.c:6330
 msgid "_About"
-msgstr "על _אודות"
+msgstr "_אודות"
 
 #. Toolbar-only
-#: ../shell/ev-window.c:6337
+#: ../shell/ev-window.c:6336
 msgid "Leave Fullscreen"
-msgstr "צא ממסך מלא"
+msgstr "יציאה ממסך מלא"
 
-#: ../shell/ev-window.c:6339
+#: ../shell/ev-window.c:6338
 msgid "Leave fullscreen mode"
 msgstr "יציאה ממצב מסך מלא"
 
-#: ../shell/ev-window.c:6341
+#: ../shell/ev-window.c:6340
 msgid "Start Presentation"
 msgstr "ה_תחלת המצגת"
 
-#: ../shell/ev-window.c:6343
+#: ../shell/ev-window.c:6342
 msgid "Start a presentation"
-msgstr "התחלת המצגת"
+msgstr "התחלת מצגת"
 
 #. View Menu
-#: ../shell/ev-window.c:6460
+#: ../shell/ev-window.c:6459
 msgid "_Menubar"
 msgstr "_סרגל תפריט"
 
-#: ../shell/ev-window.c:6462
+#: ../shell/ev-window.c:6461
 msgid "Show or hide the menubar"
 msgstr "הצגת או הסתרת סרגל התפריט"
 
-#: ../shell/ev-window.c:6464
+#: ../shell/ev-window.c:6463
 msgid "_Toolbar"
-msgstr "סרגל _הכלים"
+msgstr "סרגל _כלים"
 
-#: ../shell/ev-window.c:6466
+#: ../shell/ev-window.c:6465
 msgid "Show or hide the toolbar"
-msgstr "הצגה או הסתרה של סרגל הכלים"
+msgstr "הצגת או הסתרת סרגל הכלים"
 
-#: ../shell/ev-window.c:6468
+#: ../shell/ev-window.c:6467
 msgid "Side _Pane"
-msgstr "סרגל _צד"
+msgstr "_חלונית צד"
 
-#: ../shell/ev-window.c:6470
+#: ../shell/ev-window.c:6469
 msgid "Show or hide the side pane"
-msgstr "הצגה או הסתרה של סרגל הצד"
+msgstr "הצגת או הסתרת חלונית הצד"
 
-#: ../shell/ev-window.c:6472
+#: ../shell/ev-window.c:6471
 msgid "_Continuous"
 msgstr "_רציף"
 
-#: ../shell/ev-window.c:6474
+#: ../shell/ev-window.c:6473
 msgid "Show the entire document"
 msgstr "הצגת כל המסמך"
 
-#: ../shell/ev-window.c:6476
+#: ../shell/ev-window.c:6475
 msgid "_Dual (Even pages left)"
 msgstr "_כפול (דפים זוגיים בצג שמאל)"
 
-#: ../shell/ev-window.c:6478
+#: ../shell/ev-window.c:6477
 msgid "Show two pages at once with even pages on the left"
-msgstr "הצג שני דפים במקביל עם הדפים הזוגיים בצד השמאלי"
+msgstr "הצגת שני עמודים יחד כאשר העמודים הזוגיים מימין"
 
-#: ../shell/ev-window.c:6480
+#: ../shell/ev-window.c:6479
 msgid "Dual (_Odd pages left)"
 msgstr "כפול (דפים _אי-זוגיים בצד שמאל)"
 
-#: ../shell/ev-window.c:6482
+#: ../shell/ev-window.c:6481
 msgid "Show two pages at once with odd pages on the left"
-msgstr "הצג שני דפים במקביל עם הדפים האי-זוגיים בצד השמאלי"
+msgstr "הצגת שני עמודים יחד כאשר העמודים האי־זוגיים מימין"
 
-#: ../shell/ev-window.c:6484
+#: ../shell/ev-window.c:6483
 msgid "Right to Left"
-msgstr ""
+msgstr "מימין לשמאל"
 
-#: ../shell/ev-window.c:6486
+#: ../shell/ev-window.c:6485
 msgid "Browse the document from right to left"
-msgstr ""
+msgstr "עיון במסמכים מימין לשלמאל"
 
-#: ../shell/ev-window.c:6488
+#: ../shell/ev-window.c:6487
 msgid "_Fullscreen"
 msgstr "_מסך מלא"
 
-#: ../shell/ev-window.c:6490
+#: ../shell/ev-window.c:6489
 msgid "Expand the window to fill the screen"
-msgstr "הרחבת החלון לכל המסך"
+msgstr "הרחבת החלון והתאמתו לצג"
 
-#: ../shell/ev-window.c:6492
+#: ../shell/ev-window.c:6491
 msgid "Pre_sentation"
 msgstr "_מצגת"
 
-#: ../shell/ev-window.c:6494
+#: ../shell/ev-window.c:6493
 msgid "Run document as a presentation"
 msgstr "הרצת המסמך כמצגת"
 
-#: ../shell/ev-window.c:6504
+#: ../shell/ev-window.c:6503
 msgid "_Inverted Colors"
-msgstr "צבעים _הפוכים"
+msgstr "צבעים _הופכיים"
 
-#: ../shell/ev-window.c:6506
+#: ../shell/ev-window.c:6505
 msgid "Show page contents with the colors inverted"
-msgstr "הצגת תוכן העמוד עם הצבעים הפוכים"
+msgstr "הצגת תוכן העמוד בצבעים הופכיים"
 
 #. Links
-#: ../shell/ev-window.c:6514
+#: ../shell/ev-window.c:6513
 msgid "_Open Link"
-msgstr "_פתח קישור"
+msgstr "_פתיחת קישור"
 
-#: ../shell/ev-window.c:6516
+#: ../shell/ev-window.c:6515
 msgid "_Go To"
-msgstr "_מעבר"
+msgstr "_מעבר ל־"
 
-#: ../shell/ev-window.c:6518
+#: ../shell/ev-window.c:6517
 msgid "Open in New _Window"
-msgstr "פתח _בחלון חדש"
+msgstr "פתיחה ב_חלון חדש"
 
-#: ../shell/ev-window.c:6520
+#: ../shell/ev-window.c:6519
 msgid "_Copy Link Address"
-msgstr "העתק את _מיקום הקישור"
+msgstr "ה_עתקת כתובת הקישור"
 
-#: ../shell/ev-window.c:6522
+#: ../shell/ev-window.c:6521
 msgid "_Save Image As…"
-msgstr "שמור _תמונה בשם..."
+msgstr "שמירת התמונה ב_שם…"
 
-#: ../shell/ev-window.c:6524
+#: ../shell/ev-window.c:6523
 msgid "Copy _Image"
-msgstr "העתק _תמונה"
+msgstr "העתקת ת_מונה"
 
-#: ../shell/ev-window.c:6526
+#: ../shell/ev-window.c:6525
 msgid "Annotation Properties…"
-msgstr "מאפייני הערה..."
+msgstr "מאפייני ביאור..."
 
-#: ../shell/ev-window.c:6528
+#: ../shell/ev-window.c:6527
 msgid "Remove Annotation"
-msgstr "הסר הערה"
+msgstr "הסרת ביאור"
 
-#: ../shell/ev-window.c:6533
+#: ../shell/ev-window.c:6532
 msgid "_Open Attachment"
-msgstr "_פתח נספח"
+msgstr "_פתיחת צרופה"
 
-#: ../shell/ev-window.c:6535
+#: ../shell/ev-window.c:6534
 msgid "_Save Attachment As…"
-msgstr "_שמור נספח בשם..."
+msgstr "_שמירת צרופה בשם…"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6712
+#: ../shell/ev-window.c:6711
 msgid "Previous"
 msgstr "קודם"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6717
+#: ../shell/ev-window.c:6716
 msgid "Next"
 msgstr "הבא"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6721
+#: ../shell/ev-window.c:6720
 msgid "Zoom In"
 msgstr "התקרבות"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6725
+#: ../shell/ev-window.c:6724
 msgid "Zoom Out"
 msgstr "התרחקות"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6737
+#: ../shell/ev-window.c:6736
 msgid "Fit Width"
 msgstr "התאמה לרוחב"
 
-#: ../shell/ev-window.c:6914 ../shell/ev-window.c:6930
+#: ../shell/ev-window.c:6913 ../shell/ev-window.c:6929
 msgid "Unable to launch external application."
-msgstr "לא ניתן לשגר יישום חיצוני"
+msgstr "לא ניתן לשגר יישום חיצוני."
 
-#: ../shell/ev-window.c:6988
+#: ../shell/ev-window.c:6987
 msgid "Unable to open external link"
 msgstr "לא ניתן לפתוח קישור חיצוני"
 
-#: ../shell/ev-window.c:7189
+#: ../shell/ev-window.c:7188
 msgid "Couldn't find appropriate format to save image"
-msgstr "לא נמצאה התצורה המתאימה לשמירת התמונה"
+msgstr "לא נמצאה תבנית מתאימה לשמירת תמונה"
 
-#: ../shell/ev-window.c:7220
+#: ../shell/ev-window.c:7219
 msgid "The image could not be saved."
 msgstr "לא ניתן לשמור את התמונה."
 
-#: ../shell/ev-window.c:7253
+#: ../shell/ev-window.c:7252
 msgid "Save Image"
-msgstr "שמור תמונה"
+msgstr "שמירת תמונה"
 
-#: ../shell/ev-window.c:7403
+#: ../shell/ev-window.c:7402
 msgid "Unable to open attachment"
-msgstr "לא ניתן לפתוח את הנספח"
+msgstr "לא ניתן לפתוח צרופה"
 
-#: ../shell/ev-window.c:7460
+#: ../shell/ev-window.c:7459
 msgid "The attachment could not be saved."
-msgstr "לא ניתן לשמור את הנספח."
+msgstr "לא ניתן לשמור צרופה."
 
-#: ../shell/ev-window.c:7506
+#: ../shell/ev-window.c:7505
 msgid "Save Attachment"
-msgstr "שמור נספח"
+msgstr "שמירת צרופה"
 
 #: ../shell/ev-window-title.c:170
 #, c-format
@@ -1730,48 +1680,48 @@ msgstr "לפי סיומת"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."
-msgstr "כותרת העמוד של המסמך להצגה."
+msgstr "כותרת עמוד מסמך להצגה."
 
 #: ../shell/main.c:66
 msgid "PAGE"
-msgstr "PAGE"
+msgstr "עמוד"
 
 #: ../shell/main.c:67
 msgid "The page number of the document to display."
-msgstr "מספר העמוד של המסמך להצגה."
+msgstr "מספר עמוד מסמך לתצוגה."
 
 #: ../shell/main.c:67
 msgid "NUMBER"
-msgstr "NUMBER"
+msgstr "מספר"
 
 #: ../shell/main.c:68
 msgid "Run xreader in fullscreen mode"
-msgstr "הרץ במצב מסך מלא"
+msgstr "הרצה במצב מסך מלא"
 
 #: ../shell/main.c:69
 msgid "Named destination to display."
-msgstr "שם היעד להצגה."
+msgstr "יעד נקוב לתצוגה."
 
 #: ../shell/main.c:69
 msgid "DEST"
-msgstr "DEST"
+msgstr "יעד"
 
 #: ../shell/main.c:70
 msgid "Run xreader in presentation mode"
-msgstr "הרץ את מציג המסמכים במצב מצגת"
+msgstr "הרצה במצב מצגת"
 
 #: ../shell/main.c:71
 msgid "Run xreader as a previewer"
-msgstr "Run xreader as a previewer"
+msgstr "הרצהבמצב תצוגה מקדימה"
 
 #: ../shell/main.c:72
 msgid "The word or phrase to find in the document"
-msgstr "The word or phrase to find in the document"
+msgstr "המילה או המשפט לחיפוש במסמך"
 
 #: ../shell/main.c:72
 msgid "STRING"
-msgstr "STRING"
+msgstr "מחרוזת"
 
 #: ../shell/main.c:76
 msgid "[FILE…]"
-msgstr "[FILE…]"
+msgstr "[קובץ…]"
