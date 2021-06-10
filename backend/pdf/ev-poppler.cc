@@ -1815,7 +1815,6 @@ static void
 pdf_document_file_exporter_end_page (EvFileExporter *exporter)
 {
 	PdfDocument *pdf_document = PDF_DOCUMENT (exporter);
-	PdfPrintContext *ctx = pdf_document->print_ctx;
 
 	g_return_if_fail (pdf_document->print_ctx != NULL);
 
@@ -2933,7 +2932,6 @@ pdf_document_annotations_remove_annotation (EvDocumentAnnotations *document_anno
         PopplerAnnot  *poppler_annot;
         EvMappingList *mapping_list;
         EvMapping     *annot_mapping;
-        GList         *list;
 
         poppler_annot = POPPLER_ANNOT (g_object_get_data (G_OBJECT (annot), "poppler-annot"));
         pdf_document = PDF_DOCUMENT (document_annotations);

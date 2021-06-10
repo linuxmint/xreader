@@ -156,7 +156,6 @@ select_view (EvLandingView *ev_landing_view,
     gchar *desired_title, *favorite_title, *recent_title;
     gchar *real_desired_view_name;
     const gchar *name_to_use;
-    gboolean use_fallback;
 
     // If desired name is null, it's been called after a favorites or recents update.
     // We want to try and show the already visible page - if it's suddenly empty, this
@@ -290,12 +289,8 @@ ev_landing_view_refresh_favorites (EvLandingView *ev_landing_view)
 
     for (l = items; l != NULL; l = l->next) {
         XAppFavoriteInfo *info;
-        GIcon *gicon;
-        GtkIconInfo *icon_info;
         GFile *file;
         gchar *name;
-        const gchar *uri;
-        gchar *content_type;
         cairo_surface_t *surface;
         GtkWidget *button;
         GtkWidget *image;
@@ -417,14 +412,12 @@ ev_landing_view_refresh_recents (EvLandingView *ev_landing_view)
         GtkRecentInfo *info;
         gchar *name;
         const gchar *uri;
-        GdkPixbuf *pixbuf;
         GtkWidget *button;
         GtkWidget *image;
         GtkWidget *box;
         GtkWidget *label;
         cairo_surface_t *surface;
         EvDocument *document;
-        gchar *content_type;
 
         info = (GtkRecentInfo *) l->data;
         uri = gtk_recent_info_get_uri (info);
