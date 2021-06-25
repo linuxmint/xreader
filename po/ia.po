@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2021-06-01 14:27+0100\n"
-"PO-Revision-Date: 2021-03-10 08:12+0000\n"
+"PO-Revision-Date: 2021-06-20 23:59+0000\n"
 "Last-Translator: karm <melo@carmu.com>\n"
 "Language-Team: Interlingua <ia@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2021-06-09 14:19+0000\n"
-"X-Generator: Launchpad (build b45bdbe3a00b6b668fa7f2069bd545c35c41f7f4)\n"
+"X-Launchpad-Export-Date: 2021-06-25 10:41+0000\n"
+"X-Generator: Launchpad (build 40cc6dba4163ba9ca785b26ad91f43c87d70ba4d)\n"
 
 #: ../backend/comics/comics-document.c:208
 #, c-format
@@ -807,7 +807,7 @@ msgstr "Incognite"
 
 #: ../shell/ev-annotation-properties-dialog.c:126
 msgid "Markup type:"
-msgstr ""
+msgstr "Typo de markup:"
 
 #: ../shell/ev-annotation-properties-dialog.c:132
 msgid "Highlight"
@@ -815,7 +815,7 @@ msgstr "Evidentiar"
 
 #: ../shell/ev-annotation-properties-dialog.c:133
 msgid "Strike out"
-msgstr ""
+msgstr "Libera te"
 
 #: ../shell/ev-annotation-properties-dialog.c:134
 msgid "Underline"
@@ -823,7 +823,7 @@ msgstr "Sublinear"
 
 #: ../shell/ev-annotation-properties-dialog.c:135
 msgid "Squiggly"
-msgstr ""
+msgstr "Undulate"
 
 #: ../shell/ev-annotation-properties-dialog.c:158
 msgid "Annotation Properties"
@@ -1313,8 +1313,8 @@ msgstr "Xreader"
 #, c-format
 msgid "%d found on this page (%d total)"
 msgid_plural "%d found on this page (%d total)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d trovate siur iste pagina (%d total)"
+msgstr[1] "%d trovate siur iste pagina (%d total)"
 
 #: ../shell/ev-window.c:5507 ../shell/ev-window.c:5630
 msgid "Not found"
@@ -1522,7 +1522,7 @@ msgstr "Barra de _Menu"
 
 #: ../shell/ev-window.c:6461
 msgid "Show or hide the menubar"
-msgstr ""
+msgstr "Monstrar o celar le barra de menu"
 
 #: ../shell/ev-window.c:6463
 msgid "_Toolbar"
@@ -1570,7 +1570,7 @@ msgstr "De dextera a sinistra"
 
 #: ../shell/ev-window.c:6485
 msgid "Browse the document from right to left"
-msgstr ""
+msgstr "Foliettar le documento de dextera a sinistra."
 
 #: ../shell/ev-window.c:6487
 msgid "_Fullscreen"

@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2021-06-01 14:27+0100\n"
-"PO-Revision-Date: 2021-04-21 16:18+0000\n"
+"PO-Revision-Date: 2021-06-10 10:22+0000\n"
 "Last-Translator: Davide Novemila <Unknown>\n"
 "Language-Team: Latin <la@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2021-06-09 14:19+0000\n"
-"X-Generator: Launchpad (build b45bdbe3a00b6b668fa7f2069bd545c35c41f7f4)\n"
+"X-Launchpad-Export-Date: 2021-06-25 10:41+0000\n"
+"X-Generator: Launchpad (build 40cc6dba4163ba9ca785b26ad91f43c87d70ba4d)\n"
 "Language: la\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -760,7 +760,7 @@ msgstr ""
 
 #: ../shell/ev-annotation-properties-dialog.c:112
 msgid "Insert"
-msgstr ""
+msgstr "Insere"
 
 #: ../shell/ev-annotation-properties-dialog.c:113
 msgid "Cross"
@@ -1338,11 +1338,11 @@ msgstr "_Claude"
 #. Edit menu
 #: ../shell/ev-window.c:6227
 msgid "_Copy"
-msgstr "_Copia"
+msgstr "_Duplica"
 
 #: ../shell/ev-window.c:6231
 msgid "Select _All"
-msgstr "Omnes Elige"
+msgstr "Omnes _Elige"
 
 #: ../shell/ev-window.c:6235
 msgid "_Find…"
@@ -1375,11 +1375,11 @@ msgstr ""
 
 #: ../shell/ev-window.c:6270
 msgid "Zoom _In"
-msgstr ""
+msgstr "_Amplifica"
 
 #: ../shell/ev-window.c:6274
 msgid "Zoom _Out"
-msgstr ""
+msgstr "_Reduce"
 
 #: ../shell/ev-window.c:6278
 msgid "_Reload"
@@ -1399,19 +1399,19 @@ msgstr ""
 
 #: ../shell/ev-window.c:6301
 msgid "_First Page"
-msgstr ""
+msgstr "_Pagina Prima"
 
 #: ../shell/ev-window.c:6303
 msgid "Go to the first page"
-msgstr ""
+msgstr "I ad paginam primam"
 
 #: ../shell/ev-window.c:6305
 msgid "_Last Page"
-msgstr ""
+msgstr "_Ultima Pagina"
 
 #: ../shell/ev-window.c:6307
 msgid "Go to the last page"
-msgstr ""
+msgstr "I ad paginam ultimam"
 
 #: ../shell/ev-window.c:6309
 msgid "Previous History Item"
@@ -1424,7 +1424,7 @@ msgstr ""
 #. Bookmarks menu
 #: ../shell/ev-window.c:6319
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "Signaculum _Adde"
 
 #: ../shell/ev-window.c:6321
 msgid "Add a bookmark for the current page"
@@ -1442,28 +1442,28 @@ msgstr "_Circa"
 #. Toolbar-only
 #: ../shell/ev-window.c:6336
 msgid "Leave Fullscreen"
-msgstr ""
+msgstr "E Scrinio Pleno Abi"
 
 #: ../shell/ev-window.c:6338
 msgid "Leave fullscreen mode"
-msgstr ""
+msgstr "E scrinio pleno abi"
 
 #: ../shell/ev-window.c:6340
 msgid "Start Presentation"
-msgstr ""
+msgstr "Repraesentationem Pelle"
 
 #: ../shell/ev-window.c:6342
 msgid "Start a presentation"
-msgstr ""
+msgstr "Repraesentationem pelle"
 
 #. View Menu
 #: ../shell/ev-window.c:6459
 msgid "_Menubar"
-msgstr ""
+msgstr "Septum _indicum"
 
 #: ../shell/ev-window.c:6461
 msgid "Show or hide the menubar"
-msgstr ""
+msgstr "Septum indicum ostende aut cela"
 
 #: ../shell/ev-window.c:6463
 msgid "_Toolbar"
@@ -1471,7 +1471,7 @@ msgstr "_Septum instrumentorum"
 
 #: ../shell/ev-window.c:6465
 msgid "Show or hide the toolbar"
-msgstr ""
+msgstr "Septum instrumentorum ostende aut cela"
 
 #: ../shell/ev-window.c:6467
 msgid "Side _Pane"
@@ -1523,11 +1523,11 @@ msgstr ""
 
 #: ../shell/ev-window.c:6491
 msgid "Pre_sentation"
-msgstr ""
+msgstr "_Representatio"
 
 #: ../shell/ev-window.c:6493
 msgid "Run document as a presentation"
-msgstr ""
+msgstr "Documentum representationis modo pelle"
 
 #: ../shell/ev-window.c:6503
 msgid "_Inverted Colors"
@@ -1540,15 +1540,15 @@ msgstr ""
 #. Links
 #: ../shell/ev-window.c:6513
 msgid "_Open Link"
-msgstr ""
+msgstr "_Ligamen Aperi"
 
 #: ../shell/ev-window.c:6515
 msgid "_Go To"
-msgstr ""
+msgstr "_I Ad"
 
 #: ../shell/ev-window.c:6517
 msgid "Open in New _Window"
-msgstr ""
+msgstr "In Novam _Fenestram Aperi"
 
 #: ../shell/ev-window.c:6519
 msgid "_Copy Link Address"
@@ -1556,11 +1556,11 @@ msgstr ""
 
 #: ../shell/ev-window.c:6521
 msgid "_Save Image As…"
-msgstr ""
+msgstr "_Save Image As …"
 
 #: ../shell/ev-window.c:6523
 msgid "Copy _Image"
-msgstr ""
+msgstr "_Imaginem Duplica"
 
 #: ../shell/ev-window.c:6525
 msgid "Annotation Properties…"
@@ -1638,7 +1638,7 @@ msgstr ""
 #: ../shell/ev-window-title.c:170
 #, c-format
 msgid "%s — Password Required"
-msgstr ""
+msgstr "%s - Tessera Petita"
 
 #: ../shell/ev-utils.c:107
 msgid "By extension"
@@ -1662,7 +1662,7 @@ msgstr "NUMERUS"
 
 #: ../shell/main.c:68
 msgid "Run xreader in fullscreen mode"
-msgstr ""
+msgstr "Scrinio pleno xreader pelle"
 
 #: ../shell/main.c:69
 msgid "Named destination to display."
@@ -1682,7 +1682,7 @@ msgstr ""
 
 #: ../shell/main.c:72
 msgid "The word or phrase to find in the document"
-msgstr ""
+msgstr "Verbum aut locutio invenienda in documento"
 
 #: ../shell/main.c:72
 msgid "STRING"
