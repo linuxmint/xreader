@@ -117,6 +117,14 @@ typedef enum {
         EV_ANNOTATION_TEXT_MARKUP_SQUIGGLY
 } EvAnnotationTextMarkupType;
 
+
+typedef struct _EvAnnotationInfo {
+	GdkColor                     color;
+	EvAnnotationType             type;
+	EvAnnotationTextIcon         icon;
+	EvAnnotationTextMarkupType   markup_type;
+} EvAnnotationInfo;
+
 /* EvAnnotation */
 GType                ev_annotation_get_type                  (void) G_GNUC_CONST;
 EvAnnotationType     ev_annotation_get_annotation_type       (EvAnnotation           *annot);

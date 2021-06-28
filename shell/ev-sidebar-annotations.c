@@ -117,10 +117,6 @@ ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 	GtkCellRenderer *renderer;
 	GtkTreeViewColumn *column;
 	GtkTreeSelection *selection;
-	GtkWidget *separator;
-	GtkWidget *toolbar;
-	GtkWidget *toolitem;
-	GtkWidget *hbox;
 
 	ev_annots->priv = ev_sidebar_annotations_get_instance_private (ev_annots);
 
@@ -157,26 +153,11 @@ ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 	gtk_container_add (GTK_CONTAINER (swindow), ev_annots->priv->tree_view);
 	gtk_widget_show (ev_annots->priv->tree_view);
 
-	separator = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
-	gtk_box_pack_start (GTK_BOX (ev_annots), separator, FALSE, FALSE, 0);
-	gtk_widget_show (separator);
-
-	toolbar = gtk_toolbar_new ();
-	gtk_widget_show (toolbar);
-
-	toolitem = GTK_WIDGET (gtk_tool_item_new ());
-	gtk_toolbar_insert (GTK_TOOLBAR (toolbar), GTK_TOOL_ITEM (toolitem), 0);
-	gtk_widget_show (toolitem);
-
-	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-	gtk_container_add (GTK_CONTAINER (toolitem), hbox);
-	gtk_widget_show (hbox);
-
 	/* Create annotation tool bar */
 	ev_annots->priv->toolbar = ev_annotations_toolbar_new();
 	gtk_widget_show (ev_annots->priv->toolbar);
-
 	gtk_box_pack_end (GTK_BOX (ev_annots), ev_annots->priv->toolbar, FALSE, TRUE, 0);
+	
 	gtk_widget_show (GTK_WIDGET (ev_annots));
 }
 
@@ -242,12 +223,19 @@ ev_sidebar_annotations_annot_removed (EvSidebarAnnotations *sidebar_annots,
 }
 
 EvAnnotationsToolbar *
-ev_sidebar_annotations_get_toolbar(EvSidebarAnnotations *sidebar_annots)
+ev_sidebar_annotations_get_toolbar (EvSidebarAnnotations *sidebar_annots)
 {
 	EvSidebarAnnotationsPrivate *priv = ev_sidebar_annotations_get_instance_private(sidebar_annots);
 	return EV_ANNOTATIONS_TOOLBAR(priv->toolbar);
 }
 
+void
+ev_sidebar_annotations_set_color (EvSidebarAnnotations *sidebar_annots,
+                                  GdkColor             *color)
+{
+	EvSidebarAnnotationsPrivate *priv = ev_sidebar_annotations_get_instance_private(sidebar_annots);
+	ev_annotations_toolbar_set_color (EV_ANNOTATIONS_TOOLBAR (priv->toolbar), color);
+}
 
 static void
 selection_changed_cb (GtkTreeSelection     *selection,
@@ -279,10 +267,10 @@ job_finished_callback (EvJobAnnots          *job,
 	GdkScreen *screen;
 	GdkPixbuf *text_icon = NULL;
 	GdkPixbuf *attachment_icon = NULL;
-        GdkPixbuf *highlight_icon = NULL;
-        GdkPixbuf *strike_out_icon = NULL;
-        GdkPixbuf *underline_icon = NULL;
-        GdkPixbuf *squiggly_icon = NULL;
+    GdkPixbuf *highlight_icon = NULL;
+    GdkPixbuf *strike_out_icon = NULL;
+    GdkPixbuf *underline_icon = NULL;
+    GdkPixbuf *squiggly_icon = NULL;
 
 	priv = sidebar_annots->priv;
 
@@ -355,9 +343,8 @@ job_finished_callback (EvJobAnnots          *job,
 
 			if (EV_IS_ANNOTATION_TEXT (annot)) {
 				if (!text_icon) {
-					/* FIXME: use a better icon than EDIT */
 					text_icon = gtk_icon_theme_load_icon (icon_theme,
-														  "starred",
+														  "xapp-annotations-text-symbolic",
 														  16,
 														  GTK_ICON_LOOKUP_FORCE_REGULAR,
 														  NULL);
@@ -376,35 +363,42 @@ job_finished_callback (EvJobAnnots          *job,
                                 switch (ev_annotation_text_markup_get_markup_type (EV_ANNOTATION_TEXT_MARKUP (annot))) {
                                 case EV_ANNOTATION_TEXT_MARKUP_HIGHLIGHT:
                                         if (!highlight_icon) {
-                                                /* FIXME: use better icon than select all */
-                                                highlight_icon = gtk_widget_render_icon_pixbuf (priv->tree_view,
-                                                                                                GTK_STOCK_SELECT_ALL,
-                                                                                                GTK_ICON_SIZE_BUTTON);
+                                                highlight_icon = gtk_icon_theme_load_icon (icon_theme,
+														  "xapp-format-text-highlight-symbolic",
+														  16,
+														  GTK_ICON_LOOKUP_FORCE_REGULAR,
+														  NULL);
                                         }
                                         pixbuf = highlight_icon;
 
                                         break;
                                 case EV_ANNOTATION_TEXT_MARKUP_STRIKE_OUT:
                                         if (!strike_out_icon) {
-                                                strike_out_icon = gtk_widget_render_icon_pixbuf (priv->tree_view,
-                                                                                                 GTK_STOCK_STRIKETHROUGH,
-                                                                                                 GTK_ICON_SIZE_BUTTON);
+                                                strike_out_icon = gtk_icon_theme_load_icon (icon_theme,
+														  "gtk-strikethrough",
+														  16,
+														  GTK_ICON_LOOKUP_FORCE_REGULAR,
+														  NULL);
                                         }
                                         pixbuf = strike_out_icon;
                                         break;
                                 case EV_ANNOTATION_TEXT_MARKUP_UNDERLINE:
                                         if (!underline_icon) {
-                                                underline_icon = gtk_widget_render_icon_pixbuf (priv->tree_view,
-                                                                                                GTK_STOCK_UNDERLINE,
-                                                                                                GTK_ICON_SIZE_BUTTON);
+                                                underline_icon = gtk_icon_theme_load_icon (icon_theme,
+														  "gtk-underline",
+														  16,
+														  GTK_ICON_LOOKUP_FORCE_REGULAR,
+														  NULL);
                                         }
                                         pixbuf = underline_icon;
                                         break;
                                 case EV_ANNOTATION_TEXT_MARKUP_SQUIGGLY:
                                         if (!squiggly_icon) {
-                                                squiggly_icon = gtk_widget_render_icon_pixbuf (priv->tree_view,
-                                                                                               GTK_STOCK_UNDERLINE,
-                                                                                               GTK_ICON_SIZE_BUTTON);
+                                                squiggly_icon = gtk_icon_theme_load_icon (icon_theme,
+														  "xapp-annotations-squiggly-symbolic",
+														  16,
+														  GTK_ICON_LOOKUP_FORCE_REGULAR,
+														  NULL);
                                         }
                                         pixbuf = squiggly_icon;
                                         break;
