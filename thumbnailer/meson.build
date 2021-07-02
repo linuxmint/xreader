@@ -1,10 +1,13 @@
 thumbnailer_sources = [
     'xreader-thumbnailer.c',
+    libdoc_enums,
+    libview_enums,
 ]
 
 thumbnailer_deps = [
     libdocument_dep,
     glib,
+    gio,
     gtk,
 ]
 
@@ -13,6 +16,7 @@ executable(
     thumbnailer_sources,
     include_directories: include_dirs,
     dependencies: thumbnailer_deps,
+    link_with: [libview, libmisc],
     install: true,
 )
 
