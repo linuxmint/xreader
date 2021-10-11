@@ -720,8 +720,7 @@ update_chrome_actions (EvWindow *window)
     action= gtk_action_group_get_action (action_group, "ViewToolbar");
     g_signal_handlers_block_by_func
     (action, G_CALLBACK (ev_window_view_toolbar_cb), window);
-    gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action),
-            (priv->chrome & EV_CHROME_TOOLBAR) != 0);
+    gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), g_settings_get_boolean (priv->settings, "show-toolbar"));
     g_signal_handlers_unblock_by_func
     (action, G_CALLBACK (ev_window_view_toolbar_cb), window);
 }
@@ -1051,10 +1050,6 @@ ev_window_init_metadata_with_default_values (EvWindow *window)
     EvMetadata *metadata = window->priv->metadata;
 
     /* Chrome */
-    if (!ev_metadata_has_key (metadata, "show_toolbar")) {
-        ev_metadata_set_boolean (metadata, "show_toolbar",
-                g_settings_get_boolean (settings, "show-toolbar"));
-    }
     if (!ev_metadata_has_key (metadata, "sidebar_visibility")) {
         ev_metadata_set_boolean (metadata, "sidebar_visibility",
                 g_settings_get_boolean (settings, "show-sidebar"));
@@ -1112,14 +1107,11 @@ ev_window_init_metadata_with_default_values (EvWindow *window)
 static void
 setup_chrome_from_metadata (EvWindow *window)
 {
-    gboolean show_toolbar;
     gboolean show_sidebar;
 
     if (!window->priv->metadata)
         return;
 
-    if (ev_metadata_get_boolean (window->priv->metadata, "show_toolbar", &show_toolbar))
-        update_chrome_flag (window, EV_CHROME_TOOLBAR, show_toolbar);
     if (ev_metadata_get_boolean (window->priv->metadata, "sidebar_visibility", &show_sidebar))
         update_chrome_flag (window, EV_CHROME_SIDEBAR, show_sidebar);
 
@@ -1346,7 +1338,7 @@ ev_window_setup_default (EvWindow *ev_window)
     GSettings       *settings = ev_window->priv->default_settings;
 
     /* Chrome */
-    update_chrome_flag (ev_window, EV_CHROME_TOOLBAR, g_settings_get_boolean (settings, "show-toolbar"));
+    update_chrome_flag (ev_window, EV_CHROME_TOOLBAR, g_settings_get_boolean (ev_window->priv->settings, "show-toolbar"));
     update_chrome_flag (ev_window, EV_CHROME_SIDEBAR, g_settings_get_boolean (settings, "show-sidebar"));
     update_chrome_flag (ev_window, EV_CHROME_MENUBAR, g_settings_get_boolean (ev_window->priv->settings, "show-menubar"));
     update_chrome_visibility (ev_window);
@@ -4543,8 +4535,6 @@ ev_window_cmd_edit_save_settings (GtkAction *action,
         zoom *= 72.0 / get_screen_dpi (ev_window);
         g_settings_set_double (settings, "zoom", zoom);
     }
-    g_settings_set_boolean (settings, "show-toolbar",
-            gtk_revealer_get_reveal_child( GTK_REVEALER (ev_window->priv->toolbar_revealer)));
     g_settings_set_boolean (settings, "show-sidebar",
             gtk_widget_get_visible (priv->sidebar));
     g_settings_set_int (settings, "sidebar-size",
@@ -5234,10 +5224,9 @@ ev_window_view_toolbar_cb (GtkAction *action,
     gboolean active;
 
     active = gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action));
+    g_settings_set_boolean (ev_window->priv->settings, "show-toolbar", active);
     update_chrome_flag (ev_window, EV_CHROME_TOOLBAR, active);
     update_chrome_visibility (ev_window);
-    if (ev_window->priv->metadata)
-        ev_metadata_set_boolean (ev_window->priv->metadata, "show_toolbar", active);
 }
 
 static void

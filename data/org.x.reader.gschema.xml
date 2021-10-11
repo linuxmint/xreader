@@ -33,16 +33,15 @@
     <key name="show-menubar" type="b">
       <default>true</default>
     </key>
-
+    <key name="show-toolbar" type="b">
+      <default>true</default>
+    </key>
     <child name="default" schema="org.x.reader.default"/>
     <child name="toolbar" schema="org.x.reader.toolbar"/>
     <child name="state" schema="org.x.reader.state"/>
   </schema>
 
   <schema id="org.x.reader.default" path="/org/x/reader/default/" gettext-domain="xreader">
-    <key name="show-toolbar" type="b">
-      <default>true</default>
-    </key>
     <key name="show-sidebar" type="b">
       <default>true</default>
     </key>
