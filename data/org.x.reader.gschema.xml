@@ -30,6 +30,9 @@
       <summary>Page cache size in MiB</summary>
       <description>The maximum size that will be used to cache rendered pages, limits maximum zoom level.</description>
     </key>
+    <key name="show-menubar" type="b">
+      <default>true</default>
+    </key>
 
     <child name="default" schema="org.x.reader.default"/>
     <child name="toolbar" schema="org.x.reader.toolbar"/>
@@ -41,9 +44,6 @@
       <default>true</default>
     </key>
     <key name="show-sidebar" type="b">
-      <default>true</default>
-    </key>
-    <key name="show-menubar" type="b">
       <default>true</default>
     </key>
     <key name="window-ratio" type="(dd)">
