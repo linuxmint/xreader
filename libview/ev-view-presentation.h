@@ -51,6 +51,8 @@ void            ev_view_presentation_set_rotation     (EvViewPresentation *pview
                                                        gint                rotation);
 guint           ev_view_presentation_get_rotation     (EvViewPresentation *pview);
 
+void            ev_view_presentation_set_rtl          (EvViewPresentation *pview, gboolean rtl);
+
 G_END_DECLS
 
 #endif /* __EV_VIEW_PRESENTATION_H__ */

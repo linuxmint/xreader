@@ -4216,6 +4216,7 @@ ev_window_run_presentation (EvWindow *window)
     guint    current_page;
     guint    rotation;
     gboolean inverted_colors;
+    gboolean rtl;
 
     if (EV_WINDOW_IS_PRESENTATION (window))
         return;
@@ -4232,10 +4233,12 @@ ev_window_run_presentation (EvWindow *window)
     current_page = ev_document_model_get_page (window->priv->model);
     rotation = ev_document_model_get_rotation (window->priv->model);
     inverted_colors = ev_document_model_get_inverted_colors (window->priv->model);
+    rtl = ev_document_model_get_rtl (window->priv->model);
     window->priv->presentation_view = ev_view_presentation_new (window->priv->document,
             current_page,
             rotation,
             inverted_colors);
+    ev_view_presentation_set_rtl (window->priv->presentation_view, rtl);
     g_signal_connect_swapped (window->priv->presentation_view, "finished",
             G_CALLBACK (ev_window_view_presentation_finished),
             window);
@@ -6080,7 +6083,6 @@ ev_window_key_press_event (GtkWidget   *widget,
      * on the order the keys are released, if the alt key is last to be released, we don't want to
      * show the menu, as that was not the original intent.
      */
-
     if (is_alt_key_event (event)) {
         if (gtk_widget_get_visible (window->priv->menubar)) {
             ev_window_toggle_menubar (window, EV_MENUBAR_HIDE);
