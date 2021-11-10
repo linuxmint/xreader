@@ -645,7 +645,7 @@ update_chrome_visibility (EvWindow *window)
 
     menubar = (priv->chrome & EV_CHROME_MENUBAR) != 0 && !fullscreen_mode;
     toolbar = ((priv->chrome & EV_CHROME_TOOLBAR) != 0  ||
-                  (priv->chrome & EV_CHROME_RAISE_TOOLBAR) != 0) && !presentation;
+                  (priv->chrome & EV_CHROME_RAISE_TOOLBAR) != 0) && !presentation && !fullscreen;
     fullscreen_toolbar = ((priv->chrome & EV_CHROME_FULLSCREEN_TOOLBAR) != 0 ||
                             (priv->chrome & EV_CHROME_RAISE_TOOLBAR) != 0) && fullscreen;
     findbar = (priv->chrome & EV_CHROME_FINDBAR) != 0;
@@ -4122,11 +4122,9 @@ ev_window_run_fullscreen (EvWindow *window)
     ev_document_model_set_fullscreen (window->priv->model, TRUE);
     ev_window_update_fullscreen_action (window);
 
-    /* If the user doesn't have the main toolbar he/she won't probably want
-     * the toolbar in fullscreen mode. See bug #483048
+    /* Don't show the fullscreen toolbar
      */
-    update_chrome_flag (window, EV_CHROME_FULLSCREEN_TOOLBAR,
-            (window->priv->chrome & EV_CHROME_TOOLBAR) != 0);
+    update_chrome_flag (window, EV_CHROME_FULLSCREEN_TOOLBAR, FALSE);
     update_chrome_visibility (window);
 
     if (fullscreen_window)
