@@ -92,10 +92,4 @@
     </key>
   </schema>
 
-  <schema id="org.x.reader.state" path="/org/x/reader/state/" gettext-domain="xreader">
-    <key name="last-landing-page" type="s">
-      <default>'recent_files'</default>
-    </key>
-  </schema>
-
 </schemalist>

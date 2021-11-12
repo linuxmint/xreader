@@ -21,8 +21,6 @@ shell_sources = [
     'ev-history-action-widget.h',
     'ev-keyring.h',
     'ev-keyring.c',
-    'ev-landing-view.c',
-    'ev-landing-view.h',
     'ev-message-area.c',
     'ev-message-area.h',
     'ev-metadata.c',

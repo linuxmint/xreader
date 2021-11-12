@@ -690,19 +690,18 @@ ev_application_open_uri_at_dest (EvApplication  *application,
 }
 
 /**
- * ev_application_open_landing_view:
+ * ev_application_open_window:
  * @application: The instance of the application.
  * @timestamp: Current time value.
  *
- * Creates a new window with recent files
+ * Creates a new window
  */
 void
-ev_application_open_landing_view (EvApplication *application,
+ev_application_open_window (EvApplication *application,
                             GdkScreen     *screen,
                             guint32        timestamp)
 {
     GtkWidget *new_window = ev_window_new ();
-    ev_window_open_landing_view (EV_WINDOW (new_window));
 
     if (screen) {
         ev_stock_icons_set_screen (screen);
