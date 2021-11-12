@@ -1513,6 +1513,10 @@ ev_window_set_document (EvWindow *ev_window,
         ev_window_warning_message (ev_window, "%s", _("The document contains only empty pages"));
     }
 
+    if (ev_window->priv->metadata && !ev_window_is_empty (ev_window)) {
+        ev_metadata_set_int (ev_window->priv->metadata, "num-pages", ev_document_get_n_pages (document));
+    }
+
     ev_window_destroy_landing_view (ev_window);
     gtk_widget_show (ev_window->priv->toolbar);
 
