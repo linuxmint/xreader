@@ -1,3 +1,21 @@
+xreader (3.2.0) una; urgency=medium
+
+  [ Clement Lefebvre ]
+  * Add an option to hide the menu bar
+  * Make show-toolbar a global setting
+
+  [ George Sheppard ]
+  * Update the README. (#498)
+
+  [ Clement Lefebvre ]
+  * window: Don't show any toolbar in fullscreen
+  * rtl: Fix arrow key navigation in mangas
+  * metadata: Save the number of pages
+  * Remove landing view
+  * l10n: Update POT
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 23 Nov 2021 11:01:47 +0000
+
 xreader (3.0.2) uma; urgency=medium
 
   * l10n: Update translations
