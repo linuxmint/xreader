@@ -22,7 +22,7 @@ install_data(
 )
 
 mime_conf = configuration_data()
-mime_conf.set('XREADER_MIME_TYPES', xreader_mime_types)
+mime_conf.set('THUMBNAILER_MIME_TYPES', thumbnailer_mime_types)
 
 mime_file = configure_file(
     input: 'xreader.thumbnailer.in',

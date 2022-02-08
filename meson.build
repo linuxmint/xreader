@@ -106,6 +106,10 @@ if get_option('xps')
     backend_subdirs += 'xps'
     xreader_mime_types += 'application/oxps;application/vnd.ms-xpsdocument;'
 endif
+
+# Don't include epub in the thumbnailer mime_types, it's handled by xapp-epub-thumbnailer.
+thumbnailer_mime_types = xreader_mime_types
+
 if get_option('epub')
     webkit = dependency('webkit2gtk-4.0', version: '>= 2.4.3')
     backend_subdirs += 'epub'
