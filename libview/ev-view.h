@@ -108,7 +108,7 @@ gboolean           ev_view_get_page_extents          (EvView         *view,
 void               ev_view_focus_annotation          (EvView          *view,
                                                       EvMapping       *annot_mapping);
 void               ev_view_begin_add_annotation      (EvView          *view,
-                                                      EvAnnotationType annot_type);
+                                                      EvAnnotationInfo annot_info);
 void               ev_view_cancel_add_annotation     (EvView          *view);
 void               ev_view_remove_annotation         (EvView          *view,
                                                       EvAnnotation    *annot);

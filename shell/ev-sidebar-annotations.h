@@ -58,7 +58,10 @@ void       ev_sidebar_annotations_annot_added (EvSidebarAnnotations *sidebar_ann
 					       EvAnnotation         *annot);
 void       ev_sidebar_annotations_annot_removed (EvSidebarAnnotations *sidebar_annots,
 					       EvAnnotation         *annot);
-EvAnnotationsToolbar *ev_sidebar_annotations_get_toolbar(EvSidebarAnnotations *sidebar_annots);
+
+EvAnnotationsToolbar *ev_sidebar_annotations_get_toolbar (EvSidebarAnnotations *sidebar_annots);
+void                  ev_sidebar_annotations_set_color   (EvSidebarAnnotations *sidebar_annots,
+                                                          GdkColor             *color);
 
 G_END_DECLS
 

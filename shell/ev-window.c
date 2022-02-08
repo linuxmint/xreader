@@ -1062,6 +1062,8 @@ ev_window_init_metadata_with_default_values (EvWindow *window)
         ev_metadata_set_string (metadata, "sidebar_page", sidebar_page_id);
         g_free (sidebar_page_id);
     }
+    if (!ev_metadata_has_key (metadata, "annots_color"))
+        ev_metadata_set_string (metadata, "annots_color", "#ffff00");
 
     /* Document model */
     if (!ev_metadata_has_key (metadata, "continuous")) {
@@ -1114,6 +1116,7 @@ static void
 setup_sidebar_from_metadata (EvWindow *window)
 {
     gchar *page_id;
+    gchar *annots_color;
     gint   sidebar_size;
     gint   thumbnails_size;
 
@@ -1128,6 +1131,15 @@ setup_sidebar_from_metadata (EvWindow *window)
 
     if (ev_metadata_get_string (window->priv->metadata, "sidebar_page", &page_id))
         ev_window_sidebar_set_current_page (window, page_id);
+        
+    if (ev_metadata_get_string (window->priv->metadata, "annots_color", &annots_color)) {
+    	
+    	GdkColor color;
+    	if (!gdk_color_parse (annots_color, &color))
+            gdk_color_parse ("#ffff00", &color);
+            
+        ev_sidebar_annotations_set_color (EV_SIDEBAR_ANNOTATIONS (window->priv->sidebar_annots), &color);
+    }
 }
 
 static void
@@ -6542,12 +6554,22 @@ sidebar_annots_annot_activated_cb (EvSidebarAnnotations *sidebar_annots,
 }
 
 static void
-ev_window_begin_add_annot (EvSidebarAnnotations *sidebar_annots,
-		EvAnnotationType annot_type,
-		EvWindow        *window)
+sidebar_annots_color_updated_cb (EvSidebarAnnotations *sidebar_annots,
+                                 GdkColor             *color,
+                                 EvWindow             *window)
 {
-    if (window->priv->document->iswebdocument == TRUE ) return;
-    ev_view_begin_add_annotation (EV_VIEW (window->priv->view), annot_type);
+    gchar *color_str = gdk_color_to_string (color);
+    ev_metadata_set_string (window->priv->metadata, "annots_color", color_str);
+    g_free (color_str);
+}
+
+static void
+ev_window_begin_add_annot (EvSidebarAnnotations *sidebar_annots,
+                           EvAnnotationInfo     *annot_info,
+                           EvWindow             *window)
+{
+    if (window->priv->document->iswebdocument == TRUE) return;
+    ev_view_begin_add_annotation (EV_VIEW (window->priv->view), *annot_info);
 }
 
 static void
@@ -7815,8 +7837,12 @@ ev_window_init (EvWindow *ev_window)
     EvAnnotationsToolbar *annot_toolbar = ev_sidebar_annotations_get_toolbar(EV_SIDEBAR_ANNOTATIONS(sidebar_widget));
     ev_window->priv->sidebar_annots = sidebar_widget;
     g_signal_connect (sidebar_widget,
-            "annot_activated",
+            "annot-activated",
             G_CALLBACK (sidebar_annots_annot_activated_cb),
+            ev_window);
+    g_signal_connect (annot_toolbar,
+            "change-color-annot",
+            G_CALLBACK (sidebar_annots_color_updated_cb),
             ev_window);
     g_signal_connect (annot_toolbar,
             "begin-add-annot",
