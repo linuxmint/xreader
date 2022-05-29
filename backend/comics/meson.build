@@ -20,11 +20,12 @@ shared_module(
     install_dir: backendsdir,
 )
 
-custom_target(
-    'comics_backend',
-    input: 'comicsdocument.xreader-backend.in',
+i18n.merge_file(
+    input: 'comicsdocument.xreader-backend.desktop.in',
     output: 'comicsdocument.xreader-backend',
-    command: [intltool_merge, '-d', '-u', po_dir, '@INPUT@', '@OUTPUT@'],
+    po_dir: po_dir,
+    type: 'desktop',
+    args: ['--keyword=TypeDescription'],
     install: true,
     install_dir: backendsdir,
 )
