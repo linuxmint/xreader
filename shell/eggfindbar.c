@@ -379,9 +379,6 @@ egg_find_bar_init (EggFindBar *find_bar)
   cross = gtk_image_new_from_icon_name ("window-close-symbolic",
                                         GTK_ICON_SIZE_BUTTON);
   priv->close_button = gtk_tool_button_new (cross, NULL);
-  gtk_widget_set_tooltip_text (GTK_WIDGET (priv->close_button),
-			       _("Close find bar"));
-
 
   g_signal_connect (priv->find_entry, "changed",
                     G_CALLBACK (entry_changed_callback),
