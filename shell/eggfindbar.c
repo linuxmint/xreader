@@ -35,6 +35,8 @@ struct _EggFindBarPrivate
   GtkToolItem *status_separator;
   GtkToolItem *status_item;
   GtkToolItem *case_button;
+  GtkToolItem *close_separator;
+  GtkToolItem *close_button;
 
   GtkWidget *find_entry;
   GtkWidget *status_label;
@@ -205,6 +207,12 @@ egg_find_bar_emit_previous (EggFindBar *find_bar)
 }
 
 static void
+egg_find_bar_emit_close (EggFindBar *find_bar)
+{
+  g_signal_emit (find_bar, find_bar_signals[CLOSE], 0);
+}
+
+static void
 next_clicked_callback (GtkButton *button,
                        void      *data)
 {
@@ -240,6 +248,15 @@ entry_activate_callback (GtkEntry *entry,
 
   if (find_bar->priv->search_string != NULL)
     egg_find_bar_emit_next (find_bar);
+}
+
+static void
+close_clicked_callback (GtkButton *widget,
+                        void      *data)
+{
+  EggFindBar *find_bar = EGG_FIND_BAR (data);
+
+  egg_find_bar_emit_close (find_bar);
 }
 
 static void
@@ -281,6 +298,7 @@ egg_find_bar_init (EggFindBar *find_bar)
   GtkWidget *box;
   GtkToolItem *item;
   GtkWidget *arrow;
+  GtkWidget *cross;
 
   /* Data */
   priv = egg_find_bar_get_instance_private (find_bar);
@@ -348,6 +366,19 @@ egg_find_bar_init (EggFindBar *find_bar)
   gtk_widget_set_halign (priv->status_label, GTK_ALIGN_START);
   gtk_widget_set_valign (priv->status_label, GTK_ALIGN_CENTER);
 
+  /* Close Separator */
+  priv->close_separator = gtk_separator_tool_item_new ();
+  /* The effect of setting draw to FALSE and expand to TRUE will
+   * push items added to the toolbar after this separator to the
+   * end of the toolbar. */
+  gtk_separator_tool_item_set_draw (GTK_SEPARATOR_TOOL_ITEM (priv->close_separator),
+                                    FALSE);
+  gtk_tool_item_set_expand (priv->close_separator, TRUE);
+
+  /* Close button */
+  cross = gtk_image_new_from_icon_name ("window-close-symbolic",
+                                        GTK_ICON_SIZE_BUTTON);
+  priv->close_button = gtk_tool_button_new (cross, NULL);
 
   g_signal_connect (priv->find_entry, "changed",
                     G_CALLBACK (entry_changed_callback),
@@ -364,6 +395,9 @@ egg_find_bar_init (EggFindBar *find_bar)
   g_signal_connect (priv->case_button, "toggled",
                     G_CALLBACK (case_sensitive_toggled_callback),
                     find_bar);
+  g_signal_connect (priv->close_button, "clicked",
+                    G_CALLBACK (close_clicked_callback),
+                    find_bar);
 
   gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
   gtk_box_pack_start (GTK_BOX (box), priv->find_entry, TRUE, TRUE, 0);
@@ -375,6 +409,8 @@ egg_find_bar_init (EggFindBar *find_bar)
   gtk_toolbar_insert (GTK_TOOLBAR (find_bar), priv->status_separator, -1);
   gtk_container_add  (GTK_CONTAINER (priv->status_item), priv->status_label);
   gtk_toolbar_insert (GTK_TOOLBAR (find_bar), priv->status_item, -1);
+  gtk_toolbar_insert (GTK_TOOLBAR (find_bar), priv->close_separator, -1);
+  gtk_toolbar_insert (GTK_TOOLBAR (find_bar), priv->close_button, -1);
 
   /* don't show status separator/label until they are set */
 
@@ -382,6 +418,8 @@ egg_find_bar_init (EggFindBar *find_bar)
   gtk_widget_show_all (GTK_WIDGET (priv->next_button));
   gtk_widget_show_all (GTK_WIDGET (priv->previous_button));
   gtk_widget_show_all (GTK_WIDGET (priv->case_button));
+  gtk_widget_show_all (GTK_WIDGET (priv->close_separator));
+  gtk_widget_show_all (GTK_WIDGET (priv->close_button));
   gtk_widget_show (priv->status_label);
 }
 

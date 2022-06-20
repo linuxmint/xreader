@@ -165,7 +165,7 @@ load_files (const char **files)
 
 	if (!files) {
 		if (!ev_application_has_window (EV_APP))
-			ev_application_open_landing_view (EV_APP, screen, GDK_CURRENT_TIME);
+			ev_application_open_window (EV_APP, screen, GDK_CURRENT_TIME);
 		return;
 	}
 

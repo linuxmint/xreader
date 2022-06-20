@@ -30,20 +30,18 @@
       <summary>Page cache size in MiB</summary>
       <description>The maximum size that will be used to cache rendered pages, limits maximum zoom level.</description>
     </key>
-
-    <child name="default" schema="org.x.reader.default"/>
-    <child name="toolbar" schema="org.x.reader.toolbar"/>
-    <child name="state" schema="org.x.reader.state"/>
-  </schema>
-
-  <schema id="org.x.reader.default" path="/org/x/reader/default/" gettext-domain="xreader">
+    <key name="show-menubar" type="b">
+      <default>true</default>
+    </key>
     <key name="show-toolbar" type="b">
       <default>true</default>
     </key>
+    <child name="default" schema="org.x.reader.default"/>
+    <child name="toolbar" schema="org.x.reader.toolbar"/>
+  </schema>
+
+  <schema id="org.x.reader.default" path="/org/x/reader/default/" gettext-domain="xreader">
     <key name="show-sidebar" type="b">
-      <default>true</default>
-    </key>
-    <key name="show-menubar" type="b">
       <default>true</default>
     </key>
     <key name="window-ratio" type="(dd)">
@@ -90,12 +88,6 @@
     </key>
     <key name="show-zoom-action" type="b">
       <default>false</default>
-    </key>
-  </schema>
-
-  <schema id="org.x.reader.state" path="/org/x/reader/state/" gettext-domain="xreader">
-    <key name="last-landing-page" type="s">
-      <default>'recent_files'</default>
     </key>
   </schema>
 

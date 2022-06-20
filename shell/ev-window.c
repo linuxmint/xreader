@@ -96,7 +96,6 @@
 #include "ev-bookmarks.h"
 #include "ev-bookmark-action.h"
 #include "ev-toolbar.h"
-#include "ev-landing-view.h"
 
 #ifdef ENABLE_DBUS
 #include "ev-gdbus-generated.h"
@@ -196,9 +195,6 @@ struct _EvWindowPrivate {
     /* Popup attachment */
     GtkWidget    *attachment_popup;
     GList        *attach_list;
-
-    /* Recent view */
-    EvLandingView *landing_view;
 
     /* Document */
     EvDocumentModel *model;
@@ -369,10 +365,6 @@ static void    zoom_control_changed_cb                       (EphyZoomAction *ac
                                                               EvWindow       *ev_window);
 static gint    compare_recent_items                          (GtkRecentInfo  *a,
                                                               GtkRecentInfo  *b);
-static void    ev_window_destroy_landing_view                 (EvWindow       *ev_window);
-static void    landing_view_item_activated_cb                 (EvLandingView   *landing_view,
-                                                              const char       *uri,
-                                                              EvWindow         *ev_window);
 
 G_DEFINE_TYPE_WITH_PRIVATE (EvWindow, ev_window, GTK_TYPE_APPLICATION_WINDOW)
 
@@ -647,7 +639,7 @@ update_chrome_visibility (EvWindow *window)
 
     menubar = (priv->chrome & EV_CHROME_MENUBAR) != 0 && !fullscreen_mode;
     toolbar = ((priv->chrome & EV_CHROME_TOOLBAR) != 0  ||
-                  (priv->chrome & EV_CHROME_RAISE_TOOLBAR) != 0) && !presentation;
+                  (priv->chrome & EV_CHROME_RAISE_TOOLBAR) != 0) && !presentation && !fullscreen;
     fullscreen_toolbar = ((priv->chrome & EV_CHROME_FULLSCREEN_TOOLBAR) != 0 ||
                             (priv->chrome & EV_CHROME_RAISE_TOOLBAR) != 0) && fullscreen;
     findbar = (priv->chrome & EV_CHROME_FINDBAR) != 0;
@@ -716,14 +708,13 @@ update_chrome_actions (EvWindow *window)
 
     action = gtk_action_group_get_action(action_group, "ViewMenubar");
     g_signal_handlers_block_by_func (action, G_CALLBACK (ev_window_view_menubar_cb), window);
-    gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), (priv->chrome & EV_CHROME_MENUBAR != 0));
+    gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), g_settings_get_boolean (priv->settings, "show-menubar"));
     g_signal_handlers_unblock_by_func (action, G_CALLBACK (ev_window_view_menubar_cb), window);
 
     action= gtk_action_group_get_action (action_group, "ViewToolbar");
     g_signal_handlers_block_by_func
     (action, G_CALLBACK (ev_window_view_toolbar_cb), window);
-    gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action),
-            (priv->chrome & EV_CHROME_TOOLBAR) != 0);
+    gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), g_settings_get_boolean (priv->settings, "show-toolbar"));
     g_signal_handlers_unblock_by_func
     (action, G_CALLBACK (ev_window_view_toolbar_cb), window);
 }
@@ -1053,14 +1044,6 @@ ev_window_init_metadata_with_default_values (EvWindow *window)
     EvMetadata *metadata = window->priv->metadata;
 
     /* Chrome */
-    if (!ev_metadata_has_key (metadata, "show_menubar")) {
-        ev_metadata_set_boolean (metadata, "show_menubar",
-                g_settings_get_boolean (settings, "show-menubar"));
-    }
-    if (!ev_metadata_has_key (metadata, "show_toolbar")) {
-        ev_metadata_set_boolean (metadata, "show_toolbar",
-                g_settings_get_boolean (settings, "show-toolbar"));
-    }
     if (!ev_metadata_has_key (metadata, "sidebar_visibility")) {
         ev_metadata_set_boolean (metadata, "sidebar_visibility",
                 g_settings_get_boolean (settings, "show-sidebar"));
@@ -1118,17 +1101,11 @@ ev_window_init_metadata_with_default_values (EvWindow *window)
 static void
 setup_chrome_from_metadata (EvWindow *window)
 {
-    gboolean show_menubar;
-    gboolean show_toolbar;
     gboolean show_sidebar;
 
     if (!window->priv->metadata)
         return;
 
-    if (ev_metadata_get_boolean (window->priv->metadata, "show_menubar", &show_menubar))
-        update_chrome_flag (window, EV_CHROME_MENUBAR, TRUE);
-    if (ev_metadata_get_boolean (window->priv->metadata, "show_toolbar", &show_toolbar))
-        update_chrome_flag (window, EV_CHROME_TOOLBAR, show_toolbar);
     if (ev_metadata_get_boolean (window->priv->metadata, "sidebar_visibility", &show_sidebar))
         update_chrome_flag (window, EV_CHROME_SIDEBAR, show_sidebar);
 
@@ -1320,7 +1297,6 @@ static void
 setup_view_from_metadata (EvWindow *window)
 {
     gboolean presentation;
-    gboolean show_menubar;
 
     if (!window->priv->metadata)
         return;
@@ -1335,15 +1311,6 @@ setup_view_from_metadata (EvWindow *window)
                 ev_window_run_presentation (window);
             }
         }
-    }
-
-    /* Menubar */
-    // see https://github.com/linuxmint/xreader/pull/416 discussion.
-    // if(ev_metadata_get_boolean (window->priv->metadata, "show_menubar", &show_menubar)) {
-    if (TRUE) {
-        gtk_widget_show(window->priv->menubar);
-    } else {
-        gtk_widget_hide(window->priv->menubar);
     }
 }
 
@@ -1365,9 +1332,9 @@ ev_window_setup_default (EvWindow *ev_window)
     GSettings       *settings = ev_window->priv->default_settings;
 
     /* Chrome */
-    update_chrome_flag (ev_window, EV_CHROME_TOOLBAR, g_settings_get_boolean (settings, "show-toolbar"));
+    update_chrome_flag (ev_window, EV_CHROME_TOOLBAR, g_settings_get_boolean (ev_window->priv->settings, "show-toolbar"));
     update_chrome_flag (ev_window, EV_CHROME_SIDEBAR, g_settings_get_boolean (settings, "show-sidebar"));
-    update_chrome_flag (ev_window, EV_CHROME_MENUBAR, g_settings_get_boolean (settings, "show-menubar"));
+    update_chrome_flag (ev_window, EV_CHROME_MENUBAR, g_settings_get_boolean (ev_window->priv->settings, "show-menubar"));
     update_chrome_visibility (ev_window);
 
     /* Sidebar */
@@ -1540,7 +1507,10 @@ ev_window_set_document (EvWindow *ev_window,
         ev_window_warning_message (ev_window, "%s", _("The document contains only empty pages"));
     }
 
-    ev_window_destroy_landing_view (ev_window);
+    if (ev_window->priv->metadata && !ev_window_is_empty (ev_window)) {
+        ev_metadata_set_int (ev_window->priv->metadata, "num-pages", ev_document_get_n_pages (document));
+    }
+
     gtk_widget_show (ev_window->priv->toolbar);
 
 #if ENABLE_EPUB
@@ -2246,39 +2216,6 @@ ev_window_open_document (EvWindow       *ev_window,
             ev_window);
 }
 
-void
-ev_window_open_landing_view (EvWindow *ev_window)
-{
-    if (ev_window->priv->landing_view)
-        return;
-
-    gtk_widget_hide (ev_window->priv->hpaned);
-    gtk_widget_hide (ev_window->priv->toolbar);
-    ev_window->priv->landing_view = EV_LANDING_VIEW (ev_landing_view_new());
-    g_signal_connect_object (ev_window->priv->landing_view,
-                             "item-activated",
-                             G_CALLBACK (landing_view_item_activated_cb),
-                             ev_window, 0);
-    gtk_box_pack_start (GTK_BOX (ev_window->priv->main_box),
-                        GTK_WIDGET (ev_window->priv->landing_view),
-                        TRUE, TRUE, 0);
-
-    ev_window_title_set_type (ev_window->priv->title, EV_WINDOW_TITLE_RECENT);
-    ev_window_update_actions (ev_window);
-    gtk_widget_show (GTK_WIDGET (ev_window->priv->landing_view));
-}
-
-static void
-ev_window_destroy_landing_view (EvWindow *ev_window)
-{
-    if (!ev_window->priv->landing_view)
-        return;
-
-    gtk_widget_destroy (GTK_WIDGET (ev_window->priv->landing_view));
-    ev_window->priv->landing_view = NULL;
-    gtk_widget_show (ev_window->priv->hpaned);
-}
-
 static void
 ev_window_reload_local (EvWindow *ev_window)
 {
@@ -2600,7 +2537,6 @@ ev_window_cmd_file_activate (GtkAction *action,
                              gpointer   user_data)
 {
     GtkWindow *window = GTK_WINDOW (user_data);
-    GtkRecentInfo *info;
     const gchar   *uri;
 
     uri = g_object_get_data (G_OBJECT (action), "uri");
@@ -2813,7 +2749,6 @@ ev_window_setup_favorites (EvWindow *ev_window)
 {
     GList        *infos, *l;
     guint         n_items = 0;
-    const gchar  *xreader = g_get_application_name ();
     static guint  i = 0;
 
     if (ev_window->priv->favorites_ui_id > 0) {
@@ -2843,7 +2778,6 @@ ev_window_setup_favorites (EvWindow *ev_window)
         GtkAction     *action;
         gchar         *action_name;
         gchar         *label;
-        const gchar   *mime_type;
         gchar         *content_type;
         GIcon         *icon = NULL;
 
@@ -4149,11 +4083,9 @@ ev_window_run_fullscreen (EvWindow *window)
     ev_document_model_set_fullscreen (window->priv->model, TRUE);
     ev_window_update_fullscreen_action (window);
 
-    /* If the user doesn't have the main toolbar he/she won't probably want
-     * the toolbar in fullscreen mode. See bug #483048
+    /* Don't show the fullscreen toolbar
      */
-    update_chrome_flag (window, EV_CHROME_FULLSCREEN_TOOLBAR,
-            (window->priv->chrome & EV_CHROME_TOOLBAR) != 0);
+    update_chrome_flag (window, EV_CHROME_FULLSCREEN_TOOLBAR, FALSE);
     update_chrome_visibility (window);
 
     if (fullscreen_window)
@@ -4245,6 +4177,7 @@ ev_window_run_presentation (EvWindow *window)
     guint    current_page;
     guint    rotation;
     gboolean inverted_colors;
+    gboolean rtl;
 
     if (EV_WINDOW_IS_PRESENTATION (window))
         return;
@@ -4261,10 +4194,12 @@ ev_window_run_presentation (EvWindow *window)
     current_page = ev_document_model_get_page (window->priv->model);
     rotation = ev_document_model_get_rotation (window->priv->model);
     inverted_colors = ev_document_model_get_inverted_colors (window->priv->model);
+    rtl = ev_document_model_get_rtl (window->priv->model);
     window->priv->presentation_view = ev_view_presentation_new (window->priv->document,
             current_page,
             rotation,
             inverted_colors);
+    ev_view_presentation_set_rtl (window->priv->presentation_view, rtl);
     g_signal_connect_swapped (window->priv->presentation_view, "finished",
             G_CALLBACK (ev_window_view_presentation_finished),
             window);
@@ -4562,10 +4497,6 @@ ev_window_cmd_edit_save_settings (GtkAction *action,
         zoom *= 72.0 / get_screen_dpi (ev_window);
         g_settings_set_double (settings, "zoom", zoom);
     }
-    g_settings_set_boolean (settings, "show-menubar",
-            ((priv->chrome & EV_CHROME_MENUBAR) != 0));
-    g_settings_set_boolean (settings, "show-toolbar",
-            gtk_revealer_get_reveal_child( GTK_REVEALER (ev_window->priv->toolbar_revealer)));
     g_settings_set_boolean (settings, "show-sidebar",
             gtk_widget_get_visible (priv->sidebar));
     g_settings_set_int (settings, "sidebar-size",
@@ -4964,7 +4895,6 @@ static void
 save_sizing_mode (EvWindow *window)
 {
     EvSizingMode mode;
-    GEnumValue *enum_value;
 
     if (!window->priv->metadata || ev_window_is_empty (window))
         return;
@@ -5209,12 +5139,10 @@ ev_window_view_menubar_cb (GtkAction *action,
                            EvWindow  *ev_window)
 {
     gboolean active;
-
     active = gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action));
+    g_settings_set_boolean (ev_window->priv->settings, "show-menubar", active);
     update_chrome_flag (ev_window, EV_CHROME_MENUBAR, active);
     update_chrome_visibility (ev_window);
-    if (ev_window->priv->metadata)
-        ev_metadata_set_boolean (ev_window->priv->metadata, "show_menubar", active);
 }
 
 static void
@@ -5257,10 +5185,9 @@ ev_window_view_toolbar_cb (GtkAction *action,
     gboolean active;
 
     active = gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action));
+    g_settings_set_boolean (ev_window->priv->settings, "show-toolbar", active);
     update_chrome_flag (ev_window, EV_CHROME_TOOLBAR, active);
     update_chrome_visibility (ev_window);
-    if (ev_window->priv->metadata)
-        ev_metadata_set_boolean (ev_window->priv->metadata, "show_toolbar", active);
 }
 
 static void
@@ -5314,8 +5241,7 @@ view_menu_link_popup (EvWindow *ev_window,
                       EvLink   *link)
 {
     gboolean   show_external = FALSE;
-    gboolean   show_internal = FALSE;
-    GtkAction *action;
+    //gboolean   show_internal = FALSE;
 
     if ( ev_window->priv->document->iswebdocument == TRUE ) return ;
 
@@ -5335,7 +5261,8 @@ view_menu_link_popup (EvWindow *ev_window,
             switch (ev_link_action_get_action_type (ev_action)) {
             case EV_LINK_ACTION_TYPE_GOTO_DEST:
             case EV_LINK_ACTION_TYPE_GOTO_REMOTE:
-                show_internal = TRUE;
+                //  2021-03-21 WHY WAS THIS BEING SET BUT NEVER USED? 
+                //show_internal = TRUE;
                 break;
             case EV_LINK_ACTION_TYPE_EXTERNAL_URI:
             case EV_LINK_ACTION_TYPE_LAUNCH:
@@ -5357,7 +5284,6 @@ static void
 view_menu_image_popup (EvWindow  *ev_window,
                        EvImage   *image)
 {
-    GtkAction *action;
     gboolean   show_image = FALSE;
 
     if (ev_window->priv->document->iswebdocument == TRUE ) return ;
@@ -5388,7 +5314,6 @@ static void
 view_menu_annot_popup (EvWindow     *ev_window,
                        EvAnnotation *annot)
 {
-    GtkAction *action;
     gboolean   show_annot = FALSE;
     if (ev_window->priv->document->iswebdocument == TRUE ) return ;
     if (ev_window->priv->annot)
@@ -5421,10 +5346,10 @@ view_menu_annot_popup (EvWindow     *ev_window,
         }
     }
 
-    ev_window_set_action_visible (ev_window->priv->view_popup_action_group,
+    ev_window_set_action_visible (ev_window->priv->attachment_popup_action_group,
                                   "OpenAttachment",
                                   show_annot);
-    ev_window_set_action_visible (ev_window->priv->view_popup_action_group,
+    ev_window_set_action_visible (ev_window->priv->attachment_popup_action_group,
                                   "SaveAttachmentAs",
                                   show_annot);
 }
@@ -6131,7 +6056,6 @@ ev_window_key_press_event (GtkWidget   *widget,
      * on the order the keys are released, if the alt key is last to be released, we don't want to
      * show the menu, as that was not the original intent.
      */
-
     if (is_alt_key_event (event)) {
         if (gtk_widget_get_visible (window->priv->menubar)) {
             ev_window_toggle_menubar (window, EV_MENUBAR_HIDE);
@@ -6539,13 +6463,12 @@ static const GtkActionEntry view_popup_entries [] = {
 	  NULL, G_CALLBACK (ev_view_popup_cmd_save_image_as) },
 	{ "CopyImage", NULL, N_("Copy _Image"), NULL,
 	  NULL, G_CALLBACK (ev_view_popup_cmd_copy_image) },
-	{ "AnnotProperties", NULL, N_("Annotation Properties…"), NULL,
+	{ "AnnotProperties", "xapp-format-text-highlight-symbolic" , N_("Annotation Properties…"), NULL,
 	  NULL, G_CALLBACK (ev_view_popup_cmd_annot_properties) },
-	{ "RemoveAnnotation", NULL, N_("Remove Annotation"), NULL,
+	{ "RemoveAnnotation", "window-close-symbolic", N_("Remove Annotation"), NULL,
 	  NULL, G_CALLBACK (ev_view_popup_cmd_remove_annotation) },
     { "AnnotateSelectedText", "xapp-format-text-highlight-symbolic", N_("Annotate Selected Text"), NULL,
 	  NULL, G_CALLBACK (ev_window_popup_cmd_annotate_selected_text) }  
-
 };
 
 static const GtkActionEntry attachment_popup_entries [] = {
@@ -6596,16 +6519,6 @@ activate_link_cb (GObject  *object,
         gtk_widget_grab_focus (window->priv->webview);
     }
 #endif
-}
-
-static void
-landing_view_item_activated_cb (EvLandingView *landing_view,
-                               const char   *uri,
-                               EvWindow     *ev_window)
-{
-    ev_application_open_uri_at_dest (EV_APP, uri,
-                                     gtk_window_get_screen (GTK_WINDOW (ev_window)),
-                                     NULL, 0, NULL, gtk_get_current_event_time ());
 }
 
 static void

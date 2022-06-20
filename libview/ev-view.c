@@ -809,6 +809,8 @@ add_scroll_binding_keypad (GtkBindingSet  *binding_set,
 {
   guint keypad_keyval = keyval - GDK_KEY_Left + GDK_KEY_KP_Left;
 
+  gtk_binding_entry_remove (binding_set, keyval, modifiers);
+
   gtk_binding_entry_add_signal (binding_set, keyval, modifiers,
                                 "binding_activated", 2,
                                 GTK_TYPE_SCROLL_TYPE, scroll,
@@ -5851,10 +5853,6 @@ ev_view_class_init (EvViewClass *class)
 
 	binding_set = gtk_binding_set_by_class (class);
 
-	add_scroll_binding_keypad (binding_set, GDK_KEY_Left,  0, GTK_SCROLL_STEP_BACKWARD, TRUE);
-	add_scroll_binding_keypad (binding_set, GDK_KEY_Right, 0, GTK_SCROLL_STEP_FORWARD,  TRUE);
-	add_scroll_binding_keypad (binding_set, GDK_KEY_Left,  GDK_MOD1_MASK, GTK_SCROLL_STEP_DOWN, TRUE);
-	add_scroll_binding_keypad (binding_set, GDK_KEY_Right, GDK_MOD1_MASK, GTK_SCROLL_STEP_UP,  TRUE);
 	add_scroll_binding_keypad (binding_set, GDK_KEY_Up,    0, GTK_SCROLL_STEP_BACKWARD, FALSE);
 	add_scroll_binding_keypad (binding_set, GDK_KEY_Down,  0, GTK_SCROLL_STEP_FORWARD,  FALSE);
 	add_scroll_binding_keypad (binding_set, GDK_KEY_Up,    GDK_MOD1_MASK, GTK_SCROLL_STEP_DOWN, FALSE);
@@ -6382,12 +6380,32 @@ ev_view_dual_odd_left_changed_cb (EvDocumentModel *model,
 }
 
 static void
+update_rtl_navigation (gboolean rtl)
+{
+	GtkBindingSet *binding_set;
+	binding_set = gtk_binding_set_by_class (GTK_WIDGET_CLASS (ev_view_parent_class));
+	if (!rtl) {
+		add_scroll_binding_keypad (binding_set, GDK_KEY_Left,  0, GTK_SCROLL_STEP_BACKWARD, TRUE);
+		add_scroll_binding_keypad (binding_set, GDK_KEY_Right, 0, GTK_SCROLL_STEP_FORWARD,  TRUE);
+		add_scroll_binding_keypad (binding_set, GDK_KEY_Left,  GDK_MOD1_MASK, GTK_SCROLL_STEP_DOWN, TRUE);
+		add_scroll_binding_keypad (binding_set, GDK_KEY_Right, GDK_MOD1_MASK, GTK_SCROLL_STEP_UP,  TRUE);
+	}
+	else {
+		add_scroll_binding_keypad (binding_set, GDK_KEY_Left,  0, GTK_SCROLL_STEP_FORWARD, TRUE);
+		add_scroll_binding_keypad (binding_set, GDK_KEY_Right, 0, GTK_SCROLL_STEP_BACKWARD,  TRUE);
+		add_scroll_binding_keypad (binding_set, GDK_KEY_Left,  GDK_MOD1_MASK, GTK_SCROLL_STEP_UP, TRUE);
+		add_scroll_binding_keypad (binding_set, GDK_KEY_Right, GDK_MOD1_MASK, GTK_SCROLL_STEP_DOWN,  TRUE);
+	}
+}
+
+static void
 ev_view_direction_changed_cb (EvDocumentModel *model,
                               GParamSpec      *pspec,
                               EvView          *view)
 {
 	gboolean rtl = ev_document_model_get_rtl (model);
 	gtk_widget_set_direction (GTK_WIDGET (view), rtl ? GTK_TEXT_DIR_RTL : GTK_TEXT_DIR_LTR);
+	update_rtl_navigation (rtl);
 	view->pending_scroll = SCROLL_TO_PAGE_POSITION;
 	gtk_widget_queue_resize (GTK_WIDGET (view));
 }
@@ -6410,6 +6428,8 @@ ev_view_set_model (EvView          *view,
 	g_return_if_fail (EV_IS_VIEW (view));
 	g_return_if_fail (EV_IS_DOCUMENT_MODEL (model));
 
+	gboolean rtl;
+
 	if (model == view->model)
 		return;
 
@@ -6430,7 +6450,9 @@ ev_view_set_model (EvView          *view,
 	view->scale = ev_document_model_get_scale (view->model);
 	view->continuous = ev_document_model_get_continuous (view->model);
 	view->dual_page = ev_document_model_get_dual_page (view->model);
-	gtk_widget_set_direction (GTK_WIDGET(view), ev_document_model_get_rtl (view->model));
+	rtl = ev_document_model_get_rtl (view->model);
+	gtk_widget_set_direction (GTK_WIDGET(view), rtl);
+	update_rtl_navigation (rtl);
 	view->fullscreen = ev_document_model_get_fullscreen (view->model);
 	ev_view_document_changed_cb (view->model, NULL, view);
 

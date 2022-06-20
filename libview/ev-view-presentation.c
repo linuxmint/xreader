@@ -1319,6 +1319,8 @@ add_change_page_binding_keypad (GtkBindingSet  *binding_set,
 {
 	guint keypad_keyval = keyval - GDK_KEY_Left + GDK_KEY_KP_Left;
 
+	gtk_binding_entry_remove (binding_set, keyval, modifiers);
+
 	gtk_binding_entry_add_signal (binding_set, keyval, modifiers,
 				      "change_page", 1,
 				      GTK_TYPE_SCROLL_TYPE, scroll);
@@ -1480,8 +1482,6 @@ ev_view_presentation_class_init (EvViewPresentationClass *klass)
 			      G_TYPE_OBJECT);
 
 	binding_set = gtk_binding_set_by_class (klass);
-	add_change_page_binding_keypad (binding_set, GDK_KEY_Left,  0, GTK_SCROLL_PAGE_BACKWARD);
-	add_change_page_binding_keypad (binding_set, GDK_KEY_Right, 0, GTK_SCROLL_PAGE_FORWARD);
 	add_change_page_binding_keypad (binding_set, GDK_KEY_Up,    0, GTK_SCROLL_PAGE_BACKWARD);
 	add_change_page_binding_keypad (binding_set, GDK_KEY_Down,  0, GTK_SCROLL_PAGE_FORWARD);
 	gtk_binding_entry_add_signal (binding_set, GDK_KEY_space, 0,
@@ -1552,6 +1552,21 @@ ev_view_presentation_new (EvDocument *document,
 					 "rotation", rotation,
 					 "inverted_colors", inverted_colors,
 					 NULL));
+}
+
+void
+ev_view_presentation_set_rtl (EvViewPresentation *pview, gboolean rtl)
+{
+	GtkBindingSet * binding_set;
+	binding_set = gtk_binding_set_by_class (ev_view_presentation_parent_class);
+	if (rtl) {
+		add_change_page_binding_keypad (binding_set, GDK_KEY_Left,  0, GTK_SCROLL_PAGE_FORWARD);
+		add_change_page_binding_keypad (binding_set, GDK_KEY_Right, 0, GTK_SCROLL_PAGE_BACKWARD);
+	}
+	else {
+		add_change_page_binding_keypad (binding_set, GDK_KEY_Left,  0, GTK_SCROLL_PAGE_BACKWARD);
+		add_change_page_binding_keypad (binding_set, GDK_KEY_Right, 0, GTK_SCROLL_PAGE_FORWARD);
+	}
 }
 
 guint

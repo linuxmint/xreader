@@ -1,6 +1,6 @@
 [Thumbnailer Entry]
 TryExec=xreader-thumbnailer
 Exec=xreader-thumbnailer -s %s %u %o
-MimeType=@XREADER_MIME_TYPES@
+MimeType=@THUMBNAILER_MIME_TYPES@
 
 

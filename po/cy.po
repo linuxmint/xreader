@@ -9,17 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 17:14+0000\n"
-"PO-Revision-Date: 2016-02-09 17:40+0000\n"
-"Last-Translator: infirit <Unknown>\n"
+"POT-Creation-Date: 2021-11-12 15:08+0000\n"
+"PO-Revision-Date: 2021-10-29 15:54+0000\n"
+"Last-Translator: Rhoslyn Prys <Unknown>\n"
 "Language-Team: Welsh (http://www.transifex.com/mate/MATE/language/cy/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==2 ? 1 : (n != 8 && n != 11) ? "
 "2 : 3;\n"
-"X-Launchpad-Export-Date: 2021-01-02 14:17+0000\n"
-"X-Generator: Launchpad (build 34b3ffd45c9543b7f7aa5aa313925241e9e7ca3f)\n"
+"X-Launchpad-Export-Date: 2021-12-06 15:04+0000\n"
+"X-Generator: Launchpad (build f92b6e0bb2624f8a9125e3f45b7621c6e230c5ff)\n"
 "Language: cy\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -27,26 +27,28 @@ msgstr ""
 msgid ""
 "Error launching the command “%s” in order to decompress the comic book: %s"
 msgstr ""
+"Gwall wrth lansio'r gorchymyn “%s” er mwyn datgywasgu'r llyfr comig: %s"
 
 #: ../backend/comics/comics-document.c:222
 #, c-format
 msgid "The command “%s” failed at decompressing the comic book."
-msgstr ""
+msgstr "Methodd y gorchymyn “%s” â dadgywasgu'r llyfr comig."
 
 #: ../backend/comics/comics-document.c:231
 #, c-format
 msgid "The command “%s” did not end normally."
-msgstr ""
+msgstr "Nid oedd y gorchymyn “%s” yn dod i ben fel arfer."
 
 #: ../backend/comics/comics-document.c:459
 #, c-format
 msgid "Not a comic book MIME type: %s"
-msgstr ""
+msgstr "Nid math MIME o lyfr comic: %s"
 
 #: ../backend/comics/comics-document.c:466
 msgid ""
 "Can't find an appropriate command to decompress this type of comic book"
 msgstr ""
+"Methu dod o hyd i orchymyn priodol i ddatgywasgu'r math hwn o lyfr comig"
 
 #: ../backend/comics/comics-document.c:540 ../backend/epub/epub-document.c:644
 #: ../libdocument/ev-document-factory.c:145
@@ -56,26 +58,26 @@ msgstr "Math MIME anhysbys"
 
 #: ../backend/comics/comics-document.c:567
 msgid "File corrupted"
-msgstr ""
+msgstr "Ffeil wedi'i llygru"
 
 #: ../backend/comics/comics-document.c:580
 msgid "No files in archive"
-msgstr ""
+msgstr "Dim ffeiliau yn yr archif"
 
 #: ../backend/comics/comics-document.c:619
 #, c-format
 msgid "No images found in archive %s"
 msgstr "Dim delweddau wedi'u canfod yn yr archif %s"
 
-#: ../backend/comics/comics-document.c:866 ../backend/epub/epub-document.c:1812
+#: ../backend/comics/comics-document.c:866 ../backend/epub/epub-document.c:1813
 #, c-format
 msgid "There was an error deleting “%s”."
-msgstr ""
+msgstr "Bu gwall wrth ddileu %s."
 
 #: ../backend/comics/comics-document.c:1015
 #, c-format
 msgid "Error %s"
-msgstr ""
+msgstr "Bu gwall %s"
 
 #: ../backend/comics/comicsdocument.xreader-backend.in.h:1
 msgid "Comic Books"
@@ -83,17 +85,19 @@ msgstr "Llyfrau Comig"
 
 #: ../backend/djvu/djvu-document.c:171
 msgid "DjVu document has incorrect format"
-msgstr ""
+msgstr "Mae fformat anghywir i ddogfen DjVu"
 
 #: ../backend/djvu/djvu-document.c:248
 msgid ""
 "The document is composed of several files. One or more of these files cannot "
 "be accessed."
 msgstr ""
+"Mae'r ddogfen yn cynnwys sawl ffeil. Nid oes modd cyrchu un neu fwy o'r "
+"ffeiliau hyn."
 
 #: ../backend/djvu/djvudocument.xreader-backend.in.h:1
 msgid "DjVu Documents"
-msgstr ""
+msgstr "Dogfennau DjVu"
 
 #: ../backend/dvi/dvi-document.c:107
 msgid "DVI document has incorrect format"
@@ -105,72 +109,73 @@ msgstr "Dogfennau DVI"
 
 #: ../backend/epub/epub-document.c:661
 msgid "Not an ePub document"
-msgstr ""
+msgstr "Nid dogfen ePub"
 
 #: ../backend/epub/epub-document.c:766
 msgid "could not retrieve filename"
-msgstr ""
+msgstr "methu adfer enw ffeil"
 
 #: ../backend/epub/epub-document.c:794
 msgid "could not open archive"
-msgstr ""
+msgstr "methu agor archif"
 
 #: ../backend/epub/epub-document.c:810 ../backend/epub/epub-document.c:826
 msgid "could not extract archive"
-msgstr ""
+msgstr "methu echdynnu archif"
 
 #: ../backend/epub/epub-document.c:858 ../backend/epub/epub-document.c:941
 msgid "could not retrieve container file"
-msgstr ""
+msgstr "methu adfer ffeil cynhwysydd"
 
 #: ../backend/epub/epub-document.c:870
 msgid "could not open container file"
-msgstr ""
+msgstr "methu agor ffeil cynhwysydd"
 
 #: ../backend/epub/epub-document.c:880
 msgid "container file is corrupt"
-msgstr ""
+msgstr "mae ffeil y cynhwysydd yn llygredig"
 
 #: ../backend/epub/epub-document.c:890
 msgid "epub file is invalid or corrupt"
-msgstr ""
+msgstr "mae'r ffeil epub yn annilys neu'n llygredig"
 
 #: ../backend/epub/epub-document.c:900
 msgid "epub file is corrupt, no container"
-msgstr ""
+msgstr "mae'r ffeil epub yn llygredig, dim cynhwysydd"
 
 #: ../backend/epub/epub-document.c:985
 msgid "could not parse content manifest"
-msgstr ""
+msgstr "methu didoli cynnwys y manifest"
 
 #: ../backend/epub/epub-document.c:994
 msgid "content file is invalid"
-msgstr ""
+msgstr "mae'r ffeil cynnwys yn annilys"
 
 #: ../backend/epub/epub-document.c:1003
 msgid "epub file has no spine"
-msgstr ""
+msgstr "nid oes y ffeil epub meingefn"
 
 #: ../backend/epub/epub-document.c:1012
 msgid "epub file has no manifest"
-msgstr ""
+msgstr "nid oes gan ffeil y epub fanifest"
 
 #: ../backend/epub/epub-document.c:1103
 msgid "Could not set up document tree for loading, some files missing"
 msgstr ""
+"Methu gosod coeden ddogfen ar gyfer llwytho, mae rhai ffeiliau ar goll"
 
 #: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
-msgstr ""
+msgstr "Dogfennau epub"
 
 #: ../backend/pdf/ev-poppler.cc:522
 msgid "This work is in the Public Domain"
-msgstr ""
+msgstr "Mae'r gwaith hwn yn y Parth Cyhoeddus"
 
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:775 ../backend/pdf/ev-poppler.cc:781
 msgid "Yes"
-msgstr "Ie"
+msgstr "Iawn"
 
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:778 ../backend/pdf/ev-poppler.cc:781
@@ -215,15 +220,15 @@ msgstr "Dim enw"
 
 #: ../backend/pdf/ev-poppler.cc:956
 msgid "Embedded subset"
-msgstr "Is-set Ymgorfforol"
+msgstr "Is-set mewnblanedig"
 
 #: ../backend/pdf/ev-poppler.cc:958
 msgid "Embedded"
-msgstr "Wedi Ymgorffori"
+msgstr "Wedi ei fewnblannu"
 
 #: ../backend/pdf/ev-poppler.cc:960
 msgid "Not embedded"
-msgstr "Heb ei Ymgorffori"
+msgstr "Heb ei fewnblannu"
 
 #: ../backend/pdf/pdfdocument.xreader-backend.in.h:1
 msgid "PDF Documents"
@@ -232,12 +237,12 @@ msgstr "Dogfennau PDF"
 #: ../backend/ps/ev-spectre.c:102
 #, c-format
 msgid "Failed to load document “%s”"
-msgstr ""
+msgstr "Wedi methu llwytho dogfen “%s”"
 
 #: ../backend/ps/ev-spectre.c:135
 #, c-format
 msgid "Failed to save document “%s”"
-msgstr ""
+msgstr "Wedi methu cadw dogfen “%s”"
 
 #: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
@@ -245,27 +250,27 @@ msgstr "Dogfennau PostScript"
 
 #: ../backend/tiff/tiff-document.c:114
 msgid "Invalid document"
-msgstr ""
+msgstr "Dogfen annilys"
 
 #: ../libdocument/ev-attachment.c:299 ../libdocument/ev-attachment.c:320
 #, c-format
 msgid "Couldn't save attachment “%s”: %s"
-msgstr ""
+msgstr "Methu cadw atodiad “%s”: %s"
 
 #: ../libdocument/ev-attachment.c:368
 #, c-format
 msgid "Couldn't open attachment “%s”: %s"
-msgstr ""
+msgstr "Methu agor atodiad “%s”: %s"
 
 #: ../libdocument/ev-attachment.c:403
 #, c-format
 msgid "Couldn't open attachment “%s”"
-msgstr ""
+msgstr "Methu agor atodiad “%s”"
 
 #: ../libdocument/ev-document-factory.c:170
 #, c-format
 msgid "File type %s (%s) is not supported"
-msgstr ""
+msgstr "Nid yw math ffeil %s (%s) yn cael ei chynnal"
 
 #: ../libdocument/ev-document-factory.c:361
 msgid "All Documents"
@@ -278,79 +283,79 @@ msgstr "Pob Ffeil"
 #: ../libdocument/ev-file-helpers.c:147
 #, c-format
 msgid "Failed to create a temporary file: %s"
-msgstr ""
+msgstr "Wedi methu â chreu ffeil dros dro: %s"
 
 #: ../libdocument/ev-file-helpers.c:309
 #, c-format
 msgid "Failed to create a temporary directory: %s"
-msgstr ""
+msgstr "Wedi methu creu cyfeiriadu dros dro: %s"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:165
 #, c-format
 msgid "File is not a valid .desktop file"
-msgstr ""
+msgstr "Nid yw'r ffeil yn ffeil .desktop dilys"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:188
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
-msgstr ""
+msgstr "Ffeil bwrdd gwaith anhysbys Fersiwn '%s'"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:957
 #, c-format
 msgid "Starting %s"
-msgstr ""
+msgstr "Yn cychwyn %s"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1098
 #, c-format
 msgid "Application does not accept documents on command line"
-msgstr ""
+msgstr "Nid yw'r rhaglen yn derbyn dogfennau ar y llinell orchymyn"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1166
 #, c-format
 msgid "Unrecognized launch option: %d"
-msgstr ""
+msgstr "Dewis cychwyn anhysbys: %d"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1365
 #, c-format
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
-msgstr ""
+msgstr "Methu trosglwyddo URI dogfen i gofnod bwrdd gwaith 'Type=Link'"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1384
 #, c-format
 msgid "Not a launchable item"
-msgstr ""
+msgstr "Nid yw'n eitem y mae modd ei chychwyn"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:224
 msgid "Disable connection to session manager"
-msgstr ""
+msgstr "Analluogi cysylltiad i'r rheolwr sesiwn"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:227
 msgid "Specify file containing saved configuration"
-msgstr ""
+msgstr "Pennu'r ffeil sy'n cynnwys y ffurfweddiad wedi ei gadw"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:227 ../previewer/ev-previewer.c:35
 #: ../previewer/ev-previewer.c:36
 msgid "FILE"
-msgstr ""
+msgstr "FFEIL"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:230
 msgid "Specify session management ID"
-msgstr ""
+msgstr "Pennu ID rheoli sesiwn"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:230
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:251
 msgid "Session management options:"
-msgstr ""
+msgstr "Dewisiadau rheoli sesiwn:"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:252
 msgid "Show session management options"
-msgstr ""
+msgstr "Dangos dewisiadau rheoli sesiwn"
 
 #. translators: this is the label for toolbar button
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6733
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6652
 msgid "Best Fit"
 msgstr "Ffit Orau"
 
@@ -358,9 +363,9 @@ msgstr "Ffit Orau"
 msgid "Fit Page Width"
 msgstr "Ffitio Lled y Tudalen"
 
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:6285
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:6214
 msgid "Expand Window to Fit"
-msgstr ""
+msgstr "Ehangu Ffenestr i Ffitio"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:53
 msgid "50%"
@@ -368,11 +373,11 @@ msgstr "50%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:54
 msgid "70%"
-msgstr ""
+msgstr "70%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:55
 msgid "85%"
-msgstr ""
+msgstr "85%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:56
 msgid "100%"
@@ -404,23 +409,23 @@ msgstr "400%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:63
 msgid "800%"
-msgstr ""
+msgstr "800%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:64
 msgid "1600%"
-msgstr ""
+msgstr "1600%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:65
 msgid "3200%"
-msgstr ""
+msgstr "3200%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:66
 msgid "6400%"
-msgstr ""
+msgstr "6400%"
 
 #: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer"
-msgstr ""
+msgstr "Dangosydd Dogfennau"
 
 #: ../data/xreader.appdata.xml.in.h:2
 msgid ""
@@ -430,6 +435,12 @@ msgid ""
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
 msgstr ""
+"<p>Mae Xreader yn ddangosydd dogfennau aml-dudalen syml. Gall ddangos ac "
+"argraffu ffeiliau PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, "
+"XPS a Fformat Dogfen Gludadwy (PDF), yn ogystal â ffeiliau archif llyfrau "
+"comig. Pan mae'r ddogfen yn ei gefnogi, mae hefyd yn caniatáu chwilio am "
+"destun, copïo testun i'r clipfwrdd, llywio hyperdestun a nodau tudalen tabl-"
+"cynnwys.</p>"
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
 #: ../shell/main.c:239 ../shell/main.c:268
@@ -438,92 +449,58 @@ msgstr "Gwelydd Dogfennau"
 
 #: ../data/xreader.desktop.in.in.h:2
 msgid "View multi-page documents"
-msgstr ""
-
-#: ../data/org.x.reader.gschema.xml.h:1
-msgid "Override document restrictions"
-msgstr ""
-
-#: ../data/org.x.reader.gschema.xml.h:2
-msgid "Override document restrictions, like restriction to copy or to print."
-msgstr ""
-
-#: ../data/org.x.reader.gschema.xml.h:3
-msgid "Automatically reload the document"
-msgstr ""
-
-#: ../data/org.x.reader.gschema.xml.h:4
-msgid "Whether the document is automatically reloaded on file change."
-msgstr ""
-
-#: ../data/org.x.reader.gschema.xml.h:5
-msgid "The URI of the directory last used to open or save a document."
-msgstr ""
-
-#: ../data/org.x.reader.gschema.xml.h:6
-msgid "The URI of the directory last used to save a picture."
-msgstr ""
-
-#: ../data/org.x.reader.gschema.xml.h:7
-msgid "Page cache size in MiB"
-msgstr ""
-
-#: ../data/org.x.reader.gschema.xml.h:8
-msgid ""
-"The maximum size that will be used to cache rendered pages, limits maximum "
-"zoom level."
-msgstr ""
+msgstr "Gweld dogfennau aml-dudalen"
 
 #: ../previewer/ev-previewer.c:34
 msgid "Delete the temporary file"
-msgstr ""
+msgstr "Dileu'r ffeil dros dro"
 
 #: ../previewer/ev-previewer.c:35
 msgid "Print settings file"
-msgstr ""
+msgstr "Argraffu ffeil gosodiadau"
 
 #: ../previewer/ev-previewer.c:104 ../previewer/ev-previewer.c:135
 msgid "Print Preview"
-msgstr ""
+msgstr "Rhagolwg Argraffu"
 
-#: ../previewer/ev-previewer-window.c:83 ../shell/ev-window.c:3483
+#: ../previewer/ev-previewer-window.c:83 ../shell/ev-window.c:3420
 msgid "Failed to print document"
-msgstr ""
+msgstr "Wedi methu argraffu dogfen"
 
 #: ../previewer/ev-previewer-window.c:235
 #, c-format
 msgid "The selected printer '%s' could not be found"
-msgstr ""
+msgstr "Nid oedd modd canfod yr argraffydd '%s' a ddewiswyd"
 
 #. Go menu
-#: ../previewer/ev-previewer-window.c:281 ../shell/ev-window.c:6294
+#: ../previewer/ev-previewer-window.c:281 ../shell/ev-window.c:6223
 msgid "_Previous Page"
 msgstr "Tudalen _Blaenorol"
 
-#: ../previewer/ev-previewer-window.c:282 ../shell/ev-window.c:6296
+#: ../previewer/ev-previewer-window.c:282 ../shell/ev-window.c:6225
 msgid "Go to the previous page"
 msgstr "Mynd i'r dudalen flaenorol"
 
-#: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:6298
+#: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:6227
 msgid "_Next Page"
 msgstr "Tudalen _Nesaf"
 
-#: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:6300
+#: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:6229
 msgid "Go to the next page"
 msgstr "Mynd i'r dudalen nesaf"
 
-#: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:6273
+#: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:6202
 msgid "Enlarge the document"
 msgstr "Chwyddo'r ddogfen"
 
-#: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:6277
+#: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:6206
 msgid "Shrink the document"
 msgstr "Lleihau'r ddogfen"
 
 #. translators: this is the label for toolbar button
-#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:6729
+#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:6648
 msgid "Original size"
-msgstr ""
+msgstr "Maint gwreiddiol"
 
 #. translators: Print document currently shown in the Print Preview window
 #. translators: Title of the print dialog
@@ -531,31 +508,31 @@ msgstr ""
 msgid "Print"
 msgstr "Argraffu"
 
-#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:6212
+#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:6141
 msgid "Print this document"
 msgstr "Argraffu'r ddogfen hon"
 
-#: ../previewer/ev-previewer-window.c:341 ../shell/ev-window.c:6496
+#: ../previewer/ev-previewer-window.c:341 ../shell/ev-window.c:6425
 msgid "_Best Fit"
 msgstr "Ffit _Orau"
 
-#: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:6498
+#: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:6427
 msgid "Make the current document fill the window"
 msgstr "Achosi i'r ddogfen lenwi'r ffenest"
 
-#: ../previewer/ev-previewer-window.c:344 ../shell/ev-window.c:6500
+#: ../previewer/ev-previewer-window.c:344 ../shell/ev-window.c:6429
 msgid "Fit Page _Width"
 msgstr "Ffitio _Lled y Dudalen"
 
-#: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:6502
+#: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:6431
 msgid "Make the current document fill the window width"
-msgstr "Achosi i'r ddogfen lenwi lled y ffenest"
+msgstr "Gwneud i'r ddogfen lenwi lled y ffenest"
 
-#: ../previewer/ev-previewer-window.c:561 ../shell/ev-window.c:6677
+#: ../previewer/ev-previewer-window.c:561 ../shell/ev-window.c:6596
 msgid "Page"
 msgstr "Tudalen"
 
-#: ../previewer/ev-previewer-window.c:562 ../shell/ev-window.c:6678
+#: ../previewer/ev-previewer-window.c:562 ../shell/ev-window.c:6597
 msgid "Select Page"
 msgstr "Dewis Tudalen"
 
@@ -573,41 +550,41 @@ msgstr "o %d"
 #: ../libview/ev-loading-window.c:76 ../shell/ev-sidebar-annotations.c:134
 #: ../shell/ev-sidebar-layers.c:122 ../shell/ev-sidebar-links.c:256
 msgid "Loading…"
-msgstr ""
+msgstr "Llwytho…"
 
 #. Initial state
 #: ../libview/ev-print-operation.c:332
 msgid "Preparing to print…"
-msgstr ""
+msgstr "Yn paratoi i argraffu..."
 
 #: ../libview/ev-print-operation.c:334
 msgid "Finishing…"
-msgstr ""
+msgstr "Yn gorffen..."
 
 #: ../libview/ev-print-operation.c:336
 #, c-format
 msgid "Printing page %d of %d…"
-msgstr ""
+msgstr "Yn argraffu tudalen %d o %d..."
 
 #: ../libview/ev-print-operation.c:1184
 msgid "The requested format is not supported by this printer."
-msgstr ""
+msgstr "Nid yw'r argraffydd yn cefnogi'r fformat yma."
 
 #: ../libview/ev-print-operation.c:1247
 msgid "Invalid page selection"
-msgstr ""
+msgstr "Dewis tudalen annilys"
 
 #: ../libview/ev-print-operation.c:1248
 msgid "Warning"
-msgstr ""
+msgstr "Rhybudd"
 
 #: ../libview/ev-print-operation.c:1250
 msgid "Your print range selection does not include any pages"
-msgstr ""
+msgstr "Nid yw eich dewis o ystod argraffu yn cynnwys unrhyw dudalennau"
 
 #: ../libview/ev-print-operation.c:1937
 msgid "Page Scaling:"
-msgstr ""
+msgstr "Graddio Tudalen:"
 
 #. translators: Value for 'Page Scaling:' to not scale the document pages on printing
 #: ../libview/ev-print-operation.c:1943
@@ -616,11 +593,11 @@ msgstr "Dim"
 
 #: ../libview/ev-print-operation.c:1944
 msgid "Shrink to Printable Area"
-msgstr ""
+msgstr "Lleihau i'r Ardal Argraffadwy"
 
 #: ../libview/ev-print-operation.c:1945
 msgid "Fit to Printable Area"
-msgstr ""
+msgstr "Ffitio i'r Ardal Argraffadwy"
 
 #: ../libview/ev-print-operation.c:1948
 msgid ""
@@ -635,35 +612,52 @@ msgid ""
 "• \"Fit to Printable Area\": Document pages are enlarged or reduced as "
 "required to fit the printable area of the printer page.\n"
 msgstr ""
+"Graddiwch dudalennau dogfen i ffitio tudalen yr argraffydd a ddewiswyd. "
+"Dewiswch o un o'r canlynol:\n"
+"\n"
+"• \"Dim\": Nid oes unrhyw raddio tudalen.\n"
+"\n"
+"• \"Lleihau i Ardal Argraffadwy\": Mae tudalennau dogfen sy'n fwy na'r ardal "
+"y mae modd eu hargraffu yn cael eu lleihau i gyd-fynd ag ardal argraffadwy "
+"tudalen yr argraffydd.\n"
+"\n"
+"• \"Ffitio i'r Ardal Argraffadwy\": Mae tudalennau dogfen yn cael eu chwyddo "
+"neu eu lleihau yn ôl yr angen i ffitio ardal argraffadwy tudalen yr "
+"argraffydd.\n"
 
 #: ../libview/ev-print-operation.c:1960
 msgid "Auto Rotate and Center"
-msgstr ""
+msgstr "Awto Cylchdroi a Chanoli"
 
 #: ../libview/ev-print-operation.c:1963
 msgid ""
 "Rotate printer page orientation of each page to match orientation of each "
 "document page. Document pages will be centered within the printer page."
 msgstr ""
+"Cylchdroi cyfeiriadedd tudalen pob tudalen yr argraffydd i gyd-fynd â "
+"chyfeiriadedd pob tudalen ddogfen. Bydd tudalennau dogfen wedi'u canoli ar "
+"dudalen yr argraffydd."
 
 #: ../libview/ev-print-operation.c:1968
 msgid "Select page size using document page size"
-msgstr ""
+msgstr "Dewiswch faint tudalen gan ddefnyddio maint tudalen dogfen"
 
 #: ../libview/ev-print-operation.c:1970
 msgid ""
 "When enabled, each page will be printed on the same size paper as the "
 "document page."
 msgstr ""
+"Pan fydd wedi'i alluogi, bydd pob tudalen yn cael ei hargraffu ar yr un "
+"maint  papur â thudalen y ddogfen."
 
 #: ../libview/ev-print-operation.c:2052
 msgid "Page Handling"
-msgstr ""
+msgstr "Trin Tudalennau"
 
-#: ../libview/ev-jobs.c:1739
+#: ../libview/ev-jobs.c:1741
 #, c-format
 msgid "Failed to print page %d: %s"
-msgstr ""
+msgstr "Wedi methu argraffu tudalen %d: %s"
 
 #: ../libview/ev-view-accessible.c:45
 msgid "Scroll Up"
@@ -685,242 +679,230 @@ msgstr "Sgrolio'r Olwg i Lawr"
 msgid "Document View"
 msgstr "Golwg Dogfen"
 
-#: ../libview/ev-view-presentation.c:692
+#: ../libview/ev-view-presentation.c:693
 msgid "Jump to page:"
-msgstr ""
+msgstr "Neidio i'r dudalen:"
 
-#: ../libview/ev-view-presentation.c:996
+#: ../libview/ev-view-presentation.c:997
 msgid "End of presentation. Click to exit."
-msgstr ""
-
-#: ../libview/ev-view.c:1853
-msgid "Go to first page"
-msgstr ""
+msgstr "Diwedd y cyflwyniad. Cliciwch i adael."
 
 #: ../libview/ev-view.c:1855
-msgid "Go to previous page"
-msgstr ""
+msgid "Go to first page"
+msgstr "Mynd i'r dudalen gyntaf"
 
 #: ../libview/ev-view.c:1857
-msgid "Go to next page"
-msgstr ""
+msgid "Go to previous page"
+msgstr "Mynd  i'r dudalen flaenorol"
 
 #: ../libview/ev-view.c:1859
-msgid "Go to last page"
-msgstr ""
+msgid "Go to next page"
+msgstr "Mynd i'r dudalen nesaf"
 
 #: ../libview/ev-view.c:1861
-msgid "Go to page"
-msgstr ""
+msgid "Go to last page"
+msgstr "Mynd i'r dudalen olaf"
 
 #: ../libview/ev-view.c:1863
-msgid "Find"
-msgstr ""
+msgid "Go to page"
+msgstr "Mynd i dudalen"
 
-#: ../libview/ev-view.c:1891
+#: ../libview/ev-view.c:1865
+msgid "Find"
+msgstr "Chwilio"
+
+#: ../libview/ev-view.c:1893
 #, c-format
 msgid "Go to page %s"
 msgstr "Mynd i dudalen %s"
 
-#: ../libview/ev-view.c:1897
+#: ../libview/ev-view.c:1899
 #, c-format
 msgid "Go to %s on file “%s”"
-msgstr ""
+msgstr "Mynd i %s ar ffeil “%s”"
 
-#: ../libview/ev-view.c:1900
+#: ../libview/ev-view.c:1902
 #, c-format
 msgid "Go to file “%s”"
-msgstr ""
+msgstr "Mynd i ffeil “%s”"
 
-#: ../libview/ev-view.c:1908
+#: ../libview/ev-view.c:1910
 #, c-format
 msgid "Launch %s"
-msgstr ""
+msgstr "Cychwyn %s"
 
-#: ../shell/eggfindbar.c:304
+#: ../shell/eggfindbar.c:297
 msgid "Find:"
-msgstr ""
+msgstr "Canfod:"
 
-#: ../shell/eggfindbar.c:325 ../shell/ev-window.c:6244
+#: ../shell/eggfindbar.c:318 ../shell/ev-window.c:6173
 msgid "Find Pre_vious"
-msgstr ""
+msgstr "Canfod y _Flaenorol"
 
-#: ../shell/eggfindbar.c:329
+#: ../shell/eggfindbar.c:322
 msgid "Find previous occurrence of the search string"
-msgstr ""
+msgstr "Canfod digwyddiad blaenorol y llinyn chwilio"
 
-#: ../shell/eggfindbar.c:333 ../shell/ev-window.c:6240
+#: ../shell/eggfindbar.c:326 ../shell/ev-window.c:6169
 msgid "Find Ne_xt"
 msgstr "Chwilio am y N_esaf"
 
-#: ../shell/eggfindbar.c:337
+#: ../shell/eggfindbar.c:330
 msgid "Find next occurrence of the search string"
-msgstr ""
+msgstr "Canfod digwyddiad nesaf y llinyn chwilio"
 
-#: ../shell/eggfindbar.c:344
+#: ../shell/eggfindbar.c:337
 msgid "Case Sensitive"
-msgstr ""
+msgstr "Llythrennau bach/mawr"
 
-#: ../shell/eggfindbar.c:347
+#: ../shell/eggfindbar.c:340
 msgid "Toggle case sensitive search"
-msgstr ""
+msgstr "Toglo chwilio llythrennau bach/mawr"
 
 #: ../shell/ev-annotation-properties-dialog.c:99
 msgid "Icon:"
-msgstr ""
+msgstr "Eicon:"
 
 #: ../shell/ev-annotation-properties-dialog.c:106
 msgid "Note"
-msgstr ""
+msgstr "Nodyn"
 
 #: ../shell/ev-annotation-properties-dialog.c:107
 msgid "Comment"
-msgstr ""
+msgstr "Sylw"
 
 #: ../shell/ev-annotation-properties-dialog.c:108
 msgid "Key"
-msgstr ""
+msgstr "Allwedd"
 
 #: ../shell/ev-annotation-properties-dialog.c:109
 #: ../shell/ev-preferences-dialog.c:125
 msgid "Help"
-msgstr ""
+msgstr "Cymorth"
 
 #: ../shell/ev-annotation-properties-dialog.c:110
 msgid "New Paragraph"
-msgstr ""
+msgstr "Paragraff Newydd"
 
 #: ../shell/ev-annotation-properties-dialog.c:111
 msgid "Paragraph"
-msgstr ""
+msgstr "Paragraff"
 
 #: ../shell/ev-annotation-properties-dialog.c:112
 msgid "Insert"
-msgstr ""
+msgstr "Mewnosod"
 
 #: ../shell/ev-annotation-properties-dialog.c:113
 msgid "Cross"
-msgstr ""
+msgstr "Croes"
 
 #: ../shell/ev-annotation-properties-dialog.c:114
 msgid "Circle"
-msgstr ""
+msgstr "Cylch"
 
 #: ../shell/ev-annotation-properties-dialog.c:115
 msgid "Unknown"
-msgstr ""
+msgstr "Anhysbys"
 
 #: ../shell/ev-annotation-properties-dialog.c:126
 msgid "Markup type:"
-msgstr ""
+msgstr "Math o dagio:"
 
 #: ../shell/ev-annotation-properties-dialog.c:132
 msgid "Highlight"
-msgstr ""
+msgstr "Amlygu"
 
 #: ../shell/ev-annotation-properties-dialog.c:133
 msgid "Strike out"
-msgstr ""
+msgstr "Taro drwodd"
 
 #: ../shell/ev-annotation-properties-dialog.c:134
 msgid "Underline"
-msgstr ""
+msgstr "Tanlinellu"
 
 #: ../shell/ev-annotation-properties-dialog.c:135
 msgid "Squiggly"
-msgstr ""
+msgstr "Sgwiglo"
 
 #: ../shell/ev-annotation-properties-dialog.c:158
 msgid "Annotation Properties"
-msgstr ""
+msgstr "Priodweddau Anodi"
 
 #: ../shell/ev-annotation-properties-dialog.c:178
 msgid "Author:"
-msgstr ""
+msgstr "Awdur:"
 
 #: ../shell/ev-annotation-properties-dialog.c:191
 msgid "Color:"
-msgstr ""
+msgstr "Lliw:"
 
 #: ../shell/ev-annotation-properties-dialog.c:203
 msgid "Style:"
-msgstr ""
+msgstr "Arddull:"
 
 #: ../shell/ev-annotation-properties-dialog.c:219
 msgid "Transparent"
-msgstr ""
+msgstr "Tryloyw"
 
 #: ../shell/ev-annotation-properties-dialog.c:226
 msgid "Opaque"
-msgstr ""
+msgstr "Di-draidd"
 
 #: ../shell/ev-annotation-properties-dialog.c:236
 msgid "Initial window state:"
-msgstr ""
+msgstr "Cyflwr cychwynnol y ffenestr:"
 
 #: ../shell/ev-annotation-properties-dialog.c:244
 msgid "Open"
-msgstr ""
+msgstr "Agor"
 
 #: ../shell/ev-annotation-properties-dialog.c:245
 #: ../shell/ev-preferences-dialog.c:129
 msgid "Close"
-msgstr ""
+msgstr "Cau"
 
 #: ../shell/ev-annotations-toolbar.c:120
 msgid "Add text annotation"
-msgstr ""
+msgstr "Ychwanegu anodiad testun"
 
 #: ../shell/ev-annotations-toolbar.c:126
 msgid "Add highlight annotation"
-msgstr ""
+msgstr "Ychwanegu amlygu anodiad"
 
-#: ../shell/ev-application.c:1012
+#: ../shell/ev-application.c:1011
 msgid "Running in presentation mode"
-msgstr ""
+msgstr "Rhedeg yn y modd cyflwyno"
 
 #: ../shell/ev-history.c:474 ../shell/ev-sidebar-bookmarks.c:314
-#: ../shell/ev-window.c:924 ../shell/ev-window.c:4843
+#: ../shell/ev-window.c:915 ../shell/ev-window.c:4770
 #, c-format
 msgid "Page %s"
-msgstr ""
+msgstr "Tudalen %s"
 
-#: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:6312
+#: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:6241
 msgid "Go to previous history item"
-msgstr ""
+msgstr "Mynd i'r eitem hanes blaenorol"
 
-#: ../shell/ev-history-action-widget.c:219 ../shell/ev-window.c:6316
+#: ../shell/ev-history-action-widget.c:219 ../shell/ev-window.c:6245
 msgid "Go to next history item"
-msgstr ""
+msgstr "Mynd i'r eitem hanes nesaf"
 
 #: ../shell/ev-keyring.c:86
 #, c-format
 msgid "Password for document %s"
 msgstr "Cyfrinair ar gyfer y ddogfen %s"
 
-#: ../shell/ev-landing-view.c:389 ../shell/ev-window.c:6195
-msgid "Favorites"
-msgstr ""
-
-#: ../shell/ev-landing-view.c:498
-msgid "Recent files"
-msgstr ""
-
-#: ../shell/ev-landing-view.c:600
-msgid "No recent or favorite documents"
-msgstr ""
-
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
-msgstr ""
+msgstr "Agor dogfen defnyddiwyd yn ddiweddar"
 
 #: ../shell/ev-password-view.c:135
 msgid ""
 "This document is locked and can only be read by entering the correct "
 "password."
 msgstr ""
-"Mae'r ddogfen wedi'i gloi a medrir ei agor ond drwy fewnbynnu cyfrinair "
-"cywir."
+"Mae'r ddogfen wedi'i chloi a dim ond drwy fewnbynnu'r cyfrinair cywir y mae "
+"modd ei hagor."
 
 #: ../shell/ev-password-view.c:144 ../shell/ev-password-view.c:261
 msgid "_Unlock Document"
@@ -935,6 +917,8 @@ msgstr "Rhowch y cyfrinair"
 msgid ""
 "The document “%s” is locked and requires a password before it can be opened."
 msgstr ""
+"Mae'r ddogfen “%s” wedi'i chloi ac mae angen cyfrinair arni cyn y mae modd "
+"ei hagor."
 
 #: ../shell/ev-password-view.c:294
 msgid "Password required"
@@ -942,39 +926,39 @@ msgstr "Rhaid cael cyfrinair"
 
 #: ../shell/ev-password-view.c:324
 msgid "_Password:"
-msgstr "_Cyfrinair"
+msgstr "_Cyfrinair:"
 
 #: ../shell/ev-password-view.c:357
 msgid "Forget password _immediately"
-msgstr ""
+msgstr "Anghofio cyfrinair yn _syth"
 
 #: ../shell/ev-password-view.c:369
 msgid "Remember password until you _log out"
-msgstr ""
+msgstr "Cofio cyfrinair nes i chi _allgofnodi"
 
 #: ../shell/ev-password-view.c:381
 msgid "Remember _forever"
-msgstr ""
+msgstr "Cofio am _byth"
 
 #: ../shell/ev-preferences-dialog.c:117 ../shell/ev-preferences-dialog.ui.h:1
 msgid "Toolbar"
-msgstr ""
+msgstr "Bar Offer"
 
-#: ../shell/ev-preferences-dialog.c:139 ../shell/ev-window.c:6260
+#: ../shell/ev-preferences-dialog.c:139 ../shell/ev-window.c:6189
 msgid "Preferences"
-msgstr ""
+msgstr "Dewisiadau"
 
 #: ../shell/ev-preferences-dialog.ui.h:2
 msgid "Show history buttons"
-msgstr ""
+msgstr "Dangos botymau hanes"
 
 #: ../shell/ev-preferences-dialog.ui.h:3
 msgid "Show expand window button"
-msgstr ""
+msgstr "Dangos botwm ehangu ffenestr"
 
 #: ../shell/ev-preferences-dialog.ui.h:4
 msgid "Show zoom level selector"
-msgstr ""
+msgstr "Dangos dewisydd lefel chwyddo"
 
 #: ../shell/ev-properties-dialog.c:63
 msgid "Properties"
@@ -990,7 +974,7 @@ msgstr "Ffontiau"
 
 #: ../shell/ev-properties-dialog.c:120
 msgid "Document License"
-msgstr ""
+msgstr "Trwydded Ddogfen"
 
 #: ../shell/ev-properties-fonts.c:133
 msgid "Font"
@@ -999,60 +983,60 @@ msgstr "Ffont"
 #: ../shell/ev-properties-fonts.c:160
 #, c-format
 msgid "Gathering font information… %3d%%"
-msgstr ""
+msgstr "Yn casglu manylion ffont… %3d%%"
 
 #: ../shell/ev-properties-license.c:135
 msgid "Usage terms"
-msgstr ""
+msgstr "Termau defnydd"
 
 #: ../shell/ev-properties-license.c:141
 msgid "Text License"
-msgstr ""
+msgstr "Trwydded Testun"
 
 #: ../shell/ev-properties-license.c:147
 msgid "Further Information"
-msgstr ""
+msgstr "Gwybodaeth Bellach"
 
 #: ../shell/ev-sidebar-annotations.c:292
 msgid "Document contains no annotations"
-msgstr ""
+msgstr "Nid yw'r ddogfen yn cynnwys unrhyw anodiadau"
 
 #: ../shell/ev-sidebar-annotations.c:324
 #, c-format
 msgid "Page %d"
-msgstr ""
+msgstr "Tudalen %d"
 
 #: ../shell/ev-sidebar-annotations.c:509
 msgid "Annotations"
-msgstr ""
+msgstr "Anodiadau"
 
 #: ../shell/ev-sidebar-attachments.c:693
 msgid "Attachments"
-msgstr ""
+msgstr "Atodiadau"
 
 #: ../shell/ev-sidebar-bookmarks.c:155
 msgid "_Open Bookmark"
-msgstr ""
+msgstr "Agor _Nod Tudalen"
 
 #: ../shell/ev-sidebar-bookmarks.c:157
 msgid "_Rename Bookmark"
-msgstr ""
+msgstr "_Ailenwi Nod Tudalen"
 
 #: ../shell/ev-sidebar-bookmarks.c:159
 msgid "_Remove Bookmark"
-msgstr ""
+msgstr "_Tynnu Nod Tudalen"
 
 #: ../shell/ev-sidebar-bookmarks.c:615
 msgid "Bookmarks"
-msgstr ""
+msgstr "Nodau Tudalen"
 
 #: ../shell/ev-sidebar-layers.c:440
 msgid "Layers"
-msgstr ""
+msgstr "Haenau"
 
 #: ../shell/ev-sidebar-links.c:332
 msgid "Print…"
-msgstr ""
+msgstr "Argraffu..."
 
 #: ../shell/ev-sidebar-links.c:718
 msgid "Index"
@@ -1060,19 +1044,19 @@ msgstr "Mynegai"
 
 #: ../shell/ev-sidebar-thumbnails.c:953
 msgid "Shrink the thumbnails"
-msgstr ""
+msgstr "Lleihau'r lluniau bach"
 
 #: ../shell/ev-sidebar-thumbnails.c:966
 msgid "Enlarge the thumbnails"
-msgstr ""
+msgstr "Ehangu'r lluniau bach"
 
 #: ../shell/ev-sidebar-thumbnails.c:979
 msgid "View the thumbnails at their original size"
-msgstr ""
+msgstr "Gweld y lluniau bach yn ôl eu maint gwreiddiol"
 
 #: ../shell/ev-sidebar-thumbnails.c:1231
 msgid "Thumbnails"
-msgstr "Rhagolygon"
+msgstr "Lluniau bach"
 
 #: ../shell/ev-toolbar.c:134
 msgid ""
@@ -1080,6 +1064,9 @@ msgid ""
 "Non-Continuous + Best Fit\n"
 "Ctrl+2"
 msgstr ""
+"Golwg Tudalen\n"
+"Ddim yn Barhaus + Ffit Gorau\n"
+"Ctrl+2"
 
 #: ../shell/ev-toolbar.c:148
 msgid ""
@@ -1087,604 +1074,645 @@ msgid ""
 "Continuous + Fit Page Width\n"
 "Ctrl+1"
 msgstr ""
+"Golwg Darllenydd\n"
+"Parhaus + Ffit Lled Tudalen\n"
+"Ctrl + 1"
 
 #: ../shell/ev-toolbar.c:291
 msgid "Select or set the zoom level of the document"
-msgstr ""
+msgstr "Dewis neu osod lefel chwyddo'r ddogfen"
 
-#: ../shell/ev-window.c:1036
+#: ../shell/ev-window.c:1027
 msgid ""
 "Cannot enter presentation mode with ePub documents, use fullscreen mode "
 "instead."
 msgstr ""
+"Methu mynd i'r modd cyflwyno gyda dogfennau ePub, defnyddiwch y modd sgrin "
+"lawn yn lle."
 
-#: ../shell/ev-window.c:1536
+#: ../shell/ev-window.c:1503
 msgid "The document contains no pages"
-msgstr ""
+msgstr "Nid yw'r ddogfen yn cynnwys unrhyw dudalennau"
 
-#: ../shell/ev-window.c:1538
+#: ../shell/ev-window.c:1505
 msgid "The document contains only empty pages"
-msgstr ""
+msgstr "Dim ond tudalennau gwag sydd yn y ddogfen"
 
-#: ../shell/ev-window.c:1574
+#: ../shell/ev-window.c:1544
 msgid "Presentation mode is not supported for ePub documents."
-msgstr ""
+msgstr "Nid yw'r modd cyflwyno'n cynnal dogfennau ePub."
 
-#: ../shell/ev-window.c:1760 ../shell/ev-window.c:1924
+#: ../shell/ev-window.c:1730 ../shell/ev-window.c:1894
 msgid "Unable to open document"
 msgstr "Methwyd agor y ddogfen"
 
-#: ../shell/ev-window.c:1893
+#: ../shell/ev-window.c:1863
 #, c-format
 msgid "Loading document from “%s”"
-msgstr ""
+msgstr "Llwytho dogfen o “%s”"
 
-#: ../shell/ev-window.c:2037 ../shell/ev-window.c:2358
+#: ../shell/ev-window.c:2007 ../shell/ev-window.c:2295
 #, c-format
 msgid "Downloading document (%d%%)"
-msgstr ""
+msgstr "Yn llwytho i lawr dogfen (%d%%)"
 
-#: ../shell/ev-window.c:2070
+#: ../shell/ev-window.c:2040
 msgid "Failed to load remote file."
-msgstr ""
+msgstr "Wedi methu llwytho ffeil bell."
 
-#: ../shell/ev-window.c:2302
+#: ../shell/ev-window.c:2239
 #, c-format
 msgid "Reloading document from %s"
-msgstr ""
+msgstr "Ail-lwytho dogfen o %s"
 
-#: ../shell/ev-window.c:2334
+#: ../shell/ev-window.c:2271
 msgid "Failed to reload document."
-msgstr ""
+msgstr "Wedi methu ail-lwytho dogfen."
 
-#: ../shell/ev-window.c:2550
+#: ../shell/ev-window.c:2487
 msgid "Open Document"
 msgstr "Agor Dogfen"
 
-#: ../shell/ev-window.c:2940
+#: ../shell/ev-window.c:2877
 #, c-format
 msgid "Saving document to %s"
-msgstr ""
+msgstr "Cadw dogfen i %s"
 
-#: ../shell/ev-window.c:2943
+#: ../shell/ev-window.c:2880
 #, c-format
 msgid "Saving attachment to %s"
-msgstr ""
+msgstr "Cadw atodiad i %s"
 
-#: ../shell/ev-window.c:2946
+#: ../shell/ev-window.c:2883
 #, c-format
 msgid "Saving image to %s"
-msgstr ""
+msgstr "Yn cadw delwedd i %s"
 
-#: ../shell/ev-window.c:2990 ../shell/ev-window.c:3090
+#: ../shell/ev-window.c:2927 ../shell/ev-window.c:3027
 #, c-format
 msgid "The file could not be saved as “%s”."
-msgstr ""
+msgstr "Nid oedd modd cadw'r ffeil fel “%s”."
 
-#: ../shell/ev-window.c:3021
+#: ../shell/ev-window.c:2958
 #, c-format
 msgid "Uploading document (%d%%)"
-msgstr ""
+msgstr "Llwytho dogfen (%d%%)"
 
-#: ../shell/ev-window.c:3025
+#: ../shell/ev-window.c:2962
 #, c-format
 msgid "Uploading attachment (%d%%)"
-msgstr ""
+msgstr "Llwytho atodiad (%d%%)"
 
-#: ../shell/ev-window.c:3029
+#: ../shell/ev-window.c:2966
 #, c-format
 msgid "Uploading image (%d%%)"
-msgstr ""
+msgstr "Llwytho delwedd (%d%%)"
 
-#: ../shell/ev-window.c:3137
+#: ../shell/ev-window.c:3074
 msgid "Save a Copy"
 msgstr "Cadw Copi"
 
-#: ../shell/ev-window.c:3427
+#: ../shell/ev-window.c:3364
 #, c-format
 msgid "%d pending job in queue"
 msgid_plural "%d pending jobs in queue"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d tasg yn aros mewn ciw"
+msgstr[1] "%d dasg yn aros mewn ciw"
+msgstr[2] "%d tasg yn aros mewn ciw"
+msgstr[3] "%d tasg yn aros mewn ciw"
 
-#: ../shell/ev-window.c:3540
+#: ../shell/ev-window.c:3477
 #, c-format
 msgid "Printing job “%s”"
-msgstr ""
+msgstr "Yn argraffu “%s”"
 
-#: ../shell/ev-window.c:3702
+#: ../shell/ev-window.c:3639
 msgid ""
 "Document contains form fields that have been filled out. If you don't save a "
 "copy, changes will be permanently lost."
 msgstr ""
+"Mae'r ddogfen yn cynnwys meysydd ffurflenni sydd wedi'u llenwi. Os na gadwch "
+"gopi, bydd y newidiadau'n cael eu colli'n barhaol."
 
-#: ../shell/ev-window.c:3706
+#: ../shell/ev-window.c:3643
 msgid ""
 "Document contains new or modified annotations. If you don't save a copy, "
 "changes will be permanently lost."
 msgstr ""
+"Mae'r ddogfen yn cynnwys anodiadau newydd neu wedi'u newid. Os na gadwch "
+"gopi, bydd y newidiadau'n cael eu colli'n barhaol."
 
-#: ../shell/ev-window.c:3713
+#: ../shell/ev-window.c:3650
 #, c-format
 msgid "Save a copy of document “%s” before closing?"
-msgstr ""
+msgstr "Cadw copi o ddogfen “%s” cyn cau?"
 
-#: ../shell/ev-window.c:3731
+#: ../shell/ev-window.c:3668
 msgid "Save a _Copy"
-msgstr ""
+msgstr "Cadw _Copi"
 
-#: ../shell/ev-window.c:3732
+#: ../shell/ev-window.c:3669
 msgid "_Save"
-msgstr ""
+msgstr "_Cadw"
 
-#: ../shell/ev-window.c:3733
+#: ../shell/ev-window.c:3670
 msgid "Close _without Saving"
-msgstr ""
+msgstr "Cau _heb Gadw"
 
-#: ../shell/ev-window.c:3812
+#: ../shell/ev-window.c:3749
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
-msgstr ""
+msgstr "Aros nes bod y dasg argraffu “%s” wedi gorffen cyn cau?"
 
 #. TRANS: the singular form is not really used as n_print_jobs > 1
 #. but some languages distinguish between different plurals forms,
 #. so the ngettext is needed.
-#: ../shell/ev-window.c:3818
+#: ../shell/ev-window.c:3755
 #, c-format
 msgid ""
 "There is %d print job active. Wait until print finishes before closing?"
 msgid_plural ""
 "There are %d print jobs active. Wait until print finishes before closing?"
 msgstr[0] ""
+"Mae yna %d tasg argraffu yn weithredol. Arhoswch nes bod yr argraffu'n "
+"gorffen cyn cau?"
 msgstr[1] ""
+"Mae yna %d dasg argraffu yn weithredol. Arhoswch nes bod yr argraffu'n "
+"gorffen cyn cau?"
+msgstr[2] ""
+"Mae yna %d tasg argraffu yn weithredol. Arhoswch nes bod yr argraffu'n "
+"gorffen cyn cau?"
+msgstr[3] ""
+"Mae yna %d tasg argraffu yn weithredol. Arhoswch nes bod yr argraffu'n "
+"gorffen cyn cau?"
 
-#: ../shell/ev-window.c:3833
+#: ../shell/ev-window.c:3770
 msgid "If you close the window, pending print jobs will not be printed."
 msgstr ""
+"Os byddwch chi'n cau'r ffenestr, ni fydd tasgau argraffu i ddod yn cael eu "
+"hargraffu."
 
-#: ../shell/ev-window.c:3836
+#: ../shell/ev-window.c:3773
 msgid "Cancel _print and Close"
-msgstr ""
+msgstr "Diddymu'r _argraffu a Chau"
 
-#: ../shell/ev-window.c:3838
+#: ../shell/ev-window.c:3775
 msgid "Close _after Printing"
-msgstr ""
+msgstr "Cau _ar ôl Argraffu"
 
-#: ../shell/ev-window.c:4258
+#: ../shell/ev-window.c:4187
 msgid "Presentation mode is not supported for ePub documents"
-msgstr ""
+msgstr "Nid yw'r modd cyflwyno'n cynnal dogfennau ePub."
 
-#: ../shell/ev-window.c:4899
+#: ../shell/ev-window.c:4826
 msgid "There was an error displaying help"
-msgstr ""
+msgstr "Bu gwall wrth ddangos cymorth."
 
-#: ../shell/ev-window.c:5176
+#: ../shell/ev-window.c:5109
 msgid ""
 "Xreader is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
+"Mae Xreader yn feddalwedd rhydd; gallwch ei ailddosbarthu a/neu ei haddasu o "
+"dan delerau Trwydded Gyhoeddus Gyffredinol GNU fel y'i cyhoeddwyd gan y Free "
+"Software Foundation; naill ai fersiwn 2 o'r Drwydded, neu (yn ôl eich dewis "
+"chi) unrhyw fersiwn ddiweddarach.\n"
 
-#: ../shell/ev-window.c:5180
+#: ../shell/ev-window.c:5113
 msgid ""
 "Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
+"Mae Xreader yn cael ei ddosbarthu yn y gobaith y bydd yn ddefnyddiol, ond "
+"HEB UNRHYW RHYFEDD; heb hyd yn oed y warant ymhlyg o AMRYWIAETH neu "
+"HYFFORDDIANT AR GYFER PWRPAS RHANBARTHOL. Gweler Trwydded Gyhoeddus "
+"Gyffredinol GNU i gael mwy o fanylion.\n"
 
-#: ../shell/ev-window.c:5184
+#: ../shell/ev-window.c:5117
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
+"Dylech fod wedi derbyn copi o Drwydded Gyhoeddus Gyffredinol GNU ynghyd ag "
+"Xreader; os na, ysgrifennwch at y Free Software Foundation, Inc., 51 "
+"Franklin Street, Fifth Floor, Boston, MA 02110-1301 UDA\n"
 
-#: ../shell/ev-window.c:5195
+#: ../shell/ev-window.c:5128
 msgid "Xreader"
 msgstr "Xreader"
 
 #. TRANS: Sometimes this could be better translated as
 #. "%d hit(s) on this page".  Therefore this string
 #. contains plural cases.
-#: ../shell/ev-window.c:5503
+#: ../shell/ev-window.c:5433
 #, c-format
-msgid "%d found on this page"
-msgid_plural "%d found on this page"
-msgstr[0] ""
-msgstr[1] ""
+msgid "%d found on this page (%d total)"
+msgid_plural "%d found on this page (%d total)"
+msgstr[0] "%d wedi'i ganfod ar y dudalen hon (cyfanswm o %d)"
+msgstr[1] "%d wedi'u canfod ar y dudalen hon (cyfanswm o %d)"
+msgstr[2] "%d wedi'u canfod ar y dudalen hon (cyfanswm o %d)"
+msgstr[3] "%d wedi'u canfod ar y dudalen hon (cyfanswm o %d)"
 
-#: ../shell/ev-window.c:5508 ../shell/ev-window.c:5631
+#: ../shell/ev-window.c:5438 ../shell/ev-window.c:5561
 msgid "Not found"
-msgstr ""
+msgstr "Heb ei ganfod"
 
-#: ../shell/ev-window.c:5514
+#: ../shell/ev-window.c:5444
 #, c-format
 msgid "%3d%% remaining to search"
-msgstr "%3d%% yn dal i chwilio"
+msgstr "%3d%% yn dal i'w chwilio"
 
-#: ../shell/ev-window.c:6189
+#: ../shell/ev-window.c:6118
 msgid "_File"
 msgstr "_Ffeil"
 
-#: ../shell/ev-window.c:6190
+#: ../shell/ev-window.c:6119
 msgid "_Edit"
 msgstr "_Golygu"
 
-#: ../shell/ev-window.c:6191
+#: ../shell/ev-window.c:6120
 msgid "_View"
 msgstr "G_olwg"
 
-#: ../shell/ev-window.c:6192
+#: ../shell/ev-window.c:6121
 msgid "_Go"
 msgstr "_Mynd"
 
-#: ../shell/ev-window.c:6193
+#: ../shell/ev-window.c:6122
 msgid "_Bookmarks"
-msgstr ""
+msgstr "_Nodau Tudalen"
 
-#: ../shell/ev-window.c:6194
+#: ../shell/ev-window.c:6123
 msgid "_Help"
 msgstr "_Cymorth"
 
-#: ../shell/ev-window.c:6196
+#: ../shell/ev-window.c:6124
+msgid "Favorites"
+msgstr "Ffefrynnau"
+
+#: ../shell/ev-window.c:6125
 msgid "Recents"
-msgstr ""
+msgstr "Diweddar"
 
 #. File menu
-#: ../shell/ev-window.c:6198 ../shell/ev-window.c:6691
+#: ../shell/ev-window.c:6127 ../shell/ev-window.c:6610
 msgid "_Open…"
-msgstr ""
+msgstr "_Agor..."
 
-#: ../shell/ev-window.c:6200 ../shell/ev-window.c:6692
+#: ../shell/ev-window.c:6129 ../shell/ev-window.c:6611
 msgid "Open an existing document"
 msgstr "Agor dogfen sy'n bodoli'n barod"
 
-#: ../shell/ev-window.c:6202
+#: ../shell/ev-window.c:6131
 msgid "Op_en a Copy"
-msgstr ""
+msgstr "_Agor Copi"
 
-#: ../shell/ev-window.c:6204
+#: ../shell/ev-window.c:6133
 msgid "Open a copy of the current document in a new window"
-msgstr ""
+msgstr "Agorwch gopi o'r ddogfen gyfredol mewn ffenestr newydd"
 
-#: ../shell/ev-window.c:6206
+#: ../shell/ev-window.c:6135
 msgid "_Save a Copy…"
-msgstr ""
+msgstr "_Cadw Copi..."
 
-#: ../shell/ev-window.c:6208
+#: ../shell/ev-window.c:6137
 msgid "Save a copy of the current document"
 msgstr "Cadw copi o'r ddogfen bresennol"
 
-#: ../shell/ev-window.c:6210
+#: ../shell/ev-window.c:6139
 msgid "_Print…"
-msgstr ""
+msgstr "_Argraffu..."
 
-#: ../shell/ev-window.c:6214
+#: ../shell/ev-window.c:6143
 msgid "P_roperties"
 msgstr "P_riodweddau"
 
-#: ../shell/ev-window.c:6218
+#: ../shell/ev-window.c:6147
 msgid "_Close All Windows"
-msgstr ""
+msgstr "Cau _Pob Ffenest"
 
-#: ../shell/ev-window.c:6222
+#: ../shell/ev-window.c:6151
 msgid "_Close"
-msgstr ""
+msgstr "_Cau"
 
 #. Edit menu
-#: ../shell/ev-window.c:6228
+#: ../shell/ev-window.c:6157
 msgid "_Copy"
-msgstr ""
+msgstr "_Copïo"
 
-#: ../shell/ev-window.c:6232
+#: ../shell/ev-window.c:6161
 msgid "Select _All"
-msgstr "Dewis _Popeth"
+msgstr "Dewis y _Cyfan"
 
-#: ../shell/ev-window.c:6236
+#: ../shell/ev-window.c:6165
 msgid "_Find…"
-msgstr ""
+msgstr "C_anfod…"
 
-#: ../shell/ev-window.c:6238
+#: ../shell/ev-window.c:6167
 msgid "Find a word or phrase in the document"
 msgstr "Chwilio am air neu eiriau yn y ddogfen"
 
-#: ../shell/ev-window.c:6248
+#: ../shell/ev-window.c:6177
 msgid "Rotate _Left"
 msgstr "Troi i'r _Chwith"
 
-#: ../shell/ev-window.c:6252
+#: ../shell/ev-window.c:6181
 msgid "Rotate _Right"
 msgstr "Troi i'r _Dde"
 
-#: ../shell/ev-window.c:6256
+#: ../shell/ev-window.c:6185
 msgid "Save Current Settings as _Default"
-msgstr ""
+msgstr "Cadwch y Gosodiadau Cyfredol fell y _Rhagosodiad"
 
 #. View menu
-#: ../shell/ev-window.c:6267
+#: ../shell/ev-window.c:6196
 msgid "_Original size"
-msgstr ""
+msgstr "_Maint gwreiddiol"
 
-#: ../shell/ev-window.c:6269
+#: ../shell/ev-window.c:6198
 msgid "View the document at its original size"
-msgstr ""
+msgstr "Gweld y ddogfen ar ei maint gwreiddiol"
 
-#: ../shell/ev-window.c:6271
+#: ../shell/ev-window.c:6200
 msgid "Zoom _In"
-msgstr ""
+msgstr "Chwyddo i _Mewn:"
 
-#: ../shell/ev-window.c:6275
+#: ../shell/ev-window.c:6204
 msgid "Zoom _Out"
-msgstr ""
+msgstr "Chwyddo _Allan"
 
-#: ../shell/ev-window.c:6279
+#: ../shell/ev-window.c:6208
 msgid "_Reload"
 msgstr "_Ail-lwytho"
 
-#: ../shell/ev-window.c:6281
+#: ../shell/ev-window.c:6210
 msgid "Reload the document"
 msgstr "Ail-lwytho'r ddogfen"
 
-#: ../shell/ev-window.c:6283
+#: ../shell/ev-window.c:6212
 msgid "_Expand Window to Fit"
-msgstr ""
+msgstr "_Ehangu Ffenestr i Ffitio"
 
-#: ../shell/ev-window.c:6288
+#: ../shell/ev-window.c:6217
 msgid "Auto_scroll"
-msgstr ""
+msgstr "Awto_sgrolio"
 
-#: ../shell/ev-window.c:6302
+#: ../shell/ev-window.c:6231
 msgid "_First Page"
 msgstr "Tudalen _Gyntaf"
 
-#: ../shell/ev-window.c:6304
+#: ../shell/ev-window.c:6233
 msgid "Go to the first page"
 msgstr "Mynd i'r dudalen gyntaf"
 
-#: ../shell/ev-window.c:6306
+#: ../shell/ev-window.c:6235
 msgid "_Last Page"
 msgstr "Tudalen _Olaf"
 
-#: ../shell/ev-window.c:6308
+#: ../shell/ev-window.c:6237
 msgid "Go to the last page"
 msgstr "Mynd i'r dudalen olaf"
 
-#: ../shell/ev-window.c:6310
+#: ../shell/ev-window.c:6239
 msgid "Previous History Item"
-msgstr ""
+msgstr "Eitem Hanes Blaenorol"
 
-#: ../shell/ev-window.c:6314
+#: ../shell/ev-window.c:6243
 msgid "Next History Item"
-msgstr ""
+msgstr "Eitem Hanes Nesaf"
 
 #. Bookmarks menu
-#: ../shell/ev-window.c:6320
+#: ../shell/ev-window.c:6249
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "_Ychwanegu Nodau Tudalen"
 
-#: ../shell/ev-window.c:6322
+#: ../shell/ev-window.c:6251
 msgid "Add a bookmark for the current page"
-msgstr ""
+msgstr "Ychwanegwch nod tudalen ar gyfer y dudalen gyfredol"
 
 #. Help menu
-#: ../shell/ev-window.c:6326
+#: ../shell/ev-window.c:6255
 msgid "_Contents"
 msgstr "_Cynnwys"
 
-#: ../shell/ev-window.c:6331
+#: ../shell/ev-window.c:6260
 msgid "_About"
 msgstr "_Ynghylch"
 
 #. Toolbar-only
-#: ../shell/ev-window.c:6337
+#: ../shell/ev-window.c:6266
 msgid "Leave Fullscreen"
 msgstr "Peidio Llenwi'r sgrin"
 
-#: ../shell/ev-window.c:6339
+#: ../shell/ev-window.c:6268
 msgid "Leave fullscreen mode"
-msgstr "Gadael Modd Sgrin Lawn"
+msgstr "Gadael y Modd Sgrin Lawn"
 
-#: ../shell/ev-window.c:6341
+#: ../shell/ev-window.c:6270
 msgid "Start Presentation"
-msgstr ""
+msgstr "Cychwyn Cyflwyniad"
 
-#: ../shell/ev-window.c:6343
+#: ../shell/ev-window.c:6272
 msgid "Start a presentation"
-msgstr ""
+msgstr "Cychwynwch gyflwyniad"
 
 #. View Menu
-#: ../shell/ev-window.c:6460
+#: ../shell/ev-window.c:6389
 msgid "_Menubar"
-msgstr ""
+msgstr "_Bar Dewislen"
 
-#: ../shell/ev-window.c:6462
+#: ../shell/ev-window.c:6391
 msgid "Show or hide the menubar"
-msgstr ""
+msgstr "Dangos neu guddio'r bar dewislen"
 
-#: ../shell/ev-window.c:6464
+#: ../shell/ev-window.c:6393
 msgid "_Toolbar"
-msgstr "Bar _Dewis"
+msgstr "_Bar Offer"
 
-#: ../shell/ev-window.c:6466
+#: ../shell/ev-window.c:6395
 msgid "Show or hide the toolbar"
-msgstr "Dangos neu guddio'r bar dewis"
+msgstr "Dangos neu guddio'r bar offer"
 
-#: ../shell/ev-window.c:6468
+#: ../shell/ev-window.c:6397
 msgid "Side _Pane"
 msgstr "Bar _Ochr"
 
-#: ../shell/ev-window.c:6470
+#: ../shell/ev-window.c:6399
 msgid "Show or hide the side pane"
 msgstr "Dangos neu guddio'r bar ochr"
 
-#: ../shell/ev-window.c:6472
+#: ../shell/ev-window.c:6401
 msgid "_Continuous"
 msgstr "_Parhaol"
 
-#: ../shell/ev-window.c:6474
+#: ../shell/ev-window.c:6403
 msgid "Show the entire document"
 msgstr "Dangos yr holl ddogfen"
 
-#: ../shell/ev-window.c:6476
+#: ../shell/ev-window.c:6405
 msgid "_Dual (Even pages left)"
-msgstr ""
+msgstr "_Deuol (tudalennau eilrif i'r chwith)"
 
-#: ../shell/ev-window.c:6478
+#: ../shell/ev-window.c:6407
 msgid "Show two pages at once with even pages on the left"
 msgstr ""
+"Dangos ddwy dudalen ar yr un pryd gyda thudalennau eilrif ar y chwith"
 
-#: ../shell/ev-window.c:6480
+#: ../shell/ev-window.c:6409
 msgid "Dual (_Odd pages left)"
-msgstr ""
+msgstr "Deuol (Tudalennau _odrif chwith)"
 
-#: ../shell/ev-window.c:6482
+#: ../shell/ev-window.c:6411
 msgid "Show two pages at once with odd pages on the left"
-msgstr ""
+msgstr "Dangos ddwy dudalen ar yr un pryd gyda thudalennau odrif ar y chwith"
 
-#: ../shell/ev-window.c:6484
+#: ../shell/ev-window.c:6413
 msgid "Right to Left"
-msgstr ""
+msgstr "De i Chwith"
 
-#: ../shell/ev-window.c:6486
+#: ../shell/ev-window.c:6415
 msgid "Browse the document from right to left"
-msgstr ""
+msgstr "Pori'r ddogfen o'r dde i'r chwith"
 
-#: ../shell/ev-window.c:6488
+#: ../shell/ev-window.c:6417
 msgid "_Fullscreen"
-msgstr "_Modd Sgrin Lawn"
+msgstr "_Sgrin Lawn"
 
-#: ../shell/ev-window.c:6490
+#: ../shell/ev-window.c:6419
 msgid "Expand the window to fill the screen"
 msgstr "Ehangu'r ffenest i lenwi'r sgrin"
 
-#: ../shell/ev-window.c:6492
+#: ../shell/ev-window.c:6421
 msgid "Pre_sentation"
-msgstr ""
+msgstr "_Cyflwyniad"
 
-#: ../shell/ev-window.c:6494
+#: ../shell/ev-window.c:6423
 msgid "Run document as a presentation"
-msgstr "Rhedeg y ddogfen fel arddangosfa"
+msgstr "Rhedeg dogfen fel cyflwyniad"
 
-#: ../shell/ev-window.c:6504
+#: ../shell/ev-window.c:6433
 msgid "_Inverted Colors"
-msgstr ""
+msgstr "_Gwrthdroi Lliwiau"
 
-#: ../shell/ev-window.c:6506
+#: ../shell/ev-window.c:6435
 msgid "Show page contents with the colors inverted"
-msgstr ""
+msgstr "Dangos cynnwys y dudalen gyda'r lliwiau wedi'u gwrthdroi"
 
 #. Links
-#: ../shell/ev-window.c:6514
+#: ../shell/ev-window.c:6443
 msgid "_Open Link"
-msgstr "_Agor Cyswllt"
+msgstr "_Agor Dolen"
 
-#: ../shell/ev-window.c:6516
+#: ../shell/ev-window.c:6445
 msgid "_Go To"
 msgstr "_Mynd I"
 
-#: ../shell/ev-window.c:6518
+#: ../shell/ev-window.c:6447
 msgid "Open in New _Window"
-msgstr ""
+msgstr "Agor mewn _Ffenestr Newydd"
 
-#: ../shell/ev-window.c:6520
+#: ../shell/ev-window.c:6449
 msgid "_Copy Link Address"
-msgstr "_Copïo Cyfeiriad Cyswllt"
+msgstr "_Copïo Cyfeiriad Dolen"
 
-#: ../shell/ev-window.c:6522
+#: ../shell/ev-window.c:6451
 msgid "_Save Image As…"
-msgstr ""
+msgstr "_Cadw Delwedd Fel..."
 
-#: ../shell/ev-window.c:6524
+#: ../shell/ev-window.c:6453
 msgid "Copy _Image"
-msgstr ""
+msgstr "Copïo _Delwedd"
 
-#: ../shell/ev-window.c:6526
+#: ../shell/ev-window.c:6455
 msgid "Annotation Properties…"
-msgstr ""
+msgstr "Priodweddau Anodi..."
 
-#: ../shell/ev-window.c:6528
+#: ../shell/ev-window.c:6457
 msgid "Remove Annotation"
-msgstr ""
+msgstr "Tynnu Anodi"
 
-#: ../shell/ev-window.c:6533
+#: ../shell/ev-window.c:6462
 msgid "_Open Attachment"
-msgstr ""
+msgstr "Agor _Atodiad"
 
-#: ../shell/ev-window.c:6535
+#: ../shell/ev-window.c:6464
 msgid "_Save Attachment As…"
-msgstr ""
+msgstr "_ Cadw Atodiad Fel…"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6712
+#: ../shell/ev-window.c:6631
 msgid "Previous"
 msgstr "Blaenorol"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6717
+#: ../shell/ev-window.c:6636
 msgid "Next"
 msgstr "Nesaf"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6721
+#: ../shell/ev-window.c:6640
 msgid "Zoom In"
-msgstr "Ehangu"
+msgstr "Chwyddo i Mewn"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6725
+#: ../shell/ev-window.c:6644
 msgid "Zoom Out"
-msgstr "Crebachu"
+msgstr "Chwyddo Allan"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6737
+#: ../shell/ev-window.c:6656
 msgid "Fit Width"
 msgstr "Ffitio Lled"
 
-#: ../shell/ev-window.c:6914 ../shell/ev-window.c:6930
+#: ../shell/ev-window.c:6833 ../shell/ev-window.c:6849
 msgid "Unable to launch external application."
-msgstr ""
+msgstr "Methu agor rhaglen allanol."
 
-#: ../shell/ev-window.c:6988
+#: ../shell/ev-window.c:6907
 msgid "Unable to open external link"
-msgstr ""
+msgstr "Methu agor dolen allanol"
 
-#: ../shell/ev-window.c:7189
+#: ../shell/ev-window.c:7108
 msgid "Couldn't find appropriate format to save image"
-msgstr ""
+msgstr "Methu canfod fformat priodol i gadw'r ddelwedd"
 
-#: ../shell/ev-window.c:7220
+#: ../shell/ev-window.c:7139
 msgid "The image could not be saved."
-msgstr ""
+msgstr "Methu cadw'r cadw'r ddelwedd"
 
-#: ../shell/ev-window.c:7253
+#: ../shell/ev-window.c:7172
 msgid "Save Image"
-msgstr ""
+msgstr "Cadw Delwedd"
 
-#: ../shell/ev-window.c:7403
+#: ../shell/ev-window.c:7322
 msgid "Unable to open attachment"
-msgstr ""
+msgstr "Methu agor atodiad"
 
-#: ../shell/ev-window.c:7460
+#: ../shell/ev-window.c:7379
 msgid "The attachment could not be saved."
-msgstr ""
+msgstr "Methu cadw'r atodiad"
 
-#: ../shell/ev-window.c:7506
+#: ../shell/ev-window.c:7425
 msgid "Save Attachment"
-msgstr ""
+msgstr "Cadw Atodiad"
 
 #: ../shell/ev-window-title.c:170
 #, c-format
 msgid "%s — Password Required"
-msgstr ""
+msgstr "%s — Mae Angen Cyfrinair"
 
 #: ../shell/ev-utils.c:107
 msgid "By extension"
-msgstr ""
+msgstr "Trwy estyniad"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."
-msgstr ""
+msgstr "Label tudalen y ddogfen i'w dangos."
 
 #: ../shell/main.c:66
 msgid "PAGE"
@@ -1692,40 +1720,40 @@ msgstr "TUDALEN"
 
 #: ../shell/main.c:67
 msgid "The page number of the document to display."
-msgstr ""
+msgstr "Rhif tudalen y ddogfen i'w dangos."
 
 #: ../shell/main.c:67
 msgid "NUMBER"
-msgstr ""
+msgstr "RHIF"
 
 #: ../shell/main.c:68
 msgid "Run xreader in fullscreen mode"
-msgstr ""
+msgstr "Rhedeg xreader yn y modd sgrin lawn"
 
 #: ../shell/main.c:69
 msgid "Named destination to display."
-msgstr ""
+msgstr "Cyrchfan wedi'i enwi i'w ddangos."
 
 #: ../shell/main.c:69
 msgid "DEST"
-msgstr ""
+msgstr "DEST"
 
 #: ../shell/main.c:70
 msgid "Run xreader in presentation mode"
-msgstr ""
+msgstr "Rhedeg xreader yn y modd cyflwyno"
 
 #: ../shell/main.c:71
 msgid "Run xreader as a previewer"
-msgstr ""
+msgstr "Rhedeg xreader fel rhagolwg"
 
 #: ../shell/main.c:72
 msgid "The word or phrase to find in the document"
-msgstr ""
+msgstr "Y gair neu'r ymadrodd i'w ganfod yn y ddogfen"
 
 #: ../shell/main.c:72
 msgid "STRING"
-msgstr ""
+msgstr "LLINYN"
 
 #: ../shell/main.c:76
 msgid "[FILE…]"
-msgstr ""
+msgstr "[FFEIL...]"
