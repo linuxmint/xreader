@@ -1,3 +1,23 @@
+xreader (3.4.0) vanessa; urgency=medium
+
+  [ CraigMcL ]
+  * Search: Add a close button (#550)
+
+  [ Clement Lefebvre ]
+  * Search: Remove unnecessary tooltip
+  * CI: Update targets
+
+  [ icarter09 ]
+  * Fixes some of the warnings during build
+
+  [ Musa Ünal ]
+  * Evince Backport:  Allow adding Highlight annotations from text selection (#493)
+
+  [ Clement Lefebvre ]
+  * l10n: Update POT
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 20 Jun 2022 16:23:59 +0200
+
 xreader (3.3.0) elsie; urgency=medium
 
   * Thumbnailer: Remove epub support
