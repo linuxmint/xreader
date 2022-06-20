@@ -155,6 +155,8 @@ static void          show_annotation_windows                 (EvView            
 							      gint                page);
 static void          hide_annotation_windows                 (EvView             *view,
 							      gint                page);
+static void	     ev_view_create_annotation_from_selection (EvView          *view,
+							       EvViewSelection *selection);
 /*** GtkWidget implementation ***/
 static void       ev_view_get_page_size                      (EvView             *view,
 		                                              gint                page,
@@ -1448,7 +1450,7 @@ get_doc_point_from_offset (EvView *view,
 			   gint   *x_new,
 			   gint   *y_new)
 {
-        gdouble width, height;
+    gdouble width, height;
 	double x, y;
 
 	get_doc_page_size (view, page, &width, &height);
@@ -1456,21 +1458,21 @@ get_doc_point_from_offset (EvView *view,
 	x_offset = x_offset / view->scale;
 	y_offset = y_offset / view->scale;
 
-        if (view->rotation == 0) {
-                x = x_offset;
-                y = y_offset;
-        } else if (view->rotation == 90) {
-                x = y_offset;
-                y = width - x_offset;
-        } else if (view->rotation == 180) {
-                x = width - x_offset;
-                y = height - y_offset;
-        } else if (view->rotation == 270) {
-                x = height - y_offset;
-                y = x_offset;
-        } else {
-                g_assert_not_reached ();
-        }
+	if (view->rotation == 0) {
+			x = x_offset;
+			y = y_offset;
+	} else if (view->rotation == 90) {
+			x = y_offset;
+			y = width - x_offset;
+	} else if (view->rotation == 180) {
+			x = width - x_offset;
+			y = height - y_offset;
+	} else if (view->rotation == 270) {
+			x = height - y_offset;
+			y = x_offset;
+	} else {
+			g_assert_not_reached ();
+	}
 
 	*x_new = x;
 	*y_new = y;
@@ -3044,35 +3046,28 @@ ev_view_handle_annotation (EvView       *view,
 }
 
 static void
-ev_view_create_annotation (EvView *view)
+ev_view_create_annotation_real (EvView *view,
+				gint    annot_page,
+				EvPoint start,
+				EvPoint end)
 {
 	EvAnnotation   *annot;
-	EvPoint         start;
-	EvPoint         end;
-	GdkRectangle    page_area;
-	GtkBorder       border;
 	EvRectangle     doc_rect, popup_rect;
 	EvPage         *page;
 	GdkColor        color = { 0, 65535, 65535, 0 };
 	GdkRectangle    view_rect;
 	cairo_region_t *region;
 
-	ev_view_get_page_extents (view, view->current_page, &page_area, &border);
-	_ev_view_transform_view_point_to_doc_point (view, &view->adding_annot_info.start, &page_area, &border,
-						    &start.x, &start.y);
-	_ev_view_transform_view_point_to_doc_point (view, &view->adding_annot_info.stop, &page_area, &border,
-						    &end.x, &end.y);
-
 	ev_document_doc_mutex_lock ();
-	page = ev_document_get_page (view->document, view->current_page);
-    switch (view->adding_annot_info.type) {
-	case EV_ANNOTATION_TYPE_TEXT:
-        doc_rect.x1 = end.x;
-        doc_rect.y1 = end.y;
-        doc_rect.x2 = doc_rect.x1 + ANNOTATION_ICON_SIZE;
-        doc_rect.y2 = doc_rect.y1 + ANNOTATION_ICON_SIZE;
-		annot = ev_annotation_text_new (page);
-		break;
+	page = ev_document_get_page (view->document, annot_page);
+        switch (view->adding_annot_info.type) {
+        case EV_ANNOTATION_TYPE_TEXT:
+                doc_rect.x1 = end.x;
+                doc_rect.y1 = end.y;
+                doc_rect.x2 = doc_rect.x1 + ANNOTATION_ICON_SIZE;
+                doc_rect.y2 = doc_rect.y1 + ANNOTATION_ICON_SIZE;
+                annot = ev_annotation_text_new (page);
+                break;
 	case EV_ANNOTATION_TYPE_TEXT_MARKUP:
 		doc_rect.x1 = start.x;
 		doc_rect.y1 = start.y;
@@ -3113,19 +3108,103 @@ ev_view_create_annotation (EvView *view)
 	ev_document_doc_mutex_unlock ();
 
 	/* If the page didn't have annots, mark the cache as dirty */
-	if (!ev_page_cache_get_annot_mapping (view->page_cache, view->current_page))
-		ev_page_cache_mark_dirty (view->page_cache, view->current_page, EV_PAGE_DATA_INCLUDE_ANNOTS);
+	if (!ev_page_cache_get_annot_mapping (view->page_cache, annot_page))
+		ev_page_cache_mark_dirty (view->page_cache, annot_page, EV_PAGE_DATA_INCLUDE_ANNOTS);
 
-	_ev_view_transform_doc_rect_to_view_rect (view, view->current_page, &doc_rect, &view_rect);
+	_ev_view_transform_doc_rect_to_view_rect (view, annot_page, &doc_rect, &view_rect);
 	view_rect.x -= view->scroll_x;
 	view_rect.y -= view->scroll_y;
 	region = cairo_region_create_rectangle (&view_rect);
-	ev_view_reload_page (view, view->current_page, region);
+	ev_view_reload_page (view, annot_page, region);
 	cairo_region_destroy (region);
 
 	view->adding_annot_info.annot = annot;
-	ev_view_set_cursor (view, EV_VIEW_CURSOR_NORMAL);
 }
+
+static void
+ev_view_create_annotation (EvView *view)
+{
+	EvPoint         start;
+	EvPoint         end;
+	gint            annot_page;
+	gint            offset;
+	GdkRectangle    page_area;
+	GtkBorder       border;
+
+	find_page_at_location (view, view->adding_annot_info.start.x, view->adding_annot_info.start.y, &annot_page, &offset, &offset);
+	if (annot_page == -1) {
+		ev_view_cancel_add_annotation (view);
+		return;
+	}
+
+	ev_view_get_page_extents (view, annot_page, &page_area, &border);
+	_ev_view_transform_view_point_to_doc_point (view, &view->adding_annot_info.start, &page_area, &border,
+						    &start.x, &start.y);
+	_ev_view_transform_view_point_to_doc_point (view, &view->adding_annot_info.stop, &page_area, &border,
+						    &end.x, &end.y);
+
+	ev_view_create_annotation_real (view, annot_page, start, end);
+}
+
+static gboolean
+ev_view_get_doc_points_from_selection_region (EvView  *view,
+					      gint     page,
+					      EvPoint *begin,
+					      EvPoint *end)
+{
+	cairo_rectangle_int_t first, last;
+	GdkPoint start, stop;
+	cairo_region_t *region = NULL;
+
+	if (!view->pixbuf_cache)
+		return FALSE;
+
+	region = ev_pixbuf_cache_get_selection_region (view->pixbuf_cache, page, view->scale);
+
+	if (!region)
+		return FALSE;
+
+	cairo_region_get_rectangle (region, 0, &first);
+	cairo_region_get_rectangle (region, cairo_region_num_rectangles(region) - 1, &last);
+
+	if (!get_doc_point_from_offset (view, page, first.x, first.y + (first.height / 2),
+					&(start.x), &(start.y)))
+		return FALSE;
+
+	if (!get_doc_point_from_offset (view, page, last.x + last.width, last.y + (last.height / 2),
+					&(stop.x), &(stop.y)))
+		return FALSE;
+
+	begin->x = start.x;
+	begin->y = start.y;
+	end->x = stop.x;
+	end->y = stop.y;
+
+	return TRUE;
+}
+
+static void
+ev_view_create_annotation_from_selection (EvView          *view,
+					  EvViewSelection *selection)
+{
+	EvPoint doc_point_start;
+	EvPoint doc_point_end;
+
+	if (selection->style == EV_SELECTION_STYLE_WORD || selection->style == EV_SELECTION_STYLE_LINE) {
+
+		if (!ev_view_get_doc_points_from_selection_region (view, selection->page,&doc_point_start, &doc_point_end))
+			return;
+
+	} else {
+		doc_point_start.x = selection->rect.x1;
+		doc_point_start.y = selection->rect.y1;
+		doc_point_end.x = selection->rect.x2;
+		doc_point_end.y = selection->rect.y2;
+	}
+
+	ev_view_create_annotation_real (view, selection->page, doc_point_start, doc_point_end);
+}
+
 
 void
 ev_view_focus_annotation (EvView    *view,
@@ -4478,6 +4557,35 @@ ev_view_motion_notify_event (GtkWidget      *widget,
 	}
 
 	return FALSE;
+}
+
+gboolean
+ev_view_add_text_markup_annotation_for_selected_text (EvView  *view)
+{
+	GList *l;
+
+	if (view->adding_annot_info.annot || view->adding_annot_info.adding_annot ||
+	    view->selection_info.selections == NULL)
+		return FALSE;
+
+	for (l = view->selection_info.selections; l != NULL; l = l->next) {
+		EvViewSelection *selection = (EvViewSelection *)l->data;
+
+		view->adding_annot_info.adding_annot = TRUE;
+		view->adding_annot_info.type = EV_ANNOTATION_TYPE_TEXT_MARKUP;
+
+		ev_view_create_annotation_from_selection (view, selection);
+
+		if (view->adding_annot_info.adding_annot)
+			g_signal_emit (view, signals[SIGNAL_ANNOT_ADDED], 0, view->adding_annot_info.annot);
+	}
+
+	clear_selection (view);
+
+	view->adding_annot_info.adding_annot = FALSE;
+	view->adding_annot_info.annot = NULL;
+
+	return TRUE;
 }
 
 static gboolean

@@ -320,6 +320,8 @@ static void     ev_view_popup_cmd_open_link_new_window       (GtkAction        *
                                                               EvWindow         *window);
 static void     ev_view_popup_cmd_copy_link_address          (GtkAction        *action,
                                                               EvWindow         *window);
+static void     ev_window_popup_cmd_annotate_selected_text (GtkAction    *action,
+							                                gpointer          user_data);
 static void     ev_view_popup_cmd_save_image_as              (GtkAction        *action,
                                                               EvWindow         *window);
 static void     ev_view_popup_cmd_copy_image                 (GtkAction        *action,
@@ -5300,6 +5302,15 @@ view_menu_image_popup (EvWindow  *ev_window,
 }
 
 static void
+view_menu_text_selection_popup (EvWindow * window,
+				gboolean  enable)
+{
+    ev_window_set_action_visible (window->priv->view_popup_action_group,
+                            "AnnotateSelectedText",
+                            enable);
+}
+
+static void
 view_menu_annot_popup (EvWindow     *ev_window,
                        EvAnnotation *annot)
 {
@@ -5352,6 +5363,7 @@ view_menu_popup_cb (EvView   *view,
     gboolean has_link = FALSE;
     gboolean has_image = FALSE;
     gboolean has_annot = FALSE;
+    gboolean can_annotate;
 
     for (l = items; l; l = g_list_next (l)) {
         if (EV_IS_LINK (l->data)) {
@@ -5365,13 +5377,18 @@ view_menu_popup_cb (EvView   *view,
             has_annot = TRUE;
         }
     }
-
+    
     if (!has_link)
         view_menu_link_popup (ev_window, NULL);
     if (!has_image)
         view_menu_image_popup (ev_window, NULL);
     if (!has_annot)
         view_menu_annot_popup (ev_window, NULL);
+
+    can_annotate = !has_annot && ev_view_get_has_selection (view);
+
+	view_menu_text_selection_popup (ev_window, can_annotate);
+
 
     gtk_menu_popup (GTK_MENU (ev_window->priv->view_popup),
             NULL, NULL, NULL, NULL,
@@ -6449,7 +6466,9 @@ static const GtkActionEntry view_popup_entries [] = {
 	{ "AnnotProperties", "xapp-format-text-highlight-symbolic" , N_("Annotation Properties…"), NULL,
 	  NULL, G_CALLBACK (ev_view_popup_cmd_annot_properties) },
 	{ "RemoveAnnotation", "window-close-symbolic", N_("Remove Annotation"), NULL,
-	  NULL, G_CALLBACK (ev_view_popup_cmd_remove_annotation) }
+	  NULL, G_CALLBACK (ev_view_popup_cmd_remove_annotation) },
+    { "AnnotateSelectedText", "xapp-format-text-highlight-symbolic", N_("Annotate Selected Text"), NULL,
+	  NULL, G_CALLBACK (ev_window_popup_cmd_annotate_selected_text) }  
 };
 
 static const GtkActionEntry attachment_popup_entries [] = {
@@ -6997,6 +7016,16 @@ ev_view_popup_cmd_open_link (GtkAction *action,
     if (window->priv->document->iswebdocument == TRUE ) return;
     ev_view_handle_link (EV_VIEW (window->priv->view), window->priv->link);
 }
+
+static void
+ev_window_popup_cmd_annotate_selected_text (GtkAction *action,
+					                        gpointer   user_data)
+{
+	EvWindow *ev_window = user_data;
+	EvView *view = EV_VIEW (ev_window->priv->view);
+	ev_view_add_text_markup_annotation_for_selected_text (view);
+}
+
 
 static void
 ev_view_popup_cmd_open_link_new_window (GtkAction *action,
