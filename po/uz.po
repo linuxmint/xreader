@@ -1,194 +1,195 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Uzbek translation for linuxmint
+# Copyright (c) 2022 Rosetta Contributors and Canonical Ltd 2022
+# This file is distributed under the same license as the linuxmint package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-# Translators:
-# Gil 'Dolfin' Osher <dolfin@rpg.org.il>, 2003
-# Yaron Shahrabani <gezer@lists.launchpad.net>, 2010
-# Yaron Shahrabani <sh.yaron@gmail.com>, 2010
-# Yuval Tanny, 2005
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: linuxmint\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2022-06-20 16:22+0200\n"
-"PO-Revision-Date: 2022-06-24 06:27+0000\n"
-"Last-Translator: Avi Markovitz <avi.markovitz@gmail.com>\n"
-"Language-Team: Hebrew (http://www.transifex.com/mate/MATE/language/he/)\n"
+"PO-Revision-Date: 2022-06-20 17:50+0000\n"
+"Last-Translator: Umidjon Almasov <umidjon@almasov.uz>\n"
+"Language-Team: Uzbek <uz@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Launchpad-Export-Date: 2022-06-26 11:27+0000\n"
 "X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
-"Language: he\n"
+"Language: uz\n"
 
 #: ../backend/comics/comics-document.c:208
 #, c-format
 msgid ""
 "Error launching the command “%s” in order to decompress the comic book: %s"
-msgstr "שגיאה בשיגור הפקודה \"%s\" לחילוץ חוברת הקומיקס: %s"
+msgstr ""
+"Komiksni ochish uchun “%s” buyrug‘ini ishga tushirishda xatolik yuz berdi: %s"
 
 #: ../backend/comics/comics-document.c:222
 #, c-format
 msgid "The command “%s” failed at decompressing the comic book."
-msgstr "הפקודה \"%s\" כשלה בדחיסת חוברת הקומיקס."
+msgstr "“%s” buyrug‘i komiksni ochishda muvaffaqiyatsiz tugadi."
 
 #: ../backend/comics/comics-document.c:231
 #, c-format
 msgid "The command “%s” did not end normally."
-msgstr "הפקודה ”%s“ לא הסתיימה באופן תקין."
+msgstr "“%s” buyrug‘i odatdagidek tugamadi."
 
 #: ../backend/comics/comics-document.c:459
 #, c-format
 msgid "Not a comic book MIME type: %s"
-msgstr "אינו סוג MIME קומיקס: %s"
+msgstr "MIME turi komiks emas: %s"
 
 #: ../backend/comics/comics-document.c:466
 msgid ""
 "Can't find an appropriate command to decompress this type of comic book"
-msgstr "לא ניתן למצוא פקודה מתאימה לחלוץ דחיסת קומיקס מסוג זה"
+msgstr "Ushbu turdagi komikslarni ochish uchun tegishli buyruq topilmadi"
 
 #: ../backend/comics/comics-document.c:540 ../backend/epub/epub-document.c:644
 #: ../libdocument/ev-document-factory.c:145
 #: ../libdocument/ev-document-factory.c:288
 msgid "Unknown MIME Type"
-msgstr "סוג MIME לא ידוע"
+msgstr "Noma'lum MIME turi"
 
 #: ../backend/comics/comics-document.c:567
 msgid "File corrupted"
-msgstr "קובץ פגום"
+msgstr "Fayl buzilgan"
 
 #: ../backend/comics/comics-document.c:580
 msgid "No files in archive"
-msgstr "אין קבצים בארכיון"
+msgstr "Arxivda hech qanday fayl yo‘q"
 
 #: ../backend/comics/comics-document.c:619
 #, c-format
 msgid "No images found in archive %s"
-msgstr "לא נמצאו תמונות בארכיון %s"
+msgstr "%s arxivida rasm topilmadi"
 
 #: ../backend/comics/comics-document.c:866 ../backend/epub/epub-document.c:1813
 #, c-format
 msgid "There was an error deleting “%s”."
-msgstr "אירעה שגיאה במחיקת \"%s\"."
+msgstr "“%s”ni o‘chirishda xatolik yuz berdi."
 
 #: ../backend/comics/comics-document.c:1015
 #, c-format
 msgid "Error %s"
-msgstr "שגיאה %s"
+msgstr "Xato %s"
 
 #: ../backend/comics/comicsdocument.xreader-backend.in.h:1
 msgid "Comic Books"
-msgstr "ספרי קומיקס"
+msgstr "Komikslar"
 
 #: ../backend/djvu/djvu-document.c:171
 msgid "DjVu document has incorrect format"
-msgstr "מסמך DjVu בתבנית שגויה"
+msgstr "DjVu hujjat formati noto‘g‘ri"
 
 #: ../backend/djvu/djvu-document.c:248
 msgid ""
 "The document is composed of several files. One or more of these files cannot "
 "be accessed."
-msgstr "המסמך מורכב ממספר קבצים. לא ניתן לגשת לאחד או יותר מהם."
+msgstr ""
+"Hujjat bir nechta fayllardan iborat. Ushbu fayllardan biriga yoki bir "
+"nechtasiga kirish imkonsiz."
 
 #: ../backend/djvu/djvudocument.xreader-backend.in.h:1
 msgid "DjVu Documents"
-msgstr "מסמכי DjVu"
+msgstr "DjVu hujjatlari"
 
 #: ../backend/dvi/dvi-document.c:107
 msgid "DVI document has incorrect format"
-msgstr "מסמך DVI בתבנית שגויה"
+msgstr "DVI hujjat formati noto‘g‘ri"
 
 #: ../backend/dvi/dvidocument.xreader-backend.in.h:1
 msgid "DVI Documents"
-msgstr "מסמכי DVI"
+msgstr "DVI hujjatlari"
 
 #: ../backend/epub/epub-document.c:661
 msgid "Not an ePub document"
-msgstr "לא מסמך ePub"
+msgstr "ePub hujjati emas"
 
 #: ../backend/epub/epub-document.c:766
 msgid "could not retrieve filename"
-msgstr "לא ניתן לאחזר את שם הקובץ"
+msgstr "fayl nomini olib bo‘lmadi"
 
 #: ../backend/epub/epub-document.c:794
 msgid "could not open archive"
-msgstr "לא היה ניתן לפתוח את הארכיון"
+msgstr "arxivni ochib bo‘lmadi"
 
 #: ../backend/epub/epub-document.c:810 ../backend/epub/epub-document.c:826
 msgid "could not extract archive"
-msgstr "לא היה ניתן לחלץ את הארכיון"
+msgstr "arxivni chiqarib bo‘lmadi"
 
 #: ../backend/epub/epub-document.c:858 ../backend/epub/epub-document.c:941
 msgid "could not retrieve container file"
-msgstr "לא היה ניתן לאחזר את קובץ המכל"
+msgstr "konteyner faylini olib bo‘lmadi"
 
 #: ../backend/epub/epub-document.c:870
 msgid "could not open container file"
-msgstr "לא היה ניתן לפתוח את קובץ המכל"
+msgstr "konteyner faylini ochib bo‘lmadi"
 
 #: ../backend/epub/epub-document.c:880
 msgid "container file is corrupt"
-msgstr "קובץ המכל פגום"
+msgstr "konteyner fayli buzilgan"
 
 #: ../backend/epub/epub-document.c:890
 msgid "epub file is invalid or corrupt"
-msgstr "קובץ ePub לא תקין או פגום"
+msgstr "epub fayli yaroqsiz yoki buzilgan"
 
 #: ../backend/epub/epub-document.c:900
 msgid "epub file is corrupt, no container"
-msgstr "קובץ epub פגום, אינו מכל"
+msgstr "epub fayli buzilgan, konteyner yo‘q"
 
 #: ../backend/epub/epub-document.c:985
 msgid "could not parse content manifest"
-msgstr "לא היה ניתן לנתח את תוכן המִצהר"
+msgstr "kontent manifestini tahlil qila olmadi"
 
 #: ../backend/epub/epub-document.c:994
 msgid "content file is invalid"
-msgstr "תוכן קובץ לא תקין"
+msgstr "kontent fayli yaroqsiz"
 
 #: ../backend/epub/epub-document.c:1003
 msgid "epub file has no spine"
-msgstr "קובץ epub חסר שִדרה"
+msgstr "epub faylida tub yo‘q"
 
 #: ../backend/epub/epub-document.c:1012
 msgid "epub file has no manifest"
-msgstr "קובץ epub ללא מצהר"
+msgstr "epub faylida manifest yo‘q"
 
 #: ../backend/epub/epub-document.c:1103
 msgid "Could not set up document tree for loading, some files missing"
-msgstr "לא ניתן לבנות עץ קבצים לטעינה, חסרים מספר קבצים"
+msgstr ""
+"Hujjatlar daraxtini yuklash uchun sozlab boʻlmadi, baʼzi fayllar "
+"yetishmayapti"
 
 #: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
-msgstr "מסמכי epub"
+msgstr "epub hujjatlari"
 
 #: ../backend/pdf/ev-poppler.cc:522
 msgid "This work is in the Public Domain"
-msgstr "יצירה זו היא נחלת הכלל"
+msgstr "Bu ish Jamoat mulkida joylashgan"
 
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:775 ../backend/pdf/ev-poppler.cc:781
 msgid "Yes"
-msgstr "כן"
+msgstr "Ha"
 
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:778 ../backend/pdf/ev-poppler.cc:781
 msgid "No"
-msgstr "לא"
+msgstr "Yo‘q"
 
 #: ../backend/pdf/ev-poppler.cc:908
 msgid "Type 1"
-msgstr "סוג 1"
+msgstr "1 turi"
 
 #: ../backend/pdf/ev-poppler.cc:910
 msgid "Type 1C"
-msgstr "סוג 1C"
+msgstr "1C turi"
 
 #: ../backend/pdf/ev-poppler.cc:912
 msgid "Type 3"
-msgstr "סוג 3"
+msgstr "3 turi"
 
 #: ../backend/pdf/ev-poppler.cc:914
 msgid "TrueType"
@@ -196,11 +197,11 @@ msgstr "TrueType"
 
 #: ../backend/pdf/ev-poppler.cc:916
 msgid "Type 1 (CID)"
-msgstr "סוג 1 (CID)"
+msgstr "1 turi (CID)"
 
 #: ../backend/pdf/ev-poppler.cc:918
 msgid "Type 1C (CID)"
-msgstr "סוג 1C (CID)"
+msgstr "1C turi (CID)"
 
 #: ../backend/pdf/ev-poppler.cc:920
 msgid "TrueType (CID)"
@@ -208,160 +209,160 @@ msgstr "TrueType (CID)"
 
 #: ../backend/pdf/ev-poppler.cc:922
 msgid "Unknown font type"
-msgstr "סוג גופן לא ידוע"
+msgstr "Noma'lum shrift turi"
 
 #: ../backend/pdf/ev-poppler.cc:948
 msgid "No name"
-msgstr "ללא שם"
+msgstr "Nomi yo‘q"
 
 #: ../backend/pdf/ev-poppler.cc:956
 msgid "Embedded subset"
-msgstr "תת־קבוצה משובצת"
+msgstr "Kiritilgan quyi toʻplam"
 
 #: ../backend/pdf/ev-poppler.cc:958
 msgid "Embedded"
-msgstr "מוטמע"
+msgstr "Kiritilgan"
 
 #: ../backend/pdf/ev-poppler.cc:960
 msgid "Not embedded"
-msgstr "לא מוטמע"
+msgstr "Kiritilmagan"
 
 #: ../backend/pdf/pdfdocument.xreader-backend.in.h:1
 msgid "PDF Documents"
-msgstr "מסמכי PDF"
+msgstr "PDF hujjatlar"
 
 #: ../backend/ps/ev-spectre.c:102
 #, c-format
 msgid "Failed to load document “%s”"
-msgstr "לא ניתן לטעון מסמך “%s”"
+msgstr "“%s” hujjatini yuklab bo‘lmadi"
 
 #: ../backend/ps/ev-spectre.c:135
 #, c-format
 msgid "Failed to save document “%s”"
-msgstr "כשל בשמירת מסמך “%s”"
+msgstr "“%s” hujjatini saqlab bo‘lmadi"
 
 #: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
-msgstr "מסמכי PostScript"
+msgstr "PostScript hujjatlari"
 
 #: ../backend/tiff/tiff-document.c:114
 msgid "Invalid document"
-msgstr "מסמך לא תקין"
+msgstr "Yaroqsiz hujjat"
 
 #: ../libdocument/ev-attachment.c:299 ../libdocument/ev-attachment.c:320
 #, c-format
 msgid "Couldn't save attachment “%s”: %s"
-msgstr "לא ניתן לשמור את הקובץ המצורף “%s”: %s"
+msgstr "“%s” biriktirmasini saqlab bo‘lmadi: %s"
 
 #: ../libdocument/ev-attachment.c:368
 #, c-format
 msgid "Couldn't open attachment “%s”: %s"
-msgstr "לא ניתן לפתוח את הקובץ המצורף “%s”: %s"
+msgstr "“%s” biriktirmasini ochib boʻlmadi: %s"
 
 #: ../libdocument/ev-attachment.c:403
 #, c-format
 msgid "Couldn't open attachment “%s”"
-msgstr "לא ניתן לפתוח את הקובץ המצורף “%s”"
+msgstr "“%s” biriktirmasini ochib bo‘lmadi"
 
 #: ../libdocument/ev-document-factory.c:170
 #, c-format
 msgid "File type %s (%s) is not supported"
-msgstr "סוג הקובץ %s ‏(%s) לא נתמך"
+msgstr "%s (%s) fayl turi qo‘llab-quvvatlanmaydi"
 
 #: ../libdocument/ev-document-factory.c:361
 msgid "All Documents"
-msgstr "כל המסמכים"
+msgstr "Barcha hujjatlar"
 
 #: ../libdocument/ev-document-factory.c:393
 msgid "All Files"
-msgstr "כל הקבצים"
+msgstr "Barcha fayllar"
 
 #: ../libdocument/ev-file-helpers.c:147
 #, c-format
 msgid "Failed to create a temporary file: %s"
-msgstr "נכשלה יצירת קובץ זמני: %s"
+msgstr "Vaqtinchalik fayl yaratib bo‘lmadi: %s"
 
 #: ../libdocument/ev-file-helpers.c:309
 #, c-format
 msgid "Failed to create a temporary directory: %s"
-msgstr "נכשלה יצירת תיקייה זמנית: %s"
+msgstr "Vaqtinchalik katalog yaratib bo‘lmadi: %s"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:165
 #, c-format
 msgid "File is not a valid .desktop file"
-msgstr "הקובץ אינו קובץ desktop. תקין"
+msgstr "Fayl yaroqli .desktop fayli emas"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:188
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
-msgstr "גרסת קובץ ה־‎.desktop‏ '%s' אינה מזוהה"
+msgstr "Noma'lum ish stoli fayli \"%s\" versiyasi"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:957
 #, c-format
 msgid "Starting %s"
-msgstr "מתבצעת הפעלת %s"
+msgstr "%s boshlanmoqda"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1098
 #, c-format
 msgid "Application does not accept documents on command line"
-msgstr "היישום לא מקבל מסמכים משורת הפקודה"
+msgstr "Ilova buyruq satrida hujjatlarni qabul qilmaydi"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1166
 #, c-format
 msgid "Unrecognized launch option: %d"
-msgstr "אפשרות שיגור לא מזוהה: %d"
+msgstr "Noma'lum ishga tushirish varianti: %d"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1365
 #, c-format
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
-msgstr "לא ניתן להמיר את כתובת המסמך לרשומת שולחן העבודה \"Type=Link\""
+msgstr "Hujjat URIlarini “Type=Link” ish stoli yozuviga o‘tkazib bo‘lmaydi"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1384
 #, c-format
 msgid "Not a launchable item"
-msgstr "לא ניתן להפעיל פריט זה"
+msgstr "Ishga tushiriladigan element emas"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:224
 msgid "Disable connection to session manager"
-msgstr "ניתוק החיבור למנהל ההפעלות"
+msgstr "Sessiya menejeriga ulanishni o‘chirish"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:227
 msgid "Specify file containing saved configuration"
-msgstr "נא לציין קובץ המכיל תצורה שמורה"
+msgstr "Saqlangan konfiguratsiyani o‘z ichiga olgan faylni belgilash"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:227 ../previewer/ev-previewer.c:35
 #: ../previewer/ev-previewer.c:36
 msgid "FILE"
-msgstr "FILE"
+msgstr "FAYL"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:230
 msgid "Specify session management ID"
-msgstr "יש לציין את מזהה ניהול מערך ההפעלה"
+msgstr "Seans boshqaruvi identifikatorini belgilash"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:230
 msgid "ID"
-msgstr "מזהה"
+msgstr "Identifikator"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:251
 msgid "Session management options:"
-msgstr "אפשרויות ניהול הפעלה:"
+msgstr "Sessiyani boshqarish variantlari:"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:252
 msgid "Show session management options"
-msgstr "הצגת אפשרויות לניהול ההפעלה"
+msgstr "Sessiyani boshqarish variantlarini ko‘rsatish"
 
 #. translators: this is the label for toolbar button
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6665
 msgid "Best Fit"
-msgstr "התאמה מיטבית"
+msgstr "Eng mos"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:50
 msgid "Fit Page Width"
-msgstr "התאמה לרוחב העמוד"
+msgstr "Sahifaning kengligiga moslash"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:6225
 msgid "Expand Window to Fit"
-msgstr "הרחבת החלון להתאמה"
+msgstr "Moslash uchun oynani kengaytirish"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:53
 msgid "50%"
@@ -421,7 +422,7 @@ msgstr "6400%"
 
 #: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer"
-msgstr "מציג מסמכים"
+msgstr "Hujjatni ko‘ruvchi"
 
 #: ../data/xreader.appdata.xml.in.h:2
 msgid ""
@@ -431,167 +432,170 @@ msgid ""
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
 msgstr ""
-"<p> Xreader הוא מציג מסמכים, רב-עמודי, פשוט. הוא יכול להציג ולהדפיס קבצי "
-"פוסטסקריפט (PS),  פוסטסקריפט כמוס (EPS), DJVU, DVI, XPS ו- תַּסְדִּיר מסמכים "
-"נייד (PDF), כמו גם קבצי ארכיב קומיקס. כשהמסמך תומך בכך, הוא מאפשר גם חיפוש "
-"מלל, העתקת מלל ללוח, ניווט היפרטקסט וסימניות תוכן עניינים. </p>"
+"<p> Xreader oddiy ko‘p sahifali hujjatlarni ko‘rish dasturidir. U PostScript "
+"(PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS va Portativ Document "
+"Format (PDF) fayllarini, shuningdek, komikslar arxivi fayllarini ko‘rsatishi "
+"va chop etishi mumkin. Hujjat tomonidan qo‘llab-quvvatlansa, u matnni "
+"qidirish, matnni vaqtinchalik buferga nusxalash, gipermatnni navigatsiya "
+"qilish va tarkiblar jadvali xatcho‘plarini ham beradi. </p>"
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
 #: ../shell/main.c:239 ../shell/main.c:268
 msgid "Document Viewer"
-msgstr "מציג מסמכים"
+msgstr "Hujjatlarni ko‘ruvchi"
 
 #: ../data/xreader.desktop.in.in.h:2
 msgid "View multi-page documents"
-msgstr "הצגת מסמכים מרובי עמודים"
+msgstr "Ko‘p sahifali hujjatlarni ko‘rish"
 
 #: ../previewer/ev-previewer.c:34
 msgid "Delete the temporary file"
-msgstr "מחיקת הקובץ הזמני"
+msgstr "Vaqtinchalik faylni o‘chirish"
 
 #: ../previewer/ev-previewer.c:35
 msgid "Print settings file"
-msgstr "הדפסת קובץ הגדרות"
+msgstr "Chop etish sozlamalari fayli"
 
 #: ../previewer/ev-previewer.c:104 ../previewer/ev-previewer.c:135
 msgid "Print Preview"
-msgstr "תצוגה מקדימה לפני הדפסה"
+msgstr "Chop etishni oldindan ko‘rish"
 
 #: ../previewer/ev-previewer-window.c:83 ../shell/ev-window.c:3419
 msgid "Failed to print document"
-msgstr "הדפסת המסמך נכשלה"
+msgstr "Hujjatni chop etib bo‘lmadi"
 
 #: ../previewer/ev-previewer-window.c:235
 #, c-format
 msgid "The selected printer '%s' could not be found"
-msgstr "המדפסת שנבחרה '%s' לא נמצאה"
+msgstr "Tanlangan “%s” printeri topilmadi"
 
 #. Go menu
 #: ../previewer/ev-previewer-window.c:281 ../shell/ev-window.c:6234
 msgid "_Previous Page"
-msgstr "העמוד ה_קודם"
+msgstr "_Oldingi sahifa"
 
 #: ../previewer/ev-previewer-window.c:282 ../shell/ev-window.c:6236
 msgid "Go to the previous page"
-msgstr "מעבר לעמוד הקודם"
+msgstr "Oldingi sahifaga o‘tish"
 
 #: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:6238
 msgid "_Next Page"
-msgstr "העמוד ה_בא"
+msgstr "_Keyingi sahifa"
 
 #: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:6240
 msgid "Go to the next page"
-msgstr "מעבר לעמוד הבא"
+msgstr "Keyingi sahifaga o‘tish"
 
 #: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:6213
 msgid "Enlarge the document"
-msgstr "הגדלת המסמך"
+msgstr "Hujjatni kattalashtirish"
 
 #: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:6217
 msgid "Shrink the document"
-msgstr "הקטנת המסמך"
+msgstr "Hujjatni qisqartirish"
 
 #. translators: this is the label for toolbar button
 #: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:6661
 msgid "Original size"
-msgstr "גודל מקורי"
+msgstr "Asl o‘lcham"
 
 #. translators: Print document currently shown in the Print Preview window
 #. translators: Title of the print dialog
 #: ../previewer/ev-previewer-window.c:297 ../libview/ev-print-operation.c:1328
 msgid "Print"
-msgstr "הדפסה"
+msgstr "Chop etish"
 
 #: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:6152
 msgid "Print this document"
-msgstr "הדפסת מסמך זה"
+msgstr "Ushbu hujjatni chop etish"
 
 #: ../previewer/ev-previewer-window.c:341 ../shell/ev-window.c:6436
 msgid "_Best Fit"
-msgstr "_התאמה מיטבית"
+msgstr "Eng mos"
 
 #: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:6438
 msgid "Make the current document fill the window"
-msgstr "התאמת המסמך הנוכחי למידות החלון"
+msgstr "Joriy hujjat oynani to‘ldirish"
 
 #: ../previewer/ev-previewer-window.c:344 ../shell/ev-window.c:6440
 msgid "Fit Page _Width"
-msgstr "התאמה _לרוחב עמוד"
+msgstr "Sahifaning kengligini moslash"
 
 #: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:6442
 msgid "Make the current document fill the window width"
-msgstr "התאמת המסמך הנוכחי לרוחב העמוד"
+msgstr "Joriy hujjatni oyna kengligini to‘ldiring"
 
 #: ../previewer/ev-previewer-window.c:561 ../shell/ev-window.c:6609
 msgid "Page"
-msgstr "עמוד"
+msgstr "Sahifa"
 
 #: ../previewer/ev-previewer-window.c:562 ../shell/ev-window.c:6610
 msgid "Select Page"
-msgstr "בחירת עמוד"
+msgstr "Sahifani tanlash"
 
 #: ../libmisc/ev-page-action-widget.c:85 ../libmisc/ev-page-action-widget.c:125
 #, c-format
 msgid "(%d of %d)"
-msgstr "‏(%d מתוך %d)"
+msgstr "(%d %d dan)"
 
 #: ../libmisc/ev-page-action-widget.c:87 ../libmisc/ev-page-action-widget.c:127
 #, c-format
 msgid "of %d"
-msgstr "מתוך %d"
+msgstr "%d dan"
 
 #. Create tree view
 #: ../libview/ev-loading-window.c:76 ../shell/ev-sidebar-annotations.c:134
 #: ../shell/ev-sidebar-layers.c:122 ../shell/ev-sidebar-links.c:256
 msgid "Loading…"
-msgstr "בהליכי טעינה..."
+msgstr "Yuklanmoqda…"
 
 #. Initial state
 #: ../libview/ev-print-operation.c:332
 msgid "Preparing to print…"
-msgstr "בהכנות להדפסה…"
+msgstr "Chop etishga tayyorlanmoqda…"
 
 #: ../libview/ev-print-operation.c:334
 msgid "Finishing…"
-msgstr "בשלבי סיום…"
+msgstr "Tugallanmoqda…"
 
 #: ../libview/ev-print-operation.c:336
 #, c-format
 msgid "Printing page %d of %d…"
-msgstr "מודפס עמוד %d מתוך %d…"
+msgstr "%d sahifa %d sahifadan chop etilmoqda…"
 
 #: ../libview/ev-print-operation.c:1184
 msgid "The requested format is not supported by this printer."
-msgstr "התבנית המבוקשת לא נתמכת במדפסת זו."
+msgstr "So‘ralgan format bu printer tomonidan qo‘llab-quvvatlanmaydi."
 
 #: ../libview/ev-print-operation.c:1247
 msgid "Invalid page selection"
-msgstr "בחירת עמודים שגויה"
+msgstr "Yaroqsiz sahifa tanlovi"
 
 #: ../libview/ev-print-operation.c:1248
 msgid "Warning"
-msgstr "אזהרה"
+msgstr "Ogohlantirish"
 
 #: ../libview/ev-print-operation.c:1250
 msgid "Your print range selection does not include any pages"
-msgstr "טווח ההדפסה שנבחר אינו מכיל עמודים כלל"
+msgstr ""
+"Chop etish diapazoni tanlovingiz hech qanday sahifani o‘z ichiga olmaydi"
 
 #: ../libview/ev-print-operation.c:1937
 msgid "Page Scaling:"
-msgstr "מידות העמוד:"
+msgstr "Sahifani masshtablash:"
 
 #. translators: Value for 'Page Scaling:' to not scale the document pages on printing
 #: ../libview/ev-print-operation.c:1943
 msgid "None"
-msgstr "ללא"
+msgstr "Yo‘q"
 
 #: ../libview/ev-print-operation.c:1944
 msgid "Shrink to Printable Area"
-msgstr "כיווץ לאזור הניתן להדפסה"
+msgstr "Chop etish maydoniga qisqartirish"
 
 #: ../libview/ev-print-operation.c:1945
 msgid "Fit to Printable Area"
-msgstr "התאמה לאזור הניתן להדפסה"
+msgstr "Chop etish maydoniga moslash"
 
 #: ../libview/ev-print-operation.c:1948
 msgid ""
@@ -606,441 +610,449 @@ msgid ""
 "• \"Fit to Printable Area\": Document pages are enlarged or reduced as "
 "required to fit the printable area of the printer page.\n"
 msgstr ""
-"סילום עמודי המסמך לגודל העמוד במדפסת. נא לבחור מהבאים:\n"
+"Tanlangan printer sahifasiga mos keladigan hujjat sahifalarini "
+"masshtablashtiring. Quyidagilardan birini tanlang:\n"
 "\n"
-"• \"ללא\": לא מתבצע סילום לעמוד.\n"
+"• \"Yo‘q\": Sahifani masshtablash bajarilmaydi.\n"
 "\n"
-"• \"כיווץ לאזור ההדפסה\": עמודי המסמך, הגדולים מהאזור ההדפסה, מוקטנים כך "
-"שיתאימו לאזור ההדפסה של דפי המדפסת.\n"
+"• “Bosib chiqarish maydoniga kichraytirish”: Hujjatning chop qilinadigan "
+"maydondan kattaroq sahifalari printer sahifasining chop etiladigan maydoniga "
+"mos kelishi uchun kichraytiriladi.\n"
 "\n"
-"• \"התאמה לאזור ההדפסה\": עמודי המסמך מוגדלים או מוקטנים כדי להתאים לאזור "
-"ההדפסה של דף המדפסת.\n"
+"• “Bosib chiqarish maydoniga moslash”: Hujjat varaqlari printer sahifasining "
+"chop etiladigan maydoniga mos kelishi uchun kattalashtiriladi yoki "
+"kichraytiriladi.\n"
 
 #: ../libview/ev-print-operation.c:1960
 msgid "Auto Rotate and Center"
-msgstr "סיבוב ומרכוז אוטומטי"
+msgstr "Avtomatik aylantirish va markazlashtirish"
 
 #: ../libview/ev-print-operation.c:1963
 msgid ""
 "Rotate printer page orientation of each page to match orientation of each "
 "document page. Document pages will be centered within the printer page."
 msgstr ""
-"סיבוב כיוון העמוד לכל עמוד בנפרד כך שיתאים לסיבוב של כל עמודי המסמך. עמודי "
-"המסמך ימורכזו בדף המדפסת."
+"Har bir hujjat sahifasining yo‘nalishiga mos kelish uchun har bir sahifaning "
+"printer sahifasi yo‘nalishini aylantiring. Hujjat sahifalari printer "
+"sahifasida markazga joylashtiriladi."
 
 #: ../libview/ev-print-operation.c:1968
 msgid "Select page size using document page size"
-msgstr "בחירת גודל העמוד על פי גודל עמוד המסמך"
+msgstr "Hujjat sahifasi o‘lchamidan foydalanib sahifa o‘lchamini tanlash"
 
 #: ../libview/ev-print-operation.c:1970
 msgid ""
 "When enabled, each page will be printed on the same size paper as the "
 "document page."
-msgstr "כאשר מאופשר, כל עמוד יודפס באותו גודל דף כמו עמוד המסמך."
+msgstr ""
+"Yoqilganda, har bir sahifa hujjat sahifasi bilan bir xil o‘lchamdagi "
+"qog‘ozga chop etiladi."
 
 #: ../libview/ev-print-operation.c:2052
 msgid "Page Handling"
-msgstr "טיפול בעמודים"
+msgstr "Sahifa bilan ishlash"
 
 #: ../libview/ev-jobs.c:1741
 #, c-format
 msgid "Failed to print page %d: %s"
-msgstr "הדפסת עמוד %d נכשלה: ‏%s"
+msgstr "%d sahifani chop etib bo‘lmadi: %s"
 
 #: ../libview/ev-view-accessible.c:45
 msgid "Scroll Up"
-msgstr "גלילה למעלה"
+msgstr "Yuqoriga varaqlash"
 
 #: ../libview/ev-view-accessible.c:46
 msgid "Scroll Down"
-msgstr "גלילה למטה"
+msgstr "Pastga varaqlash"
 
 #: ../libview/ev-view-accessible.c:52
 msgid "Scroll View Up"
-msgstr "גלילת התצוגה למעלה"
+msgstr "Yuqoriga varaqlab ko‘rish"
 
 #: ../libview/ev-view-accessible.c:53
 msgid "Scroll View Down"
-msgstr "גלילת התצוגה למטה"
+msgstr "Pastga varaqlab ko‘rish"
 
 #: ../libview/ev-view-accessible.c:106
 msgid "Document View"
-msgstr "תצוגת מסמך"
+msgstr "Hujjat ko‘rinishi"
 
 #: ../libview/ev-view-presentation.c:693
 msgid "Jump to page:"
-msgstr "קפיצה לעמוד:"
+msgstr "Sahifaga o‘tish:"
 
 #: ../libview/ev-view-presentation.c:997
 msgid "End of presentation. Click to exit."
-msgstr "סוף המצגת. נא ללחוץ ליציאה."
+msgstr "Taqdimot oxiri. Chiqish uchun bosing."
 
 #: ../libview/ev-view.c:1857
 msgid "Go to first page"
-msgstr "מעבר לעמוד הראשון"
+msgstr "Birinchi sahifaga o‘tish"
 
 #: ../libview/ev-view.c:1859
 msgid "Go to previous page"
-msgstr "מעבר לעמוד הקודם"
+msgstr "Oldingi sahifaga o‘tish"
 
 #: ../libview/ev-view.c:1861
 msgid "Go to next page"
-msgstr "מעבר לעמוד הבא"
+msgstr "Keyingi sahifaga o‘tish"
 
 #: ../libview/ev-view.c:1863
 msgid "Go to last page"
-msgstr "מעבר לעמוד האחרון"
+msgstr "Oxirgi sahifaga o‘tish"
 
 #: ../libview/ev-view.c:1865
 msgid "Go to page"
-msgstr "מעבר לעמוד"
+msgstr "Sahifaga o‘tish"
 
 #: ../libview/ev-view.c:1867
 msgid "Find"
-msgstr "חיפוש"
+msgstr "Topish"
 
 #: ../libview/ev-view.c:1895
 #, c-format
 msgid "Go to page %s"
-msgstr "מעבר לעמוד %s"
+msgstr "%s sahifasiga o‘tish"
 
 #: ../libview/ev-view.c:1901
 #, c-format
 msgid "Go to %s on file “%s”"
-msgstr "מעבר ל־%s בקובץ “%s”"
+msgstr "“%s” sahifasiga %s fayliga o‘tish"
 
 #: ../libview/ev-view.c:1904
 #, c-format
 msgid "Go to file “%s”"
-msgstr "מעבר לקובץ “%s”"
+msgstr "“%s” fayliga o‘tish"
 
 #: ../libview/ev-view.c:1912
 #, c-format
 msgid "Launch %s"
-msgstr "הפעלת %s"
+msgstr "%s ni ishga tushirish"
 
 #: ../shell/eggfindbar.c:315
 msgid "Find:"
-msgstr "חיפוש:"
+msgstr "Topish:"
 
 #: ../shell/eggfindbar.c:336 ../shell/ev-window.c:6184
 msgid "Find Pre_vious"
-msgstr "חיפוש _הקודם"
+msgstr "_Oldingisini topish"
 
 #: ../shell/eggfindbar.c:340
 msgid "Find previous occurrence of the search string"
-msgstr "חיפוש מופע קודם של מחרוזת החיפוש"
+msgstr "Qidirish qatorining oldingi holatini topish"
 
 #: ../shell/eggfindbar.c:344 ../shell/ev-window.c:6180
 msgid "Find Ne_xt"
-msgstr "חיפוש _הבא"
+msgstr "_Keyingisini topish"
 
 #: ../shell/eggfindbar.c:348
 msgid "Find next occurrence of the search string"
-msgstr "חיפוש מופע הבא של מחרוזת החיפוש"
+msgstr "Qidirish qatorining keyingi takrorlanishini topish"
 
 #: ../shell/eggfindbar.c:355
 msgid "Case Sensitive"
-msgstr "תלוי רישיות"
+msgstr "Harflar katta-kichikligiga sezgir"
 
 #: ../shell/eggfindbar.c:358
 msgid "Toggle case sensitive search"
-msgstr "הפעלה/כיבוי של חיפוש תלוי רישיות"
+msgstr "Katta-kichik harf sezgir qidirishni o‘zgartirish"
 
 #: ../shell/ev-annotation-properties-dialog.c:99
 msgid "Icon:"
-msgstr "סמל:"
+msgstr "Belgi:"
 
 #: ../shell/ev-annotation-properties-dialog.c:106
 msgid "Note"
-msgstr "הערה"
+msgstr "Eslatma"
 
 #: ../shell/ev-annotation-properties-dialog.c:107
 msgid "Comment"
-msgstr "תגובה"
+msgstr "Izoh"
 
 #: ../shell/ev-annotation-properties-dialog.c:108
 msgid "Key"
-msgstr "מפתח"
+msgstr "Kalit"
 
 #: ../shell/ev-annotation-properties-dialog.c:109
 #: ../shell/ev-preferences-dialog.c:125
 msgid "Help"
-msgstr "עזרה"
+msgstr "Yordam"
 
 #: ../shell/ev-annotation-properties-dialog.c:110
 msgid "New Paragraph"
-msgstr "פסקה חדשה"
+msgstr "Yangi xatboshi"
 
 #: ../shell/ev-annotation-properties-dialog.c:111
 msgid "Paragraph"
-msgstr "פסקה"
+msgstr "Xatboshi"
 
 #: ../shell/ev-annotation-properties-dialog.c:112
 msgid "Insert"
-msgstr "הכנסה"
+msgstr "Kiritish"
 
 #: ../shell/ev-annotation-properties-dialog.c:113
 msgid "Cross"
-msgstr "צלב"
+msgstr "Kesib o‘tish"
 
 #: ../shell/ev-annotation-properties-dialog.c:114
 msgid "Circle"
-msgstr "עיגול"
+msgstr "Aylana"
 
 #: ../shell/ev-annotation-properties-dialog.c:115
 msgid "Unknown"
-msgstr "לא ידוע"
+msgstr "Noma'lum"
 
 #: ../shell/ev-annotation-properties-dialog.c:126
 msgid "Markup type:"
-msgstr "סוג סימון:"
+msgstr "Belgilash turi:"
 
 #: ../shell/ev-annotation-properties-dialog.c:132
 msgid "Highlight"
-msgstr "הדגשה"
+msgstr "Ajratish"
 
 #: ../shell/ev-annotation-properties-dialog.c:133
 msgid "Strike out"
-msgstr "קו חוצה"
+msgstr "Chiziq tortish"
 
 #: ../shell/ev-annotation-properties-dialog.c:134
 msgid "Underline"
-msgstr "קן תחתון"
+msgstr "Tagi chizilgan"
 
 #: ../shell/ev-annotation-properties-dialog.c:135
 msgid "Squiggly"
-msgstr "גלי"
+msgstr "To‘lqinsimon"
 
 #: ../shell/ev-annotation-properties-dialog.c:158
 msgid "Annotation Properties"
-msgstr "מאפייני ביאור"
+msgstr "Annotatsiya xususiyatlari"
 
 #: ../shell/ev-annotation-properties-dialog.c:178
 msgid "Author:"
-msgstr "‏מחבר:"
+msgstr "Muallif:"
 
 #: ../shell/ev-annotation-properties-dialog.c:191
 msgid "Color:"
-msgstr "צבע:"
+msgstr "Rang:"
 
 #: ../shell/ev-annotation-properties-dialog.c:203
 msgid "Style:"
-msgstr "סגנון:"
+msgstr "Uslub:"
 
 #: ../shell/ev-annotation-properties-dialog.c:219
 msgid "Transparent"
-msgstr "שקוף"
+msgstr "Shaffof"
 
 #: ../shell/ev-annotation-properties-dialog.c:226
 msgid "Opaque"
-msgstr "אטום"
+msgstr "Shaffof emas"
 
 #: ../shell/ev-annotation-properties-dialog.c:236
 msgid "Initial window state:"
-msgstr "מצב חלון התחלתי:"
+msgstr "Oynaning boshlang‘ich holati:"
 
 #: ../shell/ev-annotation-properties-dialog.c:244
 msgid "Open"
-msgstr "פתיחה"
+msgstr "Ochish"
 
 #: ../shell/ev-annotation-properties-dialog.c:245
 #: ../shell/ev-preferences-dialog.c:129
 msgid "Close"
-msgstr "סגירה"
+msgstr "Yopish"
 
 #: ../shell/ev-annotations-toolbar.c:120
 msgid "Add text annotation"
-msgstr "הוספת ביאור מילולי"
+msgstr "Matnga annotatsiya qo‘shish"
 
 #: ../shell/ev-annotations-toolbar.c:126
 msgid "Add highlight annotation"
-msgstr "הוספת פרשנות מודגשת"
+msgstr "Ajratish annotatsiyasini qo‘shish"
 
 #: ../shell/ev-application.c:1011
 msgid "Running in presentation mode"
-msgstr "מופעל במצב מצגת"
+msgstr "Taqdimot rejimida bajarilmoqda"
 
 #: ../shell/ev-history.c:474 ../shell/ev-sidebar-bookmarks.c:314
 #: ../shell/ev-window.c:917 ../shell/ev-window.c:4769
 #, c-format
 msgid "Page %s"
-msgstr "עמוד %s"
+msgstr "%s sahifasi"
 
 #: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:6252
 msgid "Go to previous history item"
-msgstr "מעבר לפריט הקודם בהיסטוריה"
+msgstr "Oldingi tarix elementiga o‘tish"
 
 #: ../shell/ev-history-action-widget.c:219 ../shell/ev-window.c:6256
 msgid "Go to next history item"
-msgstr "מעבר לפריט היסטוריה הבא"
+msgstr "Keyingi tarix elementiga o‘tish"
 
 #: ../shell/ev-keyring.c:86
 #, c-format
 msgid "Password for document %s"
-msgstr "סיסמה למסמך %s"
+msgstr "%s hujjati uchun parol"
 
 #: ../shell/ev-open-recent-action.c:72
 msgid "Open a recently used document"
-msgstr "פתיחת מסמך שהיה בשימוש לאחרונה"
+msgstr "Yaqinda foydalanilgan hujjatni ochish"
 
 #: ../shell/ev-password-view.c:135
 msgid ""
 "This document is locked and can only be read by entering the correct "
 "password."
-msgstr "מסמך זה נעול ויש צורך בסיסמה כדי לקרוא אותו."
+msgstr ""
+"Ushbu hujjat qulflangan va faqat to‘g‘ri parolni kiritish orqali o‘qilishi "
+"mumkin."
 
 #: ../shell/ev-password-view.c:144 ../shell/ev-password-view.c:261
 msgid "_Unlock Document"
-msgstr "_שחרור נעילת מסמך"
+msgstr "_Hujjatni qulfdan chiqarish"
 
 #: ../shell/ev-password-view.c:254
 msgid "Enter password"
-msgstr "נא להזין סיסמה"
+msgstr "Parolni kiriting"
 
 #: ../shell/ev-password-view.c:291
 #, c-format
 msgid ""
 "The document “%s” is locked and requires a password before it can be opened."
-msgstr "המסמך ”%s“ נעול ונדרשת סיסמה כדי לפתוח אותו."
+msgstr "“%s” hujjati qulflangan va uni ochishdan oldin parol talab qilinadi."
 
 #: ../shell/ev-password-view.c:294
 msgid "Password required"
-msgstr "נדרשת סיסמה"
+msgstr "Parol talab qilinadi"
 
 #: ../shell/ev-password-view.c:324
 msgid "_Password:"
-msgstr "_סיסמה:"
+msgstr "_Parol:"
 
 #: ../shell/ev-password-view.c:357
 msgid "Forget password _immediately"
-msgstr "לשכוח את הססמה באופן _מיידי"
+msgstr "Darhol parolni unutish"
 
 #: ../shell/ev-password-view.c:369
 msgid "Remember password until you _log out"
-msgstr "שמירת הסיסמה _עד ליציאה מהמערכת"
+msgstr "_Tizimdan chiqmaguningizcha parolni eslab qolish"
 
 #: ../shell/ev-password-view.c:381
 msgid "Remember _forever"
-msgstr "שמירה ל_תמיד"
+msgstr "_Abadiy eslab qolish"
 
 #: ../shell/ev-preferences-dialog.c:117 ../shell/ev-preferences-dialog.ui.h:1
 msgid "Toolbar"
-msgstr "סרגל כלים"
+msgstr "Asboblar paneli"
 
 #: ../shell/ev-preferences-dialog.c:139 ../shell/ev-window.c:6200
 msgid "Preferences"
-msgstr "העדפות"
+msgstr "Parametrlar"
 
 #: ../shell/ev-preferences-dialog.ui.h:2
 msgid "Show history buttons"
-msgstr "הצגת לחצני היסטוריה"
+msgstr "Tarix tugmalarini ko‘rsatish"
 
 #: ../shell/ev-preferences-dialog.ui.h:3
 msgid "Show expand window button"
-msgstr "הצגת לחצן הרחבת חלון"
+msgstr "Oynani kengaytirish tugmachasini ko‘rsatish"
 
 #: ../shell/ev-preferences-dialog.ui.h:4
 msgid "Show zoom level selector"
-msgstr "הצגת בורר רמת תקריב"
+msgstr "Kattalashtirish darajasi selektorini ko‘rsatish"
 
 #: ../shell/ev-properties-dialog.c:63
 msgid "Properties"
-msgstr "מאפיינים"
+msgstr "Xususiyatlar"
 
 #: ../shell/ev-properties-dialog.c:97
 msgid "General"
-msgstr "כללי"
+msgstr "Umumiy"
 
 #: ../shell/ev-properties-dialog.c:107
 msgid "Fonts"
-msgstr "גופנים"
+msgstr "Shriftlar"
 
 #: ../shell/ev-properties-dialog.c:120
 msgid "Document License"
-msgstr "רישיון המסמך"
+msgstr "Hujjat litsenziyasi"
 
 #: ../shell/ev-properties-fonts.c:133
 msgid "Font"
-msgstr "גופן"
+msgstr "Shrift"
 
 #: ../shell/ev-properties-fonts.c:160
 #, c-format
 msgid "Gathering font information… %3d%%"
-msgstr "נאסף מידע על הגופנים… %3d%%"
+msgstr "Shrift ma’lumotlari yig‘ilmoqda… %3d%%"
 
 #: ../shell/ev-properties-license.c:135
 msgid "Usage terms"
-msgstr "תנאי שימוש"
+msgstr "Foydalanish shartlari"
 
 #: ../shell/ev-properties-license.c:141
 msgid "Text License"
-msgstr "רישיון הטקסט"
+msgstr "Matn litsenziyasi"
 
 #: ../shell/ev-properties-license.c:147
 msgid "Further Information"
-msgstr "מידע נוסף"
+msgstr "Qo‘shimcha ma'lumot"
 
 #: ../shell/ev-sidebar-annotations.c:292
 msgid "Document contains no annotations"
-msgstr "המסמך אינו מכיל הערות"
+msgstr "Hujjatda annotatsiyalar mavjud emas"
 
 #: ../shell/ev-sidebar-annotations.c:324
 #, c-format
 msgid "Page %d"
-msgstr "עמוד %d"
+msgstr "%d sahifasi"
 
 #: ../shell/ev-sidebar-annotations.c:509
 msgid "Annotations"
-msgstr "הערות"
+msgstr "Annotatsiyalar"
 
 #: ../shell/ev-sidebar-attachments.c:693
 msgid "Attachments"
-msgstr "קבצים מצורפים"
+msgstr "Biriktirmalar"
 
 #: ../shell/ev-sidebar-bookmarks.c:155
 msgid "_Open Bookmark"
-msgstr "_פתיחת הסימנייה"
+msgstr "_Xatcho‘pni ochish"
 
 #: ../shell/ev-sidebar-bookmarks.c:157
 msgid "_Rename Bookmark"
-msgstr "_שינוי שם הסימנייה"
+msgstr "_Xatcho‘p nomini o‘zgartirish"
 
 #: ../shell/ev-sidebar-bookmarks.c:159
 msgid "_Remove Bookmark"
-msgstr "ה_סרת הסימנייה"
+msgstr "_Xatcho‘pni olib tashlash"
 
 #: ../shell/ev-sidebar-bookmarks.c:615
 msgid "Bookmarks"
-msgstr "סימניות"
+msgstr "Xatcho‘plar"
 
 #: ../shell/ev-sidebar-layers.c:440
 msgid "Layers"
-msgstr "שכבות"
+msgstr "Qatlamlar"
 
 #: ../shell/ev-sidebar-links.c:332
 msgid "Print…"
-msgstr "הדפסה…"
+msgstr "Chop etish…"
 
 #: ../shell/ev-sidebar-links.c:718
 msgid "Index"
-msgstr "אינדקס"
+msgstr "Indeks"
 
 #: ../shell/ev-sidebar-thumbnails.c:953
 msgid "Shrink the thumbnails"
-msgstr "כיווץ תמונות ממוזערות"
+msgstr "Eskizlarni kichraytirish"
 
 #: ../shell/ev-sidebar-thumbnails.c:966
 msgid "Enlarge the thumbnails"
-msgstr "הגדלת תמונות ממוזערות"
+msgstr "Eskizlarni kattalashtirish"
 
 #: ../shell/ev-sidebar-thumbnails.c:979
 msgid "View the thumbnails at their original size"
-msgstr "הצגת תמונות ממוזערות בגודלן המקורי"
+msgstr "Eskizlarni asl oʻlchamida koʻrish"
 
 #: ../shell/ev-sidebar-thumbnails.c:1231
 msgid "Thumbnails"
-msgstr "תמונות ממוזערות"
+msgstr "Eskizlar"
 
 #: ../shell/ev-toolbar.c:134
 msgid ""
@@ -1048,9 +1060,9 @@ msgid ""
 "Non-Continuous + Best Fit\n"
 "Ctrl+2"
 msgstr ""
-"מצג דף\n"
-"לא רציף + התאמה מיטבית\n"
-"Ctrl + 2"
+"Sahifani ko‘rish\n"
+"Uzluksiz + Eng yaxshi mos\n"
+"Ctrl+2"
 
 #: ../shell/ev-toolbar.c:148
 msgid ""
@@ -1058,148 +1070,152 @@ msgid ""
 "Continuous + Fit Page Width\n"
 "Ctrl+1"
 msgstr ""
-"מצג קריאה\n"
-"רציף + התאמה לרוחב הדף\n"
-"Ctrl + 1"
+"O‘quvchi ko‘rinishi\n"
+"Uzluksiz + Sahifa kengligiga moslash\n"
+"Ctrl+1"
 
 #: ../shell/ev-toolbar.c:291
 msgid "Select or set the zoom level of the document"
-msgstr "בחירת או הגדרת רמה התקריב של המסמך"
+msgstr "Hujjatni kattalashtirish darajasini tanlash yoki sozlash"
 
 #: ../shell/ev-window.c:1029
 msgid ""
 "Cannot enter presentation mode with ePub documents, use fullscreen mode "
 "instead."
-msgstr "לא ניתן לעבור למצב מצגת עם מסמכי ePub, נא להשתמש במצב מסך מלא במקום."
+msgstr ""
+"ePub hujjatlari bilan taqdimot rejimiga o‘tish mumkin emas, uning o‘rniga "
+"to‘liq ekran rejimidan foydalanish."
 
 #: ../shell/ev-window.c:1505
 msgid "The document contains no pages"
-msgstr "המסמך אינו מכיל עמודים"
+msgstr "Hujjatda hech qanday sahifa mavjud emas"
 
 #: ../shell/ev-window.c:1507
 msgid "The document contains only empty pages"
-msgstr "המסמך מכיל עמודים ריקים בלבד"
+msgstr "Hujjatda faqat bo‘sh sahifalar mavjud"
 
 #: ../shell/ev-window.c:1546
 msgid "Presentation mode is not supported for ePub documents."
-msgstr "מצב מצגת לא תומך במסמכי ePub."
+msgstr "Taqdimot rejimi ePub hujjatlarida qo‘llab-quvvatlanmaydi."
 
 #: ../shell/ev-window.c:1732 ../shell/ev-window.c:1896
 msgid "Unable to open document"
-msgstr "לא ניתן לפתוח את המסמך"
+msgstr "Hujjatni ochib bo‘lmadi"
 
 #: ../shell/ev-window.c:1865
 #, c-format
 msgid "Loading document from “%s”"
-msgstr "טעינת מסמך מ־\"%s\""
+msgstr "Hujjat “%s”dan yuklanmoqda"
 
 #: ../shell/ev-window.c:2009 ../shell/ev-window.c:2297
 #, c-format
 msgid "Downloading document (%d%%)"
-msgstr "המסמך יורד (%d%%)"
+msgstr "Hujjat yuklab olinmoqda (%d%%)"
 
 #: ../shell/ev-window.c:2042
 msgid "Failed to load remote file."
-msgstr "טעינת הקובץ המרוחק נכשלה."
+msgstr "Masofaviy faylni yuklab boʻlmadi."
 
 #: ../shell/ev-window.c:2241
 #, c-format
 msgid "Reloading document from %s"
-msgstr "טעית מסמך חוזרת מ־%s"
+msgstr "Hujjat %s dan qayta yuklanmoqda"
 
 #: ../shell/ev-window.c:2273
 msgid "Failed to reload document."
-msgstr "טעינת המסמך מחדש נכשלה."
+msgstr "Hujjatni qayta yuklab bo‘lmadi."
 
 #: ../shell/ev-window.c:2489
 msgid "Open Document"
-msgstr "פתיחת מסמך"
+msgstr "Hujjatni ochish"
 
 #: ../shell/ev-window.c:2876
 #, c-format
 msgid "Saving document to %s"
-msgstr "המסמך נשמר ל־%s"
+msgstr "Hujjat %s ga saqlanmoqda"
 
 #: ../shell/ev-window.c:2879
 #, c-format
 msgid "Saving attachment to %s"
-msgstr "הקובץ המצורף נשמר אל %s"
+msgstr "Biriktirma %s ga saqlanmoqda"
 
 #: ../shell/ev-window.c:2882
 #, c-format
 msgid "Saving image to %s"
-msgstr "התמונה נשמרת ל־%s"
+msgstr "Rasm %s ga saqlanmoqda"
 
 #: ../shell/ev-window.c:2926 ../shell/ev-window.c:3026
 #, c-format
 msgid "The file could not be saved as “%s”."
-msgstr "לא ניתן לשמור את הקובץ בשם ”%s“."
+msgstr "Faylni “%s” sifatida saqlab bo‘lmadi."
 
 #: ../shell/ev-window.c:2957
 #, c-format
 msgid "Uploading document (%d%%)"
-msgstr "המסמך מועלה (%d%%)"
+msgstr "Hujjat yuklanmoqda (%d%%)"
 
 #: ../shell/ev-window.c:2961
 #, c-format
 msgid "Uploading attachment (%d%%)"
-msgstr "הקובץ המצורף מועלה (%d%%)"
+msgstr "Biriktirma yuklanmoqda (%d%%)"
 
 #: ../shell/ev-window.c:2965
 #, c-format
 msgid "Uploading image (%d%%)"
-msgstr "התמונה מועלה (%d%%)"
+msgstr "Rasm yuklanmoqda (%d%%)"
 
 #: ../shell/ev-window.c:3073
 msgid "Save a Copy"
-msgstr "שמירת עותק"
+msgstr "Nusxasini saqlash"
 
 #: ../shell/ev-window.c:3363
 #, c-format
 msgid "%d pending job in queue"
 msgid_plural "%d pending jobs in queue"
-msgstr[0] "משימה %d ממתינה בתור"
-msgstr[1] "%d משימות ממתינות בתור"
+msgstr[0] "Navbatda kutilayotgan %d ish"
 
 #: ../shell/ev-window.c:3476
 #, c-format
 msgid "Printing job “%s”"
-msgstr "הדפסת משימה “%s”"
+msgstr "Chop etish ishi “%s”"
 
 #: ../shell/ev-window.c:3638
 msgid ""
 "Document contains form fields that have been filled out. If you don't save a "
 "copy, changes will be permanently lost."
-msgstr "המסמך מכיל שדות טופס שהוזנו. ללא שמירת עותק, השינויים יאבדו לעד."
+msgstr ""
+"Hujjatda to‘ldirilgan shakl maydonlari mavjud. Agar nusxasini saqlamasangiz, "
+"o‘zgarishlar butunlay yo‘qoladi."
 
 #: ../shell/ev-window.c:3642
 msgid ""
 "Document contains new or modified annotations. If you don't save a copy, "
 "changes will be permanently lost."
 msgstr ""
-"המסמך מכיל הערות חדשות או מוסגלות. ללא שמירת עותק, השינויים יאבדו לעד."
+"Hujjatda yangi yoki o‘zgartirilgan annotatsiyalar mavjud. Agar nusxasini "
+"saqlamasangiz, o‘zgarishlar butunlay yo‘qoladi."
 
 #: ../shell/ev-window.c:3649
 #, c-format
 msgid "Save a copy of document “%s” before closing?"
-msgstr "לשמור עותק של המסמך “%s” לפני הסגירה?"
+msgstr "Yopishdan oldin “%s” hujjatining nusxasi saqlansinmi?"
 
 #: ../shell/ev-window.c:3667
 msgid "Save a _Copy"
-msgstr "שמירת _עותק"
+msgstr "_Nusxasini saqlash"
 
 #: ../shell/ev-window.c:3668
 msgid "_Save"
-msgstr "_שמירה"
+msgstr "_Saqlash"
 
 #: ../shell/ev-window.c:3669
 msgid "Close _without Saving"
-msgstr "_סגירה ללא שמירה"
+msgstr "Saqlamasdan _yopish"
 
 #: ../shell/ev-window.c:3748
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
-msgstr "להמתין לסיום משימת ההדפסה “%s” לפני הסגירה?"
+msgstr "Yopishdan oldin “%s” chop etish ishi tugashini kutish kerakmi?"
 
 #. TRANS: the singular form is not really used as n_print_jobs > 1
 #. but some languages distinguish between different plurals forms,
@@ -1210,28 +1226,30 @@ msgid ""
 "There is %d print job active. Wait until print finishes before closing?"
 msgid_plural ""
 "There are %d print jobs active. Wait until print finishes before closing?"
-msgstr[0] "קיימת הדפסה פעילה %d. להמתין עד סיום ההדפסה לפני הסגירה?"
-msgstr[1] "קיימות %d הדפסות פעילות . להמתין עד סיום ההדפסה לפני הסגירה?"
+msgstr[0] ""
+"%d ta chop etish ishi faol. Yopishdan oldin chop etish tugashini kutish "
+"kerakmi?"
 
 #: ../shell/ev-window.c:3769
 msgid "If you close the window, pending print jobs will not be printed."
-msgstr "סגירת החלון תבטל משימות הדפסה שממתינות."
+msgstr ""
+"Agar siz oynani yopsangiz, kutilayotgan chop etish ishlari chop etilmaydi."
 
 #: ../shell/ev-window.c:3772
 msgid "Cancel _print and Close"
-msgstr "ביטול ה_דפסה וסגירה"
+msgstr "_Chop etishni bekor qilish va yopish"
 
 #: ../shell/ev-window.c:3774
 msgid "Close _after Printing"
-msgstr "_סגירה לאחר ההדפסה"
+msgstr "Chop etishdan keyin yopish"
 
 #: ../shell/ev-window.c:4186
 msgid "Presentation mode is not supported for ePub documents"
-msgstr "מצב המצגת לא תומך במסמכי ePub"
+msgstr "Taqdimot rejimi ePub hujjatlarida qo‘llab-quvvatlanmaydi"
 
 #: ../shell/ev-window.c:4825
 msgid "There was an error displaying help"
-msgstr "אירעה שגיאה בהצגת העזרה"
+msgstr "Yordamni ko‘rsatishda xatolik yuz berdi"
 
 #: ../shell/ev-window.c:5107
 msgid ""
@@ -1240,9 +1258,10 @@ msgid ""
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 msgstr ""
-"Xreader היא תוכנה חופשית; ניתן להפיץ אותה בהפצה חוזרת ו/או לשנות אותה בכפוף "
-"לתנאי הרישיון הציבורי הכללי של 'גנו' כפי שפורסם על ידי קרן התכנה החופשית; "
-"גרסה 2 של הרישיון, או (לפי בחירתכם) כל גרסה מאוחרת יותר.\n"
+"Xreader - bu erkin dasturiy ta'minot; siz uni qayta tarqatishingiz va/yoki "
+"uni Free Software Foundation tomonidan e'lon qilingan GNU General Public "
+"License shartlariga muvofiq o‘zgartirishingiz mumkin; Litsenziyaning 2-"
+"versiyasi yoki (sizning xohishingizga ko‘ra) har qanday keyingi versiyasi.\n"
 
 #: ../shell/ev-window.c:5111
 msgid ""
@@ -1251,9 +1270,10 @@ msgid ""
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 msgstr ""
-"Xreader מופצת בתקווה שתהיה שימושית, אך ללא כל אחריות; אפילו בלי האחריות "
-"המשתמעת של סחירות או כשרות למטרה מסוימת. לפרטים נוספים נא לעיין ברישיון "
-"הציבורי הכללי של 'גנו'.\n"
+"Xreader foydali bo‘ladi degan umidda tarqatiladi, lekin HECH QANDAY "
+"KAFOLATSIZ; TIJORAT MUVOFIQligi yoki MAQSUS MAQSADGA MUVOFIQligi "
+"to‘g‘risidagi nazarda tutilgan kafolatsiz ham. Batafsil ma'lumot uchun GNU "
+"General Public Licensega qarang.\n"
 
 #: ../shell/ev-window.c:5115
 msgid ""
@@ -1261,13 +1281,13 @@ msgid ""
 "Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
-"היה אמור להתקבל עותק של הרישיון הציבורי הכללי של GNU יחד עם Xreader; אם לא "
-"התקבל עותק כזה, נא לכתוב לקרן התוכנה החופשית בע״מ, רחוב פרנקלין 51, קומה "
-"חמישית, בוסטון, מסצ׳וסטס 02110-1301 ארה״ב\n"
+"Siz Xreader bilan birga GNU General Public License nusxasini olishingiz "
+"kerak edi; boʻlmasa, Free Software Foundation, Inc., 51 Franklin Street, "
+"Fifth Floor, Boston, MA 02110-1301 USA ga yozing.\n"
 
 #: ../shell/ev-window.c:5126
 msgid "Xreader"
-msgstr "‏Xreader"
+msgstr "Xreader"
 
 #. TRANS: Sometimes this could be better translated as
 #. "%d hit(s) on this page".  Therefore this string
@@ -1276,448 +1296,449 @@ msgstr "‏Xreader"
 #, c-format
 msgid "%d found on this page (%d total)"
 msgid_plural "%d found on this page (%d total)"
-msgstr[0] "נמצא %d בעמוד זה  (מסך %d)"
-msgstr[1] "%d נמצאו בעמוד זה  (מסך %d)"
+msgstr[0] "Bu sahifada %d ta topildi (jami %d ta)"
 
 #: ../shell/ev-window.c:5449 ../shell/ev-window.c:5572
 msgid "Not found"
-msgstr "לא נמצא"
+msgstr "Topilmadi"
 
 #: ../shell/ev-window.c:5455
 #, c-format
 msgid "%3d%% remaining to search"
-msgstr "‏%3d%% נשארו לחיפוש"
+msgstr "Qidirishga %3d%% qoldi"
 
 #: ../shell/ev-window.c:6129
 msgid "_File"
-msgstr "_קובץ"
+msgstr "_Fayl"
 
 #: ../shell/ev-window.c:6130
 msgid "_Edit"
-msgstr "_עריכה"
+msgstr "_Tahrirlash"
 
 #: ../shell/ev-window.c:6131
 msgid "_View"
-msgstr "_תצוגה"
+msgstr "_Tashqi ko‘rinish"
 
 #: ../shell/ev-window.c:6132
 msgid "_Go"
-msgstr "_מעבר"
+msgstr "_o‘tish"
 
 #: ../shell/ev-window.c:6133
 msgid "_Bookmarks"
-msgstr "_סימניות"
+msgstr "_Xatcho‘plar"
 
 #: ../shell/ev-window.c:6134
 msgid "_Help"
-msgstr "_עזרה"
+msgstr "_Yordam"
 
 #: ../shell/ev-window.c:6135
 msgid "Favorites"
-msgstr "מועדפים"
+msgstr "Sevimlilar"
 
 #: ../shell/ev-window.c:6136
 msgid "Recents"
-msgstr "אחרונים"
+msgstr "Oxirgilar"
 
 #. File menu
 #: ../shell/ev-window.c:6138 ../shell/ev-window.c:6623
 msgid "_Open…"
-msgstr "_פתיחה…"
+msgstr "_Ochish…"
 
 #: ../shell/ev-window.c:6140 ../shell/ev-window.c:6624
 msgid "Open an existing document"
-msgstr "פתיחת מסמך קיים"
+msgstr "Mavjud hujjatni ochish"
 
 #: ../shell/ev-window.c:6142
 msgid "Op_en a Copy"
-msgstr "_פתיחת עותק"
+msgstr "_Nusxasini ochish"
 
 #: ../shell/ev-window.c:6144
 msgid "Open a copy of the current document in a new window"
-msgstr "פתיחת עותק של המסמך הנוכחי בחלון חדש"
+msgstr "Joriy hujjatning nusxasini yangi oynada ochish"
 
 #: ../shell/ev-window.c:6146
 msgid "_Save a Copy…"
-msgstr "שמירת _עותק…"
+msgstr "_Nusxasini saqlash…"
 
 #: ../shell/ev-window.c:6148
 msgid "Save a copy of the current document"
-msgstr "שמירת עותק של המסמך הנוכחי"
+msgstr "Joriy hujjatning nusxasini saqlash"
 
 #: ../shell/ev-window.c:6150
 msgid "_Print…"
-msgstr "_הדפסה..."
+msgstr "_Chop etish…"
 
 #: ../shell/ev-window.c:6154
 msgid "P_roperties"
-msgstr "מ_אפיינים"
+msgstr "_Xususiyatlar"
 
 #: ../shell/ev-window.c:6158
 msgid "_Close All Windows"
-msgstr "_סגירת כל החלונות"
+msgstr "Barcha oynalarni yopish"
 
 #: ../shell/ev-window.c:6162
 msgid "_Close"
-msgstr "_סגירה"
+msgstr "_Yopish"
 
 #. Edit menu
 #: ../shell/ev-window.c:6168
 msgid "_Copy"
-msgstr "_העתקה"
+msgstr "_Nusxalash"
 
 #: ../shell/ev-window.c:6172
 msgid "Select _All"
-msgstr "לבחור ה_כול"
+msgstr "_Hammasini tanlash"
 
 #: ../shell/ev-window.c:6176
 msgid "_Find…"
-msgstr "_חיפוש…"
+msgstr "_Topish…"
 
 #: ../shell/ev-window.c:6178
 msgid "Find a word or phrase in the document"
-msgstr "חיפוש מילה או משפט במסמך"
+msgstr "Hujjatda so‘z yoki iborani topish"
 
 #: ../shell/ev-window.c:6188
 msgid "Rotate _Left"
-msgstr "סיבוב _שמאלה"
+msgstr "_Chapga burish"
 
 #: ../shell/ev-window.c:6192
 msgid "Rotate _Right"
-msgstr "סיבוב _ימינה"
+msgstr "_Oʼngga burish"
 
 #: ../shell/ev-window.c:6196
 msgid "Save Current Settings as _Default"
-msgstr "שמירת ההגדרות ה_נוכחיות כבררת מחדל"
+msgstr "_Joriy sozlamalarni standart sifatida saqlash"
 
 #. View menu
 #: ../shell/ev-window.c:6207
 msgid "_Original size"
-msgstr "גודל _מקורי"
+msgstr "_Asl o‘lcham"
 
 #: ../shell/ev-window.c:6209
 msgid "View the document at its original size"
-msgstr "הצג את המסמך בגודלו המקורי"
+msgstr "Hujjatni asl oʻlchamida koʻrish"
 
 #: ../shell/ev-window.c:6211
 msgid "Zoom _In"
-msgstr "התקרב_ות"
+msgstr "_Kattalashtirish"
 
 #: ../shell/ev-window.c:6215
 msgid "Zoom _Out"
-msgstr "_התרחקות"
+msgstr "_Kichraytirish"
 
 #: ../shell/ev-window.c:6219
 msgid "_Reload"
-msgstr "טעינה _מחדש"
+msgstr "_Qayta yuklash"
 
 #: ../shell/ev-window.c:6221
 msgid "Reload the document"
-msgstr "טעינת המסמך מחדש"
+msgstr "Hujjatni qayta yuklash"
 
 #: ../shell/ev-window.c:6223
 msgid "_Expand Window to Fit"
-msgstr "_הרחבת חלון להתאמה"
+msgstr "Moslash uchun oynani kengaytirish"
 
 #: ../shell/ev-window.c:6228
 msgid "Auto_scroll"
-msgstr "_גלילה אוטומטית"
+msgstr "Avtomatik aylantirish"
 
 #: ../shell/ev-window.c:6242
 msgid "_First Page"
-msgstr "עמוד _ראשון"
+msgstr "_Birinchi sahifa"
 
 #: ../shell/ev-window.c:6244
 msgid "Go to the first page"
-msgstr "מעבר לעמוד הראשון"
+msgstr "Birinchi sahifaga o‘tish"
 
 #: ../shell/ev-window.c:6246
 msgid "_Last Page"
-msgstr "עמוד _אחרון"
+msgstr "_Oxirgi sahifa"
 
 #: ../shell/ev-window.c:6248
 msgid "Go to the last page"
-msgstr "מעבר לעמוד האחרון"
+msgstr "Oxirgi sahifaga o‘tish"
 
 #: ../shell/ev-window.c:6250
 msgid "Previous History Item"
-msgstr "פריט היסטוריה קודם"
+msgstr "Oldingi tarix elementi"
 
 #: ../shell/ev-window.c:6254
 msgid "Next History Item"
-msgstr "פריט היסטוריה הבא"
+msgstr "Keyingi tarix elementi"
 
 #. Bookmarks menu
 #: ../shell/ev-window.c:6260
 msgid "_Add Bookmark"
-msgstr "_הוספה לסימניות"
+msgstr "_Xatcho‘p qo‘shish"
 
 #: ../shell/ev-window.c:6262
 msgid "Add a bookmark for the current page"
-msgstr "הוספת סימניה לעמוד הנוכחי"
+msgstr "Joriy sahifa uchun xatcho‘p qo‘shish"
 
 #. Help menu
 #: ../shell/ev-window.c:6266
 msgid "_Contents"
-msgstr "_תוכן עניינים"
+msgstr "_Mundarija"
 
 #: ../shell/ev-window.c:6271
 msgid "_About"
-msgstr "על _אודות"
+msgstr "_Haqida"
 
 #. Toolbar-only
 #: ../shell/ev-window.c:6277
 msgid "Leave Fullscreen"
-msgstr "יציאה ממסך מלא"
+msgstr "Toʻliq ekrandan chiqish"
 
 #: ../shell/ev-window.c:6279
 msgid "Leave fullscreen mode"
-msgstr "יציאה ממצב מסך מלא"
+msgstr "Toʻliq ekran rejimidan chiqish"
 
 #: ../shell/ev-window.c:6281
 msgid "Start Presentation"
-msgstr "ה_תחלת המצגת"
+msgstr "Taqdimotni boshlash"
 
 #: ../shell/ev-window.c:6283
 msgid "Start a presentation"
-msgstr "התחלת מצגת"
+msgstr "Taqdimotni boshlash"
 
 #. View Menu
 #: ../shell/ev-window.c:6400
 msgid "_Menubar"
-msgstr "_סרגל תפריט"
+msgstr "_Menyu paneli"
 
 #: ../shell/ev-window.c:6402
 msgid "Show or hide the menubar"
-msgstr "הצגת או הסתרת סרגל התפריט"
+msgstr "Menyu panelini ko‘rsatish yoki yashirish"
 
 #: ../shell/ev-window.c:6404
 msgid "_Toolbar"
-msgstr "סרגל _כלים"
+msgstr "_Asboblar paneli"
 
 #: ../shell/ev-window.c:6406
 msgid "Show or hide the toolbar"
-msgstr "הצגת או הסתרת סרגל הכלים"
+msgstr "Asboblar panelini ko‘rsatish yoki yashirish"
 
 #: ../shell/ev-window.c:6408
 msgid "Side _Pane"
-msgstr "_חלונית צד"
+msgstr "Yon _panel"
 
 #: ../shell/ev-window.c:6410
 msgid "Show or hide the side pane"
-msgstr "הצגה או הסתרה של חלונית הצד"
+msgstr "Yon panelni ko‘rsatish yoki yashirish"
 
 #: ../shell/ev-window.c:6412
 msgid "_Continuous"
-msgstr "_רציף"
+msgstr "_Davomiy"
 
 #: ../shell/ev-window.c:6414
 msgid "Show the entire document"
-msgstr "הצגת כל המסמך"
+msgstr "Hujjatni to‘liq ko‘rsatish"
 
 #: ../shell/ev-window.c:6416
 msgid "_Dual (Even pages left)"
-msgstr "_כפול (דפים זוגיים בצג שמאל)"
+msgstr "_Ikkilik (juft sahifalar qolgan)"
 
 #: ../shell/ev-window.c:6418
 msgid "Show two pages at once with even pages on the left"
-msgstr "הצגת שני עמודים יחד כאשר העמודים הזוגיים מימין"
+msgstr ""
+"Chapdagi juft sahifalar bilan bir vaqtning o‘zida ikkita sahifani ko‘rsatish"
 
 #: ../shell/ev-window.c:6420
 msgid "Dual (_Odd pages left)"
-msgstr "כפול (דפים _אי־זוגיים בצד שמאל)"
+msgstr "Ikkilik (_toq sahifalar qolgan)"
 
 #: ../shell/ev-window.c:6422
 msgid "Show two pages at once with odd pages on the left"
-msgstr "הצגת שני עמודים יחד כשעמודים האי־זוגיים מימין"
+msgstr ""
+"Chapdagi toq sahifalar bilan bir vaqtning o‘zida ikkita sahifani ko‘rsatish"
 
 #: ../shell/ev-window.c:6424
 msgid "Right to Left"
-msgstr "מימין לשמאל"
+msgstr "O‘ngdan chapga"
 
 #: ../shell/ev-window.c:6426
 msgid "Browse the document from right to left"
-msgstr "עיון במסמכים מימין לשמאל"
+msgstr "Hujjatni o‘ngdan chapga qarab ko‘rish"
 
 #: ../shell/ev-window.c:6428
 msgid "_Fullscreen"
-msgstr "_מסך מלא"
+msgstr "_To‘liq ekran"
 
 #: ../shell/ev-window.c:6430
 msgid "Expand the window to fill the screen"
-msgstr "הרחבת החלון והתאמתו לצג"
+msgstr "Ekranni to‘ldirish uchun oynani kengaytirish"
 
 #: ../shell/ev-window.c:6432
 msgid "Pre_sentation"
-msgstr "_מצגת"
+msgstr "_Taqdimot"
 
 #: ../shell/ev-window.c:6434
 msgid "Run document as a presentation"
-msgstr "הרצת המסמך כמצגת"
+msgstr "Hujjatni taqdimot sifatida ishga tushirish"
 
 #: ../shell/ev-window.c:6444
 msgid "_Inverted Colors"
-msgstr "צבעים ה_פוכים"
+msgstr "_Teskari ranglar"
 
 #: ../shell/ev-window.c:6446
 msgid "Show page contents with the colors inverted"
-msgstr "הצגת תוכן העמוד עם הצבעים הפוכים"
+msgstr "Sahifa tarkibini teskari ranglar bilan ko‘rsatish"
 
 #. Links
 #: ../shell/ev-window.c:6454
 msgid "_Open Link"
-msgstr "_פתיחת קישור"
+msgstr "_ Havolani ochish"
 
 #: ../shell/ev-window.c:6456
 msgid "_Go To"
-msgstr "_מעבר אל"
+msgstr "_Oʻtish"
 
 #: ../shell/ev-window.c:6458
 msgid "Open in New _Window"
-msgstr "פתיחה ב_חלון חדש"
+msgstr "Yangi _oynada ochish"
 
 #: ../shell/ev-window.c:6460
 msgid "_Copy Link Address"
-msgstr "ה_עתקת כתובת הקישור"
+msgstr "_Havola manzilini nusxalash"
 
 #: ../shell/ev-window.c:6462
 msgid "_Save Image As…"
-msgstr "שמירת התמונה ב_שם…"
+msgstr "Rasmni boshqacha _saqlash…"
 
 #: ../shell/ev-window.c:6464
 msgid "Copy _Image"
-msgstr "העתקת ת_מונה"
+msgstr "_Rasmni nusxalash"
 
 #: ../shell/ev-window.c:6466
 msgid "Annotation Properties…"
-msgstr "מאפייני ביאור..."
+msgstr "Annotatsiya xususiyatlari…"
 
 #: ../shell/ev-window.c:6468
 msgid "Remove Annotation"
-msgstr "הסרת הערה"
+msgstr "Annotatsiyani olib tashlash"
 
 #: ../shell/ev-window.c:6470
 msgid "Annotate Selected Text"
-msgstr "הערות־הסבר למלל שנבחר"
+msgstr "Tanlangan matnga izoh qo‘shish"
 
 #: ../shell/ev-window.c:6475
 msgid "_Open Attachment"
-msgstr "פתיחת ה_קובץ המצורף"
+msgstr "_Biriktirmani ochish"
 
 #: ../shell/ev-window.c:6477
 msgid "_Save Attachment As…"
-msgstr "_שמירת הקובץ המצורף בשם…"
+msgstr "_Biriktirmani boshqacha saqlash…"
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6644
 msgid "Previous"
-msgstr "אחורה"
+msgstr "Oldingi"
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6649
 msgid "Next"
-msgstr "קדימה"
+msgstr "Keyingi"
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6653
 msgid "Zoom In"
-msgstr "התקרבות"
+msgstr "Kattalashtirish"
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6657
 msgid "Zoom Out"
-msgstr "התרחקות"
+msgstr "Kichraytirish"
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6669
 msgid "Fit Width"
-msgstr "התאמה לרוחב"
+msgstr "Kengligiga moslash"
 
 #: ../shell/ev-window.c:6846 ../shell/ev-window.c:6862
 msgid "Unable to launch external application."
-msgstr "לא ניתן לשגר יישום חיצוני."
+msgstr "Tashqi ilovani ishga tushirib bo‘lmadi."
 
 #: ../shell/ev-window.c:6920
 msgid "Unable to open external link"
-msgstr "לא ניתן לפתוח קישור חיצוני"
+msgstr "Tashqi havolani ochib bo‘lmadi"
 
 #: ../shell/ev-window.c:7131
 msgid "Couldn't find appropriate format to save image"
-msgstr "לא נמצאה תבנית מתאימה לשמירת תמונה"
+msgstr "Rasmni saqlash uchun mos format topilmadi"
 
 #: ../shell/ev-window.c:7162
 msgid "The image could not be saved."
-msgstr "לא ניתן לשמור את התמונה."
+msgstr "Rasmni saqlab bo‘lmadi."
 
 #: ../shell/ev-window.c:7195
 msgid "Save Image"
-msgstr "שמירת תמונה"
+msgstr "Rasmni saqlash"
 
 #: ../shell/ev-window.c:7345
 msgid "Unable to open attachment"
-msgstr "לא ניתן לפתוח את הקובץ המצורף"
+msgstr "Biriktirmani ochib boʻlmadi"
 
 #: ../shell/ev-window.c:7402
 msgid "The attachment could not be saved."
-msgstr "לא ניתן לשמור את הקובץ המצורף."
+msgstr "Biriktirmani saqlab boʻlmadi."
 
 #: ../shell/ev-window.c:7448
 msgid "Save Attachment"
-msgstr "שמירת הקובץ המצורף"
+msgstr "Biriktirmani saqlash"
 
 #: ../shell/ev-window-title.c:170
 #, c-format
 msgid "%s — Password Required"
-msgstr "%s — נדרשת סיסמה"
+msgstr "%s — Parol talab qilinadi"
 
 #: ../shell/ev-utils.c:107
 msgid "By extension"
-msgstr "לפי סיומת"
+msgstr "Kengaytma bo‘yicha"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."
-msgstr "כותרת עמוד מסמך להצגה."
+msgstr "Ko‘rsatiladigan hujjatning sahifa yorlig‘i."
 
 #: ../shell/main.c:66
 msgid "PAGE"
-msgstr "PAGE"
+msgstr "SAHIFA"
 
 #: ../shell/main.c:67
 msgid "The page number of the document to display."
-msgstr "מספר עמוד מסמך לתצוגה."
+msgstr "Ko‘rsatiladigan hujjatning sahifa raqami."
 
 #: ../shell/main.c:67
 msgid "NUMBER"
-msgstr "NUMBER"
+msgstr "RAQAM"
 
 #: ../shell/main.c:68
 msgid "Run xreader in fullscreen mode"
-msgstr "הפעלת xreader במסך מלא"
+msgstr "Xreaderni to‘liq ekran rejimida ishga tushirish"
 
 #: ../shell/main.c:69
 msgid "Named destination to display."
-msgstr "יעד נקוב לתצוגה."
+msgstr "Ko‘rsatish uchun belgilangan manzil."
 
 #: ../shell/main.c:69
 msgid "DEST"
-msgstr "DEST"
+msgstr "JOYI"
 
 #: ../shell/main.c:70
 msgid "Run xreader in presentation mode"
-msgstr "הפעלת xreader במצב מצגת"
+msgstr "Xreaderni taqdimot rejimida ishga tushirish"
 
 #: ../shell/main.c:71
 msgid "Run xreader as a previewer"
-msgstr "הפעלת xreader במצב תצוגה מקדימה"
+msgstr "Xreaderni ko‘rib chiquvchi sifatida ishga tushirish"
 
 #: ../shell/main.c:72
 msgid "The word or phrase to find in the document"
-msgstr "המילה או המשפט לחיפוש במסמך"
+msgstr "Hujjatda topiladigan so‘z yoki ibora"
 
 #: ../shell/main.c:72
 msgid "STRING"
-msgstr "STRING"
+msgstr "SATR"
 
 #: ../shell/main.c:76
 msgid "[FILE…]"
-msgstr "[FILE…]"
+msgstr "[FAYL…]"
