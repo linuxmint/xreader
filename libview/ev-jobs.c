@@ -1372,7 +1372,7 @@ ev_job_find_run (EvJob *job)
 	EvJobFind      *job_find = EV_JOB_FIND (job);
 	EvDocumentFind *find = EV_DOCUMENT_FIND (job->document);
 	EvPage         *ev_page;
-	GList          *matches;
+	GList          *matches = NULL;
 	ev_debug_message (DEBUG_JOBS, NULL);
 	
 	/* Do not block the main loop */
@@ -1408,10 +1408,12 @@ ev_job_find_run (EvJob *job)
 
 	if (job->document->iswebdocument == FALSE) {
 		job_find->pages[job_find->current_page] = matches;
+        job_find->total_count += g_list_length(job_find->pages[job_find->current_page]);
 	}
+    else {
+        job_find->total_count += job_find->results[job_find->current_page];
+    }
 
-	job_find->total_count += g_list_length(job_find->pages[job_find->current_page]);
-	
 	g_signal_emit (job_find, job_find_signals[FIND_UPDATED], 0, job_find->current_page);
 		       
 	job_find->current_page = (job_find->current_page + 1) % job_find->n_pages;
