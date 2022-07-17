@@ -1222,7 +1222,12 @@ setup_index_from_navfile(gchar *tocpath)
     GList *index = NULL;
     open_xml_document(tocpath);
     set_xml_root_node(NULL);
-    xmlNodePtr nav = xml_get_pointer_to_node((xmlChar*)"nav",(xmlChar*)"id",(xmlChar*)"toc");
+    xmlNodePtr nav = xml_get_pointer_to_node((xmlChar*)"nav",(xmlChar*)"type",(xmlChar*)"toc");
+
+    if (nav == NULL) {
+        return NULL;
+    }
+
     xmlretval=NULL;
     xml_parse_children_of_node(nav,(xmlChar*)"ol", NULL,NULL);
 	gchar *navdirend = g_strrstr(tocpath,"/");
