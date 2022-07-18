@@ -1225,6 +1225,7 @@ setup_index_from_navfile(gchar *tocpath)
     xmlNodePtr nav = xml_get_pointer_to_node((xmlChar*)"nav",(xmlChar*)"type",(xmlChar*)"toc");
 
     if (nav == NULL) {
+        xml_free_doc();
         return NULL;
     }
 
