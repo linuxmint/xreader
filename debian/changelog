@@ -1,3 +1,18 @@
+xreader (3.4.2) vanessa; urgency=medium
+
+  [ Michael Webster ]
+  * ev-jobs: Use the correct page-count results container for the document type.
+  * epub: Fix index loading for certain documents - look for epub:type instead of epub:id.
+  * epub: Free the document when we leave early because of a bad toc file.
+
+  [ Musa Ünal ]
+  * Revert "Evince Backport:  Allow adding Highlight annotations from text selection (#493)" (#556)
+
+  [ Clement Lefebvre ]
+  * l10n: Update POT
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 20 Jul 2022 07:42:43 +0200
+
 xreader (3.4.1) vanessa; urgency=medium
 
   * l10n: Update translations
