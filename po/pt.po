@@ -6,22 +6,22 @@
 # crolidge, 2014-2015
 # Duarte Loreto <happyguy_pt@hotmail.com>, 2005-2010
 # Gonçalo Silva <de2a9293@opayq.com>, 2013
-# Hugo Carvalho <hugokarvalho@hotmail.com>, 2015
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2015-2022
 # Sérgio Marques <smarquespt@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-20 16:22+0200\n"
-"PO-Revision-Date: 2021-06-02 21:36+0000\n"
+"PO-Revision-Date: 2022-07-03 13:36+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/mate/MATE/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2022-06-26 11:27+0000\n"
-"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
+"X-Launchpad-Export-Date: 2022-07-24 09:41+0000\n"
+"X-Generator: Launchpad (build 025a39fd866a641b6ae33074cda0d02a2c712d38)\n"
 "Language: pt\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -167,7 +167,7 @@ msgstr "ficheiro epub não tem manifesto"
 msgid "Could not set up document tree for loading, some files missing"
 msgstr ""
 "Não foi possível abrir a estrutura do documento para carregar. Alguns "
-"ficheiros estão em falta."
+"ficheiros estão em falta"
 
 #: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
@@ -555,7 +555,7 @@ msgstr "de %d"
 #: ../libview/ev-loading-window.c:76 ../shell/ev-sidebar-annotations.c:134
 #: ../shell/ev-sidebar-layers.c:122 ../shell/ev-sidebar-links.c:256
 msgid "Loading…"
-msgstr "A carregar..."
+msgstr "A carregar…"
 
 #. Initial state
 #: ../libview/ev-print-operation.c:332
@@ -905,7 +905,7 @@ msgid ""
 "password."
 msgstr ""
 "Este documento está bloqueado e só poderá ser lido após a introdução da "
-"palavra-passe"
+"palavra-passe."
 
 #: ../shell/ev-password-view.c:144 ../shell/ev-password-view.c:261
 msgid "_Unlock Document"
@@ -1154,7 +1154,7 @@ msgstr "A guardar imagem em %s"
 #: ../shell/ev-window.c:2926 ../shell/ev-window.c:3026
 #, c-format
 msgid "The file could not be saved as “%s”."
-msgstr "Não foi possível guardar o ficheiro como “%s”"
+msgstr "Não foi possível guardar o ficheiro como “%s”."
 
 #: ../shell/ev-window.c:2957
 #, c-format
@@ -1630,7 +1630,7 @@ msgstr "Remover anotação"
 
 #: ../shell/ev-window.c:6470
 msgid "Annotate Selected Text"
-msgstr ""
+msgstr "Anotar texto selecionado"
 
 #: ../shell/ev-window.c:6475
 msgid "_Open Attachment"

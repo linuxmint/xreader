@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-20 16:22+0200\n"
-"PO-Revision-Date: 2022-06-20 16:47+0000\n"
+"PO-Revision-Date: 2022-07-21 08:49+0000\n"
 "Last-Translator: Kimmo Kujansuu <Unknown>\n"
 "Language-Team: Finnish (http://www.transifex.com/mate/MATE/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2022-06-26 11:27+0000\n"
-"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
+"X-Launchpad-Export-Date: 2022-07-24 09:41+0000\n"
+"X-Generator: Launchpad (build 025a39fd866a641b6ae33074cda0d02a2c712d38)\n"
 "Language: fi\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -362,7 +362,7 @@ msgstr "Paras sovitus"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:50
 msgid "Fit Page Width"
-msgstr "Sovita sivun leveys"
+msgstr "Sovita sivun leveyteen"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:6225
 msgid "Expand Window to Fit"
@@ -880,11 +880,11 @@ msgstr "Sivu %s"
 
 #: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:6252
 msgid "Go to previous history item"
-msgstr "Siirry edelliseen historiakohteeseen"
+msgstr "Siirry edelliseen lukuhistoriassa"
 
 #: ../shell/ev-history-action-widget.c:219 ../shell/ev-window.c:6256
 msgid "Go to next history item"
-msgstr "Siirry seuraavaan historiakohteeseen"
+msgstr "Siirry seuraavaan lukuhistoriassa"
 
 #: ../shell/ev-keyring.c:86
 #, c-format
@@ -947,15 +947,15 @@ msgstr "Asetukset"
 
 #: ../shell/ev-preferences-dialog.ui.h:2
 msgid "Show history buttons"
-msgstr "Näytä historian napit"
+msgstr "Näytä lukuhistorian selauspainikkeet"
 
 #: ../shell/ev-preferences-dialog.ui.h:3
 msgid "Show expand window button"
-msgstr "Näytä ikkunan laajennuspainike"
+msgstr "Näytä sovita ikkunaan painike"
 
 #: ../shell/ev-preferences-dialog.ui.h:4
 msgid "Show zoom level selector"
-msgstr "Näytä lähennystason valitsija"
+msgstr "Näytä suurennus taso prosentteina"
 
 #: ../shell/ev-properties-dialog.c:63
 msgid "Properties"
@@ -1062,7 +1062,7 @@ msgid ""
 "Ctrl+2"
 msgstr ""
 "Sivunäkymä\n"
-"Ei-jatkuva + Paras sovitus\n"
+"Sivu kerrallaan ja paras sovitus\n"
 "Ctrl+2"
 
 #: ../shell/ev-toolbar.c:148
@@ -1071,13 +1071,13 @@ msgid ""
 "Continuous + Fit Page Width\n"
 "Ctrl+1"
 msgstr ""
-"Lukijanäkymä\n"
-"Jatkuva + Sovitus sivun leveyteen\n"
+"Lukunäkymä\n"
+"Jatkuvat sivut ja sovitus leveyteen\n"
 "Ctrl+1"
 
 #: ../shell/ev-toolbar.c:291
 msgid "Select or set the zoom level of the document"
-msgstr "Valitse tai aseta lähennystaso tälle asiakirjalle"
+msgstr "Valitse tai aseta asiakirjan suurennos"
 
 #: ../shell/ev-window.c:1029
 msgid ""
@@ -1421,15 +1421,15 @@ msgstr "_Alkuperäinen koko"
 
 #: ../shell/ev-window.c:6209
 msgid "View the document at its original size"
-msgstr "Näytä asiakirja alkuperäisessä koossaan"
+msgstr "Katso alkuperäisessä koossa"
 
 #: ../shell/ev-window.c:6211
 msgid "Zoom _In"
-msgstr "_Lähennä"
+msgstr "_Suurenna"
 
 #: ../shell/ev-window.c:6215
 msgid "Zoom _Out"
-msgstr "_Loitonna"
+msgstr "_Pienennä"
 
 #: ../shell/ev-window.c:6219
 msgid "_Reload"
@@ -1465,11 +1465,11 @@ msgstr "Siirry viimeiselle sivulle"
 
 #: ../shell/ev-window.c:6250
 msgid "Previous History Item"
-msgstr "Edellinen historiakohde"
+msgstr "Edellinen lukuhistoriassa"
 
 #: ../shell/ev-window.c:6254
 msgid "Next History Item"
-msgstr "Seuraava historiakohde"
+msgstr "Seuraava lukuhistoriassa"
 
 #. Bookmarks menu
 #: ../shell/ev-window.c:6260
@@ -1492,11 +1492,11 @@ msgstr "_Tietoja"
 #. Toolbar-only
 #: ../shell/ev-window.c:6277
 msgid "Leave Fullscreen"
-msgstr "Lopeta kokoruutu"
+msgstr "Poistu koko näytöstä"
 
 #: ../shell/ev-window.c:6279
 msgid "Leave fullscreen mode"
-msgstr "Lopeta kokoruututila"
+msgstr "Poistu koko näytön tilasta"
 
 #: ../shell/ev-window.c:6281
 msgid "Start Presentation"
@@ -1568,7 +1568,7 @@ msgstr "Selaa asiakirjaa oikealta vasemmalle"
 
 #: ../shell/ev-window.c:6428
 msgid "_Fullscreen"
-msgstr "_Kokoruutu"
+msgstr "_Koko näyttö"
 
 #: ../shell/ev-window.c:6430
 msgid "Expand the window to fill the screen"
@@ -1719,7 +1719,7 @@ msgstr "NUMERO"
 
 #: ../shell/main.c:68
 msgid "Run xreader in fullscreen mode"
-msgstr "Suorita xreader kokoruututilassa"
+msgstr "Suorita xreader koko näytössä"
 
 #: ../shell/main.c:69
 msgid "Named destination to display."
