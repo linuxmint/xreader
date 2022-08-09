@@ -6050,14 +6050,6 @@ ev_window_key_press_event (GtkWidget   *widget,
         window->priv->menubar_show_queued = FALSE;
     }
 
-    /* Handle focus widget key events */
-    if (gtk_window_propagate_key_event (window, event))
-		return TRUE;
-
-	/* Handle mnemonics and accelerators */
-	if (gtk_window_activate_key (window, event))
-		return TRUE;
-
     /* Chain up, invokes binding set on window */
 	return GTK_WIDGET_CLASS (grand_parent_class)->key_press_event (widget, event);
 }
