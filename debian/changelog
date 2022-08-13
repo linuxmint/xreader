@@ -1,3 +1,10 @@
+xreader (3.4.4) vanessa; urgency=medium
+
+  [ Michael Webster ]
+  * ev-window.c: Don't try to handle keyboard events manually.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 13 Aug 2022 12:29:19 +0200
+
 xreader (3.4.3) vanessa; urgency=medium
 
   * l10n: Update translations
