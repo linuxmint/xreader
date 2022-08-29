@@ -6,13 +6,15 @@ previewer_sources = [
     libview_enums,
 ]
 
-previewer_sources += gnome.compile_resources(
+res = gnome.compile_resources(
     'previewer-resources', 'previewer.gresource.xml',
     source_dir: ['.', join_paths(meson.source_root(), 'data')],
     c_name: 'ev_previewer',
     install_header: false,
     install: false
 )
+
+previewer_sources += res
 
 previewer_deps = [
     libdocument_dep,
