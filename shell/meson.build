@@ -82,6 +82,8 @@ ev_resources = gnome.compile_resources(
     'xreader.gresource.xml',
     source_dir: '../data',
     c_name: 'ev',
+    install_header: false,
+    install: false
 )
 
 shell_sources += ev_resources

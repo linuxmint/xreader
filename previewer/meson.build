@@ -9,7 +9,9 @@ previewer_sources = [
 previewer_sources += gnome.compile_resources(
     'previewer-resources', 'previewer.gresource.xml',
     source_dir: ['.', join_paths(meson.source_root(), 'data')],
-    c_name: 'ev_previewer'
+    c_name: 'ev_previewer',
+    nstall_header: false,
+    install: false
 )
 
 previewer_deps = [
