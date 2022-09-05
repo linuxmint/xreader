@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    uses: linuxmint/github-actions/.github/workflows/do-builds.yml@main
+    uses: linuxmint/github-actions/.github/workflows/do-builds.yml
     with:
       commit_id: master
       ############################## Comma separated list - like 'linuxmint/xapp, linuxmint/cinnamon-desktop'
