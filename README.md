@@ -1,5 +1,7 @@
-# Xreader
-Xreader is a document viewer capable of displaying multiple and single page
+# Xreader 
+![build](https://github.com/linuxmint/xreader/actions/workflows/build.yaml/badge.svg)
+
+**Xreader** is a document viewer capable of displaying multiple and single page
 document formats like PDF and Postscript. For more general information about
 Xreader please visit our website at https://github.com/linuxmint/xreader.
 
@@ -8,7 +10,6 @@ This software is licensed under GNU GENERAL PUBLIC LICENSE Version 2 from June
 
 ## Installation
 
-![Package build (master)](https://github.com/linuxmint/xreader/actions/workflows/build.yml/badge.svg)
 - This package may be available through your system's package manager. This is the recommended method of installation.
 - The latest unstable version is available for Linux Mint and LMDE in the [releases](https://github.com/linuxmint/xreader/releases) section.
 - See ![INSTALL](INSTALL.md) for instructions for building from source.
