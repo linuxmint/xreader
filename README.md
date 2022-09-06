@@ -1,5 +1,5 @@
 # Xreader 
-![build](https://github.com/linuxmint/xreader/actions/workflows/build.yaml/badge.svg)
+![build](https://github.com/linuxmint/xreader/actions/workflows/build.yml/badge.svg)
 
 **Xreader** is a document viewer capable of displaying multiple and single page
 document formats like PDF and Postscript. For more general information about
