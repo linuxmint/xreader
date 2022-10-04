@@ -21,11 +21,12 @@ shared_module(
     install_dir: backendsdir,
 )
 
-custom_target(
-    'xps_backend',
-    input: 'xpsdocument.xreader-backend.in',
+i18n.merge_file(
+    input: 'xpsdocument.xreader-backend.desktop.in',
     output: 'xpsdocument.xreader-backend',
-    command: [intltool_merge, '-d', '-u', po_dir, '@INPUT@', '@OUTPUT@'],
+    po_dir: po_dir,
+    type: 'desktop',
+    args: ['--keyword=TypeDescription'],
     install: true,
     install_dir: backendsdir,
 )

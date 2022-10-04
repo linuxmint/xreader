@@ -31,20 +31,20 @@ desktop = configure_file(
     configuration: desktop_conf,
 )
 
-custom_target(
-    'desktop',
+i18n.merge_file(
     input: desktop,
     output: 'xreader.desktop',
-    command: [intltool_merge, '-d', '-u', po_dir, '@INPUT@', '@OUTPUT@'],
+    po_dir: po_dir,
+    type: 'desktop',
     install: true,
     install_dir: desktopdir,
 )
 
-appdata = custom_target(
-    'appdata',
+i18n.merge_file(
     input: 'xreader.appdata.xml.in',
     output: 'xreader.appdata.xml',
-    command: [intltool_merge, '-x', '-u', po_dir, '@INPUT@', '@OUTPUT@'],
+    po_dir: po_dir,
+    type: 'xml',
     install: true,
     install_dir: join_paths(datadir, 'metainfo'),
 )

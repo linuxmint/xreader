@@ -1,4 +1,20 @@
-cd po
-INTLTOOL_EXTRACT="/usr/bin/intltool-extract" XGETTEXT="/usr/bin/xgettext" srcdir=. /usr/bin/intltool-update --gettext-package xreader --pot
-mv xreader.pot ..
+#!/usr/bin/sh
 
+usage() {
+    echo "Usage: $0 [--help | <meson build dir>]"
+}
+
+if [ $# -ne 1 ] || [ $1 = "--help" ]; then
+    usage
+    exit 1
+fi
+
+if ! [ -d "$1" ]; then
+    echo "meson build dir '$1' does not exist"
+    exit 2
+fi
+
+echo "Generating po/xreader.pot ..."
+ninja -C "$1" xreader-pot || exit 1
+
+echo "Done. To update .po files run:\t ninja -C "$1" xreader-update-po"
