@@ -1,3 +1,25 @@
+xreader (3.6.0) vera; urgency=medium
+
+  [ Clement Lefebvre ]
+  * Add Github action (#570)
+  * Remove empty TODO file
+
+  [ Michael Webster ]
+  * Clean up README and INSTALL.
+  * Fix badge, formatting
+  * Change github workflow's file extension.
+
+  [ Oliver Kästner ]
+  * build/i18n: migrate from intltool to gettext (#552)
+
+  [ Leigh Scott ]
+  * Add missing requires for the typelib
+
+  [ Clement Lefebvre ]
+  * Revert "build/i18n: migrate from intltool to gettext (#552)"
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 16 Nov 2022 15:52:44 +0000
+
 xreader (3.4.5) vanessa; urgency=medium
 
   [ Michael Webster ]
