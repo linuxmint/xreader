@@ -25,12 +25,11 @@ shared_module(
     install_dir: backendsdir,
 )
 
-i18n.merge_file(
-    input: 'epubdocument.xreader-backend.desktop.in',
+custom_target(
+    'epub_backend',
+    input: 'epubdocument.xreader-backend.in',
     output: 'epubdocument.xreader-backend',
-    po_dir: po_dir,
-    type: 'desktop',
-    args: ['--keyword=TypeDescription'],
+    command: [intltool_merge, '-d', '-u', po_dir, '@INPUT@', '@OUTPUT@'],
     install: true,
     install_dir: backendsdir,
 )

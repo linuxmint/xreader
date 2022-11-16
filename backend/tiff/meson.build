@@ -24,12 +24,11 @@ shared_module(
     install_dir: backendsdir,
 )
 
-i18n.merge_file(
-    input: 'tiffdocument.xreader-backend.desktop.in',
+custom_target(
+    'tiff_backend',
+    input: 'tiffdocument.xreader-backend.in',
     output: 'tiffdocument.xreader-backend',
-    po_dir: po_dir,
-    type: 'desktop',
-    args: ['--keyword=TypeDescription'],
+    command: [intltool_merge, '-d', '-u', po_dir, '@INPUT@', '@OUTPUT@'],
     install: true,
     install_dir: backendsdir,
 )

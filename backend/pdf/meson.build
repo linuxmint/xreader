@@ -20,12 +20,11 @@ shared_module(
     install_dir: backendsdir,
 )
 
-i18n.merge_file(
-    input: 'pdfdocument.xreader-backend.desktop.in',
+custom_target(
+    'pdf_backend',
+    input: 'pdfdocument.xreader-backend.in',
     output: 'pdfdocument.xreader-backend',
-    po_dir: po_dir,
-    type: 'desktop',
-    args: ['--keyword=TypeDescription'],
+    command: [intltool_merge, '-d', '-u', po_dir, '@INPUT@', '@OUTPUT@'],
     install: true,
     install_dir: backendsdir,
 )

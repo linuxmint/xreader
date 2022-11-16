@@ -21,12 +21,11 @@ shared_module(
     install_dir: backendsdir,
 )
 
-i18n.merge_file(
-    input: 'psdocument.xreader-backend.desktop.in',
+custom_target(
+    'ps_backend',
+    input: 'psdocument.xreader-backend.in',
     output: 'psdocument.xreader-backend',
-    po_dir: po_dir,
-    type: 'desktop',
-    args: ['--keyword=TypeDescription'],
+    command: [intltool_merge, '-d', '-u', po_dir, '@INPUT@', '@OUTPUT@'],
     install: true,
     install_dir: backendsdir,
 )
