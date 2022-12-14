@@ -1,3 +1,10 @@
+xreader (3.6.1) vera; urgency=medium
+
+  [ Michael Webster ]
+  * ev-view.c: Clear view->focus_annotation when removing the currently focused annotation.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 14 Dec 2022 16:00:21 +0000
+
 xreader (3.6.0) vera; urgency=medium
 
   [ Clement Lefebvre ]
