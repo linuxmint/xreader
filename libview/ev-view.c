@@ -3187,6 +3187,8 @@ void
 ev_view_remove_annotation (EvView       *view,
                            EvAnnotation *annot)
 {
+    EvMapping *mapping;
+    EvAnnotation *real_focus_annot;
 	guint page;
 
 	g_return_if_fail (EV_IS_VIEW (view));
@@ -3200,6 +3202,13 @@ ev_view_remove_annotation (EvView       *view,
 		ev_view_remove_window_child_for_annot (view, page, annot);
 	if (view->annot_window_map != NULL)
 		g_hash_table_remove (view->annot_window_map, annot);
+
+    mapping = view->focus_annotation;
+    real_focus_annot = (EvAnnotation *)mapping->data;
+
+    if (real_focus_annot == annot) {
+        view->focus_annotation = NULL;
+    }
 
 	ev_document_doc_mutex_lock ();
 	ev_document_annotations_remove_annotation (EV_DOCUMENT_ANNOTATIONS (view->document),
