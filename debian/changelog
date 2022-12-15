@@ -1,3 +1,10 @@
+xreader (3.6.2) vera; urgency=medium
+
+  [ Michael Webster ]
+  * ev-view.c: Check if there is a focused annotation before trying to access it.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 15 Dec 2022 14:50:09 +0000
+
 xreader (3.6.1) vera; urgency=medium
 
   [ Michael Webster ]
