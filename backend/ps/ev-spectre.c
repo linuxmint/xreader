@@ -315,14 +315,14 @@ ps_document_render (EvDocument      *document,
 	spectre_page_render (ps_page, src, &data, &stride);
 	spectre_render_context_free (src);
 
-	if (!data) {
+	if (spectre_page_status (ps_page) != SPECTRE_STATUS_SUCCESS) {
+		g_warning ("libspectre reports: %s",
+		           spectre_status_to_string (spectre_page_status (ps_page)));
+		g_free (data);
 		return NULL;
 	}
 
-	if (spectre_page_status (ps_page)) {
-		g_warning ("%s", spectre_status_to_string (spectre_page_status (ps_page)));
-		g_free (data);
-		
+	if (!data) {
 		return NULL;
 	}
 
