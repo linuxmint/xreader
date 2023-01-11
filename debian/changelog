@@ -1,3 +1,11 @@
+xreader (3.6.3) vera; urgency=medium
+
+  [ Michael Webster ]
+  * ev-spectre (ps): Print any render error message before returning.
+  * ps backend: disable pdf export using libspectre.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 11 Jan 2023 09:46:41 +0000
+
 xreader (3.6.2) vera; urgency=medium
 
   [ Michael Webster ]
