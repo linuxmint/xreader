@@ -68,7 +68,7 @@ endif
 if get_option('ps')
     spectre = dependency('libspectre', version: '>= 0.2.0')
     backend_subdirs += 'ps'
-    xreader_mime_types += 'application/postscript;application/x-bzpostscript;application/x-gzpostscript;image/x-eps;image/x-bzeps;image/x-gzeps;'
+    xreader_mime_types += 'application/postscript;application/x-bzpostscript;application/x-gzpostscript;image/x-eps;image/x-bzeps;image/x-gzeps;application/illustrator;'
 endif
 if get_option('dvi')
     kpathsea = dependency('kpathsea')
