@@ -4197,7 +4197,7 @@ ev_window_run_presentation (EvWindow *window)
             current_page,
             rotation,
             inverted_colors);
-    ev_view_presentation_set_rtl (window->priv->presentation_view, rtl);
+    ev_view_presentation_set_rtl (EV_VIEW_PRESENTATION (window->priv->presentation_view), rtl);
     g_signal_connect_swapped (window->priv->presentation_view, "finished",
             G_CALLBACK (ev_window_view_presentation_finished),
             window);
@@ -5259,7 +5259,7 @@ view_menu_link_popup (EvWindow *ev_window,
             switch (ev_link_action_get_action_type (ev_action)) {
             case EV_LINK_ACTION_TYPE_GOTO_DEST:
             case EV_LINK_ACTION_TYPE_GOTO_REMOTE:
-                //  2021-03-21 WHY WAS THIS BEING SET BUT NEVER USED? 
+                //  2021-03-21 WHY WAS THIS BEING SET BUT NEVER USED?
                 //show_internal = TRUE;
                 break;
             case EV_LINK_ACTION_TYPE_EXTERNAL_URI:
@@ -5623,7 +5623,7 @@ find_bar_visibility_changed_cb (EggFindBar *find_bar,
 
         if (visible)
             ev_window_search_start (ev_window);
-        else 
+        else
         {
             egg_find_bar_set_status_text (EGG_FIND_BAR (ev_window->priv->find_bar), NULL);
             egg_find_bar_set_search_string (EGG_FIND_BAR (ev_window->priv->find_bar), NULL);
@@ -6052,11 +6052,11 @@ ev_window_key_press_event (GtkWidget   *widget,
 
     if (window->priv->view != NULL) {
         /* Handle focus widget key events */
-        if (gtk_window_propagate_key_event (window, event))
+        if (gtk_window_propagate_key_event (GTK_WINDOW (window), event))
             return TRUE;
 
         // /* Handle mnemonics and accelerators */
-        if (gtk_window_activate_key (window, event))
+        if (gtk_window_activate_key (GTK_WINDOW (window), event))
             return TRUE;
     }
 
