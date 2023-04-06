@@ -183,6 +183,7 @@ ev_web_view_change_page (EvWebView *webview,
 	else {
 		EvPage *page = klass->get_page(webview->document,new_page);
 		webkit_web_view_load_uri(WEBKIT_WEB_VIEW(webview),(gchar*)page->backend_page);
+		g_object_unref (page);
 	}
 }
 
