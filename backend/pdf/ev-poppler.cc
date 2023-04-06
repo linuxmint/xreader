@@ -1186,7 +1186,7 @@ ev_link_from_action (PdfDocument   *pdf_document,
 
 	link = ev_link_new (action->any.title, ev_action);
 
-    if (G_IS_OBJECT (ev_action)) 
+    if (G_IS_OBJECT (ev_action))
     {
         g_object_unref (ev_action);
     }
@@ -2510,19 +2510,35 @@ pdf_document_document_forms_iface_init (EvDocumentFormsInterface *iface)
 
 /* Annotations */
 static void
-poppler_annot_color_to_gdk_color (PopplerAnnot *poppler_annot,
-				  GdkColor     *color)
+poppler_annot_color_to_gdk_rgba (PopplerAnnot *poppler_annot,
+                                 GdkRGBA      *color)
 {
 	PopplerColor *poppler_color;
 
 	poppler_color = poppler_annot_get_color (poppler_annot);
 	if (poppler_color) {
-		color->red = poppler_color->red;
-		color->green = poppler_color->green;
-		color->blue = poppler_color->blue;
+		color->red = CLAMP ((double) poppler_color->red / 65535.0, 0.0, 1.0);
+		color->green = CLAMP ((double) poppler_color->green / 65535.0, 0.0, 1.0),
+		color->blue = CLAMP ((double) poppler_color->blue / 65535.0, 0.0, 1.0),
+		color->alpha = 1.0;
 
 		g_free (poppler_color);
 	} /* TODO: else use a default color */
+}
+
+static void
+poppler_annot_color_from_gdk_rgba (PopplerAnnot *poppler_annot,
+                                   GdkRGBA      *color)
+{
+	PopplerColor poppler_color;
+
+	g_return_if_fail (color != NULL);
+	g_return_if_fail (POPPLER_IS_ANNOT (poppler_annot));
+
+	poppler_color.red = CLAMP ((guint) (color->red * 65535), 0, 65535);
+	poppler_color.green = CLAMP ((guint) (color->green * 65535), 0, 65535);
+	poppler_color.blue = CLAMP ((guint) (color->blue * 65535), 0, 65535);
+	poppler_annot_set_color (poppler_annot, &poppler_color);
 }
 
 static EvAnnotationTextIcon
@@ -2734,7 +2750,7 @@ ev_annot_from_poppler_annot (PopplerAnnot *poppler_annot,
 		gchar   *modified;
 		gchar   *contents;
 		gchar   *name;
-		GdkColor color;
+		GdkRGBA  color;
 
 		contents = poppler_annot_get_contents (poppler_annot);
 		if (contents) {
@@ -2756,8 +2772,8 @@ ev_annot_from_poppler_annot (PopplerAnnot *poppler_annot,
 		}
 		g_free (modified);
 
-		poppler_annot_color_to_gdk_color (poppler_annot, &color);
-		ev_annotation_set_color (ev_annot, &color);
+		poppler_annot_color_to_gdk_rgba (poppler_annot, &color);
+		ev_annotation_set_rgba (ev_annot, &color);
 
 		if (poppler_annot_can_have_popup_window (poppler_annot)) {
 			PopplerAnnotMarkup *markup;
@@ -3041,8 +3057,7 @@ pdf_document_annotations_add_annotation (EvDocumentAnnotations *document_annotat
 	EvMapping       *annot_mapping;
 	PopplerRectangle poppler_rect;
 	gdouble          height;
-	PopplerColor     poppler_color;
-	GdkColor         color;
+	GdkRGBA          color;
 	EvRectangle      rect;
 
 	pdf_document = PDF_DOCUMENT (document_annotations);
@@ -3098,11 +3113,8 @@ pdf_document_annotations_add_annotation (EvDocumentAnnotations *document_annotat
 			g_assert_not_reached ();
 	}
 
-	ev_annotation_get_color (annot, &color);
-	poppler_color.red = color.red;
-	poppler_color.green = color.green;
-	poppler_color.blue = color.blue;
-	poppler_annot_set_color (poppler_annot, &poppler_color);
+	ev_annotation_get_rgba (annot, &color);
+	poppler_annot_color_from_gdk_rgba (poppler_annot, &color);
 
 	if (EV_IS_ANNOTATION_MARKUP (annot)) {
 		EvAnnotationMarkup *markup = EV_ANNOTATION_MARKUP (annot);
@@ -3229,14 +3241,10 @@ pdf_document_annotations_save_annotation (EvDocumentAnnotations *document_annota
 					    ev_annotation_get_contents (annot));
 
 	if (mask & EV_ANNOTATIONS_SAVE_COLOR) {
-		PopplerColor color;
-		GdkColor     ev_color;
+		GdkRGBA ev_color;
 
-		ev_annotation_get_color (annot, &ev_color);
-		color.red = ev_color.red;
-		color.green = ev_color.green;
-		color.blue = ev_color.blue;
-		poppler_annot_set_color (poppler_annot, &color);
+		ev_annotation_get_rgba (annot, &ev_color);
+		poppler_annot_color_from_gdk_rgba (poppler_annot, &ev_color);
 	}
 
 	if (mask & EV_ANNOTATIONS_SAVE_AREA && !EV_IS_ANNOTATION_TEXT_MARKUP (annot)) {
