@@ -236,14 +236,16 @@ ev_document_load (EvDocument  *document,
 {
 	EvDocumentClass *klass = EV_DOCUMENT_GET_CLASS (document);
 	gboolean retval;
+	g_autofree gchar *mimetype = NULL;
 	GError *err = NULL;
 
 	/*
 	 * Hardcoding a check for ePub documents, cause it needs a web document DOM
 	 * and webkit, support for any other web document types can be added similarly.
 	 */
+	mimetype = ev_file_get_mime_type (uri, TRUE, &err);
 
-	if ( !g_strcmp0 (ev_file_get_mime_type(uri,TRUE,&err),"application/epub+zip") )
+	if (!g_strcmp0 (mimetype ,"application/epub+zip"))
 		document->iswebdocument=TRUE ;
 		
 	retval = klass->load (document, uri, &err);
