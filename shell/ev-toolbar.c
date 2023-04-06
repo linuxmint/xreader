@@ -210,6 +210,7 @@ static void
 ev_toolbar_constructed (GObject *object)
 {
     EvToolbar *ev_toolbar = EV_TOOLBAR (object);
+    GMenu *zoom_menu;
     GtkActionGroup *action_group;
     GtkAction *action;
     GtkToolItem *tool_item;
@@ -285,8 +286,10 @@ ev_toolbar_constructed (GObject *object)
     gtk_box_pack_end (GTK_BOX (box), separator, FALSE, FALSE, 0);
     gtk_widget_show (GTK_WIDGET (separator));
 
+    zoom_menu = g_menu_new();
     ev_toolbar->priv->zoom_action = ev_zoom_action_new
-        (ev_window_get_document_model (ev_toolbar->priv->window), g_menu_new());
+        (ev_window_get_document_model (ev_toolbar->priv->window), zoom_menu);
+    g_object_unref (zoom_menu);
     gtk_widget_set_tooltip_text (ev_toolbar->priv->zoom_action,
                                  _("Select or set the zoom level of the document"));
     gtk_widget_set_margin_start(ev_toolbar->priv->zoom_action, 2);
