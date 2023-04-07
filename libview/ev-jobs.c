@@ -1212,8 +1212,8 @@ ev_job_save_run (EvJob *job)
 {
 	EvJobSave *job_save = EV_JOB_SAVE (job);
 	gint       fd;
-	gchar     *tmp_filename = NULL;
-	gchar     *local_uri;
+	g_autofree gchar *tmp_filename = NULL;
+	g_autofree gchar *local_uri = NULL;
 	GError    *error = NULL;
 	
 	ev_debug_message (DEBUG_JOBS, "uri: %s, document_uri: %s", job_save->uri, job_save->document_uri);
@@ -1240,7 +1240,6 @@ ev_job_save_run (EvJob *job)
 	ev_document_doc_mutex_unlock ();
 
 	if (error) {
-		g_free (local_uri);
 		ev_job_failed_from_error (job, error);
 		g_error_free (error);
 		
@@ -1264,7 +1263,6 @@ ev_job_save_run (EvJob *job)
 			ctype = EV_COMPRESSION_BZIP2;
 
 		uri_comp = ev_file_compress (local_uri, ctype, &error);
-		g_free (local_uri);
 		g_unlink (tmp_filename);
 
 		if (!uri_comp || error) {
@@ -1274,10 +1272,7 @@ ev_job_save_run (EvJob *job)
 		}
 	}
 
-	g_free (tmp_filename);
-
 	if (error) {
-		g_free (local_uri);
 		ev_job_failed_from_error (job, error);
 		g_error_free (error);
 		
