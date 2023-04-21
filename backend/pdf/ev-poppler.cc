@@ -2669,8 +2669,8 @@ ev_annot_from_poppler_annot (PopplerAnnot *poppler_annot,
 
 				ev_attachment = ev_attachment_new (poppler_attachment->name,
 								   poppler_attachment->description,
-								   g_object_ref (poppler_attachment_mtime),
-								   g_object_ref (poppler_attachment_ctime),
+								   (GDateTime *)g_object_ref (poppler_attachment_mtime),
+								   (GDateTime *)g_object_ref (poppler_attachment_ctime),
 								   size, data);
 				ev_annot = ev_annotation_attachment_new (page, ev_attachment);
 				g_object_unref (ev_attachment);
@@ -3498,8 +3498,8 @@ pdf_document_attachments_get_attachments (EvDocumentAttachments *document)
 			GDateTime *ctime = poppler_attachment_get_ctime (attachment);
 			ev_attachment = ev_attachment_new (attachment->name,
 							   attachment->description,
-							   g_object_ref (mtime),
-							   g_object_ref (ctime),
+							   (GDateTime *)g_object_ref (mtime),
+							   (GDateTime *)g_object_ref (ctime),
 							   size, data);
 
 			retval = g_list_prepend (retval, ev_attachment);
