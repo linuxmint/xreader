@@ -228,6 +228,7 @@ struct _EvWindowPrivate {
     GtkPrintSettings *print_settings;
     GtkPageSetup     *print_page_setup;
     gboolean          close_after_print;
+    gboolean          close_after_save;
 
 #ifdef ENABLE_DBUS
     /* DBus */
@@ -363,7 +364,7 @@ static void    zoom_control_changed_cb                       (EphyZoomAction *ac
                                                               EvWindow       *ev_window);
 static gint    compare_recent_items                          (GtkRecentInfo  *a,
                                                               GtkRecentInfo  *b);
-
+static gboolean ev_window_close                              (EvWindow         *window);
 G_DEFINE_TYPE_WITH_PRIVATE (EvWindow, ev_window, GTK_TYPE_APPLICATION_WINDOW)
 
 
@@ -3037,6 +3038,10 @@ ev_window_save_job_cb (EvJob     *job,
     }
 
     ev_window_clear_save_job (window);
+
+    if (window->priv->close_after_save) {
+        gtk_widget_destroy (GTK_WIDGET (window));
+    }
 }
 
 static void
@@ -3106,6 +3111,7 @@ ev_window_cmd_save_as (GtkAction *action,
 
     gchar *uri;
     uri = gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (fc));
+    ev_window->priv->close_after_save = TRUE;
     ev_window_save_as (ev_window, uri);
 
     g_free (uri);
@@ -3677,11 +3683,15 @@ ev_window_check_document_modified (EvWindow *ev_window)
     int result = gtk_dialog_run (GTK_DIALOG (dialog));
     gtk_widget_destroy (GTK_WIDGET (dialog));
 
-    if (result == GTK_RESPONSE_YES)
+    if (result == GTK_RESPONSE_YES) {
         return !ev_window_cmd_save_as (NULL, ev_window);
-    else if (result == GTK_RESPONSE_NO)
+    }
+    else if (result == GTK_RESPONSE_NO) {
+        ev_window->priv->close_after_save = FALSE;
     	return FALSE;
+    }
     else if (result == GTK_RESPONSE_ACCEPT) {
+        ev_window->priv->close_after_save = TRUE;
         ev_window_save (ev_window);
         return FALSE;
     }
@@ -3804,7 +3814,7 @@ ev_window_close (EvWindow *ev_window)
     if (ev_window_check_print_queue (ev_window))
         return FALSE;
 
-    return TRUE;
+    return !ev_window->priv->close_after_save;
 }
 
 static void
