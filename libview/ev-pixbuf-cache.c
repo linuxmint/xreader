@@ -669,6 +669,13 @@ add_job (EvPixbufCache  *pixbuf_cache,
 	if (job_info->region)
 		cairo_region_destroy (job_info->region);
 	job_info->region = region ? cairo_region_reference (region) : NULL;
+    if (job_info->job) {
+        g_signal_handlers_disconnect_by_func (job_info->job,
+                                              G_CALLBACK (job_finished_cb),
+                                              pixbuf_cache);
+        ev_job_cancel (job_info->job);
+        g_clear_object (&job_info->job);
+    }
 
 	job_info->job = ev_job_render_new (pixbuf_cache->document,
 					   page, rotation,
