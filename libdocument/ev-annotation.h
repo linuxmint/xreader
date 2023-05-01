@@ -134,7 +134,7 @@ const gchar         *ev_annotation_get_modified              (EvAnnotation      
 gboolean             ev_annotation_set_modified              (EvAnnotation           *annot,
                                                               const gchar            *modified);
 gboolean             ev_annotation_set_modified_from_time    (EvAnnotation           *annot,
-                                                              GTime                   utime);
+                                                              time_t                  utime);
 EV_DEPRECATED_FOR(ev_annotaion_get_rgba)
 void                 ev_annotation_get_color                 (EvAnnotation           *annot,
                                                               GdkColor               *color);

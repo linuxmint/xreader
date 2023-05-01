@@ -339,12 +339,12 @@ ev_properties_view_set_info (EvPropertiesView *properties, const EvDocumentInfo 
 		set_property (properties, GTK_TABLE (table), CREATOR_PROPERTY, info->creator, &row);
 	}
 	if (info->fields_mask & EV_DOCUMENT_INFO_CREATION_DATE) {
-		text = ev_document_misc_format_date (info->creation_date);
+		text = g_date_time_format (info->creation_date, "%c");
 		set_property (properties, GTK_TABLE (table), CREATION_DATE_PROPERTY, text, &row);
 		g_free (text);
 	}
 	if (info->fields_mask & EV_DOCUMENT_INFO_MOD_DATE) {
-		text = ev_document_misc_format_date (info->modified_date);
+		text = g_date_time_format (info->modified_date, "%c");
 		set_property (properties, GTK_TABLE (table), MOD_DATE_PROPERTY, text, &row);
 		g_free (text);
 	}

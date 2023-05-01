@@ -78,9 +78,6 @@ gdouble          ev_document_misc_get_screen_dpi (GdkScreen *screen, GdkMonitor 
 
 gdouble ev_document_misc_get_screen_dpi_at_window(GtkWindow *window);
 
-
-gchar           *ev_document_misc_format_date (GTime utime);
-
 void             ev_document_misc_get_pointer_position (GtkWidget *widget,
 							gint      *x,
 							gint      *y);

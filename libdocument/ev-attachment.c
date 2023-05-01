@@ -38,8 +38,8 @@ enum
 struct _EvAttachmentPrivate {
 	gchar                   *name;
 	gchar                   *description;
-	GTime                    mtime;
-	GTime                    ctime;
+	GDateTime               *mtime;
+	GDateTime               *ctime;
 	gsize                    size;
 	gchar                   *data;
 	gchar                   *mime_type;
@@ -76,6 +76,9 @@ ev_attachment_finalize (GObject *object)
 		g_free (attachment->priv->description);
 		attachment->priv->description = NULL;
 	}
+
+	g_clear_object (&attachment->priv->mtime);
+	g_clear_object (&attachment->priv->ctime);
 
 	if (attachment->priv->data) {
 		g_free (attachment->priv->data);
@@ -117,10 +120,10 @@ ev_attachment_set_property (GObject      *object,
 		attachment->priv->description = g_value_dup_string (value);
 		break;
 	case PROP_MTIME:
-		attachment->priv->mtime = g_value_get_ulong (value);
+		attachment->priv->mtime = (GDateTime *) g_value_get_gtype (value);
 		break;
 	case PROP_CTIME:
-		attachment->priv->ctime = g_value_get_ulong (value);
+		attachment->priv->ctime = (GDateTime *) g_value_get_gtype (value);
 		break;
 	case PROP_SIZE:
 		attachment->priv->size = g_value_get_uint (value);
@@ -168,18 +171,18 @@ ev_attachment_class_init (EvAttachmentClass *klass)
 							      G_PARAM_CONSTRUCT_ONLY));
 	g_object_class_install_property (g_object_class,
 					 PROP_MTIME,
-					 g_param_spec_ulong ("mtime",
-							     "ModifiedTime", 
+					 g_param_spec_gtype ("mtime",
+							     "ModifiedTime",
 							     "The attachment modification date",
-							     0, G_MAXULONG, 0,
+								 G_TYPE_DATE_TIME,
 							     G_PARAM_WRITABLE |
 							     G_PARAM_CONSTRUCT_ONLY));
 	g_object_class_install_property (g_object_class,
 					 PROP_CTIME,
-					 g_param_spec_ulong ("ctime",
+					 g_param_spec_gtype ("ctime",
 							     "CreationTime",
 							     "The attachment creation date",
-							     0, G_MAXULONG, 0,
+							     G_TYPE_DATE_TIME,
 							     G_PARAM_WRITABLE |
 							     G_PARAM_CONSTRUCT_ONLY));
 	g_object_class_install_property (g_object_class,
@@ -208,6 +211,8 @@ ev_attachment_init (EvAttachment *attachment)
 
 	attachment->priv->name = NULL;
 	attachment->priv->description = NULL;
+	attachment->priv->mtime = NULL;
+	attachment->priv->ctime = NULL;
 	attachment->priv->data = NULL;
 	attachment->priv->mime_type = NULL;
 
@@ -217,8 +222,8 @@ ev_attachment_init (EvAttachment *attachment)
 EvAttachment *
 ev_attachment_new (const gchar *name,
 		   const gchar *description,
-		   GTime        mtime,
-		   GTime        ctime,
+		   GDateTime   *mtime,
+		   GDateTime   *ctime,
 		   gsize        size,
 		   gpointer     data)
 {
@@ -252,7 +257,7 @@ ev_attachment_get_description (EvAttachment *attachment)
 	return attachment->priv->description;
 }
 
-GTime
+GDateTime *
 ev_attachment_get_modification_date (EvAttachment *attachment)
 {
 	g_return_val_if_fail (EV_IS_ATTACHMENT (attachment), 0);
@@ -260,7 +265,7 @@ ev_attachment_get_modification_date (EvAttachment *attachment)
 	return attachment->priv->mtime;
 }
 
-GTime
+GDateTime *
 ev_attachment_get_creation_date (EvAttachment *attachment)
 {
 	g_return_val_if_fail (EV_IS_ATTACHMENT (attachment), 0);
