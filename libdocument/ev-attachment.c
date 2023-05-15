@@ -77,8 +77,8 @@ ev_attachment_finalize (GObject *object)
 		attachment->priv->description = NULL;
 	}
 
-	g_clear_object (&attachment->priv->mtime);
-	g_clear_object (&attachment->priv->ctime);
+	g_clear_pointer (&attachment->priv->mtime, g_date_time_unref);
+	g_clear_pointer (&attachment->priv->ctime, g_date_time_unref);
 
 	if (attachment->priv->data) {
 		g_free (attachment->priv->data);
@@ -120,10 +120,10 @@ ev_attachment_set_property (GObject      *object,
 		attachment->priv->description = g_value_dup_string (value);
 		break;
 	case PROP_MTIME:
-		attachment->priv->mtime = (GDateTime *) g_value_get_gtype (value);
+		attachment->priv->mtime = (GDateTime *) g_value_get_pointer (value);
 		break;
 	case PROP_CTIME:
-		attachment->priv->ctime = (GDateTime *) g_value_get_gtype (value);
+		attachment->priv->ctime = (GDateTime *) g_value_get_pointer (value);
 		break;
 	case PROP_SIZE:
 		attachment->priv->size = g_value_get_uint (value);
@@ -232,8 +232,8 @@ ev_attachment_new (const gchar *name,
 	attachment = g_object_new (EV_TYPE_ATTACHMENT,
 				   "name", name,
 				   "description", description,
-				   "mtime", mtime,
-				   "ctime", ctime,
+				   "mtime", mtime ? g_date_time_ref (mtime) : NULL,
+				   "ctime", ctime ? g_date_time_ref (ctime) : NULL,
 				   "size", size,
 				   "data", data,
 				   NULL);
