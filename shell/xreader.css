@@ -31,3 +31,18 @@ evview.document-page {
 evview.document-page.inverted {
     background-color: black;
 }
+
+#ev-loading-message {
+    background-color: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
+    border-radius: 3px;
+    padding: 8px;
+}
+
+evpresentationview {
+    background-color: black;
+}
+
+evpresentationview.white-mode {
+    background-color: white;
+}
