@@ -111,7 +111,11 @@ endif
 thumbnailer_mime_types = xreader_mime_types
 
 if get_option('epub')
-    webkit = dependency('webkit2gtk-4.1', version: '>= 2.4.3')
+    webkit = dependency('webkit2gtk-4.1', version: '>= 2.4.3', required: false)
+    if not webkit.found()
+        webkit = dependency('webkit2gtk-4.0', version: '>= 2.4.3')
+    endif
+
     backend_subdirs += 'epub'
     xreader_mime_types += 'application/epub+zip;'
 endif
