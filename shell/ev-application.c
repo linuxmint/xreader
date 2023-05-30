@@ -31,6 +31,7 @@
 #include <glib/gstdio.h>
 #include <gtk/gtk.h>
 #include <gdk/gdkx.h>
+#include <libxapp/xapp-dark-mode-manager.h>
 
 #include "totem-scrsaver.h"
 
@@ -60,6 +61,8 @@ struct _EvApplication {
 
 	TotemScrsaver         *scr_saver;
 	EggSMClient           *smclient;
+
+    XAppDarkModeManager *dark_mode_manager;
 };
 
 struct _EvApplicationClass {
@@ -898,6 +901,10 @@ ev_application_shutdown (GApplication *gapplication)
     g_free (application->dot_dir);
     application->dot_dir = NULL;
 
+    if (application->dark_mode_manager) {
+        g_clear_object (&application->dark_mode_manager);
+    }
+
     g_clear_pointer (&supported_mimetypes, g_strfreev);
 
     G_APPLICATION_CLASS (ev_application_parent_class)->shutdown (gapplication);
@@ -1010,6 +1017,13 @@ ev_application_init (EvApplication *ev_application)
     g_object_set (ev_application->scr_saver,
                   "reason", _("Running in presentation mode"),
                   NULL);
+
+    if (g_strcmp0 (g_getenv ("XDG_CURRENT_DESKTOP"), "XFCE") != 0) {
+        ev_application->dark_mode_manager = xapp_dark_mode_manager_new (FALSE);
+    }
+    else {
+        ev_application->dark_mode_manager = NULL;
+    }
 }
 
 gboolean
