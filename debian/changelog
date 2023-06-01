@@ -1,3 +1,40 @@
+xreader (3.8.0) victoria; urgency=medium
+
+  [ Clement Lefebvre ]
+  * Add support for AI mimetype
+
+  [ Oliver Kästner ]
+  * Fix some build warnings (#592)
+
+  [ Vishal Pankaj Chandratreya ]
+  * Open new files in a maximised window. (#590)
+
+  [ Oliver Kästner ]
+  * Fix some minor memleaks (#593)
+
+  [ Michael Webster ]
+  * ev-pixbuf-cache.c: Fix leak when rendering pages while annotating.
+  * ev-window.c: Don't close the window before a save operation completes.
+
+  [ Oliver Kästner ]
+  * [RFC] Migrate from GTime to GDateTime (#595)
+
+  [ Leigh Scott ]
+  * Switch to webkit2gtk-4.1
+
+  [ Michael Webster ]
+  * Don't treat GDateTime as a GObject.
+  * Restore libwebkit2gtk-4.0 as an alternate dependency.
+
+  [ Vishal Pankaj Chandratreya ]
+  * Background colour of presentation view fixed. (#600)
+
+  [ Clement Lefebvre ]
+  * Add dark mode support
+  * Default: Open documents in page mode
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 01 Jun 2023 10:29:08 +0100
+
 xreader (3.6.3) vera; urgency=medium
 
   [ Michael Webster ]
