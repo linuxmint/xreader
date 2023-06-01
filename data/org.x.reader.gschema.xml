@@ -48,7 +48,7 @@
       <default>(0., 0.)</default>
     </key>
     <key name="sizing-mode" enum="org.x.reader.SizingMode">
-      <default>'fit-width'</default>
+      <default>'best-fit'</default>
     </key>
     <key name="zoom" type="d">
       <default>1.</default>
@@ -57,7 +57,7 @@
       <default>false</default>
     </key>
     <key name="continuous" type="b">
-      <default>true</default>
+      <default>false</default>
     </key>
     <key name="dual-page" type="b">
       <default>false</default>
