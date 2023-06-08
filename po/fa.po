@@ -12,15 +12,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-20 16:22+0200\n"
-"PO-Revision-Date: 2022-05-01 11:10+0000\n"
-"Last-Translator: MohammadReza Esehaghzadeh <mohammadrezaese@live.com>\n"
+"PO-Revision-Date: 2023-03-20 17:42+0000\n"
+"Last-Translator: Mr.Ravi <Unknown>\n"
 "Language-Team: Persian (http://www.transifex.com/mate/MATE/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2022-07-24 09:41+0000\n"
-"X-Generator: Launchpad (build 025a39fd866a641b6ae33074cda0d02a2c712d38)\n"
+"X-Launchpad-Export-Date: 2023-06-08 10:21+0000\n"
+"X-Generator: Launchpad (build 620cd5280e3a973662e263ebf9346837ed657a46)\n"
 "Language: fa\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -111,31 +111,31 @@ msgstr "این یک سند ePub نیست"
 
 #: ../backend/epub/epub-document.c:766
 msgid "could not retrieve filename"
-msgstr ""
+msgstr "نام فایل قابل بازیابی نیست"
 
 #: ../backend/epub/epub-document.c:794
 msgid "could not open archive"
-msgstr ""
+msgstr "نمی توان آرشیو را باز کرد"
 
 #: ../backend/epub/epub-document.c:810 ../backend/epub/epub-document.c:826
 msgid "could not extract archive"
-msgstr ""
+msgstr "نمی توان آرشیو را استخراج کرد"
 
 #: ../backend/epub/epub-document.c:858 ../backend/epub/epub-document.c:941
 msgid "could not retrieve container file"
-msgstr ""
+msgstr "نمی توان پرونده حاوی را بازیابی کرد"
 
 #: ../backend/epub/epub-document.c:870
 msgid "could not open container file"
-msgstr ""
+msgstr "نمی توان پرونده حاوی را باز کرد"
 
 #: ../backend/epub/epub-document.c:880
 msgid "container file is corrupt"
-msgstr ""
+msgstr "پرونده حاوی فاسد است"
 
 #: ../backend/epub/epub-document.c:890
 msgid "epub file is invalid or corrupt"
-msgstr ""
+msgstr "فایل epub نامعتبر یا فاسد است"
 
 #: ../backend/epub/epub-document.c:900
 msgid "epub file is corrupt, no container"

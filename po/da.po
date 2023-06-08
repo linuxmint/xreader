@@ -12,15 +12,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-20 16:22+0200\n"
-"PO-Revision-Date: 2022-06-20 16:10+0000\n"
+"PO-Revision-Date: 2023-02-28 18:04+0000\n"
 "Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/mate/MATE/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2022-07-24 09:41+0000\n"
-"X-Generator: Launchpad (build 025a39fd866a641b6ae33074cda0d02a2c712d38)\n"
+"X-Launchpad-Export-Date: 2023-06-08 10:21+0000\n"
+"X-Generator: Launchpad (build 620cd5280e3a973662e263ebf9346837ed657a46)\n"
 "Language: da\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -299,7 +299,7 @@ msgstr "Filen er ikke en gyldig .desktop-fil"
 #: ../cut-n-paste/smclient/eggdesktopfile.c:188
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
-msgstr "Ukendt version \"%s\" af desktop-fil"
+msgstr "Ukendt version “%s” af desktop-filen"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:957
 #, c-format
@@ -471,7 +471,7 @@ msgstr "Kunne ikke udskrive dokument"
 #: ../previewer/ev-previewer-window.c:235
 #, c-format
 msgid "The selected printer '%s' could not be found"
-msgstr "Den valgte printer \"%s\" kunne ikke findes"
+msgstr "Den valgte printer “%s” kunne ikke findes"
 
 #. Go menu
 #: ../previewer/ev-previewer-window.c:281 ../shell/ev-window.c:6234
@@ -616,13 +616,13 @@ msgstr ""
 "Skalér sider i dokumentet, så de passer til den valgte printerside. Vælg en "
 "af følgende muligheder:\n"
 "\n"
-"• \"Ingen\": Der udføres ikke nogen sideskalering.\n"
+"• “Ingen”: Der udføres ikke nogen sideskalering.\n"
 "\n"
-"• \"Formindsk til printbart område\": Dokumentsider som er større end det "
+"• “Formindsk til printbart område”: Dokumentsider som er større end det "
 "printbare område reduceres, således at de passer til printersidens printbare "
 "område.\n"
 "\n"
-"• \"Tilpas til printbart område\": Dokumentsider bliver forstørret eller "
+"• “Tilpas til printbart område”: Dokumentsider bliver forstørret eller "
 "formindsket i passende grad, således at de passer til printersidens "
 "printbare område.\n"
 
@@ -1380,7 +1380,7 @@ msgstr "_Egenskaber"
 
 #: ../shell/ev-window.c:6158
 msgid "_Close All Windows"
-msgstr "_Luk alle vinduer"
+msgstr "Luk _alle vinduer"
 
 #: ../shell/ev-window.c:6162
 msgid "_Close"

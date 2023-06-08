@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-20 16:22+0200\n"
-"PO-Revision-Date: 2022-07-21 08:49+0000\n"
+"PO-Revision-Date: 2023-06-06 18:06+0000\n"
 "Last-Translator: Kimmo Kujansuu <Unknown>\n"
 "Language-Team: Finnish (http://www.transifex.com/mate/MATE/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2022-07-24 09:41+0000\n"
-"X-Generator: Launchpad (build 025a39fd866a641b6ae33074cda0d02a2c712d38)\n"
+"X-Launchpad-Export-Date: 2023-06-08 10:21+0000\n"
+"X-Generator: Launchpad (build 620cd5280e3a973662e263ebf9346837ed657a46)\n"
 "Language: fi\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -26,13 +26,12 @@ msgstr ""
 msgid ""
 "Error launching the command “%s” in order to decompress the comic book: %s"
 msgstr ""
-"Virhe käynnistettäessä komentoa ”%s” sarjakuvakirjan pakkauksen "
-"purkamiseksi: %s"
+"Virhe aloittaessa komentoa ”%s” sarjakuvakirjan paketin purkamiseksi: %s"
 
 #: ../backend/comics/comics-document.c:222
 #, c-format
 msgid "The command “%s” failed at decompressing the comic book."
-msgstr "Komento ”%s” epäonnistui sarjakuvakirjan pakkauksen purkamisessa."
+msgstr "Komento ”%s” epäonnistui sarjakuvakirjan paketin purkamisessa."
 
 #: ../backend/comics/comics-document.c:231
 #, c-format
@@ -48,7 +47,7 @@ msgstr "Ei ole sarjakuvakirjan MIME-tyyppi: %s"
 msgid ""
 "Can't find an appropriate command to decompress this type of comic book"
 msgstr ""
-"Ei löytynyt sopivaa komentoa, jolla avata tämän tyyppiset sarjakuvakirjat"
+"Sopivaa komentoa tämän tyyppisen sarjakuvan pakkauksen purkamiseen ei löydy"
 
 #: ../backend/comics/comics-document.c:540 ../backend/epub/epub-document.c:644
 #: ../libdocument/ev-document-factory.c:145
@@ -67,7 +66,7 @@ msgstr "Arkistossa ei ole tiedostoja"
 #: ../backend/comics/comics-document.c:619
 #, c-format
 msgid "No images found in archive %s"
-msgstr "Arkistosta ”%s” ei löytynyt kuvia"
+msgstr "Arkistosta ”%s” ei löytynyt"
 
 #: ../backend/comics/comics-document.c:866 ../backend/epub/epub-document.c:1813
 #, c-format
@@ -426,7 +425,7 @@ msgstr "6400%"
 
 #: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer"
-msgstr "Tiedostokatselin"
+msgstr "Asiakirjakatselin"
 
 #: ../data/xreader.appdata.xml.in.h:2
 msgid ""
@@ -436,11 +435,11 @@ msgid ""
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
 msgstr ""
-"<p>XReader on yksinkertainen useampisivuisen tiedoston katselin. Se osaa "
-"näyttää ja tulostaa PostScript-, EPS-, DJVU-, DVI-, XPS- ja PDF-tiedostoja "
-"samoin kuin sarjakuva-arkistotiedostoja. Jos tiedosto ominaisuutta tukee, "
-"ohjelma osaa etsiä tekstiä ja kopioida sitä leikepöydälle, liikkua "
-"tiedostossa hypertekstinä ja merkitä kirjanmerkkejä sisällykseen.</p>"
+"<p>XReader on helppo monisivuisten tiedostojen katselu-ohjelma. Se osaa "
+"näyttää / tulostaa PostScript-, EPS-, DJVU-, DVI-, XPS- ja PDF-tiedostoja, "
+"sekä sarjakuvia. Mahdollista myös haku tekstistä, tekstin kopiointi "
+"leikepöydälle, liikkuminen hyperlinkeissä ja sisällysluettelon "
+"kirjanmerkeissä.</p>"
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
 #: ../shell/main.c:239 ../shell/main.c:268
@@ -475,7 +474,7 @@ msgstr "Valittua tulostinta ”%s” ei löytynyt"
 #. Go menu
 #: ../previewer/ev-previewer-window.c:281 ../shell/ev-window.c:6234
 msgid "_Previous Page"
-msgstr "E_dellinen sivu"
+msgstr "E_dellinen"
 
 #: ../previewer/ev-previewer-window.c:282 ../shell/ev-window.c:6236
 msgid "Go to the previous page"
@@ -483,7 +482,7 @@ msgstr "Siirry edelliselle sivulle"
 
 #: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:6238
 msgid "_Next Page"
-msgstr "_Seuraava sivu"
+msgstr "_Seuraava"
 
 #: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:6240
 msgid "Go to the next page"
@@ -518,15 +517,15 @@ msgstr "_Paras sovitus"
 
 #: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:6438
 msgid "Make the current document fill the window"
-msgstr "Sovita nykyinen asiakirja ikkunan kokoiseksi"
+msgstr "Sovita asiakirja ikkunan kokoiseksi"
 
 #: ../previewer/ev-previewer-window.c:344 ../shell/ev-window.c:6440
 msgid "Fit Page _Width"
-msgstr "So_vita sivun leveys"
+msgstr "So_vita leveyteen"
 
 #: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:6442
 msgid "Make the current document fill the window width"
-msgstr "Sovita nykyinen asiakirja täyttämään ikkunan leveys"
+msgstr "Sovita asiakirja täyttämään ikkunan leveys"
 
 #: ../previewer/ev-previewer-window.c:561 ../shell/ev-window.c:6609
 msgid "Page"
@@ -572,7 +571,7 @@ msgstr "Pyydettyä formaattia ei tueta tässä tulostimessa."
 
 #: ../libview/ev-print-operation.c:1247
 msgid "Invalid page selection"
-msgstr "Virheellinen sivuvalinta"
+msgstr "Virheellinen sivun valinta"
 
 #: ../libview/ev-print-operation.c:1248
 msgid "Warning"
@@ -580,7 +579,7 @@ msgstr "Varoitus"
 
 #: ../libview/ev-print-operation.c:1250
 msgid "Your print range selection does not include any pages"
-msgstr "Tulostuksen sivualuevalinta ei sisällä yhtään sivua"
+msgstr "Tulostuksen aluevalinta ei sisällä yhtään sivua"
 
 #: ../libview/ev-print-operation.c:1937
 msgid "Page Scaling:"
@@ -615,15 +614,13 @@ msgstr ""
 "Skaalaa asiakirjan sivut sopimaan tulostimen sivuille. Valitse yksi "
 "seuraavista:\n"
 "\n"
-"• ”Ei mitään”: Sivunskaalausta ei tehdä.\n"
+"• ”Ei mitään”: Skaalausta ei tehdä.\n"
 "\n"
-"• ”Kutista tulostettavaan alueeseen”: Tulostettavaa aluetta suuremmat "
-"asiakirjan sivut kutistetaan sopimaan tulostimen sivun tulostettaan "
-"alueeseen.\n"
+"• ”Kutista tulostettavaan alueeseen”: Tulostettavaa aluetta suuremmat sivut "
+"kutistetaan sopimaan tulostimen sivun alueeseen.\n"
 "\n"
-"• ”Sovita tulostettavaan alueeseen”: Asiakirjan sivuja kasvatetaan tai "
-"kutistetaan tarpeen mukaan sopimaan tulostimen sivun tulostettavaan "
-"alueeseen.\n"
+"• ”Sovita tulostettavaan alueeseen”: Sivuja kasvatetaan tai kutistetaan "
+"tarpeen mukaan sopimaan tulostimen sivun alueeseen.\n"
 
 #: ../libview/ev-print-operation.c:1960
 msgid "Auto Rotate and Center"
@@ -634,24 +631,23 @@ msgid ""
 "Rotate printer page orientation of each page to match orientation of each "
 "document page. Document pages will be centered within the printer page."
 msgstr ""
-"Käännä tulostimen sivusuunta jokaiselle sivulle täsmäämään asiakirjan sivun "
-"suuntaa. Asiakirjan sivut keskitetään tulostettavalle sivulle."
+"Käännä jokaisen sivun suunta vastaamaan kunkin asiakirjan sivun suuntaa. "
+"Asiakirjat keskitetään tulostimen sivun mukaan."
 
 #: ../libview/ev-print-operation.c:1968
 msgid "Select page size using document page size"
-msgstr "Valitse sivukoko käyttämällä asiakirjan sivukokoa"
+msgstr "Valitse sivun koko käyttäen asiakirjan sivun kokoa"
 
 #: ../libview/ev-print-operation.c:1970
 msgid ""
 "When enabled, each page will be printed on the same size paper as the "
 "document page."
 msgstr ""
-"Jos valittuna, jokainen sivu tulostetaan samaan paperikokoon kuin asiakirjan "
-"sivu."
+"Jos valittuna, jokainen sivu tulostetaan samaan paperikokoon kuin asiakirja."
 
 #: ../libview/ev-print-operation.c:2052
 msgid "Page Handling"
-msgstr "Sivunkäsittely"
+msgstr "Sivun käsittely"
 
 #: ../libview/ev-jobs.c:1741
 #, c-format
@@ -684,7 +680,7 @@ msgstr "Siirry sivulle:"
 
 #: ../libview/ev-view-presentation.c:997
 msgid "End of presentation. Click to exit."
-msgstr "Esitys päättyi. Sulje napsauttamalla."
+msgstr "Esitys päättyi. Sulje painamalla."
 
 #: ../libview/ev-view.c:1857
 msgid "Go to first page"
@@ -931,7 +927,7 @@ msgstr "_Unohda salasana heti"
 
 #: ../shell/ev-password-view.c:369
 msgid "Remember password until you _log out"
-msgstr "_Muista salasana uloskirjautumiseen saakka"
+msgstr "_Muista salasanakirjautumiseen ulos saakka"
 
 #: ../shell/ev-password-view.c:381
 msgid "Remember _forever"
@@ -939,7 +935,7 @@ msgstr "Muista _pysyvästi"
 
 #: ../shell/ev-preferences-dialog.c:117 ../shell/ev-preferences-dialog.ui.h:1
 msgid "Toolbar"
-msgstr "Työkalupalkki"
+msgstr "Työkalut"
 
 #: ../shell/ev-preferences-dialog.c:139 ../shell/ev-window.c:6200
 msgid "Preferences"
@@ -947,7 +943,7 @@ msgstr "Asetukset"
 
 #: ../shell/ev-preferences-dialog.ui.h:2
 msgid "Show history buttons"
-msgstr "Näytä lukuhistorian selauspainikkeet"
+msgstr "Näytä lukuhistorian painikkeet"
 
 #: ../shell/ev-preferences-dialog.ui.h:3
 msgid "Show expand window button"
@@ -955,7 +951,7 @@ msgstr "Näytä sovita ikkunaan painike"
 
 #: ../shell/ev-preferences-dialog.ui.h:4
 msgid "Show zoom level selector"
-msgstr "Näytä suurennus taso prosentteina"
+msgstr "Näytä suurennus prosentteina"
 
 #: ../shell/ev-properties-dialog.c:63
 msgid "Properties"
@@ -1077,15 +1073,15 @@ msgstr ""
 
 #: ../shell/ev-toolbar.c:291
 msgid "Select or set the zoom level of the document"
-msgstr "Valitse tai aseta asiakirjan suurennos"
+msgstr "Valitse tai aseta suurennos"
 
 #: ../shell/ev-window.c:1029
 msgid ""
 "Cannot enter presentation mode with ePub documents, use fullscreen mode "
 "instead."
 msgstr ""
-"Ei voida siirtyä esitystilaan käytettäessä ePub -asiakirjoja, käytä koko "
-"näyttöä sen sijaan."
+"Ei voi siirtyä esitystilaan ePub-asiakirjoilla, käytä koko näytön tilaa sen "
+"sijaan."
 
 #: ../shell/ev-window.c:1505
 msgid "The document contains no pages"
@@ -1097,7 +1093,7 @@ msgstr "Asiakirja sisältää vain tyhjiä sivuja"
 
 #: ../shell/ev-window.c:1546
 msgid "Presentation mode is not supported for ePub documents."
-msgstr "Esitystilaa ei tueta ePub -asiakirjoissa."
+msgstr "Esitystilaa ei tueta ePub-asiakirjoihin."
 
 #: ../shell/ev-window.c:1732 ../shell/ev-window.c:1896
 msgid "Unable to open document"
@@ -1115,7 +1111,7 @@ msgstr "Noudetaan asiakirjaa (%d %%)"
 
 #: ../shell/ev-window.c:2042
 msgid "Failed to load remote file."
-msgstr "Etätiedostoa ei voitu ladata."
+msgstr "Tiedostoa ei voitu ladata ulkopuolelta."
 
 #: ../shell/ev-window.c:2241
 #, c-format
@@ -1249,7 +1245,7 @@ msgstr "Sulje tulostuksen _jälkeen"
 
 #: ../shell/ev-window.c:4186
 msgid "Presentation mode is not supported for ePub documents"
-msgstr "Esitystilaa ei tueta ePub -asiakirjoissa"
+msgstr "Esitystilaa ei tueta ePub-asiakirjoihin"
 
 #: ../shell/ev-window.c:4825
 msgid "There was an error displaying help"
@@ -1310,7 +1306,7 @@ msgstr "Ei löydy"
 #: ../shell/ev-window.c:5455
 #, c-format
 msgid "%3d%% remaining to search"
-msgstr "%3d %% haettavasta jäljellä"
+msgstr "%3d %% hakua jäljellä"
 
 #: ../shell/ev-window.c:6129
 msgid "_File"
@@ -1355,11 +1351,11 @@ msgstr "Avaa olemassa oleva asiakirja"
 
 #: ../shell/ev-window.c:6142
 msgid "Op_en a Copy"
-msgstr "Avaa _kopio"
+msgstr "Avaa _kopiona"
 
 #: ../shell/ev-window.c:6144
 msgid "Open a copy of the current document in a new window"
-msgstr "Avaa kopio nykyisestä asiakirjasta uudessa ikkunassa"
+msgstr "Avaa kopio asiakirjasta uudessa ikkunassa"
 
 #: ../shell/ev-window.c:6146
 msgid "_Save a Copy…"
@@ -1400,19 +1396,19 @@ msgstr "_Etsi…"
 
 #: ../shell/ev-window.c:6178
 msgid "Find a word or phrase in the document"
-msgstr "Etsi sanaa tai lausetta asiakirjasta"
+msgstr "Etsi sanaa tai lausetta"
 
 #: ../shell/ev-window.c:6188
 msgid "Rotate _Left"
-msgstr "Kierrä _vasemmalle"
+msgstr "Käännä _vasemmalle"
 
 #: ../shell/ev-window.c:6192
 msgid "Rotate _Right"
-msgstr "Kierrä _oikealle"
+msgstr "Käännä _oikealle"
 
 #: ../shell/ev-window.c:6196
 msgid "Save Current Settings as _Default"
-msgstr "Tallenna nykyiset asetukset _oletusarvoiksi"
+msgstr "Tallenna asetukset _oletusarvoiksi"
 
 #. View menu
 #: ../shell/ev-window.c:6207
@@ -1449,7 +1445,7 @@ msgstr "Vieritä _automaattisesti"
 
 #: ../shell/ev-window.c:6242
 msgid "_First Page"
-msgstr "_Ensimmäinen sivu"
+msgstr "_Ensimmäinen"
 
 #: ../shell/ev-window.c:6244
 msgid "Go to the first page"
@@ -1457,7 +1453,7 @@ msgstr "Siirry ensimmäiselle sivulle"
 
 #: ../shell/ev-window.c:6246
 msgid "_Last Page"
-msgstr "_Viimeinen sivu"
+msgstr "_Viimeinen"
 
 #: ../shell/ev-window.c:6248
 msgid "Go to the last page"
@@ -1478,7 +1474,7 @@ msgstr "_Lisää kirjanmerkki"
 
 #: ../shell/ev-window.c:6262
 msgid "Add a bookmark for the current page"
-msgstr "Lisää nykyisen sivun kirjanmerkki"
+msgstr "Lisää sivulle kirjanmerkki"
 
 #. Help menu
 #: ../shell/ev-window.c:6266
@@ -1509,7 +1505,7 @@ msgstr "Käynnistä asiakirjan esitys"
 #. View Menu
 #: ../shell/ev-window.c:6400
 msgid "_Menubar"
-msgstr "_Valikkopalkki"
+msgstr "Valik_ko"
 
 #: ../shell/ev-window.c:6402
 msgid "Show or hide the menubar"
@@ -1517,7 +1513,7 @@ msgstr "Näytä tai piilota valikkopalkki"
 
 #: ../shell/ev-window.c:6404
 msgid "_Toolbar"
-msgstr "_Työkalupalkki"
+msgstr "_Työkalut"
 
 #: ../shell/ev-window.c:6406
 msgid "Show or hide the toolbar"
@@ -1541,7 +1537,7 @@ msgstr "Näytä koko asiakirja"
 
 #: ../shell/ev-window.c:6416
 msgid "_Dual (Even pages left)"
-msgstr "_Aukeama (parilliset sivut vasemmalla)"
+msgstr "_Aukeama (parillisia sivuja)"
 
 #: ../shell/ev-window.c:6418
 msgid "Show two pages at once with even pages on the left"
@@ -1551,7 +1547,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:6420
 msgid "Dual (_Odd pages left)"
-msgstr "Aukeama (paritt_omat sivut vasemmalla)"
+msgstr "Aukeama (_parittomia sivuja)"
 
 #: ../shell/ev-window.c:6422
 msgid "Show two pages at once with odd pages on the left"
@@ -1648,12 +1644,12 @@ msgstr "Seuraava"
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6653
 msgid "Zoom In"
-msgstr "Lähennä"
+msgstr "Suurempi"
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6657
 msgid "Zoom Out"
-msgstr "Loitonna"
+msgstr "Pienempi"
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6669

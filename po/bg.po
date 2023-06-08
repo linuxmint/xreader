@@ -18,15 +18,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-20 16:22+0200\n"
-"PO-Revision-Date: 2019-12-08 11:27+0000\n"
-"Last-Translator: spacy01 <Unknown>\n"
+"PO-Revision-Date: 2022-09-20 20:26+0000\n"
+"Last-Translator: Nikolay Trifonov <trifonov88@gmail.com>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/mate/MATE/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2022-07-24 09:41+0000\n"
-"X-Generator: Launchpad (build 025a39fd866a641b6ae33074cda0d02a2c712d38)\n"
+"X-Launchpad-Export-Date: 2023-06-08 10:21+0000\n"
+"X-Generator: Launchpad (build 620cd5280e3a973662e263ebf9346837ed657a46)\n"
 "Language: bg\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -1210,7 +1210,7 @@ msgstr "Запазване на _копие"
 
 #: ../shell/ev-window.c:3668
 msgid "_Save"
-msgstr ""
+msgstr "_Запазване"
 
 #: ../shell/ev-window.c:3669
 msgid "Close _without Saving"
@@ -1303,8 +1303,8 @@ msgstr "Xreader"
 #, c-format
 msgid "%d found on this page (%d total)"
 msgid_plural "%d found on this page (%d total)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d намерен на тази страница (%d общо)"
+msgstr[1] "%d намерени на тази страница (%d общо)"
 
 #: ../shell/ev-window.c:5449 ../shell/ev-window.c:5572
 msgid "Not found"
@@ -1341,11 +1341,11 @@ msgstr "Помо_щ"
 
 #: ../shell/ev-window.c:6135
 msgid "Favorites"
-msgstr ""
+msgstr "Любими"
 
 #: ../shell/ev-window.c:6136
 msgid "Recents"
-msgstr ""
+msgstr "Скорошни"
 
 #. File menu
 #: ../shell/ev-window.c:6138 ../shell/ev-window.c:6623
@@ -1512,11 +1512,11 @@ msgstr "Започване на презентация с документа"
 #. View Menu
 #: ../shell/ev-window.c:6400
 msgid "_Menubar"
-msgstr ""
+msgstr "Лента с _менюта"
 
 #: ../shell/ev-window.c:6402
 msgid "Show or hide the menubar"
-msgstr ""
+msgstr "Покажи или скрий лентата с менюта"
 
 #: ../shell/ev-window.c:6404
 msgid "_Toolbar"
@@ -1562,11 +1562,11 @@ msgstr ""
 
 #: ../shell/ev-window.c:6424
 msgid "Right to Left"
-msgstr ""
+msgstr "От дясно наляво"
 
 #: ../shell/ev-window.c:6426
 msgid "Browse the document from right to left"
-msgstr ""
+msgstr "Прегледайте документа от дясно наляво"
 
 #: ../shell/ev-window.c:6428
 msgid "_Fullscreen"
@@ -1627,7 +1627,7 @@ msgstr "Премахване на анотацията"
 
 #: ../shell/ev-window.c:6470
 msgid "Annotate Selected Text"
-msgstr ""
+msgstr "Добавете бележка към избрания текст"
 
 #: ../shell/ev-window.c:6475
 msgid "_Open Attachment"

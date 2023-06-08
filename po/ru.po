@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-20 16:22+0200\n"
-"PO-Revision-Date: 2022-06-21 04:55+0000\n"
-"Last-Translator: Aleksey Kabanov <Unknown>\n"
+"PO-Revision-Date: 2022-12-31 08:41+0000\n"
+"Last-Translator: Темак <artemkotlubai@yandex.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/mate/MATE/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,20 +24,20 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-"X-Launchpad-Export-Date: 2022-07-24 09:41+0000\n"
-"X-Generator: Launchpad (build 025a39fd866a641b6ae33074cda0d02a2c712d38)\n"
+"X-Launchpad-Export-Date: 2023-06-08 10:21+0000\n"
+"X-Generator: Launchpad (build 620cd5280e3a973662e263ebf9346837ed657a46)\n"
 "Language: ru\n"
 
 #: ../backend/comics/comics-document.c:208
 #, c-format
 msgid ""
 "Error launching the command “%s” in order to decompress the comic book: %s"
-msgstr "Ошибка при запуске программы «%s» для распаковки книги комиксов: %s"
+msgstr "Ошибка при запуске приложения «%s» для извлечения книги комиксов: %s"
 
 #: ../backend/comics/comics-document.c:222
 #, c-format
 msgid "The command “%s” failed at decompressing the comic book."
-msgstr "Команде «%s» не удалось выполнить распаковку книги комиксов."
+msgstr "Команде «%s» не удалось выполнить извлечение книги комиксов."
 
 #: ../backend/comics/comics-document.c:231
 #, c-format
@@ -53,7 +53,7 @@ msgstr "Тип MIME документа не относится к комикса
 msgid ""
 "Can't find an appropriate command to decompress this type of comic book"
 msgstr ""
-"Не удалось найти подходящую команду для распаковки книги комиксов данного "
+"Не удалось найти подходящую команду для извлечения книги комиксов данного "
 "типа"
 
 #: ../backend/comics/comics-document.c:540 ../backend/epub/epub-document.c:644
@@ -107,7 +107,7 @@ msgstr "Документы формата DjVu"
 
 #: ../backend/dvi/dvi-document.c:107
 msgid "DVI document has incorrect format"
-msgstr "Документ DVI имеет некорректный формат"
+msgstr "Документ DVI имеет недействительный формат"
 
 #: ../backend/dvi/dvidocument.xreader-backend.in.h:1
 msgid "DVI Documents"
@@ -127,7 +127,7 @@ msgstr "не удалось открыть архив"
 
 #: ../backend/epub/epub-document.c:810 ../backend/epub/epub-document.c:826
 msgid "could not extract archive"
-msgstr "не удалось распаковать архив"
+msgstr "не удалось извлечь содержимое архива"
 
 #: ../backend/epub/epub-document.c:858 ../backend/epub/epub-document.c:941
 msgid "could not retrieve container file"
@@ -143,7 +143,7 @@ msgstr "контейнер файла поврежден"
 
 #: ../backend/epub/epub-document.c:890
 msgid "epub file is invalid or corrupt"
-msgstr "файл epub некорректен или повреждён"
+msgstr "файл epub недействителен или повреждён"
 
 #: ../backend/epub/epub-document.c:900
 msgid "epub file is corrupt, no container"
@@ -257,7 +257,7 @@ msgstr "Документы формата PostScript"
 
 #: ../backend/tiff/tiff-document.c:114
 msgid "Invalid document"
-msgstr "Некорректный документ"
+msgstr "Недействительный документ"
 
 #: ../libdocument/ev-attachment.c:299 ../libdocument/ev-attachment.c:320
 #, c-format
@@ -295,7 +295,7 @@ msgstr "Не удалось создать временный файл: %s"
 #: ../libdocument/ev-file-helpers.c:309
 #, c-format
 msgid "Failed to create a temporary directory: %s"
-msgstr "Не удалось создать временный каталог: %s"
+msgstr "Не удалось создать временную папку: %s"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:165
 #, c-format
@@ -340,7 +340,7 @@ msgstr "Отключить соединение с менеджером сеан
 
 #: ../cut-n-paste/smclient/eggsmclient.c:227
 msgid "Specify file containing saved configuration"
-msgstr "Укажите файл с сохраненными параметрами"
+msgstr "Укажите файл с сохранёнными настройками"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:227 ../previewer/ev-previewer.c:35
 #: ../previewer/ev-previewer.c:36
@@ -349,19 +349,19 @@ msgstr "ФАЙЛ"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:230
 msgid "Specify session management ID"
-msgstr "Указать ID управления сеансом"
+msgstr "Задать идентификатор управления сеансом"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:230
 msgid "ID"
-msgstr "ID"
+msgstr "ИД"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:251
 msgid "Session management options:"
-msgstr "Параметры управления сеансом:"
+msgstr "Настройки управления сеансом:"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:252
 msgid "Show session management options"
-msgstr "Показать параметры управления сеансом"
+msgstr "Показать настройки управления сеансом"
 
 #. translators: this is the label for toolbar button
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6665
@@ -454,7 +454,7 @@ msgstr ""
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
 #: ../shell/main.c:239 ../shell/main.c:268
 msgid "Document Viewer"
-msgstr "Просмотр документов"
+msgstr "Просмотрщик документов"
 
 #: ../data/xreader.desktop.in.in.h:2
 msgid "View multi-page documents"
@@ -466,7 +466,7 @@ msgstr "Удалить временный файл"
 
 #: ../previewer/ev-previewer.c:35
 msgid "Print settings file"
-msgstr "Напечатать файл параметров"
+msgstr "Файл настроек печати"
 
 #: ../previewer/ev-previewer.c:104 ../previewer/ev-previewer.c:135
 msgid "Print Preview"
@@ -589,7 +589,7 @@ msgstr "Предупреждение"
 
 #: ../libview/ev-print-operation.c:1250
 msgid "Your print range selection does not include any pages"
-msgstr "Выбранный вами диапазон страниц не содержит страниц"
+msgstr "Выбранный вами промежуток страниц не содержит страниц"
 
 #: ../libview/ev-print-operation.c:1937
 msgid "Page Scaling:"
@@ -640,7 +640,7 @@ msgid ""
 "Rotate printer page orientation of each page to match orientation of each "
 "document page. Document pages will be centered within the printer page."
 msgstr ""
-"Изменять ориентацию страницы принтера в соответствии с каждой страницей "
+"Изменять расположение страницы принтера в соответствии с каждой страницей "
 "документа. Страницы документа будут центрированы на странице принтера."
 
 #: ../libview/ev-print-operation.c:1968
@@ -985,7 +985,7 @@ msgstr "Шрифт"
 #: ../shell/ev-properties-fonts.c:160
 #, c-format
 msgid "Gathering font information… %3d%%"
-msgstr "Собирается информация о шрифтах… %3d%%"
+msgstr "Собираются сведения о шрифтах… %3d%%"
 
 #: ../shell/ev-properties-license.c:135
 msgid "Usage terms"
@@ -997,7 +997,7 @@ msgstr "Текст лицензии"
 
 #: ../shell/ev-properties-license.c:147
 msgid "Further Information"
-msgstr "Дополнительная информация"
+msgstr "Дополнительные сведения"
 
 #: ../shell/ev-sidebar-annotations.c:292
 msgid "Document contains no annotations"
@@ -1499,7 +1499,7 @@ msgstr "_Содержание"
 
 #: ../shell/ev-window.c:6271
 msgid "_About"
-msgstr "_О программе"
+msgstr "_О приложении"
 
 #. Toolbar-only
 #: ../shell/ev-window.c:6277
