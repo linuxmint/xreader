@@ -1183,34 +1183,38 @@ msgid ""
 "Document contains form fields that have been filled out. If you don't save a "
 "copy, changes will be permanently lost."
 msgstr ""
+"Sənəddə doldurulmuş forma sahələri var. Əgər surətini saxlamasanız, "
+"dəyişikliklər həmişəlik itiriləcək."
 
 #: ../shell/ev-window.c:3642
 msgid ""
 "Document contains new or modified annotations. If you don't save a copy, "
 "changes will be permanently lost."
 msgstr ""
+"Sənəddə yeni və ya dəyişdirilmiş annotasiyalar var. Əgər surətini saxlamasanız, "
+"dəyişikliklər həmişəlik itiriləcək."
 
 #: ../shell/ev-window.c:3649
 #, c-format
 msgid "Save a copy of document “%s” before closing?"
-msgstr ""
+msgstr "Bağlamadan əvvəl “%s” sənədinin surəti yadda saxlanılsın?"
 
 #: ../shell/ev-window.c:3667
 msgid "Save a _Copy"
-msgstr ""
+msgstr "S_urəti yadda saxlayın"
 
 #: ../shell/ev-window.c:3668
 msgid "_Save"
-msgstr ""
+msgstr "Yadda _Saxla"
 
 #: ../shell/ev-window.c:3669
 msgid "Close _without Saving"
-msgstr ""
+msgstr "Saxlamadan _bağlayın"
 
 #: ../shell/ev-window.c:3748
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
-msgstr ""
+msgstr "Bağlamadan əvvəl “%s” çap işi bitənə qədər gözləyin?"
 
 #. TRANS: the singular form is not really used as n_print_jobs > 1
 #. but some languages distinguish between different plurals forms,
@@ -1292,413 +1296,413 @@ msgstr ""
 
 #: ../shell/ev-window.c:6129
 msgid "_File"
-msgstr ""
+msgstr "_Fayl"
 
 #: ../shell/ev-window.c:6130
 msgid "_Edit"
-msgstr ""
+msgstr "_Redaktə et"
 
 #: ../shell/ev-window.c:6131
 msgid "_View"
-msgstr ""
+msgstr "_Görünüş"
 
 #: ../shell/ev-window.c:6132
 msgid "_Go"
-msgstr ""
+msgstr "_Get"
 
 #: ../shell/ev-window.c:6133
 msgid "_Bookmarks"
-msgstr ""
+msgstr "_Əlfəcinlər"
 
 #: ../shell/ev-window.c:6134
 msgid "_Help"
-msgstr ""
+msgstr "_Kömək"
 
 #: ../shell/ev-window.c:6135
 msgid "Favorites"
-msgstr ""
+msgstr "Sevimlilər"
 
 #: ../shell/ev-window.c:6136
 msgid "Recents"
-msgstr ""
+msgstr "Son sənədlər"
 
 #. File menu
 #: ../shell/ev-window.c:6138 ../shell/ev-window.c:6623
 msgid "_Open…"
-msgstr ""
+msgstr "_Açın…"
 
 #: ../shell/ev-window.c:6140 ../shell/ev-window.c:6624
 msgid "Open an existing document"
-msgstr ""
+msgstr "Mövcud sənədi açın"
 
 #: ../shell/ev-window.c:6142
 msgid "Op_en a Copy"
-msgstr ""
+msgstr "_Kopyasını açın"
 
 #: ../shell/ev-window.c:6144
 msgid "Open a copy of the current document in a new window"
-msgstr ""
+msgstr "Cari sənədin surətini yeni pəncərədə açın"
 
 #: ../shell/ev-window.c:6146
 msgid "_Save a Copy…"
-msgstr ""
+msgstr "_Nüsxəni yadda saxla…"
 
 #: ../shell/ev-window.c:6148
 msgid "Save a copy of the current document"
-msgstr ""
+msgstr "Cari sənədin surətini saxlayın"
 
 #: ../shell/ev-window.c:6150
 msgid "_Print…"
-msgstr ""
+msgstr "_Çap et…"
 
 #: ../shell/ev-window.c:6154
 msgid "P_roperties"
-msgstr ""
+msgstr "_Xüsusiyyətlər"
 
 #: ../shell/ev-window.c:6158
 msgid "_Close All Windows"
-msgstr ""
+msgstr "_Bütün pəncərələri bağla"
 
 #: ../shell/ev-window.c:6162
 msgid "_Close"
-msgstr ""
+msgstr "_Bağla"
 
 #. Edit menu
 #: ../shell/ev-window.c:6168
 msgid "_Copy"
-msgstr ""
+msgstr "_Kopyala"
 
 #: ../shell/ev-window.c:6172
 msgid "Select _All"
-msgstr ""
+msgstr "H_amısını seç"
 
 #: ../shell/ev-window.c:6176
 msgid "_Find…"
-msgstr ""
+msgstr "_Tap…"
 
 #: ../shell/ev-window.c:6178
 msgid "Find a word or phrase in the document"
-msgstr ""
+msgstr "Sənəddə bir söz və ya ifadə tapın"
 
 #: ../shell/ev-window.c:6188
 msgid "Rotate _Left"
-msgstr ""
+msgstr "_Sola çevirin"
 
 #: ../shell/ev-window.c:6192
 msgid "Rotate _Right"
-msgstr ""
+msgstr "_Sağa çevirin"
 
 #: ../shell/ev-window.c:6196
 msgid "Save Current Settings as _Default"
-msgstr ""
+msgstr "Cari Parametrləri _Default olaraq yadda saxlayın"
 
 #. View menu
 #: ../shell/ev-window.c:6207
 msgid "_Original size"
-msgstr ""
+msgstr "_Orijinal ölçü"
 
 #: ../shell/ev-window.c:6209
 msgid "View the document at its original size"
-msgstr ""
+msgstr "Sənədə orijinal ölçüsündə baxın"
 
 #: ../shell/ev-window.c:6211
 msgid "Zoom _In"
-msgstr ""
+msgstr "_Böyüdün"
 
 #: ../shell/ev-window.c:6215
 msgid "Zoom _Out"
-msgstr ""
+msgstr "_Kiçiltmək"
 
 #: ../shell/ev-window.c:6219
 msgid "_Reload"
-msgstr ""
+msgstr "_Yenidən yükləyin"
 
 #: ../shell/ev-window.c:6221
 msgid "Reload the document"
-msgstr ""
+msgstr "Sənədi yenidən yükləyin"
 
 #: ../shell/ev-window.c:6223
 msgid "_Expand Window to Fit"
-msgstr ""
+msgstr "Sığdırmaq üçün Pəncərəni g_enişləndirin"
 
 #: ../shell/ev-window.c:6228
 msgid "Auto_scroll"
-msgstr ""
+msgstr "Avtomatik _sürüşdürmə"
 
 #: ../shell/ev-window.c:6242
 msgid "_First Page"
-msgstr ""
+msgstr "Birinci Səhi_fə"
 
 #: ../shell/ev-window.c:6244
 msgid "Go to the first page"
-msgstr ""
+msgstr "Birinci səhifəyə keçin"
 
 #: ../shell/ev-window.c:6246
 msgid "_Last Page"
-msgstr ""
+msgstr "_Son səhifə"
 
 #: ../shell/ev-window.c:6248
 msgid "Go to the last page"
-msgstr ""
+msgstr "Son səhifəyə keçin"
 
 #: ../shell/ev-window.c:6250
 msgid "Previous History Item"
-msgstr ""
+msgstr "Əvvəlki Tarix Elementi"
 
 #: ../shell/ev-window.c:6254
 msgid "Next History Item"
-msgstr ""
+msgstr "Növbəti Tarix Elementi"
 
 #. Bookmarks menu
 #: ../shell/ev-window.c:6260
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "Ə_lfəcin əlavə edin"
 
 #: ../shell/ev-window.c:6262
 msgid "Add a bookmark for the current page"
-msgstr ""
+msgstr "Cari səhifə üçün əlfəcin əlavə edin"
 
 #. Help menu
 #: ../shell/ev-window.c:6266
 msgid "_Contents"
-msgstr ""
+msgstr "_Məzmun"
 
 #: ../shell/ev-window.c:6271
 msgid "_About"
-msgstr ""
+msgstr "H_aqqında"
 
 #. Toolbar-only
 #: ../shell/ev-window.c:6277
 msgid "Leave Fullscreen"
-msgstr ""
+msgstr "Tam ekrandan çıxın"
 
 #: ../shell/ev-window.c:6279
 msgid "Leave fullscreen mode"
-msgstr ""
+msgstr "Tam ekran rejimini tərk edin"
 
 #: ../shell/ev-window.c:6281
 msgid "Start Presentation"
-msgstr ""
+msgstr "Təqdimatı başlat"
 
 #: ../shell/ev-window.c:6283
 msgid "Start a presentation"
-msgstr ""
+msgstr "Bir təqdimatı başlat"
 
 #. View Menu
 #: ../shell/ev-window.c:6400
 msgid "_Menubar"
-msgstr ""
+msgstr "_Menyu çubuğu"
 
 #: ../shell/ev-window.c:6402
 msgid "Show or hide the menubar"
-msgstr ""
+msgstr "Menyu çubuğunu göstər və ya gizlət"
 
 #: ../shell/ev-window.c:6404
 msgid "_Toolbar"
-msgstr ""
+msgstr "Alə_t zolağı"
 
 #: ../shell/ev-window.c:6406
 msgid "Show or hide the toolbar"
-msgstr ""
+msgstr "Axtarış çubuğunu gizlət və ya göstər"
 
 #: ../shell/ev-window.c:6408
 msgid "Side _Pane"
-msgstr ""
+msgstr "Yan _Panel"
 
 #: ../shell/ev-window.c:6410
 msgid "Show or hide the side pane"
-msgstr ""
+msgstr "Yan paneli göstər və ya gizlə"
 
 #: ../shell/ev-window.c:6412
 msgid "_Continuous"
-msgstr ""
+msgstr "_Ard Arda"
 
 #: ../shell/ev-window.c:6414
 msgid "Show the entire document"
-msgstr ""
+msgstr "Bütün sənədi göstər"
 
 #: ../shell/ev-window.c:6416
 msgid "_Dual (Even pages left)"
-msgstr ""
+msgstr "İkili (_Cüt səhifələr solda)"
 
 #: ../shell/ev-window.c:6418
 msgid "Show two pages at once with even pages on the left"
-msgstr ""
+msgstr "Solda cüt səhifələrlə eyni anda iki səhifə göstərin"
 
 #: ../shell/ev-window.c:6420
 msgid "Dual (_Odd pages left)"
-msgstr ""
+msgstr "İk_ili (Tək səhifələr solda)"
 
 #: ../shell/ev-window.c:6422
 msgid "Show two pages at once with odd pages on the left"
-msgstr ""
+msgstr "Solda tək səhifələrlə eyni anda iki səhifə göstərin"
 
 #: ../shell/ev-window.c:6424
 msgid "Right to Left"
-msgstr ""
+msgstr "Sağdan sola"
 
 #: ../shell/ev-window.c:6426
 msgid "Browse the document from right to left"
-msgstr ""
+msgstr "Sənədi sağdan sola gözdən keçirin"
 
 #: ../shell/ev-window.c:6428
 msgid "_Fullscreen"
-msgstr ""
+msgstr "Tam _ekran"
 
 #: ../shell/ev-window.c:6430
 msgid "Expand the window to fill the screen"
-msgstr ""
+msgstr "Ekranı doldurmaq üçün pəncərəni genişləndirin"
 
 #: ../shell/ev-window.c:6432
 msgid "Pre_sentation"
-msgstr ""
+msgstr "Tə_qdimat"
 
 #: ../shell/ev-window.c:6434
 msgid "Run document as a presentation"
-msgstr ""
+msgstr "Sənədi təqdimat kimi işlədin"
 
 #: ../shell/ev-window.c:6444
 msgid "_Inverted Colors"
-msgstr ""
+msgstr "_Tərs Rənglər"
 
 #: ../shell/ev-window.c:6446
 msgid "Show page contents with the colors inverted"
-msgstr ""
+msgstr "Səhifə məzmununu tərs rənglərlə göstərin"
 
 #. Links
 #: ../shell/ev-window.c:6454
 msgid "_Open Link"
-msgstr ""
+msgstr "_Linki aç"
 
 #: ../shell/ev-window.c:6456
 msgid "_Go To"
-msgstr ""
+msgstr "_Get"
 
 #: ../shell/ev-window.c:6458
 msgid "Open in New _Window"
-msgstr ""
+msgstr "Yeni _Pəncərədə açın"
 
 #: ../shell/ev-window.c:6460
 msgid "_Copy Link Address"
-msgstr ""
+msgstr "_Link Ünvanını _Kopyala"
 
 #: ../shell/ev-window.c:6462
 msgid "_Save Image As…"
-msgstr ""
+msgstr "_Şəkli Saxla…"
 
 #: ../shell/ev-window.c:6464
 msgid "Copy _Image"
-msgstr ""
+msgstr "_Şək_ili kopyalayın"
 
 #: ../shell/ev-window.c:6466
 msgid "Annotation Properties…"
-msgstr ""
+msgstr "Annotasiya Xüsusiyyətləri…"
 
 #: ../shell/ev-window.c:6468
 msgid "Remove Annotation"
-msgstr ""
+msgstr "Annotasiyanı silin"
 
 #: ../shell/ev-window.c:6470
 msgid "Annotate Selected Text"
-msgstr ""
+msgstr "Seçilmiş mətnə şərh yazın"
 
 #: ../shell/ev-window.c:6475
 msgid "_Open Attachment"
-msgstr ""
+msgstr "Q_oşmanı aç"
 
 #: ../shell/ev-window.c:6477
 msgid "_Save Attachment As…"
-msgstr ""
+msgstr "_Qoşma kimi yadda saxla…"
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6644
 msgid "Previous"
-msgstr ""
+msgstr "Əvvəlki"
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6649
 msgid "Next"
-msgstr ""
+msgstr "Sonrakı"
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6653
 msgid "Zoom In"
-msgstr ""
+msgstr "Yaxınlaşdır"
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6657
 msgid "Zoom Out"
-msgstr ""
+msgstr "Uzaqlaşdır"
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6669
 msgid "Fit Width"
-msgstr ""
+msgstr "Uyğun En"
 
 #: ../shell/ev-window.c:6846 ../shell/ev-window.c:6862
 msgid "Unable to launch external application."
-msgstr ""
+msgstr "Xarici tətbiqi işə salmaq mümkün deyil."
 
 #: ../shell/ev-window.c:6920
 msgid "Unable to open external link"
-msgstr ""
+msgstr "Xarici linki açmaq mümkün deyil"
 
 #: ../shell/ev-window.c:7131
 msgid "Couldn't find appropriate format to save image"
-msgstr ""
+msgstr "Şəkli saxlamaq üçün uyğun format tapmaq mümkün olmadı."
 
 #: ../shell/ev-window.c:7162
 msgid "The image could not be saved."
-msgstr ""
+msgstr "Şəkli saxlamaq mümkün olmadı."
 
 #: ../shell/ev-window.c:7195
 msgid "Save Image"
-msgstr ""
+msgstr "Şəkli Saxla"
 
 #: ../shell/ev-window.c:7345
 msgid "Unable to open attachment"
-msgstr ""
+msgstr "Qoşmanı açmaq mümkün deyil"
 
 #: ../shell/ev-window.c:7402
 msgid "The attachment could not be saved."
-msgstr ""
+msgstr "Qoşmanı saxlamaq mümkün olmadı."
 
 #: ../shell/ev-window.c:7448
 msgid "Save Attachment"
-msgstr ""
+msgstr "Qoşmanı yadda saxla"
 
 #: ../shell/ev-window-title.c:170
 #, c-format
 msgid "%s — Password Required"
-msgstr ""
+msgstr "%s — Şifrə tələb olunur"
 
 #: ../shell/ev-utils.c:107
 msgid "By extension"
-msgstr ""
+msgstr "Uzantı ilə"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."
-msgstr ""
+msgstr "Göstəriləcək sənədin səhifə etiketi."
 
 #: ../shell/main.c:66
 msgid "PAGE"
-msgstr ""
+msgstr "SƏHİFƏ"
 
 #: ../shell/main.c:67
 msgid "The page number of the document to display."
-msgstr ""
+msgstr "Göstəriləcək sənədin səhifə nömrəsi."
 
 #: ../shell/main.c:67
 msgid "NUMBER"
-msgstr ""
+msgstr "RƏQƏM"
 
 #: ../shell/main.c:68
 msgid "Run xreader in fullscreen mode"
-msgstr ""
+msgstr "Göstəriləcək təyinat təyin edilib."
 
 #: ../shell/main.c:69
 msgid "Named destination to display."
-msgstr ""
+msgstr "Göstəriləcək təyinat təyin edilib."
 
 #: ../shell/main.c:69
 msgid "DEST"
@@ -1706,15 +1710,15 @@ msgstr ""
 
 #: ../shell/main.c:70
 msgid "Run xreader in presentation mode"
-msgstr ""
+msgstr "Xreader-i təqdimat rejimində  işə salın"
 
 #: ../shell/main.c:71
 msgid "Run xreader as a previewer"
-msgstr ""
+msgstr "Xreader-i önizləyici kimi işə salın"
 
 #: ../shell/main.c:72
 msgid "The word or phrase to find in the document"
-msgstr ""
+msgstr "Sənəddə tapılacaq söz və ya ifadə"
 
 #: ../shell/main.c:72
 msgid "STRING"
