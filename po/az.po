@@ -1,15 +1,18 @@
-# Azerbaijani translation for linuxmint
-# Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
-# This file is distributed under the same license as the linuxmint package.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Aqil Məmmədov <aqilll083@gmail.com>, 2023
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: linuxmint\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Project-Id-Version: MATE Desktop Environment\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-20 16:22+0200\n"
 "PO-Revision-Date: 2019-09-22 05:38+0000\n"
-"Last-Translator: Hasan Salehov <Unknown>\n"
+"Last-Translator: Aqil Məmmədov <aqilll083@gmail.com>\n"
 "Language-Team: Azerbaijani <az@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,50 +26,52 @@ msgstr ""
 msgid ""
 "Error launching the command “%s” in order to decompress the comic book: %s"
 msgstr ""
+"Komiks kitabını açmaq üçün “%s” əmrini işə salarkən xəta baş verdi: %s"
 
 #: ../backend/comics/comics-document.c:222
 #, c-format
 msgid "The command “%s” failed at decompressing the comic book."
-msgstr ""
+msgstr "“%s” əmri komiksləri açmaqda uğursuz oldu."
 
 #: ../backend/comics/comics-document.c:231
 #, c-format
 msgid "The command “%s” did not end normally."
-msgstr "“%s” əmri normal sonlandırılmadı"
+msgstr "“%s” əmri normal sonlandırılmadı."
 
 #: ../backend/comics/comics-document.c:459
 #, c-format
 msgid "Not a comic book MIME type: %s"
-msgstr ""
+msgstr "Komik kitab deyil MIME növü: %s"
 
 #: ../backend/comics/comics-document.c:466
 msgid ""
 "Can't find an appropriate command to decompress this type of comic book"
 msgstr ""
+"Bu tip komiksləri açmaq üçün uyğun əmr tapa bilmir"
 
 #: ../backend/comics/comics-document.c:540 ../backend/epub/epub-document.c:644
 #: ../libdocument/ev-document-factory.c:145
 #: ../libdocument/ev-document-factory.c:288
 msgid "Unknown MIME Type"
-msgstr ""
+msgstr "Bilinməyən MIME Type"
 
 #: ../backend/comics/comics-document.c:567
 msgid "File corrupted"
-msgstr ""
+msgstr "Fayl zədələnib"
 
 #: ../backend/comics/comics-document.c:580
 msgid "No files in archive"
-msgstr ""
+msgstr "Arxivdə fayl yoxdur"
 
 #: ../backend/comics/comics-document.c:619
 #, c-format
 msgid "No images found in archive %s"
-msgstr ""
+msgstr "%s arxivində heç bir şəkil tapılmadı"
 
 #: ../backend/comics/comics-document.c:866 ../backend/epub/epub-document.c:1813
 #, c-format
 msgid "There was an error deleting “%s”."
-msgstr ""
+msgstr "“%s” silərkən xəta baş verdi."
 
 #: ../backend/comics/comics-document.c:1015
 #, c-format
@@ -75,17 +80,19 @@ msgstr "%s Xəta"
 
 #: ../backend/comics/comicsdocument.xreader-backend.in.h:1
 msgid "Comic Books"
-msgstr ""
+msgstr "Komiks Kitabları"
 
 #: ../backend/djvu/djvu-document.c:171
 msgid "DjVu document has incorrect format"
-msgstr ""
+msgstr "DjVu sənədinin formatı səhvdir"
 
 #: ../backend/djvu/djvu-document.c:248
 msgid ""
 "The document is composed of several files. One or more of these files cannot "
 "be accessed."
 msgstr ""
+"Sənəd bir neçə fayldan ibarətdir. Bu fayllardan birinə və ya bir neçəsinə"
+"daxil olmaq mümkün deyil."
 
 #: ../backend/djvu/djvudocument.xreader-backend.in.h:1
 msgid "DjVu Documents"
@@ -93,7 +100,7 @@ msgstr "DjVu Sənədləri"
 
 #: ../backend/dvi/dvi-document.c:107
 msgid "DVI document has incorrect format"
-msgstr "DVI  sənədi səhv formata malikdir"
+msgstr "DVI sənədi səhv formata malikdir"
 
 #: ../backend/dvi/dvidocument.xreader-backend.in.h:1
 msgid "DVI Documents"
@@ -101,59 +108,59 @@ msgstr "DVI Sənədləri"
 
 #: ../backend/epub/epub-document.c:661
 msgid "Not an ePub document"
-msgstr ""
+msgstr "ePub sənədi deyil"
 
 #: ../backend/epub/epub-document.c:766
 msgid "could not retrieve filename"
-msgstr ""
+msgstr "fayl adını əldə edə bilmədi"
 
 #: ../backend/epub/epub-document.c:794
 msgid "could not open archive"
-msgstr ""
+msgstr "arxivi aça bilmədi"
 
 #: ../backend/epub/epub-document.c:810 ../backend/epub/epub-document.c:826
 msgid "could not extract archive"
-msgstr ""
+msgstr "arxivi çıxara bilmədi"
 
 #: ../backend/epub/epub-document.c:858 ../backend/epub/epub-document.c:941
 msgid "could not retrieve container file"
-msgstr ""
+msgstr "konteyner faylını əldə edə bilmədi"
 
 #: ../backend/epub/epub-document.c:870
 msgid "could not open container file"
-msgstr ""
+msgstr "konteyner faylını aça bilmədi"
 
 #: ../backend/epub/epub-document.c:880
 msgid "container file is corrupt"
-msgstr ""
+msgstr "konteyner faylı zədələnib"
 
 #: ../backend/epub/epub-document.c:890
 msgid "epub file is invalid or corrupt"
-msgstr ""
+msgstr "epub faylı yanlışdır və ya zədələnib"
 
 #: ../backend/epub/epub-document.c:900
 msgid "epub file is corrupt, no container"
-msgstr ""
+msgstr "epub faylı zədələnib, konteyner yoxdur"
 
 #: ../backend/epub/epub-document.c:985
 msgid "could not parse content manifest"
-msgstr ""
+msgstr "məzmun manifestini təhlil edə bilmədi"
 
 #: ../backend/epub/epub-document.c:994
 msgid "content file is invalid"
-msgstr ""
+msgstr "məzmun faylı yanlışdır"
 
 #: ../backend/epub/epub-document.c:1003
 msgid "epub file has no spine"
-msgstr ""
+msgstr "epub faylının onurğası yoxdur"
 
 #: ../backend/epub/epub-document.c:1012
 msgid "epub file has no manifest"
-msgstr ""
+msgstr "epub faylının manifesti yoxdur"
 
 #: ../backend/epub/epub-document.c:1103
 msgid "Could not set up document tree for loading, some files missing"
-msgstr ""
+msgstr "Sənəd ağacını yükləmək üçün qurmaq mümkün olmadı, bəzi fayllar çatışmır"
 
 #: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
@@ -161,7 +168,7 @@ msgstr "epub Sənədləri"
 
 #: ../backend/pdf/ev-poppler.cc:522
 msgid "This work is in the Public Domain"
-msgstr ""
+msgstr "Bu iş Public Domaindədir"
 
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:775 ../backend/pdf/ev-poppler.cc:781
@@ -187,7 +194,7 @@ msgstr "Növ 3"
 
 #: ../backend/pdf/ev-poppler.cc:914
 msgid "TrueType"
-msgstr ""
+msgstr "TrueType"
 
 #: ../backend/pdf/ev-poppler.cc:916
 msgid "Type 1 (CID)"
@@ -195,228 +202,228 @@ msgstr "Növ 1 (CID)"
 
 #: ../backend/pdf/ev-poppler.cc:918
 msgid "Type 1C (CID)"
-msgstr ""
+msgstr "Növ 1C (CID)"
 
 #: ../backend/pdf/ev-poppler.cc:920
 msgid "TrueType (CID)"
-msgstr ""
+msgstr "TrueType (CID)"
 
 #: ../backend/pdf/ev-poppler.cc:922
 msgid "Unknown font type"
-msgstr ""
+msgstr "Naməlum şrift növü"
 
 #: ../backend/pdf/ev-poppler.cc:948
 msgid "No name"
-msgstr ""
+msgstr "Ad yoxdur"
 
 #: ../backend/pdf/ev-poppler.cc:956
 msgid "Embedded subset"
-msgstr ""
+msgstr "Daxili alt çoxluq"
 
 #: ../backend/pdf/ev-poppler.cc:958
 msgid "Embedded"
-msgstr ""
+msgstr "Daxili"
 
 #: ../backend/pdf/ev-poppler.cc:960
-msgid "Not embedded"
+msgid "Daxili deyil"
 msgstr ""
 
 #: ../backend/pdf/pdfdocument.xreader-backend.in.h:1
 msgid "PDF Documents"
-msgstr ""
+msgstr "Pdf Sənədləri"
 
 #: ../backend/ps/ev-spectre.c:102
 #, c-format
 msgid "Failed to load document “%s”"
-msgstr ""
+msgstr "“%s” sənədini yükləmək uğursuz oldu"
 
 #: ../backend/ps/ev-spectre.c:135
 #, c-format
 msgid "Failed to save document “%s”"
-msgstr ""
+msgstr "“%s” sənədini saxlamaq uğursuz oldu"
 
 #: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
-msgstr ""
+msgstr "PostScript Sənədləri"
 
 #: ../backend/tiff/tiff-document.c:114
 msgid "Invalid document"
-msgstr ""
+msgstr "Etibarsız sənəd"
 
 #: ../libdocument/ev-attachment.c:299 ../libdocument/ev-attachment.c:320
 #, c-format
 msgid "Couldn't save attachment “%s”: %s"
-msgstr ""
+msgstr "“%s” qoşmasını saxlamaq mümkün olmadı: %s"
 
 #: ../libdocument/ev-attachment.c:368
 #, c-format
 msgid "Couldn't open attachment “%s”: %s"
-msgstr ""
+msgstr "“%s” qoşmasını açmaq mümkün olmadı: %s"
 
 #: ../libdocument/ev-attachment.c:403
 #, c-format
 msgid "Couldn't open attachment “%s”"
-msgstr ""
+msgstr "“%s” qoşmasını açmaq mümkün olmadı"
 
 #: ../libdocument/ev-document-factory.c:170
 #, c-format
 msgid "File type %s (%s) is not supported"
-msgstr ""
+msgstr "%s (%s) fayl növü dəstəklənmir"
 
 #: ../libdocument/ev-document-factory.c:361
 msgid "All Documents"
-msgstr ""
+msgstr "Bütün Sənədlər"
 
 #: ../libdocument/ev-document-factory.c:393
 msgid "All Files"
-msgstr ""
+msgstr "Bütün Fayllar"
 
 #: ../libdocument/ev-file-helpers.c:147
 #, c-format
 msgid "Failed to create a temporary file: %s"
-msgstr ""
+msgstr "Müvəqqəti fayl yaratmaq uğursuz oldu: %s"
 
 #: ../libdocument/ev-file-helpers.c:309
 #, c-format
 msgid "Failed to create a temporary directory: %s"
-msgstr ""
+msgstr "Müvəqqəti kataloq yaratmaq uğursuz oldu: %s"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:165
 #, c-format
 msgid "File is not a valid .desktop file"
-msgstr ""
+msgstr "Fayl etibarlı .desktop faylı deyil"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:188
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
-msgstr ""
+msgstr "Tanınmayan iş masası faylı '%s' versiyası"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:957
 #, c-format
 msgid "Starting %s"
-msgstr ""
+msgstr "%s başlayır"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1098
 #, c-format
 msgid "Application does not accept documents on command line"
-msgstr ""
+msgstr "Tətbiq əmr sətrində sənədləri qəbul etmir"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1166
 #, c-format
 msgid "Unrecognized launch option: %d"
-msgstr ""
+msgstr "Tanınmamış başlatma seçimi: %d"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1365
 #, c-format
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
-msgstr ""
+msgstr "Sənəd URI-lərini 'Type=Link' masaüstü girişinə ötürmək mümkün deyil"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1384
 #, c-format
 msgid "Not a launchable item"
-msgstr ""
+msgstr "İstifadə edilə bilən element deyil"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:224
 msgid "Disable connection to session manager"
-msgstr ""
+msgstr "Sessiya meneceri ilə əlaqəni deaktiv edin"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:227
 msgid "Specify file containing saved configuration"
-msgstr ""
+msgstr "Saxlanmış konfiqurasiyanı ehtiva edən faylı göstərin"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:227 ../previewer/ev-previewer.c:35
 #: ../previewer/ev-previewer.c:36
 msgid "FILE"
-msgstr ""
+msgstr "FAYL"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:230
 msgid "Specify session management ID"
-msgstr ""
+msgstr "Sessiya idarəetmə ID-sini göstərin"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:230
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:251
 msgid "Session management options:"
-msgstr ""
+msgstr "Sessiya idarəetmə variantları:"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:252
 msgid "Show session management options"
-msgstr ""
+msgstr "Sessiya idarəetmə seçimlərini göstərin"
 
 #. translators: this is the label for toolbar button
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6665
 msgid "Best Fit"
-msgstr ""
+msgstr "Ən uyğun görünüm"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:50
 msgid "Fit Page Width"
-msgstr ""
+msgstr "Səhifə eninə uyğunlaşdırın"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:6225
 msgid "Expand Window to Fit"
-msgstr ""
+msgstr "Sığdırmaq üçün Pəncərəni genişləndirin"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:53
 msgid "50%"
-msgstr ""
+msgstr "50%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:54
 msgid "70%"
-msgstr ""
+msgstr "70%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:55
 msgid "85%"
-msgstr ""
+msgstr "85%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:56
 msgid "100%"
-msgstr ""
+msgstr "100%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:57
 msgid "125%"
-msgstr ""
+msgstr "125%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:58
 msgid "150%"
-msgstr ""
+msgstr "150%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:59
 msgid "175%"
-msgstr ""
+msgstr "175%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:60
 msgid "200%"
-msgstr ""
+msgstr "200%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:61
 msgid "300%"
-msgstr ""
+msgstr "300%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:62
 msgid "400%"
-msgstr ""
+msgstr "400%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:63
 msgid "800%"
-msgstr ""
+msgstr "800%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:64
 msgid "1600%"
-msgstr ""
+msgstr "1600%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:65
 msgid "3200%"
-msgstr ""
+msgstr "3200%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:66
 msgid "6400%"
-msgstr ""
+msgstr "6400%"
 
 #: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer"
-msgstr ""
+msgstr "Sənəd Görüntüləyicisi"
 
 #: ../data/xreader.appdata.xml.in.h:2
 msgid ""
@@ -426,150 +433,155 @@ msgid ""
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
 msgstr ""
+"<p> Xreader sadə çox səhifəli sənəd görüntüləyicisidir. O, PostScript (PS), "
+"EPS, DJVU, DVI, XPS və Portativ Sənəd Faylları (PDF), həmçinin komiks"
+"arxiv fayllarını göstərə və çap edə bilir. Sənəd tərəfindən dəstəkləndikdə,"
+"o, həmçinin mətni axtarmağa, mübadilə buferinə köçürməyə, hipermətn "
+"naviqasiyasına və məzmun cədvəlinin əlfəcinlərinə imkan verir.</p>"
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
 #: ../shell/main.c:239 ../shell/main.c:268
 msgid "Document Viewer"
-msgstr ""
+msgstr "Sənəd Görüntüləyicisi"
 
 #: ../data/xreader.desktop.in.in.h:2
 msgid "View multi-page documents"
-msgstr ""
+msgstr "Çox səhifəli sənədlərə baxın"
 
 #: ../previewer/ev-previewer.c:34
 msgid "Delete the temporary file"
-msgstr ""
+msgstr "Müvəqqəti faylı silin"
 
 #: ../previewer/ev-previewer.c:35
 msgid "Print settings file"
-msgstr ""
+msgstr "Parametrlər faylını çap edin"
 
 #: ../previewer/ev-previewer.c:104 ../previewer/ev-previewer.c:135
 msgid "Print Preview"
-msgstr ""
+msgstr "Çap önizləməsi"
 
 #: ../previewer/ev-previewer-window.c:83 ../shell/ev-window.c:3419
 msgid "Failed to print document"
-msgstr ""
+msgstr "Sənədi çap etmək uğursuz oldu"
 
 #: ../previewer/ev-previewer-window.c:235
 #, c-format
 msgid "The selected printer '%s' could not be found"
-msgstr ""
+msgstr "Seçilmiş "%s" printeri tapılmadı"
 
 #. Go menu
 #: ../previewer/ev-previewer-window.c:281 ../shell/ev-window.c:6234
 msgid "_Previous Page"
-msgstr ""
+msgstr "_Əvvəlki Səhifə"
 
 #: ../previewer/ev-previewer-window.c:282 ../shell/ev-window.c:6236
 msgid "Go to the previous page"
-msgstr ""
+msgstr "Əvvəlki Səhifəyə qayıd"
 
 #: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:6238
 msgid "_Next Page"
-msgstr ""
+msgstr "Sonrakı Səhifə"
 
 #: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:6240
 msgid "Go to the next page"
-msgstr ""
+msgstr "Sonrakı Səhifəyə Ged"
 
 #: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:6213
 msgid "Enlarge the document"
-msgstr ""
+msgstr "Sənədi genişləndir"
 
 #: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:6217
 msgid "Shrink the document"
-msgstr ""
+msgstr "Sənədi daralt"
 
 #. translators: this is the label for toolbar button
 #: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:6661
 msgid "Original size"
-msgstr ""
+msgstr "Orijinal ölçü"
 
 #. translators: Print document currently shown in the Print Preview window
 #. translators: Title of the print dialog
 #: ../previewer/ev-previewer-window.c:297 ../libview/ev-print-operation.c:1328
 msgid "Print"
-msgstr ""
+msgstr "Çap edin"
 
 #: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:6152
 msgid "Print this document"
-msgstr ""
+msgstr "Bu sənədi çap edin"
 
 #: ../previewer/ev-previewer-window.c:341 ../shell/ev-window.c:6436
 msgid "_Best Fit"
-msgstr ""
+msgstr "_Ən uyğun görünüm"
 
 #: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:6438
 msgid "Make the current document fill the window"
-msgstr ""
+msgstr "Cari sənəd pəncərəni doldursun"
 
 #: ../previewer/ev-previewer-window.c:344 ../shell/ev-window.c:6440
 msgid "Fit Page _Width"
-msgstr ""
+msgstr "Səhifənin _Eninə uyğunlaşdırın"
 
 #: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:6442
 msgid "Make the current document fill the window width"
-msgstr ""
+msgstr "Cari sənəd pəncərənin enini doldursun"
 
 #: ../previewer/ev-previewer-window.c:561 ../shell/ev-window.c:6609
 msgid "Page"
-msgstr ""
+msgstr "Səhifə"
 
 #: ../previewer/ev-previewer-window.c:562 ../shell/ev-window.c:6610
 msgid "Select Page"
-msgstr ""
+msgstr "Səhifəni seçin"
 
 #: ../libmisc/ev-page-action-widget.c:85 ../libmisc/ev-page-action-widget.c:125
 #, c-format
 msgid "(%d of %d)"
-msgstr ""
+msgstr "(%d / %d)"
 
 #: ../libmisc/ev-page-action-widget.c:87 ../libmisc/ev-page-action-widget.c:127
 #, c-format
 msgid "of %d"
-msgstr ""
+msgstr "/ %d"
 
 #. Create tree view
 #: ../libview/ev-loading-window.c:76 ../shell/ev-sidebar-annotations.c:134
 #: ../shell/ev-sidebar-layers.c:122 ../shell/ev-sidebar-links.c:256
 msgid "Loading…"
-msgstr ""
+msgstr "Yüklənir…"
 
 #. Initial state
 #: ../libview/ev-print-operation.c:332
 msgid "Preparing to print…"
-msgstr ""
+msgstr "Çapa hazırlanır…"
 
 #: ../libview/ev-print-operation.c:334
 msgid "Finishing…"
-msgstr ""
+msgstr "Bitir…"
 
 #: ../libview/ev-print-operation.c:336
 #, c-format
 msgid "Printing page %d of %d…"
-msgstr ""
+msgstr "Çap edilən səhifə %d / %d"
 
 #: ../libview/ev-print-operation.c:1184
 msgid "The requested format is not supported by this printer."
-msgstr ""
+msgstr "Tələb olunan format bu printer tərəfindən dəstəklənmir."
 
 #: ../libview/ev-print-operation.c:1247
 msgid "Invalid page selection"
-msgstr ""
+msgstr "Yanlış səhifə seçimi"
 
 #: ../libview/ev-print-operation.c:1248
 msgid "Warning"
-msgstr ""
+msgstr "Xəbərdarlıq"
 
 #: ../libview/ev-print-operation.c:1250
 msgid "Your print range selection does not include any pages"
-msgstr ""
+msgstr "Çap diapazonu seçiminizə heç bir səhifə daxil deyil"
 
 #: ../libview/ev-print-operation.c:1937
 msgid "Page Scaling:"
-msgstr ""
+msgstr "Səhifə Ölçüsü:"
 
 #. translators: Value for 'Page Scaling:' to not scale the document pages on printing
 #: ../libview/ev-print-operation.c:1943
@@ -578,11 +590,11 @@ msgstr ""
 
 #: ../libview/ev-print-operation.c:1944
 msgid "Shrink to Printable Area"
-msgstr ""
+msgstr "Çap edilə bilən əraziyə kiçil"
 
 #: ../libview/ev-print-operation.c:1945
 msgid "Fit to Printable Area"
-msgstr ""
+msgstr "Çap edilə bilən əraziyə uyğun"
 
 #: ../libview/ev-print-operation.c:1948
 msgid ""
@@ -597,6 +609,20 @@ msgid ""
 "• \"Fit to Printable Area\": Document pages are enlarged or reduced as "
 "required to fit the printable area of the printer page.\n"
 msgstr ""
+"Seçilmiş printer səhifəsinə uyğunlaşdırmaq üçün sənəd səhifələrini "
+"miqyaslandırın. Aşağıdakılardan birini seçin:\n"
+"\n"
+"• \"Heç biri\": Heç bir səhifə miqyası həyata keçirilmir.\n"
+"\n"
+"• \"Çap edilə bilən əraziyə kiçil\": Çap edilə bilən sahədən böyük olan "
+"sənəd səhifələri printer səhifəsinin çap edilə bilən sahəsinə uyğunlaşdırmaq "
+" üçün kiçildilir.\n"
+"\n"
+"• \"Çap edilə bilən əraziyə uyğun\": Sənəd səhifələri printer səhifəsinin"
+" çap edilə bilən sahəsinə uyğunlaşmaq üçün tələb olunduqda böyüdülür və ya "
+"kiçildilir.\n"
+msgstr ""
+
 
 #: ../libview/ev-print-operation.c:1960
 msgid "Auto Rotate and Center"
@@ -1680,8 +1706,8 @@ msgstr ""
 
 #: ../shell/main.c:72
 msgid "STRING"
-msgstr ""
+msgstr "SƏTİR"
 
 #: ../shell/main.c:76
 msgid "[FILE…]"
-msgstr ""
+msgstr "[FAYL…]"
