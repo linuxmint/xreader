@@ -48,6 +48,9 @@ G_BEGIN_DECLS
 #define GS_SHOW_ZOOM_ACTION        "show-zoom-action"
 #define GS_SHOW_HISTORY_BUTTONS    "show-history-buttons"
 
+/* Schema keys: Default */
+#define GS_WINDOW_MAXIMIZED        "window-maximized"
+
 typedef enum {
     EV_WINDOW_MODE_NORMAL,
     EV_WINDOW_MODE_FULLSCREEN,

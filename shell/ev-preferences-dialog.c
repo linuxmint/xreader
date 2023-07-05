@@ -34,10 +34,14 @@ struct _EvPreferencesDialog
 {
     XAppPreferencesWindow  parent_instance;
 
+    GSettings             *default_settings;
     GSettings             *toolbar_settings;
 
     /* Main pages */
     GtkWidget             *toolbar_page;
+
+    /* General page */
+    GtkWidget             *maximized_window_switch;
 
     /* Toolbar page */
     GtkWidget             *show_history_buttons_switch;
@@ -52,6 +56,7 @@ ev_preferences_dialog_dispose(GObject *object)
 {
     EvPreferencesDialog *dlg = EV_PREFERENCES_DIALOG(object);
 
+    g_clear_object(&dlg->default_settings);
     g_clear_object(&dlg->toolbar_settings);
 
     G_OBJECT_CLASS(ev_preferences_dialog_parent_class)->dispose(object);
@@ -71,6 +76,7 @@ ev_preferences_dialog_class_init(EvPreferencesDialogClass *klass)
     gtk_widget_class_bind_template_child(widget_class, EvPreferencesDialog, toolbar_page);
 
     /* Editor Page widgets */
+    gtk_widget_class_bind_template_child(widget_class, EvPreferencesDialog, maximized_window_switch);
     gtk_widget_class_bind_template_child(widget_class, EvPreferencesDialog, show_history_buttons_switch);
     gtk_widget_class_bind_template_child(widget_class, EvPreferencesDialog, show_expand_window_button_switch);
     gtk_widget_class_bind_template_child(widget_class, EvPreferencesDialog, show_zoom_action_switch);
@@ -96,6 +102,12 @@ help_button_clicked(GtkButton *button,
 static void
 setup_editor_page(EvPreferencesDialog *dlg)
 {
+    g_settings_bind(dlg->default_settings,
+                     GS_WINDOW_MAXIMIZED,
+                     dlg->maximized_window_switch,
+                     "active",
+                     G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
+
     g_settings_bind(dlg->toolbar_settings,
                      GS_SHOW_HISTORY_BUTTONS,
                      dlg->show_history_buttons_switch,
@@ -134,6 +146,8 @@ setup_buttons(EvPreferencesDialog *dlg)
 static void
 ev_preferences_dialog_init(EvPreferencesDialog *dlg)
 {
+    dlg->default_settings = g_settings_new(GS_SCHEMA_NAME_DEFAULT);
+
     dlg->toolbar_settings = g_settings_new(GS_SCHEMA_NAME_TOOLBAR);
 
     gtk_window_set_title(GTK_WINDOW(dlg), _("Preferences"));
