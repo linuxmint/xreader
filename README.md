@@ -12,7 +12,7 @@ This software is licensed under GNU GENERAL PUBLIC LICENSE Version 2 from June
 
 - This package may be available through your system's package manager. This is the recommended method of installation.
 - The latest unstable version is available for Linux Mint and LMDE in the [releases](https://github.com/linuxmint/xreader/releases) section.
-- See ![INSTALL](INSTALL.md) for instructions for building from source.
+- See [INSTALL](INSTALL.md) for instructions for building from source.
 
 ## Hacking
 
