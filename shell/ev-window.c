@@ -3111,7 +3111,6 @@ ev_window_cmd_save_as (GtkAction *action,
 
     gchar *uri;
     uri = gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (fc));
-    ev_window->priv->close_after_save = TRUE;
     ev_window_save_as (ev_window, uri);
 
     g_free (uri);
@@ -3684,6 +3683,7 @@ ev_window_check_document_modified (EvWindow *ev_window)
     gtk_widget_destroy (GTK_WIDGET (dialog));
 
     if (result == GTK_RESPONSE_YES) {
+        ev_window->priv->close_after_save = TRUE;
         return !ev_window_cmd_save_as (NULL, ev_window);
     }
     else if (result == GTK_RESPONSE_NO) {
