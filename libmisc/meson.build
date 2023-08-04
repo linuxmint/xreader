@@ -20,3 +20,9 @@ libmisc = static_library(
     include_directories: include_dirs,
     dependencies: libmisc_deps,
 )
+
+libmisc_dep = declare_dependency(
+    link_with: libmisc,
+    include_directories: include_dirs,
+    dependencies: libmisc_deps,
+)

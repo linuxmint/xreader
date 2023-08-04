@@ -20,3 +20,9 @@ libephyzoom = static_library(
     include_directories: include_root,
     dependencies: zoom_deps,
 )
+
+libephyzoom_dep = declare_dependency(
+    link_with: libephyzoom,
+    include_directories: [include_root, include_directories('.')],
+    dependencies: zoom_deps,
+)

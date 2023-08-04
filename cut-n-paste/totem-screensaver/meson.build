@@ -15,3 +15,9 @@ libtotemscrsaver = static_library(
     dependencies: totem_screensaver_deps,
     include_directories: include_root,
 )
+
+libtotemscrsaver_dep = declare_dependency(
+    link_with: libtotemscrsaver,
+    dependencies: totem_screensaver_deps,
+    include_directories: [include_root, include_directories('.')],
+)

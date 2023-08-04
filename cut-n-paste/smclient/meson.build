@@ -22,3 +22,9 @@ libsmclient = static_library(
     dependencies: smclient_deps,
     include_directories: include_dirs,
 )
+
+libsmclient_dep = declare_dependency(
+    link_with: libsmclient,
+    dependencies: smclient_deps,
+    include_directories: [include_root, include_directories('.')],
+)

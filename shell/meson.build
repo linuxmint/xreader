@@ -132,21 +132,31 @@ if get_option('enable_dbus')
     )
 endif
 
+libshell_deps = [
+    xreader_deps,
+    libview_dep,
+    libmisc_dep,
+    libtotemscrsaver_dep,
+    libsmclient_dep,
+    libephyzoom_dep,
+]
+
 libshell = static_library(
     'shell',
     shell_sources,
-    link_with: libview,
-    link_whole: [libmisc, libtotemscrsaver, libsmclient, libephyzoom],
-    dependencies: xreader_deps,
-    include_directories: [include_dirs, cnc_includes],
+    dependencies: libshell_deps,
+    include_directories: include_dirs,
+)
+
+libshell_dep = declare_dependency(
+  link_whole: libshell,  # Need the whole lib for gresource lookup
+  dependencies: libshell_deps,
+  include_directories: include_dirs,
 )
 
 xreader = executable(
     'xreader',
     'main.c',
-    link_with: libview,
-    link_whole: libshell,
-    dependencies: xreader_deps,
-    include_directories: [include_dirs, cnc_includes],
+    dependencies: libshell_dep,
     install: true,
 )

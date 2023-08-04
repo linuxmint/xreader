@@ -121,14 +121,14 @@ libdocument_deps = [
     gmodule,
     gtk,
     math,
+    libsynctex_dep,
 ]
 
 libdocument = library(
     'xreaderdocument',
     libdocument_private_headers + libdocument_sources,
     dependencies: libdocument_deps,
-    include_directories: [include_root, synctex_includes],
-    link_whole: [libsynctex],
+    include_directories: include_root,
     soversion: binary_major_version,
     version: binary_version,
     install: true,
@@ -137,6 +137,8 @@ libdocument = library(
 # this is needed so targets that depend on generated headers can do so
 libdocument_dep = declare_dependency(
     link_with: libdocument,
+    dependencies: libdocument_deps,
+    include_directories: include_root,
     sources: libdoc_enums[1]
 )
 

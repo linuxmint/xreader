@@ -90,6 +90,12 @@ libview = library(
     install: true,
 )
 
+libview_dep = declare_dependency(
+    link_with: libview,
+    include_directories: include_dirs,
+    dependencies: libview_deps,
+)
+
 install_headers(
     libview_headers,
     subdir: libview_header_dir,

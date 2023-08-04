@@ -14,3 +14,9 @@ libsynctex = static_library(
     synctex_sources,
     dependencies: synctex_deps,
 )
+
+libsynctex_dep = declare_dependency(
+    link_with: libsynctex,
+    dependencies: synctex_deps,
+    include_directories: include_directories('.'),
+)
