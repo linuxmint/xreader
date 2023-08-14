@@ -169,8 +169,9 @@ ev_message_area_set_image_for_type (EvMessageArea *area,
 		if (icon_name) {
 			GtkStockItem item;
 
-			gtk_stock_lookup (icon_name, &item);
-			atk_object_set_name (atk_obj, item.label);
+            if (gtk_stock_lookup (icon_name, &item)) {
+                atk_object_set_name (atk_obj, item.label);
+            }
 		}
 	}
 }
