@@ -665,7 +665,7 @@ check_mime_type(const gchar* uri,GError** error)
 }
 
 static gboolean
-extract_one_file(EpubDocument* epub_document,GError ** error)
+extract_one_file(EpubDocument* epub_document, GFile *tmp_gfile, GError ** error)
 {
     GFile * outfile ;
     gsize writesize = 0;
@@ -696,6 +696,21 @@ extract_one_file(EpubDocument* epub_document,GError ** error)
     if (g_strrstr(currentfilename, ".html") != NULL)
         g_string_insert_c (gfilepath, gfilepath->len-4, 'x');
 
+    outfile = g_file_new_for_path (gfilepath->str);
+    g_autofree gchar *rpath = g_file_get_relative_path (tmp_gfile, outfile);
+
+    if (rpath == NULL)
+    {
+        g_set_error_literal (error,
+                             EV_DOCUMENT_ERROR,
+                             EV_DOCUMENT_ERROR_INVALID,
+                             _("epub file is invalid or corrupt"));
+        g_critical ("Invalid filename in Epub container - '%s'", (gchar *) currentfilename);
+        g_object_unref (outfile);
+        result = FALSE;
+        goto out;
+    }
+
     /*if we encounter a directory, make a directory inside our temporary folder.*/
     if (directory != NULL && *directory == '\0')
     {
@@ -723,7 +738,6 @@ extract_one_file(EpubDocument* epub_document,GError ** error)
 		g_string_free(dir_create,TRUE);
     }
 
-    outfile = g_file_new_for_path(gfilepath->str);
     outstream = g_file_create(outfile,G_FILE_CREATE_PRIVATE,NULL,error);
     gpointer buffer = g_malloc0(512);
     while ( (writesize = unzReadCurrentFile(epub_document->epubDocument,buffer,512) ) != 0 )
@@ -751,6 +765,7 @@ extract_epub_from_container (const gchar* uri,
                              EpubDocument *epub_document,
                              GError ** error)
 {
+    GFile *tmp_gfile = NULL;
     GError *err = NULL;
     epub_document->archivename = g_filename_from_uri(uri,NULL,error);
 
@@ -812,9 +827,11 @@ extract_epub_from_container (const gchar* uri,
         goto out;
     }
 
+    tmp_gfile = g_file_new_for_path (epub_document->tmp_archive_dir);
+
     while ( TRUE )
     {
-        if ( extract_one_file(epub_document,&err) == FALSE )
+        if ( extract_one_file(epub_document, tmp_gfile, &err) == FALSE )
         {
             if (err) {
                 g_propagate_error (error, err);
@@ -835,6 +852,7 @@ extract_epub_from_container (const gchar* uri,
     }
 
 out:
+    g_clear_object (&tmp_gfile);
     unzClose(epub_document->epubDocument);
     return result;
 }
