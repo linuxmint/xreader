@@ -713,6 +713,10 @@ ev_web_view_zoom_reset(EvWebView *webview)
 void
 ev_web_view_disconnect_handlers(EvWebView *webview)
 {
+    if (webview->model == NULL) {
+        return;
+    }
+
 	g_signal_handlers_disconnect_by_func(webview->model,
 	                                     ev_web_view_document_changed_cb,
 	                                     webview);
