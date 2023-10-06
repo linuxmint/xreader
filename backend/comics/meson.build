@@ -1,12 +1,14 @@
 comics_sources = [
     'comics-document.c',
-    'comics-document.h'
+    'comics-document.h',
+    'ev-archive.c'
 ]
 
 comics_deps = [
     glib,
     cairo,
-    gtk
+    gtk,
+    libarchive
 ]
 
 shared_module(
