@@ -98,8 +98,22 @@ if get_option('pixbuf')
     xreader_conf.set10('ENABLE_PIXBUF', true)
 endif
 if get_option('comics')
+    libarchive_req_version = '>= 3.6.0'
+    libarchive_dep = dependency('libarchive', version: '>= 3.6.0', required: true)
     backend_subdirs += 'comics'
-    xreader_mime_types += 'application/x-cbr;application/x-cbz;application/x-cb7;application/x-cbt;application/vnd.comicbook+zip;application/vnd.comicbook-rar;'
+    comic_mimetypes = ';'.join([
+        'application/vnd.comicbook-rar',
+        'application/vnd.comicbook+zip',
+        'application/x-cb7',
+        'application/x-cbr',
+        'application/x-cbt',
+        'application/x-cbz',
+        'application/x-ext-cb7',
+        'application/x-ext-cbr',
+        'application/x-ext-cbt',
+        'application/x-ext-cbz',
+    ])
+    xreader_mime_types += comic_mimetypes
 endif
 if get_option('xps')
     xps = dependency('libgxps', version: '>= 0.2.1')
