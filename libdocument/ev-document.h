@@ -56,6 +56,7 @@ typedef struct _EvDocumentPrivate EvDocumentPrivate;
 typedef enum
 {
         EV_DOCUMENT_ERROR_INVALID,
+        EV_DOCUMENT_ERROR_UNSUPPORTED_CONTENT,
         EV_DOCUMENT_ERROR_ENCRYPTED
 } EvDocumentError;
 
