@@ -1,3 +1,16 @@
+xreader (3.8.3) virginia; urgency=medium
+
+  [ kacperpaczos ]
+  * I removed the exclamation mark because we want to insert a link, not an image as link. (#605)
+
+  [ Michael Webster ]
+  * ev-window.c: Only close after save-as if it's spawned as a result of the exit document-modified dialog.
+  * Add link for existing issues to the bug report template.
+  * Fix building with meson 1.2.
+  * ev-message-area.c: Check that the GtkStockItem is initialized before attempting to access it.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 19 Nov 2023 16:37:31 +0000
+
 xreader (3.8.2) victoria; urgency=medium
 
   * Add a setting to control window maximization on new documents
