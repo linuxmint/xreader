@@ -14,15 +14,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-05 13:19+0200\n"
-"PO-Revision-Date: 2022-06-23 19:11+0000\n"
-"Last-Translator: Jung-Kyu Park <Unknown>\n"
+"PO-Revision-Date: 2023-11-14 20:21+0000\n"
+"Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/mate/MATE/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2023-07-07 12:57+0000\n"
-"X-Generator: Launchpad (build 2ac9e3bf4ab511504f8fc651371e24a6a047ba12)\n"
+"X-Launchpad-Export-Date: 2023-12-03 13:33+0000\n"
+"X-Generator: Launchpad (build 886068b1e1d10de444fbd53b0c7d3f6d4fb3e658)\n"
 "Language: ko\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -350,7 +350,7 @@ msgstr "세션 관리 옵션:"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:252
 msgid "Show session management options"
-msgstr "세션 관리 옵션을 표시합니다"
+msgstr "세션 관리 옵션 보이기"
 
 #. translators: this is the label for toolbar button
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6661
@@ -935,7 +935,7 @@ msgstr "일반"
 
 #: ../shell/ev-preferences-dialog.ui.h:2
 msgid "Maximize window for new documents"
-msgstr ""
+msgstr "새 문서를 위해 창 최대화하기"
 
 #: ../shell/ev-preferences-dialog.ui.h:4
 msgid "Show history buttons"
@@ -1488,7 +1488,7 @@ msgstr "메뉴 바 (_M)"
 
 #: ../shell/ev-window.c:6400
 msgid "Show or hide the menubar"
-msgstr "메뉴 바 표시 또는 숨기기"
+msgstr "메뉴 바 보이기 혹은 숨기기"
 
 #: ../shell/ev-window.c:6402
 msgid "_Toolbar"
@@ -1496,7 +1496,7 @@ msgstr "도구 모음(_T)"
 
 #: ../shell/ev-window.c:6404
 msgid "Show or hide the toolbar"
-msgstr "도구 모음을 보이거나 숨깁니다"
+msgstr "도구 모음 보이기 혹은 숨기기"
 
 #: ../shell/ev-window.c:6406
 msgid "Side _Pane"
@@ -1504,7 +1504,7 @@ msgstr "가장자리 창(_P)"
 
 #: ../shell/ev-window.c:6408
 msgid "Show or hide the side pane"
-msgstr "가장자리 창을 보이거나 숨깁니다"
+msgstr "가장자리 창을 보이기 혹은 숨기기"
 
 #: ../shell/ev-window.c:6410
 msgid "_Continuous"
@@ -1512,7 +1512,7 @@ msgstr "연속(_C)"
 
 #: ../shell/ev-window.c:6412
 msgid "Show the entire document"
-msgstr "문서를 연속해서 봅니다"
+msgstr "전체 문서 보이기"
 
 #: ../shell/ev-window.c:6414
 msgid "_Dual (Even pages left)"
@@ -1520,7 +1520,7 @@ msgstr "두 페이지씩(짝수 페이지를 왼쪽에)(_D)"
 
 #: ../shell/ev-window.c:6416
 msgid "Show two pages at once with even pages on the left"
-msgstr "한번에 두 페이지씩 봅니다(짝수 페이지를 왼쪽에)"
+msgstr "한 번에 두 페이지씩 보이기(짝수 페이지를 왼쪽에)"
 
 #: ../shell/ev-window.c:6418
 msgid "Dual (_Odd pages left)"
@@ -1528,7 +1528,7 @@ msgstr "두 페이지씩(홀수 페이지를 왼쪽에)(_O)"
 
 #: ../shell/ev-window.c:6420
 msgid "Show two pages at once with odd pages on the left"
-msgstr "한번에 두 페이지씩 봅니다(홀수 페이지를 왼쪽에)"
+msgstr "한 번에 두 페이지씩 보이기 (홀수 페이지를 왼쪽에)"
 
 #: ../shell/ev-window.c:6422
 msgid "Right to Left"
@@ -1560,7 +1560,7 @@ msgstr "색 반전(_I)"
 
 #: ../shell/ev-window.c:6444
 msgid "Show page contents with the colors inverted"
-msgstr "페이지 내용을 색을 반전시켜 표시합니다"
+msgstr "페이지의 내용을 색을 반전시켜 보여주기"
 
 #. Links
 #: ../shell/ev-window.c:6452

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-05 13:19+0200\n"
-"PO-Revision-Date: 2021-12-05 14:50+0000\n"
+"PO-Revision-Date: 2023-11-08 19:03+0000\n"
 "Last-Translator: Quentin PAGÈS <Unknown>\n"
 "Language-Team: Occitan (post 1500) "
 "(http://www.transifex.com/mate/MATE/language/oc/)\n"
@@ -18,8 +18,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Launchpad-Export-Date: 2023-07-07 12:57+0000\n"
-"X-Generator: Launchpad (build 2ac9e3bf4ab511504f8fc651371e24a6a047ba12)\n"
+"X-Launchpad-Export-Date: 2023-12-03 13:33+0000\n"
+"X-Generator: Launchpad (build 886068b1e1d10de444fbd53b0c7d3f6d4fb3e658)\n"
 "Language: oc\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -372,7 +372,7 @@ msgstr "Ajustar a la largor de la pagina"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:6223
 msgid "Expand Window to Fit"
-msgstr "Espandir la fenèstra"
+msgstr "Alargar la fenèstra"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:53
 msgid "50%"
@@ -442,6 +442,12 @@ msgid ""
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
 msgstr ""
+"<p> Xreader es un visionador simple de document multi-pagina. Pòt afichar e "
+"imprimir de fichièrs PostScript (PS), Encapsulated PostScript (EPS), DJVU, "
+"DVI, XPS e Portable Document Format (PDF), e tanben de fichièrs de benda "
+"dessenhadas. Quand es presa en carga pel document, permet tanben de recercar "
+"de tèxte, copiar de tèxte al quichapapièrs, la navegacion per ligam "
+"ipertèxte e los marcapaginas de l’ensenhador.</p>"
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
 #: ../shell/main.c:239 ../shell/main.c:268
@@ -955,7 +961,7 @@ msgstr "General"
 
 #: ../shell/ev-preferences-dialog.ui.h:2
 msgid "Maximize window for new documents"
-msgstr ""
+msgstr "Maximizar la fenèstra pels documents novèls"
 
 #: ../shell/ev-preferences-dialog.ui.h:4
 msgid "Show history buttons"
@@ -963,7 +969,7 @@ msgstr "Afichar lo boton d’istoric"
 
 #: ../shell/ev-preferences-dialog.ui.h:5
 msgid "Show expand window button"
-msgstr ""
+msgstr "Afichar lo boton per alargar la fenèstra"
 
 #: ../shell/ev-preferences-dialog.ui.h:6
 msgid "Show zoom level selector"
@@ -1069,6 +1075,9 @@ msgid ""
 "Non-Continuous + Best Fit\n"
 "Ctrl+2"
 msgstr ""
+"Mòde Pagina\n"
+"Non-Continú + Talha ideala\n"
+"Ctrl+2"
 
 #: ../shell/ev-toolbar.c:148
 msgid ""
@@ -1076,6 +1085,9 @@ msgid ""
 "Continuous + Fit Page Width\n"
 "Ctrl+1"
 msgstr ""
+"Mòde Lectura\n"
+"Continú + Ajustar a la largor de la pagina\n"
+"Ctrl+1"
 
 #: ../shell/ev-toolbar.c:294
 msgid "Select or set the zoom level of the document"
@@ -1342,7 +1354,7 @@ msgstr "_Ajuda"
 
 #: ../shell/ev-window.c:6133
 msgid "Favorites"
-msgstr ""
+msgstr "Marcapaginas"
 
 #: ../shell/ev-window.c:6134
 msgid "Recents"
@@ -1425,7 +1437,7 @@ msgstr "Talha _originala"
 
 #: ../shell/ev-window.c:6207
 msgid "View the document at its original size"
-msgstr ""
+msgstr "Visualizar lo document dins sa talha d’origina"
 
 #: ../shell/ev-window.c:6209
 msgid "Zoom _In"
@@ -1445,7 +1457,7 @@ msgstr "Recargar lo document"
 
 #: ../shell/ev-window.c:6221
 msgid "_Expand Window to Fit"
-msgstr ""
+msgstr "Alargar la f_enèstra per l’ajustar"
 
 #: ../shell/ev-window.c:6226
 msgid "Auto_scroll"
@@ -1545,27 +1557,28 @@ msgstr "Aficha lo document entièr"
 
 #: ../shell/ev-window.c:6414
 msgid "_Dual (Even pages left)"
-msgstr ""
+msgstr "_Duo (paginas paras a esquèrra)"
 
 #: ../shell/ev-window.c:6416
 msgid "Show two pages at once with even pages on the left"
-msgstr ""
+msgstr "Fa veire doas paginas a l'encòp amb quitament las paginas d'esquèrra"
 
 #: ../shell/ev-window.c:6418
 msgid "Dual (_Odd pages left)"
-msgstr ""
+msgstr "_Duo (paginas imparas a esquèrra)"
 
 #: ../shell/ev-window.c:6420
 msgid "Show two pages at once with odd pages on the left"
 msgstr ""
+"Afichar doas paginas a l'encòp, las paginas paras son plaçadas a esquèrra"
 
 #: ../shell/ev-window.c:6422
 msgid "Right to Left"
-msgstr ""
+msgstr "De dreita a esquèrra"
 
 #: ../shell/ev-window.c:6424
 msgid "Browse the document from right to left"
-msgstr ""
+msgstr "Legir lo document de dreit a esquèrra"
 
 #: ../shell/ev-window.c:6426
 msgid "_Fullscreen"
@@ -1573,7 +1586,7 @@ msgstr "Ecran _complet"
 
 #: ../shell/ev-window.c:6428
 msgid "Expand the window to fill the screen"
-msgstr "Agrandís la fenèstra per ocupar tot l'ecran"
+msgstr "Alargar la fenèstra per ocupar tot l'ecran"
 
 #: ../shell/ev-window.c:6430
 msgid "Pre_sentation"
@@ -1716,7 +1729,7 @@ msgstr "NUMÈRO"
 
 #: ../shell/main.c:68
 msgid "Run xreader in fullscreen mode"
-msgstr ""
+msgstr "Executar xreader en mòde ecran complèt"
 
 #: ../shell/main.c:69
 msgid "Named destination to display."
@@ -1728,11 +1741,11 @@ msgstr "DEST"
 
 #: ../shell/main.c:70
 msgid "Run xreader in presentation mode"
-msgstr ""
+msgstr "Executar xreader en mòde presentacion"
 
 #: ../shell/main.c:71
 msgid "Run xreader as a previewer"
-msgstr ""
+msgstr "Executar xreader en mòde apercebut"
 
 #: ../shell/main.c:72
 msgid "The word or phrase to find in the document"
