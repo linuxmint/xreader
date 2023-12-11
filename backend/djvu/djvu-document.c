@@ -340,7 +340,7 @@ djvu_document_render (EvDocument      *document,
 	
 	switch (rc->rotation) {
 	        case 90:
-			rotation = DDJVU_ROTATE_90;
+			rotation = DDJVU_ROTATE_270;
 			tmp = page_height;
 			page_height = page_width;
 			page_width = tmp;
@@ -351,7 +351,7 @@ djvu_document_render (EvDocument      *document,
 			
 			break;
 	        case 270:
-			rotation = DDJVU_ROTATE_270;
+			rotation = DDJVU_ROTATE_90;
 			tmp = page_height;
 			page_height = page_width;
 			page_width = tmp;
