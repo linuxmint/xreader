@@ -98,8 +98,8 @@ if get_option('pixbuf')
     xreader_conf.set10('ENABLE_PIXBUF', true)
 endif
 if get_option('comics')
-    libarchive_req_version = '>= 3.6.0'
-    libarchive_dep = dependency('libarchive', version: '>= 3.6.0', required: true)
+    libarchive_req_version = '>= 3.4.0'
+    libarchive_dep = dependency('libarchive', version: '>= 3.4.0', required: true)
     backend_subdirs += 'comics'
     comic_mimetypes = ';'.join([
         'application/vnd.comicbook-rar',
@@ -164,7 +164,7 @@ config_h = declare_dependency(
     sources: config_h_file
 )
 
-include_dirs = include_directories('.', 'libdocument', 'libview', 'libmisc')
+include_dirs = include_directories('.', 'libdocument', 'libview', 'libmisc', 'cut-n-paste')
 include_root = include_directories('.')
 
 xreader_document_header = [
