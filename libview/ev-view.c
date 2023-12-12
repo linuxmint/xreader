@@ -7431,10 +7431,6 @@ ev_view_previous_page (EvView *view)
 void
 ev_view_disconnect_handlers(EvView *view)
 {
-    if (view->model == NULL) {
-        return;
-    }
-
 	g_signal_handlers_disconnect_by_func(view->model,
 					     G_CALLBACK (ev_view_rotation_changed_cb),
 					     view);

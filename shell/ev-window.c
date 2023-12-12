@@ -1516,32 +1516,22 @@ ev_window_set_document (EvWindow *ev_window,
     gtk_widget_show (ev_window->priv->toolbar);
 
 #if ENABLE_EPUB
-    if (document->iswebdocument) {
-        ev_window->priv->webview = ev_web_view_new();
-        ev_web_view_set_model(EV_WEB_VIEW(ev_window->priv->webview),ev_window->priv->model);
-
-        if (ev_window->priv->view != NULL)
-        {
-            /*We have encountered a web document, replace the xreader view with a web view, if the web view is not already loaded.*/
-            gtk_container_remove (GTK_CONTAINER(ev_window->priv->scrolled_window), ev_window->priv->view);
-            ev_view_disconnect_handlers(EV_VIEW(ev_window->priv->view));
-            g_object_unref(ev_window->priv->view);
-            ev_window->priv->view = NULL;
-        }
-
+    if (document->iswebdocument == TRUE && ev_window->priv->view != NULL)
+    {
+        /*We have encountered a web document, replace the xreader view with a web view, if the web view is not already loaded.*/
+        gtk_container_remove (GTK_CONTAINER(ev_window->priv->scrolled_window), ev_window->priv->view);
+        ev_view_disconnect_handlers(EV_VIEW(ev_window->priv->view));
+        g_object_unref(ev_window->priv->view);
+        ev_window->priv->view = NULL;
         gtk_container_add (GTK_CONTAINER (ev_window->priv->scrolled_window), ev_window->priv->webview);
         gtk_widget_show(ev_window->priv->webview);
-    } else
-    {
-        ev_view_set_model (EV_VIEW (ev_window->priv->view), ev_window->priv->model);
-
-        if (ev_window->priv->webview != NULL) {
-            /*Since the document is not a webdocument might as well get rid of the webview now*/
-            ev_web_view_disconnect_handlers(EV_WEB_VIEW(ev_window->priv->webview));
-            g_object_ref_sink(ev_window->priv->webview);
-            g_object_unref(ev_window->priv->webview);
-            ev_window->priv->webview = NULL;
-        }
+    }
+    else if(ev_window->priv->webview != NULL && document->iswebdocument == FALSE) {
+        /*Since the document is not a webdocument might as well get rid of the webview now*/
+        ev_web_view_disconnect_handlers(EV_WEB_VIEW(ev_window->priv->webview));
+        g_object_ref_sink(ev_window->priv->webview);
+        g_object_unref(ev_window->priv->webview);
+        ev_window->priv->webview = NULL;
     }
 #endif
     if (EV_WINDOW_IS_PRESENTATION (ev_window) && document->iswebdocument == FALSE) {
@@ -7874,10 +7864,15 @@ ev_window_init (EvWindow *ev_window)
 
     ev_window->priv->view = ev_view_new ();
 
+#if ENABLE_EPUB /*The webview, we won't add it now but it will replace the xreader-view if a web(epub) document is encountered.*/
+    ev_window->priv->webview = ev_web_view_new();
+    ev_web_view_set_model(EV_WEB_VIEW(ev_window->priv->webview),ev_window->priv->model);
+#endif
     page_cache_mb = g_settings_get_uint (ev_window_ensure_settings (ev_window),
             GS_PAGE_CACHE_SIZE);
     ev_view_set_page_cache_size (EV_VIEW (ev_window->priv->view),
             page_cache_mb * 1024 * 1024);
+    ev_view_set_model (EV_VIEW (ev_window->priv->view), ev_window->priv->model);
 
 	ev_window->priv->password_view = ev_password_view_new (GTK_WINDOW (ev_window));
 	g_signal_connect_swapped (ev_window->priv->password_view,
