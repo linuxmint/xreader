@@ -76,7 +76,7 @@ if get_option('tiff')
     tiff = dependency('libtiff-4')
 endif
 if get_option('comics')
-    libarchive_dep = dependency('libarchive', version: '>= 3.6.0', required: true)
+    libarchive_dep = dependency('libarchive', version: '>= 3.4.0', required: true)
 endif
 if get_option('xps')
     xps = dependency('libgxps', version: '>= 0.2.1')
@@ -124,7 +124,7 @@ config_h = declare_dependency(
     sources: config_h_file
 )
 
-include_dirs = include_directories('.', 'libdocument', 'libview', 'libmisc')
+include_dirs = include_directories('.', 'libdocument', 'libview', 'libmisc', 'cut-n-paste')
 include_root = include_directories('.')
 
 xreader_document_header = [
