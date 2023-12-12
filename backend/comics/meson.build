@@ -19,6 +19,7 @@ comics_deps = [
   glib,
   gtk,
   libarchive_dep,
+  libunarr_dep,
 ]
 
 shared_module(
