@@ -1,3 +1,21 @@
+xreader (3.8.5) virginia; urgency=medium
+
+  [ Michael Webster ]
+  * dvi: Don't manually escape the exported filename.
+  * ev-window.c: Don't create the epub webview until the doc type is known.
+
+  [ Paulynomial ]
+  * Djvu file rotation direction fixed (#628)
+
+  [ Michael Webster ]
+  * epub: Prevent path traversal when extracting files [CVE-2023-44451]
+  * comics: Use libarchive to unpack documents [CVE-2023-44452].
+
+  [ Clement Lefebvre ]
+  * Revert "ev-window.c: Don't create the epub webview until the doc type"
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 18 Dec 2023 11:22:04 +0000
+
 xreader (3.8.4) virginia; urgency=medium
 
   * l10n: Update translations
