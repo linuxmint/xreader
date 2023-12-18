@@ -1,3 +1,13 @@
+xreader (3.2.3) virginia; urgency=medium
+
+  [ Michael Webster ]
+  * dvi: Don't manually escape the exported filename.
+  * epub: Prevent path traversal when extracting files [CVE-2023-44451]
+  * comics: Use libarchive to unpack documents [CVE-2023-44452].
+  * comics: Use unarr for rar support when using libarchive 3.4.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 18 Dec 2023 11:43:47 +0000
+
 xreader (3.2.2) una; urgency=medium
 
   * l10n: Update translations
