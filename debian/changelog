@@ -1,3 +1,11 @@
+xreader (3.6.4) virginia; urgency=medium
+
+  [ Michael Webster ]
+  * epub: Prevent path traversal when extracting files [CVE-2023-44451]
+  * comics: Use libarchive to unpack documents [CVE-2023-44452].
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 18 Dec 2023 11:39:27 +0000
+
 xreader (3.6.3) vera; urgency=medium
 
   [ Michael Webster ]
