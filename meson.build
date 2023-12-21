@@ -112,7 +112,7 @@ if get_option('comics')
         'application/x-ext-cbr',
         'application/x-ext-cbt',
         'application/x-ext-cbz',
-    ])
+    ]) + ';'
     xreader_mime_types += comic_mimetypes
 endif
 if get_option('xps')
