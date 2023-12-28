@@ -1,3 +1,10 @@
+xreader (4.0.1) virginia; urgency=medium
+
+  [ Stefan Schramm ]
+  * Fix list of supported mime types (#631)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 28 Dec 2023 11:48:46 +0000
+
 xreader (4.0.0) virginia; urgency=medium
 
   * dependency: Drop compatibility with libwebkit2gtk-4.0
