@@ -725,7 +725,9 @@ pdf_document_get_info (EvDocument *document)
 			info->mode = EV_DOCUMENT_MODE_USE_OC;
 			break;
 		case POPPLER_PAGE_MODE_FULL_SCREEN:
-			info->mode = EV_DOCUMENT_MODE_FULL_SCREEN;
+			// Ignore full screen page mode, since automatically opening
+			// in full screen mode is generally unwanted behavior
+			//info->mode = EV_DOCUMENT_MODE_FULL_SCREEN;
 			break;
 		case POPPLER_PAGE_MODE_USE_ATTACHMENTS:
 			info->mode = EV_DOCUMENT_MODE_USE_ATTACHMENTS;
