@@ -1055,7 +1055,7 @@ setup_document_content_list(const gchar* content_uri, GError** error,gchar *docu
         }
         if ( xmlStrcmp(itemrefptr->name,(xmlChar*)"itemref") == 0)
         {
-            contentListNode *newnode = g_malloc0(sizeof(newnode));
+            contentListNode *newnode = g_malloc0(sizeof(*newnode));
             newnode->key = (gchar*)xml_get_data_from_node(itemrefptr,XML_ATTRIBUTE,(xmlChar*)"idref");
             if ( newnode->key == NULL )
             {

@@ -47,7 +47,7 @@ cd xreader
 # libraries, and shared files into /usr/local, and
 # enables all available options:
 
-meson buildir \
+meson builddir \
   --prefix=/usr/local \
   --buildtype=plain \
   -D deprecated_warnings=false \
