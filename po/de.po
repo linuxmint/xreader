@@ -5,7 +5,7 @@
 # Translators:
 # Christian Kintner <ckintner@mate-de.org>, 2007
 # Christian <Christian.Kirbach@googlemail.com>, 2009, 2010
-# Ettore Atalan <atalanttore@googlemail.com>, 2015
+# Ettore Atalan <atalanttore@googlemail.com>, 2015, 2024
 # Frank Arnold <frank@scirocco-5v-turbo.de>, 2005
 # Hendrik Brandt <heb@mate-de.org>, 2005
 # Hendrik Richter <hendrikr@gnome.org>, 2005, 2006
@@ -163,7 +163,7 @@ msgstr "EPUB-Datei hat keinen »spine«"
 
 #: ../backend/epub/epub-document.c:1012
 msgid "epub file has no manifest"
-msgstr "EPUB-Datei hat klein Manifest"
+msgstr "EPUB-Datei hat kein Manifest"
 
 #: ../backend/epub/epub-document.c:1103
 msgid "Could not set up document tree for loading, some files missing"
