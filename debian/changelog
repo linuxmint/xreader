@@ -1,3 +1,13 @@
+xreader (4.2.0) wilma; urgency=medium
+
+  [ correctmost ]
+  * epub: Fix an incorrect sizeof call detected by AddressSanitizer (#635)
+
+  [ Matthew Petroff ]
+  * pdf backend: Ignore FullScreen PageMode catalog entry (#633)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 05 Jun 2024 12:51:59 +0100
+
 xreader (4.0.2) virginia; urgency=medium
 
   * l10n: Update translations
