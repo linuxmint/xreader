@@ -15,16 +15,16 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-05 13:19+0200\n"
-"PO-Revision-Date: 2019-04-20 14:39+0000\n"
-"Last-Translator: Will Peix <Unknown>\n"
+"PO-Revision-Date: 2024-02-13 16:40+0000\n"
+"Last-Translator: 爽自由 <coby2023t@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) "
 "(http://www.transifex.com/mate/MATE/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2024-01-04 14:57+0000\n"
-"X-Generator: Launchpad (build e1eeab5b20e19239bd7d5f36676f7a52988db88b)\n"
+"X-Launchpad-Export-Date: 2024-06-18 17:55+0000\n"
+"X-Generator: Launchpad (build bbfa2351d9d6a9ddfe262109428f7bf5516e65d1)\n"
 "Language: zh_TW\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -564,7 +564,7 @@ msgstr "正在列印頁面 %d / %d…"
 
 #: ../libview/ev-print-operation.c:1184
 msgid "The requested format is not supported by this printer."
-msgstr ""
+msgstr "此印表機不支援請求的格式。"
 
 #: ../libview/ev-print-operation.c:1247
 msgid "Invalid page selection"
@@ -792,23 +792,23 @@ msgstr "未知"
 
 #: ../shell/ev-annotation-properties-dialog.c:126
 msgid "Markup type:"
-msgstr ""
+msgstr "標記類型："
 
 #: ../shell/ev-annotation-properties-dialog.c:132
 msgid "Highlight"
-msgstr ""
+msgstr "標示"
 
 #: ../shell/ev-annotation-properties-dialog.c:133
 msgid "Strike out"
-msgstr ""
+msgstr "删除線"
 
 #: ../shell/ev-annotation-properties-dialog.c:134
 msgid "Underline"
-msgstr ""
+msgstr "底線"
 
 #: ../shell/ev-annotation-properties-dialog.c:135
 msgid "Squiggly"
-msgstr ""
+msgstr "波浪線"
 
 #: ../shell/ev-annotation-properties-dialog.c:158
 msgid "Annotation Properties"
@@ -853,7 +853,7 @@ msgstr "加入文字註解"
 
 #: ../shell/ev-annotations-toolbar.c:126
 msgid "Add highlight annotation"
-msgstr ""
+msgstr "加入標示註解"
 
 #: ../shell/ev-application.c:1018
 msgid "Running in presentation mode"
@@ -936,11 +936,11 @@ msgstr "一般"
 
 #: ../shell/ev-preferences-dialog.ui.h:2
 msgid "Maximize window for new documents"
-msgstr ""
+msgstr "最大化新文件視窗"
 
 #: ../shell/ev-preferences-dialog.ui.h:4
 msgid "Show history buttons"
-msgstr ""
+msgstr "顯示歷史按鈕"
 
 #: ../shell/ev-preferences-dialog.ui.h:5
 msgid "Show expand window button"
@@ -948,7 +948,7 @@ msgstr "顯示放大視窗的按鈕"
 
 #: ../shell/ev-preferences-dialog.ui.h:6
 msgid "Show zoom level selector"
-msgstr ""
+msgstr "顯示縮放選擇"
 
 #: ../shell/ev-properties-dialog.c:63
 msgid "Properties"
@@ -1030,15 +1030,15 @@ msgstr "索引"
 
 #: ../shell/ev-sidebar-thumbnails.c:953
 msgid "Shrink the thumbnails"
-msgstr ""
+msgstr "縮圖縮小"
 
 #: ../shell/ev-sidebar-thumbnails.c:966
 msgid "Enlarge the thumbnails"
-msgstr ""
+msgstr "縮圖放大"
 
 #: ../shell/ev-sidebar-thumbnails.c:979
 msgid "View the thumbnails at their original size"
-msgstr ""
+msgstr "檢視縮圖的原始大小"
 
 #: ../shell/ev-sidebar-thumbnails.c:1231
 msgid "Thumbnails"
@@ -1066,13 +1066,13 @@ msgstr ""
 
 #: ../shell/ev-toolbar.c:294
 msgid "Select or set the zoom level of the document"
-msgstr ""
+msgstr "選擇或設定文件的縮放"
 
 #: ../shell/ev-window.c:1028
 msgid ""
 "Cannot enter presentation mode with ePub documents, use fullscreen mode "
 "instead."
-msgstr ""
+msgstr "epub 文件無法進入簡報模式，以全螢幕模式替代。"
 
 #: ../shell/ev-window.c:1507
 msgid "The document contains no pages"
@@ -1190,7 +1190,7 @@ msgstr "儲存副本(_C)"
 
 #: ../shell/ev-window.c:3675
 msgid "_Save"
-msgstr ""
+msgstr "儲存 (_S)"
 
 #: ../shell/ev-window.c:3676
 msgid "Close _without Saving"
@@ -1271,8 +1271,7 @@ msgstr "Xreader"
 #, c-format
 msgid "%d found on this page (%d total)"
 msgid_plural "%d found on this page (%d total)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "在本頁發現 %d 個 (總共 %dl)"
 
 #: ../shell/ev-window.c:5445 ../shell/ev-window.c:5568
 msgid "Not found"
@@ -1309,11 +1308,11 @@ msgstr "求助(_H)"
 
 #: ../shell/ev-window.c:6133
 msgid "Favorites"
-msgstr ""
+msgstr "最愛"
 
 #: ../shell/ev-window.c:6134
 msgid "Recents"
-msgstr ""
+msgstr "最近的檔案"
 
 #. File menu
 #: ../shell/ev-window.c:6136 ../shell/ev-window.c:6619
@@ -1350,7 +1349,7 @@ msgstr "屬性(_R)"
 
 #: ../shell/ev-window.c:6156
 msgid "_Close All Windows"
-msgstr ""
+msgstr "關閉 (_C) 全部視窗"
 
 #: ../shell/ev-window.c:6160
 msgid "_Close"
@@ -1480,11 +1479,11 @@ msgstr "簡報式顯示"
 #. View Menu
 #: ../shell/ev-window.c:6398
 msgid "_Menubar"
-msgstr ""
+msgstr "選單列 (_M)"
 
 #: ../shell/ev-window.c:6400
 msgid "Show or hide the menubar"
-msgstr ""
+msgstr "顯示或隱藏選單列"
 
 #: ../shell/ev-window.c:6402
 msgid "_Toolbar"
@@ -1528,11 +1527,11 @@ msgstr "一次顯示兩頁，奇數頁在左"
 
 #: ../shell/ev-window.c:6422
 msgid "Right to Left"
-msgstr ""
+msgstr "從右到左"
 
 #: ../shell/ev-window.c:6424
 msgid "Browse the document from right to left"
-msgstr ""
+msgstr "從右到左瀏覽文件"
 
 #: ../shell/ev-window.c:6426
 msgid "_Fullscreen"

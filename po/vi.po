@@ -10,66 +10,67 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-05 13:19+0200\n"
-"PO-Revision-Date: 2016-02-09 16:25+0000\n"
-"Last-Translator: infirit <Unknown>\n"
+"PO-Revision-Date: 2024-02-20 09:20+0000\n"
+"Last-Translator: thieninox <Unknown>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/mate/MATE/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2024-01-04 14:57+0000\n"
-"X-Generator: Launchpad (build e1eeab5b20e19239bd7d5f36676f7a52988db88b)\n"
+"X-Launchpad-Export-Date: 2024-06-18 17:55+0000\n"
+"X-Generator: Launchpad (build bbfa2351d9d6a9ddfe262109428f7bf5516e65d1)\n"
 "Language: vi\n"
 
 #: ../backend/comics/comics-document.c:208
 #, c-format
 msgid ""
 "Error launching the command “%s” in order to decompress the comic book: %s"
-msgstr ""
+msgstr "Gặp lỗi khi chạy lệnh “%s” để giải nén truyện tranh: %s"
 
 #: ../backend/comics/comics-document.c:222
 #, c-format
 msgid "The command “%s” failed at decompressing the comic book."
-msgstr ""
+msgstr "Gặp lỗi khi chạy lệnh “%s” để giải nén truyện tranh."
 
 #: ../backend/comics/comics-document.c:231
 #, c-format
 msgid "The command “%s” did not end normally."
-msgstr ""
+msgstr "Lệnh “%s” đã không kết thúc một cách bình thường."
 
 #: ../backend/comics/comics-document.c:459
 #, c-format
 msgid "Not a comic book MIME type: %s"
-msgstr ""
+msgstr "Không phải loại MIME truyện tranh: %s"
 
 #: ../backend/comics/comics-document.c:466
 msgid ""
 "Can't find an appropriate command to decompress this type of comic book"
 msgstr ""
+"Không tìm thấy lệnh thích hợp nào để có thể giải nén loại truyện tranh này"
 
 #: ../backend/comics/comics-document.c:540 ../backend/epub/epub-document.c:644
 #: ../libdocument/ev-document-factory.c:145
 #: ../libdocument/ev-document-factory.c:288
 msgid "Unknown MIME Type"
-msgstr "Không biết kiểu MIME"
+msgstr "Kiểu MIME không xác định"
 
 #: ../backend/comics/comics-document.c:567
 msgid "File corrupted"
-msgstr ""
+msgstr "Tập tin bị hỏng"
 
 #: ../backend/comics/comics-document.c:580
 msgid "No files in archive"
-msgstr ""
+msgstr "Không có tập tin nào trong kho nén"
 
 #: ../backend/comics/comics-document.c:619
 #, c-format
 msgid "No images found in archive %s"
-msgstr "Không tìm thấy ảnh trong kho %s"
+msgstr "Không tìm thấy ảnh trong kho nén %s"
 
 #: ../backend/comics/comics-document.c:866 ../backend/epub/epub-document.c:1819
 #, c-format
 msgid "There was an error deleting “%s”."
-msgstr ""
+msgstr "Đã xảy ra lỗi khi xóa “%s”."
 
 #: ../backend/comics/comics-document.c:1015
 #, c-format
@@ -445,7 +446,7 @@ msgstr ""
 
 #: ../previewer/ev-previewer.c:35
 msgid "Print settings file"
-msgstr ""
+msgstr "Tập tin cài đặt in"
 
 #: ../previewer/ev-previewer.c:104 ../previewer/ev-previewer.c:135
 msgid "Print Preview"
@@ -1366,7 +1367,7 @@ msgstr "Xoay _phải"
 
 #: ../shell/ev-window.c:6194
 msgid "Save Current Settings as _Default"
-msgstr ""
+msgstr "Lưu cài đặt hiện tại làm _Mặc định"
 
 #. View menu
 #: ../shell/ev-window.c:6205
@@ -1463,11 +1464,11 @@ msgstr "Khởi chạy một trình diễn"
 #. View Menu
 #: ../shell/ev-window.c:6398
 msgid "_Menubar"
-msgstr ""
+msgstr "_Menubar"
 
 #: ../shell/ev-window.c:6400
 msgid "Show or hide the menubar"
-msgstr ""
+msgstr "Hiện hoặc ẩn thanh menu"
 
 #: ../shell/ev-window.c:6402
 msgid "_Toolbar"

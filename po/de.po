@@ -17,15 +17,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-05 13:19+0200\n"
-"PO-Revision-Date: 2023-07-10 11:24+0000\n"
-"Last-Translator: Tobias Bannert <tobannert@gmail.com>\n"
+"PO-Revision-Date: 2024-04-15 10:39+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/mate/MATE/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2024-01-04 14:57+0000\n"
-"X-Generator: Launchpad (build e1eeab5b20e19239bd7d5f36676f7a52988db88b)\n"
+"X-Launchpad-Export-Date: 2024-06-18 17:55+0000\n"
+"X-Generator: Launchpad (build bbfa2351d9d6a9ddfe262109428f7bf5516e65d1)\n"
 "Language: de\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -163,7 +163,7 @@ msgstr "EPUB-Datei hat keinen »spine«"
 
 #: ../backend/epub/epub-document.c:1012
 msgid "epub file has no manifest"
-msgstr "EPUB-Datei hat klein Manifest"
+msgstr "EPUB-Datei hat kein Manifest"
 
 #: ../backend/epub/epub-document.c:1103
 msgid "Could not set up document tree for loading, some files missing"
