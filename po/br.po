@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-05 13:19+0200\n"
-"PO-Revision-Date: 2016-02-09 17:25+0000\n"
-"Last-Translator: Alan <Unknown>\n"
+"PO-Revision-Date: 2024-07-19 12:51+0000\n"
+"Last-Translator: Anthony Guechoum <a.guechoum@gmail.com>\n"
 "Language-Team: Breton (http://www.transifex.com/mate/MATE/language/br/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Launchpad-Export-Date: 2024-06-18 17:55+0000\n"
+"X-Launchpad-Export-Date: 2024-07-21 09:01+0000\n"
 "X-Generator: Launchpad (build bbfa2351d9d6a9ddfe262109428f7bf5516e65d1)\n"
 "Language: br\n"
 
@@ -95,7 +95,7 @@ msgstr ""
 
 #: ../backend/djvu/djvudocument.xreader-backend.in.h:1
 msgid "DjVu Documents"
-msgstr ""
+msgstr "Teulioù DjVu"
 
 #: ../backend/dvi/dvi-document.c:107
 msgid "DVI document has incorrect format"
@@ -107,15 +107,15 @@ msgstr "Teulieù DVI"
 
 #: ../backend/epub/epub-document.c:661
 msgid "Not an ePub document"
-msgstr ""
+msgstr "N'eo ket ur restr ePub"
 
 #: ../backend/epub/epub-document.c:766
 msgid "could not retrieve filename"
-msgstr ""
+msgstr "n'haller ket adkavout anv ar restr"
 
 #: ../backend/epub/epub-document.c:794
 msgid "could not open archive"
-msgstr ""
+msgstr "n'haller ket digeriñ an diell"
 
 #: ../backend/epub/epub-document.c:810 ../backend/epub/epub-document.c:826
 msgid "could not extract archive"
@@ -135,11 +135,11 @@ msgstr ""
 
 #: ../backend/epub/epub-document.c:890
 msgid "epub file is invalid or corrupt"
-msgstr ""
+msgstr "didalvoudek pe wastet eo ar restr epub"
 
 #: ../backend/epub/epub-document.c:900
 msgid "epub file is corrupt, no container"
-msgstr ""
+msgstr "gwastet eo ar restr epub, endalc'her ebet"
 
 #: ../backend/epub/epub-document.c:985
 msgid "could not parse content manifest"
@@ -147,7 +147,7 @@ msgstr ""
 
 #: ../backend/epub/epub-document.c:994
 msgid "content file is invalid"
-msgstr ""
+msgstr "didalvoudek eo endalc'had ar restr"
 
 #: ../backend/epub/epub-document.c:1003
 msgid "epub file has no spine"
@@ -163,11 +163,11 @@ msgstr ""
 
 #: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
-msgstr ""
+msgstr "Teulioù epub"
 
 #: ../backend/pdf/ev-poppler.cc:522
 msgid "This work is in the Public Domain"
-msgstr ""
+msgstr "Al labour-se a zo en Domani Foran"
 
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:775 ../backend/pdf/ev-poppler.cc:781
@@ -234,12 +234,12 @@ msgstr "Teulioù PDF"
 #: ../backend/ps/ev-spectre.c:102
 #, c-format
 msgid "Failed to load document “%s”"
-msgstr ""
+msgstr "C'hwitadenn en ur gargañ an teul \"%s\""
 
 #: ../backend/ps/ev-spectre.c:135
 #, c-format
 msgid "Failed to save document “%s”"
-msgstr ""
+msgstr "C'hwitadenn en ur enrollañ an teul \"%s\""
 
 #: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
@@ -257,12 +257,12 @@ msgstr ""
 #: ../libdocument/ev-attachment.c:373
 #, c-format
 msgid "Couldn't open attachment “%s”: %s"
-msgstr ""
+msgstr "N'haller ket digeriñ ar c'henstagadur \"%s\": %s"
 
 #: ../libdocument/ev-attachment.c:408
 #, c-format
 msgid "Couldn't open attachment “%s”"
-msgstr ""
+msgstr "N'haller ket digeriñ ar c'henstagadur \"%s\""
 
 #: ../libdocument/ev-document-factory.c:170
 #, c-format
@@ -280,12 +280,12 @@ msgstr "An holl restroù"
 #: ../libdocument/ev-file-helpers.c:147
 #, c-format
 msgid "Failed to create a temporary file: %s"
-msgstr ""
+msgstr "C'hwitadenn en ur krouiñ ur restr padennek: %s"
 
 #: ../libdocument/ev-file-helpers.c:309
 #, c-format
 msgid "Failed to create a temporary directory: %s"
-msgstr ""
+msgstr "C'hwitadenn en ur krouiñ un teuliad padennek: %s"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:165
 #, c-format
@@ -408,19 +408,19 @@ msgstr "400%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:63
 msgid "800%"
-msgstr ""
+msgstr "800%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:64
 msgid "1600%"
-msgstr ""
+msgstr "1600%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:65
 msgid "3200%"
-msgstr ""
+msgstr "3200%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:66
 msgid "6400%"
-msgstr ""
+msgstr "6400%"
 
 #: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer"
@@ -446,7 +446,7 @@ msgstr ""
 
 #: ../previewer/ev-previewer.c:34
 msgid "Delete the temporary file"
-msgstr ""
+msgstr "Dilemel ar restr padennek"
 
 #: ../previewer/ev-previewer.c:35
 msgid "Print settings file"
@@ -458,12 +458,12 @@ msgstr ""
 
 #: ../previewer/ev-previewer-window.c:83 ../shell/ev-window.c:3426
 msgid "Failed to print document"
-msgstr ""
+msgstr "C'hwitadenn en ru moullañ an teul"
 
 #: ../previewer/ev-previewer-window.c:235
 #, c-format
 msgid "The selected printer '%s' could not be found"
-msgstr ""
+msgstr "Ar voullerez diuzet '%s' n'hall ket bezañ kavet"
 
 #. Go menu
 #: ../previewer/ev-previewer-window.c:281 ../shell/ev-window.c:6232
@@ -493,7 +493,7 @@ msgstr "Bihanaat an teul"
 #. translators: this is the label for toolbar button
 #: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:6657
 msgid "Original size"
-msgstr ""
+msgstr "Ment orin"
 
 #. translators: Print document currently shown in the Print Preview window
 #. translators: Title of the print dialog
@@ -543,7 +543,7 @@ msgstr "eus %d"
 #: ../libview/ev-loading-window.c:76 ../shell/ev-sidebar-annotations.c:134
 #: ../shell/ev-sidebar-layers.c:122 ../shell/ev-sidebar-links.c:256
 msgid "Loading…"
-msgstr ""
+msgstr "O kargañ..."
 
 #. Initial state
 #: ../libview/ev-print-operation.c:332
@@ -552,12 +552,12 @@ msgstr ""
 
 #: ../libview/ev-print-operation.c:334
 msgid "Finishing…"
-msgstr ""
+msgstr "Oc'h echuiñ..."
 
 #: ../libview/ev-print-operation.c:336
 #, c-format
 msgid "Printing page %d of %d…"
-msgstr ""
+msgstr "O voullañ ar bajenn %d eus %d..."
 
 #: ../libview/ev-print-operation.c:1184
 msgid "The requested format is not supported by this printer."
@@ -633,7 +633,7 @@ msgstr ""
 #: ../libview/ev-jobs.c:1738
 #, c-format
 msgid "Failed to print page %d: %s"
-msgstr ""
+msgstr "C'hwitadenn en ur voullañ ar bajenn %d: %s"
 
 #: ../libview/ev-view-accessible.c:45
 msgid "Scroll Up"
@@ -657,7 +657,7 @@ msgstr ""
 
 #: ../libview/ev-view-presentation.c:689
 msgid "Jump to page:"
-msgstr ""
+msgstr "Mont d'ar bajenn:"
 
 #: ../libview/ev-view-presentation.c:993
 msgid "End of presentation. Click to exit."
@@ -665,23 +665,23 @@ msgstr ""
 
 #: ../libview/ev-view.c:1855
 msgid "Go to first page"
-msgstr ""
+msgstr "Mont d'ar bajenn gentañ"
 
 #: ../libview/ev-view.c:1857
 msgid "Go to previous page"
-msgstr ""
+msgstr "Mont d'ar bajenn gent"
 
 #: ../libview/ev-view.c:1859
 msgid "Go to next page"
-msgstr ""
+msgstr "Mont d'ar bajenn da heul"
 
 #: ../libview/ev-view.c:1861
 msgid "Go to last page"
-msgstr ""
+msgstr "Mont d'ar bajenn diwezhañ"
 
 #: ../libview/ev-view.c:1863
 msgid "Go to page"
-msgstr ""
+msgstr "Mont d'ar bajenn"
 
 #: ../libview/ev-view.c:1865
 msgid "Find"
