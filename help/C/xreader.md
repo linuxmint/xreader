@@ -383,6 +383,8 @@ Below is a table of all shortcuts present in xreader:
 +-----------------------+---------------------------+
 | F11                   | Toggle fullscreen mode    |
 +-----------------------+---------------------------+
+| Alt                   | Show menu bar if hidden   |
++-----------------------+---------------------------+
 
 
 
