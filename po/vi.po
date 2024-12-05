@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-05 13:19+0200\n"
-"PO-Revision-Date: 2024-02-20 09:20+0000\n"
+"PO-Revision-Date: 2024-10-04 15:17+0000\n"
 "Last-Translator: thieninox <Unknown>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/mate/MATE/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2024-07-21 09:01+0000\n"
-"X-Generator: Launchpad (build bbfa2351d9d6a9ddfe262109428f7bf5516e65d1)\n"
+"X-Launchpad-Export-Date: 2024-12-05 10:17+0000\n"
+"X-Generator: Launchpad (build 1519c6efe8e9bd78e6c5ebf2eb5bcb040b95ad32)\n"
 "Language: vi\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -75,7 +75,7 @@ msgstr "Đã xảy ra lỗi khi xóa “%s”."
 #: ../backend/comics/comics-document.c:1015
 #, c-format
 msgid "Error %s"
-msgstr ""
+msgstr "Lỗi %s"
 
 #: ../backend/comics/comicsdocument.xreader-backend.in.h:1
 msgid "Comic Books"
@@ -83,17 +83,19 @@ msgstr "Truyện tranh vui"
 
 #: ../backend/djvu/djvu-document.c:171
 msgid "DjVu document has incorrect format"
-msgstr ""
+msgstr "Tài liệu DjVu có định dạng sai"
 
 #: ../backend/djvu/djvu-document.c:248
 msgid ""
 "The document is composed of several files. One or more of these files cannot "
 "be accessed."
 msgstr ""
+"Tài liệu bao gồm nhiều tập tin. Một hoặc nhiều trong số những tập tin đó "
+"không truy cập được."
 
 #: ../backend/djvu/djvudocument.xreader-backend.in.h:1
 msgid "DjVu Documents"
-msgstr ""
+msgstr "Tài liệu dạng DjVu"
 
 #: ../backend/dvi/dvi-document.c:107
 msgid "DVI document has incorrect format"
@@ -105,39 +107,39 @@ msgstr "Tài liệu DVI"
 
 #: ../backend/epub/epub-document.c:661
 msgid "Not an ePub document"
-msgstr ""
+msgstr "Không phải là tài liệu ePub"
 
 #: ../backend/epub/epub-document.c:766
 msgid "could not retrieve filename"
-msgstr ""
+msgstr "không thể lấy được tên tập tin"
 
 #: ../backend/epub/epub-document.c:794
 msgid "could not open archive"
-msgstr ""
+msgstr "không thể mở tập tin nén"
 
 #: ../backend/epub/epub-document.c:810 ../backend/epub/epub-document.c:826
 msgid "could not extract archive"
-msgstr ""
+msgstr "không thể giải nén tập tin nén"
 
 #: ../backend/epub/epub-document.c:858 ../backend/epub/epub-document.c:941
 msgid "could not retrieve container file"
-msgstr ""
+msgstr "không thể lấy được tập tin chứa"
 
 #: ../backend/epub/epub-document.c:870
 msgid "could not open container file"
-msgstr ""
+msgstr "không thể mở tập tin chứa"
 
 #: ../backend/epub/epub-document.c:880
 msgid "container file is corrupt"
-msgstr ""
+msgstr "tập tin chứa đã bị hỏng"
 
 #: ../backend/epub/epub-document.c:890
 msgid "epub file is invalid or corrupt"
-msgstr ""
+msgstr "tập tin epub không hợp lệ hoặc đã bị hỏng"
 
 #: ../backend/epub/epub-document.c:900
 msgid "epub file is corrupt, no container"
-msgstr ""
+msgstr "tập tin epub bị hỏng, không có chưaz"
 
 #: ../backend/epub/epub-document.c:985
 msgid "could not parse content manifest"
@@ -145,7 +147,7 @@ msgstr ""
 
 #: ../backend/epub/epub-document.c:994
 msgid "content file is invalid"
-msgstr ""
+msgstr "nội dung tập tin không hợp lệ"
 
 #: ../backend/epub/epub-document.c:1003
 msgid "epub file has no spine"
@@ -158,14 +160,15 @@ msgstr ""
 #: ../backend/epub/epub-document.c:1103
 msgid "Could not set up document tree for loading, some files missing"
 msgstr ""
+"Không thể thiết lập nhánh của tài liệu để tải, vài tập tin không tồn tại"
 
 #: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
-msgstr ""
+msgstr "Các tài liệu ePub"
 
 #: ../backend/pdf/ev-poppler.cc:522
 msgid "This work is in the Public Domain"
-msgstr ""
+msgstr "Tác phẩm này đã thuộc phạm vi Công Cộng"
 
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:775 ../backend/pdf/ev-poppler.cc:781
@@ -278,12 +281,12 @@ msgstr "Mọi tập tin"
 #: ../libdocument/ev-file-helpers.c:147
 #, c-format
 msgid "Failed to create a temporary file: %s"
-msgstr ""
+msgstr "Gặp lỗi khi tạo tập tin tạm thời: %s"
 
 #: ../libdocument/ev-file-helpers.c:309
 #, c-format
 msgid "Failed to create a temporary directory: %s"
-msgstr ""
+msgstr "Gặp lỗi khi muốn tạo ra thư mục tạm thời: %s"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:165
 #, c-format
@@ -360,7 +363,7 @@ msgstr "Vừa độ rộng trang"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:6223
 msgid "Expand Window to Fit"
-msgstr ""
+msgstr "Kéo dãn cửa sổ để cân đối"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:53
 msgid "50%"
@@ -404,23 +407,23 @@ msgstr "400%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:63
 msgid "800%"
-msgstr ""
+msgstr "800%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:64
 msgid "1600%"
-msgstr ""
+msgstr "1600%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:65
 msgid "3200%"
-msgstr ""
+msgstr "3200%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:66
 msgid "6400%"
-msgstr ""
+msgstr "6400%"
 
 #: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer"
-msgstr ""
+msgstr "Một trình xem tài liệu"
 
 #: ../data/xreader.appdata.xml.in.h:2
 msgid ""
@@ -438,11 +441,11 @@ msgstr "Bộ xem tài liệu"
 
 #: ../data/xreader.desktop.in.in.h:2
 msgid "View multi-page documents"
-msgstr ""
+msgstr "Xem nhiều trang tài liệu"
 
 #: ../previewer/ev-previewer.c:34
 msgid "Delete the temporary file"
-msgstr ""
+msgstr "Xóa tập tin tạm thời"
 
 #: ../previewer/ev-previewer.c:35
 msgid "Print settings file"
@@ -450,7 +453,7 @@ msgstr "Tập tin cài đặt in"
 
 #: ../previewer/ev-previewer.c:104 ../previewer/ev-previewer.c:135
 msgid "Print Preview"
-msgstr ""
+msgstr "Xem trước khi in"
 
 #: ../previewer/ev-previewer-window.c:83 ../shell/ev-window.c:3426
 msgid "Failed to print document"
@@ -459,7 +462,7 @@ msgstr "Lỗi khi in tài liệu"
 #: ../previewer/ev-previewer-window.c:235
 #, c-format
 msgid "The selected printer '%s' could not be found"
-msgstr ""
+msgstr "Không tìm được máy in đã chọn là “%s”"
 
 #. Go menu
 #: ../previewer/ev-previewer-window.c:281 ../shell/ev-window.c:6232
@@ -489,7 +492,7 @@ msgstr "Thu nhỏ tài liệu"
 #. translators: this is the label for toolbar button
 #: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:6657
 msgid "Original size"
-msgstr ""
+msgstr "Kích cỡ gốc"
 
 #. translators: Print document currently shown in the Print Preview window
 #. translators: Title of the print dialog
@@ -539,41 +542,41 @@ msgstr "trên %d"
 #: ../libview/ev-loading-window.c:76 ../shell/ev-sidebar-annotations.c:134
 #: ../shell/ev-sidebar-layers.c:122 ../shell/ev-sidebar-links.c:256
 msgid "Loading…"
-msgstr ""
+msgstr "Đang tải…"
 
 #. Initial state
 #: ../libview/ev-print-operation.c:332
 msgid "Preparing to print…"
-msgstr ""
+msgstr "Chuẩn bị in…"
 
 #: ../libview/ev-print-operation.c:334
 msgid "Finishing…"
-msgstr ""
+msgstr "Đang hoàn tất…"
 
 #: ../libview/ev-print-operation.c:336
 #, c-format
 msgid "Printing page %d of %d…"
-msgstr ""
+msgstr "Đang in trang %d trên %d…"
 
 #: ../libview/ev-print-operation.c:1184
 msgid "The requested format is not supported by this printer."
-msgstr ""
+msgstr "Định dạng yêu cầu không được hỗ trợ bởi máy in này."
 
 #: ../libview/ev-print-operation.c:1247
 msgid "Invalid page selection"
-msgstr ""
+msgstr "Cách chọn các trang không hợp lý"
 
 #: ../libview/ev-print-operation.c:1248
 msgid "Warning"
-msgstr ""
+msgstr "Cảnh Báo"
 
 #: ../libview/ev-print-operation.c:1250
 msgid "Your print range selection does not include any pages"
-msgstr ""
+msgstr "Khoảng trang đã chọn để in không có trang nào"
 
 #: ../libview/ev-print-operation.c:1937
 msgid "Page Scaling:"
-msgstr ""
+msgstr "Tỷ lệ trang:"
 
 #. translators: Value for 'Page Scaling:' to not scale the document pages on printing
 #: ../libview/ev-print-operation.c:1943
@@ -582,11 +585,11 @@ msgstr "Không có"
 
 #: ../libview/ev-print-operation.c:1944
 msgid "Shrink to Printable Area"
-msgstr ""
+msgstr "Co lại cho vừa vùng in được"
 
 #: ../libview/ev-print-operation.c:1945
 msgid "Fit to Printable Area"
-msgstr ""
+msgstr "Vừa khít vùng in được"
 
 #: ../libview/ev-print-operation.c:1948
 msgid ""
@@ -601,35 +604,46 @@ msgid ""
 "• \"Fit to Printable Area\": Document pages are enlarged or reduced as "
 "required to fit the printable area of the printer page.\n"
 msgstr ""
+"Co giãn lại các trang tài liệu cho vừa máy in đã chọn. Hãy chọn sau đây:\n"
+"\n"
+"* “Không chọn”: Sẽ không thực hiện co giãn trang.\n"
+"\n"
+"* “Co lại cho vừa vùng in được”: Những trang tài liệu rộng hơn vùng in sẽ "
+"được co lại cho vừa vùng in của máy in.\n"
+"\n"
+"* “Vừa khít vùng in được”: Những trang tài liệu sẽ được co hoặc giãn lại cho "
+"vừa vùng in của máy in.\n"
 
 #: ../libview/ev-print-operation.c:1960
 msgid "Auto Rotate and Center"
-msgstr ""
+msgstr "Tự xoay và đặt ở giữa"
 
 #: ../libview/ev-print-operation.c:1963
 msgid ""
 "Rotate printer page orientation of each page to match orientation of each "
 "document page. Document pages will be centered within the printer page."
 msgstr ""
+"Xoay hướng của trang máy in để khớp lại với hướng xếp từng trang tài liệu. "
+"Những trang tài liệu sẽ đặt ở giữa của trang máy in."
 
 #: ../libview/ev-print-operation.c:1968
 msgid "Select page size using document page size"
-msgstr ""
+msgstr "Chọn khổ giấy thông qua khổ giấy tài liệu"
 
 #: ../libview/ev-print-operation.c:1970
 msgid ""
 "When enabled, each page will be printed on the same size paper as the "
 "document page."
-msgstr ""
+msgstr "Khi bật, mỗi trang sẽ được in trên giấy cùng khổ trang tài liệu."
 
 #: ../libview/ev-print-operation.c:2052
 msgid "Page Handling"
-msgstr ""
+msgstr "Thao tác trên trang"
 
 #: ../libview/ev-jobs.c:1738
 #, c-format
 msgid "Failed to print page %d: %s"
-msgstr ""
+msgstr "Gặp lỗi khi in trang %d: %s"
 
 #: ../libview/ev-view-accessible.c:45
 msgid "Scroll Up"
@@ -657,7 +671,7 @@ msgstr "Tới trang:"
 
 #: ../libview/ev-view-presentation.c:993
 msgid "End of presentation. Click to exit."
-msgstr ""
+msgstr "Trình chiếu đã kết thúc. Nhấn đế thoát."
 
 #: ../libview/ev-view.c:1855
 msgid "Go to first page"
@@ -725,7 +739,7 @@ msgstr "Tìm tiếp theo chiều từ trên xuống"
 
 #: ../shell/eggfindbar.c:355
 msgid "Case Sensitive"
-msgstr ""
+msgstr "Phân biệt chữ hoa/thường"
 
 #: ../shell/eggfindbar.c:358
 msgid "Toggle case sensitive search"
@@ -733,113 +747,113 @@ msgstr "Bật/tắt tìm kiếm phân biệt hoa/thường"
 
 #: ../shell/ev-annotation-properties-dialog.c:99
 msgid "Icon:"
-msgstr ""
+msgstr "Biểu tượng:"
 
 #: ../shell/ev-annotation-properties-dialog.c:106
 msgid "Note"
-msgstr ""
+msgstr "Ghi chú"
 
 #: ../shell/ev-annotation-properties-dialog.c:107
 msgid "Comment"
-msgstr ""
+msgstr "Chú thích"
 
 #: ../shell/ev-annotation-properties-dialog.c:108
 msgid "Key"
-msgstr ""
+msgstr "Chìa Khoá"
 
 #: ../shell/ev-annotation-properties-dialog.c:109
 #: ../shell/ev-preferences-dialog.c:137
 msgid "Help"
-msgstr ""
+msgstr "Trợ giúp"
 
 #: ../shell/ev-annotation-properties-dialog.c:110
 msgid "New Paragraph"
-msgstr ""
+msgstr "Đoạn mới"
 
 #: ../shell/ev-annotation-properties-dialog.c:111
 msgid "Paragraph"
-msgstr ""
+msgstr "Đoạn"
 
 #: ../shell/ev-annotation-properties-dialog.c:112
 msgid "Insert"
-msgstr ""
+msgstr "Chèn"
 
 #: ../shell/ev-annotation-properties-dialog.c:113
 msgid "Cross"
-msgstr ""
+msgstr "Chữ thập"
 
 #: ../shell/ev-annotation-properties-dialog.c:114
 msgid "Circle"
-msgstr ""
+msgstr "Hình tròn"
 
 #: ../shell/ev-annotation-properties-dialog.c:115
 msgid "Unknown"
-msgstr ""
+msgstr "Không xác định"
 
 #: ../shell/ev-annotation-properties-dialog.c:126
 msgid "Markup type:"
-msgstr ""
+msgstr "Kiểu đánh dấu:"
 
 #: ../shell/ev-annotation-properties-dialog.c:132
 msgid "Highlight"
-msgstr ""
+msgstr "Tô sáng"
 
 #: ../shell/ev-annotation-properties-dialog.c:133
 msgid "Strike out"
-msgstr ""
+msgstr "Gạch xóa"
 
 #: ../shell/ev-annotation-properties-dialog.c:134
 msgid "Underline"
-msgstr ""
+msgstr "Gạch chân"
 
 #: ../shell/ev-annotation-properties-dialog.c:135
 msgid "Squiggly"
-msgstr ""
+msgstr "Viết bằng tay"
 
 #: ../shell/ev-annotation-properties-dialog.c:158
 msgid "Annotation Properties"
-msgstr ""
+msgstr "Thuộc tính chú thích"
 
 #: ../shell/ev-annotation-properties-dialog.c:178
 msgid "Author:"
-msgstr ""
+msgstr "Tác giả:"
 
 #: ../shell/ev-annotation-properties-dialog.c:191
 msgid "Color:"
-msgstr ""
+msgstr "Màu sắc:"
 
 #: ../shell/ev-annotation-properties-dialog.c:203
 msgid "Style:"
-msgstr ""
+msgstr "Kiểu:"
 
 #: ../shell/ev-annotation-properties-dialog.c:219
 msgid "Transparent"
-msgstr ""
+msgstr "Trong suốt"
 
 #: ../shell/ev-annotation-properties-dialog.c:226
 msgid "Opaque"
-msgstr ""
+msgstr "Đục"
 
 #: ../shell/ev-annotation-properties-dialog.c:236
 msgid "Initial window state:"
-msgstr ""
+msgstr "Trạng thái cửa sổ ban đầu:"
 
 #: ../shell/ev-annotation-properties-dialog.c:244
 msgid "Open"
-msgstr ""
+msgstr "Mở"
 
 #: ../shell/ev-annotation-properties-dialog.c:245
 #: ../shell/ev-preferences-dialog.c:141
 msgid "Close"
-msgstr ""
+msgstr "Đóng"
 
 #: ../shell/ev-annotations-toolbar.c:120
 msgid "Add text annotation"
-msgstr ""
+msgstr "Thêm chú thích bằng chữ"
 
 #: ../shell/ev-annotations-toolbar.c:126
 msgid "Add highlight annotation"
-msgstr ""
+msgstr "Thêm chú thích tô sáng"
 
 #: ../shell/ev-application.c:1018
 msgid "Running in presentation mode"
@@ -853,11 +867,11 @@ msgstr "Trang %s"
 
 #: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:6250
 msgid "Go to previous history item"
-msgstr ""
+msgstr "Về mục lịch sử trước"
 
 #: ../shell/ev-history-action-widget.c:219 ../shell/ev-window.c:6254
 msgid "Go to next history item"
-msgstr ""
+msgstr "Về mục lịch sử kế tiếp"
 
 #: ../shell/ev-keyring.c:86
 #, c-format
@@ -902,7 +916,7 @@ msgstr "_Quên ngay mật khẩu"
 
 #: ../shell/ev-password-view.c:369
 msgid "Remember password until you _log out"
-msgstr ""
+msgstr "Nhớ mật khẩu cho đến khi đăng _xuất"
 
 #: ../shell/ev-password-view.c:381
 msgid "Remember _forever"
@@ -910,11 +924,11 @@ msgstr "Nhớ _hẳn"
 
 #: ../shell/ev-preferences-dialog.c:129 ../shell/ev-preferences-dialog.ui.h:3
 msgid "Toolbar"
-msgstr ""
+msgstr "Thanh công cụ"
 
 #: ../shell/ev-preferences-dialog.c:153 ../shell/ev-window.c:6198
 msgid "Preferences"
-msgstr ""
+msgstr "Tùy chỉnh"
 
 #: ../shell/ev-preferences-dialog.ui.h:1 ../shell/ev-properties-dialog.c:97
 msgid "General"
@@ -922,19 +936,19 @@ msgstr "Chung"
 
 #: ../shell/ev-preferences-dialog.ui.h:2
 msgid "Maximize window for new documents"
-msgstr ""
+msgstr "Kéo dãn tối đa cửa sổ cho các tài liệu mới"
 
 #: ../shell/ev-preferences-dialog.ui.h:4
 msgid "Show history buttons"
-msgstr ""
+msgstr "Hiện nút lịch sử"
 
 #: ../shell/ev-preferences-dialog.ui.h:5
 msgid "Show expand window button"
-msgstr ""
+msgstr "Hiện nút mở rộng"
 
 #: ../shell/ev-preferences-dialog.ui.h:6
 msgid "Show zoom level selector"
-msgstr ""
+msgstr "Hiện bộ chọn cấp độ zoom"
 
 #: ../shell/ev-properties-dialog.c:63
 msgid "Properties"

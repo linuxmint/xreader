@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-05 13:19+0200\n"
-"PO-Revision-Date: 2019-12-09 20:59+0000\n"
-"Last-Translator: Erlend Østlie <erlend.oestlie@gmail.com>\n"
+"PO-Revision-Date: 2024-09-11 19:45+0000\n"
+"Last-Translator: Roger Knutsen <Unknown>\n"
 "Language-Team: Norwegian Bokmål "
 "(http://www.transifex.com/mate/MATE/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2024-07-21 09:01+0000\n"
-"X-Generator: Launchpad (build bbfa2351d9d6a9ddfe262109428f7bf5516e65d1)\n"
+"X-Launchpad-Export-Date: 2024-12-05 10:17+0000\n"
+"X-Generator: Launchpad (build 1519c6efe8e9bd78e6c5ebf2eb5bcb040b95ad32)\n"
 "Language: nb\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -126,15 +126,15 @@ msgstr "kunne ikke pakke ut arkivet"
 
 #: ../backend/epub/epub-document.c:858 ../backend/epub/epub-document.c:941
 msgid "could not retrieve container file"
-msgstr ""
+msgstr "kunne ikke hente beholderfil"
 
 #: ../backend/epub/epub-document.c:870
 msgid "could not open container file"
-msgstr ""
+msgstr "kunne ikke åpne beholderfil"
 
 #: ../backend/epub/epub-document.c:880
 msgid "container file is corrupt"
-msgstr ""
+msgstr "beholderfil er korrupt"
 
 #: ../backend/epub/epub-document.c:890
 msgid "epub file is invalid or corrupt"
@@ -142,19 +142,19 @@ msgstr "epub-filen er ugyldig eller korrupt"
 
 #: ../backend/epub/epub-document.c:900
 msgid "epub file is corrupt, no container"
-msgstr ""
+msgstr "epub-fil er korrupt, ingen beholder"
 
 #: ../backend/epub/epub-document.c:985
 msgid "could not parse content manifest"
-msgstr ""
+msgstr "Kunne ikke analysere innholdsmanifest"
 
 #: ../backend/epub/epub-document.c:994
 msgid "content file is invalid"
-msgstr ""
+msgstr "Innholdsfilen er ugyldig"
 
 #: ../backend/epub/epub-document.c:1003
 msgid "epub file has no spine"
-msgstr ""
+msgstr "epub-filen har ingen ryggrad"
 
 #: ../backend/epub/epub-document.c:1012
 msgid "epub file has no manifest"
@@ -162,7 +162,7 @@ msgstr "epub filen har ikke et manifest"
 
 #: ../backend/epub/epub-document.c:1103
 msgid "Could not set up document tree for loading, some files missing"
-msgstr ""
+msgstr "Kunne ikke sette opp dokumenttre for lasting, noen filer mangler"
 
 #: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
@@ -436,6 +436,11 @@ msgid ""
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
 msgstr ""
+"<p> Xreader er en enkel flersidig dokumentviser. Den kan vise og skrive ut "
+"PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS og Portable "
+"Document Format (PDF)-filer, samt tegneseriearkivfiler. Når det støttes av "
+"dokumentet, tillater det også å søke etter tekst, kopiere tekst til "
+"utklippstavlen, hypertekstnavigasjon og innholdsfortegnelsesbokmerker. </p>"
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
 #: ../shell/main.c:239 ../shell/main.c:268
@@ -456,7 +461,7 @@ msgstr "Skriv ut fil med innstillinger"
 
 #: ../previewer/ev-previewer.c:104 ../previewer/ev-previewer.c:135
 msgid "Print Preview"
-msgstr ""
+msgstr "Forhåndsvis utskrift"
 
 #: ../previewer/ev-previewer-window.c:83 ../shell/ev-window.c:3426
 msgid "Failed to print document"
@@ -563,7 +568,7 @@ msgstr "Skriver ut side %d av %d…"
 
 #: ../libview/ev-print-operation.c:1184
 msgid "The requested format is not supported by this printer."
-msgstr ""
+msgstr "Det forespurte formatet støttes ikke av denne skriveren."
 
 #: ../libview/ev-print-operation.c:1247
 msgid "Invalid page selection"
@@ -798,23 +803,23 @@ msgstr "Ukjent"
 
 #: ../shell/ev-annotation-properties-dialog.c:126
 msgid "Markup type:"
-msgstr ""
+msgstr "Markup-type"
 
 #: ../shell/ev-annotation-properties-dialog.c:132
 msgid "Highlight"
-msgstr ""
+msgstr "Fremhev"
 
 #: ../shell/ev-annotation-properties-dialog.c:133
 msgid "Strike out"
-msgstr ""
+msgstr "Gjennomstrek"
 
 #: ../shell/ev-annotation-properties-dialog.c:134
 msgid "Underline"
-msgstr ""
+msgstr "Understrek"
 
 #: ../shell/ev-annotation-properties-dialog.c:135
 msgid "Squiggly"
-msgstr ""
+msgstr "Snirklete"
 
 #: ../shell/ev-annotation-properties-dialog.c:158
 msgid "Annotation Properties"
@@ -859,7 +864,7 @@ msgstr "Legg til tekstanmerkning"
 
 #: ../shell/ev-annotations-toolbar.c:126
 msgid "Add highlight annotation"
-msgstr ""
+msgstr "Legg til uthevet tekstanmerkning"
 
 #: ../shell/ev-application.c:1018
 msgid "Running in presentation mode"
@@ -873,11 +878,11 @@ msgstr "Side %s"
 
 #: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:6250
 msgid "Go to previous history item"
-msgstr ""
+msgstr "Gå til forrige historikkoppføring"
 
 #: ../shell/ev-history-action-widget.c:219 ../shell/ev-window.c:6254
 msgid "Go to next history item"
-msgstr ""
+msgstr "Gå til neste historikkoppføring"
 
 #: ../shell/ev-keyring.c:86
 #, c-format
@@ -943,7 +948,7 @@ msgstr "Generelt"
 
 #: ../shell/ev-preferences-dialog.ui.h:2
 msgid "Maximize window for new documents"
-msgstr ""
+msgstr "Maksimer vinduet for nye dokumenter"
 
 #: ../shell/ev-preferences-dialog.ui.h:4
 msgid "Show history buttons"
@@ -955,7 +960,7 @@ msgstr "Vis knapp for å utvide vinduet"
 
 #: ../shell/ev-preferences-dialog.ui.h:6
 msgid "Show zoom level selector"
-msgstr ""
+msgstr "Vis zoomnivåvelger"
 
 #: ../shell/ev-properties-dialog.c:63
 msgid "Properties"
@@ -1080,6 +1085,8 @@ msgid ""
 "Cannot enter presentation mode with ePub documents, use fullscreen mode "
 "instead."
 msgstr ""
+"Kan ikke gå inn i presentasjonsmodus med ePub-dokumenter, bruk "
+"fullskjermmodus i stedet."
 
 #: ../shell/ev-window.c:1507
 msgid "The document contains no pages"
@@ -1202,7 +1209,7 @@ msgstr "Lagre en _kopi"
 
 #: ../shell/ev-window.c:3675
 msgid "_Save"
-msgstr ""
+msgstr "_Lagre"
 
 #: ../shell/ev-window.c:3676
 msgid "Close _without Saving"
@@ -1294,8 +1301,8 @@ msgstr "Xreader"
 #, c-format
 msgid "%d found on this page (%d total)"
 msgid_plural "%d found on this page (%d total)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d treff på denne siden (%d totalt)"
+msgstr[1] "%d treff på denne siden (%d totalt)"
 
 #: ../shell/ev-window.c:5445 ../shell/ev-window.c:5568
 msgid "Not found"
@@ -1332,11 +1339,11 @@ msgstr "_Hjelp"
 
 #: ../shell/ev-window.c:6133
 msgid "Favorites"
-msgstr ""
+msgstr "Favoritter"
 
 #: ../shell/ev-window.c:6134
 msgid "Recents"
-msgstr ""
+msgstr "Nylige"
 
 #. File menu
 #: ../shell/ev-window.c:6136 ../shell/ev-window.c:6619
@@ -1503,11 +1510,11 @@ msgstr "Start en presentasjon"
 #. View Menu
 #: ../shell/ev-window.c:6398
 msgid "_Menubar"
-msgstr ""
+msgstr "_Menylinje"
 
 #: ../shell/ev-window.c:6400
 msgid "Show or hide the menubar"
-msgstr ""
+msgstr "Vis eller skjul menylinjen"
 
 #: ../shell/ev-window.c:6402
 msgid "_Toolbar"
@@ -1551,11 +1558,11 @@ msgstr "Vis to sider samtidig med oddetallssider til venstre"
 
 #: ../shell/ev-window.c:6422
 msgid "Right to Left"
-msgstr ""
+msgstr "Høyre til venstre"
 
 #: ../shell/ev-window.c:6424
 msgid "Browse the document from right to left"
-msgstr ""
+msgstr "Bla gjennom dokumentet fra høyre til venstre"
 
 #: ../shell/ev-window.c:6426
 msgid "_Fullscreen"
@@ -1612,7 +1619,7 @@ msgstr "Egenskaper for anmerkninger…"
 
 #: ../shell/ev-window.c:6466
 msgid "Remove Annotation"
-msgstr ""
+msgstr "Fjern anmerking"
 
 #: ../shell/ev-window.c:6471
 msgid "_Open Attachment"
@@ -1710,11 +1717,11 @@ msgstr "Kjør xreader i fullskjerm-modus"
 
 #: ../shell/main.c:69
 msgid "Named destination to display."
-msgstr ""
+msgstr "Navngitt mål som skal vises."
 
 #: ../shell/main.c:69
 msgid "DEST"
-msgstr ""
+msgstr "MÅL"
 
 #: ../shell/main.c:70
 msgid "Run xreader in presentation mode"
