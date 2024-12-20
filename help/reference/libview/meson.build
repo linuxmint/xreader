@@ -24,7 +24,7 @@ gnome.gtkdoc(
     ignore_headers: [libview_private_headers],
     dependencies: libview_doc_deps,
     mkdb_args: ['--xml-mode', '--output-format=xml', '--name-space=ev'],
-    cflags: '-DXREADER_COMPILATION',
+    c_args: '-DXREADER_COMPILATION',
     fixxref_args: fixref_args,
     install: true,
     install_dir: 'libxreaderview-' + api_version,
