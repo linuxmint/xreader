@@ -10,7 +10,7 @@ version_xml = configure_file(
 libview_doc_deps = declare_dependency(
     include_directories: [include_root, libdoc_include, libview_include, include_directories('.')],
     link_with: libview,
-    dependencies: libdoc_deps,
+    dependencies: libview_deps,
 )
 
 gnome.gtkdoc(
