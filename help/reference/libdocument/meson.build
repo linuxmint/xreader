@@ -7,22 +7,16 @@ version_xml = configure_file(
   configuration: version_conf,
 )
 
-libdoc_doc_deps = declare_dependency(
-    include_directories: [libdoc_include, include_directories('.')],
-    link_with: libdocument,
-    dependencies: libdocument_deps,
-)
-
 gnome.gtkdoc(
     'libxreaderdocument',
     mode: 'xml',
     main_xml: 'libxreaderdocument-docs.xml',
     gobject_typesfile: files('libxreaderdocument.types'),
     src_dir: [
-        join_paths(meson.source_root(), 'libdocument'),
+        join_paths(meson.build_root(), 'libdocument'),
     ],
     ignore_headers: [libdocument_private_headers],
-    dependencies: libdoc_doc_deps,
+    dependencies: libdocument_dep,
     mkdb_args: ['--xml-mode', '--output-format=xml', '--name-space=ev'],
     fixxref_args: fixref_args,
     install: true,
