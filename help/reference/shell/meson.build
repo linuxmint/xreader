@@ -8,9 +8,7 @@ version_xml = configure_file(
 )
 
 xreader_doc_deps = declare_dependency(
-    include_directories: [include_root, libdoc_include, libview_include, include_directories('.')],
-    link_with: [libdocument, libview],
-    dependencies: xreader_deps,
+    link_with: libshell.get_shared_lib(),
 )
 
 gnome.gtkdoc(
@@ -19,7 +17,8 @@ gnome.gtkdoc(
     main_xml: 'xreader-docs.xml',
     gobject_typesfile: files('xreader.types'),
     src_dir: [
-        join_paths(meson.source_root(), 'libview'),
+        join_paths(meson.source_root(), 'shell'),
+        join_paths(meson.source_root(), 'libmisc'),
     ],
     ignore_headers: [libview_private_headers],
     dependencies: xreader_doc_deps,

@@ -141,7 +141,7 @@ libshell_deps = [
     libephyzoom_dep,
 ]
 
-libshell = static_library(
+libshell = both_libraries(
     'shell',
     shell_sources,
     dependencies: libshell_deps,
@@ -149,7 +149,7 @@ libshell = static_library(
 )
 
 libshell_dep = declare_dependency(
-  link_whole: libshell,  # Need the whole lib for gresource lookup
+  link_whole: libshell.get_static_lib(),  # Need the whole lib for gresource lookup
   dependencies: libshell_deps,
   include_directories: include_dirs,
 )
