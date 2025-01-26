@@ -20,7 +20,6 @@ gnome.gtkdoc(
         join_paths(meson.source_root(), 'shell'),
         join_paths(meson.source_root(), 'libmisc'),
     ],
-    ignore_headers: [libview_private_headers],
     dependencies: xreader_doc_deps,
     mkdb_args: ['--xml-mode', '--output-format=xml', '--name-space=ev'],
     c_args: '-DXREADER_COMPILATION',
