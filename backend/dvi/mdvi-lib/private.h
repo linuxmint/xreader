@@ -32,6 +32,7 @@
 #  endif
 #endif
 
+#include <kpathsea/c-auto.h>
 #include <kpathsea/debug.h>
 #include <kpathsea/tex-file.h>
 #include <kpathsea/tex-glyph.h>
