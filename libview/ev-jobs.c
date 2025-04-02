@@ -41,9 +41,6 @@
 #include "ev-debug.h"
 
 #include <gtk/gtk.h>
-#if ENABLE_EPUB
-#include <webkit2/webkit2.h>
-#endif
 #include <errno.h>
 #include <glib/gstdio.h>
 #include <glib/gi18n-lib.h>
@@ -821,80 +818,6 @@ ev_job_thumbnail_dispose (GObject *object)
 	(* G_OBJECT_CLASS (ev_job_thumbnail_parent_class)->dispose) (object);
 }
 
-#if ENABLE_EPUB
-
-static void
-snapshot_callback(WebKitWebView *webview,
-                  GAsyncResult  *results,
-                  EvJobThumbnail *job_thumb)
-{
-	GError *error = NULL;
-
-	ev_document_doc_mutex_lock ();
-
-	EvPage *page = ev_document_get_page (EV_JOB(job_thumb)->document, job_thumb->page);
-	job_thumb->surface = webkit_web_view_get_snapshot_finish (webview,
-	                                                          results,
-	                                                          &error);
-
-	if (error) {
-		g_warning ("Error retrieving a snapshot: %s", error->message);
-	}
-
-	EvRenderContext *rc = ev_render_context_new (page, job_thumb->rotation, job_thumb->scale);
-	EvPage *screenshotpage;
-	screenshotpage = ev_page_new(job_thumb->page);
-	screenshotpage->backend_page = (EvBackendPage)job_thumb->surface;
-	screenshotpage->backend_destroy_func = (EvBackendPageDestroyFunc)cairo_surface_destroy;
-	ev_render_context_set_page(rc,screenshotpage);
-
-	job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (EV_JOB(job_thumb)->document),
-	                                                             rc, TRUE);
-	g_object_unref(screenshotpage);
-	g_object_unref(rc);
-
-	ev_document_doc_mutex_unlock ();
-	ev_job_succeeded (EV_JOB(job_thumb));
-    
-	gtk_widget_destroy (gtk_widget_get_toplevel (GTK_WIDGET (webview)));
-}
-
-
-static void
-web_thumbnail_get_screenshot_cb (WebKitWebView  *webview,
-                                 WebKitLoadEvent event,
-                                 EvJobThumbnail *job_thumb)
-{
-	if (event != WEBKIT_LOAD_FINISHED || ev_job_is_failed (EV_JOB(job_thumb))) {
-		return;
-	}
-
-	webkit_web_view_get_snapshot (webview,
-	                              WEBKIT_SNAPSHOT_REGION_VISIBLE,
-	                              WEBKIT_SNAPSHOT_OPTIONS_NONE,
-	                              NULL,
-	                              (GAsyncReadyCallback)snapshot_callback,
-	                              g_object_ref (job_thumb));
-}
-
-static gboolean
-webview_load_failed_cb (WebKitWebView  *webview,
-                        WebKitLoadEvent event,
-                        gchar          *failing_uri,
-                        gpointer        error,
-                        EvJobThumbnail *job_thumb)
-{
-	GError *e = (GError *) error;
-	g_warning ("Error loading data from %s: %s", failing_uri, e->message);
-	ev_job_failed_from_error (EV_JOB(job_thumb), e);
-	
-	gtk_widget_destroy (gtk_widget_get_toplevel (GTK_WIDGET (webview)));
-	
-	return TRUE;
-}
-
-#endif  /* ENABLE_EPUB */
-
 static gboolean
 ev_job_thumbnail_run (EvJob *job)
 {
@@ -904,57 +827,22 @@ ev_job_thumbnail_run (EvJob *job)
 	ev_debug_message (DEBUG_JOBS, "%d (%p)", job_thumb->page, job);
 	ev_profiler_start (EV_PROFILE_JOBS, "%s (%p)", EV_GET_TYPE_NAME (job), job);
 
-	if (job->document->iswebdocument) {
-		/* Do not block the main loop */
-		if (!ev_document_doc_mutex_trylock ())
-			return TRUE;
-	} else {
-		ev_document_doc_mutex_lock ();
-	}
+    ev_document_doc_mutex_lock ();
 
-	page = ev_document_get_page (job->document, job_thumb->page);
-	ev_document_doc_mutex_unlock ();
+    page = ev_document_get_page (job->document, job_thumb->page);
+    ev_document_doc_mutex_unlock ();
 
-	if (job->document->iswebdocument == TRUE ) {
-		rc = ev_render_context_new (page, 0, job_thumb->scale);
-	} else {
-		rc = ev_render_context_new (page, job_thumb->rotation, job_thumb->scale);
-	}
-	g_object_unref (page);
+    rc = ev_render_context_new (page, job_thumb->rotation, job_thumb->scale);
+    g_object_unref (page);
 
-#if ENABLE_EPUB
-	if (job->document->iswebdocument == TRUE) {
-	
-		GtkWidget *webview;
-		GtkWidget *offscreenwindow;
-		
-		webview = webkit_web_view_new ();
-		offscreenwindow = gtk_offscreen_window_new ();
-		
-		gtk_container_add (GTK_CONTAINER(offscreenwindow), GTK_WIDGET (webview));
-		gtk_window_set_default_size (GTK_WINDOW(offscreenwindow), 800, 1080);
-		gtk_widget_show_all (offscreenwindow);
+    ev_document_doc_mutex_lock ();
+    job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (job->document),
+                                                                 rc, TRUE);
+    ev_document_doc_mutex_unlock ();
+    ev_job_succeeded (job);
+    g_object_unref (rc);
 
-		g_signal_connect (WEBKIT_WEB_VIEW (webview), "load-changed",
-		                  G_CALLBACK (web_thumbnail_get_screenshot_cb),
-		                  g_object_ref (job_thumb));
-		g_signal_connect (WEBKIT_WEB_VIEW(webview), "load-failed",
-		                  G_CALLBACK(webview_load_failed_cb),
-		                  g_object_ref (job_thumb));
-		webkit_web_view_load_uri (WEBKIT_WEB_VIEW(webview), (gchar*) rc->page->backend_page);
-	}
-	else 
-#endif  /* ENABLE_EPUB */
-	{
-		ev_document_doc_mutex_lock ();
-		job_thumb->thumbnail = ev_document_thumbnails_get_thumbnail (EV_DOCUMENT_THUMBNAILS (job->document),
-		                                                             rc, TRUE);
-		ev_document_doc_mutex_unlock ();
-		ev_job_succeeded (job);
-	}
-	g_object_unref (rc);
-	
-	return FALSE;
+    return FALSE;
 }
 
 static void
