@@ -1,3 +1,13 @@
+xreader (4.2.4) xia; urgency=medium
+
+  [ Leigh Scott ]
+  * Update private.h: gcc-15 build fix (#667)
+
+  [ Michael Webster ]
+  * epub: Disable support for sidebar thumbnails. (#671)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 14 Apr 2025 11:30:58 +0100
+
 xreader (4.2.3) xia; urgency=medium
 
   * l10n: Update translations
