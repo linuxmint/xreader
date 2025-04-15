@@ -705,6 +705,10 @@ ev_sidebar_thumbnails_fill_model (EvSidebarThumbnails *sidebar_thumbnails)
 	gint prev_width = -1;
 	gint prev_height = -1;
 
+    if (priv->document->iswebdocument) {
+        return;
+    }
+
 	for (i = 0; i < sidebar_thumbnails->priv->n_pages; i++) {
 		gchar     *page_label;
 		gchar     *page_string;
