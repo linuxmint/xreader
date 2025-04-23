@@ -1291,6 +1291,9 @@ setup_document_children(EpubDocument *epub_document,xmlNodePtr node)
             while (newnode->linktext == NULL) {
 	            newnode->linktext = (gchar*)xml_get_data_from_node(xmlretval,XML_KEYWORD,NULL);
 	            xmlretval = xmlretval->next;
+                if (xmlretval == NULL) {
+                    break;
+                }
             }
            
             xmlretval = NULL;
