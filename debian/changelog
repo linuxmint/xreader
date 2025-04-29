@@ -1,3 +1,10 @@
+xreader (4.2.6) xia; urgency=medium
+
+  [ Michael Webster ]
+  * epub-document.c: Fix null pointer crash when building a TOC.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 29 Apr 2025 11:39:36 +0100
+
 xreader (4.2.5) xia; urgency=medium
 
   [ Michael Webster ]
