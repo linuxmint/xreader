@@ -1,3 +1,28 @@
+xreader (4.2.6) xia; urgency=medium
+
+  [ Michael Webster ]
+  * epub-document.c: Fix null pointer crash when building a TOC.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 29 Apr 2025 11:39:36 +0100
+
+xreader (4.2.5) xia; urgency=medium
+
+  [ Michael Webster ]
+  * ev-window.c: Check that we have a document set before accessing it.
+  * ev-sidebar-thumbnails.c: Don't attempt to generate thumbnails for epub docs.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 15 Apr 2025 15:27:47 +0100
+
+xreader (4.2.4) xia; urgency=medium
+
+  [ Leigh Scott ]
+  * Update private.h: gcc-15 build fix (#667)
+
+  [ Michael Webster ]
+  * epub: Disable support for sidebar thumbnails. (#671)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 14 Apr 2025 11:30:58 +0100
+
 xreader (4.2.3) xia; urgency=medium
 
   * l10n: Update translations
