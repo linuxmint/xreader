@@ -1,3 +1,10 @@
+xreader (4.2.7) zara; urgency=medium
+
+  [ Jack White ]
+  * Made index treeview collapsed by default in call in job_finished_callback() to gtk_tree_view_collapse_all() (#672)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 22 Jul 2025 15:00:39 +0200
+
 xreader (4.2.6) xia; urgency=medium
 
   [ Michael Webster ]

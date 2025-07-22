@@ -1,4 +1,4 @@
-project('xreader', 'c', 'cpp', version : '4.2.6')
+project('xreader', 'c', 'cpp', version : '4.2.7')
 
 gnome = import('gnome')
 i18n = import('i18n')
