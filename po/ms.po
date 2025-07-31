@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-05 13:19+0200\n"
-"PO-Revision-Date: 2019-10-03 15:42+0000\n"
-"Last-Translator: abuyop <Unknown>\n"
+"PO-Revision-Date: 2025-07-29 06:42+0000\n"
+"Last-Translator: Keviindran Ramachandran <Unknown>\n"
 "Language-Team: Malay (http://www.transifex.com/mate/MATE/language/ms/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2024-12-05 10:17+0000\n"
-"X-Generator: Launchpad (build 1519c6efe8e9bd78e6c5ebf2eb5bcb040b95ad32)\n"
+"X-Launchpad-Export-Date: 2025-07-31 09:22+0000\n"
+"X-Generator: Launchpad (build 647c49fc7f614412c17a151d8ba4fadd90c06a00)\n"
 "Language: ms\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -806,23 +806,23 @@ msgstr "Tidak Diketahui"
 
 #: ../shell/ev-annotation-properties-dialog.c:126
 msgid "Markup type:"
-msgstr ""
+msgstr "Jenis penanda:"
 
 #: ../shell/ev-annotation-properties-dialog.c:132
 msgid "Highlight"
-msgstr ""
+msgstr "Sorot"
 
 #: ../shell/ev-annotation-properties-dialog.c:133
 msgid "Strike out"
-msgstr ""
+msgstr "Coret tembus"
 
 #: ../shell/ev-annotation-properties-dialog.c:134
 msgid "Underline"
-msgstr ""
+msgstr "Garis Bawah"
 
 #: ../shell/ev-annotation-properties-dialog.c:135
 msgid "Squiggly"
-msgstr ""
+msgstr "Berkeriut"
 
 #: ../shell/ev-annotation-properties-dialog.c:158
 msgid "Annotation Properties"
@@ -867,7 +867,7 @@ msgstr "Tambah catatan teks"
 
 #: ../shell/ev-annotations-toolbar.c:126
 msgid "Add highlight annotation"
-msgstr ""
+msgstr "Tambah catatan sorotan"
 
 #: ../shell/ev-application.c:1018
 msgid "Running in presentation mode"
@@ -953,7 +953,7 @@ msgstr "Am"
 
 #: ../shell/ev-preferences-dialog.ui.h:2
 msgid "Maximize window for new documents"
-msgstr ""
+msgstr "Maksimumkan tetingkap untuk dokumen baharu"
 
 #: ../shell/ev-preferences-dialog.ui.h:4
 msgid "Show history buttons"
@@ -1214,7 +1214,7 @@ msgstr "Simpan _Salinan"
 
 #: ../shell/ev-window.c:3675
 msgid "_Save"
-msgstr ""
+msgstr "_Simpan"
 
 #: ../shell/ev-window.c:3676
 msgid "Close _without Saving"
@@ -1307,8 +1307,8 @@ msgstr "Xreader"
 #, c-format
 msgid "%d found on this page (%d total)"
 msgid_plural "%d found on this page (%d total)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d ditemui pada halaman ini (%d keseluruhan)"
+msgstr[1] "%d ditemui pada halaman ini (%d keseluruhan)"
 
 #: ../shell/ev-window.c:5445 ../shell/ev-window.c:5568
 msgid "Not found"
@@ -1345,11 +1345,11 @@ msgstr "_Bantuan"
 
 #: ../shell/ev-window.c:6133
 msgid "Favorites"
-msgstr ""
+msgstr "Kegemaran"
 
 #: ../shell/ev-window.c:6134
 msgid "Recents"
-msgstr ""
+msgstr "Terkini"
 
 #. File menu
 #: ../shell/ev-window.c:6136 ../shell/ev-window.c:6619
@@ -1516,11 +1516,11 @@ msgstr "Mulakan persembahan"
 #. View Menu
 #: ../shell/ev-window.c:6398
 msgid "_Menubar"
-msgstr ""
+msgstr "_Bar Menu"
 
 #: ../shell/ev-window.c:6400
 msgid "Show or hide the menubar"
-msgstr ""
+msgstr "Tunjuk atau sembunyikan bar menu"
 
 #: ../shell/ev-window.c:6402
 msgid "_Toolbar"
@@ -1564,11 +1564,11 @@ msgstr "Tunjuk dua halaman sekaligus dengan halaman ganjil di sebelah kiri"
 
 #: ../shell/ev-window.c:6422
 msgid "Right to Left"
-msgstr ""
+msgstr "Kanan ke Kiri"
 
 #: ../shell/ev-window.c:6424
 msgid "Browse the document from right to left"
-msgstr ""
+msgstr "Layari dokumen dari kanan ke kiri"
 
 #: ../shell/ev-window.c:6426
 msgid "_Fullscreen"
