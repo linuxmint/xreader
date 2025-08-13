@@ -144,9 +144,10 @@ ev_annotation_window_label_changed (EvAnnotationMarkup *annot,
 				    EvAnnotationWindow *window)
 {
 	const gchar *label = ev_annotation_markup_get_label (annot);
-
+	gchar *markup_text = g_strdup_printf ("<span foreground='black'>%s</span>", label);
 	gtk_window_set_title (GTK_WINDOW (window), label);
-	gtk_label_set_text (GTK_LABEL (window->title), label);
+	gtk_label_set_markup (GTK_LABEL (window->title), markup_text);
+	g_free (markup_text);
 }
 
 static void
@@ -379,6 +380,7 @@ ev_annotation_window_constructor (GType                  type,
 	GdkRGBA            color;
 	EvRectangle        *rect;
 	gdouble             scale;
+	gchar 		   *markup_text;
 
 	object = G_OBJECT_CLASS (ev_annotation_window_parent_class)->constructor (type,
 										  n_construct_properties,
@@ -406,7 +408,12 @@ ev_annotation_window_constructor (GType                  type,
 	ev_annotation_window_set_color (window, &color);
 	gtk_widget_set_name (GTK_WIDGET (window), ev_annotation_get_name (annot));
 	gtk_window_set_title (GTK_WINDOW (window), label);
-	gtk_label_set_text (GTK_LABEL (window->title), label);
+
+	markup_text = g_strdup_printf ("<span foreground='black'>%s</span>", label);
+
+	gtk_label_set_markup (GTK_LABEL (window->title), markup_text);
+
+	g_free (markup_text);
 
 	contents = ev_annotation_get_contents (annot);
 	if (contents) {
