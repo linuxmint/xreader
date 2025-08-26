@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-05 13:19+0200\n"
-"PO-Revision-Date: 2025-07-16 17:03+0000\n"
+"PO-Revision-Date: 2025-08-24 02:11+0000\n"
 "Last-Translator: Doan Ho Dinh Nguyen <Unknown>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/mate/MATE/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2025-07-31 09:22+0000\n"
-"X-Generator: Launchpad (build 647c49fc7f614412c17a151d8ba4fadd90c06a00)\n"
+"X-Launchpad-Export-Date: 2025-08-26 15:23+0000\n"
+"X-Generator: Launchpad (build 919009172d854f2b8e4e8262db447f12f11d25eb)\n"
 "Language: vi\n"
 
 #: ../backend/comics/comics-document.c:208
@@ -143,7 +143,7 @@ msgstr "tập tin epub bị hỏng, không có chưaz"
 
 #: ../backend/epub/epub-document.c:985
 msgid "could not parse content manifest"
-msgstr ""
+msgstr "không thể phân tích nội dung manifest"
 
 #: ../backend/epub/epub-document.c:994
 msgid "content file is invalid"
@@ -151,11 +151,11 @@ msgstr "nội dung tập tin không hợp lệ"
 
 #: ../backend/epub/epub-document.c:1003
 msgid "epub file has no spine"
-msgstr ""
+msgstr "tệp epub không có phần định nghĩa thứ tự đọc(spine)"
 
 #: ../backend/epub/epub-document.c:1012
 msgid "epub file has no manifest"
-msgstr ""
+msgstr "tập tin epub không có manifest"
 
 #: ../backend/epub/epub-document.c:1103
 msgid "Could not set up document tree for loading, some files missing"
@@ -433,6 +433,11 @@ msgid ""
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
 msgstr ""
+"<p> Xreader là một trình xem tài liệu nhiều trang đơn giản. Nó có thể hiển "
+"thị và in các tệp PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, "
+"XPS và Portable Document Format (PDF), cũng như các tệp lưu trữ truyện "
+"tranh. Khi được hỗ trợ, nó cũng cho phép tìm kiếm văn bản, sao chép văn bản "
+"vào bảng tạm, điều hướng siêu văn bản và đánh dấu mục lục.</p>"
 
 #: ../data/xreader.desktop.in.in.h:1 ../shell/ev-window-title.c:157
 #: ../shell/main.c:239 ../shell/main.c:268
@@ -1050,6 +1055,9 @@ msgid ""
 "Non-Continuous + Best Fit\n"
 "Ctrl+2"
 msgstr ""
+"Chế độ xem trang\n"
+"Không liên tục + vừa vặn nhất\n"
+"Ctrl+2"
 
 #: ../shell/ev-toolbar.c:148
 msgid ""
@@ -1057,6 +1065,9 @@ msgid ""
 "Continuous + Fit Page Width\n"
 "Ctrl+1"
 msgstr ""
+"Chế độ xem trình đọc\n"
+"Liên tục + vừa vặn với độ rộng của trang\n"
+"Ctrl+1"
 
 #: ../shell/ev-toolbar.c:294
 msgid "Select or set the zoom level of the document"
@@ -1687,7 +1698,7 @@ msgstr "Số trang của tài liệu cần xem."
 
 #: ../shell/main.c:67
 msgid "NUMBER"
-msgstr ""
+msgstr "SỐ"
 
 #: ../shell/main.c:68
 msgid "Run xreader in fullscreen mode"
@@ -1695,11 +1706,11 @@ msgstr "Chạy Xreader ở chế độ toàn màn hình"
 
 #: ../shell/main.c:69
 msgid "Named destination to display."
-msgstr ""
+msgstr "Tên đích đến cần hiển thị."
 
 #: ../shell/main.c:69
 msgid "DEST"
-msgstr ""
+msgstr "ĐÍCH"
 
 #: ../shell/main.c:70
 msgid "Run xreader in presentation mode"
@@ -1719,4 +1730,4 @@ msgstr "CHUỖI"
 
 #: ../shell/main.c:76
 msgid "[FILE…]"
-msgstr ""
+msgstr "[TẬP TIN …]"
