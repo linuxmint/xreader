@@ -152,7 +152,7 @@ ev_bookmarks_popup_cmd_remove_bookmark (GtkAction          *action,
 }
 
 static const GtkActionEntry popup_entries[] = {
-        { "OpenBookmark", "document-open-symbolic", N_("_Open Bookmark"), NULL,
+        { "OpenBookmark", "xapp-document-open-symbolic", N_("_Open Bookmark"), NULL,
           NULL, G_CALLBACK (ev_bookmarks_popup_cmd_open_bookmark) },
         { "RenameBookmark", NULL, N_("_Rename Bookmark"), NULL,
           NULL, G_CALLBACK (ev_bookmarks_popup_cmd_rename_bookmark) },
@@ -483,7 +483,7 @@ ev_sidebar_bookmarks_init (EvSidebarBookmarks *sidebar_bookmarks)
         gtk_style_context_add_class (gtk_widget_get_style_context (hbox), "linked");
         gtk_widget_show (hbox);
 
-        priv->add_button = gtk_button_new_from_icon_name ("list-add-symbolic", GTK_ICON_SIZE_BUTTON);
+        priv->add_button = gtk_button_new_from_icon_name ("xapp-list-add-symbolic", GTK_ICON_SIZE_BUTTON);
         g_signal_connect (priv->add_button, "clicked",
                           G_CALLBACK (ev_sidebar_bookmarks_add_clicked),
                           sidebar_bookmarks);
@@ -491,7 +491,7 @@ ev_sidebar_bookmarks_init (EvSidebarBookmarks *sidebar_bookmarks)
         gtk_box_pack_start (GTK_BOX (hbox), priv->add_button, FALSE, FALSE, 0);
         gtk_widget_show (priv->add_button);
 
-        priv->del_button = gtk_button_new_from_icon_name ("list-remove-symbolic", GTK_ICON_SIZE_BUTTON);
+        priv->del_button = gtk_button_new_from_icon_name ("xapp-list-remove-symbolic", GTK_ICON_SIZE_BUTTON);
         g_signal_connect (priv->del_button, "clicked",
                           G_CALLBACK (ev_sidebar_bookmarks_del_clicked),
                           sidebar_bookmarks);

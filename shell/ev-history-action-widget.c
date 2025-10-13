@@ -211,11 +211,11 @@ ev_history_action_widget_create_button (EvHistoryActionWidget *history_widget,
     switch (action_button)
     {
         case EV_HISTORY_ACTION_BUTTON_BACK:
-            icon_name = "go-previous-symbolic";
+            icon_name = "xapp-go-previous-symbolic";
             tooltip_text = _("Go to previous history item");
             break;
         case EV_HISTORY_ACTION_BUTTON_FORWARD:
-            icon_name = "go-next-symbolic";
+            icon_name = "xapp-go-next-symbolic";
             tooltip_text = _("Go to next history item");
             break;
     }
