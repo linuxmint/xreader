@@ -367,7 +367,7 @@ ev_sidebar_init (EvSidebar *ev_sidebar)
 			    TRUE, TRUE, 12);
 	gtk_widget_show (ev_sidebar->priv->label);
 
-	arrow = gtk_image_new_from_icon_name ("xapp-pan-down-symbolic", GTK_ICON_SIZE_BUTTON);
+	arrow = gtk_image_new_from_icon_name ("xsi-pan-down-symbolic", GTK_ICON_SIZE_BUTTON);
 	gtk_box_pack_end (GTK_BOX (select_hbox), arrow, FALSE, TRUE, 0);
 	gtk_widget_show (arrow);
 
@@ -378,7 +378,7 @@ ev_sidebar_init (EvSidebar *ev_sidebar)
 	gtk_widget_set_halign (ev_sidebar->priv->select_button, GTK_ALIGN_CENTER);
 	gtk_widget_show (ev_sidebar->priv->select_button);
 
-	close_button = gtk_button_new_from_icon_name ("xapp-window-close-symbolic", GTK_ICON_SIZE_BUTTON);
+	close_button = gtk_button_new_from_icon_name ("xsi-window-close-symbolic", GTK_ICON_SIZE_BUTTON);
 	gtk_button_set_relief (GTK_BUTTON (close_button), GTK_RELIEF_NONE);
 	g_signal_connect (close_button, "clicked",
 		               G_CALLBACK (ev_sidebar_close_clicked_cb),

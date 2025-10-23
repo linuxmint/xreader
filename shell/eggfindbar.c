@@ -332,7 +332,7 @@ egg_find_bar_init (EggFindBar *find_bar)
   gtk_widget_show (priv->find_entry);
 
   /* Prev */
-  arrow = gtk_image_new_from_icon_name ("xapp-pan-start-symbolic", GTK_ICON_SIZE_BUTTON);
+  arrow = gtk_image_new_from_icon_name ("xsi-pan-start-symbolic", GTK_ICON_SIZE_BUTTON);
   priv->previous_button = gtk_tool_button_new (arrow, Q_("Find Pre_vious"));
   gtk_tool_button_set_use_underline (GTK_TOOL_BUTTON (priv->previous_button), TRUE);
   gtk_tool_item_set_is_important (priv->previous_button, TRUE);
@@ -340,7 +340,7 @@ egg_find_bar_init (EggFindBar *find_bar)
 			       _("Find previous occurrence of the search string"));
 
   /* Next */
-  arrow = gtk_image_new_from_icon_name ("xapp-pan-end-symbolic", GTK_ICON_SIZE_BUTTON);
+  arrow = gtk_image_new_from_icon_name ("xsi-pan-end-symbolic", GTK_ICON_SIZE_BUTTON);
   priv->next_button = gtk_tool_button_new (arrow, Q_("Find Ne_xt"));
   gtk_tool_button_set_use_underline (GTK_TOOL_BUTTON (priv->next_button), TRUE);
   gtk_tool_item_set_is_important (priv->next_button, TRUE);
@@ -376,7 +376,7 @@ egg_find_bar_init (EggFindBar *find_bar)
   gtk_tool_item_set_expand (priv->close_separator, TRUE);
 
   /* Close button */
-  cross = gtk_image_new_from_icon_name ("xapp-window-close-symbolic",
+  cross = gtk_image_new_from_icon_name ("xsi-window-close-symbolic",
                                         GTK_ICON_SIZE_BUTTON);
   priv->close_button = gtk_tool_button_new (cross, NULL);
 

@@ -125,7 +125,7 @@ setup_preset_buttons (EvToolbar *ev_toolbar)
     /* Page preset button */
     ev_toolbar->priv->page_preset_button = gtk_toggle_button_new ();
     gtk_widget_set_valign (ev_toolbar->priv->page_preset_button, GTK_ALIGN_CENTER);
-    image = gtk_image_new_from_icon_name ("xapp-view-paged-symbolic", GTK_ICON_SIZE_MENU);
+    image = gtk_image_new_from_icon_name ("xsi-view-paged-symbolic", GTK_ICON_SIZE_MENU);
     gtk_style_context_add_class (gtk_widget_get_style_context (ev_toolbar->priv->page_preset_button), "flat");
     gtk_button_set_focus_on_click (GTK_BUTTON (ev_toolbar->priv->page_preset_button), FALSE);
 
@@ -139,7 +139,7 @@ setup_preset_buttons (EvToolbar *ev_toolbar)
     /* Reader preset button */
     ev_toolbar->priv->reader_preset_button = gtk_toggle_button_new ();
     gtk_widget_set_valign (ev_toolbar->priv->reader_preset_button, GTK_ALIGN_CENTER);
-    image = gtk_image_new_from_icon_name ("xapp-view-continuous-symbolic", GTK_ICON_SIZE_MENU);
+    image = gtk_image_new_from_icon_name ("xsi-view-continuous-symbolic", GTK_ICON_SIZE_MENU);
     gtk_style_context_add_class (gtk_widget_get_style_context (ev_toolbar->priv->reader_preset_button), "flat");
     gtk_button_set_focus_on_click (GTK_BUTTON (ev_toolbar->priv->reader_preset_button), FALSE);
 
@@ -161,7 +161,7 @@ create_sidepane_button (GtkAction *action)
 
     button = gtk_toggle_button_new();
     gtk_widget_set_valign (button, GTK_ALIGN_CENTER);
-    image = gtk_image_new_from_icon_name ("xapp-view-left-pane-symbolic", GTK_ICON_SIZE_MENU);
+    image = gtk_image_new_from_icon_name ("xsi-view-left-pane-symbolic", GTK_ICON_SIZE_MENU);
     gtk_image_set_pixel_size (GTK_IMAGE (image), 16);
 
     gtk_button_set_image (GTK_BUTTON (button), image);

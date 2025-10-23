@@ -278,23 +278,23 @@ static const GtkActionEntry action_entries[] = {
 	{ "FileCloseWindow", GTK_STOCK_CLOSE, NULL, "<control>W",
 	  NULL,
 	  G_CALLBACK (ev_previewer_window_close) },
-	{ "GoPreviousPage", "xapp-go-previous-symbolic", N_("_Previous Page"), "<control>Page_Up",
+	{ "GoPreviousPage", "xsi-go-previous-symbolic", N_("_Previous Page"), "<control>Page_Up",
           N_("Go to the previous page"),
           G_CALLBACK (ev_previewer_window_previous_page) },
-        { "GoNextPage", "xapp-go-next-symbolic", N_("_Next Page"), "<control>Page_Down",
+        { "GoNextPage", "xsi-go-next-symbolic", N_("_Next Page"), "<control>Page_Down",
           N_("Go to the next page"),
           G_CALLBACK (ev_previewer_window_next_page) },
-        { "ViewZoomIn", "xapp-zoom-in-symbolic", NULL, "<control>plus",
+        { "ViewZoomIn", "xsi-zoom-in-symbolic", NULL, "<control>plus",
           N_("Enlarge the document"),
           G_CALLBACK (ev_previewer_window_zoom_in) },
-        { "ViewZoomOut", "xapp-zoom-out-symbolic", NULL, "<control>minus",
+        { "ViewZoomOut", "xsi-zoom-out-symbolic", NULL, "<control>minus",
           N_("Shrink the document"),
           G_CALLBACK (ev_previewer_window_zoom_out) },
-        { "ViewZoomReset", "xapp-zoom-original-symbolic", NULL, "<control>0",
+        { "ViewZoomReset", "xsi-zoom-original-symbolic", NULL, "<control>0",
           N_("Original size"),
           G_CALLBACK (ev_previewer_window_zoom_reset) },
 	/* translators: Print document currently shown in the Print Preview window */
-	{ "PreviewPrint", "xapp-document-print-symbolic", N_("Print"), NULL,
+	{ "PreviewPrint", "xsi-document-print-symbolic", N_("Print"), NULL,
 	  N_("Print this document"),
 	  G_CALLBACK (ev_previewer_window_print) }
 };
@@ -338,10 +338,10 @@ static const GtkActionEntry accel_entries[] = {
 };
 
 static const GtkToggleActionEntry toggle_action_entries[] = {
-	{ "ViewBestFit", "xapp-zoom-fit-best-symbolic", N_("_Best Fit"), NULL,
+	{ "ViewBestFit", "xsi-zoom-fit-best-symbolic", N_("_Best Fit"), NULL,
 	  N_("Make the current document fill the window"),
 	  G_CALLBACK (ev_previewer_window_zoom_best_fit) },
-	{ "ViewPageWidth", "xapp-view-paged-symbolic", N_("Fit Page _Width"), NULL,
+	{ "ViewPageWidth", "xsi-view-paged-symbolic", N_("Fit Page _Width"), NULL,
 	  N_("Make the current document fill the window width"),
 	  G_CALLBACK (ev_previewer_window_zoom_page_width) }
 };
