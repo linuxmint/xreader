@@ -1217,9 +1217,23 @@ static void
 ev_sidebar_thumbnails_clear_model (EvSidebarThumbnails *sidebar_thumbnails)
 {
 	EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
+	GtkTreeSelection *selection = NULL;
+
+	/* Block ev_sidebar_tree_selection_changed handler while clearing the model.
+	 * gtk_list_store_clear() causes the GtkTreeSelection to emit "changed",
+	 * which incorrectly updates the document page when the sidebar is destroyed.
+	 */
+	if (priv->tree_view && GTK_IS_TREE_VIEW (priv->tree_view)) {
+		selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (priv->tree_view));
+		g_signal_handlers_block_by_func (selection, ev_sidebar_tree_selection_changed, sidebar_thumbnails);
+	}
 
 	gtk_tree_model_foreach (GTK_TREE_MODEL (priv->list_store), ev_sidebar_thumbnails_clear_job, sidebar_thumbnails);
 	gtk_list_store_clear (priv->list_store);
+
+	if (selection) {
+		g_signal_handlers_unblock_by_func (selection, ev_sidebar_tree_selection_changed, sidebar_thumbnails);
+	}
 }
 
 static gboolean
