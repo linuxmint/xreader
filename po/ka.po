@@ -9,62 +9,66 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-21 15:20+0000\n"
-"PO-Revision-Date: 2016-02-09 17:21+0000\n"
-"Last-Translator: infirit <Unknown>\n"
+"PO-Revision-Date: 2025-12-23 10:15+0000\n"
+"Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian (http://www.transifex.com/mate/MATE/language/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2025-12-12 13:30+0000\n"
-"X-Generator: Launchpad (build 379e22b8475e3402088a4cdb4a6e7936a4d28414)\n"
+"X-Launchpad-Export-Date: 2026-01-08 15:41+0000\n"
+"X-Generator: Launchpad (build 99c00f518760bdd50fc6e353e7736d2fff8fba4a)\n"
 "Language: ka\n"
 
 #: ../backend/comics/comics-document.c:197
 #: ../backend/comics/comics-document.c:268
 msgid "File is corrupted"
-msgstr ""
+msgstr "ფაილი დაზიანებულია"
 
 #: ../backend/comics/comics-document.c:258
 msgid "Archive is encrypted"
-msgstr ""
+msgstr "არქივი დაშიფრულია"
 
 #: ../backend/comics/comics-document.c:263
 msgid "No supported images in archive"
-msgstr ""
+msgstr "არქივი მხარდაჭერილ გამოსახულებებს არ შეიცავს"
 
 #: ../backend/comics/comics-document.c:273
 msgid "No files in archive"
-msgstr ""
+msgstr "არქივი გამოსახულებებს არ შეიცავს"
 
 #: ../backend/comics/comics-document.c:322
 #, c-format
 msgid "Not a comic book MIME type: %s"
-msgstr ""
+msgstr "არ წარმოადგენს კომიქსების MIME ტიპს: %s"
 
 #: ../backend/comics/comics-document.c:329
 msgid ""
 "libarchive lacks support for this comic book’s compression, please contact "
 "your distributor"
 msgstr ""
+"libarchive-ს კომიქსის წიგნების შეკუმშვის გარეშეა აგებული. დაუკავშირდით "
+"მომწოდებელს"
 
 #: ../backend/comics/comics-document.c:369
 msgid "Can not get local path for archive"
-msgstr ""
+msgstr "არქივის ლოკალური ბილიკის მიღების შეცდომა"
 
 #: ../backend/djvu/djvu-document.c:171
 msgid "DjVu document has incorrect format"
-msgstr ""
+msgstr "DVI დოკუმენტის არასწორი ფორმატი"
 
 #: ../backend/djvu/djvu-document.c:248
 msgid ""
 "The document is composed of several files. One or more of these files cannot "
 "be accessed."
 msgstr ""
+"დოკუმენტი რამდენიმე ფაილისგან შედგება. ამ ფაილებიდან ერთი ან მეტი, "
+"მიუწვდომელია."
 
 #: ../backend/djvu/djvudocument.xreader-backend.in.h:1
 msgid "DjVu Documents"
-msgstr ""
+msgstr "Djvu დოკუმენტები"
 
 #: ../backend/dvi/dvi-document.c:107
 msgid "DVI document has incorrect format"
@@ -138,7 +142,7 @@ msgstr ""
 #: ../backend/epub/epub-document.c:1840
 #, c-format
 msgid "There was an error deleting “%s”."
-msgstr ""
+msgstr "შეცდომა \"%s\"-ის წაშლისას."
 
 #: ../backend/epub/epubdocument.xreader-backend.in.h:1
 msgid "epub Documents"
@@ -146,7 +150,7 @@ msgstr ""
 
 #: ../backend/pdf/ev-poppler.cc:522
 msgid "This work is in the Public Domain"
-msgstr ""
+msgstr "ეს ნამუშევარი საჯაროა"
 
 #. translators: this is the document security state
 #: ../backend/pdf/ev-poppler.cc:777 ../backend/pdf/ev-poppler.cc:783
@@ -218,7 +222,7 @@ msgstr "დოკუმენტი “%s” ვერ ჩაიტვირთ�
 #: ../backend/ps/ev-spectre.c:135
 #, c-format
 msgid "Failed to save document “%s”"
-msgstr ""
+msgstr "დოკუმენტის შენახვის შეცდომა: \"%s\""
 
 #: ../backend/ps/psdocument.xreader-backend.in.h:1
 msgid "PostScript Documents"
@@ -226,7 +230,7 @@ msgstr "PostScrip დოკუმენტები"
 
 #: ../backend/tiff/tiff-document.c:114
 msgid "Invalid document"
-msgstr ""
+msgstr "არასწორი დოკუმენტი"
 
 #: ../libdocument/ev-attachment.c:304 ../libdocument/ev-attachment.c:325
 #, c-format
@@ -246,7 +250,7 @@ msgstr "შეუძლებელია დანართის გახს�
 #: ../libdocument/ev-document-factory.c:170
 #, c-format
 msgid "File type %s (%s) is not supported"
-msgstr ""
+msgstr "ფაილის ტიპი %s (%s) მხარდაუჭერელია"
 
 #: ../libdocument/ev-document-factory.c:361
 msgid "All Documents"
@@ -259,76 +263,77 @@ msgstr "ყველა ფაილი"
 #: ../libdocument/ev-file-helpers.c:147
 #, c-format
 msgid "Failed to create a temporary file: %s"
-msgstr ""
+msgstr "დროებითი ფაილის შექმნის შეცდომა: %s"
 
 #: ../libdocument/ev-file-helpers.c:309
 #, c-format
 msgid "Failed to create a temporary directory: %s"
-msgstr ""
+msgstr "დროებითი საქაღალდის შექმნის შეცდომა: %s"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:165
 #, c-format
 msgid "File is not a valid .desktop file"
-msgstr ""
+msgstr "ფაილი არასწორი .desktop ფაილია"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:188
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
-msgstr ""
+msgstr ".desktop ფაილის უცნობი ვერსია '%s'"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:957
 #, c-format
 msgid "Starting %s"
-msgstr ""
+msgstr "%s-ის გაშვება"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1098
 #, c-format
 msgid "Application does not accept documents on command line"
-msgstr ""
+msgstr "აპლიკაციას დოკუმენტების ბრძანების სტრიქონიდან აღება არ შეუძლია"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1166
 #, c-format
 msgid "Unrecognized launch option: %d"
-msgstr ""
+msgstr "გაშვების უცნობი პარამეტრი: %d"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1365
 #, c-format
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgstr ""
+"დოკუმენტის URI-ების გადაცემა დესკტოპის ჩანაწერში „Type=Link“ შეუძლებელია"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1384
 #, c-format
 msgid "Not a launchable item"
-msgstr ""
+msgstr "არაგაშვებადი ელემენტი"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:224
 msgid "Disable connection to session manager"
-msgstr ""
+msgstr "სესიების მმართველთან შეერთების გათიშვა"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:227
 msgid "Specify file containing saved configuration"
-msgstr ""
+msgstr "შენახული კონფიგურაციის მატარებელი ფაილის მითითება"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:227 ../previewer/ev-previewer.c:35
 #: ../previewer/ev-previewer.c:36
 msgid "FILE"
-msgstr ""
+msgstr "FILE"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:230
 msgid "Specify session management ID"
-msgstr ""
+msgstr "მიუთითეთ სესიის მართვის ID"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:230
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:251
 msgid "Session management options:"
-msgstr ""
+msgstr "სესიების მმართველის პარამეტრები:"
 
 #: ../cut-n-paste/smclient/eggsmclient.c:252
 msgid "Show session management options"
-msgstr ""
+msgstr "სესიების მმართველის პარამეტრების ჩვენება"
 
 #. translators: this is the label for toolbar button
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6662
@@ -349,11 +354,11 @@ msgstr "50%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:54
 msgid "70%"
-msgstr ""
+msgstr "70%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:55
 msgid "85%"
-msgstr ""
+msgstr "85%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:56
 msgid "100%"
@@ -385,19 +390,19 @@ msgstr "400%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:63
 msgid "800%"
-msgstr ""
+msgstr "800%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:64
 msgid "1600%"
-msgstr ""
+msgstr "1600%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:65
 msgid "3200%"
-msgstr ""
+msgstr "3200%"
 
 #: ../cut-n-paste/zoom-control/ephy-zoom.h:66
 msgid "6400%"
-msgstr ""
+msgstr "6400%"
 
 #: ../data/xreader.appdata.xml.in.h:1
 msgid "A Document Viewer"
@@ -419,11 +424,11 @@ msgstr "დოკუმენტების მნახველი"
 
 #: ../data/xreader.desktop.in.in.h:2
 msgid "View multi-page documents"
-msgstr ""
+msgstr "მრავალგვერდიანი დოკუმენტების ჩვენება"
 
 #: ../previewer/ev-previewer.c:34
 msgid "Delete the temporary file"
-msgstr ""
+msgstr "დროებითი ფაილის წაშლა"
 
 #: ../previewer/ev-previewer.c:35
 msgid "Print settings file"
@@ -431,7 +436,7 @@ msgstr ""
 
 #: ../previewer/ev-previewer.c:104 ../previewer/ev-previewer.c:135
 msgid "Print Preview"
-msgstr ""
+msgstr "ბეჭდვის მინიატურა"
 
 #: ../previewer/ev-previewer-window.c:83 ../shell/ev-window.c:3426
 msgid "Failed to print document"
@@ -470,7 +475,7 @@ msgstr "დოკუმენტის შეკუმშვა"
 #. translators: this is the label for toolbar button
 #: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:6658
 msgid "Original size"
-msgstr ""
+msgstr "საწყისი ზომა"
 
 #. translators: Print document currently shown in the Print Preview window
 #. translators: Title of the print dialog
@@ -520,21 +525,21 @@ msgstr "%d-დან"
 #: ../libview/ev-loading-window.c:76 ../shell/ev-sidebar-annotations.c:134
 #: ../shell/ev-sidebar-layers.c:122 ../shell/ev-sidebar-links.c:256
 msgid "Loading…"
-msgstr ""
+msgstr "ჩატვირთვა…"
 
 #. Initial state
 #: ../libview/ev-print-operation.c:332
 msgid "Preparing to print…"
-msgstr ""
+msgstr "დასაბეჭდად მომზადება…"
 
 #: ../libview/ev-print-operation.c:334
 msgid "Finishing…"
-msgstr ""
+msgstr "დასრულება…"
 
 #: ../libview/ev-print-operation.c:336
 #, c-format
 msgid "Printing page %d of %d…"
-msgstr ""
+msgstr "მინდინარეობს %d-ე გვერდის დაბეჭდვა %d-დან…"
 
 #: ../libview/ev-print-operation.c:1184
 msgid "The requested format is not supported by this printer."
@@ -542,19 +547,19 @@ msgstr ""
 
 #: ../libview/ev-print-operation.c:1247
 msgid "Invalid page selection"
-msgstr ""
+msgstr "მონიშნული გვერდი არასწორია"
 
 #: ../libview/ev-print-operation.c:1248
 msgid "Warning"
-msgstr ""
+msgstr "გაფრთხილება"
 
 #: ../libview/ev-print-operation.c:1250
 msgid "Your print range selection does not include any pages"
-msgstr ""
+msgstr "დასაბეჭდი დიაპაზონი არც ერთ გვერდს არ შეიცავს"
 
 #: ../libview/ev-print-operation.c:1937
 msgid "Page Scaling:"
-msgstr ""
+msgstr "გვერდის მასშტაბი:"
 
 #. translators: Value for 'Page Scaling:' to not scale the document pages on printing
 #: ../libview/ev-print-operation.c:1943
@@ -563,11 +568,11 @@ msgstr "არა"
 
 #: ../libview/ev-print-operation.c:1944
 msgid "Shrink to Printable Area"
-msgstr ""
+msgstr "დაბეჭდვად ფართობამდე შემცირება"
 
 #: ../libview/ev-print-operation.c:1945
 msgid "Fit to Printable Area"
-msgstr ""
+msgstr "დაბეჭდვად ფართობში ჩატევა"
 
 #: ../libview/ev-print-operation.c:1948
 msgid ""
@@ -585,32 +590,37 @@ msgstr ""
 
 #: ../libview/ev-print-operation.c:1960
 msgid "Auto Rotate and Center"
-msgstr ""
+msgstr "ავტომატური შემობრუნება და ცენტრირება"
 
 #: ../libview/ev-print-operation.c:1963
 msgid ""
 "Rotate printer page orientation of each page to match orientation of each "
 "document page. Document pages will be centered within the printer page."
 msgstr ""
+"პრინტერის გვერდის ორიენტაციის შეცვლა თითოეული გვერდისთვის, რაცა ის "
+"დოკუმენტის თითოეულ გვერდს დაემთხვეს. დოკუმენტის გვერდები პრინტერის გვერდის "
+"ცენტრზე გასწორდება."
 
 #: ../libview/ev-print-operation.c:1968
 msgid "Select page size using document page size"
-msgstr ""
+msgstr "გვერდის ზომის დოკუმენტის გვერდის ზომის მიხედვით არჩევა"
 
 #: ../libview/ev-print-operation.c:1970
 msgid ""
 "When enabled, each page will be printed on the same size paper as the "
 "document page."
 msgstr ""
+"როცა ჩართულია, თითოეული გვერდი დაიბეჭდება იგივე ზომის გვერდზე, როგორიც "
+"დოკუმენტის გვერდია."
 
 #: ../libview/ev-print-operation.c:2052
 msgid "Page Handling"
-msgstr ""
+msgstr "გვერდის დამუშავება"
 
 #: ../libview/ev-jobs.c:1626
 #, c-format
 msgid "Failed to print page %d: %s"
-msgstr ""
+msgstr "%d-ე გვერდის დაბეჭდვის შეცდომა: %s"
 
 #: ../libview/ev-view-accessible.c:45
 msgid "Scroll Up"
@@ -634,11 +644,11 @@ msgstr "დოკუმენტის ნახვა"
 
 #: ../libview/ev-view-presentation.c:689
 msgid "Jump to page:"
-msgstr ""
+msgstr "გვერდზე გადასვლა:"
 
 #: ../libview/ev-view-presentation.c:993
 msgid "End of presentation. Click to exit."
-msgstr ""
+msgstr "პრეზენტაციის დასასრული. გამოსასვლელად დააწკაპუნეთ."
 
 #: ../libview/ev-view.c:1855
 msgid "Go to first page"
@@ -662,7 +672,7 @@ msgstr "გვერდზე გადასვლა"
 
 #: ../libview/ev-view.c:1865
 msgid "Find"
-msgstr "ძე_ბნა:"
+msgstr "ძებნა"
 
 #: ../libview/ev-view.c:1893
 #, c-format
@@ -706,7 +716,7 @@ msgstr "იპოვე საძიებო ნუსხის  შემდ�
 
 #: ../shell/eggfindbar.c:355
 msgid "Case Sensitive"
-msgstr ""
+msgstr "რეგისტრზე-დამოკიდებული"
 
 #: ../shell/eggfindbar.c:358
 msgid "Toggle case sensitive search"
@@ -714,123 +724,123 @@ msgstr "ჩართე ძიება რეგისტრის გათვ
 
 #: ../shell/ev-annotation-properties-dialog.c:99
 msgid "Icon:"
-msgstr ""
+msgstr "ხატულა:"
 
 #: ../shell/ev-annotation-properties-dialog.c:106
 msgid "Note"
-msgstr ""
+msgstr "შენიშვნა"
 
 #: ../shell/ev-annotation-properties-dialog.c:107
 msgid "Comment"
-msgstr ""
+msgstr "კომენტარი"
 
 #: ../shell/ev-annotation-properties-dialog.c:108
 msgid "Key"
-msgstr ""
+msgstr "გასაღები"
 
 #: ../shell/ev-annotation-properties-dialog.c:109
 #: ../shell/ev-preferences-dialog.c:137
 msgid "Help"
-msgstr ""
+msgstr "დახმარება"
 
 #: ../shell/ev-annotation-properties-dialog.c:110
 msgid "New Paragraph"
-msgstr ""
+msgstr "ახალი პარაგრაფი"
 
 #: ../shell/ev-annotation-properties-dialog.c:111
 msgid "Paragraph"
-msgstr ""
+msgstr "პარაგრაფი"
 
 #: ../shell/ev-annotation-properties-dialog.c:112
 msgid "Insert"
-msgstr ""
+msgstr "ჩასმა"
 
 #: ../shell/ev-annotation-properties-dialog.c:113
 msgid "Cross"
-msgstr ""
+msgstr "ჯვარი"
 
 #: ../shell/ev-annotation-properties-dialog.c:114
 msgid "Circle"
-msgstr ""
+msgstr "წრე"
 
 #: ../shell/ev-annotation-properties-dialog.c:115
 msgid "Unknown"
-msgstr ""
+msgstr "უცნობი"
 
 #: ../shell/ev-annotation-properties-dialog.c:126
 msgid "Markup type:"
-msgstr ""
+msgstr "მარქაფის ტიპი:"
 
 #: ../shell/ev-annotation-properties-dialog.c:132
 msgid "Highlight"
-msgstr ""
+msgstr "გამოკვეთა"
 
 #: ../shell/ev-annotation-properties-dialog.c:133
 msgid "Strike out"
-msgstr ""
+msgstr "ხაზის გადასმა"
 
 #: ../shell/ev-annotation-properties-dialog.c:134
 msgid "Underline"
-msgstr ""
+msgstr "ხაზგასმული"
 
 #: ../shell/ev-annotation-properties-dialog.c:135
 msgid "Squiggly"
-msgstr ""
+msgstr "ტალღებიანი"
 
 #: ../shell/ev-annotation-properties-dialog.c:158
 msgid "Annotation Properties"
-msgstr ""
+msgstr "ანოტაციის თვისებები"
 
 #: ../shell/ev-annotation-properties-dialog.c:178
 msgid "Author:"
-msgstr ""
+msgstr "ავტორი:"
 
 #: ../shell/ev-annotation-properties-dialog.c:191
 msgid "Color:"
-msgstr ""
+msgstr "ფერი:"
 
 #: ../shell/ev-annotation-properties-dialog.c:203
 msgid "Style:"
-msgstr ""
+msgstr "სტილი:"
 
 #: ../shell/ev-annotation-properties-dialog.c:219
 msgid "Transparent"
-msgstr ""
+msgstr "გამჭვირვალე"
 
 #: ../shell/ev-annotation-properties-dialog.c:226
 msgid "Opaque"
-msgstr ""
+msgstr "გაუმჭვირვალე"
 
 #: ../shell/ev-annotation-properties-dialog.c:236
 msgid "Initial window state:"
-msgstr ""
+msgstr "ფანჯრის საწყისი მდგომარეობა:"
 
 #: ../shell/ev-annotation-properties-dialog.c:244
 msgid "Open"
-msgstr ""
+msgstr "გახსნა"
 
 #: ../shell/ev-annotation-properties-dialog.c:245
 #: ../shell/ev-preferences-dialog.c:141
 msgid "Close"
-msgstr ""
+msgstr "დახურვა"
 
 #: ../shell/ev-annotations-toolbar.c:120
 msgid "Add text annotation"
-msgstr ""
+msgstr "ტექსტის ანოტაციის დამატება"
 
 #: ../shell/ev-annotations-toolbar.c:126
 msgid "Add highlight annotation"
-msgstr ""
+msgstr "გამოკვეთილი ანოტაციის დამატება"
 
 #: ../shell/ev-application.c:1018
 msgid "Running in presentation mode"
-msgstr ""
+msgstr "პრეზენტაციის რეჟიმი ჩართულია"
 
 #: ../shell/ev-history.c:474 ../shell/ev-sidebar-bookmarks.c:314
 #: ../shell/ev-window.c:916 ../shell/ev-window.c:4781
 #, c-format
 msgid "Page %s"
-msgstr ""
+msgstr "გვერდი: %s"
 
 #: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:6251
 msgid "Go to previous history item"
@@ -867,7 +877,7 @@ msgstr "შეიყვანეთ პაროლი"
 #, c-format
 msgid ""
 "The document “%s” is locked and requires a password before it can be opened."
-msgstr "“%s” დოკუმენტის გახსნისათვის საჭიროა პაროლი"
+msgstr "დოკუმენტი \"%s\" დაბლოკილია და გასახსნელად პაროლი სჭირდება."
 
 #: ../shell/ev-password-view.c:294
 msgid "Password required"
@@ -879,23 +889,23 @@ msgstr "_პაროლი:"
 
 #: ../shell/ev-password-view.c:357
 msgid "Forget password _immediately"
-msgstr ""
+msgstr "პაროლის _მყისვე დავიწყება"
 
 #: ../shell/ev-password-view.c:369
 msgid "Remember password until you _log out"
-msgstr ""
+msgstr "სესიის პაროლის დამახსოვრება"
 
 #: ../shell/ev-password-view.c:381
 msgid "Remember _forever"
-msgstr ""
+msgstr "სამუდამოდ დამახსოვრება"
 
 #: ../shell/ev-preferences-dialog.c:129 ../shell/ev-preferences-dialog.ui.h:3
 msgid "Toolbar"
-msgstr ""
+msgstr "ხელსაწყოთა ზოლი"
 
 #: ../shell/ev-preferences-dialog.c:153 ../shell/ev-window.c:6199
 msgid "Preferences"
-msgstr ""
+msgstr "მორგება"
 
 #: ../shell/ev-preferences-dialog.ui.h:1 ../shell/ev-properties-dialog.c:97
 msgid "General"
@@ -927,7 +937,7 @@ msgstr "შრიფტები"
 
 #: ../shell/ev-properties-dialog.c:120
 msgid "Document License"
-msgstr ""
+msgstr "დოკუმენტის ლიცენზია"
 
 #: ../shell/ev-properties-fonts.c:133
 msgid "Font"
@@ -936,32 +946,32 @@ msgstr "შრიფტი"
 #: ../shell/ev-properties-fonts.c:160
 #, c-format
 msgid "Gathering font information… %3d%%"
-msgstr ""
+msgstr "ფონტის შესახებ ინფორმაციის შეგროვება... %3d%%"
 
 #: ../shell/ev-properties-license.c:135
 msgid "Usage terms"
-msgstr ""
+msgstr "გამოყენების პირობები"
 
 #: ../shell/ev-properties-license.c:141
 msgid "Text License"
-msgstr ""
+msgstr "ტექსტის ლიცენზია"
 
 #: ../shell/ev-properties-license.c:147
 msgid "Further Information"
-msgstr ""
+msgstr "დამატებითი ინფორმაცია"
 
 #: ../shell/ev-sidebar-annotations.c:292
 msgid "Document contains no annotations"
-msgstr ""
+msgstr "დოკუმენტს  ანოტაციები არ გააჩნია"
 
 #: ../shell/ev-sidebar-annotations.c:324
 #, c-format
 msgid "Page %d"
-msgstr ""
+msgstr "%d გვერდი"
 
 #: ../shell/ev-sidebar-annotations.c:509
 msgid "Annotations"
-msgstr ""
+msgstr "ანოტაციები"
 
 #: ../shell/ev-sidebar-attachments.c:693
 msgid "Attachments"
@@ -969,11 +979,11 @@ msgstr "დანართი"
 
 #: ../shell/ev-sidebar-bookmarks.c:155
 msgid "_Open Bookmark"
-msgstr ""
+msgstr "_სანიშნეს გახსნა"
 
 #: ../shell/ev-sidebar-bookmarks.c:157
 msgid "_Rename Bookmark"
-msgstr ""
+msgstr "სანიშნეს სახელის გადა_რქმევა"
 
 #: ../shell/ev-sidebar-bookmarks.c:159
 msgid "_Remove Bookmark"
@@ -981,15 +991,15 @@ msgstr ""
 
 #: ../shell/ev-sidebar-bookmarks.c:615
 msgid "Bookmarks"
-msgstr ""
+msgstr "სანიშნეები"
 
 #: ../shell/ev-sidebar-layers.c:440
 msgid "Layers"
-msgstr ""
+msgstr "ფენები"
 
 #: ../shell/ev-sidebar-links.c:332
 msgid "Print…"
-msgstr ""
+msgstr "ბეჭდვა…"
 
 #: ../shell/ev-sidebar-links.c:719
 msgid "Index"
@@ -1027,7 +1037,7 @@ msgstr ""
 
 #: ../shell/ev-toolbar.c:294
 msgid "Select or set the zoom level of the document"
-msgstr ""
+msgstr "დოკუმენტის გადიდების მაშტაბის დაყენება"
 
 #: ../shell/ev-window.c:1028
 msgid ""
@@ -1037,11 +1047,11 @@ msgstr ""
 
 #: ../shell/ev-window.c:1508
 msgid "The document contains no pages"
-msgstr ""
+msgstr "დოკუმენტი გვერდებს არ შეიცავს"
 
 #: ../shell/ev-window.c:1510
 msgid "The document contains only empty pages"
-msgstr ""
+msgstr "დოკუმენტი მხოლოდ ცარიელ გვერდებს შეიცავს"
 
 #: ../shell/ev-window.c:1549
 msgid "Presentation mode is not supported for ePub documents."
@@ -1054,25 +1064,25 @@ msgstr "დოკუმენტი არ იხსნება"
 #: ../shell/ev-window.c:1868
 #, c-format
 msgid "Loading document from “%s”"
-msgstr ""
+msgstr "დოკუმენტის ჩატვირთვა %s-დან"
 
 #: ../shell/ev-window.c:2012 ../shell/ev-window.c:2300
 #, c-format
 msgid "Downloading document (%d%%)"
-msgstr ""
+msgstr "დოკუმენტის გადმოწერა (%d%%)"
 
 #: ../shell/ev-window.c:2045
 msgid "Failed to load remote file."
-msgstr ""
+msgstr "დაშორებული ფაილის ჩატვირთვის შეცდომა."
 
 #: ../shell/ev-window.c:2244
 #, c-format
 msgid "Reloading document from %s"
-msgstr ""
+msgstr "დოკუმენტის %s-დან თავიდან ჩატვირთვა"
 
 #: ../shell/ev-window.c:2276
 msgid "Failed to reload document."
-msgstr ""
+msgstr "დოკუმენტის თავიდან ჩატვირთვის შეცდომა."
 
 #: ../shell/ev-window.c:2492
 msgid "Open Document"
@@ -1081,17 +1091,17 @@ msgstr "დოკუმენტის გახსნა"
 #: ../shell/ev-window.c:2879
 #, c-format
 msgid "Saving document to %s"
-msgstr ""
+msgstr "დოკუმენტის %s-ში შენახვა"
 
 #: ../shell/ev-window.c:2882
 #, c-format
 msgid "Saving attachment to %s"
-msgstr ""
+msgstr "მიმაგრებული ფაილის %s-ში შენახვა"
 
 #: ../shell/ev-window.c:2885
 #, c-format
 msgid "Saving image to %s"
-msgstr ""
+msgstr "გამოსახულების %s-ში ჩაწერა"
 
 #: ../shell/ev-window.c:2929 ../shell/ev-window.c:3029
 #, c-format
@@ -1101,17 +1111,17 @@ msgstr "ფაილი ვერ ინახება სახელით �
 #: ../shell/ev-window.c:2960
 #, c-format
 msgid "Uploading document (%d%%)"
-msgstr ""
+msgstr "დოკუმენტის ატვირთვა (%d%%)"
 
 #: ../shell/ev-window.c:2964
 #, c-format
 msgid "Uploading attachment (%d%%)"
-msgstr ""
+msgstr "მიმაგრებული ფაილის ატვირთვა (%d%%)"
 
 #: ../shell/ev-window.c:2968
 #, c-format
 msgid "Uploading image (%d%%)"
-msgstr ""
+msgstr "გამოსახულების ატვირთვა (%d%%)"
 
 #: ../shell/ev-window.c:3080
 msgid "Save a Copy"
@@ -1121,13 +1131,12 @@ msgstr "ასლის შენახვა"
 #, c-format
 msgid "%d pending job in queue"
 msgid_plural "%d pending jobs in queue"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "რიგში დარჩენილია %d ამოცანა"
 
 #: ../shell/ev-window.c:3483
 #, c-format
 msgid "Printing job “%s”"
-msgstr ""
+msgstr "ამოცანის დაბეჭდვა (%s)"
 
 #: ../shell/ev-window.c:3645
 msgid ""
@@ -1144,24 +1153,24 @@ msgstr ""
 #: ../shell/ev-window.c:3656
 #, c-format
 msgid "Save a copy of document “%s” before closing?"
-msgstr ""
+msgstr "შევინახო დოკუმენტის (%s) ასლი დახურვამდე?"
 
 #: ../shell/ev-window.c:3674
 msgid "Save a _Copy"
-msgstr ""
+msgstr "ა_სლის შენახვა"
 
 #: ../shell/ev-window.c:3675
 msgid "_Save"
-msgstr ""
+msgstr "_შენახვა"
 
 #: ../shell/ev-window.c:3676
 msgid "Close _without Saving"
-msgstr ""
+msgstr "დახურვა _შენახვის გარეშე"
 
 #: ../shell/ev-window.c:3760
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
-msgstr ""
+msgstr "დაველოდო სანამ ბეჭდვის დავალება %s დასრულდება?"
 
 #. TRANS: the singular form is not really used as n_print_jobs > 1
 #. but some languages distinguish between different plurals forms,
@@ -1172,20 +1181,20 @@ msgid ""
 "There is %d print job active. Wait until print finishes before closing?"
 msgid_plural ""
 "There are %d print jobs active. Wait until print finishes before closing?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "აქტიურია ბეჭდვის %d დავალება. დაველოდო დასრულებას?"
 
 #: ../shell/ev-window.c:3781
 msgid "If you close the window, pending print jobs will not be printed."
 msgstr ""
+"თუ ამ ფანჯარას დახურავთ, დარჩენილი დაბეჭდვის დავალებები არ დაიბეჭდება."
 
 #: ../shell/ev-window.c:3784
 msgid "Cancel _print and Close"
-msgstr ""
+msgstr "დაბეჭდვის გაუქმება და დახურვა"
 
 #: ../shell/ev-window.c:3786
 msgid "Close _after Printing"
-msgstr ""
+msgstr "_დახურვა დაბეჭდვის შემდეგ"
 
 #: ../shell/ev-window.c:4198
 msgid "Presentation mode is not supported for ePub documents"
@@ -1193,7 +1202,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:4837
 msgid "There was an error displaying help"
-msgstr ""
+msgstr "დახმარების ჩვენების შეცდომა"
 
 #: ../shell/ev-window.c:5119
 msgid ""
@@ -1243,7 +1252,7 @@ msgstr[1] ""
 
 #: ../shell/ev-window.c:5446 ../shell/ev-window.c:5569
 msgid "Not found"
-msgstr ""
+msgstr "ნაპოვნი არაა"
 
 #: ../shell/ev-window.c:5452
 #, c-format
@@ -1268,7 +1277,7 @@ msgstr "_წინ"
 
 #: ../shell/ev-window.c:6132
 msgid "_Bookmarks"
-msgstr ""
+msgstr "_სანიშნეები"
 
 #: ../shell/ev-window.c:6133
 msgid "_Help"
@@ -1276,16 +1285,16 @@ msgstr "_დახმარება"
 
 #: ../shell/ev-window.c:6134
 msgid "Favorites"
-msgstr ""
+msgstr "რჩეულები"
 
 #: ../shell/ev-window.c:6135
 msgid "Recents"
-msgstr ""
+msgstr "უახლესები"
 
 #. File menu
 #: ../shell/ev-window.c:6137 ../shell/ev-window.c:6620
 msgid "_Open…"
-msgstr ""
+msgstr "_გახსნა…"
 
 #: ../shell/ev-window.c:6139 ../shell/ev-window.c:6621
 msgid "Open an existing document"
@@ -1301,7 +1310,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:6145
 msgid "_Save a Copy…"
-msgstr ""
+msgstr "ასლის შენახვა…"
 
 #: ../shell/ev-window.c:6147
 msgid "Save a copy of the current document"
@@ -1309,7 +1318,7 @@ msgstr "მოცემული დოკუმენტის ასლის 
 
 #: ../shell/ev-window.c:6149
 msgid "_Print…"
-msgstr ""
+msgstr "ბეჭდვ_ა…"
 
 #: ../shell/ev-window.c:6153
 msgid "P_roperties"
@@ -1321,12 +1330,12 @@ msgstr ""
 
 #: ../shell/ev-window.c:6161
 msgid "_Close"
-msgstr ""
+msgstr "და_ხურვა"
 
 #. Edit menu
 #: ../shell/ev-window.c:6167
 msgid "_Copy"
-msgstr ""
+msgstr "_კოპირება"
 
 #: ../shell/ev-window.c:6171
 msgid "Select _All"
@@ -1334,7 +1343,7 @@ msgstr "მონიშნე _ყველა"
 
 #: ../shell/ev-window.c:6175
 msgid "_Find…"
-msgstr ""
+msgstr "ძებნა…"
 
 #: ../shell/ev-window.c:6177
 msgid "Find a word or phrase in the document"
@@ -1363,11 +1372,11 @@ msgstr ""
 
 #: ../shell/ev-window.c:6210
 msgid "Zoom _In"
-msgstr ""
+msgstr "_გადიდება"
 
 #: ../shell/ev-window.c:6214
 msgid "Zoom _Out"
-msgstr ""
+msgstr "და_პატარავება"
 
 #: ../shell/ev-window.c:6218
 msgid "_Reload"
@@ -1383,7 +1392,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:6227
 msgid "Auto_scroll"
-msgstr ""
+msgstr "ავტომატური _გადახვევა"
 
 #: ../shell/ev-window.c:6241
 msgid "_First Page"
@@ -1403,16 +1412,16 @@ msgstr "ბოლო გვერდზე გადასვლა"
 
 #: ../shell/ev-window.c:6249
 msgid "Previous History Item"
-msgstr ""
+msgstr "ისტორიის წინა ჩანაწერი"
 
 #: ../shell/ev-window.c:6253
 msgid "Next History Item"
-msgstr ""
+msgstr "ისტორიის შემდეგი ჩანაწერი"
 
 #. Bookmarks menu
 #: ../shell/ev-window.c:6259
 msgid "_Add Bookmark"
-msgstr ""
+msgstr "სანიშნეს დ_ამატება"
 
 #: ../shell/ev-window.c:6261
 msgid "Add a bookmark for the current page"
@@ -1438,7 +1447,7 @@ msgstr "მთელს ეკრანზე რეჟიმის დატო
 
 #: ../shell/ev-window.c:6280
 msgid "Start Presentation"
-msgstr ""
+msgstr "პრეზენტაციის დაწყება"
 
 #: ../shell/ev-window.c:6282
 msgid "Start a presentation"
@@ -1447,7 +1456,7 @@ msgstr ""
 #. View Menu
 #: ../shell/ev-window.c:6399
 msgid "_Menubar"
-msgstr ""
+msgstr "_მენიუს ზოლი"
 
 #: ../shell/ev-window.c:6401
 msgid "Show or hide the menubar"
@@ -1495,7 +1504,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:6423
 msgid "Right to Left"
-msgstr ""
+msgstr "მარჯვნიდან მარცხნივ"
 
 #: ../shell/ev-window.c:6425
 msgid "Browse the document from right to left"
@@ -1536,7 +1545,7 @@ msgstr "_გადასვლა"
 
 #: ../shell/ev-window.c:6457
 msgid "Open in New _Window"
-msgstr ""
+msgstr "ახალ _ფანჯარაში გახსნა"
 
 #: ../shell/ev-window.c:6459
 msgid "_Copy Link Address"
@@ -1544,27 +1553,27 @@ msgstr "დაა_კოპირე ბმულის მისამართ
 
 #: ../shell/ev-window.c:6461
 msgid "_Save Image As…"
-msgstr ""
+msgstr "_გამოსახულების შენახვა, როგორც…"
 
 #: ../shell/ev-window.c:6463
 msgid "Copy _Image"
-msgstr ""
+msgstr "გამოსახულების _კოპირება"
 
 #: ../shell/ev-window.c:6465
 msgid "Annotation Properties…"
-msgstr ""
+msgstr "ანოტაციის _თვისებები…"
 
 #: ../shell/ev-window.c:6467
 msgid "Remove Annotation"
-msgstr ""
+msgstr "ანოტაციის წაშლა"
 
 #: ../shell/ev-window.c:6472
 msgid "_Open Attachment"
-msgstr ""
+msgstr "_მიმაგრებული ფაილის გახსნა"
 
 #: ../shell/ev-window.c:6474
 msgid "_Save Attachment As…"
-msgstr ""
+msgstr "_მიმაგრებული ფაილის გახსნა, როგორც…"
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6641
@@ -1593,11 +1602,11 @@ msgstr "სიგანეში მორგება"
 
 #: ../shell/ev-window.c:6843 ../shell/ev-window.c:6859
 msgid "Unable to launch external application."
-msgstr ""
+msgstr "გარე აპლიკაციის გაშვება შეუძლებელია."
 
 #: ../shell/ev-window.c:6917
 msgid "Unable to open external link"
-msgstr ""
+msgstr "გარე ბმულის გახსნის შეცდომა"
 
 #: ../shell/ev-window.c:7118
 msgid "Couldn't find appropriate format to save image"
@@ -1605,11 +1614,11 @@ msgstr ""
 
 #: ../shell/ev-window.c:7149
 msgid "The image could not be saved."
-msgstr ""
+msgstr "გამოსახულების შენახვის შეცდომა."
 
 #: ../shell/ev-window.c:7182
 msgid "Save Image"
-msgstr ""
+msgstr "გამოსახულების შენახვა"
 
 #: ../shell/ev-window.c:7332
 msgid "Unable to open attachment"
@@ -1621,7 +1630,7 @@ msgstr "შეუძლებელია დანართის დამა�
 
 #: ../shell/ev-window.c:7435
 msgid "Save Attachment"
-msgstr ""
+msgstr "მიმაგრებული ფაილის შენახვა"
 
 #: ../shell/ev-window-title.c:170
 #, c-format
@@ -1630,11 +1639,11 @@ msgstr ""
 
 #: ../shell/ev-utils.c:107
 msgid "By extension"
-msgstr ""
+msgstr "გაფართოებით"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."
-msgstr ""
+msgstr "საჩვენებელი დოკუმენტის გვერდის ჭდე."
 
 #: ../shell/main.c:66
 msgid "PAGE"
@@ -1642,11 +1651,11 @@ msgstr "გვერდი"
 
 #: ../shell/main.c:67
 msgid "The page number of the document to display."
-msgstr ""
+msgstr "საჩვენებელი დოკუმენტის გვერდის ნომერი."
 
 #: ../shell/main.c:67
 msgid "NUMBER"
-msgstr ""
+msgstr "რიცხვი"
 
 #: ../shell/main.c:68
 msgid "Run xreader in fullscreen mode"
@@ -1654,11 +1663,11 @@ msgstr "ევინსის მთელს ეკრანიან რეჟ
 
 #: ../shell/main.c:69
 msgid "Named destination to display."
-msgstr ""
+msgstr "საჩვენებელი სამიზნე."
 
 #: ../shell/main.c:69
 msgid "DEST"
-msgstr ""
+msgstr "DEST"
 
 #: ../shell/main.c:70
 msgid "Run xreader in presentation mode"
@@ -1670,12 +1679,12 @@ msgstr "ევინსის წინასწარ მნახველი�
 
 #: ../shell/main.c:72
 msgid "The word or phrase to find in the document"
-msgstr ""
+msgstr "დოკუმენტში სიტყვის ან ფრაზის ძიება"
 
 #: ../shell/main.c:72
 msgid "STRING"
-msgstr ""
+msgstr "სტრიქონი"
 
 #: ../shell/main.c:76
 msgid "[FILE…]"
-msgstr ""
+msgstr "[ფაილი...]"

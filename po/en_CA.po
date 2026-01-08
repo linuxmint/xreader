@@ -9,30 +9,30 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-21 15:20+0000\n"
-"PO-Revision-Date: 2022-08-14 17:11+0000\n"
-"Last-Translator: John Doe <Unknown>\n"
+"PO-Revision-Date: 2025-12-18 18:27+0000\n"
+"Last-Translator: R Reyx <Unknown>\n"
 "Language-Team: English (Canada) "
 "(http://www.transifex.com/mate/MATE/language/en_CA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2025-12-12 13:30+0000\n"
-"X-Generator: Launchpad (build 379e22b8475e3402088a4cdb4a6e7936a4d28414)\n"
+"X-Launchpad-Export-Date: 2026-01-08 15:41+0000\n"
+"X-Generator: Launchpad (build 99c00f518760bdd50fc6e353e7736d2fff8fba4a)\n"
 "Language: en_CA\n"
 
 #: ../backend/comics/comics-document.c:197
 #: ../backend/comics/comics-document.c:268
 msgid "File is corrupted"
-msgstr ""
+msgstr "File is corrupted"
 
 #: ../backend/comics/comics-document.c:258
 msgid "Archive is encrypted"
-msgstr ""
+msgstr "Archive is encrypted"
 
 #: ../backend/comics/comics-document.c:263
 msgid "No supported images in archive"
-msgstr ""
+msgstr "No supported images in archive"
 
 #: ../backend/comics/comics-document.c:273
 msgid "No files in archive"
@@ -48,10 +48,12 @@ msgid ""
 "libarchive lacks support for this comic book’s compression, please contact "
 "your distributor"
 msgstr ""
+"libarchive lacks support for this comic book’s compression, please contact "
+"your distributor"
 
 #: ../backend/comics/comics-document.c:369
 msgid "Can not get local path for archive"
-msgstr ""
+msgstr "Cannot get local path for archive"
 
 #: ../backend/djvu/djvu-document.c:171
 msgid "DjVu document has incorrect format"
@@ -928,7 +930,7 @@ msgstr "General"
 
 #: ../shell/ev-preferences-dialog.ui.h:2
 msgid "Maximize window for new documents"
-msgstr ""
+msgstr "Maximize window for new documents"
 
 #: ../shell/ev-preferences-dialog.ui.h:4
 msgid "Show history buttons"

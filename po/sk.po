@@ -14,29 +14,29 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-21 15:20+0000\n"
-"PO-Revision-Date: 2023-07-09 10:59+0000\n"
+"PO-Revision-Date: 2025-12-19 11:56+0000\n"
 "Last-Translator: menom <Unknown>\n"
 "Language-Team: Slovak (http://www.transifex.com/mate/MATE/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Launchpad-Export-Date: 2025-12-12 13:30+0000\n"
-"X-Generator: Launchpad (build 379e22b8475e3402088a4cdb4a6e7936a4d28414)\n"
+"X-Launchpad-Export-Date: 2026-01-08 15:41+0000\n"
+"X-Generator: Launchpad (build 99c00f518760bdd50fc6e353e7736d2fff8fba4a)\n"
 "Language: sk\n"
 
 #: ../backend/comics/comics-document.c:197
 #: ../backend/comics/comics-document.c:268
 msgid "File is corrupted"
-msgstr ""
+msgstr "Súbor je poškodený"
 
 #: ../backend/comics/comics-document.c:258
 msgid "Archive is encrypted"
-msgstr ""
+msgstr "Archív je šifrovaný"
 
 #: ../backend/comics/comics-document.c:263
 msgid "No supported images in archive"
-msgstr ""
+msgstr "V archíve nie sú žiadne podporované obrázky"
 
 #: ../backend/comics/comics-document.c:273
 msgid "No files in archive"
@@ -52,10 +52,12 @@ msgid ""
 "libarchive lacks support for this comic book’s compression, please contact "
 "your distributor"
 msgstr ""
+"Knižnica libarchive nemá podporu pre kompresiu tohto komiksu, kontaktujte "
+"svojho distribútora"
 
 #: ../backend/comics/comics-document.c:369
 msgid "Can not get local path for archive"
-msgstr ""
+msgstr "Nie je možné získať miestnu cestu k archívu"
 
 #: ../backend/djvu/djvu-document.c:171
 msgid "DjVu document has incorrect format"

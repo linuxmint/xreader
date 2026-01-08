@@ -1,26 +1,26 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Translators:
-# Anita Reitere <nitalynx@gmail.com>, 2010
-# Imants Liepiņš <imzzinator@gmail.com>, 2012
-# Madars Križus <extaspace@gmail.com>, 2015
-# Raivis Dejus <orvils@gmail.com>, 2006
+#
+# Anita Reitere <nitalynx@gmail.com>, 2010, 2012.
+# Rūdofls Mazurs <rudolfs.mazurs@gmail.com>, 2011, 2012.
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2013, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: "
+"http://bugzilla.gnome.org/enter_bug.cgi?product=xviewer&keywords=I18N+L10N&co"
+"mponent=general\n"
 "POT-Creation-Date: 2025-11-21 15:20+0000\n"
-"PO-Revision-Date: 2025-11-21 17:10+0000\n"
+"PO-Revision-Date: 2025-12-27 12:39+0000\n"
 "Last-Translator: Klavs Petersons <Unknown>\n"
-"Language-Team: Latvian (http://www.transifex.com/mate/MATE/language/lv/)\n"
+"Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2025-12-12 13:30+0000\n"
-"X-Generator: Launchpad (build 379e22b8475e3402088a4cdb4a6e7936a4d28414)\n"
+"X-Launchpad-Export-Date: 2026-01-08 15:41+0000\n"
+"X-Generator: Launchpad (build 99c00f518760bdd50fc6e353e7736d2fff8fba4a)\n"
 "Language: lv\n"
 
 #: ../backend/comics/comics-document.c:197
@@ -497,7 +497,7 @@ msgstr "Drukāt šo dokumentu"
 
 #: ../previewer/ev-previewer-window.c:341 ../shell/ev-window.c:6435
 msgid "_Best Fit"
-msgstr "La_bākā saderība"
+msgstr "_Labākā saderība"
 
 #: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:6437
 msgid "Make the current document fill the window"
@@ -572,7 +572,7 @@ msgstr "Mērogošana:"
 #. translators: Value for 'Page Scaling:' to not scale the document pages on printing
 #: ../libview/ev-print-operation.c:1943
 msgid "None"
-msgstr "Nekas"
+msgstr "Nav"
 
 #: ../libview/ev-print-operation.c:1944
 msgid "Shrink to Printable Area"
@@ -926,7 +926,7 @@ msgstr "Iestatījumi"
 
 #: ../shell/ev-preferences-dialog.ui.h:1 ../shell/ev-properties-dialog.c:97
 msgid "General"
-msgstr "Vispārīgs"
+msgstr "Vispārīgi"
 
 #: ../shell/ev-preferences-dialog.ui.h:2
 msgid "Maximize window for new documents"
@@ -1310,7 +1310,7 @@ msgstr "_Fails"
 
 #: ../shell/ev-window.c:6129
 msgid "_Edit"
-msgstr "R_ediģēt"
+msgstr "_Rediģēt"
 
 #: ../shell/ev-window.c:6130
 msgid "_View"
@@ -1318,7 +1318,7 @@ msgstr "_Skats"
 
 #: ../shell/ev-window.c:6131
 msgid "_Go"
-msgstr "_Iet uz"
+msgstr "_Iet"
 
 #: ../shell/ev-window.c:6132
 msgid "_Bookmarks"
@@ -1339,7 +1339,7 @@ msgstr "Nesenie"
 #. File menu
 #: ../shell/ev-window.c:6137 ../shell/ev-window.c:6620
 msgid "_Open…"
-msgstr "At_vērt..."
+msgstr "_Atvērt…"
 
 #: ../shell/ev-window.c:6139 ../shell/ev-window.c:6621
 msgid "Open an existing document"
@@ -1363,7 +1363,7 @@ msgstr "Saglabāt šī dokumenta kopiju"
 
 #: ../shell/ev-window.c:6149
 msgid "_Print…"
-msgstr "_Drukāt..."
+msgstr "_Drukāt…"
 
 #: ../shell/ev-window.c:6153
 msgid "P_roperties"
@@ -1421,11 +1421,11 @@ msgstr "_Tuvināt"
 
 #: ../shell/ev-window.c:6214
 msgid "Zoom _Out"
-msgstr "Tāli_nāt"
+msgstr "_Tālināt"
 
 #: ../shell/ev-window.c:6218
 msgid "_Reload"
-msgstr "Pā_rlādēt"
+msgstr "_Pārlādēt"
 
 #: ../shell/ev-window.c:6220
 msgid "Reload the document"
@@ -1475,11 +1475,11 @@ msgstr "Pievienot grāmatzīmi pašreizējai lapai"
 #. Help menu
 #: ../shell/ev-window.c:6265
 msgid "_Contents"
-msgstr "_Satura rādītājs"
+msgstr "_Saturs"
 
 #: ../shell/ev-window.c:6270
 msgid "_About"
-msgstr "P_ar"
+msgstr "_Par"
 
 #. Toolbar-only
 #: ../shell/ev-window.c:6276
@@ -1509,7 +1509,7 @@ msgstr "Rādīt vai paslēpt izvēlnes joslu"
 
 #: ../shell/ev-window.c:6403
 msgid "_Toolbar"
-msgstr "Rīk_josla"
+msgstr "_Rīkjosla"
 
 #: ../shell/ev-window.c:6405
 msgid "Show or hide the toolbar"
@@ -1557,7 +1557,7 @@ msgstr "Dokumenta pārlūkošana no labās puses uz kreiso"
 
 #: ../shell/ev-window.c:6427
 msgid "_Fullscreen"
-msgstr "Pilne_krāna"
+msgstr "_Pilnekrāns"
 
 #: ../shell/ev-window.c:6429
 msgid "Expand the window to fill the screen"
@@ -1623,12 +1623,12 @@ msgstr "_Saglabāt piesaistni kā..."
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6641
 msgid "Previous"
-msgstr "Iepriekšējā"
+msgstr "Iepriekšējais"
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6646
 msgid "Next"
-msgstr "Nākamā"
+msgstr "Nākamais"
 
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6650
@@ -1732,4 +1732,4 @@ msgstr "VIRKNE"
 
 #: ../shell/main.c:76
 msgid "[FILE…]"
-msgstr "[FAILS...]"
+msgstr "[DATNE...]"
