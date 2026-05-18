@@ -1,3 +1,13 @@
+xreader (4.6.4) zena; urgency=medium
+
+  [ Michael Webster ]
+  * .github/workflows: Add generate-test-packages trigger.
+
+  [ Victor Kareh ]
+  * ev-application: Quote user-supplied strings in ev_spawn command line
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 18 May 2026 15:53:09 +0100
+
 xreader (4.6.3) zena; urgency=medium
 
   * l10n: Update translations
