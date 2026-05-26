@@ -41,6 +41,9 @@
 /*For strcasestr(),strstr()*/
 #include <string.h>
 
+/* For PATH_MAX */
+#include <limits.h>
+
 typedef enum _xmlParseReturnType
 {
     XML_ATTRIBUTE,
@@ -670,7 +673,6 @@ extract_one_file(EpubDocument* epub_document, GFile *tmp_gfile, GError ** error)
     GFile * outfile ;
     gsize writesize = 0;
     GString * gfilepath ;
-    unz_file_info64 info ;
     gchar* directory;
 	GString* dir_create;
     GFileOutputStream * outstream ;
@@ -682,8 +684,41 @@ extract_one_file(EpubDocument* epub_document, GFile *tmp_gfile, GError ** error)
 
     gboolean result = TRUE;
 
-    gpointer currentfilename = g_malloc0(512);
-    unzGetCurrentFileInfo64(epub_document->epubDocument,&info,currentfilename,512,NULL,0,NULL,0) ;
+	unz_file_info64 file_info;
+	int uret;
+
+	uret = unzGetCurrentFileInfo64 (epub_document->epubDocument,
+					&file_info, NULL, 0,
+					NULL, 0, NULL, 0);
+	if (uret != UNZ_OK) {
+		g_warning ("cannot read zip entry info");
+		unzCloseCurrentFile (epub_document->epubDocument);
+		return FALSE;
+	}
+
+	/* PATH_MAX comes from <limits.h>: the system's maximum path
+	 * length. The zip file-name-length field is a 16-bit value, so
+	 * it can reach 65535 bytes, far longer than any path this code
+	 * can usefully extract to. Reject such an entry rather than
+	 * allocate for and process it. */
+	if (file_info.size_filename > PATH_MAX) {
+		g_warning ("zip entry name too long (%lu bytes)",
+			   (unsigned long) file_info.size_filename);
+		unzCloseCurrentFile (epub_document->epubDocument);
+		return FALSE;
+	}
+
+	gpointer currentfilename = g_malloc0 (file_info.size_filename + 1);
+	uret = unzGetCurrentFileInfo64 (epub_document->epubDocument,
+					&file_info, currentfilename,
+					file_info.size_filename + 1,
+					NULL, 0, NULL, 0);
+	if (uret != UNZ_OK) {
+		g_free (currentfilename);
+		g_warning ("cannot read zip entry filename");
+		unzCloseCurrentFile (epub_document->epubDocument);
+		return FALSE;
+	}
     directory = g_strrstr(currentfilename,"/") ;
 
     if ( directory != NULL )
