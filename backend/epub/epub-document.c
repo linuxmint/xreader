@@ -921,15 +921,8 @@ get_uri_to_content(const gchar* uri,GError ** error,EpubDocument *epub_document)
 
 	gchar* documentfolder = g_strrstr((gchar*)relativepath,"/");
 	if (documentfolder != NULL) {
-		gchar* copybuffer = (gchar*)relativepath ;
-		gchar* directorybuffer = g_malloc0(sizeof(gchar*)*100);
-		gchar* writer = directorybuffer;
-
-		while(copybuffer != documentfolder) {
-			(*writer) = (*copybuffer);
-			writer++;copybuffer++;
-		}
-		*writer = '\0';
+		gchar* directorybuffer = g_strndup((gchar*)relativepath,
+		                                   documentfolder - (gchar*)relativepath);
 
 		GString *documentdir = g_string_new(tmp_archive_dir);
 		g_string_append_printf(documentdir,"/%s",directorybuffer);
