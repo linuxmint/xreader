@@ -921,15 +921,8 @@ get_uri_to_content(const gchar* uri,GError ** error,EpubDocument *epub_document)
 
 	gchar* documentfolder = g_strrstr((gchar*)relativepath,"/");
 	if (documentfolder != NULL) {
-		gchar* copybuffer = (gchar*)relativepath ;
-		gchar* directorybuffer = g_malloc0(sizeof(gchar*)*100);
-		gchar* writer = directorybuffer;
-
-		while(copybuffer != documentfolder) {
-			(*writer) = (*copybuffer);
-			writer++;copybuffer++;
-		}
-		*writer = '\0';
+		gchar* directorybuffer = g_strndup((gchar*)relativepath,
+		                                   documentfolder - (gchar*)relativepath);
 
 		GString *documentdir = g_string_new(tmp_archive_dir);
 		g_string_append_printf(documentdir,"/%s",directorybuffer);
@@ -1639,13 +1632,17 @@ epub_document_toggle_night_mode(EvDocument *document,gboolean night)
 static gchar*
 epub_document_set_document_title(gchar *containeruri)
 {
-	open_xml_document(containeruri);
-	gchar *doctitle;
+	if (open_xml_document(containeruri) == FALSE)
+		return NULL;
+
+	gchar *doctitle = NULL;
 	set_xml_root_node(NULL);
 
 	xmlNodePtr title = xml_get_pointer_to_node((xmlChar*)"title",NULL,NULL);
 
-	doctitle = (gchar*)xml_get_data_from_node(title, XML_KEYWORD, NULL);
+	if (title != NULL)
+		doctitle = (gchar*)xml_get_data_from_node(title, XML_KEYWORD, NULL);
+
 	xml_free_doc();
 
 	return doctitle;
@@ -1797,6 +1794,19 @@ epub_document_load (EvDocument* document,
 		g_propagate_error(error,err);
 		return FALSE;
 	}
+
+	gchar *contentOpfPath = g_filename_from_uri(contentOpfUri,NULL,NULL);
+	if ( contentOpfPath == NULL || !g_file_test(contentOpfPath, G_FILE_TEST_IS_REGULAR) )
+	{
+		g_free (contentOpfPath);
+		g_free (contentOpfUri);
+		g_set_error_literal(error,
+		                    EV_DOCUMENT_ERROR,
+		                    EV_DOCUMENT_ERROR_INVALID,
+		                    _("could not find epub content"));
+		return FALSE;
+	}
+	g_free (contentOpfPath);
 
 	epub_document->docTitle = epub_document_set_document_title(contentOpfUri);
 	epub_document->index = setup_document_index(epub_document,contentOpfUri);
