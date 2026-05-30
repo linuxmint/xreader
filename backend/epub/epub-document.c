@@ -1700,7 +1700,7 @@ add_mathjax_script_node_to_file(gchar *filename, gchar *data)
 		head = head->next;
 	}
 
-	if (xmlStrcmp(head->name,(xmlChar*)"head")) {
+	if (head == NULL || xmlStrcmp(head->name,(xmlChar*)"head")) {
 		return ;
 	}
 
