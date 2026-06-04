@@ -616,10 +616,12 @@ xml_get_data_from_node(xmlNodePtr node,
                        xmlChar* attributename)
 {
     xmlChar* datastring ;
+    if ( node == NULL )
+        return NULL;
     if ( rettype == XML_ATTRIBUTE )
-       datastring= xmlGetProp(node,attributename);
+        datastring= xmlGetProp(node,attributename);
     else
-       datastring= xmlNodeListGetString(xmldocument,node->xmlChildrenNode, 1);
+        datastring= xmlNodeListGetString(xmldocument,node->xmlChildrenNode, 1);
 
     return datastring;
 }
