@@ -487,7 +487,6 @@ set_xml_root_node(xmlChar* rootname)
 
 	if (xmlroot == NULL) {
 
-		xmlFreeDoc(xmldocument);
 		return FALSE;
 	}
 
@@ -896,6 +895,7 @@ get_uri_to_content(const gchar* uri,GError ** error,EpubDocument *epub_document)
                             EV_DOCUMENT_ERROR,
                             EV_DOCUMENT_ERROR_INVALID,
                             _("container file is corrupt"));
+        xml_free_doc();
         return NULL ;
     }
 
@@ -906,6 +906,7 @@ get_uri_to_content(const gchar* uri,GError ** error,EpubDocument *epub_document)
                             EV_DOCUMENT_ERROR,
                             EV_DOCUMENT_ERROR_INVALID,
                             _("epub file is invalid or corrupt"));
+        xml_free_doc();
         return NULL ;
     }
 
@@ -916,6 +917,7 @@ get_uri_to_content(const gchar* uri,GError ** error,EpubDocument *epub_document)
                             EV_DOCUMENT_ERROR,
                             EV_DOCUMENT_ERROR_INVALID,
                             _("epub file is corrupt, no container"));
+        xml_free_doc();
         return NULL ;
     }
 
@@ -958,6 +960,7 @@ get_uri_to_content(const gchar* uri,GError ** error,EpubDocument *epub_document)
                                  EV_DOCUMENT_ERROR_INVALID,
                                  _("could not retrieve container file"));
         }
+        xml_free_doc();
         return NULL ;
     }
 	xml_free_doc();
@@ -1010,6 +1013,7 @@ setup_document_content_list(const gchar* content_uri, GError** error,gchar *docu
                             EV_DOCUMENT_ERROR,
                             EV_DOCUMENT_ERROR_INVALID,
                             _("content file is invalid"));
+        xml_free_doc();
         return FALSE ;
     }
 
@@ -1019,6 +1023,7 @@ setup_document_content_list(const gchar* content_uri, GError** error,gchar *docu
                             EV_DOCUMENT_ERROR,
                             EV_DOCUMENT_ERROR_INVALID,
                             _("epub file has no spine"));
+        xml_free_doc();
         return FALSE ;
     }
 
@@ -1028,6 +1033,7 @@ setup_document_content_list(const gchar* content_uri, GError** error,gchar *docu
                             EV_DOCUMENT_ERROR,
                             EV_DOCUMENT_ERROR_INVALID,
                             _("epub file has no manifest"));
+        xml_free_doc();
         return FALSE ;
     }
 
@@ -1122,6 +1128,7 @@ setup_document_content_list(const gchar* content_uri, GError** error,gchar *docu
         }
         /*free any nodes that were set up and return empty*/
         g_list_free_full(newlist, (GDestroyNotify)free_tree_nodes);
+        xml_free_doc();
         return NULL;
     }
 
@@ -1169,6 +1176,7 @@ get_toc_file_name(gchar *containeruri)
 
     /*In an epub3, there is sometimes no toc, and we need to then use the nav file for this.*/
     if (ncx == NULL) {
+        xml_free_doc();
         return NULL;
     }
 
@@ -1556,7 +1564,9 @@ epub_document_get_alternate_stylesheet(gchar *docuri)
     xml_parse_children_of_node(head,(xmlChar*)"link",(xmlChar*)"class",(xmlChar*)"night");
 
     if (xmlretval != NULL) {
-        return (gchar*)xml_get_data_from_node(xmlretval,XML_ATTRIBUTE,(xmlChar*)"href");
+        gchar *stylesheet = (gchar*)xml_get_data_from_node(xmlretval,XML_ATTRIBUTE,(xmlChar*)"href");
+        xml_free_doc();
+        return stylesheet;
     }
     xml_free_doc();
     return NULL;
