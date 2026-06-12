@@ -1174,6 +1174,7 @@ get_toc_file_name(gchar *containeruri)
 
 	xmlretval = NULL;
 	xml_parse_children_of_node(manifest,(xmlChar*)"item",(xmlChar*)"id",ncx);
+	xmlFree(ncx);
 
 	gchar* tocfilename = (gchar*)xml_get_data_from_node(xmlretval,XML_ATTRIBUTE,(xmlChar*)"href");
 	xml_free_doc();
