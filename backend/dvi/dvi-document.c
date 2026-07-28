@@ -368,27 +368,41 @@ dvi_document_file_exporter_do_page (EvFileExporter  *exporter,
 static void
 dvi_document_file_exporter_end (EvFileExporter *exporter)
 {
-	gchar *command_line;
 	gint exit_stat;
 	GError *err = NULL;
 	gboolean success;
-	
+	gchar *pages;
+	gsize  pages_len;
+
 	DviDocument *dvi_document = DVI_DOCUMENT(exporter);
-	gchar* quoted_filename = g_shell_quote (dvi_document->context->filename);
-	
-	command_line = g_strdup_printf ("dvipdfm %s -o %s %s", /* dvipdfm -s 1,2,.., -o exporter_filename dvi_filename */
-					dvi_document->exporter_opts->str,
-					dvi_document->exporter_filename,
-					quoted_filename);
-	g_free (quoted_filename);
 
-	success = g_spawn_command_line_sync (command_line,
-					     NULL,
-					     NULL,
-					     &exit_stat,
-					     &err);
+	/* exporter_opts is built as "-s 1,2,3,...".  For an argv[] spawn we
+	 * need to split it into two separate arguments and strip the trailing
+	 * comma that do_page() appends after every page index.  Using
+	 * g_spawn_sync() with an explicit argv[] array (rather than building a
+	 * command-line string and going through g_spawn_command_line_sync())
+	 * removes the shell-tokenizer from the trust boundary: each element is
+	 * passed verbatim to dvipdfm.
+	 */
+	pages = g_strdup (dvi_document->exporter_opts->str + strlen ("-s "));
+	pages_len = strlen (pages);
+	if (pages_len > 0 && pages[pages_len - 1] == ',')
+		pages[pages_len - 1] = '\0';
 
-	g_free (command_line);
+	gchar *argv[] = {
+		(gchar *) "dvipdfm",
+		(gchar *) "-s",
+		pages,
+		(gchar *) "-o",
+		dvi_document->exporter_filename,
+		dvi_document->context->filename,
+		NULL
+	};
+
+	success = g_spawn_sync (NULL, argv, NULL, 0, NULL, NULL,
+	                        NULL, &exit_stat, &err);
+
+	g_free (pages);
 
 	if (success == FALSE) {
 		g_warning ("Error: %s", err->message);
