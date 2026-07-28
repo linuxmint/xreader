@@ -80,55 +80,52 @@ static const GOptionEntry goption_options[] =
 static gboolean
 launch_previewer (void)
 {
-	GString *cmd_str;
-	gchar   *cmd;
+	gchar  **argv;
+	gint     argc;
 	gboolean retval = FALSE;
 	GError  *error = NULL;
 
 	/* Rebuild the command line, ignoring options
 	 * not supported by the previewer and taking only
-	 * the first path given
+	 * the first path given.
+	 *
+	 * Use g_spawn_async() with an explicit argv[] array rather than
+	 * g_app_info_create_from_commandline() so each argument is passed
+	 * verbatim to the child.  print_settings and file_arguments come from
+	 * the xreader command line itself; even if g_shell_quote() is applied
+	 * defensively, going through the commandline-string parser is fragile
+	 * and mirrors the pattern recently patched in ev_spawn (50052ea).
 	 */
-	cmd_str = g_string_new ("xreader-previewer");
+	argc = 1;
+	if (print_settings) argc += 2;
+	if (unlink_temp_file) argc += 1;
+	if (file_arguments) argc += 1;
+	argc += 1; /* trailing NULL */
 
+	argv = g_new0 (gchar *, argc);
+	argc = 0;
+	argv[argc++] = (gchar *) "xreader-previewer";
 	if (print_settings) {
-		gchar *quoted;
-
-		quoted = g_shell_quote (print_settings);
-		g_string_append_printf (cmd_str, " --print-settings %s", quoted);
-		g_free (quoted);
+		argv[argc++] = (gchar *) "--print-settings";
+		argv[argc++] = print_settings;
 	}
-
 	if (unlink_temp_file)
-		g_string_append (cmd_str, " --unlink-tempfile");
+		argv[argc++] = (gchar *) "--unlink-tempfile";
+	if (file_arguments)
+		argv[argc++] = file_arguments[0];
+	argv[argc] = NULL;
 
-	if (file_arguments) {
-		gchar *quoted;
-
-		quoted = g_shell_quote (file_arguments[0]);
-		g_string_append_printf (cmd_str, " %s", quoted);
-		g_free (quoted);
+	if (g_spawn_async (NULL, argv, NULL, G_SPAWN_SEARCH_PATH,
+	                   NULL, NULL, NULL, &error)) {
+		retval = TRUE;
 	}
 
-	cmd = g_string_free (cmd_str, FALSE);
-
-	if (!error) {
-		GAppInfo *app;
-
-		app = g_app_info_create_from_commandline (cmd, NULL, 0, &error);
-
-		if (app != NULL) {
-			retval = g_app_info_launch (app, NULL, NULL, &error);
-			g_object_unref (app);
-		}
-	}
+	g_free (argv);
 
 	if (error) {
 		g_warning ("Error launching previewer: %s\n", error->message);
 		g_error_free (error);
 	}
-
-	g_free (cmd);
 
 	return retval;
 }
