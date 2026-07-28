@@ -851,33 +851,27 @@ export_print_done (EvPrintOperationExport *export)
 		g_key_file_free (key_file);
 
 		if (!error) {
-			GAppInfo *app;
-			GdkAppLaunchContext *ctx;
-			gchar  *cmd;
-			gchar  *quoted_filename;
-			gchar  *quoted_settings_filename;
+			/* Use g_spawn_async with an explicit argv array rather than
+			 * g_app_info_create_from_commandline(). The latter parses a
+			 * command-line string and re-splits it, which is fragile if any
+			 * argument contains whitespace or quoting-special characters.
+			 * With argv, each element is passed verbatim to the child.
+			 *
+			 * The spawned previewer inherits the parent's environment
+			 * (including DISPLAY/Wayland socket), so no explicit launch
+			 * context is required.
+			 */
+			gchar *argv[] = {
+				(gchar *) "xreader-previewer",
+				(gchar *) "--unlink-tempfile",
+				(gchar *) "--print-settings",
+				print_settings_file,
+				export->temp_file,
+				NULL
+			};
 
-			quoted_filename = g_shell_quote (export->temp_file);
-			quoted_settings_filename = g_shell_quote (print_settings_file);
-			cmd = g_strdup_printf ("xreader-previewer --unlink-tempfile --print-settings %s %s",
-					       quoted_settings_filename, quoted_filename);
-
-			g_free (quoted_filename);
-			g_free (quoted_settings_filename);
-
-			app = g_app_info_create_from_commandline (cmd, NULL, 0, &error);
-
-			if (app != NULL) {
-				ctx = gdk_display_get_app_launch_context (gtk_widget_get_display (GTK_WIDGET (export->parent_window)));
-				gdk_app_launch_context_set_screen (ctx, gtk_window_get_screen (export->parent_window));
-
-				g_app_info_launch (app, NULL, G_APP_LAUNCH_CONTEXT (ctx), &error);
-
-				g_object_unref (app);
-				g_object_unref (ctx);
-			}
-
-			g_free (cmd);
+			g_spawn_async (NULL, argv, NULL, G_SPAWN_SEARCH_PATH,
+			               NULL, NULL, NULL, &error);
 		}
 
 		if (error) {
