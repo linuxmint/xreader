@@ -1217,8 +1217,11 @@ build_tree (PdfDocument      *pdf_document,
 		if (!action)
 			continue;
 
-		/* Block zoom change when action link is pressed (bug fix #175) */
-		if (action->goto_dest.dest)
+		/* Block zoom change when action link is pressed (bug fix #175).
+		 * We need to check action->type, PopplerAction is a union - anything
+		 * but GOTO_DEST is invalid here, and writing would cause out-of-bounds
+		 * corruption. */
+		if (action->type == POPPLER_ACTION_GOTO_DEST && action->goto_dest.dest)
 			action->goto_dest.dest->change_zoom = 0;
 
 		link = ev_link_from_action (pdf_document, action);
