@@ -33,8 +33,6 @@
 #include <gdk/gdkx.h>
 #include <libxapp/xapp-dark-mode-manager.h>
 
-#include "totem-scrsaver.h"
-
 #include "eggsmclient.h"
 
 #include "ev-application.h"
@@ -59,7 +57,7 @@ struct _EvApplication {
     gboolean               doc_registered;
 #endif
 
-	TotemScrsaver         *scr_saver;
+	guint                  scr_saver_cookie;
 	EggSMClient           *smclient;
 
     XAppDarkModeManager *dark_mode_manager;
@@ -901,9 +899,6 @@ ev_application_shutdown (GApplication *gapplication)
 
     ev_application_accel_map_save (application);
 
-    g_object_unref (application->scr_saver);
-    application->scr_saver = NULL;
-
     g_free (application->dot_dir);
     application->dot_dir = NULL;
 
@@ -1019,11 +1014,6 @@ ev_application_init (EvApplication *ev_application)
 
     parse_mimetypes ();
 
-    ev_application->scr_saver = totem_scrsaver_new ();
-    g_object_set (ev_application->scr_saver,
-                  "reason", _("Running in presentation mode"),
-                  NULL);
-
     if (g_strcmp0 (g_getenv ("XDG_CURRENT_DESKTOP"), "XFCE") != 0) {
         ev_application->dark_mode_manager = xapp_dark_mode_manager_new (FALSE);
     }
@@ -1074,13 +1064,23 @@ ev_application_get_uri (EvApplication *application)
 void
 ev_application_screensaver_enable (EvApplication *application)
 {
-    totem_scrsaver_enable (application->scr_saver);
+    if (application->scr_saver_cookie > 0) {
+        gtk_application_uninhibit (GTK_APPLICATION (application),
+                                   application->scr_saver_cookie);
+        application->scr_saver_cookie = 0;
+    }
 }
 
 void
 ev_application_screensaver_disable (EvApplication *application)
 {
-    totem_scrsaver_disable (application->scr_saver);
+    if (application->scr_saver_cookie == 0) {
+        application->scr_saver_cookie =
+            gtk_application_inhibit (GTK_APPLICATION (application),
+                                     gtk_application_get_active_window (GTK_APPLICATION (application)),
+                                     GTK_APPLICATION_INHIBIT_IDLE,
+                                     _("Running in presentation mode"));
+    }
 }
 
 const gchar *

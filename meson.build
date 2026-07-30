@@ -49,7 +49,6 @@ gtk_api_version = '3.0'
 gtk = dependency('gtk+-' + gtk_api_version, version: '>= ' + gtk_version)
 ice = dependency('ice')
 sm = dependency('sm')
-X11 = dependency('x11')
 xapp = dependency('xapp', version: '>= 2.5.0')
 xml = dependency('libxml-2.0', version: '>= 2.5.0')
 zlib = dependency('zlib')

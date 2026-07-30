@@ -136,7 +136,6 @@ libshell_deps = [
     xreader_deps,
     libview_dep,
     libmisc_dep,
-    libtotemscrsaver_dep,
     libsmclient_dep,
     libephyzoom_dep,
 ]
