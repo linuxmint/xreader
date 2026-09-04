@@ -1,3 +1,13 @@
+xreader (4.6.7) alfa; urgency=medium
+
+  [ Lenar Imamutdinov ]
+  * Support Wayland (#727)
+
+  [ Jaeheon Shim ]
+  * Block ev_sidebar_tree_selection_changed handler during sidebar destroy to avoid accidentally rewriting the last viewed page number. (#694)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 04 Sep 2026 16:24:18 +0100
+
 xreader (4.6.6) alfa; urgency=medium
 
   * Remove epub support
