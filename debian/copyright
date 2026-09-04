@@ -474,20 +474,6 @@ License: GPL-2+
 Comment:
  Using license from COPYING file.
 
-Files: backend/epub/epub-document.c
-       backend/epub/epub-document.h
-       backend/epub/epubdocument.xreader-backend.in
-       backend/epub/minizip/Makefile.am
-       backend/epub/minizip/ioapi.c
-       backend/epub/minizip/ioapi.h
-       backend/epub/minizip/unzip.c
-       backend/epub/minizip/unzip.h
-       backend/epub/Makefile.am
-       libview/ev-web-view.c
-       libview/ev-web-view.h
-Copyright: 2014 Avishkar Gupta <avishkar.gupta.delhi@gmail.com>
-License: GPL-2+
-
 Files: help/*
 Copyright: Jonathan Blandford <jrb@redhat.com>
            Alexander Shopov  <ash@contact.bg>

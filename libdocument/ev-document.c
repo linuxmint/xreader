@@ -236,17 +236,7 @@ ev_document_load (EvDocument  *document,
 {
 	EvDocumentClass *klass = EV_DOCUMENT_GET_CLASS (document);
 	gboolean retval;
-	g_autofree gchar *mimetype = NULL;
 	GError *err = NULL;
-
-	/*
-	 * Hardcoding a check for ePub documents, cause it needs a web document DOM
-	 * and webkit, support for any other web document types can be added similarly.
-	 */
-	mimetype = ev_file_get_mime_type (uri, TRUE, &err);
-
-	if (!g_strcmp0 (mimetype ,"application/epub+zip"))
-		document->iswebdocument=TRUE ;
 		
 	retval = klass->load (document, uri, &err);
 	if (!retval) {
@@ -276,26 +266,13 @@ ev_document_load (EvDocument  *document,
 		
 		for (i = 0; i < priv->n_pages; i++) {
 
-			/*
-			 * Since there is no sense of paging in an ePub,it makes no sense to have pages sizes.
-			 * We are however geeneralising the scenario by considering epub as a type of web document.
-			 * FIXME: Labels, or bookmarks though, can be done.
-			 */
-			
 			EvPage     *page = ev_document_get_page (document, i);
 			gdouble     page_width = 0;
 			gdouble     page_height = 0;
 			EvPageSize *page_size;
 			gchar      *page_label;
 			
-			if ( document->iswebdocument == FALSE ) {
-				_ev_document_get_page_size (document, page, &page_width, &page_height);
-			}
-			else {
-				//Fixed page sized to resolve the X-windowing system error.
-				page_width = 800;
-				page_height= 600;
-			}
+			_ev_document_get_page_size (document, page, &page_width, &page_height);
 			
 			if (i == 0) {
 				priv->uniform_width = page_width;
@@ -304,13 +281,6 @@ ev_document_load (EvDocument  *document,
 				priv->max_height = priv->uniform_height;
 				priv->min_width = priv->uniform_width;
 				priv->min_height = priv->uniform_height;
-				if (document->iswebdocument == TRUE ) {
-					priv->page_sizes = g_new0 (EvPageSize, 1);
-					priv->page_sizes->width = priv->uniform_width;
-					priv->page_sizes->height = priv->uniform_height;
-					priv->uniform = TRUE ;
-					break;
-				}
 			} else if (priv->uniform &&
 				   (priv->uniform_width != page_width ||
 				    priv->uniform_height != page_height)) {

@@ -539,7 +539,6 @@ get_scale_for_page (EvSidebarThumbnails *sidebar_thumbnails,
 	EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
 	gdouble width;
 	if (priv->document->iswebdocument == TRUE ) {
-		/* Hardcoded for epub documents*/
 		width = 800;
 	} else {
 		ev_document_get_page_size (priv->document, page, &width, NULL);

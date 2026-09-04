@@ -18,11 +18,6 @@ option('t1lib',
     value: false,
     description: 'Compile with t1lib for type1 font support in the dvi backend'
 )
-option('epub',
-    type: 'boolean',
-    value: true,
-    description: 'Support for the epub backend'
-)
 option('pdf',
     type: 'boolean',
     value: true,
@@ -57,11 +52,6 @@ option('keyring',
     type: 'boolean',
     value: true,
     description: 'Keyring support for password-protected documents'
-)
-option('mathjax-directory',
-    type: 'string',
-    value: '',
-    description: 'Path to the system mathjax installation.'
 )
 option('previewer',
     type: 'boolean',

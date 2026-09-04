@@ -18,7 +18,6 @@ libview_headers = [
     'ev-print-operation.h',
     'ev-stock-icons.h',
     'ev-view.h',
-    'ev-web-view.h',
     'ev-view-presentation.h',
 ]
 
@@ -36,7 +35,6 @@ libview_sources = [
     'ev-timeline.c',
     'ev-transition-animation.c',
     'ev-view.c',
-    'ev-web-view.c',
     'ev-view-accessible.c',
     'ev-view-cursor.c',
     'ev-view-presentation.c',
@@ -75,10 +73,6 @@ libview_deps = [
     gtk_unix_print,
     math,
 ]
-
-if get_option('epub')
-   libview_deps += webkit
-endif
 
 libview = library(
     'xreaderview',

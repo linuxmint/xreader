@@ -26,7 +26,6 @@
 #include <libview/ev-document-model.h>
 #include <libview/ev-print-operation.h>
 #include <libview/ev-view.h>
-#include <libview/ev-web-view.h>
 #include <libview/ev-view-type-builtins.h>
 #include <libview/ev-stock-icons.h>
 
