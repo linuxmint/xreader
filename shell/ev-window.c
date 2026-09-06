@@ -615,8 +615,9 @@ update_chrome_visibility (EvWindow *window)
     fullscreen_mode = fullscreen || presentation;
 
     menubar = (priv->chrome & EV_CHROME_MENUBAR) != 0 && !fullscreen_mode;
-    toolbar = ((priv->chrome & EV_CHROME_TOOLBAR) != 0  ||
-                  (priv->chrome & EV_CHROME_RAISE_TOOLBAR) != 0) && !presentation && !fullscreen;
+    toolbar = !presentation && (fullscreen
+        ? (priv->chrome & (EV_CHROME_RAISE_TOOLBAR | EV_CHROME_FULLSCREEN_TOOLBAR)) != 0
+        : (priv->chrome & (EV_CHROME_TOOLBAR | EV_CHROME_RAISE_TOOLBAR)) != 0);
     fullscreen_toolbar = ((priv->chrome & EV_CHROME_FULLSCREEN_TOOLBAR) != 0 ||
                             (priv->chrome & EV_CHROME_RAISE_TOOLBAR) != 0) && fullscreen;
     findbar = (priv->chrome & EV_CHROME_FINDBAR) != 0;
@@ -3786,6 +3787,25 @@ ev_window_cmd_file_close_all_windows (GtkAction *action,
 }
 
 static void
+focus_page_selector_revealed_cb (GtkRevealer *revealer,
+                                 GParamSpec  *pspec,
+                                 EvWindow    *window)
+{
+    GtkAction *action;
+
+    if (!gtk_revealer_get_child_revealed (revealer))
+        return;
+
+    action = gtk_action_group_get_action (window->priv->action_group,
+            PAGE_SELECTOR_ACTION);
+    ev_page_action_grab_focus (EV_PAGE_ACTION (action));
+
+    g_signal_handlers_disconnect_by_func (revealer,
+                                          focus_page_selector_revealed_cb,
+                                          window);
+}
+
+static void
 ev_window_cmd_focus_page_selector (GtkAction *act,
                                    EvWindow  *window)
 {
@@ -3797,7 +3817,11 @@ ev_window_cmd_focus_page_selector (GtkAction *act,
 
     action = gtk_action_group_get_action (window->priv->action_group,
             PAGE_SELECTOR_ACTION);
-    ev_page_action_grab_focus (EV_PAGE_ACTION (action));
+    if (gtk_revealer_get_child_revealed (GTK_REVEALER (window->priv->toolbar_revealer)))
+        ev_page_action_grab_focus (EV_PAGE_ACTION (action));
+    else
+        g_signal_connect (window->priv->toolbar_revealer, "notify::child-revealed",
+                          G_CALLBACK (focus_page_selector_revealed_cb), window);
 }
 
 static void
