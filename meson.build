@@ -49,7 +49,10 @@ gtk_api_version = '3.0'
 gtk = dependency('gtk+-' + gtk_api_version, version: '>= ' + gtk_version)
 ice = dependency('ice')
 sm = dependency('sm')
-xapp = dependency('xapp', version: '>= 2.5.0')
+xapp = dependency('xapp', version: '>= 1.9.0')
+if xapp.version().version_compare('>= 2.5.0')
+    xreader_conf.set('HAVE_XAPP_DARK_MODE_MANAGER', 1)
+endif
 xml = dependency('libxml-2.0', version: '>= 2.5.0')
 zlib = dependency('zlib')
 libsecret = dependency('libsecret-1', version: '>= 0.5', required: get_option('keyring'))
