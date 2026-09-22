@@ -3819,9 +3819,13 @@ ev_window_cmd_focus_page_selector (GtkAction *act,
             PAGE_SELECTOR_ACTION);
     if (gtk_revealer_get_child_revealed (GTK_REVEALER (window->priv->toolbar_revealer)))
         ev_page_action_grab_focus (EV_PAGE_ACTION (action));
-    else
+    else {
+        g_signal_handlers_disconnect_by_func (window->priv->toolbar_revealer,
+                                              focus_page_selector_revealed_cb,
+                                              window);
         g_signal_connect (window->priv->toolbar_revealer, "notify::child-revealed",
                           G_CALLBACK (focus_page_selector_revealed_cb), window);
+    }
 }
 
 static void
