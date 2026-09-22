@@ -1,3 +1,13 @@
+xreader (4.6.9) adrien; urgency=medium
+
+  [ oliviasch ]
+  * fullscreen: Add support for Ctrl+L page selector (#729)
+
+  [ Clement Lefebvre ]
+  * ev-window: avoid stacking duplicate focus-page-selector signal handlers
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 22 Sep 2026 10:06:12 +0100
+
 xreader (4.6.8) adrien; urgency=medium
 
   [ Michael Webster ]
