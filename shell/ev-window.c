@@ -2641,8 +2641,10 @@ ev_window_setup_recent (EvWindow *ev_window)
 
         info = (GtkRecentInfo *) l->data;
 
-        if (!gtk_recent_info_has_application (info, xreader) ||
-                (gtk_recent_info_is_local (info) && !gtk_recent_info_exists (info)))
+        /* Existence checks can block the UI on unavailable network mounts.
+         * Let the normal document loading code handle missing files instead.
+         */
+        if (!gtk_recent_info_has_application (info, xreader))
             continue;
 
         action_name = g_strdup_printf ("RecentFile%u", i++);
