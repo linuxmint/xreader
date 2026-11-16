@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-21 15:20+0000\n"
+"POT-Creation-Date: 2026-09-04 11:03+0100\n"
 "PO-Revision-Date: 2021-06-27 21:47+0000\n"
 "Last-Translator: samson <Unknown>\n"
 "Language-Team: Amharic (http://www.transifex.com/mate/MATE/language/am/)\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Launchpad-Export-Date: 2026-01-08 15:41+0000\n"
-"X-Generator: Launchpad (build 99c00f518760bdd50fc6e353e7736d2fff8fba4a)\n"
+"X-Launchpad-Export-Date: 2026-11-16 11:57+0000\n"
+"X-Generator: Launchpad (build 72ba15af7e009b17d4aa1467977127ac8392a4de)\n"
 "Language: am\n"
 
 #: ../backend/comics/comics-document.c:197
@@ -73,76 +73,6 @@ msgstr "የ DVI ሰነድ የተሳሳተ አቀራረብ ነው ያለው"
 #: ../backend/dvi/dvidocument.xreader-backend.in.h:1
 msgid "DVI Documents"
 msgstr "የ DVI ሰነዶች"
-
-#: ../backend/epub/epub-document.c:644 ../libdocument/ev-document-factory.c:145
-#: ../libdocument/ev-document-factory.c:288
-msgid "Unknown MIME Type"
-msgstr "ያልታወቀ የ MIME አይነት"
-
-#: ../backend/epub/epub-document.c:661
-msgid "Not an ePub document"
-msgstr "የ ePub ሰነድ አይደለም"
-
-#: ../backend/epub/epub-document.c:707 ../backend/epub/epub-document.c:908
-msgid "epub file is invalid or corrupt"
-msgstr "epub ዋጋ የለውም የተበላሸ ነው"
-
-#: ../backend/epub/epub-document.c:781
-msgid "could not retrieve filename"
-msgstr "የ ፋይሉን ስም ማግኘት አልተቻለም"
-
-#: ../backend/epub/epub-document.c:809
-msgid "could not open archive"
-msgstr "ማህደሩን መክፈት አልተቻለም"
-
-#: ../backend/epub/epub-document.c:825 ../backend/epub/epub-document.c:843
-msgid "could not extract archive"
-msgstr "ማህደሩን ማራገፍ አልተቻለም"
-
-#: ../backend/epub/epub-document.c:876 ../backend/epub/epub-document.c:959
-msgid "could not retrieve container file"
-msgstr "ፋይሉን የያዘውን ፈልጎ ማግኘት አልተቻለም"
-
-#: ../backend/epub/epub-document.c:888
-msgid "could not open container file"
-msgstr "ፋይሉን የያዘውን መክፈት አልተቻለም"
-
-#: ../backend/epub/epub-document.c:898
-msgid "container file is corrupt"
-msgstr "ፋይሉን የያዘው የተበላሸ ነው"
-
-#: ../backend/epub/epub-document.c:918
-msgid "epub file is corrupt, no container"
-msgstr "epub ዋጋ የለውም የተበላሸ ነው ማጠራቀሚያ አልተገኘም"
-
-#: ../backend/epub/epub-document.c:1003
-msgid "could not parse content manifest"
-msgstr "የይዞታውን ትንታኔ ማሳየት አልተቻለም"
-
-#: ../backend/epub/epub-document.c:1012
-msgid "content file is invalid"
-msgstr "የ ፋይሉ ይዞታ ዋጋ የለውም"
-
-#: ../backend/epub/epub-document.c:1021
-msgid "epub file has no spine"
-msgstr "የ epub ፋይል መሰረት የለውም"
-
-#: ../backend/epub/epub-document.c:1030
-msgid "epub file has no manifest"
-msgstr "epub file ማሳየት አልተቻለም"
-
-#: ../backend/epub/epub-document.c:1121
-msgid "Could not set up document tree for loading, some files missing"
-msgstr "የ ሰነድ ዛፍ ለመጫን ማዘጋጀት አልተቻለም አንዳንድ ፋይሎች ጎድለዋል"
-
-#: ../backend/epub/epub-document.c:1840
-#, c-format
-msgid "There was an error deleting “%s”."
-msgstr "ስህተት ተፈጥሯል በማጥፋት ላይ እንዳለ “%s”."
-
-#: ../backend/epub/epubdocument.xreader-backend.in.h:1
-msgid "epub Documents"
-msgstr "የ ePub ሰነዶች"
 
 #: ../backend/pdf/ev-poppler.cc:522
 msgid "This work is in the Public Domain"
@@ -243,6 +173,11 @@ msgstr "ማያያዣውን መክፈት አልተቻለም “%s”: %s"
 msgid "Couldn't open attachment “%s”"
 msgstr "ማያያዣውን መክፈት አልተቻለም “%s”"
 
+#: ../libdocument/ev-document-factory.c:145
+#: ../libdocument/ev-document-factory.c:288
+msgid "Unknown MIME Type"
+msgstr "ያልታወቀ የ MIME አይነት"
+
 #: ../libdocument/ev-document-factory.c:170
 #, c-format
 msgid "File type %s (%s) is not supported"
@@ -331,7 +266,7 @@ msgid "Show session management options"
 msgstr "የክፍለ ጊዜ አስተዳዳሪ ምርጫዎች ማሳያ"
 
 #. translators: this is the label for toolbar button
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6662
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:49 ../shell/ev-window.c:6482
 msgid "Best Fit"
 msgstr "በ ጥሩ ልክ"
 
@@ -339,7 +274,7 @@ msgstr "በ ጥሩ ልክ"
 msgid "Fit Page Width"
 msgstr "በገጹ ስፋት ልክ"
 
-#: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:6224
+#: ../cut-n-paste/zoom-control/ephy-zoom.h:51 ../shell/ev-window.c:6061
 msgid "Expand Window to Fit"
 msgstr "በ መስኮቱ ልክ ማስፊያ"
 
@@ -438,7 +373,7 @@ msgstr "የፋይል ማተሚያ ማሰናጃ"
 msgid "Print Preview"
 msgstr "የ ህትመት ቅድመ ዕይታ"
 
-#: ../previewer/ev-previewer-window.c:83 ../shell/ev-window.c:3426
+#: ../previewer/ev-previewer-window.c:83 ../shell/ev-window.c:3373
 msgid "Failed to print document"
 msgstr "ሰነዱን ማተም አልተቻለም"
 
@@ -448,32 +383,32 @@ msgid "The selected printer '%s' could not be found"
 msgstr "የተመረጠውን ማተሚያ '%s' ማግኘት አልተቻለም"
 
 #. Go menu
-#: ../previewer/ev-previewer-window.c:281 ../shell/ev-window.c:6233
+#: ../previewer/ev-previewer-window.c:281 ../shell/ev-window.c:6070
 msgid "_Previous Page"
 msgstr "_ቀደም ያለው ገጽ"
 
-#: ../previewer/ev-previewer-window.c:282 ../shell/ev-window.c:6235
+#: ../previewer/ev-previewer-window.c:282 ../shell/ev-window.c:6072
 msgid "Go to the previous page"
 msgstr "ቀደም ወዳለው ገጽ መሄጃ"
 
-#: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:6237
+#: ../previewer/ev-previewer-window.c:284 ../shell/ev-window.c:6074
 msgid "_Next Page"
 msgstr "_የሚቀጥለው ገጽ"
 
-#: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:6239
+#: ../previewer/ev-previewer-window.c:285 ../shell/ev-window.c:6076
 msgid "Go to the next page"
 msgstr "ወደ ሚቀጥለው ገጽ መሄጃ"
 
-#: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:6212
+#: ../previewer/ev-previewer-window.c:288 ../shell/ev-window.c:6049
 msgid "Enlarge the document"
 msgstr "ሰነዱን ማሳደጊያ"
 
-#: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:6216
+#: ../previewer/ev-previewer-window.c:291 ../shell/ev-window.c:6053
 msgid "Shrink the document"
 msgstr "ሰነዱን ማሳነሻ"
 
 #. translators: this is the label for toolbar button
-#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:6658
+#: ../previewer/ev-previewer-window.c:294 ../shell/ev-window.c:6478
 msgid "Original size"
 msgstr "ዋናው መጠን"
 
@@ -483,31 +418,31 @@ msgstr "ዋናው መጠን"
 msgid "Print"
 msgstr "ማተሚያ"
 
-#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:6151
+#: ../previewer/ev-previewer-window.c:298 ../shell/ev-window.c:5988
 msgid "Print this document"
 msgstr "ይህን ሰነድ ማተሚያ"
 
-#: ../previewer/ev-previewer-window.c:341 ../shell/ev-window.c:6435
+#: ../previewer/ev-previewer-window.c:341 ../shell/ev-window.c:6272
 msgid "_Best Fit"
 msgstr "በ _ጥሩ ልክ"
 
-#: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:6437
+#: ../previewer/ev-previewer-window.c:342 ../shell/ev-window.c:6274
 msgid "Make the current document fill the window"
 msgstr "የአሁኑን ሰነድ በመስኮቱ ሙሉ ልክ ማድረጊያ"
 
-#: ../previewer/ev-previewer-window.c:344 ../shell/ev-window.c:6439
+#: ../previewer/ev-previewer-window.c:344 ../shell/ev-window.c:6276
 msgid "Fit Page _Width"
 msgstr "በገጹ_ስፋት ልክ"
 
-#: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:6441
+#: ../previewer/ev-previewer-window.c:345 ../shell/ev-window.c:6278
 msgid "Make the current document fill the window width"
 msgstr "የአሁኑን ሰነድ በመስኮቱ ስፋት ልክ ማድረጊያ"
 
-#: ../previewer/ev-previewer-window.c:561 ../shell/ev-window.c:6606
+#: ../previewer/ev-previewer-window.c:561 ../shell/ev-window.c:6426
 msgid "Page"
 msgstr "ገጽ"
 
-#: ../previewer/ev-previewer-window.c:562 ../shell/ev-window.c:6607
+#: ../previewer/ev-previewer-window.c:562 ../shell/ev-window.c:6427
 msgid "Select Page"
 msgstr "ገጽ መምረጫ"
 
@@ -702,7 +637,7 @@ msgstr "ማስጀመሪያ %s"
 msgid "Find:"
 msgstr "መፈለጊያ:"
 
-#: ../shell/eggfindbar.c:336 ../shell/ev-window.c:6183
+#: ../shell/eggfindbar.c:336 ../shell/ev-window.c:6020
 msgid "Find Pre_vious"
 msgstr "ቀደም_ያለውን መፈለጊያ"
 
@@ -710,7 +645,7 @@ msgstr "ቀደም_ያለውን መፈለጊያ"
 msgid "Find previous occurrence of the search string"
 msgstr "ለ መፈለጊያ ሀረግ ያለፈውን ሁኔታ ፈልጎ ማግኛ"
 
-#: ../shell/eggfindbar.c:344 ../shell/ev-window.c:6179
+#: ../shell/eggfindbar.c:344 ../shell/ev-window.c:6016
 msgid "Find Ne_xt"
 msgstr "የሚ_ቀጥለውን መፈለጊያ"
 
@@ -836,21 +771,21 @@ msgstr "የጽሁፍ ማብራሪያ መጨመሪያ"
 msgid "Add highlight annotation"
 msgstr "የ ማድመቂያ ማብራሪያ መጨመሪያ"
 
-#: ../shell/ev-application.c:1018
+#: ../shell/ev-application.c:1024
 msgid "Running in presentation mode"
 msgstr "በማቅረቢያ ዘዴ ማስኬጃ"
 
 #: ../shell/ev-history.c:474 ../shell/ev-sidebar-bookmarks.c:314
-#: ../shell/ev-window.c:916 ../shell/ev-window.c:4781
+#: ../shell/ev-window.c:894 ../shell/ev-window.c:4660
 #, c-format
 msgid "Page %s"
 msgstr "ገጽ %s"
 
-#: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:6251
+#: ../shell/ev-history-action-widget.c:215 ../shell/ev-window.c:6088
 msgid "Go to previous history item"
 msgstr "ወዳለፈው የ እቃ ታሪክ መሄጃ"
 
-#: ../shell/ev-history-action-widget.c:219 ../shell/ev-window.c:6255
+#: ../shell/ev-history-action-widget.c:219 ../shell/ev-window.c:6092
 msgid "Go to next history item"
 msgstr "ወደሚቀጥለው የ እቃ ታሪክ መሄጃ"
 
@@ -907,7 +842,7 @@ msgstr "_ለዘለአለም አስታውስ"
 msgid "Toolbar"
 msgstr "እቃ መደርደሪያ"
 
-#: ../shell/ev-preferences-dialog.c:153 ../shell/ev-window.c:6199
+#: ../shell/ev-preferences-dialog.c:153 ../shell/ev-window.c:6036
 msgid "Preferences"
 msgstr "ምርጫዎች"
 
@@ -1009,19 +944,19 @@ msgstr "ማተሚያ…"
 msgid "Index"
 msgstr "ማውጫ"
 
-#: ../shell/ev-sidebar-thumbnails.c:957
+#: ../shell/ev-sidebar-thumbnails.c:956
 msgid "Shrink the thumbnails"
 msgstr "የ አውራ ጥፍር ልክ ማሳነሻ"
 
-#: ../shell/ev-sidebar-thumbnails.c:970
+#: ../shell/ev-sidebar-thumbnails.c:969
 msgid "Enlarge the thumbnails"
 msgstr "የ አውራ ጥፍር ልክ ማሳደጊያ"
 
-#: ../shell/ev-sidebar-thumbnails.c:983
+#: ../shell/ev-sidebar-thumbnails.c:982
 msgid "View the thumbnails at their original size"
 msgstr "የ አውራ ጥፍር ልክ በ ዋናው መጠን መመልከቻ"
 
-#: ../shell/ev-sidebar-thumbnails.c:1235
+#: ../shell/ev-sidebar-thumbnails.c:1234
 msgid "Thumbnails"
 msgstr "በአውራ ጥፍር ልክ"
 
@@ -1049,136 +984,126 @@ msgstr ""
 msgid "Select or set the zoom level of the document"
 msgstr "ለ ሰነድ መመልከቻ መጠን መምረጫ ወይንም ማሰናጃ"
 
-#: ../shell/ev-window.c:1028
-msgid ""
-"Cannot enter presentation mode with ePub documents, use fullscreen mode "
-"instead."
-msgstr ""
-
-#: ../shell/ev-window.c:1508
+#: ../shell/ev-window.c:1476
 msgid "The document contains no pages"
 msgstr "ሰነዱ ምንም ገጾች አልያዘም"
 
-#: ../shell/ev-window.c:1510
+#: ../shell/ev-window.c:1478
 msgid "The document contains only empty pages"
 msgstr "ሰነዱ የያዘው ባዶ ገጾች ነው"
 
-#: ../shell/ev-window.c:1549
-msgid "Presentation mode is not supported for ePub documents."
-msgstr "የ ማቅረቢያ ዘዴ በ ePub ሰነዶች የተደገፈ አይደለም"
-
-#: ../shell/ev-window.c:1735 ../shell/ev-window.c:1899
+#: ../shell/ev-window.c:1682 ../shell/ev-window.c:1846
 msgid "Unable to open document"
 msgstr "ሰነዱን መክፈት አልተቻለም"
 
-#: ../shell/ev-window.c:1868
+#: ../shell/ev-window.c:1815
 #, c-format
 msgid "Loading document from “%s”"
 msgstr "ሰነድ በመጫን ላይ ከ “%s”"
 
-#: ../shell/ev-window.c:2012 ../shell/ev-window.c:2300
+#: ../shell/ev-window.c:1959 ../shell/ev-window.c:2247
 #, c-format
 msgid "Downloading document (%d%%)"
 msgstr "ሰነድ በማውረድ ላይ (%d%%)"
 
-#: ../shell/ev-window.c:2045
+#: ../shell/ev-window.c:1992
 msgid "Failed to load remote file."
 msgstr "የርቀት ፋይሉን መጫን አልተቻለም"
 
-#: ../shell/ev-window.c:2244
+#: ../shell/ev-window.c:2191
 #, c-format
 msgid "Reloading document from %s"
 msgstr "ሰነዱን እንደገና በመጫን ላይ ከ %s"
 
-#: ../shell/ev-window.c:2276
+#: ../shell/ev-window.c:2223
 msgid "Failed to reload document."
 msgstr "ሰነዱን እንደገና መጫን አልተቻለም"
 
-#: ../shell/ev-window.c:2492
+#: ../shell/ev-window.c:2439
 msgid "Open Document"
 msgstr "ሰነድ መክፈቻ"
 
-#: ../shell/ev-window.c:2879
+#: ../shell/ev-window.c:2826
 #, c-format
 msgid "Saving document to %s"
 msgstr "ሰነዱን በማስቀመጥ ላይ ወደ %s"
 
-#: ../shell/ev-window.c:2882
+#: ../shell/ev-window.c:2829
 #, c-format
 msgid "Saving attachment to %s"
 msgstr "ማያያዣውን በማስቀመጥ ላይ ወደ %s"
 
-#: ../shell/ev-window.c:2885
+#: ../shell/ev-window.c:2832
 #, c-format
 msgid "Saving image to %s"
 msgstr "ምስሉን በማስቀመጥ ላይ ወደ %s"
 
-#: ../shell/ev-window.c:2929 ../shell/ev-window.c:3029
+#: ../shell/ev-window.c:2876 ../shell/ev-window.c:2976
 #, c-format
 msgid "The file could not be saved as “%s”."
 msgstr "ፋይሉን ማስቀመጥ አይቻልም እንደ “%s”."
 
-#: ../shell/ev-window.c:2960
+#: ../shell/ev-window.c:2907
 #, c-format
 msgid "Uploading document (%d%%)"
 msgstr "ሰነዱን በመጫን ላይ (%d%%)"
 
-#: ../shell/ev-window.c:2964
+#: ../shell/ev-window.c:2911
 #, c-format
 msgid "Uploading attachment (%d%%)"
 msgstr "ማያያዣውን በመጫን ላይ (%d%%)"
 
-#: ../shell/ev-window.c:2968
+#: ../shell/ev-window.c:2915
 #, c-format
 msgid "Uploading image (%d%%)"
 msgstr "ምስሉን በመጫን ላይ (%d%%)"
 
-#: ../shell/ev-window.c:3080
+#: ../shell/ev-window.c:3027
 msgid "Save a Copy"
 msgstr "ኮፒ ማስቀመጫ"
 
-#: ../shell/ev-window.c:3370
+#: ../shell/ev-window.c:3317
 #, c-format
 msgid "%d pending job in queue"
 msgid_plural "%d pending jobs in queue"
 msgstr[0] "%d ተራ የሚጠብቅ በቀጠሮ ላይ ያለ ስራ"
 msgstr[1] "%d ተራ የሚጠብቁ በቀጠሮ ላይ ያሉ ስራዎች"
 
-#: ../shell/ev-window.c:3483
+#: ../shell/ev-window.c:3430
 #, c-format
 msgid "Printing job “%s”"
 msgstr "የሕትመት ስራ “%s”"
 
-#: ../shell/ev-window.c:3645
+#: ../shell/ev-window.c:3592
 msgid ""
 "Document contains form fields that have been filled out. If you don't save a "
 "copy, changes will be permanently lost."
 msgstr "ሰነዱ የ ተሞላ የ ፎርም ሜዳዎች ይዟል: እርስዎ ኮፒ ካላስቀመጡ በ ቋሚነት ይጠፋል"
 
-#: ../shell/ev-window.c:3649
+#: ../shell/ev-window.c:3596
 msgid ""
 "Document contains new or modified annotations. If you don't save a copy, "
 "changes will be permanently lost."
 msgstr "ሰነዱ አዲስ ወይንም የ ተሻሻሉ ማብራሪያዎች ይዟል: ኮፒ ካላስቀመጡ ለውጦቹ በ ቋሚነት ይጠፋሉ"
 
-#: ../shell/ev-window.c:3656
+#: ../shell/ev-window.c:3603
 #, c-format
 msgid "Save a copy of document “%s” before closing?"
 msgstr "የሰነዱን ኮፒ ላስቀምጥ “%s” ከመዘጋቱ በፊት?"
 
-#: ../shell/ev-window.c:3674
+#: ../shell/ev-window.c:3621
 msgid "Save a _Copy"
 msgstr "_ኮፒ ማስቀመጫ"
 
-#: ../shell/ev-window.c:3675
+#: ../shell/ev-window.c:3622
 msgid "_Save"
 msgstr "_ማሰቀመጫ"
 
-#: ../shell/ev-window.c:3676
+#: ../shell/ev-window.c:3623
 msgid "Close _without Saving"
 msgstr "_ሳያስቀምጡ መዝጊያ"
 
-#: ../shell/ev-window.c:3760
+#: ../shell/ev-window.c:3707
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
 msgstr "የህትመቱ ስራ እስከሚጨርስ ድረስ “%s” ልጠብቅ ከመዘጋቱ በፊት?"
@@ -1186,7 +1111,7 @@ msgstr "የህትመቱ ስራ እስከሚጨርስ ድረስ “%s” ልጠ�
 #. TRANS: the singular form is not really used as n_print_jobs > 1
 #. but some languages distinguish between different plurals forms,
 #. so the ngettext is needed.
-#: ../shell/ev-window.c:3766
+#: ../shell/ev-window.c:3713
 #, c-format
 msgid ""
 "There is %d print job active. Wait until print finishes before closing?"
@@ -1195,27 +1120,23 @@ msgid_plural ""
 msgstr[0] "ይህ የ %d ማተሚያ ስራ ንቁ ነው: እስከሚጨርስ ድረስ ልጠብቅ ከ መዘጋቱ በፊት?"
 msgstr[1] "እኑዚህ የ %d ማተሚያ ስራዎች ንቁ ናቸው: እስከሚጨርስ ድረስ ልጠብቅ ከ መዘጋቱ በፊት?"
 
-#: ../shell/ev-window.c:3781
+#: ../shell/ev-window.c:3728
 msgid "If you close the window, pending print jobs will not be printed."
 msgstr "መስኮቱን ከዘጉት በ መጠበቅ ላይ የነበረው የህትመት ስራ አይታተምም"
 
-#: ../shell/ev-window.c:3784
+#: ../shell/ev-window.c:3731
 msgid "Cancel _print and Close"
 msgstr "_ማተሚያውን መሰረዣ እና መዝጊያ"
 
-#: ../shell/ev-window.c:3786
+#: ../shell/ev-window.c:3733
 msgid "Close _after Printing"
 msgstr "ማተሚያው ከጨረሰ _በኋላ መዝጊያ"
 
-#: ../shell/ev-window.c:4198
-msgid "Presentation mode is not supported for ePub documents"
-msgstr "የ ማቅረቢያ ዘዴ በ ePub ሰነዶች የተደገፈ አይደለም"
-
-#: ../shell/ev-window.c:4837
+#: ../shell/ev-window.c:4716
 msgid "There was an error displaying help"
 msgstr "ስህተት ተፈጥሯል እርዳታውን በማሳየት ላይ እንዳለ"
 
-#: ../shell/ev-window.c:5119
+#: ../shell/ev-window.c:4990
 msgid ""
 "Xreader is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -1227,7 +1148,7 @@ msgstr ""
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
 
-#: ../shell/ev-window.c:5123
+#: ../shell/ev-window.c:4994
 msgid ""
 "Xreader is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -1239,7 +1160,7 @@ msgstr ""
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
 
-#: ../shell/ev-window.c:5127
+#: ../shell/ev-window.c:4998
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
@@ -1249,399 +1170,399 @@ msgstr ""
 "Xreader; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 
-#: ../shell/ev-window.c:5138
+#: ../shell/ev-window.c:5009
 msgid "Xreader"
 msgstr "Xreader"
 
 #. TRANS: Sometimes this could be better translated as
 #. "%d hit(s) on this page".  Therefore this string
 #. contains plural cases.
-#: ../shell/ev-window.c:5441
+#: ../shell/ev-window.c:5312
 #, c-format
 msgid "%d found on this page (%d total)"
 msgid_plural "%d found on this page (%d total)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../shell/ev-window.c:5446 ../shell/ev-window.c:5569
+#: ../shell/ev-window.c:5317 ../shell/ev-window.c:5417
 msgid "Not found"
 msgstr "አልተገኘም"
 
-#: ../shell/ev-window.c:5452
+#: ../shell/ev-window.c:5323
 #, c-format
 msgid "%3d%% remaining to search"
 msgstr "%3d%% ፍለጋው የቀረው"
 
-#: ../shell/ev-window.c:6128
+#: ../shell/ev-window.c:5965
 msgid "_File"
 msgstr "_ፋይል"
 
-#: ../shell/ev-window.c:6129
+#: ../shell/ev-window.c:5966
 msgid "_Edit"
 msgstr "_ማረሚያ"
 
-#: ../shell/ev-window.c:6130
+#: ../shell/ev-window.c:5967
 msgid "_View"
 msgstr "_መመልከቻ"
 
-#: ../shell/ev-window.c:6131
+#: ../shell/ev-window.c:5968
 msgid "_Go"
 msgstr "_መሄጃ"
 
-#: ../shell/ev-window.c:6132
+#: ../shell/ev-window.c:5969
 msgid "_Bookmarks"
 msgstr "ምልክት ማድረጊያ"
 
-#: ../shell/ev-window.c:6133
+#: ../shell/ev-window.c:5970
 msgid "_Help"
 msgstr "_እርዳታ"
 
-#: ../shell/ev-window.c:6134
+#: ../shell/ev-window.c:5971
 msgid "Favorites"
 msgstr "የምወዳቸው"
 
-#: ../shell/ev-window.c:6135
+#: ../shell/ev-window.c:5972
 msgid "Recents"
 msgstr "የ ቅርብ ጊዜ"
 
 #. File menu
-#: ../shell/ev-window.c:6137 ../shell/ev-window.c:6620
+#: ../shell/ev-window.c:5974 ../shell/ev-window.c:6440
 msgid "_Open…"
 msgstr "_መክፈቻ…"
 
-#: ../shell/ev-window.c:6139 ../shell/ev-window.c:6621
+#: ../shell/ev-window.c:5976 ../shell/ev-window.c:6441
 msgid "Open an existing document"
 msgstr "የነበረውን ሰነድ መክፈቻ"
 
-#: ../shell/ev-window.c:6141
+#: ../shell/ev-window.c:5978
 msgid "Op_en a Copy"
 msgstr "ኮፒውን መክ_ፈቻ"
 
-#: ../shell/ev-window.c:6143
+#: ../shell/ev-window.c:5980
 msgid "Open a copy of the current document in a new window"
 msgstr "የአሁኑን ሰነድ ኮፒ በአዲስ መስኮት ምክፈቻ"
 
-#: ../shell/ev-window.c:6145
+#: ../shell/ev-window.c:5982
 msgid "_Save a Copy…"
 msgstr "ኮፒ _ማስቀመጫ…"
 
-#: ../shell/ev-window.c:6147
+#: ../shell/ev-window.c:5984
 msgid "Save a copy of the current document"
 msgstr "የአሁኑን ሰነድ ኮፒ ማስቀመጫ"
 
-#: ../shell/ev-window.c:6149
+#: ../shell/ev-window.c:5986
 msgid "_Print…"
 msgstr "_ማተሚያ..."
 
-#: ../shell/ev-window.c:6153
+#: ../shell/ev-window.c:5990
 msgid "P_roperties"
 msgstr "ባ_ህሪዎች"
 
-#: ../shell/ev-window.c:6157
+#: ../shell/ev-window.c:5994
 msgid "_Close All Windows"
 msgstr "ሁሉንም መስኮቶች _መዝጊያ"
 
-#: ../shell/ev-window.c:6161
+#: ../shell/ev-window.c:5998
 msgid "_Close"
 msgstr "_መዝጊያ"
 
 #. Edit menu
-#: ../shell/ev-window.c:6167
+#: ../shell/ev-window.c:6004
 msgid "_Copy"
 msgstr "_ኮፒ"
 
-#: ../shell/ev-window.c:6171
+#: ../shell/ev-window.c:6008
 msgid "Select _All"
 msgstr "_ሁሉንም መምረጫ"
 
-#: ../shell/ev-window.c:6175
+#: ../shell/ev-window.c:6012
 msgid "_Find…"
 msgstr "_መፈለጊያ..."
 
-#: ../shell/ev-window.c:6177
+#: ../shell/ev-window.c:6014
 msgid "Find a word or phrase in the document"
 msgstr "በሰነዱ ውስጥ ቃላት ወይንም አረፍተ ነገር መፈለጊያ"
 
-#: ../shell/ev-window.c:6187
+#: ../shell/ev-window.c:6024
 msgid "Rotate _Left"
 msgstr "ማዞሪያ _ወደ ግራ"
 
-#: ../shell/ev-window.c:6191
+#: ../shell/ev-window.c:6028
 msgid "Rotate _Right"
 msgstr "ማዞሪያ _ወደ ቀኝ"
 
-#: ../shell/ev-window.c:6195
+#: ../shell/ev-window.c:6032
 msgid "Save Current Settings as _Default"
 msgstr "የአሁኑን ማሰናጃ እንደ _ነባር ማስቀመጫ"
 
 #. View menu
-#: ../shell/ev-window.c:6206
+#: ../shell/ev-window.c:6043
 msgid "_Original size"
 msgstr "_ዋናው መጠን"
 
-#: ../shell/ev-window.c:6208
+#: ../shell/ev-window.c:6045
 msgid "View the document at its original size"
 msgstr "ሰነዱን እንደ ዋናው መጠን መመልከ"
 
-#: ../shell/ev-window.c:6210
+#: ../shell/ev-window.c:6047
 msgid "Zoom _In"
 msgstr "በቅርብ _ማሳያ"
 
-#: ../shell/ev-window.c:6214
+#: ../shell/ev-window.c:6051
 msgid "Zoom _Out"
 msgstr "በርቀት ማሳያ"
 
-#: ../shell/ev-window.c:6218
+#: ../shell/ev-window.c:6055
 msgid "_Reload"
 msgstr "_እንደገና መጫኛ"
 
-#: ../shell/ev-window.c:6220
+#: ../shell/ev-window.c:6057
 msgid "Reload the document"
 msgstr "ሰነዱን እንደገና መጫኛ"
 
-#: ../shell/ev-window.c:6222
+#: ../shell/ev-window.c:6059
 msgid "_Expand Window to Fit"
 msgstr "በ መስኮቱ ልክ _ማስፊያ"
 
-#: ../shell/ev-window.c:6227
+#: ../shell/ev-window.c:6064
 msgid "Auto_scroll"
 msgstr "በራሱ_መሸብለያ"
 
-#: ../shell/ev-window.c:6241
+#: ../shell/ev-window.c:6078
 msgid "_First Page"
 msgstr "_የመጀመሪያው ገጽ"
 
-#: ../shell/ev-window.c:6243
+#: ../shell/ev-window.c:6080
 msgid "Go to the first page"
 msgstr "ወደ መጀመሪያው ገጽ መሄጃ"
 
-#: ../shell/ev-window.c:6245
+#: ../shell/ev-window.c:6082
 msgid "_Last Page"
 msgstr "_መጨረሻው ገጽ"
 
-#: ../shell/ev-window.c:6247
+#: ../shell/ev-window.c:6084
 msgid "Go to the last page"
 msgstr "ወደ መጨረሻው ገጽ መሄጃ"
 
-#: ../shell/ev-window.c:6249
+#: ../shell/ev-window.c:6086
 msgid "Previous History Item"
 msgstr "ያለፈው እቃ ታሪክ"
 
-#: ../shell/ev-window.c:6253
+#: ../shell/ev-window.c:6090
 msgid "Next History Item"
 msgstr "የሚቀጥለው እቃ ታሪክ"
 
 #. Bookmarks menu
-#: ../shell/ev-window.c:6259
+#: ../shell/ev-window.c:6096
 msgid "_Add Bookmark"
 msgstr "ምልክት ማድረጊያ _መጨመሪያ"
 
-#: ../shell/ev-window.c:6261
+#: ../shell/ev-window.c:6098
 msgid "Add a bookmark for the current page"
 msgstr "ለ አሁኑ ገጽ ምልክት ማድረጊያ መጨመሪያ"
 
 #. Help menu
-#: ../shell/ev-window.c:6265
+#: ../shell/ev-window.c:6102
 msgid "_Contents"
 msgstr "_ይዞታዎች"
 
-#: ../shell/ev-window.c:6270
+#: ../shell/ev-window.c:6107
 msgid "_About"
 msgstr "_ስለ"
 
 #. Toolbar-only
-#: ../shell/ev-window.c:6276
+#: ../shell/ev-window.c:6113
 msgid "Leave Fullscreen"
 msgstr "ከሙሉ ገጽ መመልከቻ መውጫ"
 
-#: ../shell/ev-window.c:6278
+#: ../shell/ev-window.c:6115
 msgid "Leave fullscreen mode"
 msgstr "ከሙሉ ገጽ መመልከቻ ዘዴ መውጫ"
 
-#: ../shell/ev-window.c:6280
+#: ../shell/ev-window.c:6117
 msgid "Start Presentation"
 msgstr "ማቅረቢያ ማስጀመሪያ"
 
-#: ../shell/ev-window.c:6282
+#: ../shell/ev-window.c:6119
 msgid "Start a presentation"
 msgstr "ማቅረቢያ ማስጀመሪያ"
 
 #. View Menu
-#: ../shell/ev-window.c:6399
+#: ../shell/ev-window.c:6236
 msgid "_Menubar"
 msgstr "_ዝርዝር መደርደሪያ"
 
-#: ../shell/ev-window.c:6401
+#: ../shell/ev-window.c:6238
 msgid "Show or hide the menubar"
 msgstr "ዝርዝር መደርደሪያ ማሳያ ወይንም መደበቂያ"
 
-#: ../shell/ev-window.c:6403
+#: ../shell/ev-window.c:6240
 msgid "_Toolbar"
 msgstr "_እቃ መደርደሪያ"
 
-#: ../shell/ev-window.c:6405
+#: ../shell/ev-window.c:6242
 msgid "Show or hide the toolbar"
 msgstr "እቃ መደርደሪያውን ማሳያ ወይንም መደበቂያ"
 
-#: ../shell/ev-window.c:6407
+#: ../shell/ev-window.c:6244
 msgid "Side _Pane"
 msgstr "የጎን _ክፍል"
 
-#: ../shell/ev-window.c:6409
+#: ../shell/ev-window.c:6246
 msgid "Show or hide the side pane"
 msgstr "የጎን ክፍል ማሳያ ወይንም መደበቂያ"
 
-#: ../shell/ev-window.c:6411
+#: ../shell/ev-window.c:6248
 msgid "_Continuous"
 msgstr "_የሚቀጥል"
 
-#: ../shell/ev-window.c:6413
+#: ../shell/ev-window.c:6250
 msgid "Show the entire document"
 msgstr "ጠቅላላ ሰነዱን ማሳያ"
 
-#: ../shell/ev-window.c:6415
+#: ../shell/ev-window.c:6252
 msgid "_Dual (Even pages left)"
 msgstr "_ጥንድ (ሙሉ ገጽ በ ግራ)"
 
-#: ../shell/ev-window.c:6417
+#: ../shell/ev-window.c:6254
 msgid "Show two pages at once with even pages on the left"
 msgstr "ሁለት ገጾች በ አንድ ጊዜ ማሳያ ሙሉ ገጾች በ ግራ በኩል"
 
-#: ../shell/ev-window.c:6419
+#: ../shell/ev-window.c:6256
 msgid "Dual (_Odd pages left)"
 msgstr "ጥንድ (_ጎዶሎ ገጽ በ ግራ)"
 
-#: ../shell/ev-window.c:6421
+#: ../shell/ev-window.c:6258
 msgid "Show two pages at once with odd pages on the left"
 msgstr "ሁለት ገጾች በ አንድ ጊዜ ማሳያ ጎዶሎ ገጾች በ ግራ በኩል"
 
-#: ../shell/ev-window.c:6423
+#: ../shell/ev-window.c:6260
 msgid "Right to Left"
 msgstr "ከ ቀኝ ወደ ግራ"
 
-#: ../shell/ev-window.c:6425
+#: ../shell/ev-window.c:6262
 msgid "Browse the document from right to left"
 msgstr "ከ ቀኝ ወደ ግራ ሰነድ መቃኛ"
 
-#: ../shell/ev-window.c:6427
+#: ../shell/ev-window.c:6264
 msgid "_Fullscreen"
 msgstr "_በሙሉ ገጽ መመልከቻ"
 
-#: ../shell/ev-window.c:6429
+#: ../shell/ev-window.c:6266
 msgid "Expand the window to fill the screen"
 msgstr "መስኮቱን በሙሉ መመልከቻ ዘዴ ማስፊያ"
 
-#: ../shell/ev-window.c:6431
+#: ../shell/ev-window.c:6268
 msgid "Pre_sentation"
 msgstr "ማቅ_ረቢያ"
 
-#: ../shell/ev-window.c:6433
+#: ../shell/ev-window.c:6270
 msgid "Run document as a presentation"
 msgstr "ሰነዱን እንደ ማቅረቢያ ማስኬጃ"
 
-#: ../shell/ev-window.c:6443
+#: ../shell/ev-window.c:6280
 msgid "_Inverted Colors"
 msgstr "_የተገለበጡ ቀለሞች"
 
-#: ../shell/ev-window.c:6445
+#: ../shell/ev-window.c:6282
 msgid "Show page contents with the colors inverted"
 msgstr "ቀለሞችን በ መገልበጥ የ ገጽ ይዞታዎች ማሳያ"
 
 #. Links
-#: ../shell/ev-window.c:6453
+#: ../shell/ev-window.c:6290
 msgid "_Open Link"
 msgstr "አገናኝ _መክፈቻ"
 
-#: ../shell/ev-window.c:6455
+#: ../shell/ev-window.c:6292
 msgid "_Go To"
 msgstr "_መሄጃ ወደ"
 
-#: ../shell/ev-window.c:6457
+#: ../shell/ev-window.c:6294
 msgid "Open in New _Window"
 msgstr "በአዲስ _መስኮት መክፈቻ"
 
-#: ../shell/ev-window.c:6459
+#: ../shell/ev-window.c:6296
 msgid "_Copy Link Address"
 msgstr "አገናኝ አድራሻ _ኮፒ ማድረጊያ"
 
-#: ../shell/ev-window.c:6461
+#: ../shell/ev-window.c:6298
 msgid "_Save Image As…"
 msgstr "_ማስቀመጫ ምስሉን እንደ..."
 
-#: ../shell/ev-window.c:6463
+#: ../shell/ev-window.c:6300
 msgid "Copy _Image"
 msgstr "_ምስሉን ኮፒ ማድረጊያ"
 
-#: ../shell/ev-window.c:6465
+#: ../shell/ev-window.c:6302
 msgid "Annotation Properties…"
 msgstr "የማብራሪያ ባህሪዎች..."
 
-#: ../shell/ev-window.c:6467
+#: ../shell/ev-window.c:6304
 msgid "Remove Annotation"
 msgstr "መግለጫ ማስወገጃ"
 
-#: ../shell/ev-window.c:6472
+#: ../shell/ev-window.c:6309
 msgid "_Open Attachment"
 msgstr "ማያያዣውን _መክፈቻ"
 
-#: ../shell/ev-window.c:6474
+#: ../shell/ev-window.c:6311
 msgid "_Save Attachment As…"
 msgstr "_ማስቀመጫ ማያያዣውን እንደ..."
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6641
+#: ../shell/ev-window.c:6461
 msgid "Previous"
 msgstr "ቀደም ያለው"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6646
+#: ../shell/ev-window.c:6466
 msgid "Next"
 msgstr "የሚቀጥለው"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6650
+#: ../shell/ev-window.c:6470
 msgid "Zoom In"
 msgstr "በቅርብ ማሳያ"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6654
+#: ../shell/ev-window.c:6474
 msgid "Zoom Out"
 msgstr "በርቀት ማሳያ"
 
 #. translators: this is the label for toolbar button
-#: ../shell/ev-window.c:6666
+#: ../shell/ev-window.c:6486
 msgid "Fit Width"
 msgstr "በስፋቱ ልክ"
 
-#: ../shell/ev-window.c:6843 ../shell/ev-window.c:6859
+#: ../shell/ev-window.c:6663 ../shell/ev-window.c:6679
 msgid "Unable to launch external application."
 msgstr "የውጭ መተግበሪያዎችን ማስጀመር አልተቻለም"
 
-#: ../shell/ev-window.c:6917
+#: ../shell/ev-window.c:6737
 msgid "Unable to open external link"
 msgstr "የውጭ አገናኞችን መክፈት አልተቻለም"
 
-#: ../shell/ev-window.c:7118
+#: ../shell/ev-window.c:6938
 msgid "Couldn't find appropriate format to save image"
 msgstr "ምስሉን ለማስቀመጥ ተገቢውን አቀራረብ ማግኘት አልተቻለም"
 
-#: ../shell/ev-window.c:7149
+#: ../shell/ev-window.c:6969
 msgid "The image could not be saved."
 msgstr "ምስሉን ማስቀመጥ አልተቻለም"
 
-#: ../shell/ev-window.c:7182
+#: ../shell/ev-window.c:7002
 msgid "Save Image"
 msgstr "ምስሉን ማስቀመጫ"
 
-#: ../shell/ev-window.c:7332
+#: ../shell/ev-window.c:7152
 msgid "Unable to open attachment"
 msgstr "ማያያዣውን መክፈት አልተቻለም"
 
-#: ../shell/ev-window.c:7389
+#: ../shell/ev-window.c:7209
 msgid "The attachment could not be saved."
 msgstr "ማያያዣውን ማስቀመጥ አልተቻለም"
 
-#: ../shell/ev-window.c:7435
+#: ../shell/ev-window.c:7255
 msgid "Save Attachment"
 msgstr "ማያያዣውን ማስቀመጫ"
 
