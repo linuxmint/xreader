@@ -622,6 +622,8 @@ clamp_ranges (EvPrintOperationExport *export)
 			export->ranges[i].start = 0;
 			export->ranges[num_of_correct_ranges] = export->ranges[i];
 			num_of_correct_ranges++;
+		} else {
+			continue;
 		}
 		
 		n_pages = export->ranges[i].end - export->ranges[i].start + 1;
@@ -644,7 +646,7 @@ clamp_ranges (EvPrintOperationExport *export)
 		}
 	}
 
-	if (null_flag && !n_pages_to_print) {
+	if (num_of_correct_ranges == 0 || (null_flag && !n_pages_to_print)) {
 		return FALSE;
 	} else {
 		export->n_ranges = num_of_correct_ranges;
