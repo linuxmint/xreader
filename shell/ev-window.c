@@ -7216,14 +7216,17 @@ attachment_save_dialog_response_cb (GtkWidget *fc,
         EvAttachment *attachment;
         GFile        *save_to = NULL;
         GError       *error = NULL;
+        gchar        *name;
 
         attachment = (EvAttachment *) l->data;
+        /* The name comes from the document, keep it inside the chosen folder */
+        name = g_path_get_basename (ev_attachment_get_name (attachment));
 
         if (is_native) {
             if (is_dir) {
                 save_to = g_file_get_child (target_file,
                         /* FIXMEchpe: file name encoding! */
-                        ev_attachment_get_name (attachment));
+                        name);
             } else {
                 save_to = g_object_ref (target_file);
             }
@@ -7239,6 +7242,7 @@ attachment_save_dialog_response_cb (GtkWidget *fc,
                     "%s", _("The attachment could not be saved."));
             g_error_free (error);
             g_object_unref (save_to);
+            g_free (name);
 
             continue;
         }
@@ -7247,8 +7251,7 @@ attachment_save_dialog_response_cb (GtkWidget *fc,
             GFile *dest_file;
 
             if (is_dir) {
-                dest_file = g_file_get_child (target_file,
-                        ev_attachment_get_name (attachment));
+                dest_file = g_file_get_child (target_file, name);
             } else {
                 dest_file = g_object_ref (target_file);
             }
@@ -7260,6 +7263,7 @@ attachment_save_dialog_response_cb (GtkWidget *fc,
         }
 
         g_object_unref (save_to);
+        g_free (name);
     }
 
     g_free (uri);
@@ -7295,9 +7299,12 @@ ev_attachment_popup_cmd_save_attachment_as (GtkAction *action,
     gtk_file_chooser_set_do_overwrite_confirmation (GTK_FILE_CHOOSER (fc), TRUE);
     gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (fc), FALSE);
 
-    if (attachment)
-        gtk_file_chooser_set_current_name (GTK_FILE_CHOOSER (fc),
-                ev_attachment_get_name (attachment));
+    if (attachment) {
+        gchar *name = g_path_get_basename (ev_attachment_get_name (attachment));
+
+        gtk_file_chooser_set_current_name (GTK_FILE_CHOOSER (fc), name);
+        g_free (name);
+    }
 
     ev_window_file_chooser_restore_folder (window,
             GTK_FILE_CHOOSER (fc),
