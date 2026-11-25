@@ -14,15 +14,15 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-04 11:03+0100\n"
-"PO-Revision-Date: 2025-11-21 19:46+0000\n"
+"PO-Revision-Date: 2026-11-19 22:57+0000\n"
 "Last-Translator: Pjotr12345 <Unknown>\n"
 "Language-Team: Dutch (http://www.transifex.com/mate/MATE/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2026-11-16 11:57+0000\n"
-"X-Generator: Launchpad (build 72ba15af7e009b17d4aa1467977127ac8392a4de)\n"
+"X-Launchpad-Export-Date: 2026-11-24 11:58+0000\n"
+"X-Generator: Launchpad (build 012091084314157d19ae714f55ef4c582ff0feb5)\n"
 "Language: nl\n"
 
 #: ../backend/comics/comics-document.c:197
@@ -32,7 +32,7 @@ msgstr "Bestand is beschadigd"
 
 #: ../backend/comics/comics-document.c:258
 msgid "Archive is encrypted"
-msgstr "Archief is versleuteld"
+msgstr "Archiefbestand is versleuteld"
 
 #: ../backend/comics/comics-document.c:263
 msgid "No supported images in archive"
@@ -40,7 +40,7 @@ msgstr "Geen ondersteunde afbeeldingen in archiefbestand"
 
 #: ../backend/comics/comics-document.c:273
 msgid "No files in archive"
-msgstr "Geen bestanden in archief"
+msgstr "Geen bestanden in archiefbestand"
 
 #: ../backend/comics/comics-document.c:322
 #, c-format
@@ -223,12 +223,12 @@ msgstr "Onbekende versie '%s' van desktop-bestand"
 #: ../cut-n-paste/smclient/eggdesktopfile.c:957
 #, c-format
 msgid "Starting %s"
-msgstr "%s starten"
+msgstr "%s starten…"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1098
 #, c-format
 msgid "Application does not accept documents on command line"
-msgstr "De toepassing accepteert geen documenten op de opdrachtregel"
+msgstr "De toepassing aanvaardt geen documenten op de opdrachtregel"
 
 #: ../cut-n-paste/smclient/eggdesktopfile.c:1166
 #, c-format
@@ -460,12 +460,12 @@ msgstr "Pagina selecteren"
 #: ../libmisc/ev-page-action-widget.c:85 ../libmisc/ev-page-action-widget.c:125
 #, c-format
 msgid "(%d of %d)"
-msgstr "(%d uit %d)"
+msgstr "(%d van %d)"
 
 #: ../libmisc/ev-page-action-widget.c:87 ../libmisc/ev-page-action-widget.c:127
 #, c-format
 msgid "of %d"
-msgstr "uit %d"
+msgstr "van %d"
 
 #. Create tree view
 #: ../libview/ev-loading-window.c:76 ../shell/ev-sidebar-annotations.c:134
@@ -489,7 +489,7 @@ msgstr "Pagina %d van %d afdrukken…"
 
 #: ../libview/ev-print-operation.c:1184
 msgid "The requested format is not supported by this printer."
-msgstr "De opgegeven afmetingen worden door deze printer niet ondersteund."
+msgstr "Het opgegeven bestandstype wordt door deze printer niet ondersteund."
 
 #: ../libview/ev-print-operation.c:1247
 msgid "Invalid page selection"
@@ -501,7 +501,7 @@ msgstr "Waarschuwing"
 
 #: ../libview/ev-print-operation.c:1250
 msgid "Your print range selection does not include any pages"
-msgstr "Het geselecteerde afdrukbereik bevat geen enkele pagina"
+msgstr "Het gekozen afdrukbereik bevat geen enkele pagina"
 
 #: ../libview/ev-print-operation.c:1937
 msgid "Page Scaling:"
@@ -745,7 +745,7 @@ msgstr "Kronkelig"
 
 #: ../shell/ev-annotation-properties-dialog.c:158
 msgid "Annotation Properties"
-msgstr "Annotatie-eigenschappen"
+msgstr "Aantekeningseigenschappen"
 
 #: ../shell/ev-annotation-properties-dialog.c:178
 msgid "Author:"
@@ -761,7 +761,7 @@ msgstr "Stijl:"
 
 #: ../shell/ev-annotation-properties-dialog.c:219
 msgid "Transparent"
-msgstr "Transparant"
+msgstr "Doorzichtig"
 
 #: ../shell/ev-annotation-properties-dialog.c:226
 msgid "Opaque"
@@ -782,15 +782,15 @@ msgstr "Sluiten"
 
 #: ../shell/ev-annotations-toolbar.c:120
 msgid "Add text annotation"
-msgstr "Tekstannotatie toevoegen"
+msgstr "Tekstaantekening toevoegen"
 
 #: ../shell/ev-annotations-toolbar.c:126
 msgid "Add highlight annotation"
-msgstr "Markeerannotatie toevoegen"
+msgstr "Markeeraantekening toevoegen"
 
 #: ../shell/ev-application.c:1024
 msgid "Running in presentation mode"
-msgstr "Diapresentatie bezig"
+msgstr "Draait in presentatiemodus"
 
 #: ../shell/ev-history.c:474 ../shell/ev-sidebar-bookmarks.c:314
 #: ../shell/ev-window.c:894 ../shell/ev-window.c:4660
@@ -820,12 +820,12 @@ msgid ""
 "This document is locked and can only be read by entering the correct "
 "password."
 msgstr ""
-"Het document is beveiligd en kan alleen gelezen worden door het juiste "
+"Het document is vergrendeld en kan alleen gelezen worden door het juiste "
 "wachtwoord in te voeren."
 
 #: ../shell/ev-password-view.c:144 ../shell/ev-password-view.c:261
 msgid "_Unlock Document"
-msgstr "_Document ontsluiten"
+msgstr "_Document ontgrendelen"
 
 #: ../shell/ev-password-view.c:254
 msgid "Enter password"
@@ -836,8 +836,8 @@ msgstr "Voer wachtwoord in"
 msgid ""
 "The document “%s” is locked and requires a password before it can be opened."
 msgstr ""
-"Het document '%s' is beveiligd en vereist een wachtwoord voordat het geopend "
-"kan worden."
+"Het document '%s' is vergrendeld en vereist een wachtwoord voordat het "
+"geopend kan worden."
 
 #: ../shell/ev-password-view.c:294
 msgid "Password required"
@@ -922,7 +922,7 @@ msgstr "Meer informatie"
 
 #: ../shell/ev-sidebar-annotations.c:292
 msgid "Document contains no annotations"
-msgstr "Document bevat geen annotaties"
+msgstr "Document bevat geen aantekeningen"
 
 #: ../shell/ev-sidebar-annotations.c:324
 #, c-format
@@ -931,7 +931,7 @@ msgstr "Pagina %d"
 
 #: ../shell/ev-sidebar-annotations.c:509
 msgid "Annotations"
-msgstr "Annotaties"
+msgstr "Aantekeningen"
 
 #: ../shell/ev-sidebar-attachments.c:693
 msgid "Attachments"
@@ -1007,7 +1007,7 @@ msgstr "Kies het vergrotingsniveau van het document of stel het in"
 
 #: ../shell/ev-window.c:1476
 msgid "The document contains no pages"
-msgstr "Het document bevat geen bladzijden"
+msgstr "Het document bevat geen pagina's"
 
 #: ../shell/ev-window.c:1478
 msgid "The document contains only empty pages"
@@ -1015,12 +1015,12 @@ msgstr "Het document bevat slechts lege pagina's"
 
 #: ../shell/ev-window.c:1682 ../shell/ev-window.c:1846
 msgid "Unable to open document"
-msgstr "Kon het document niet openen"
+msgstr "Kan het document niet openen"
 
 #: ../shell/ev-window.c:1815
 #, c-format
 msgid "Loading document from “%s”"
-msgstr "Document van '%s' laden"
+msgstr "Document van '%s' laden..."
 
 #: ../shell/ev-window.c:1959 ../shell/ev-window.c:2247
 #, c-format
@@ -1034,7 +1034,7 @@ msgstr "Kon document-op-afstand niet laden."
 #: ../shell/ev-window.c:2191
 #, c-format
 msgid "Reloading document from %s"
-msgstr "Document van %s herladen"
+msgstr "Document van %s herladen..."
 
 #: ../shell/ev-window.c:2223
 msgid "Failed to reload document."
@@ -1047,17 +1047,17 @@ msgstr "Document openen"
 #: ../shell/ev-window.c:2826
 #, c-format
 msgid "Saving document to %s"
-msgstr "Document opslaan naar %s"
+msgstr "Document opslaan op %s..."
 
 #: ../shell/ev-window.c:2829
 #, c-format
 msgid "Saving attachment to %s"
-msgstr "Bijlage opslaan naar %s"
+msgstr "Bijlage opslaan op %s..."
 
 #: ../shell/ev-window.c:2832
 #, c-format
 msgid "Saving image to %s"
-msgstr "Afbeelding opslaan naar %s"
+msgstr "Afbeelding opslaan op %s..."
 
 #: ../shell/ev-window.c:2876 ../shell/ev-window.c:2976
 #, c-format
@@ -1093,7 +1093,7 @@ msgstr[1] "%d taken in de wachtrij"
 #: ../shell/ev-window.c:3430
 #, c-format
 msgid "Printing job “%s”"
-msgstr "Afdrukken van taak '%s'"
+msgstr "Afdrukken van taak '%s'..."
 
 #: ../shell/ev-window.c:3592
 msgid ""
@@ -1108,7 +1108,7 @@ msgid ""
 "Document contains new or modified annotations. If you don't save a copy, "
 "changes will be permanently lost."
 msgstr ""
-"Het document bevat nieuwe of aangepaste annotaties. Als het document niet "
+"Het document bevat nieuwe of aangepaste aantekeningen. Als het document niet "
 "wordt opgeslagen, zullen deze wijzigingen blijvend verloren gaan."
 
 #: ../shell/ev-window.c:3603
@@ -1306,7 +1306,7 @@ msgstr "Ko_piëren"
 
 #: ../shell/ev-window.c:6008
 msgid "Select _All"
-msgstr "_Alles selecteren"
+msgstr "_Alles kiezen"
 
 #: ../shell/ev-window.c:6012
 msgid "_Find…"
@@ -1401,7 +1401,7 @@ msgstr "In_houd"
 
 #: ../shell/ev-window.c:6107
 msgid "_About"
-msgstr "I_nfo"
+msgstr "_Over"
 
 #. Toolbar-only
 #: ../shell/ev-window.c:6113
@@ -1435,7 +1435,7 @@ msgstr "_Werkbalk"
 
 #: ../shell/ev-window.c:6242
 msgid "Show or hide the toolbar"
-msgstr "De werkbalk tonen of verbergen"
+msgstr "Toon of verberg de werkbalk"
 
 #: ../shell/ev-window.c:6244
 msgid "Side _Pane"
@@ -1443,7 +1443,7 @@ msgstr "_Zijpaneel"
 
 #: ../shell/ev-window.c:6246
 msgid "Show or hide the side pane"
-msgstr "Het zijpaneel tonen of verbergen"
+msgstr "Toon of verberg het zijpaneel"
 
 #: ../shell/ev-window.c:6248
 msgid "_Continuous"
@@ -1451,7 +1451,7 @@ msgstr "_Doorlopend"
 
 #: ../shell/ev-window.c:6250
 msgid "Show the entire document"
-msgstr "Het gehele document tonen"
+msgstr "Toon het gehele document"
 
 #: ../shell/ev-window.c:6252
 msgid "_Dual (Even pages left)"
@@ -1471,7 +1471,7 @@ msgstr "Toon twee pagina's tegelijk, met de oneven pagina's links"
 
 #: ../shell/ev-window.c:6260
 msgid "Right to Left"
-msgstr "Rechts naar links"
+msgstr "Van rechts naar links"
 
 #: ../shell/ev-window.c:6262
 msgid "Browse the document from right to left"
@@ -1528,7 +1528,7 @@ msgstr "_Afbeelding kopiëren"
 
 #: ../shell/ev-window.c:6302
 msgid "Annotation Properties…"
-msgstr "Annotatie-eigenschappen…"
+msgstr "Aantekeningseigenschappen…"
 
 #: ../shell/ev-window.c:6304
 msgid "Remove Annotation"
@@ -1565,15 +1565,15 @@ msgstr "Verkleinen"
 #. translators: this is the label for toolbar button
 #: ../shell/ev-window.c:6486
 msgid "Fit Width"
-msgstr "Breedte"
+msgstr "Aanpassen aan breedte"
 
 #: ../shell/ev-window.c:6663 ../shell/ev-window.c:6679
 msgid "Unable to launch external application."
-msgstr "De externe toepassing kon niet geopend worden."
+msgstr "Kan externe toepassing niet starten."
 
 #: ../shell/ev-window.c:6737
 msgid "Unable to open external link"
-msgstr "De externe koppeling kon niet geopend worden"
+msgstr "Kan externe koppeling niet openen"
 
 #: ../shell/ev-window.c:6938
 msgid "Couldn't find appropriate format to save image"
@@ -1606,7 +1606,7 @@ msgstr "%s — wachtwoord vereist"
 
 #: ../shell/ev-utils.c:107
 msgid "By extension"
-msgstr "Op toevoeging"
+msgstr "Op achtervoegsel"
 
 #: ../shell/main.c:66
 msgid "The page label of the document to display."
@@ -1618,7 +1618,7 @@ msgstr "PAGINA"
 
 #: ../shell/main.c:67
 msgid "The page number of the document to display."
-msgstr "Het paginanummer van het weer te geven document."
+msgstr "Het nummer van de weer te geven pagina van het document."
 
 #: ../shell/main.c:67
 msgid "NUMBER"
